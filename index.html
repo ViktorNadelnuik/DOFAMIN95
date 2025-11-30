@@ -337,17 +337,18 @@
                 <strong>ІПН/ЄДРПОУ:</strong> 3493704097<br>
                 <strong>Призначення:</strong> Поповнення рахунку банки
               </p>
-              <div class="btn-row">
-                <a class="donate-btn donate-btn--mono"
-                   href="https://send.monobank.ua/jar/8PfzHBQuu4"
-                   target="_blank">Поповнити Monobank</a>
-              </div>
-            </div>
-            <div class="qr-wrap">
-              <div>
-                <img id="qr-mono" class="qr" alt="QR Monobank">
-                <div class="note">Відкриє банку в додатку Monobank / браузері.</div>
-              </div>
+             <div class="btn-row">
+  <a class="donate-btn donate-btn--mono"
+     href="https://send.monobank.ua/jar/8PfzHBQuu4"
+     target="_blank">Поповнити Monobank</a>
+
+  <button class="donate-btn"
+          type="button"
+          onclick="copyText('UA683220010000026208372629615')">
+    Скопіювати IBAN
+  </button>
+</div>
+
             </div>
           </section>
 
@@ -362,11 +363,18 @@
                 <strong>РНОКПП/ЄДРПОУ:</strong> 3493704097<br>
                 <strong>Призначення:</strong> Поповнення рахунку
               </p>
-              <div class="btn-row">
-                <a class="donate-btn donate-btn--privat"
-                   href="https://www.privat24.ua/send/3xbxx"
-                   target="_blank">Поповнити через Приват24</a>
-              </div>
+            <div class="btn-row">
+  <a class="donate-btn donate-btn--privat"
+     href="https://www.privat24.ua/send/3xbxx"
+     target="_blank">Поповнити через Приват24</a>
+
+  <button class="donate-btn"
+          type="button"
+          onclick="copyText('UA023052990262076400994803502')">
+    Скопіювати IBAN
+  </button>
+</div>
+
             </div>
             <div class="qr-wrap">
               <div>
@@ -385,11 +393,18 @@
                 <strong>Email:</strong> nadelnuikviktor@gmail.com<br>
                 Бажано надсилати як <em>“Friends &amp; Family”</em>.
               </p>
-              <div class="btn-row">
-                <a class="donate-btn donate-btn--paypal"
-                   href="mailto:nadelnuikviktor@gmail.com"
-                   target="_blank">Написати на PayPal email</a>
-              </div>
+            <div class="btn-row">
+  <a class="donate-btn donate-btn--paypal"
+     href="mailto:nadelnuikviktor@gmail.com"
+     target="_blank">Написати на PayPal email</a>
+
+  <button class="donate-btn"
+          type="button"
+          onclick="copyText('nadelnuikviktor@gmail.com')">
+    Скопіювати email
+  </button>
+</div>
+
             </div>
             <div class="qr-wrap">
               <div>
@@ -409,11 +424,18 @@
                 <strong>Адреса:</strong><br>
                 bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p
               </p>
-              <div class="btn-row">
-                <a class="donate-btn donate-btn--crypto"
-                   href="https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p"
-                   target="_blank">Відкрити в TrustWallet</a>
-              </div>
+             <div class="btn-row">
+  <a class="donate-btn donate-btn--crypto"
+     href="https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p"
+     target="_blank">Відкрити в TrustWallet</a>
+
+  <button class="donate-btn"
+          type="button"
+          onclick="copyText('bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p')">
+    Скопіювати адресу
+  </button>
+</div>
+
             </div>
             <div class="qr-wrap">
               <div>
@@ -432,14 +454,21 @@
                 <strong>ETH / BNB адреса:</strong><br>
                 0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b
               </p>
-              <div class="btn-row">
-                <a class="donate-btn donate-btn--crypto"
-                   href="https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b"
-                   target="_blank">ETH у TrustWallet</a>
-                <a class="donate-btn donate-btn--crypto"
-                   href="https://link.trustwallet.com/send?coin=20000714&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b"
-                   target="_blank">BNB у TrustWallet</a>
-              </div>
+             <div class="btn-row">
+  <a class="donate-btn donate-btn--crypto"
+     href="https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b"
+     target="_blank">ETH у TrustWallet</a>
+  <a class="donate-btn donate-btn--crypto"
+     href="https://link.trustwallet.com/send?coin=20000714&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b"
+     target="_blank">BNB у TrustWallet</a>
+
+  <button class="donate-btn"
+          type="button"
+          onclick="copyText('0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b')">
+    Скопіювати адресу
+  </button>
+</div>
+
             </div>
             <div class="qr-wrap">
               <div>
@@ -483,26 +512,62 @@
 
   <script>
     // Лінки для генерації QR-кодів
-    const links = {
-      mono:  'https://send.monobank.ua/jar/8PfzHBQuu4',
-      privat:'https://www.privat24.ua/send/3xbxx',
-      btc:   'https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p',
-      eth:   'https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b',
-      sol:   'https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525'
-    };
+   <script>
+  // Лінки для генерації QR-кодів
+  const links = {
+    mono:  'https://send.monobank.ua/jar/8PfzHBQuu4',
+    privat:'https://www.privat24.ua/send/3xbxx',
+    btc:   'https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p',
+    eth:   'https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b',
+    sol:   'https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525'
+  };
 
-    function setQR(id, url) {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const api = 'https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=';
-      el.src = api + encodeURIComponent(url);
+  function setQR(id, url) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const api = 'https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=';
+    el.src = api + encodeURIComponent(url);
+  }
+
+  // Копіювання тексту в буфер
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text)
+        .then(function () {
+          alert('Скопійовано: ' + text);
+        })
+        .catch(function () {
+          fallbackCopy(text);
+        });
+    } else {
+      fallbackCopy(text);
     }
+  }
 
-    setQR('qr-mono',   links.mono);
-    setQR('qr-privat', links.privat);
-    setQR('qr-btc',    links.btc);
-    setQR('qr-eth',    links.eth);
-    setQR('qr-sol',    links.sol);
+  function fallbackCopy(text) {
+    const area = document.createElement('textarea');
+    area.value = text;
+    area.style.position = 'fixed';
+    area.style.left = '-9999px';
+    document.body.appendChild(area);
+    area.focus();
+    area.select();
+    try {
+      document.execCommand('copy');
+      alert('Скопійовано: ' + text);
+    } catch (e) {
+      alert('Не вдалося скопіювати. Скопіюй вручну: ' + text);
+    }
+    document.body.removeChild(area);
+  }
+
+  setQR('qr-mono',   links.mono);
+  setQR('qr-privat', links.privat);
+  setQR('qr-btc',    links.btc);
+  setQR('qr-eth',    links.eth);
+  setQR('qr-sol',    links.sol);
+</script>
+
   </script>
 </body>
 </html>
