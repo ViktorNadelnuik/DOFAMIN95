@@ -5,16 +5,202 @@
   <title>Підтримка взводу технічного забезпечення 142 ОМБр</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Сайт підтримки взводу технічного забезпечення 142 ОМБр. Допоможіть нам тримати техніку в строю та рятувати життя.">
-  <style>
-    body { font-family: Arial, sans-serif; background: #0f172a; color: white; margin: 0; padding: 0;}
-    header { background: #1e293b; padding: 10px;}
-    a { color: #22c55e; text-decoration: none;}
-    .container { max-width: 1000px; margin: auto; padding: 20px;}
-    h1, h2 { color: #22c55e;}
-    .block { margin-bottom: 40px; }
-    .donate-btn { background: #22c55e; padding: 12px 20px; border-radius: 10px; color: black; font-weight: bold; display: inline-block;}
-    footer { background: #1e293b; padding: 10px; text-align: center; color: #9ca3af;}
-  </style>
+     <style>
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: linear-gradient(135deg, #0b1220, #020617);
+            color: #0f172a;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 32px auto 40px;
+            padding: 0 16px 40px;
+        }
+
+        header {
+            background: radial-gradient(circle at top left, #38bdf8, #1d4ed8 45%, #020617 90%);
+            color: #e5e7eb;
+            padding: 20px 24px;
+            border-radius: 18px;
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.7);
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 8px;
+            font-size: 26px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .blocks {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .block {
+            background: #0b1120;
+            border-radius: 18px;
+            padding: 20px 22px;
+            box-shadow: 0 14px 35px rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            color: #e5e7eb;
+        }
+
+        .block h2 {
+            margin-top: 0;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .block h3 {
+            margin-top: 16px;
+            margin-bottom: 6px;
+            font-size: 16px;
+            color: #e5e7eb;
+        }
+
+        .block h4 {
+            margin-top: 14px;
+            margin-bottom: 4px;
+            font-size: 15px;
+            color: #e5e7eb;
+        }
+
+        .block p {
+            margin: 4px 0;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #cbd5f5;
+        }
+
+        ul {
+            margin: 8px 0 0 18px;
+            padding: 0;
+            color: #cbd5f5;
+            font-size: 14px;
+        }
+
+        .donate-btn {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 9px 18px;
+            border-radius: 999px;
+            background: #38bdf8;
+            color: #020617;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.4);
+            transition: transform 0.08s ease-out, box-shadow 0.08s ease-out, background 0.08s;
+        }
+
+        .donate-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 12px 26px rgba(56, 189, 248, 0.55);
+            background: #0ea5e9;
+        }
+
+        .donate-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-top: 10px;
+        }
+
+        .donate-item {
+            flex: 1 1 260px;
+            background: radial-gradient(circle at top, rgba(37, 99, 235, 0.18), rgba(15, 23, 42, 0.95));
+            border-radius: 16px;
+            padding: 14px 14px 16px;
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .donate-item h3 {
+            margin-top: 4px;
+            margin-bottom: 6px;
+        }
+
+        .donate-item p {
+            font-size: 13px;
+        }
+
+        .donate-qr img {
+            margin-top: 8px;
+            max-width: 180px;
+            width: 100%;
+            border-radius: 14px;
+            background: #020617;
+            padding: 6px;
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
+        }
+
+        hr {
+            border: none;
+            border-top: 1px dashed rgba(148, 163, 184, 0.4);
+            margin: 16px 0;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #9ca3af;
+        }
+
+        footer {
+            text-align: center;
+            color: #6b7280;
+            font-size: 12px;
+            margin-top: 18px;
+        }
+
+        @media (max-width: 720px) {
+            .container {
+                margin-top: 18px;
+                padding: 0 10px 28px;
+            }
+
+            header {
+                padding: 16px 14px;
+                border-radius: 14px;
+            }
+
+            header h1 {
+                font-size: 20px;
+            }
+
+            .block {
+                padding: 16px 14px;
+                border-radius: 14px;
+            }
+
+            .donate-grid {
+                flex-direction: column;
+            }
+
+            .donate-item {
+                flex: 1 1 auto;
+            }
+        }
+    </style>
+
 </head>
 <body>
 
