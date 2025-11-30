@@ -4,353 +4,478 @@
   <meta charset="UTF-8">
   <title>Підтримка взводу технічного забезпечення 142 ОМБр</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Сайт підтримки взводу технічного забезпечення 142 ОМБр. Допоможіть нам тримати техніку в строю та рятувати життя.">
-     <style>
-        body {
-            margin: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: linear-gradient(135deg, #0b1220, #020617);
-            color: #0f172a;
-        }
+  <meta name="description" content="Допомога взводу технічного забезпечення 142 ОМБр. Ваш донат перетворюється на відремонтовану техніку, яка рятує життя наших воїнів на передовій.">
 
-        a {
-            color: inherit;
-        }
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        .container {
-            max-width: 1100px;
-            margin: 32px auto 40px;
-            padding: 0 16px 40px;
-        }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #23395d 0, #050914 45%, #02040a 100%);
+      color: #f5f5f5;
+      line-height: 1.5;
+    }
 
-        header {
-            background: radial-gradient(circle at top left, #38bdf8, #1d4ed8 45%, #020617 90%);
-            color: #e5e7eb;
-            padding: 20px 24px;
-            border-radius: 18px;
-            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.7);
-            margin-bottom: 24px;
-            text-align: center;
-        }
+    a {
+      color: inherit;
+    }
 
-        header h1 {
-            margin: 0 0 8px;
-            font-size: 26px;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-        }
+    .page {
+      min-height: 100vh;
+      padding: 24px 12px 40px;
+      display: flex;
+      justify-content: center;
+    }
 
-        header p {
-            margin: 0;
-            opacity: 0.9;
-            font-size: 14px;
-        }
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
 
-        .blocks {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+    .hero {
+      background: linear-gradient(135deg, rgba(0, 194, 255, 0.2), rgba(0, 0, 0, 0.6));
+      border-radius: 24px;
+      padding: 24px 22px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+      margin-bottom: 26px;
+    }
 
-        .block {
-            background: #0b1120;
-            border-radius: 18px;
-            padding: 20px 22px;
-            box-shadow: 0 14px 35px rgba(15, 23, 42, 0.75);
-            border: 1px solid rgba(148, 163, 184, 0.25);
-            color: #e5e7eb;
-        }
+    .hero-title {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
 
-        .block h2 {
-            margin-top: 0;
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
+    .hero-sub {
+      font-size: 16px;
+      opacity: 0.9;
+      margin-bottom: 10px;
+    }
 
-        .block h3 {
-            margin-top: 16px;
-            margin-bottom: 6px;
-            font-size: 16px;
-            color: #e5e7eb;
-        }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(0,0,0,0.5);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+      opacity: 0.9;
+    }
 
-        .block h4 {
-            margin-top: 14px;
-            margin-bottom: 4px;
-            font-size: 15px;
-            color: #e5e7eb;
-        }
+    .hero-note {
+      font-size: 13px;
+      opacity: 0.8;
+    }
 
-        .block p {
-            margin: 4px 0;
-            font-size: 14px;
-            line-height: 1.5;
-            color: #cbd5f5;
-        }
+    h2.section-title {
+      font-size: 22px;
+      margin: 6px 0 14px;
+      font-weight: 700;
+    }
 
-        ul {
-            margin: 8px 0 0 18px;
-            padding: 0;
-            color: #cbd5f5;
-            font-size: 14px;
-        }
+    /* КАРТКИ ДЛЯ ДОНАТІВ */
+    #donate {
+      margin-top: 10px;
+    }
 
-     <div class="block" id="donate">
-  <h2>Як підтримати</h2>
-  <p>Кожна гривня, кожен долар і кожна монета крипти — це відремонтована техніка, що рятує життя.</p>
+    .donate-intro {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-bottom: 16px;
+    }
 
-  <!-- КНОПКИ ПОПОВНЕННЯ -->
-  <p><strong>Швидкі посилання:</strong></p>
-  <p style="display:flex;flex-wrap:wrap;gap:10px;">
-    <a class="donate-btn" href="https://send.monobank.ua/jar/8PfzHBQuu4" target="_blank">Поповнити Monobank</a>
-    <a class="donate-btn" href="https://www.privat24.ua/send/3xbxx" target="_blank">Поповнити ПриватБанк</a>
-    <a class="donate-btn" href="https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p" target="_blank">BTC (TrustWallet)</a>
-    <a class="donate-btn" href="https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b" target="_blank">ETH (TrustWallet)</a>
-    <a class="donate-btn" href="https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525" target="_blank">SOL (TrustWallet)</a>
-    <a class="donate-btn" href="https://link.trustwallet.com/send?coin=20000714&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b" target="_blank">BNB (TrustWallet)</a>
-  </p>
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
 
-  <!-- QR-КОДИ (генеруються автоматично) -->
-  <h3>QR-коди для швидкого донату</h3>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;align-items:start;">
-    <div style="text-align:center;">
-      <img id="qr-mono" alt="QR Monobank" style="width:160px;height:160px;border-radius:10px;">
-      <div class="note">Monobank банка</div>
-    </div>
-    <div style="text-align:center;">
-      <img id="qr-privat" alt="QR Privat24" style="width:160px;height:160px;border-radius:10px;">
-      <div class="note">Приват24 переказ</div>
-    </div>
-    <div style="text-align:center;">
-      <img id="qr-btc" alt="QR BTC" style="width:160px;height:160px;border-radius:10px;">
-      <div class="note">Bitcoin (BTC)</div>
-    </div>
-    <div style="text-align:center;">
-      <img id="qr-eth" alt="QR ETH" style="width:160px;height:160px;border-radius:10px;">
-      <div class="note">Ethereum (ETH)</div>
-    </div>
-    <div style="text-align:center;">
-      <img id="qr-sol" alt="QR SOL" style="width:160px;height:160px;border-radius:10px;">
-      <div class="note">Solana (SOL)</div>
-    </div>
-    <div style="text-align:center;">
-      <img id="qr-bnb" alt="QR BNB" style="width:160px;height:160px;border-radius:10px;">
-      <div class="note">BNB Chain</div>
-    </div>
-    <div style="text-align:center;">
-      <!-- Після завантаження свого файла постав правильну назву замість paypal-qr.png -->
-      <img src="paypal-qr.png" alt="QR PayPal" style="width:160px;height:160px;border-radius:10px;">
-      <div class="note">PayPal: nadelnuikviktor@gmail.com</div>
-    </div>
-  </div>
+    .card {
+      background: radial-gradient(circle at top left, #202b46 0, #070e1d 60%);
+      border-radius: 22px;
+      padding: 16px 16px 18px;
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 270px;
+    }
 
-  <!-- РЕКВІЗИТИ ТЕКСТОМ (залишаю як довідку) -->
-  <div class="requisites" style="margin-top:16px;">
-    <b>Monobank (банка «142 ОМБр Техвзвод»)</b><br>
-    Отримувач: Надельнюк Віктор Миколайович<br>
-    IBAN: UA683220010000026208372629615<br>
-    ІПН/ЄДРПОУ: 3493704097<br>
-    Призначення: Поповнення рахунку банки
-  </div>
+    .card h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
 
-  <div class="requisites">
-    <b>ПриватБанк</b><br>
-    Отримувач: НАДЕЛЬНЮК ВІКТОР МИКОЛАЙОВИЧ<br>
-    IBAN: UA023052990262076400994803502<br>
-    РНОКПП/ЄДРПОУ: 3493704097<br>
-    Призначення: Поповнення рахунку
-  </div>
-</div>
+    .card small {
+      opacity: 0.7;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
 
-<script>
-  // Посилання для QR
-  const links = {
-    mono:  'https://send.monobank.ua/jar/8PfzHBQuu4',
-    privat:'https://www.privat24.ua/send/3xbxx',
-    btc:   'https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p',
-    eth:   'https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b',
-    sol:   'https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525',
-    bnb:   'https://link.trustwallet.com/send?coin=20000714&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b'
-  };
+    .card p {
+      font-size: 13px;
+      margin-top: 6px;
+      margin-bottom: 6px;
+    }
 
-  function setQR(imgId, url){
-    const api = 'https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=';
-    const el = document.getElementById(imgId);
-    if (el) el.src = api + encodeURIComponent(url);
-  }
+    .mono-label {
+      color: #00ffc3;
+      font-weight: 600;
+    }
 
-  setQR('qr-mono',   links.mono);
-  setQR('qr-privat', links.privat);
-  setQR('qr-btc',    links.btc);
-  setQR('qr-eth',    links.eth);
-  setQR('qr-sol',    links.sol);
-  setQR('qr-bnb',    links.bnb);
-</script>
+    .privat-label {
+      color: #55efc4;
+      font-weight: 600;
+    }
 
+    .paypal-label {
+      color: #00b4ff;
+      font-weight: 600;
+    }
 
-  <div class="container">
-    <h2>142 ОМБр — Взвод технічного забезпечення</h2>
-  </div>
-</header>
+    .crypto-label {
+      color: #ffd86b;
+      font-weight: 600;
+    }
 
-<div class="container">
+    /* КНОПКИ */
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+      margin-bottom: 8px;
+    }
 
-  <div class="block">
-    <h1>Ми тримаємо техніку в строю — щоб хлопці поверталися живими</h1>
-    <p>
-      Працюємо на Запорізькому напрямку. Ремонтуємо, евакуйовуємо та забезпечуємо боєздатність техніки батальйону.
-    </p>
-    <a href="#donate" class="donate-btn">ПІДТРИМАТИ ВЗВОД</a>
-  </div>
+    .donate-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      color: #fff;
+      font-weight: 600;
+      font-size: 13px;
+      text-decoration: none;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+      transition: transform 0.15s ease-out,
+                  box-shadow 0.15s ease-out,
+                  background 0.15s ease-out,
+                  opacity 0.15s ease-out;
+      cursor: pointer;
+      white-space: nowrap;
+    }
 
-  <div class="block" id="about">
-    <h2>Про підрозділ</h2>
-    <p>
-      Ми — взвод технічного забезпечення 142 окремої механізованої бригади. Наше завдання — швидко та якісно ремонтувати техніку:
-      Урали, КамАЗи, ГАЗи, дизельні двигуни, електрику, ходову, гальмівні системи, оснащення та спорядження.
-    </p>
-  </div>
+    .donate-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.45);
+      background: linear-gradient(135deg, #34e89e, #0f9b0f);
+      opacity: 0.97;
+    }
 
-  <div class="block" id="work">
-    <h2>Що ми робимо</h2>
-    <ul>
-      <li>Ремонт вантажних автомобілів та спецтехніки</li>
-      <li>Евакуація пошкоджених машин</li>
-      <li>Планове обслуговування</li>
-      <li>Робота в полі, під обстрілами, у важких умовах</li>
-    </ul>
-  </div>
-<div class="block" id="donate">
-    <h2>Як підтримати</h2>
-    <p>
-        Кожна гривня, кожен долар і кожна монета крипти — це відремонтована техніка,
-        яка рятує життя наших воїнів на передовій.
-    </p>
+    .donate-btn:active {
+      transform: translateY(1px) scale(0.98);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
 
-    <div class="donate-grid">
+    .donate-btn--mono {
+      background: linear-gradient(135deg, #00e3aa, #00b894);
+    }
+    .donate-btn--mono:hover {
+      background: linear-gradient(135deg, #00ffc3, #00d1a6);
+    }
 
-        <!-- MONOBANK -->
-        <div class="donate-item">
-            <h3>Monobank «142 ОМБр Техвзвод»</h3>
-            <p>
+    .donate-btn--privat {
+      background: linear-gradient(135deg, #2ecc71, #27ae60);
+    }
+    .donate-btn--privat:hover {
+      background: linear-gradient(135deg, #55efc4, #2ecc71);
+    }
+
+    .donate-btn--paypal {
+      background: linear-gradient(135deg, #009cde, #003087);
+    }
+    .donate-btn--paypal:hover {
+      background: linear-gradient(135deg, #22b6ff, #0050b3);
+    }
+
+    .donate-btn--crypto {
+      background: linear-gradient(135deg, #f6d365, #fda085);
+    }
+    .donate-btn--crypto:hover {
+      background: linear-gradient(135deg, #ffd86b, #ff9a44);
+    }
+
+    /* QR */
+    .qr-wrap {
+      margin-top: 8px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .qr {
+      width: 150px;
+      height: 150px;
+      border-radius: 18px;
+      background: #02040a;
+      object-fit: cover;
+    }
+
+    .note {
+      font-size: 11px;
+      opacity: 0.75;
+      margin-top: 4px;
+    }
+
+    footer {
+      margin-top: 22px;
+      font-size: 11px;
+      opacity: 0.7;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        padding: 18px 14px;
+      }
+      .hero-title {
+        font-size: 21px;
+      }
+      .card {
+        padding: 14px;
+      }
+      .qr {
+        width: 135px;
+        height: 135px;
+      }
+      .btn-row {
+        flex-direction: column;
+      }
+      .btn-row .donate-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="container">
+      <header class="hero">
+        <div class="hero-badge">142 ОМБр · взвод технічного забезпечення</div>
+        <h1 class="hero-title">Підтримка взводу технічного забезпечення</h1>
+        <p class="hero-sub">
+          Ми ремонтуємо вантажні автомобілі, евакуюємо техніку з поля бою і повертаємо її в стрій. 
+          Коли техніка їде — живі ті, хто всередині.
+        </p>
+        <p class="hero-note">
+          Ваш донат перетворюється на інструмент, запчастини, мастила, електрику, зварку та все необхідне, 
+          щоб машини наших підрозділів працювали під обстрілами на Запорізькому напрямку.
+        </p>
+      </header>
+
+      <main id="donate">
+        <h2 class="section-title">Як підтримати взвод</h2>
+        <p class="donate-intro">
+          Оберіть зручний спосіб: банківський переказ, PayPal або криптовалюта. 
+          QR-код можна відсканувати камерою телефону — реквізити підтягнуться автоматично.
+        </p>
+
+        <div class="card-grid">
+          <!-- MONOBANK -->
+          <section class="card">
+            <div>
+              <small>Гривня · Україна</small>
+              <h3 class="mono-label">Monobank «142 ОМБр Техвзвод»</h3>
+              <p>
                 <strong>Отримувач:</strong> Надельнюк Віктор Миколайович<br>
                 <strong>IBAN:</strong> UA683220010000026208372629615<br>
                 <strong>ІПН/ЄДРПОУ:</strong> 3493704097<br>
                 <strong>Призначення:</strong> Поповнення рахунку банки
-            </p>
-            <a class="donate-btn" href="https://send.monobank.ua/jar/8PfzHBQuu4" target="_blank">
-                Поповнити Monobank
-            </a>
-            <div class="donate-qr">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://send.monobank.ua/jar/8PfzHBQuu4"
-                     alt="QR Monobank">
+              </p>
+              <div class="btn-row">
+                <a class="donate-btn donate-btn--mono"
+                   href="https://send.monobank.ua/jar/8PfzHBQuu4"
+                   target="_blank">Поповнити Monobank</a>
+              </div>
             </div>
-        </div>
+            <div class="qr-wrap">
+              <div>
+                <img id="qr-mono" class="qr" alt="QR Monobank">
+                <div class="note">Відкриє банку в додатку Monobank / браузері.</div>
+              </div>
+            </div>
+          </section>
 
-        <!-- PRIVATBANK -->
-        <div class="donate-item">
-            <h3>ПриватБанк</h3>
-            <p>
+          <!-- PRIVAT -->
+          <section class="card">
+            <div>
+              <small>Гривня · Україна</small>
+              <h3 class="privat-label">ПриватБанк</h3>
+              <p>
                 <strong>Отримувач:</strong> НАДЕЛЬНЮК ВІКТОР МИКОЛАЙОВИЧ<br>
                 <strong>IBAN:</strong> UA023052990262076400994803502<br>
                 <strong>РНОКПП/ЄДРПОУ:</strong> 3493704097<br>
                 <strong>Призначення:</strong> Поповнення рахунку
-            </p>
-            <a class="donate-btn" href="https://www.privat24.ua/send/3xbxx" target="_blank">
-                Поповнити через Приват24
-            </a>
-            <div class="donate-qr">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://www.privat24.ua/send/3xbxx"
-                     alt="QR Privat24">
+              </p>
+              <div class="btn-row">
+                <a class="donate-btn donate-btn--privat"
+                   href="https://www.privat24.ua/send/3xbxx"
+                   target="_blank">Поповнити через Приват24</a>
+              </div>
             </div>
-        </div>
-
-        <!-- PAYPAL -->
-        <div class="donate-item">
-            <h3>PayPal</h3>
-            <p>
-                <strong>Email:</strong> nadelnuikviktor@gmail.com
-            </p>
-            <p class="note">Бажано надсилати як “Friends &amp; Family”.</p>
-            <div class="donate-qr">
-                <img src="paypal-qr.png" alt="PayPal QR" />
+            <div class="qr-wrap">
+              <div>
+                <img id="qr-privat" class="qr" alt="QR Privat24">
+                <div class="note">Для клієнтів ПриватБанку та інших українських банків.</div>
+              </div>
             </div>
-        </div>
+          </section>
 
-        <!-- CRYPTO BTC -->
-        <div class="donate-item">
-            <h3>Bitcoin (BTC)</h3>
-            <p>
+          <!-- PAYPAL -->
+          <section class="card">
+            <div>
+              <small>Міжнародні донати</small>
+              <h3 class="paypal-label">PayPal</h3>
+              <p>
+                <strong>Email:</strong> nadelnuikviktor@gmail.com<br>
+                Бажано надсилати як <em>“Friends &amp; Family”</em>.
+              </p>
+              <div class="btn-row">
+                <a class="donate-btn donate-btn--paypal"
+                   href="mailto:nadelnuikviktor@gmail.com"
+                   target="_blank">Написати на PayPal email</a>
+              </div>
+            </div>
+            <div class="qr-wrap">
+              <div>
+                <!-- Файл paypal-qr.png має бути в цьому ж репозиторії -->
+                <img src="paypal-qr.png" class="qr" alt="PayPal QR">
+                <div class="note">Скануйте QR у додатку PayPal.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- BITCOIN -->
+          <section class="card">
+            <div>
+              <small>Криптовалюта</small>
+              <h3 class="crypto-label">Bitcoin (BTC)</h3>
+              <p>
                 <strong>Адреса:</strong><br>
                 bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p
-            </p>
-            <a class="donate-btn"
-               href="https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p"
-               target="_blank">
-                Відкрити в TrustWallet
-            </a>
-            <div class="donate-qr">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p"
-                     alt="QR BTC">
+              </p>
+              <div class="btn-row">
+                <a class="donate-btn donate-btn--crypto"
+                   href="https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p"
+                   target="_blank">Відкрити в TrustWallet</a>
+              </div>
             </div>
-        </div>
+            <div class="qr-wrap">
+              <div>
+                <img id="qr-btc" class="qr" alt="QR BTC">
+                <div class="note">Підійде для більшості BTC-гаманців.</div>
+              </div>
+            </div>
+          </section>
 
-        <!-- CRYPTO ETH / BNB -->
-        <div class="donate-item">
-            <h3>Ethereum (ETH) / BNB</h3>
-            <p>
+          <!-- ETH + BNB -->
+          <section class="card">
+            <div>
+              <small>Криптовалюта</small>
+              <h3 class="crypto-label">Ethereum (ETH) / BNB</h3>
+              <p>
                 <strong>ETH / BNB адреса:</strong><br>
                 0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b
-            </p>
-            <a class="donate-btn"
-               href="https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b"
-               target="_blank">
-                ETH у TrustWallet
-            </a>
-            <a class="donate-btn"
-               href="https://link.trustwallet.com/send?coin=20000714&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b"
-               target="_blank"
-               style="margin-top:6px;">
-                BNB у TrustWallet
-            </a>
-            <div class="donate-qr">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b"
-                     alt="QR ETH/BNB">
+              </p>
+              <div class="btn-row">
+                <a class="donate-btn donate-btn--crypto"
+                   href="https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b"
+                   target="_blank">ETH у TrustWallet</a>
+                <a class="donate-btn donate-btn--crypto"
+                   href="https://link.trustwallet.com/send?coin=20000714&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b"
+                   target="_blank">BNB у TrustWallet</a>
+              </div>
             </div>
-        </div>
+            <div class="qr-wrap">
+              <div>
+                <img id="qr-eth" class="qr" alt="QR ETH/BNB">
+                <div class="note">Адреса однакова для ETH та BNB (EVM-сумісні мережі).</div>
+              </div>
+            </div>
+          </section>
 
-        <!-- CRYPTO SOL -->
-        <div class="donate-item">
-            <h3>Solana (SOL)</h3>
-            <p>
+          <!-- SOLANA -->
+          <section class="card">
+            <div>
+              <small>Криптовалюта</small>
+              <h3 class="crypto-label">Solana (SOL)</h3>
+              <p>
                 <strong>Адреса:</strong><br>
                 DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525
-            </p>
-            <a class="donate-btn"
-               href="https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525"
-               target="_blank">
-                SOL у TrustWallet
-            </a>
-            <div class="donate-qr">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525"
-                     alt="QR SOL">
+              </p>
+              <div class="btn-row">
+                <a class="donate-btn donate-btn--crypto"
+                   href="https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525"
+                   target="_blank">SOL у TrustWallet</a>
+              </div>
             </div>
+            <div class="qr-wrap">
+              <div>
+                <img id="qr-sol" class="qr" alt="QR SOL">
+                <div class="note">Працює з гаманцями Solana (TrustWallet, Phantom тощо).</div>
+              </div>
+            </div>
+          </section>
         </div>
 
+        <footer>
+          Дякуємо кожному, хто підтримує взвод технічного забезпечення 142 ОМБр. 
+          Разом ми тримаємо техніку живою, а отже — живими наших побратимів.
+        </footer>
+      </main>
     </div>
-
-</div>
-
-    <h2>Контакти</h2>
-    <p><strong>Telegram:</strong> ВСТАВИТИ Telegram</p>
-    <p><strong>Email:</strong> ВСТАВИТИ пошту</p>
   </div>
 
-</div>
+  <script>
+    // Лінки для генерації QR-кодів
+    const links = {
+      mono:  'https://send.monobank.ua/jar/8PfzHBQuu4',
+      privat:'https://www.privat24.ua/send/3xbxx',
+      btc:   'https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p',
+      eth:   'https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b',
+      sol:   'https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525'
+    };
 
-<footer>
-  Сайт взводу технічного забезпечення 142 ОМБр. Ви можете редагувати текст у файлі index.html.
-</footer>
+    function setQR(id, url) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const api = 'https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=';
+      el.src = api + encodeURIComponent(url);
+    }
 
+    setQR('qr-mono',   links.mono);
+    setQR('qr-privat', links.privat);
+    setQR('qr-btc',    links.btc);
+    setQR('qr-eth',    links.eth);
+    setQR('qr-sol',    links.sol);
+  </script>
 </body>
 </html>
