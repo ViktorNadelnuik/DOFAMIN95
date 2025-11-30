@@ -146,6 +146,8 @@
       box-shadow: 0 8px 18px rgba(0,0,0,0.35);
       transition: 0.15s;
       white-space: nowrap;
+      cursor: pointer;
+      background-clip: padding-box;
     }
 
     .donate-btn:hover {
@@ -193,12 +195,12 @@
       <h1 class="hero-title">Support the Technical Support Platoon</h1>
 
       <p class="hero-sub">
-        We repair military vehicles, evacuate damaged equipment from the battlefield
+        We repair military vehicles, evacuate damaged equipment from the battlefield,
         and keep vital machinery running under fire.
       </p>
 
       <p class="hero-note">
-        Your support turns into tools, spare parts, welding, electrics, oils and everything needed
+        Your support turns into tools, spare parts, welding materials, electrics, oils and everything needed
         to keep vehicles moving on the Zaporizhzhia frontline.
       </p>
     </header>
@@ -222,6 +224,12 @@
               <a class="donate-btn donate-btn--mono"
                  href="https://send.monobank.ua/jar/8PfzHBQuu4"
                  target="_blank">Donate via Monobank</a>
+
+              <button class="donate-btn"
+                      type="button"
+                      onclick="copyText('UA683220010000026208372629615')">
+                Copy IBAN
+              </button>
             </div>
           </div>
           <div class="qr-wrap">
@@ -243,6 +251,12 @@
               <a class="donate-btn donate-btn--privat"
                  href="https://www.privat24.ua/send/3xbxx"
                  target="_blank">Donate via Privat24</a>
+
+              <button class="donate-btn"
+                      type="button"
+                      onclick="copyText('UA023052990262076400994803502')">
+                Copy IBAN
+              </button>
             </div>
           </div>
           <div class="qr-wrap">
@@ -256,12 +270,19 @@
             <small>International</small>
             <h3 class="paypal-label">PayPal</h3>
             <p>
-              <strong>Email:</strong> nadelnuikviktor@gmail.com
+              <strong>Email:</strong> nadelnuikviktor@gmail.com<br>
+              Please send as “Friends &amp; Family” if possible.
             </p>
             <div class="btn-row">
               <a class="donate-btn donate-btn--paypal"
                  href="mailto:nadelnuikviktor@gmail.com"
                  target="_blank">Send via PayPal</a>
+
+              <button class="donate-btn"
+                      type="button"
+                      onclick="copyText('nadelnuikviktor@gmail.com')">
+                Copy email
+              </button>
             </div>
           </div>
           <div class="qr-wrap">
@@ -274,11 +295,20 @@
           <div>
             <small>Crypto</small>
             <h3 class="crypto-label">Bitcoin (BTC)</h3>
-            <p>bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p</p>
+            <p>
+              <strong>Address:</strong><br>
+              bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p
+            </p>
             <div class="btn-row">
               <a class="donate-btn donate-btn--crypto"
                  href="https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p"
-                 target="_blank">Send BTC</a>
+                 target="_blank">Send BTC via TrustWallet</a>
+
+              <button class="donate-btn"
+                      type="button"
+                      onclick="copyText('bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p')">
+                Copy address
+              </button>
             </div>
           </div>
           <div class="qr-wrap">
@@ -291,14 +321,24 @@
           <div>
             <small>Crypto</small>
             <h3 class="crypto-label">Ethereum (ETH) / BNB</h3>
-            <p>0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</p>
+            <p>
+              <strong>Address (ETH / BNB):</strong><br>
+              0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b
+            </p>
             <div class="btn-row">
               <a class="donate-btn donate-btn--crypto"
                  href="https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b"
-                 target="_blank">Send ETH</a>
+                 target="_blank">Send ETH via TrustWallet</a>
+
               <a class="donate-btn donate-btn--crypto"
                  href="https://link.trustwallet.com/send?coin=20000714&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b"
-                 target="_blank">Send BNB</a>
+                 target="_blank">Send BNB via TrustWallet</a>
+
+              <button class="donate-btn"
+                      type="button"
+                      onclick="copyText('0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b')">
+                Copy address
+              </button>
             </div>
           </div>
           <div class="qr-wrap">
@@ -311,11 +351,20 @@
           <div>
             <small>Crypto</small>
             <h3 class="crypto-label">Solana (SOL)</h3>
-            <p>DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525</p>
+            <p>
+              <strong>Address:</strong><br>
+              DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525
+            </p>
             <div class="btn-row">
               <a class="donate-btn donate-btn--crypto"
                  href="https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525"
-                 target="_blank">Send SOL</a>
+                 target="_blank">Send SOL via TrustWallet</a>
+
+              <button class="donate-btn"
+                      type="button"
+                      onclick="copyText('DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525')">
+                Copy address
+              </button>
             </div>
           </div>
           <div class="qr-wrap">
@@ -326,7 +375,7 @@
       </div>
 
       <footer>
-        Thank you for supporting the technical support platoon of the 142nd Brigade.
+        Thank you for supporting the technical support platoon of the 142nd Brigade.  
         Your help keeps our vehicles running – and our soldiers alive.
       </footer>
     </main>
@@ -335,6 +384,7 @@
 </div>
 
 <script>
+  // QR generation
   function setQR(id, url) {
     var el = document.getElementById(id);
     if (!el) return;
@@ -347,11 +397,39 @@
   setQR("qr-btc",    "https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p");
   setQR("qr-eth",    "https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b");
   setQR("qr-sol",    "https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525");
+
+  // Copy to clipboard
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text)
+        .then(function () {
+          alert('Copied: ' + text);
+        })
+        .catch(function () {
+          fallbackCopy(text);
+        });
+    } else {
+      fallbackCopy(text);
+    }
+  }
+
+  function fallbackCopy(text) {
+    var area = document.createElement('textarea');
+    area.value = text;
+    area.style.position = 'fixed';
+    area.style.left = '-9999px';
+    document.body.appendChild(area);
+    area.focus();
+    area.select();
+    try {
+      document.execCommand('copy');
+      alert('Copied: ' + text);
+    } catch (e) {
+      alert('Failed to copy. Please copy manually: ' + text);
+    }
+    document.body.removeChild(area);
+  }
 </script>
 
 </body>
-  <header style="width: 100%; text-align: center; padding: 20px 0;">
-    <img src="chevron.png" alt="142 OMBr Chevron" style="height: 110px; margin-bottom: 10px;">
-</header>
-
 </html>
