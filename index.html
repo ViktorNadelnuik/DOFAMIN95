@@ -564,15 +564,17 @@
   </div>
 </section>
 
-
-      </footer>
+<footer>
+  Thank you for supporting the technical support platoon of the 142nd Brigade.  
+  Your help keeps our vehicles running – and our soldiers alive.
+</footer>
     </main>
 
   </div>
 </div>
 
 <script>
-  // Генерація QR
+  // QR generation
   function setQR(id, url) {
     var el = document.getElementById(id);
     if (!el) return;
@@ -586,12 +588,12 @@
   setQR("qr-eth",    "https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b");
   setQR("qr-sol",    "https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525");
 
-  // Копіювання в буфер
+  // Copy to clipboard
   function copyText(text) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text)
         .then(function () {
-          alert('Скопійовано: ' + text);
+          alert('Copied: ' + text);
         })
         .catch(function () {
           fallbackCopy(text);
@@ -611,11 +613,49 @@
     area.select();
     try {
       document.execCommand('copy');
-      alert('Скопійовано: ' + text);
+      alert('Copied: ' + text);
     } catch (e) {
-      alert('Не вдалося скопіювати. Скопіюй вручну: ' + text);
+      alert('Failed to copy. Please copy manually: ' + text);
     }
     document.body.removeChild(area);
+  }
+
+  // ===== Page sharing (EN) =====
+  const SHARE_TEXT_EN = 'Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade. They repair trucks and armored vehicles right at the frontline so that vehicles keep moving and soldiers return alive.';
+  const SHARE_URL_EN  = 'https://viktornadelniuk.github.io/DOFAMIN95/en.html';
+
+  function shareEn(service) {
+    const text = SHARE_TEXT_EN + ' ' + SHARE_URL_EN;
+    let shareUrl = '';
+
+    switch (service) {
+      case 'telegram':
+        shareUrl = 'https://t.me/share/url?url='
+          + encodeURIComponent(SHARE_URL_EN)
+          + '&text=' + encodeURIComponent(SHARE_TEXT_EN);
+        break;
+      case 'viber':
+        shareUrl = 'viber://forward?text='
+          + encodeURIComponent(text);
+        break;
+      case 'whatsapp':
+        shareUrl = 'https://wa.me/?text='
+          + encodeURIComponent(text);
+        break;
+      case 'facebook':
+        shareUrl = 'https://www.facebook.com/sharer/sharer.php?u='
+          + encodeURIComponent(SHARE_URL_EN);
+        break;
+      case 'instagram':
+        copyText(text);
+        shareUrl = 'https://www.instagram.com/';
+        break;
+      default:
+        copyText(text);
+        return;
+    }
+
+    window.open(shareUrl, '_blank');
   }
 </script>
 
