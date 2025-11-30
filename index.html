@@ -95,59 +95,98 @@
             font-size: 14px;
         }
 
-       .donate-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 22px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.18);
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
-    color: #fff;
-    font-weight: 600;
-    font-size: 14px;
-    text-decoration: none;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
-    transition: transform 0.15s ease-out,
-                box-shadow 0.15s ease-out,
-                background 0.15s ease-out,
-                opacity 0.15s ease-out;
-    cursor: pointer;
-    white-space: nowrap;
-}
+     <div class="block" id="donate">
+  <h2>Як підтримати</h2>
+  <p>Кожна гривня, кожен долар і кожна монета крипти — це відремонтована техніка, що рятує життя.</p>
 
-.donate-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.45);
-    background: linear-gradient(135deg, #34e89e, #0f9b0f);
-    opacity: 0.97;
-}
+  <!-- КНОПКИ ПОПОВНЕННЯ -->
+  <p><strong>Швидкі посилання:</strong></p>
+  <p style="display:flex;flex-wrap:wrap;gap:10px;">
+    <a class="donate-btn" href="https://send.monobank.ua/jar/8PfzHBQuu4" target="_blank">Поповнити Monobank</a>
+    <a class="donate-btn" href="https://www.privat24.ua/send/3xbxx" target="_blank">Поповнити ПриватБанк</a>
+    <a class="donate-btn" href="https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p" target="_blank">BTC (TrustWallet)</a>
+    <a class="donate-btn" href="https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b" target="_blank">ETH (TrustWallet)</a>
+    <a class="donate-btn" href="https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525" target="_blank">SOL (TrustWallet)</a>
+    <a class="donate-btn" href="https://link.trustwallet.com/send?coin=20000714&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b" target="_blank">BNB (TrustWallet)</a>
+  </p>
 
-.donate-btn:active {
-    transform: translateY(1px) scale(0.98);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-}
+  <!-- QR-КОДИ (генеруються автоматично) -->
+  <h3>QR-коди для швидкого донату</h3>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;align-items:start;">
+    <div style="text-align:center;">
+      <img id="qr-mono" alt="QR Monobank" style="width:160px;height:160px;border-radius:10px;">
+      <div class="note">Monobank банка</div>
+    </div>
+    <div style="text-align:center;">
+      <img id="qr-privat" alt="QR Privat24" style="width:160px;height:160px;border-radius:10px;">
+      <div class="note">Приват24 переказ</div>
+    </div>
+    <div style="text-align:center;">
+      <img id="qr-btc" alt="QR BTC" style="width:160px;height:160px;border-radius:10px;">
+      <div class="note">Bitcoin (BTC)</div>
+    </div>
+    <div style="text-align:center;">
+      <img id="qr-eth" alt="QR ETH" style="width:160px;height:160px;border-radius:10px;">
+      <div class="note">Ethereum (ETH)</div>
+    </div>
+    <div style="text-align:center;">
+      <img id="qr-sol" alt="QR SOL" style="width:160px;height:160px;border-radius:10px;">
+      <div class="note">Solana (SOL)</div>
+    </div>
+    <div style="text-align:center;">
+      <img id="qr-bnb" alt="QR BNB" style="width:160px;height:160px;border-radius:10px;">
+      <div class="note">BNB Chain</div>
+    </div>
+    <div style="text-align:center;">
+      <!-- Після завантаження свого файла постав правильну назву замість paypal-qr.png -->
+      <img src="paypal-qr.png" alt="QR PayPal" style="width:160px;height:160px;border-radius:10px;">
+      <div class="note">PayPal: nadelnuikviktor@gmail.com</div>
+    </div>
+  </div>
 
-.donate-btn--mono {
-    background: linear-gradient(135deg, #00e3aa, #00b894);
-}
-.donate-btn--mono:hover {
-    background: linear-gradient(135deg, #00ffc3, #00d1a6);
-}
+  <!-- РЕКВІЗИТИ ТЕКСТОМ (залишаю як довідку) -->
+  <div class="requisites" style="margin-top:16px;">
+    <b>Monobank (банка «142 ОМБр Техвзвод»)</b><br>
+    Отримувач: Надельнюк Віктор Миколайович<br>
+    IBAN: UA683220010000026208372629615<br>
+    ІПН/ЄДРПОУ: 3493704097<br>
+    Призначення: Поповнення рахунку банки
+  </div>
 
-.donate-btn--privat {
-    background: linear-gradient(135deg, #2ecc71, #27ae60);
-}
-.donate-btn--privat:hover {
-    background: linear-gradient(135deg, #55efc4, #2ecc71);
-}
+  <div class="requisites">
+    <b>ПриватБанк</b><br>
+    Отримувач: НАДЕЛЬНЮК ВІКТОР МИКОЛАЙОВИЧ<br>
+    IBAN: UA023052990262076400994803502<br>
+    РНОКПП/ЄДРПОУ: 3493704097<br>
+    Призначення: Поповнення рахунку
+  </div>
+</div>
 
-.donate-btn--paypal {
-    background: linear-gradient(135deg, #009cde, #003087);
-}
-.donate-btn--paypal:hover {
-    background: linear-gradient(135deg, #22b6ff, #0050b3);
-}
+<script>
+  // Посилання для QR
+  const links = {
+    mono:  'https://send.monobank.ua/jar/8PfzHBQuu4',
+    privat:'https://www.privat24.ua/send/3xbxx',
+    btc:   'https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p',
+    eth:   'https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b',
+    sol:   'https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525',
+    bnb:   'https://link.trustwallet.com/send?coin=20000714&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b'
+  };
+
+  function setQR(imgId, url){
+    const api = 'https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=';
+    const el = document.getElementById(imgId);
+    if (el) el.src = api + encodeURIComponent(url);
+  }
+
+  setQR('qr-mono',   links.mono);
+  setQR('qr-privat', links.privat);
+  setQR('qr-btc',    links.btc);
+  setQR('qr-eth',    links.eth);
+  setQR('qr-sol',    links.sol);
+  setQR('qr-bnb',    links.bnb);
+</script>
+
 
   <div class="container">
     <h2>142 ОМБр — Взвод технічного забезпечення</h2>
