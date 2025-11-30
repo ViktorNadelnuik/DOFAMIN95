@@ -9,6 +9,27 @@
   <meta name="description" content="Сайт підтримки взводу технічного забезпечення 142 ОМБр. Допоможіть нам тримати техніку в строю та рятувати життя.">
 
    <style>
+     .top-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 6px;
+    object-fit: cover;
+    box-shadow: 0 0 6px rgba(0,0,0,0.3);
+}
+
+.site-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #1a1a1a;
+}
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
@@ -289,6 +310,10 @@
 <body>
 <div class="page">
   <div class="container">
+<div class="top-bar">
+    <img src="favicon.png" alt="Logo" class="logo">
+    <span class="site-title">142 ОМБр • Взвод технічного забезпечення</span>
+</div>
 
     <header class="hero">
       <div class="lang-switch">
