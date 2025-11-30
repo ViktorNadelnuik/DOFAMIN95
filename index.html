@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Сайт підтримки взводу технічного забезпечення 142 ОМБр. Допоможіть нам тримати техніку в строю та рятувати життя.">
 
-  <style>
+   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
@@ -104,6 +104,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 18px;
+      margin-top: 10px;
     }
 
     .card {
@@ -116,6 +117,11 @@
       flex-direction: column;
       justify-content: space-between;
       min-height: 260px;
+    }
+
+    .card.big-block {
+      grid-column: 1 / -1;
+      min-height: auto;
     }
 
     .card h3 { font-size: 16px; margin-bottom: 6px; }
@@ -170,14 +176,112 @@
       font-size: 12px;
     }
 
-    @media (max-width: 720px) {
-      .btn-row { flex-direction: column; }
-      .donate-btn { width: 100%; text-align: center; }
-      .qr { width: 130px; height: 130px; }
-      .hero { padding: 18px 14px; }
-      .hero-title { font-size: 21px; }
+    /* ===== АДАПТИВНІСТЬ ===== */
+
+    @media (max-width: 1024px) {
+      .page {
+        padding: 20px 10px 32px;
+      }
+      .hero {
+        padding: 20px 18px 18px;
+        margin-bottom: 22px;
+      }
+      .hero-title {
+        font-size: 24px;
+      }
+      .card-grid {
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page {
+        padding: 18px 8px 28px;
+      }
+      .hero {
+        padding: 18px 14px 16px;
+      }
+      .hero-badge {
+        font-size: 11px;
+      }
+      .hero-title {
+        font-size: 21px;
+        line-height: 1.2;
+      }
+      .hero-sub {
+        font-size: 14px;
+      }
+      .hero-note {
+        font-size: 12px;
+      }
+
+      .card {
+        padding: 14px 14px 16px;
+        min-height: auto;
+      }
+
+      .card.big-block {
+        padding: 16px 14px 18px;
+      }
+
+      .card p {
+        font-size: 13px;
+      }
+
+      .btn-row {
+        flex-direction: column;
+      }
+
+      .btn-row .donate-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+
+      .qr {
+        width: 130px;
+        height: 130px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        border-radius: 18px;
+      }
+
+      .hero-title {
+        font-size: 19px;
+      }
+
+      .section-title {
+        font-size: 20px;
+      }
+
+      .card {
+        border-radius: 18px;
+        padding: 12px 12px 14px;
+      }
+
+      .card p {
+        font-size: 12.5px;
+      }
+
+      .btn-row {
+        gap: 6px;
+      }
+
+      .donate-btn {
+        padding: 8px 14px;
+        font-size: 12px;
+      }
+
+      .qr {
+        width: 120px;
+        height: 120px;
+      }
     }
   </style>
+
 </head>
 
 <body>
