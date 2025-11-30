@@ -4,117 +4,500 @@
   <meta charset="UTF-8">
   <title>Support · Technical Support Platoon · 142nd Brigade</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body style="background:#ffffff; color:#000000; font-family: Arial, sans-serif; padding:16px; line-height:1.5;">
+  <meta name="description" content="Support the technical support platoon of the 142nd Brigade. Your donations help repair vehicles and save lives.">
 
-  <!-- LANGUAGE SWITCH -->
-  <div style="text-align:right; margin-bottom:12px;">
-    <a href="index.html" style="margin-right:6px; text-decoration:none; padding:2px 8px; border:1px solid #000; border-radius:999px;">UA</a>
-    |
-    <a href="en.html" style="margin-left:6px; text-decoration:none; padding:2px 8px; border:1px solid #000; border-radius:999px; background:#000; color:#fff;">EN</a>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #23395d 0, #050914 45%, #02040a 100%);
+      color: #f5f5f5;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      min-height: 100vh;
+      padding: 24px 12px 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, rgba(0, 194, 255, 0.2), rgba(0, 0, 0, 0.6));
+      border-radius: 24px;
+      padding: 24px 22px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+      margin-bottom: 26px;
+    }
+
+    .hero-title {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      opacity: 0.9;
+      margin-bottom: 10px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(0,0,0,0.5);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+      opacity: 0.9;
+    }
+
+    .hero-note {
+      font-size: 13px;
+      opacity: 0.8;
+    }
+
+    .lang-switch {
+      display: flex;
+      justify-content: flex-end;
+      gap: 6px;
+      margin-bottom: 6px;
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    .lang-switch a {
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.25);
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+    .lang-switch a.active {
+      background: rgba(255,255,255,0.16);
+      font-weight: 600;
+    }
+
+    h2.section-title {
+      font-size: 22px;
+      margin: 6px 0 14px;
+      font-weight: 700;
+    }
+
+    #donate {
+      margin-top: 10px;
+    }
+
+    .donate-intro {
+      font-size: 14px;
+      opacity: 0.9;
+      margin-bottom: 16px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, #202b46 0, #070e1d 60%);
+      border-radius: 22px;
+      padding: 16px 16px 18px;
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 270px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .card small {
+      opacity: 0.7;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .card p {
+      font-size: 13px;
+      margin-top: 6px;
+      margin-bottom: 6px;
+    }
+
+    .mono-label {
+      color: #00ffc3;
+      font-weight: 600;
+    }
+
+    .privat-label {
+      color: #55efc4;
+      font-weight: 600;
+    }
+
+    .paypal-label {
+      color: #00b4ff;
+      font-weight: 600;
+    }
+
+    .crypto-label {
+      color: #ffd86b;
+      font-weight: 600;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+      margin-bottom: 8px;
+    }
+
+    .donate-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      color: #fff;
+      font-weight: 600;
+      font-size: 13px;
+      text-decoration: none;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+      transition: transform 0.15s ease-out,
+                  box-shadow 0.15s ease-out,
+                  background 0.15s ease-out,
+                  opacity 0.15s ease-out;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .donate-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.45);
+      background: linear-gradient(135deg, #34e89e, #0f9b0f);
+      opacity: 0.97;
+    }
+
+    .donate-btn:active {
+      transform: translateY(1px) scale(0.98);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .donate-btn--mono {
+      background: linear-gradient(135deg, #00e3aa, #00b894);
+    }
+    .donate-btn--mono:hover {
+      background: linear-gradient(135deg, #00ffc3, #00d1a6);
+    }
+
+    .donate-btn--privat {
+      background: linear-gradient(135deg, #2ecc71, #27ae60);
+    }
+    .donate-btn--privat:hover {
+      background: linear-gradient(135deg, #55efc4, #2ecc71);
+    }
+
+    .donate-btn--paypal {
+      background: linear-gradient(135deg, #009cde, #003087);
+    }
+    .donate-btn--paypal:hover {
+      background: linear-gradient(135deg, #22b6ff, #0050b3);
+    }
+
+    .donate-btn--crypto {
+      background: linear-gradient(135deg, #f6d365, #fda085);
+    }
+    .donate-btn--crypto:hover {
+      background: linear-gradient(135deg, #ffd86b, #ff9a44);
+    }
+
+    .qr-wrap {
+      margin-top: 8px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .qr {
+      width: 150px;
+      height: 150px;
+      border-radius: 18px;
+      background: #02040a;
+      object-fit: cover;
+    }
+
+    .note {
+      font-size: 11px;
+      opacity: 0.75;
+      margin-top: 4px;
+    }
+
+    footer {
+      margin-top: 22px;
+      font-size: 11px;
+      opacity: 0.7;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        padding: 18px 14px;
+      }
+      .hero-title {
+        font-size: 21px;
+      }
+      .card {
+        padding: 14px;
+      }
+      .qr {
+        width: 135px;
+        height: 135px;
+      }
+      .btn-row {
+        flex-direction: column;
+      }
+      .btn-row .donate-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="container">
+      <header class="hero">
+        <div class="lang-switch">
+          <a href="index.html">UA</a>
+          <span>|</span>
+          <a href="en.html" class="active">EN</a>
+        </div>
+        <div class="hero-badge">142nd Mechanized Brigade · Technical Support Platoon</div>
+        <h1 class="hero-title">Support the technical support platoon</h1>
+        <p class="hero-sub">
+          We repair military vehicles, evacuate damaged equipment from the battlefield and bring them back into service.
+          When the vehicle moves – the soldiers inside stay alive.
+        </p>
+        <p class="hero-note">
+          Your donation turns into tools, spare parts, welding materials, electrics, oils and everything needed
+          to keep vehicles moving on the Zaporizhzhia frontline.
+        </p>
+      </header>
+
+      <main id="donate">
+        <h2 class="section-title">How you can support us</h2>
+        <p class="donate-intro">
+          Choose the most convenient way: bank transfer, PayPal or cryptocurrency.
+          You can also scan the QR codes with your phone — payment details will be filled automatically.
+        </p>
+
+        <div class="card-grid">
+          <!-- MONOBANK -->
+          <section class="card">
+            <div>
+              <small>Ukraine · UAH</small>
+              <h3 class="mono-label">Monobank fundraising jar</h3>
+              <p>
+                <strong>Beneficiary:</strong> Nadelniuk Viktor Mykolaiovych<br>
+                <strong>IBAN:</strong> UA683220010000026208372629615<br>
+                <strong>TIN:</strong> 3493704097<br>
+                <strong>Payment purpose:</strong> Top-up of the fundraising jar
+              </p>
+              <div class="btn-row">
+                <a class="donate-btn donate-btn--mono"
+                   href="https://send.monobank.ua/jar/8PfzHBQuu4"
+                   target="_blank">Donate via Monobank</a>
+              </div>
+            </div>
+            <div class="qr-wrap">
+              <div>
+                <img id="qr-mono" class="qr" alt="QR Monobank">
+                <div class="note">Opens the jar in Monobank app / browser.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- PRIVATBANK -->
+          <section class="card">
+            <div>
+              <small>Ukraine · UAH</small>
+              <h3 class="privat-label">PrivatBank</h3>
+              <p>
+                <strong>Beneficiary:</strong> Nadelniuk Viktor Mykolaiovych<br>
+                <strong>IBAN:</strong> UA023052990262076400994803502<br>
+                <strong>TIN:</strong> 3493704097<br>
+                <strong>Payment purpose:</strong> Account top-up
+              </p>
+              <div class="btn-row">
+                <a class="donate-btn donate-btn--privat"
+                   href="https://www.privat24.ua/send/3xbxx"
+                   target="_blank">Donate via Privat24</a>
+              </div>
+            </div>
+            <div class="qr-wrap">
+              <div>
+                <img id="qr-privat" class="qr" alt="QR Privat24">
+                <div class="note">For PrivatBank and other Ukrainian bank users.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- PAYPAL -->
+          <section class="card">
+            <div>
+              <small>International donations</small>
+              <h3 class="paypal-label">PayPal</h3>
+              <p>
+                <strong>Email:</strong> nadelnuikviktor@gmail.com<br>
+                Please send as <em>“Friends &amp; Family”</em> if possible.
+              </p>
+              <div class="btn-row">
+                <a class="donate-btn donate-btn--paypal"
+                   href="mailto:nadelnuikviktor@gmail.com"
+                   target="_blank">Send via PayPal</a>
+              </div>
+            </div>
+            <div class="qr-wrap">
+              <div>
+                <img src="paypal-qr.png" class="qr" alt="PayPal QR">
+                <div class="note">Scan this QR in PayPal or your banking app (if supported).</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- BITCOIN -->
+          <section class="card">
+            <div>
+              <small>Crypto</small>
+              <h3 class="crypto-label">Bitcoin (BTC)</h3>
+              <p>
+                <strong>Address:</strong><br>
+                bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p
+              </p>
+              <div class="btn-row">
+                <a class="donate-btn donate-btn--crypto"
+                   href="https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p"
+                   target="_blank">Send BTC (TrustWallet)</a>
+              </div>
+            </div>
+            <div class="qr-wrap">
+              <div>
+                <img id="qr-btc" class="qr" alt="QR BTC">
+                <div class="note">Works with most BTC wallets.</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ETH + BNB -->
+          <section class="card">
+            <div>
+              <small>Crypto</small>
+              <h3 class="crypto-label">Ethereum (ETH) / BNB</h3>
+              <p>
+                <strong>Address (ETH / BNB):</strong><br>
+                0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b
+              </p>
+              <div class="btn-row">
+                <a class="donate-btn donate-btn--crypto"
+                   href="https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b"
+                   target="_blank">Send ETH</a>
+                <a class="donate-btn donate-btn--crypto"
+                   href="https://link.trustwallet.com/send?coin=20000714&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b"
+                   target="_blank">Send BNB</a>
+              </div>
+            </div>
+            <div class="qr-wrap">
+              <div>
+                <img id="qr-eth" class="qr" alt="QR ETH/BNB">
+                <div class="note">Same address for ETH &amp; BNB (EVM networks).</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SOLANA -->
+          <section class="card">
+            <div>
+              <small>Crypto</small>
+              <h3 class="crypto-label">Solana (SOL)</h3>
+              <p>
+                <strong>Address:</strong><br>
+                DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525
+              </p>
+              <div class="btn-row">
+                <a class="donate-btn donate-btn--crypto"
+                   href="https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525"
+                   target="_blank">Send SOL</a>
+              </div>
+            </div>
+            <div class="qr-wrap">
+              <div>
+                <img id="qr-sol" class="qr" alt="QR SOL">
+                <div class="note">Works with Solana wallets (TrustWallet, Phantom, etc.).</div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <footer>
+          Thank you for supporting the technical support platoon of the 142nd Brigade.
+          Together we keep vehicles running – and our soldiers alive.
+        </footer>
+      </main>
+    </div>
   </div>
 
-  <h1>Support the Technical Support Platoon · 142nd Brigade</h1>
+  <script>
+    const links = {
+      mono:  'https://send.monobank.ua/jar/8PfzHBQuu4',
+      privat:'https://www.privat24.ua/send/3xbxx',
+      btc:   'https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p',
+      eth:   'https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b',
+      sol:   'https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525'
+    };
 
-  <p>
-    We are the technical support platoon of the 142nd Mechanized Brigade.  
-    We repair military vehicles, evacuate damaged equipment from the battlefield, and keep the machines running so that our soldiers stay alive.
-  </p>
+    function setQR(id, url) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const api = 'https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=';
+      el.src = api + encodeURIComponent(url);
+    }
 
-  <p>
-    Your donations turn into tools, spare parts, welding materials, electrics, oils and everything needed to keep vehicles moving on the Zaporizhzhia frontline.
-  </p>
-
-  <hr>
-
-  <h2>How you can support</h2>
-
-  <h3>1. Monobank (fundraising jar)</h3>
-  <p>
-    <strong>Beneficiary:</strong> Nadelniuk Viktor Mykolaiovych<br>
-    <strong>IBAN:</strong> UA683220010000026208372629615<br>
-    <strong>TIN:</strong> 3493704097<br>
-    <strong>Link:</strong>
-    <a href="https://send.monobank.ua/jar/8PfzHBQuu4" target="_blank">
-      https://send.monobank.ua/jar/8PfzHBQuu4
-    </a>
-  </p>
-
-  <hr>
-
-  <h3>2. PrivatBank (UAH)</h3>
-  <p>
-    <strong>Beneficiary:</strong> Nadelniuk Viktor Mykolaiovych<br>
-    <strong>IBAN:</strong> UA023052990262076400994803502<br>
-    <strong>TIN:</strong> 3493704097<br>
-    <strong>Privat24 link:</strong>
-    <a href="https://www.privat24.ua/send/3xbxx" target="_blank">
-      https://www.privat24.ua/send/3xbxx
-    </a>
-  </p>
-
-  <hr>
-
-  <h3>3. PayPal (international)</h3>
-  <p>
-    <strong>PayPal email:</strong> <code>nadelnuikviktor@gmail.com</code><br>
-    Please send as “Friends &amp; Family” if possible.
-  </p>
-  <p>
-    You can also scan this QR code in your PayPal or banking app (if supported):<br>
-    <img src="paypal-qr.png" alt="PayPal QR" style="max-width:220px; border:1px solid #000; border-radius:8px;">
-  </p>
-
-  <hr>
-
-  <h3>4. Cryptocurrency</h3>
-
-  <h4>Bitcoin (BTC)</h4>
-  <p>
-    Address:<br>
-    <code>bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p</code><br>
-    TrustWallet link:<br>
-    <a href="https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p" target="_blank">
-      Send BTC via TrustWallet
-    </a>
-  </p>
-
-  <h4>Ethereum (ETH)</h4>
-  <p>
-    Address:<br>
-    <code>0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</code><br>
-    TrustWallet link:<br>
-    <a href="https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b" target="_blank">
-      Send ETH via TrustWallet
-    </a>
-  </p>
-
-  <h4>BNB</h4>
-  <p>
-    Address (same as ETH):<br>
-    <code>0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</code><br>
-    TrustWallet link:<br>
-    <a href="https://link.trustwallet.com/send?coin=20000714&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b" target="_blank">
-      Send BNB via TrustWallet
-    </a>
-  </p>
-
-  <h4>Solana (SOL)</h4>
-  <p>
-    Address:<br>
-    <code>DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525</code><br>
-    TrustWallet link:<br>
-    <a href="https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525" target="_blank">
-      Send SOL via TrustWallet
-    </a>
-  </p>
-
-  <hr>
-
-  <p>
-    Thank you for supporting the technical support platoon of the 142nd Brigade.  
-    Your help keeps our vehicles running – and our soldiers alive.
-  </p>
-
+    setQR('qr-mono',   links.mono);
+    setQR('qr-privat', links.privat);
+    setQR('qr-btc',    links.btc);
+    setQR('qr-eth',    links.eth);
+    setQR('qr-sol',    links.sol);
+  </script>
 </body>
 </html>
