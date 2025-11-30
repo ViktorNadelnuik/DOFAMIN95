@@ -271,6 +271,32 @@
       background: rgba(255,255,255,0.16);
       font-weight: 600;
     }
+    .about {
+      margin-top: 24px;
+      margin-bottom: 8px;
+      background: radial-gradient(circle at top left, #1f283d 0, #050914 70%);
+      border-radius: 22px;
+      padding: 18px 18px 20px;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.7);
+    }
+
+    .about-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .about-text {
+      font-size: 13px;
+      opacity: 0.9;
+      margin-bottom: 6px;
+    }
+
+    .about-highlight {
+      font-weight: 600;
+      color: #34e89e;
+    }
 
     @media (max-width: 720px) {
       .hero {
@@ -318,9 +344,31 @@
         </p>
       </header>
 
-      <main id="donate">
+            <main id="donate">
+
+        <section class="about">
+          <h2 class="about-title">Про взвод технічного забезпечення</h2>
+          <p class="about-text">
+            Ми — взвод технічного забезпечення 142 окремої механізованої бригади. 
+            Наша задача — щоб вантажні автомобілі, евакуатори та інша техніка 
+            щодня виїжджали в роботу, а не стояли «мертвим вантажем».
+          </p>
+          <p class="about-text">
+            Робимо евакуацію машин з переднього краю, ремонтуємо ходову, гальмівні системи, 
+            пневматику, електрику, зварюємо рами й платформи. Часто — просто неба, 
+            під обстрілами, на Запорізькому напрямку.
+          </p>
+          <p class="about-text">
+            <span class="about-highlight">Кожен донат</span> — це інструмент, запчастина, мастило чи 
+            акумулятор, який допомагає повернути ще один автомобіль у стрій. 
+            А значить — вивезти поранених, завезти боєкомплект або підвезти піхоту живою.
+          </p>
+        </section>
+
         <h2 class="section-title">Як підтримати взвод</h2>
         <p class="donate-intro">
+          ...
+
           Оберіть зручний спосіб: банківський переказ, PayPal або криптовалюта. 
           QR-код можна відсканувати камерою телефону — реквізити підтягнуться автоматично.
         </p>
