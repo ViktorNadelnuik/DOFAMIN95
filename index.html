@@ -444,51 +444,6 @@
       background: rgba(0,0,0,0.95);
       transform: scale(1.06);
     }
-    /* SCROLL TO TOP BUTTON */
-    .scroll-top-btn {
-      position: fixed;
-      right: 16px;
-      bottom: 18px;
-      width: 42px;
-      height: 42px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.35);
-      background: radial-gradient(circle at 30% 0, #00e3aa 0, #0072ff 70%);
-      color: #fff;
-      font-size: 22px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(8px) scale(0.9);
-      transition: opacity 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-      z-index: 999;
-    }
-
-    .scroll-top-btn--visible {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0) scale(1);
-    }
-
-    .scroll-top-btn:hover {
-      box-shadow: 0 14px 30px rgba(0,0,0,0.85);
-      transform: translateY(-2px) scale(1.03);
-    }
-
-    @media (max-width: 480px) {
-      .scroll-top-btn {
-        right: 12px;
-        bottom: 14px;
-        width: 38px;
-        height: 38px;
-        font-size: 20px;
-      }
-    }
 
     @media (max-width: 768px) {
       .lightbox-inner {
@@ -509,6 +464,52 @@
       }
       .lightbox-caption {
         font-size: 12px;
+      }
+    }
+
+    /* === SCROLL TO TOP BUTTON === */
+    .scroll-top-btn {
+      position: fixed;
+      right: 18px;
+      bottom: 20px;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.35);
+      background: radial-gradient(circle at 30% 0, #00e3aa 0, #0072ff 70%);
+      color: #fff;
+      font-size: 22px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px) scale(0.9);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      z-index: 9999;
+    }
+
+    .scroll-top-btn--visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    .scroll-top-btn:hover {
+      box-shadow: 0 14px 30px rgba(0,0,0,0.85);
+      transform: translateY(-2px) scale(1.05);
+    }
+
+    @media (max-width: 480px) {
+      .scroll-top-btn {
+        right: 12px;
+        bottom: 14px;
+        width: 38px;
+        height: 38px;
+        font-size: 20px;
       }
     }
 
@@ -1017,39 +1018,18 @@
       </div>
 
       <footer>
-        <button type="button" id="scrollTopBtn" class="scroll-top-btn" aria-label="Прокрутити вгору">
-        ↑
-      </button>
         Дякуємо за підтримку взводу технічного забезпечення 142 ОМБр.<br>
         Кожен донат — це ще одна відремонтована машина і збережені життя.
       </footer>
 
+      <!-- КНОПКА ПРОКРУТКИ ВГОРУ -->
+      <button type="button" id="scrollTopBtn" class="scroll-top-btn" aria-label="Прокрутити вгору">
+        ↑
+      </button>
+
     </main>
   </div>
 </div>
-  // ===== SCROLL TO TOP BUTTON =====
-  (function () {
-    var btn = document.getElementById('scrollTopBtn');
-    if (!btn) return;
-
-    // показ/приховування кнопки при скролі
-    window.addEventListener('scroll', function () {
-      var offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-      if (offset > 250) {
-        btn.classList.add('scroll-top-btn--visible');
-      } else {
-        btn.classList.remove('scroll-top-btn--visible');
-      }
-    });
-
-    // прокрутка вгору по кліку
-    btn.addEventListener('click', function () {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  })();
 
 <script>
   // Генерація QR
@@ -1250,6 +1230,28 @@
       if (e.key === 'Escape') closeLightbox();
       if (e.key === 'ArrowRight') showNext();
       if (e.key === 'ArrowLeft') showPrev();
+    });
+  })();
+
+  // === SCROLL TO TOP BUTTON ===
+  (function () {
+    var btn = document.getElementById('scrollTopBtn');
+    if (!btn) return;
+
+    window.addEventListener('scroll', function () {
+      var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollY > 250) {
+        btn.classList.add('scroll-top-btn--visible');
+      } else {
+        btn.classList.remove('scroll-top-btn--visible');
+      }
+    });
+
+    btn.addEventListener('click', function () {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
   })();
 </script>
