@@ -663,6 +663,44 @@
       font-size: 15px;
       line-height: 1;
     }
+    .video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  margin-top: 12px;
+}
+
+.video-card {
+  background: radial-gradient(circle at top left, #202b46 0, #070e1d 70%);
+  border-radius: 18px;
+  padding: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+  animation: cardFade 0.55s ease-out;
+}
+
+.yt-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+.yt-wrap iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-caption {
+  margin-top: 8px;
+  font-size: 12.5px;
+  opacity: 0.85;
+}
+
   </style>
 </head>
 <body>
@@ -881,7 +919,7 @@
           <!-- 15 фото як були -->
           <figure class="gallery-item">
             <img src="gallery1.jpg" alt="Ремонт вантажівки після евакуації з передової">
-            <figcaption class="gallery-caption">Ремонт вантажівки після евакуації з передової</figcaption>
+            <figcaption class="gallery-caption">Ремонт вантажівки після евакуації з </figcaption>
           </figure>
 
           <figure class="gallery-item">
@@ -901,7 +939,7 @@
 
           <figure class="gallery-item">
             <img src="gallery5.jpg" alt="Заміна колеса на дорозі під обстрілами">
-            <figcaption class="gallery-caption">Заміна колеса на дорозі під обстрілами</figcaption>
+            <figcaption class="gallery-caption">Заміна колеса на дорозі</figcaption>
           </figure>
 
           <figure class="gallery-item">
@@ -960,6 +998,60 @@
           блок <code>&lt;figure class="gallery-item"&gt;...&lt;/figure&gt;</code> за прикладом вище.
         </p>
       </section>
+<section class="card big-block" id="video-ua">
+  <h2 class="section-title">Відео</h2>
+
+  <p>
+    Короткі відео з роботи взводу технічного забезпечення:
+    евакуація техніки, ремонт у полі та робочі моменти нашої майстерні.
+  </p>
+
+  <div class="video-grid">
+
+    <!-- Відео 1 -->
+    <div class="video-card">
+      <div class="yt-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/jUTx6Om_L90"
+          title="Робочі моменти — 1"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p class="video-caption">Ремонт / евакуація — відео 1</p>
+    </div>
+
+    <!-- Відео 2 -->
+    <div class="video-card">
+      <div class="yt-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/DR1o8KQuTp4"
+          title="Робочі моменти — 2"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p class="video-caption">Ремонт / евакуація — відео 2</p>
+    </div>
+
+    <!-- Відео 3 -->
+    <div class="video-card">
+      <div class="yt-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/er5Kzpb7stc"
+          title="Робочі моменти — 3"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <p class="video-caption">Ремонт / евакуація — відео 3</p>
+    </div>
+
+  </div>
+</section>
 
       <!-- ПОТОЧНІ ПОТРЕБИ -->
       <section class="card big-block" id="current-needs-ua">
