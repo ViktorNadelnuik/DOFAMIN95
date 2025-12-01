@@ -348,6 +348,125 @@
       min-height: 90px;
       resize: vertical;
     }
+    /* ===== LIGHTBOX ГАЛЕРЕЯ ===== */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 16px;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      position: relative;
+      max-width: 980px;
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lightbox-img-wrap {
+      position: relative;
+      max-height: calc(100vh - 140px);
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 16px;
+      background: #050910;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: calc(100vh - 160px);
+      object-fit: contain;
+      display: block;
+    }
+
+    .lightbox-caption {
+      font-size: 13px;
+      text-align: center;
+      opacity: 0.85;
+    }
+
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      border: none;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      cursor: pointer;
+      border-radius: 999px;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.6);
+      transition: background 0.15s ease, transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .lightbox-close {
+      top: -12px;
+      right: -12px;
+      background: rgba(0,0,0,0.8);
+      font-size: 22px;
+    }
+
+    .lightbox-prev {
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-next {
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-close:hover,
+    .lightbox-prev:hover,
+    .lightbox-next:hover {
+      background: rgba(0,0,0,0.95);
+      transform: scale(1.06);
+    }
+
+    @media (max-width: 768px) {
+      .lightbox-inner {
+        max-width: 100%;
+      }
+      .lightbox-prev,
+      .lightbox-next {
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
+      }
+      .lightbox-close {
+        width: 32px;
+        height: 32px;
+        font-size: 20px;
+        top: -10px;
+        right: -10px;
+      }
+      .lightbox-caption {
+        font-size: 12px;
+      }
+    }
 
     @media (max-width: 1024px) {
       .page {
@@ -842,10 +961,113 @@
         Дякуємо за підтримку взводу технічного забезпечення 142 ОМБр.<br>
         Кожен донат — це ще одна відремонтована машина і збережені життя.
       </footer>
+      <!-- LIGHTBOX ДЛЯ ГАЛЕРЕЇ -->
+      <div id="lightbox" class="lightbox" aria-hidden="true">
+        <div class="lightbox-inner" role="dialog" aria-modal="true">
+          <div class="lightbox-img-wrap">
+            <button type="button" class="lightbox-prev" aria-label="Previous image">&lsaquo;</button>
+            <img id="lightbox-img" class="lightbox-img" src="" alt="">
+            <button type="button" class="lightbox-next" aria-label="Next image">&rsaquo;</button>
+            <button type="button" class="lightbox-close" aria-label="Close">&times;</button>
+          </div>
+          <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+      </div>
 
     </main>
   </div>
 </div>
+  // ===== LIGHTBOX ГАЛЕРЕЯ ДЛЯ .gallery-item img =====
+  (function () {
+    var images = document.querySelectorAll('.gallery-item img');
+    if (!images.length) return;
+
+    var lightbox = document.getElementById('lightbox');
+    var lightboxImg = document.getElementById('lightbox-img');
+    var lightboxCaption = document.getElementById('lightbox-caption');
+    var btnClose = lightbox.querySelector('.lightbox-close');
+    var btnPrev = lightbox.querySelector('.lightbox-prev');
+    var btnNext = lightbox.querySelector('.lightbox-next');
+
+    var currentIndex = 0;
+    var items = [];
+
+    images.forEach(function (img, index) {
+      var caption = '';
+      var parent = img.parentElement;
+      if (parent && parent.querySelector('.gallery-caption')) {
+        caption = parent.querySelector('.gallery-caption').innerText.trim();
+      } else if (img.alt) {
+        caption = img.alt;
+      }
+
+      items.push({
+        src: img.src,
+        alt: img.alt || '',
+        caption: caption
+      });
+
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', function () {
+        openLightbox(index);
+      });
+    });
+
+    function openLightbox(index) {
+      currentIndex = index;
+      updateLightbox();
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function updateLightbox() {
+      var item = items[currentIndex];
+      lightboxImg.src = item.src;
+      lightboxImg.alt = item.alt;
+      lightboxCaption.textContent = item.caption || '';
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % items.length;
+      updateLightbox();
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + items.length) % items.length;
+      updateLightbox();
+    }
+
+    btnClose.addEventListener('click', closeLightbox);
+    btnNext.addEventListener('click', showNext);
+    btnPrev.addEventListener('click', showPrev);
+
+    // Клік по темному фону закриває lightbox
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    // Закриття по Esc
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+        closeLightbox();
+      }
+      if (e.key === 'ArrowRight' && lightbox.classList.contains('is-open')) {
+        showNext();
+      }
+      if (e.key === 'ArrowLeft' && lightbox.classList.contains('is-open')) {
+        showPrev();
+      }
+    });
+  })();
 
 <script>
   // Генерація QR
