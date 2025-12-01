@@ -78,9 +78,37 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.7);
     }
 
-    .site-title {
-      font-size: 18px;
-      font-weight: 700;
+  .site-title {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 0 0, rgba(255,255,255,0.18), transparent 55%),
+              linear-gradient(135deg, rgba(0,0,0,0.82), rgba(3,7,18,0.96));
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.75);
+}
+
+.site-title-main {
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: linear-gradient(120deg, #ffd700, #ffffff, #00e3aa);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 10px rgba(0,0,0,0.9);
+}
+
+.site-title-sub {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(230, 240, 255, 0.9);
+  opacity: 0.95;
+}
+
     }
 
     .lang-switch {
@@ -711,7 +739,10 @@
       <div class="top-row">
         <div class="top-bar">
           <img src="logo.png" alt="Лого" class="logo">
-          <span class="site-title">142 ОМБр • Взвод технічного забезпечення</span>
+           <div class="site-title">
+    <div class="site-title-main">142 ОМБр</div>
+    <div class="site-title-sub">взвод технічного забезпечення</div>
+  </div>
         </div>
         <div class="lang-switch">
           <a href="index.html" class="active">UA</a>
