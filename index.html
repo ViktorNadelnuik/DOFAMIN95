@@ -730,6 +730,34 @@
   font-size: 15px;
   line-height: 1;
 }
+.block-donate-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0057b7, #ffd700); /* синьо-жовта тема */
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.32);
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.45);
+  transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
+}
+
+.block-donate-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  opacity: 0.95;
+  box-shadow: 0 9px 22px rgba(0,0,0,0.6);
+}
+
+.block-donate-btn .icon {
+  font-size: 15px;
+  line-height: 1;
+}
 
   </style>
 </head>
@@ -1886,6 +1914,26 @@
     btn.className = 'block-donate-btn';
     btn.innerHTML = '<span class="icon">🔧</span> Підтримати взвод';
     
+    btn.addEventListener('click', function () {
+      var donate = document.getElementById('donate');
+      if (donate) donate.scrollIntoView({ behavior: "smooth" });
+    });
+
+    block.appendChild(btn);
+  });
+})();
+// === AUTO ADD SUPPORT BUTTON WITH FLAG ===
+(function () {
+  var blocks = document.querySelectorAll('.big-block');
+
+  blocks.forEach(function (block) {
+    // Щоб не дублювалась кнопка, якщо вже є
+    if (block.querySelector('.block-donate-btn')) return;
+
+    var btn = document.createElement('button');
+    btn.className = 'block-donate-btn';
+    btn.innerHTML = '<span class="icon">🇺🇦</span> Підтримати взвод';
+
     btn.addEventListener('click', function () {
       var donate = document.getElementById('donate');
       if (donate) donate.scrollIntoView({ behavior: "smooth" });
