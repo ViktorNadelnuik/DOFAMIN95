@@ -415,6 +415,53 @@
       }
     }
 
+    /* PROGRESS BAR */
+    .progress-text {
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 16px;
+      border-radius: 999px;
+      background: rgba(3,7,18,0.9);
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 2px;
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.7);
+      margin-top: 6px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #00e3aa, #00b4ff);
+      width: 70%; /* change percentage here */
+      position: relative;
+      transition: width 0.5s ease-out;
+    }
+
+    .progress-fill::after {
+      content: attr(data-label);
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 11px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .progress-meta {
+      margin-top: 6px;
+      font-size: 12px;
+      opacity: 0.8;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
     /* === SCROLL TO TOP BUTTON === */
     .scroll-top-btn {
       position: fixed;
@@ -462,7 +509,6 @@
     }
 
     /* ===== RESPONSIVE ===== */
-
     @media (max-width: 1024px) {
       .page {
         padding: 20px 10px 32px;
@@ -571,7 +617,6 @@
     }
 
     /* ===== Animations ===== */
-
     @keyframes fadeInPage {
       from { opacity: 0; transform: translateY(10px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -724,6 +769,27 @@
 
         <p>Every euro, dollar or other contribution you send turns into a very specific thing in our hands:
           a tool, a spare part, oil or welding material – something that gives a vehicle one more run and our soldiers one more chance.</p>
+      </section>
+
+      <!-- ONGOING FUNDRAISER PROGRESS BAR -->
+      <section class="card big-block" id="progress-en">
+        <h2 class="section-title">Ongoing fundraiser</h2>
+
+        <p class="progress-text">
+          This is an open-ended fundraiser to support the daily work of the technical support platoon:
+          tools, spare parts, oils, welding, diagnostics and field workshops. Every contribution helps
+          us keep the vehicles running.
+        </p>
+
+        <div class="progress-track">
+          <!-- Adjust width and data-label manually when you want to update the visual progress -->
+          <div class="progress-fill" style="width: 70%;" data-label="Fundraiser active"></div>
+        </div>
+
+        <div class="progress-meta">
+          <span>Last updated: 01.12.2025</span>
+          <span>Status: ongoing fundraiser</span>
+        </div>
       </section>
 
       <!-- DONATIONS -->
@@ -926,6 +992,7 @@
       <footer>
         Thank you for supporting the technical support platoon of the 142nd Brigade.<br>
         Your help keeps our vehicles running – and our soldiers alive.
+        <div id="visitor-counter-en" style="margin-top:6px; font-size:11px; opacity:0.75;"></div>
       </footer>
 
       <!-- SCROLL TO TOP BUTTON -->
@@ -1021,7 +1088,7 @@
     window.open(shareUrl, '_blank');
   }
 
-  // ===== LIGHTBOX GALLERY FOR .gallery-item img =====
+  // ===== LIGHTBOX GALLERY =====
   (function () {
     var lightbox = document.getElementById('lightbox');
     if (!lightbox) return;
@@ -1094,14 +1161,12 @@
     btnNext.addEventListener('click', showNext);
     btnPrev.addEventListener('click', showPrev);
 
-    // Click on dark background closes lightbox
     lightbox.addEventListener('click', function (e) {
       if (e.target === lightbox) {
         closeLightbox();
       }
     });
 
-    // Keyboard shortcuts
     document.addEventListener('keydown', function (e) {
       if (!lightbox.classList.contains('is-open')) return;
       if (e.key === 'Escape') closeLightbox();
@@ -1130,6 +1195,21 @@
         behavior: 'smooth'
       });
     });
+  })();
+
+  // ===== VISITOR COUNTER (EN) =====
+  (function () {
+    var el = document.getElementById('visitor-counter-en');
+    if (!el) return;
+
+    fetch('https://api.countapi.xyz/hit/vtz-142omb/site')
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        el.textContent = 'Site visits: ' + data.value;
+      })
+      .catch(function () {
+        el.textContent = 'Site visits: —';
+      });
   })();
 </script>
 </body>
