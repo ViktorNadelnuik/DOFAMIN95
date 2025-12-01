@@ -512,6 +512,52 @@
         font-size: 20px;
       }
     }
+    /* PROGRESS BAR */
+    .progress-text {
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 16px;
+      border-radius: 999px;
+      background: rgba(3,7,18,0.9);
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 2px;
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.7);
+      margin-top: 6px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #00e3aa, #00b4ff);
+      width: 70%; /* <- ТУТ ТИ МІНЯЄШ ВІДСОТОК */
+      position: relative;
+      transition: width 0.5s ease-out;
+    }
+
+    .progress-fill::after {
+      content: attr(data-label);
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 11px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .progress-meta {
+      margin-top: 6px;
+      font-size: 12px;
+      opacity: 0.8;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
 
     /* ===== АДАПТИВНІСТЬ ===== */
     @media (max-width: 1024px) {
@@ -768,6 +814,26 @@
           Генератори, подовжувачі, LED-освітлення, будівельні прожектори, плівка, брезент, робочі рукавиці, спецодяг — щоб ми могли працювати в полі за будь-якої погоди.</p>
 
         <p>Кожна гривня, яку ви надсилаєте, — це дуже конкретна річ у наших руках: інструмент, запчастина, мастило чи зварка, яка дозволяє машині виїхати ще раз — і повернути хлопців живими.</p>
+      </section>
+      <!-- ПРОГРЕС-БАР ПОТОЧНОГО ЗБОРУ -->
+      <section class="card big-block" id="progress-ua">
+        <h2 class="section-title">Поточний збір</h2>
+
+        <p class="progress-text">
+          Це безстроковий збір на забезпечення роботи взводу технічного забезпечення:
+          інструмент, запчастини, мастила, зварювання, діагностика та польові майстерні.
+          Кожна гривня допомагає тримати техніку в строю.
+        </p>
+
+        <div class="progress-track">
+          <!-- width у стилі та текст data-label ти можеш змінювати вручну -->
+          <div class="progress-fill" style="width: 70%;" data-label="Збір триває"></div>
+        </div>
+
+        <div class="progress-meta">
+          <span>Оновлено: 01.12.2025</span>
+          <span>Статус: безстроковий збір</span>
+        </div>
       </section>
 
       <!-- ДОНАТИ -->
