@@ -6,12 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Підтримайте взвод технічного забезпечення 142-ї бригади. Ваші донати допомагають ремонтувати техніку і рятувати життя.">
 
-  <!-- Favicon / шеврон -->
-  <link rel="icon"
-        href="https://viktornadelniuk.github.io/DOFAMIN95/favicon.png"
-        type="image/png">
+  <link rel="icon" href="https://viktornadelniuk.github.io/DOFAMIN95/favicon.png" type="image/png">
 
-  <!-- OG -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Підтримати взвод технічного забезпечення · 142 ОМБр">
   <meta property="og:description" content="Взвод технічного забезпечення ремонтує техніку прямо на передовій, щоб машини їхали, а бійці поверталися живими.">
@@ -100,7 +96,7 @@
       border-color: rgba(255,255,255,0.6);
     }
 
-    /* ===== HAZARD BORDER ===== */
+    /* HAZARD BORDER */
     .hero-hazard-border {
       border-radius: 26px;
       padding: 3px;
@@ -338,6 +334,30 @@
       font-size: 11px;
       background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
       opacity: 0.9;
+    }
+
+    /* VIDEO */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .video-item {
+      position: relative;
+      padding-top: 56.25%; /* 16:9 */
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: #050910;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.6);
+    }
+    .video-item iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
     footer {
@@ -778,7 +798,6 @@
         </p>
 
         <div class="gallery-grid">
-          <!-- тут ті самі 15 фото, як у тебе -->
           <figure class="gallery-item">
             <img src="gallery1.jpg" alt="Ремонт вантажівки після евакуації з передової">
             <figcaption class="gallery-caption">Ремонт вантажівки після евакуації з передової</figcaption>
@@ -839,6 +858,36 @@
             <img src="gallery15.jpg" alt="Техніка після ремонту знову виходить на лінію">
             <figcaption class="gallery-caption">Техніка після ремонту знову виходить на лінію</figcaption>
           </figure>
+        </div>
+      </section>
+
+      <!-- ВІДЕО -->
+      <section class="card big-block" id="video-ua">
+        <h2 class="section-title">Відео з роботи взводу</h2>
+        <p>Кілька коротких відео з щоденної роботи взводу технічного забезпечення.</p>
+
+        <div class="video-grid">
+          <div class="video-item">
+            <iframe
+              src="https://www.youtube.com/embed/jUTx6Om_L90"
+              title="Video 1"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+          <div class="video-item">
+            <iframe
+              src="https://www.youtube.com/embed/DR1o8KQuTp4"
+              title="Video 2"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+          <div class="video-item">
+            <iframe
+              src="https://www.youtube.com/embed/er5Kzpb7stc"
+              title="Video 3"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
         </div>
       </section>
 
@@ -1078,6 +1127,7 @@
           </summary>
           <p style="margin-top:4px; font-size:13px;">
             Так. Ми є взводом технічного забезпечення мотопіхотного батальйону у складі 142-ї окремої механізованої бригади.
+            Уся техніка, з якою ми працюємо, офіційно закріплена за підрозділами ЗСУ.
           </p>
         </details>
 
@@ -1086,8 +1136,42 @@
             На що саме йдуть донати?
           </summary>
           <p style="margin-top:4px; font-size:13px;">
-            На інструмент, запчастини, витратні матеріали, мастила, зварювання, діагностику та базові умови
-            для роботи польової майстерні.
+            Передусім на інструмент, запчастини, витратні матеріали, мастила, зварювання, діагностику та базові умови
+            для роботи польової майстерні. Тобто прямо на те, що дозволяє ремонтувати вантажівки та бронетехніку,
+            щоб вони могли далі виконувати бойові завдання.
+          </p>
+        </details>
+
+        <details style="margin-bottom:6px;">
+          <summary style="cursor:pointer; font-weight:600; font-size:14px;">
+            Чи можна допомогти не грошима, а інструментом або запчастинами?
+          </summary>
+          <p style="margin-top:4px; font-size:13px;">
+            Так, це можливо. Якщо ви готові передати інструмент, обладнання, запчастини або інші матеріали,
+            напишіть нам на <strong>Email</strong> <a href="mailto:nadelnuikviktor@gmail.com">nadelnuikviktor@gmail.com</a>
+            або в <strong>Telegram</strong> <code>@DOFAMIN95</code>, і ми надамо перелік актуальних потреб та деталі доставки.
+          </p>
+        </details>
+
+        <details style="margin-bottom:6px;">
+          <summary style="cursor:pointer; font-weight:600; font-size:14px;">
+            Чи надаєте ви звітність за зібрані кошти?
+          </summary>
+          <p style="margin-top:4px; font-size:13px;">
+            Так. Для фондів, великих донаторів та ініціатив ми можемо підготувати окремий звіт: фото, опис закупленого,
+            на що саме пішли кошти та як це допомогло у роботі взводу ТЗ. Для цього достатньо звʼязатися з нами
+            через форму для фондів або напряму на пошту.
+          </p>
+        </details>
+
+        <details>
+          <summary style="cursor:pointer; font-weight:600; font-size:14px;">
+            Чи можна публічно згадувати ваш підрозділ або фото з технікою?
+          </summary>
+          <p style="margin-top:4px; font-size:13px;">
+            Такі речі ми погоджуємо окремо з урахуванням безпеки. Якщо ви фонд, медіа або компанія і хочете публічно
+            згадати підрозділ чи використати фото – будь ласка, напишіть нам, і ми скажемо, що можна публікувати,
+            а що потребує обмежень.
           </p>
         </details>
       </section>
@@ -1098,6 +1182,7 @@
 
         <p>
           Ви можете допомогти не лише донатом, а й тим, що розповісте про взвод ТЗ іншим.
+          Скопіюйте готовий текст або поділіться сторінкою напряму в улюбленому месенджері чи соцмережі.
         </p>
 
         <div class="btn-row" style="margin-top:10px; margin-bottom:14px;">
@@ -1111,6 +1196,28 @@
                   type="button"
                   onclick="copyText('Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade. They repair trucks and armored vehicles right at the frontline so that vehicles keep moving and soldiers return alive. If you can, please support with a donation or by sharing this link: https://viktornadelniuk.github.io/DOFAMIN95/en.html')">
             Скопіювати текст англійською
+          </button>
+        </div>
+
+        <div class="btn-row">
+          <button class="donate-btn" type="button" onclick="shareUa('telegram')">
+            Поділитися в Telegram
+          </button>
+
+          <button class="donate-btn" type="button" onclick="shareUa('viber')">
+            Поділитися у Viber
+          </button>
+
+          <button class="donate-btn" type="button" onclick="shareUa('whatsapp')">
+            Поділитися в WhatsApp
+          </button>
+
+          <button class="donate-btn" type="button" onclick="shareUa('facebook')">
+            Поділитися у Facebook
+          </button>
+
+          <button class="donate-btn" type="button" onclick="shareUa('instagram')">
+            Поділитися в Instagram
           </button>
         </div>
       </section>
@@ -1168,6 +1275,42 @@
       alert('Не вдалося скопіювати. Скопіюйте вручну: ' + text);
     }
     document.body.removeChild(area);
+  }
+
+  // Тексти для шерінгу
+  const SHARE_TEXT_UA = 'Привіт! Це збір для взводу технічного забезпечення 142 ОМБр. Хлопці ремонтують вантажівки та броню прямо на передовій, щоб техніка їхала і всі повертались живими.';
+  const SHARE_URL_UA  = 'https://viktornadelniuk.github.io/DOFAMIN95/';
+
+  function shareUa(service) {
+    const text = SHARE_TEXT_UA + ' ' + SHARE_URL_UA;
+    let shareUrl = '';
+
+    switch (service) {
+      case 'telegram':
+        shareUrl = 'https://t.me/share/url?url='
+          + encodeURIComponent(SHARE_URL_UA)
+          + '&text=' + encodeURIComponent(SHARE_TEXT_UA);
+        break;
+      case 'viber':
+        shareUrl = 'viber://forward?text=' + encodeURIComponent(text);
+        break;
+      case 'whatsapp':
+        shareUrl = 'https://wa.me/?text=' + encodeURIComponent(text);
+        break;
+      case 'facebook':
+        shareUrl = 'https://www.facebook.com/sharer/sharer.php?u='
+          + encodeURIComponent(SHARE_URL_UA);
+        break;
+      case 'instagram':
+        copyText(text);
+        shareUrl = 'https://www.instagram.com/';
+        break;
+      default:
+        copyText(text);
+        return;
+    }
+
+    window.open(shareUrl, '_blank');
   }
 
   // LIGHTBOX
@@ -1262,10 +1405,10 @@
     });
   })();
 
-  // ПРОГРЕС ЗБОРУ
+  // ПРОГРЕС ЗБОРУ – змінюй TARGET та CURRENT під себе
   (function () {
-    var TARGET  = безстроковий;  // змінюєш під себе
-    var CURRENT = 0;
+    var TARGET  = 200000;  // ціль у грн
+    var CURRENT = 57500;   // скільки вже зібрано
 
     var fill = document.getElementById('progress-fill-ua');
     var text = document.getElementById('progress-text-ua');
