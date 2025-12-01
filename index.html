@@ -876,43 +876,93 @@
           <span>Оновлено: 01.12.2025</span>
           <span>Статус: безстроковий збір</span>
         </div>
-      </section>
-      <!-- ЗВЕРНЕННЯ ДО ФОНДІВ ТА ВЕЛИКИХ ДОНАТЕРІВ -->
+           <!-- ЗВЕРНЕННЯ ДО ФОНДІВ ТА ВЕЛИКИХ ДОНАТЕРІВ -->
       <section class="card big-block" id="funds-request-ua">
         <h2 class="section-title">Для фондів, організацій та великих донатерів</h2>
 
         <p>
-          Ми відкриті до співпраці з фондами, волонтерськими ініціативами, бізнесом та окремими великими донатерами,
-          які хочуть закривати цільові запити для взводу технічного забезпечення.
+          Якщо ви представляєте фонд, волонтерську ініціативу, бізнес або є великим донатором – нижче можна заповнити
+          коротку форму, і ми отримаємо від вас структурований запит на співпрацю.
         </p>
 
-        <p>
-          Наш пріоритет – інструмент, запчастини, зварювання, діагностика, мастила та все, що стосується ремонту та
-          обслуговування вантажівок і бронетехніки батальйону на бойовому напрямку.
+        <p style="margin-bottom:8px;">
+          Пріоритетні напрямки підтримки: інструмент, обладнання, запчастини, зварювання, діагностика, мастила
+          та все, що стосується ремонту й обслуговування вантажівок та бронетехніки батальйону.
         </p>
 
-        <p>
-          На запит ми можемо надати:
-        </p>
-        <ul style="margin-left:18px; font-size:13px; opacity:0.95;">
-          <li>конкретний список поточних потреб (інструмент, обладнання, запчастини);</li>
-          <li>орієнтовну вартість по позиціях або групах обладнання;</li>
-          <li>фото- та текстовий звіт про використання закупленого чи переданого;</li>
-          <li>узгодження публічних згадок (якщо ви хочете, щоб фонд/компанія були відзначені публічно).</li>
-        </ul>
+        <form id="fundsFormUa" onsubmit="handleFundsUa(event)" style="margin-top:6px; display:grid; gap:8px;">
+          <div>
+            <label for="org_ua" style="font-size:13px;">Організація / фонд / компанія*</label><br>
+            <input id="org_ua" name="org" required
+                   style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
+          </div>
 
-        <p style="margin-top:8px;">
-          Для комунікації з фондами та великими донорами, будь ласка, пишіть на:
-          <br>
-          <strong>Email:</strong> <a href="mailto:nadelnuikviktor@gmail.com">nadelnuikviktor@gmail.com</a><br>
-          <strong>Telegram:</strong> <code>@DOFAMIN95</code>
-        </p>
+          <div style="display:grid; gap:8px;">
+            <div>
+              <label for="person_ua" style="font-size:13px;">Контактна особа*</label><br>
+              <input id="person_ua" name="person" required
+                     style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
+            </div>
 
-        <p style="margin-top:6px; font-size:12px; opacity:0.8;">
-          За потреби можемо підготувати окремий цільовий запит (по групі інструментів чи обладнання) спеціально під ваш фонд
-          або ініціативу.
-        </p>
+            <div>
+              <label for="email_ua" style="font-size:13px;">Email*</label><br>
+              <input id="email_ua" name="email" type="email" required
+                     style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
+            </div>
+
+            <div>
+              <label for="telegram_ua" style="font-size:13px;">Телеграм / телефон (необовʼязково)</label><br>
+              <input id="telegram_ua" name="telegram"
+                     placeholder="@username або номер"
+                     style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
+            </div>
+          </div>
+
+          <div>
+            <label for="country_ua" style="font-size:13px;">Країна / місто</label><br>
+            <input id="country_ua" name="country"
+                   style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
+          </div>
+
+          <div>
+            <label for="type_ua" style="font-size:13px;">Який тип підтримки розглядаєте?*</label><br>
+            <select id="type_ua" name="supportType" required
+                    style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.85); color:#fff; font-size:13px;">
+              <option value="">Оберіть варіант</option>
+              <option value="Інструмент та обладнання">Інструмент та обладнання</option>
+              <option value="Запчастини / витратники">Запчастини / витратники</option>
+              <option value="Зварювання та металообробка">Зварювання та металообробка</option>
+              <option value="Діагностика та електрика">Діагностика та електрика</option>
+              <option value="Комплексна/довгострокова підтримка">Комплексна / довгострокова підтримка</option>
+              <option value="Інше">Інше</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="budget_ua" style="font-size:13px;">Орієнтовний бюджет або формат підтримки</label><br>
+            <input id="budget_ua" name="budget"
+                   placeholder="сума, діапазон або «обладнання / інструментами / запчастинами»"
+                   style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
+          </div>
+
+          <div>
+            <label for="comment_ua" style="font-size:13px;">Коментар / деталі</label><br>
+            <textarea id="comment_ua" name="comment" rows="4"
+                      placeholder="Коротко опишіть, що саме ви розглядаєте, строки, умови тощо."
+                      style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px; resize:vertical;"></textarea>
+          </div>
+
+          <button type="submit" class="donate-btn" style="margin-top:4px; align-self:flex-start;">
+            Заповнити та створити лист
+          </button>
+
+          <p style="font-size:11px; opacity:0.75;">
+            Після натискання відкриється ваш Email-клієнт з готовим листом на адресу
+            <strong>nadelnuikviktor@gmail.com</strong>, куди автоматично підставляться всі введені дані.
+          </p>
+        </form>
       </section>
+
 
       <!-- ДОНАТИ -->
       <h2 class="section-title" id="donate">Як підтримати взвод</h2>
