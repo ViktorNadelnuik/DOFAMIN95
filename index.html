@@ -248,7 +248,7 @@
       display: block;
     }
 
-    /* GALLERY */
+    /* ГАЛЕРЕЯ */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -296,7 +296,6 @@
       font-size: 12px;
     }
 
-    /* ===== АДАПТИВНІСТЬ ===== */
     /* HELP DESK FORM */
     .form-grid {
       margin-top: 10px;
@@ -348,6 +347,7 @@
       min-height: 90px;
       resize: vertical;
     }
+
     /* ===== LIGHTBOX ГАЛЕРЕЯ ===== */
     .lightbox {
       position: fixed;
@@ -368,7 +368,6 @@
       position: relative;
       max-width: 980px;
       width: 100%;
-      height: auto;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -468,6 +467,7 @@
       }
     }
 
+    /* ===== АДАПТИВНІСТЬ ===== */
     @media (max-width: 1024px) {
       .page {
         padding: 20px 10px 32px;
@@ -664,7 +664,7 @@
         <h2 class="section-title">Фотогалерея взводу</h2>
 
         <p>
-          Трохи наших буднів: ремонти в полі, робота майстерень та вантажівок,
+          Трохи наших буднів: евакуація техніки, ремонти в полі, робота майстерень та вантажівок,
           які завдяки вам повертаються в стрій.
         </p>
 
@@ -735,7 +735,7 @@
             <h3><span class="mono-label">Monobank</span> · Банка «142 ОМБр · Техвзвод»</h3>
             <p><strong>Отримувач:</strong> Надельнюк Віктор Миколайович</p>
             <p><strong>IBAN:</strong><br>UA683220010000026208372629615</p>
-            <p><strong>Призначення:</strong> ВТЗ МПБ 142 ОМБр</p>
+            <p><strong>Призначення:</strong> <code>ВТЗ МПБ 142 ОМБр</code></p>
           </div>
           <div>
             <div class="btn-row">
@@ -761,7 +761,7 @@
             <h3><span class="privat-label">PrivatBank</span> · Поповнення картки</h3>
             <p><strong>Отримувач:</strong> НАДЕЛЬНЮК ВІКТОР МИКОЛАЙОВИЧ</p>
             <p><strong>IBAN:</strong><br>UA023052990262076400994803502</p>
-            <p><strong>Призначення:</strong> ВТЗ МПБ 142 ОМБр</p>
+            <p><strong>Призначення:</strong> <code>ВТЗ МПБ 142 ОМБр</code></p>
           </div>
           <div>
             <div class="btn-row">
@@ -861,6 +861,7 @@
           </div>
         </section>
       </div>
+
       <!-- HELP DESK ДЛЯ ВОЛОНТЕРІВ ТА ФОНДІВ -->
       <section class="card big-block" id="help-desk">
         <h2 class="section-title">Help Desk для волонтерів та фондів</h2>
@@ -957,10 +958,6 @@
         </div>
       </section>
 
-      <footer>
-        Дякуємо за підтримку взводу технічного забезпечення 142 ОМБр.<br>
-        Кожен донат — це ще одна відремонтована машина і збережені життя.
-      </footer>
       <!-- LIGHTBOX ДЛЯ ГАЛЕРЕЇ -->
       <div id="lightbox" class="lightbox" aria-hidden="true">
         <div class="lightbox-inner" role="dialog" aria-modal="true">
@@ -974,100 +971,14 @@
         </div>
       </div>
 
+      <footer>
+        Дякуємо за підтримку взводу технічного забезпечення 142 ОМБр.<br>
+        Кожен донат — це ще одна відремонтована машина і збережені життя.
+      </footer>
+
     </main>
   </div>
 </div>
-  // ===== LIGHTBOX ГАЛЕРЕЯ ДЛЯ .gallery-item img =====
-  (function () {
-    var images = document.querySelectorAll('.gallery-item img');
-    if (!images.length) return;
-
-    var lightbox = document.getElementById('lightbox');
-    var lightboxImg = document.getElementById('lightbox-img');
-    var lightboxCaption = document.getElementById('lightbox-caption');
-    var btnClose = lightbox.querySelector('.lightbox-close');
-    var btnPrev = lightbox.querySelector('.lightbox-prev');
-    var btnNext = lightbox.querySelector('.lightbox-next');
-
-    var currentIndex = 0;
-    var items = [];
-
-    images.forEach(function (img, index) {
-      var caption = '';
-      var parent = img.parentElement;
-      if (parent && parent.querySelector('.gallery-caption')) {
-        caption = parent.querySelector('.gallery-caption').innerText.trim();
-      } else if (img.alt) {
-        caption = img.alt;
-      }
-
-      items.push({
-        src: img.src,
-        alt: img.alt || '',
-        caption: caption
-      });
-
-      img.style.cursor = 'zoom-in';
-      img.addEventListener('click', function () {
-        openLightbox(index);
-      });
-    });
-
-    function openLightbox(index) {
-      currentIndex = index;
-      updateLightbox();
-      lightbox.classList.add('is-open');
-      lightbox.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      lightbox.classList.remove('is-open');
-      lightbox.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    function updateLightbox() {
-      var item = items[currentIndex];
-      lightboxImg.src = item.src;
-      lightboxImg.alt = item.alt;
-      lightboxCaption.textContent = item.caption || '';
-    }
-
-    function showNext() {
-      currentIndex = (currentIndex + 1) % items.length;
-      updateLightbox();
-    }
-
-    function showPrev() {
-      currentIndex = (currentIndex - 1 + items.length) % items.length;
-      updateLightbox();
-    }
-
-    btnClose.addEventListener('click', closeLightbox);
-    btnNext.addEventListener('click', showNext);
-    btnPrev.addEventListener('click', showPrev);
-
-    // Клік по темному фону закриває lightbox
-    lightbox.addEventListener('click', function (e) {
-      if (e.target === lightbox) {
-        closeLightbox();
-      }
-    });
-
-    // Закриття по Esc
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
-        closeLightbox();
-      }
-      if (e.key === 'ArrowRight' && lightbox.classList.contains('is-open')) {
-        showNext();
-      }
-      if (e.key === 'ArrowLeft' && lightbox.classList.contains('is-open')) {
-        showPrev();
-      }
-    });
-  })();
 
 <script>
   // Генерація QR
@@ -1153,7 +1064,8 @@
 
     window.open(shareUrl, '_blank');
   }
-    // ===== HELP DESK: формування листа для волонтерів =====
+
+  // ===== HELP DESK: формування листа для волонтерів =====
   (function () {
     var form = document.getElementById('help-desk-form');
     if (!form) return;
@@ -1181,6 +1093,94 @@
     });
   })();
 
+  // ===== LIGHTBOX ГАЛЕРЕЯ ДЛЯ .gallery-item img =====
+  (function () {
+    var lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
+
+    var images = document.querySelectorAll('.gallery-item img');
+    if (!images.length) return;
+
+    var lightboxImg = document.getElementById('lightbox-img');
+    var lightboxCaption = document.getElementById('lightbox-caption');
+    var btnClose = lightbox.querySelector('.lightbox-close');
+    var btnPrev = lightbox.querySelector('.lightbox-prev');
+    var btnNext = lightbox.querySelector('.lightbox-next');
+
+    var currentIndex = 0;
+    var items = [];
+
+    images.forEach(function (img, index) {
+      var caption = '';
+      var parent = img.parentElement;
+      if (parent && parent.querySelector('.gallery-caption')) {
+        caption = parent.querySelector('.gallery-caption').innerText.trim();
+      } else if (img.alt) {
+        caption = img.alt;
+      }
+
+      items.push({
+        src: img.src,
+        alt: img.alt || '',
+        caption: caption
+      });
+
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', function () {
+        openLightbox(index);
+      });
+    });
+
+    function openLightbox(index) {
+      currentIndex = index;
+      updateLightbox();
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function updateLightbox() {
+      var item = items[currentIndex];
+      lightboxImg.src = item.src;
+      lightboxImg.alt = item.alt;
+      lightboxCaption.textContent = item.caption || '';
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % items.length;
+      updateLightbox();
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + items.length) % items.length;
+      updateLightbox();
+    }
+
+    btnClose.addEventListener('click', closeLightbox);
+    btnNext.addEventListener('click', showNext);
+    btnPrev.addEventListener('click', showPrev);
+
+    // Клік по фону
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    // Клавіатура
+    document.addEventListener('keydown', function (e) {
+      if (!lightbox.classList.contains('is-open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
+    });
+  })();
 </script>
 </body>
 </html>
