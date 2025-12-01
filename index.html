@@ -22,6 +22,14 @@
   object-fit: cover;
   box-shadow: 0 0 6px rgba(0,0,0,0.4);
   background: transparent; /* на всякий випадок */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05) rotate(-2deg);
+      box-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
+
 }
 
 
@@ -47,6 +55,8 @@
       padding: 24px 12px 40px;
       display: flex;
       justify-content: center;
+      animation: fadeInPage 0.7s ease-out;
+
     }
 
     .container {
@@ -86,6 +96,8 @@
   margin-bottom: 26px;
   border: 1px solid rgba(255,255,255,0.08);
   box-shadow: 0 18px 40px rgba(0,0,0,0.5);
+  animation: heroReveal 0.9s ease-out;
+
  }
 
     .hero-badge {
@@ -131,6 +143,14 @@
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 18px;
       margin-top: 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      animation: cardFade 0.55s ease-out;
+
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.75);
+      border-color: rgba(255,255,255,0.24);
     }
 
     .card {
@@ -176,15 +196,16 @@
       border: 1px solid rgba(255,255,255,0.2);
       background: linear-gradient(135deg, #00c6ff, #0072ff);
       box-shadow: 0 8px 18px rgba(0,0,0,0.35);
-      transition: 0.15s;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, opacity 0.15s ease;
       white-space: nowrap;
       cursor: pointer;
       background-clip: padding-box;
     }
 
     .donate-btn:hover {
-      transform: translateY(-2px);
-      background: linear-gradient(135deg, #34e89e, #0f9b0f);
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.5);
+      opacity: 0.98;
     }
 
     .donate-btn--mono   { background: linear-gradient(135deg, #00e3aa, #00b894); }
@@ -346,6 +367,22 @@
   background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
   opacity: 0.9;
 }
+    /* ===== Анімації ===== */
+
+    @keyframes fadeInPage {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes heroReveal {
+      from { opacity: 0; transform: translateY(8px) scale(0.99); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes cardFade {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
   </style>
 
@@ -355,7 +392,7 @@
 <div class="page">
   <div class="container">
 <div class="top-bar">
-  <img src="logo.png" alt="Logo" class="logo">
+  <img src=".png" alt="" class="">
     <span class="site-title">142 ОМБр • Взвод технічного забезпечення</span>
 </div>
 
