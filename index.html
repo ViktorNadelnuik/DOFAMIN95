@@ -234,7 +234,12 @@
     .donate-btn--paypal { background: linear-gradient(135deg, #009cde, #003087); }
     .donate-btn--crypto { background: linear-gradient(135deg, #f6d365, #fda085); }
 
-    .qr-wrap { margin-top: 8px; display: flex; justify-content: center; }
+    .qr-wrap {
+      margin-top: 8px;
+      display: flex;
+      justify-content: center;
+    }
+
     .qr {
       width: 150px;
       height: 150px;
@@ -560,7 +565,7 @@
             <h3><span class="mono-label">Monobank</span> · Банка «142 ОМБр · Техвзвод»</h3>
             <p><strong>Отримувач:</strong> Надельнюк Віктор Миколайович</p>
             <p><strong>IBAN:</strong><br>UA683220010000026208372629615</p>
-            <p><strong>Призначення:</strong> Поповнення рахунку банки</p>
+            <p><strong>Призначення:</strong> ВТЗ МПБ 142 ОМБр</p>
           </div>
           <div>
             <div class="btn-row">
@@ -586,7 +591,7 @@
             <h3><span class="privat-label">PrivatBank</span> · Поповнення картки</h3>
             <p><strong>Отримувач:</strong> НАДЕЛЬНЮК ВІКТОР МИКОЛАЙОВИЧ</p>
             <p><strong>IBAN:</strong><br>UA023052990262076400994803502</p>
-            <p><strong>Призначення:</strong> Поповнення рахунку, НАДЕЛЬНЮК ВІКТОР МИКОЛАЙОВИЧ</p>
+            <p><strong>Призначення:</strong> ВТЗ МПБ 142 ОМБр</p>
           </div>
           <div>
             <div class="btn-row">
@@ -605,12 +610,13 @@
           </div>
         </section>
 
-        <!-- PAYPAL / PАUPEY -->
+        <!-- PAYPAL / PAUPAY -->
         <section class="card">
           <div>
             <small>МІЖНАРОДНІ ПЛАТЕЖІ</small>
             <h3><span class="paypal-label">PayPal / Paupay</span></h3>
             <p><strong>Email:</strong><br>nadelnuikviktor@gmail.com</p>
+            <p><strong>Призначення (note / description):</strong><br><code>ВТЗ МПБ 142 ОМБр</code></p>
           </div>
           <div>
             <div class="btn-row">
@@ -619,8 +625,12 @@
                 Скопіювати email
               </button>
             </div>
-            <p style="font-size:12px; opacity:0.8;">
-              У призначенні платежу можна вказати: <em>Support 142 Brigade Tech Platoon</em>.
+            <div class="qr-wrap">
+              <img id="qr-paupay" class="qr" alt="QR Paupay / PayPal">
+            </div>
+            <p style="font-size:12px; opacity:0.8; margin-top:6px;">
+              У коментарі до платежу (note / description) прохання вказати:
+              <strong>ВТЗ МПБ 142 ОМБр</strong>.
             </p>
           </div>
         </section>
@@ -749,6 +759,8 @@
   setQR("qr-mono",   "https://send.monobank.ua/jar/8PfzHBQuu4");
   setQR("qr-privat", "https://www.privat24.ua/send/3xbxx");
   setQR("qr-btc",    "https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p");
+  // Paupay / PayPal QR – по email
+  setQR("qr-paupay", "nadelnuikviktor@gmail.com");
 
   // Копіювання в буфер
   function copyText(text) {
