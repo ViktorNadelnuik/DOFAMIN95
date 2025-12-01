@@ -1793,20 +1793,7 @@
 
     window.location.href = mailto;
   }
-  // === AUTO ADD "SUPPORT" BUTTON TO ALL BIG-BLOCKS ===
-(function () {
-  var blocks = document.querySelectorAll('.big-block');
-  blocks.forEach(function (block) {
-    var btn = document.createElement('button');
-    btn.className = 'block-donate-btn';
-    btn.textContent = 'Підтримати взвод';
-    btn.addEventListener('click', function () {
-      var donate = document.getElementById('donate');
-      if (donate) donate.scrollIntoView({ behavior: 'smooth' });
-    });
-    block.appendChild(btn);
-  });
-})();
+
 // === AUTO ADD "SUPPORT" BUTTON TO ALL BIG-BLOCKS (military style) ===
 (function () {
   var blocks = document.querySelectorAll('.big-block');
