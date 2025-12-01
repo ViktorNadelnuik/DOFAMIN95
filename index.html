@@ -1086,6 +1086,28 @@
       <footer>
         Дякуємо за підтримку взводу технічного забезпечення 142 ОМБр.<br>
         Кожен донат — це ще одна відремонтована машина і збережені життя.
+        <div id="visitor-counter-ua" style="margin-top:6px; font-size:11px; opacity:0.75;"></div>
+              <!-- ПРОГРЕС-БАР ПОТОЧНОГО ЗБОРУ -->
+      <section class="card big-block" id="progress-ua">
+        <h2 class="section-title">Поточний збір</h2>
+
+        <p class="progress-text">
+          Це безстроковий збір на забезпечення роботи взводу технічного забезпечення:
+          інструмент, запчастини, мастила, зварювання, діагностика та польові майстерні.
+          Кожна гривня допомагає тримати техніку в строю.
+        </p>
+
+        <div class="progress-track">
+          <!-- width у стилі та текст data-label ти можеш змінювати вручну -->
+          <div class="progress-fill" style="width: 70%;" data-label="Збір триває"></div>
+        </div>
+
+        <div class="progress-meta">
+          <span>Оновлено: 01.12.2025</span>
+          <span>Статус: безстроковий збір</span>
+        </div>
+      </section>
+
       </footer>
 
       <!-- КНОПКА ПРОКРУТКИ ВГОРУ -->
@@ -1096,6 +1118,21 @@
     </main>
   </div>
 </div>
+  // ===== ЛІЧИЛЬНИК ВІДВІДУВАЧІВ (UA) =====
+  (function () {
+    var el = document.getElementById('visitor-counter-ua');
+    if (!el) return;
+
+    fetch('https://api.countapi.xyz/hit/vtz-142omb/site')
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        // data.value – це загальна кількість відвідувань
+        el.textContent = 'Відвідувачів сайту: ' + data.value;
+      })
+      .catch(function () {
+        el.textContent = 'Відвідувачів сайту: —';
+      });
+  })();
 
 <script>
   // Генерація QR
