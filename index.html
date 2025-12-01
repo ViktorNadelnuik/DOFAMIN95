@@ -633,6 +633,27 @@
       from { opacity: 0; transform: translateY(10px); }
       to   { opacity: 1; transform: translateY(0); }
     }
+    .block-donate-btn {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.25);
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.block-donate-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  opacity: 0.95;
+}
+
   </style>
 </head>
 <body>
@@ -1724,6 +1745,21 @@
 
     window.location.href = mailto;
   }
+  // === AUTO ADD "SUPPORT" BUTTON TO ALL BIG-BLOCKS ===
+(function () {
+  var blocks = document.querySelectorAll('.big-block');
+  blocks.forEach(function (block) {
+    var btn = document.createElement('button');
+    btn.className = 'block-donate-btn';
+    btn.textContent = 'Підтримати взвод';
+    btn.addEventListener('click', function () {
+      var donate = document.getElementById('donate');
+      if (donate) donate.scrollIntoView({ behavior: 'smooth' });
+    });
+    block.appendChild(btn);
+  });
+})();
+
 </script>
 </body>
 </html>
