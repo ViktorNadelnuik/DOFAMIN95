@@ -297,6 +297,57 @@
     }
 
     /* ===== АДАПТИВНІСТЬ ===== */
+    /* HELP DESK FORM */
+    .form-grid {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .form-field label {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(2,4,10,0.85);
+      color: #fff;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: rgba(255,255,255,0.55);
+      font-size: 12px;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: rgba(0, 224, 181, 0.9);
+      box-shadow: 0 0 0 1px rgba(0, 224, 181, 0.4);
+      background: rgba(5,10,20,0.95);
+    }
+
+    .form-field textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
 
     @media (max-width: 1024px) {
       .page {
@@ -494,7 +545,7 @@
         <h2 class="section-title">Фотогалерея взводу</h2>
 
         <p>
-          Трохи наших буднів: евакуація техніки, ремонти в полі, робота майстерень та вантажівок,
+          Трохи наших буднів: ремонти в полі, робота майстерень та вантажівок,
           які завдяки вам повертаються в стрій.
         </p>
 
@@ -691,6 +742,55 @@
           </div>
         </section>
       </div>
+      <!-- HELP DESK ДЛЯ ВОЛОНТЕРІВ ТА ФОНДІВ -->
+      <section class="card big-block" id="help-desk">
+        <h2 class="section-title">Help Desk для волонтерів та фондів</h2>
+
+        <p>
+          Якщо ви можете допомогти запчастинами, інструментом, мастилами, логістикою чи іншим ресурсом —
+          залиште, будь ласка, свої контакти. Ми звʼяжемося з вами та узгодимо деталі.
+        </p>
+
+        <form id="help-desk-form" class="form-grid">
+          <div class="form-field">
+            <label for="hd-name">Імʼя / організація</label>
+            <input type="text" id="hd-name" name="hd-name" placeholder="Наприклад: Іван, волонтер / Благодійний фонд «...»">
+          </div>
+
+          <div class="form-field">
+            <label for="hd-contact">Як з вами звʼязатися</label>
+            <input type="text" id="hd-contact" name="hd-contact" placeholder="Telegram, телефон, e-mail">
+          </div>
+
+          <div class="form-field">
+            <label for="hd-type">Тип допомоги</label>
+            <select id="hd-type" name="hd-type">
+              <option value="Інструменти">Інструменти</option>
+              <option value="Запчастини">Запчастини</option>
+              <option value="Мастила та рідини">Мастила та рідини</option>
+              <option value="Зварювання та метал">Зварювання та метал</option>
+              <option value="Логістика / доставка">Логістика / доставка</option>
+              <option value="Інше">Інше</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="hd-message">Коротко про те, чим можете допомогти</label>
+            <textarea id="hd-message" name="hd-message" placeholder="Опишіть, будь ласка, що саме можете надати, в яких обсягах, з якої області тощо."></textarea>
+          </div>
+
+          <div class="form-field">
+            <button type="submit" class="donate-btn">
+              Надіслати запит волонтера
+            </button>
+          </div>
+        </form>
+
+        <p style="font-size:12px; opacity:0.8; margin-top:6px;">
+          Після натискання кнопки відкриється ваш поштовий клієнт із заповненим листом на адресу
+          <strong>nadelnuikviktor@gmail.com</strong>. Перевірте текст і натисніть «Надіслати».
+        </p>
+      </section>
 
       <!-- ПОДІЛИТИСЯ -->
       <section class="card big-block" id="share-ua">
@@ -831,6 +931,34 @@
 
     window.open(shareUrl, '_blank');
   }
+    // ===== HELP DESK: формування листа для волонтерів =====
+  (function () {
+    var form = document.getElementById('help-desk-form');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var name = (form.elements['hd-name'].value || '').trim() || '—';
+      var contact = (form.elements['hd-contact'].value || '').trim() || '—';
+      var type = (form.elements['hd-type'].value || '').trim() || '—';
+      var message = (form.elements['hd-message'].value || '').trim() || '—';
+
+      var subject = 'Help Desk – ВТЗ МПБ 142 ОМБр';
+      var body =
+        'Імʼя / організація: ' + name + '\n' +
+        'Контакти: ' + contact + '\n' +
+        'Тип допомоги: ' + type + '\n\n' +
+        'Повідомлення:\n' + message + '\n';
+
+      var mailto = 'mailto:nadelnuikviktor@gmail.com'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(body);
+
+      window.location.href = mailto;
+    });
+  })();
+
 </script>
 </body>
 </html>
