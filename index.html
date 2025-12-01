@@ -434,14 +434,15 @@
       margin-top: 6px;
     }
 
-    .progress-fill {
-      height: 100%;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #00e3aa, #00b4ff);
-      width: 70%;
-      position: relative;
-      transition: width 0.5s ease-out;
-    }
+   .progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #00e3aa, #00b4ff);
+  width: 0; /* ширину тепер задає JS */
+  position: relative;
+  transition: width 0.5s ease-out;
+}
+
 
     .progress-fill::after {
       content: attr(data-label);
@@ -1260,24 +1261,25 @@
       </section>
 
       <!-- БЕЗСТРОКОВИЙ ЗБІР / ПРОГРЕС -->
-      <section class="card big-block" id="progress-ua">
-        <h2 class="section-title">Безстроковий збір</h2>
+     <section class="card big-block" id="progress-ua">
+  <h2 class="section-title">Безстроковий збір</h2>
 
-        <p class="progress-text">
-          Це відкритий безстроковий збір на щоденну роботу взводу технічного забезпечення:
-          інструмент, запчастини, мастила, зварювання, діагностика та польові майстерні.
-          Кожен внесок допомагає нам утримувати техніку в строю.
-        </p>
+  <p class="progress-text">
+    Це відкритий безстроковий збір на щоденну роботу взводу технічного забезпечення:
+    інструмент, запчастини, мастила, зварювання, діагностика та польові майстерні.
+    Кожен внесок допомагає нам утримувати техніку в строю.
+  </p>
 
-        <div class="progress-track">
-          <div class="progress-fill" style="width: 70%;" data-label="Збір активний"></div>
-        </div>
+  <div class="progress-track">
+    <div id="progress-fill-ua" class="progress-fill" data-label="Збір активний"></div>
+  </div>
 
-        <div class="progress-meta">
-          <span>Оновлено: 01.12.2025</span>
-          <span>Статус: безстроковий збір</span>
-        </div>
-      </section>
+  <div class="progress-meta">
+    <span id="progress-text-ua">Зібрано: —</span>
+    <span>Статус: безстроковий збір · Оновлено: 01.12.2025</span>
+  </div>
+</section>
+
 
       <!-- ДОНАТИ -->
       <h2 class="section-title" id="donate">Як підтримати взвод</h2>
@@ -1808,6 +1810,43 @@
     block.appendChild(btn);
   });
 })();
+  // ===== DONATION PROGRESS (UA) =====
+  (function () {
+    // Тут задаєш ЦІЛЬ і ПОТОЧНУ СУМУ
+    var TARGET = безстроковий;  // ціль у грн (можеш змінити або залишити як орієнтир)
+    var CURRENT = -;  // СЮДИ ВПИСУЄШ СКІЛЬКИ ЗАРАЗ ЗІБРАНО
+
+    var fill = document.getElementById('progress-fill-ua');
+    var text = document.getElementById('progress-text-ua');
+    if (!fill || !text) return;
+
+    function formatUAH(value) {
+      try {
+        return value.toLocaleString('uk-UA', { maximumFractionDigits: 0 });
+      } catch (e) {
+        return value.toString();
+      }
+    }
+
+    var percent = 0;
+    if (TARGET > 0 && CURRENT > 0) {
+      percent = Math.round((CURRENT / TARGET) * 100);
+      if (percent < 5) percent = 5;     // щоб смужка не була зовсім маленька
+      if (percent > 100) percent = 100; // не більше 100%
+    }
+
+    fill.style.width = percent + '%';
+    fill.setAttribute(
+      'data-label',
+      TARGET > 0 && CURRENT > 0 ? (percent + '%') : 'Збір активний'
+    );
+
+    var textValue = 'Зібрано: ' + formatUAH(CURRENT) + ' ₴';
+    if (TARGET > 0) {
+      textValue += ' із ' + formatUAH(TARGET) + ' ₴';
+    }
+    text.textContent = textValue;
+  })();
 
 </script>
 </body>
