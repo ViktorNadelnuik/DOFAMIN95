@@ -234,7 +234,12 @@
     .donate-btn--paypal { background: linear-gradient(135deg, #009cde, #003087); }
     .donate-btn--crypto { background: linear-gradient(135deg, #f6d365, #fda085); }
 
-    .qr-wrap { margin-top: 8px; display: flex; justify-content: center; }
+    .qr-wrap {
+      margin-top: 8px;
+      display: flex;
+      justify-content: center;
+    }
+
     .qr {
       width: 150px;
       height: 150px;
@@ -531,7 +536,7 @@
         <p>Your donations are currently turned into the following priorities:</p>
 
         <p><strong>• Tools and equipment for truck and armored vehicle repair</strong><br>
-          Socket sets, wrenches, extensions, jacks, pullers, suspension tools, pneumatic tools, extension cords and work lights.</p>
+          Socket sets, wrenches, extensions, jacks, pullers, suspension tools, pneumatic tools, extension cables and work lights.</p>
 
         <p><strong>• Welding equipment and consumables</strong><br>
           Electrodes, welding wire, masks, gloves, extension cables and leads – everything needed to bring frames, bodies, mounts,
@@ -567,7 +572,7 @@
             <h3><span class="mono-label">Monobank</span> · “142nd Brigade · Tech Platoon” jar</h3>
             <p><strong>Recipient:</strong> Nadelniuk Viktor Mykolaiovych</p>
             <p><strong>IBAN:</strong><br>UA683220010000026208372629615</p>
-            <p><strong>Payment reference:</strong> Account top-up</p>
+            <p><strong>Payment reference:</strong> <code>ВТЗ МПБ 142 ОМБр</code></p>
           </div>
           <div>
             <div class="btn-row">
@@ -593,7 +598,7 @@
             <h3><span class="privat-label">PrivatBank</span> · Card top-up</h3>
             <p><strong>Recipient:</strong> NADELNIUK VIKTOR MYKOLAYOVYCH</p>
             <p><strong>IBAN:</strong><br>UA023052990262076400994803502</p>
-            <p><strong>Payment reference:</strong> Account top-up, NADELNIUK VIKTOR MYKOLAYOVYCH</p>
+            <p><strong>Payment reference:</strong> <code>ВТЗ МПБ 142 ОМБр</code></p>
           </div>
           <div>
             <div class="btn-row">
@@ -618,6 +623,7 @@
             <small>INTERNATIONAL PAYMENTS</small>
             <h3><span class="paypal-label">PayPal / Paupay</span></h3>
             <p><strong>Email:</strong><br>nadelnuikviktor@gmail.com</p>
+            <p><strong>Note / description:</strong><br><code>ВТЗ МПБ 142 ОМБр</code></p>
           </div>
           <div>
             <div class="btn-row">
@@ -626,8 +632,12 @@
                 Copy email
               </button>
             </div>
-            <p style="font-size:12px; opacity:0.8;">
-              In the payment reference, you may write: <em>Support 142nd Brigade Tech Platoon</em>.
+            <div class="qr-wrap">
+              <img id="qr-paupay" class="qr" alt="Paupay / PayPal QR">
+            </div>
+            <p style="font-size:12px; opacity:0.8; margin-top:6px;">
+              In the payment note / description, please write:
+              <strong>ВТЗ МПБ 142 ОМБр</strong>.
             </p>
           </div>
         </section>
@@ -746,16 +756,18 @@
 
 <script>
   // QR generation
-  function setQR(id, url) {
+  function setQR(id, data) {
     var el = document.getElementById(id);
     if (!el) return;
     var api = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=";
-    el.src = api + encodeURIComponent(url);
+    el.src = api + encodeURIComponent(data);
   }
 
   setQR("qr-mono",   "https://send.monobank.ua/jar/8PfzHBQuu4");
   setQR("qr-privat", "https://www.privat24.ua/send/3xbxx");
   setQR("qr-btc",    "https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p");
+  // Paupay / PayPal QR – by email
+  setQR("qr-paupay", "nadelnuikviktor@gmail.com");
 
   // Copy to clipboard
   function copyText(text) {
