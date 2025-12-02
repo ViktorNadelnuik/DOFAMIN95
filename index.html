@@ -2152,24 +2152,26 @@
     });
   })();
 
-  // === AUTO ADD SUPPORT BUTTON IN EVERY BIG BLOCK ===
-  (function () {
-    var blocks = document.querySelectorAll('.big-block');
-    blocks.forEach(function (block) {
-      if (block.querySelector('.block-donate-btn')) return;
+ // === AUTO ADD SUPPORT BUTTON IN EVERY BLOCK (card + big-block) ===
+(function () {
+  var blocks = document.querySelectorAll('.big-block, .card');
+  blocks.forEach(function (block) {
+    // якщо кнопка вже є - не дублюємо
+    if (block.querySelector('.block-donate-btn')) return;
 
-      var btn = document.createElement('button');
-      btn.className = 'block-donate-btn';
-      btn.innerHTML = '<span class="icon">🇺🇦</span> Підтримати взвод';
+    var btn = document.createElement('button');
+    btn.className = 'block-donate-btn';
+    btn.innerHTML = '<span class="icon">🇺🇦</span> Підтримати взвод';
 
-      btn.addEventListener('click', function () {
-        var donate = document.getElementById('donate');
-        if (donate) donate.scrollIntoView({ behavior: "smooth" });
-      });
-
-      block.appendChild(btn);
+    btn.addEventListener('click', function () {
+      var donate = document.getElementById('donate');
+      if (donate) donate.scrollIntoView({ behavior: "smooth" });
     });
-  })();
+
+    block.appendChild(btn);
+  });
+})();
+
 
   // === SUPPORTERS COUNTER (COUNTAPI) ===
   (function () {
