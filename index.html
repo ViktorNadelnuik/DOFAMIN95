@@ -6,286 +6,708 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Підтримайте взвод технічного забезпечення 142-ї бригади. Ваші донати допомагають ремонтувати техніку і рятувати життя.">
 
-  <!-- Favicon / шеврон -->
   <link rel="icon"
         href="https://viktornadelniuk.github.io/DOFAMIN95/favicon.png"
         type="image/png">
 
-  <!-- Open Graph / Social preview -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Підтримати взвод технічного забезпечення · 142 ОМБр">
   <meta property="og:description" content="Взвод технічного забезпечення ремонтує техніку прямо на передовій, щоб машини їхали, а бійці поверталися живими.">
   <meta property="og:url" content="https://viktornadelniuk.github.io/DOFAMIN95/">
   <meta property="og:image" content="https://viktornadelniuk.github.io/DOFAMIN95/hero-bg.jpg">
 
-  <!-- Twitter / X -->
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Підтримати взвод технічного забезпечення · 142 ОМБр">
   <meta name="twitter:description" content="Підтримайте взвод технічного забезпечення, який ремонтує техніку прямо на передовій.">
   <meta name="twitter:image" content="https://viktornadelniuk.github.io/DOFAMIN95/hero-bg.jpg">
 
   <style>
-   * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-body {
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: radial-gradient(circle at top, #23395d 0, #050914 45%, #02040a 100%);
-  color: #f5f5f5;
-  line-height: 1.5;
-}
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #23395d 0, #050914 45%, #02040a 100%);
+      color: #f5f5f5;
+      line-height: 1.5;
+    }
 
-a { color: inherit; }
+    a { color: inherit; }
 
-/* ===== PAGE & CONTAINER ===== */
-.page {
-  min-height: 100vh;
-  padding: 24px 12px 40px;
-  display: flex;
-  justify-content: center;
-  animation: fadeInPage 0.7s ease-out;
-}
+    .page {
+      min-height: 100vh;
+      padding: 24px 12px 40px;
+      display: flex;
+      justify-content: center;
+      animation: fadeInPage 0.7s ease-out;
+    }
 
-.container {
-  width: 100%;
-  max-width: 1180px;
-  margin: 0 auto;
-}
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
 
-/* ===== TOP HEADER ===== */
-.top-row {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-bottom: 10px;
-}
+    .top-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
 
-.top-bar {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
+    .top-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-.logo {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  object-fit: cover;
-  background: transparent;
-  box-shadow: 0 0 6px rgba(0,0,0,0.4);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
+    .logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      object-fit: cover;
+      background: transparent;
+      box-shadow: 0 0 6px rgba(0,0,0,0.4);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
 
-.logo:hover {
-  transform: scale(1.05) rotate(-2deg);
-  box-shadow: 0 0 10px rgba(0,0,0,0.7);
-}
+    .logo:hover {
+      transform: scale(1.05) rotate(-2deg);
+      box-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
 
-.site-title {
-  font-size: 18px;
-  font-weight: 700;
-}
+    .site-title {
+      font-size: 18px;
+      font-weight: 700;
+    }
 
-/* ===== LANG SWITCH ===== */
-.lang-switch {
-  display: flex;
-  justify-content: flex-end;
-  gap: 6px;
-  font-size: 12px;
-  opacity: 0.9;
-}
+    .lang-switch {
+      display: flex;
+      justify-content: flex-end;
+      gap: 6px;
+      font-size: 12px;
+      opacity: 0.9;
+    }
 
-.lang-switch a {
-  padding: 2px 8px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.25);
-  text-decoration: none;
-  color: #fff;
-  transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
-}
+    .lang-switch a {
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.25);
+      text-decoration: none;
+      color: #fff;
+      transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+    }
 
-.lang-switch a.active {
-  background: rgba(255,255,255,0.16);
-  font-weight: 700;
-}
+    .lang-switch a.active {
+      background: rgba(255,255,255,0.16);
+      font-weight: 700;
+    }
 
-.lang-switch a:hover {
-  transform: translateY(-1px);
-  border-color: rgba(255,255,255,0.6);
-}
+    .lang-switch a:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,0.6);
+    }
 
-/* ===== HERO ===== */
-.hero {
-  background:
-    linear-gradient(135deg, rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
-    url("hero-bg.jpg") center/cover no-repeat;
-  border-radius: 24px;
-  padding: 24px 22px 20px;
-  margin-bottom: 26px;
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.5);
-  animation: heroReveal 0.9s ease-out;
-}
+    /* HERO */
+    .hero {
+      background:
+        linear-gradient(135deg, rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
+        url("hero-bg.jpg") center/cover no-repeat;
+      border-radius: 24px;
+      padding: 24px 22px 20px;
+      margin-bottom: 26px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.5);
+      animation: heroReveal 0.9s ease-out;
+      position: relative;
+      overflow: hidden;
+    }
 
-.hero-badge {
-  display: inline-flex;
-  padding: 4px 10px;
-  margin-bottom: 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.2);
-  background: rgba(0,0,0,0.45);
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  opacity: 0.9;
-}
+    /* Тонка анімована лінія як «двигун» */
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: -20%;
+      right: -20%;
+      bottom: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #ffd700, #ffec8a, #ffd700);
+      opacity: 0.9;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+      animation: engineLine 2.4s infinite ease-in-out;
+    }
 
-.hero-title {
-  font-size: 26px;
-  font-weight: 800;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
+    .hero-badge {
+      display: inline-flex;
+      padding: 4px 10px;
+      margin-bottom: 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(0,0,0,0.45);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
 
-.hero-sub {
-  font-size: 16px;
-  opacity: 0.9;
-  margin-bottom: 8px;
-}
+    .hero-title {
+      font-size: 26px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      letter-spacing: 0.06em;
+      text-shadow:
+        0 0 8px rgba(0,0,0,0.9),
+        0 0 14px rgba(0,0,0,0.8);
+    }
 
-.hero-note {
-  font-size: 13px;
-  opacity: 0.75;
-}
+    .hero-sub {
+      font-size: 16px;
+      opacity: 0.9;
+      margin-bottom: 8px;
+    }
 
-/* ===== SECTIONS ===== */
-.section-title {
-  font-size: 22px;
-  margin: 12px 0 12px;
-  font-weight: 700;
-}
+    .hero-note {
+      font-size: 13px;
+      opacity: 0.75;
+    }
 
-/* ===== GRID ===== */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px;
-  margin-top: 10px;
-}
+    .section-title {
+      font-size: 22px;
+      margin: 12px 0 12px;
+      font-weight: 700;
+    }
 
-.card {
-  background: radial-gradient(circle at top left, #202b46 0, #070e1d 70%);
-  border-radius: 22px;
-  padding: 16px 16px 18px;
-  border: 1px solid rgba(255,255,255,0.07);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.7);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 260px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-  animation: cardFade 0.55s ease-out;
-}
+    /* GRID */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 10px;
+    }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(0,0,0,0.75);
-  border-color: rgba(255,255,255,0.24);
-}
+    .card {
+      background: radial-gradient(circle at top left, #202b46 0, #070e1d 70%);
+      border-radius: 22px;
+      padding: 16px 16px 18px;
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 260px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      animation: cardFade 0.55s ease-out;
+    }
 
-.card.big-block {
-  grid-column: 1 / -1;
-  min-height: auto;
-}
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.75);
+      border-color: rgba(255,255,255,0.24);
+    }
 
-/* ===== DONATE BUTTONS ===== */
+    .card.big-block {
+      grid-column: 1 / -1;
+      min-height: auto;
+    }
 
-.donate-btn {
-  padding: 9px 18px;
-  border-radius: 999px;
-  text-decoration: none;
-  color: #fff;
-  font-weight: 600;
-  font-size: 13px;
-  border: 1px solid rgba(255,255,255,0.2);
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.35);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, opacity 0.15s ease;
-  white-space: nowrap;
-  cursor: pointer;
-}
+    .card h3 { font-size: 16px; margin-bottom: 6px; }
+    .card small { opacity: 0.7; font-size: 11px; letter-spacing: 0.08em; }
+    .card p { font-size: 13px; margin: 6px 0; }
 
-.donate-btn:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.5);
-  opacity: 0.98;
-}
+    .mono-label { color: #00ffc3; font-weight: 600; }
+    .privat-label { color: #55efc4; font-weight: 600; }
+    .paypal-label { color: #00b4ff; font-weight: 600; }
+    .crypto-label { color: #ffd86b; font-weight: 600; }
 
-/* ======= 🔥 СУПЕР-НОВИЙ БЛОК КНОПКИ “ПІДТРИМАТИ ВЗВОД” ======= */
-.block-donate-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 14px;
-  padding: 8px 16px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #0057b7, #ffd700);
-  font-size: 13px;
-  font-weight: 700;
-  color: #fff;
-  text-align: center;
-  border: 1px solid rgba(255,255,255,0.32);
-  cursor: pointer;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.45);
-  transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
-  animation: pulse-support 1.8s ease-in-out infinite;
-}
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 8px 0;
+    }
 
-.block-donate-btn:hover {
-  transform: translateY(-2px) scale(1.04);
-  opacity: 0.92;
-  box-shadow: 0 9px 22px rgba(0,0,0,0.6);
-}
+    .donate-btn {
+      padding: 9px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 13px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, opacity 0.15s ease;
+      white-space: nowrap;
+      cursor: pointer;
+      background-clip: padding-box;
+    }
 
-.block-donate-btn .icon {
-  font-size: 15px;
-  line-height: 1;
-}
+    .donate-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.5);
+      opacity: 0.98;
+    }
 
-/* ===== 🔥 Анімація пульсації кнопки ===== */
-@keyframes pulse-support {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.45);
-  }
-  50% {
-    transform: scale(1.06);
-    box-shadow: 0 12px 26px rgba(0,0,0,0.75);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.45);
-  }
-}
+    .donate-btn--mono   { background: linear-gradient(135deg, #00e3aa, #00b894); }
+    .donate-btn--privat { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+    .donate-btn--paypal { background: linear-gradient(135deg, #009cde, #003087); }
+    .donate-btn--crypto { background: linear-gradient(135deg, #f6d365, #fda085); }
 
-/* ===== LIGHTBOX / SCROLL BTN / OTHER – ЗАЛИШАЮТЬСЯ ЯК БУЛО ===== */
+    .qr-wrap {
+      margin-top: 8px;
+      display: flex;
+      justify-content: center;
+    }
 
-/* ===== ANIMATIONS ===== */
-@keyframes fadeInPage {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+    .qr {
+      width: 150px;
+      height: 150px;
+      border-radius: 18px;
+      background:#02040a;
+      display: block;
+    }
 
-@keyframes heroReveal {
-  from { opacity: 0; transform: translateY(8px) scale(0.99); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
-}
+    /* GALLERY */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
 
-@keyframes cardFade {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: #050910;
+      aspect-ratio: 4 / 3;
+    }
 
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      cursor: zoom-in;
+    }
 
+    .gallery-item:hover img {
+      transform: scale(1.05);
+      opacity: 0.92;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 4px 6px;
+      font-size: 11px;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      opacity: 0.9;
+    }
+
+    /* VIDEO */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .video-item {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: #050910;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.7);
+    }
+
+    .youtube-wrap {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 */
+      overflow: hidden;
+    }
+
+    .youtube-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-caption {
+      font-size: 12px;
+      padding: 6px 9px 8px;
+      opacity: 0.85;
+    }
+
+    footer {
+      margin-top: 22px;
+      text-align: center;
+      opacity: 0.7;
+      font-size: 12px;
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 16px;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      position: relative;
+      max-width: 980px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lightbox-img-wrap {
+      position: relative;
+      max-height: calc(100vh - 140px);
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 16px;
+      background: #050910;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: calc(100vh - 160px);
+      object-fit: contain;
+      display: block;
+    }
+
+    .lightbox-caption {
+      font-size: 13px;
+      text-align: center;
+      opacity: 0.85;
+    }
+
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      border: none;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      cursor: pointer;
+      border-radius: 999px;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.6);
+      transition: background 0.15s ease, transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .lightbox-close {
+      top: -12px;
+      right: -12px;
+      background: rgba(0,0,0,0.8);
+      font-size: 22px;
+    }
+
+    .lightbox-prev {
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-next {
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-close:hover,
+    .lightbox-prev:hover,
+    .lightbox-next:hover {
+      background: rgba(0,0,0,0.95);
+      transform: scale(1.06);
+    }
+
+    /* PROGRESS BAR */
+    .progress-text {
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 16px;
+      border-radius: 999px;
+      background: rgba(3,7,18,0.9);
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 2px;
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.7);
+      margin-top: 6px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #00e3aa, #00b4ff);
+      width: 0;
+      position: relative;
+      transition: width 0.5s ease-out;
+    }
+
+    .progress-fill::after {
+      content: attr(data-label);
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 11px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .progress-meta {
+      margin-top: 6px;
+      font-size: 12px;
+      opacity: 0.8;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* SCROLL TO TOP BUTTON */
+    .scroll-top-btn {
+      position: fixed;
+      right: 18px;
+      bottom: 20px;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.35);
+      background: radial-gradient(circle at 30% 0, #00e3aa 0, #0072ff 70%);
+      color: #fff;
+      font-size: 22px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px) scale(0.9);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      z-index: 9999;
+    }
+
+    .scroll-top-btn--visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    .scroll-top-btn:hover {
+      box-shadow: 0 14px 30px rgba(0,0,0,0.85);
+      transform: translateY(-2px) scale(1.05);
+    }
+
+    /* Кнопка "Підтримати взвод" у кожному блоці */
+    .block-donate-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #0057b7, #ffd700);
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.32);
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.45);
+      transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
+      animation: buttonPulse 1.8s ease-in-out infinite;
+    }
+
+    .block-donate-btn:hover {
+      transform: translateY(-2px) scale(1.05);
+      opacity: 0.95;
+      box-shadow: 0 9px 22px rgba(0,0,0,0.6);
+    }
+
+    .block-donate-btn .icon {
+      font-size: 15px;
+      line-height: 1;
+    }
+
+    @media (max-width: 1024px) {
+      .page {
+        padding: 20px 10px 32px;
+      }
+      .hero {
+        padding: 20px 18px 18px;
+        margin-bottom: 22px;
+      }
+      .hero-title {
+        font-size: 24px;
+      }
+      .card-grid {
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page {
+        padding: 18px 8px 28px;
+      }
+      .hero {
+        padding: 18px 14px 16px;
+      }
+      .hero-badge {
+        font-size: 11px;
+      }
+      .hero-title {
+        font-size: 21px;
+        line-height: 1.2;
+      }
+      .hero-sub {
+        font-size: 14px;
+      }
+      .hero-note {
+        font-size: 12px;
+      }
+
+      .card {
+        padding: 14px 14px 16px;
+        min-height: auto;
+      }
+
+      .card.big-block {
+        padding: 16px 14px 18px;
+      }
+
+      .card p {
+        font-size: 13px;
+      }
+
+      .btn-row {
+        flex-direction: column;
+      }
+
+      .btn-row .donate-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+
+      .qr {
+        width: 130px;
+        height: 130px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        border-radius: 18px;
+      }
+
+      .hero-title {
+        font-size: 19px;
+      }
+
+      .section-title {
+        font-size: 20px;
+      }
+
+      .card {
+        border-radius: 18px;
+        padding: 12px 12px 14px;
+      }
+
+      .card p {
+        font-size: 12.5px;
+      }
+
+      .btn-row {
+        gap: 6px;
+      }
+
+      .donate-btn {
+        padding: 8px 14px;
+        font-size: 12px;
+      }
+
+      .qr {
+        width: 120px;
+        height: 120px;
+      }
+
+      .gallery-caption {
+        font-size: 10px;
+      }
+
+      .scroll-top-btn {
+        right: 12px;
+        bottom: 14px;
+        width: 38px;
+        height: 38px;
+        font-size: 20px;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInPage {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes heroReveal {
+      from { opacity: 0; transform: translateY(8px) scale(0.99); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes cardFade {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes engineLine {
+      0%   { transform: translateX(-5%); opacity: 0.7; }
+      50%  { transform: translateX(5%);  opacity: 1;   }
+      100% { transform: translateX(-5%); opacity: 0.7; }
+    }
+
+    @keyframes buttonPulse {
+      0%   { transform: translateY(0) scale(1);   box-shadow: 0 6px 16px rgba(0,0,0,0.45); }
+      50%  { transform: translateY(-1px) scale(1.07); box-shadow: 0 10px 24px rgba(0,0,0,0.7); }
+      100% { transform: translateY(0) scale(1);   box-shadow: 0 6px 16px rgba(0,0,0,0.45); }
+    }
   </style>
 </head>
 <body>
@@ -307,9 +729,6 @@ a { color: inherit; }
       <section class="hero">
         <div class="hero-badge">Ремонт та підтримка техніки на передовій</div>
         <div class="hero-title">Техніка має їхати. Люди мають повертатися живими.</div>
-
-        <div class="hero-engine-line" aria-hidden="true"></div>
-
         <p class="hero-sub">
           Наш взвод ремонтує вантажівки та бронетехніку безпосередньо в районі бойових дій,
           щоб батальйон міг виконувати завдання, а машини доставляли боєкомплект, людей та евакуйовували поранених.
@@ -319,8 +738,8 @@ a { color: inherit; }
           які дають техніці ще один виїзд — а нашим людям ще один шанс повернутися додому.
         </p>
 
-        <div style="margin-top:14px; position: relative; z-index: 2;">
-          <a href="#donate" id="hero-donate-btn" class="donate-btn" style="display:inline-block;">
+        <div style="margin-top:14px;">
+          <a href="#donate" class="donate-btn" style="display:inline-block;">
             Підтримати взвод
           </a>
         </div>
@@ -440,7 +859,7 @@ a { color: inherit; }
         </p>
       </section>
 
-      <!-- ГАЛЕРЕЯ (15 ФОТО) -->
+      <!-- ГАЛЕРЕЯ -->
       <section class="card big-block" id="gallery-ua">
         <h2 class="section-title">Фотогалерея</h2>
 
@@ -557,52 +976,47 @@ a { color: inherit; }
 
         <p style="font-size:12px; opacity:0.8; margin-top:6px;">
           Щоб додати нові фото, достатньо завантажити їх у репозиторій і додати ще один
-          блок <code>&lt;figure class="gallery-item"&gt;...&lt;/figure&gt;</code> за прикладом вище.
+          блок <code>&lt;figure class="gallery-item"&gt;...&lt;/figure&gt;</code>.
         </p>
       </section>
 
       <!-- ВІДЕО -->
       <section class="card big-block" id="video-ua">
-        <h2 class="section-title">Відео з роботи взводу</h2>
-        <p>
-          Кілька коротких відео з нашої роботи: евакуація, ремонт, щоденні задачі взводу технічного забезпечення.
-        </p>
+        <h2 class="section-title">Відео з роботи взводу ТЗ</h2>
+        <p>Кілька коротких відео з евакуації, ремонту та щоденної роботи взводу технічного забезпечення.</p>
 
         <div class="video-grid">
-          <div>
-            <div class="video-item">
+          <div class="video-item">
+            <div class="youtube-wrap">
               <iframe
                 src="https://www.youtube.com/embed/jUTx6Om_L90"
-                title="Video 1"
-                loading="lazy"
-                allowfullscreen>
-              </iframe>
+                title="YouTube video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
             </div>
-            <p class="video-caption">Епізод 1 — робочий момент взводу ТЗ.</p>
+            <div class="video-caption">Коротке відео з роботи взводу ТЗ · 1</div>
           </div>
 
-          <div>
-            <div class="video-item">
+          <div class="video-item">
+            <div class="youtube-wrap">
               <iframe
                 src="https://www.youtube.com/embed/DR1o8KQuTp4"
-                title="Video 2"
-                loading="lazy"
-                allowfullscreen>
-              </iframe>
+                title="YouTube video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
             </div>
-            <p class="video-caption">Епізод 2 — техніка та ремонт у полі.</p>
+            <div class="video-caption">Коротке відео з роботи взводу ТЗ · 2</div>
           </div>
 
-          <div>
-            <div class="video-item">
+          <div class="video-item">
+            <div class="youtube-wrap">
               <iframe
                 src="https://www.youtube.com/embed/er5Kzpb7stc"
-                title="Video 3"
-                loading="lazy"
-                allowfullscreen>
-              </iframe>
+                title="YouTube video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
             </div>
-            <p class="video-caption">Епізод 3 — робота підрозділу в дії.</p>
+            <div class="video-caption">Коротке відео з роботи взводу ТЗ · 3</div>
           </div>
         </div>
       </section>
@@ -668,7 +1082,7 @@ a { color: inherit; }
         </p>
       </section>
 
-      <!-- НАШІ ПРИНЦИПИ РОБОТИ -->
+      <!-- ПРИНЦИПИ -->
       <section class="card big-block" id="principles-ua">
         <h2 class="section-title">Наші принципи роботи</h2>
 
@@ -727,7 +1141,7 @@ a { color: inherit; }
         </div>
       </section>
 
-      <!-- ЧОМУ САМЕ ВЗВОД ТЗ -->
+      <!-- ЧОМУ ВЗВОД ТЗ -->
       <section class="card big-block" id="why-tz-ua">
         <h2 class="section-title">Чому саме взвод технічного забезпечення?</h2>
 
@@ -805,9 +1219,9 @@ a { color: inherit; }
         </p>
       </section>
 
-      <!-- ЗВЕРНЕННЯ ДО ФОНДІВ ТА ВЕЛИКИХ ДОНАТЕРІВ -->
+      <!-- ДЛЯ ФОНДІВ -->
       <section class="card big-block" id="funds-request-ua">
-        <h2 class="section-title">Для фондів, організацій та великих донатерів</h2>
+        <h2 class="section-title">Для фондів, організацій та великих донаторів</h2>
 
         <p>
           Якщо ви представляєте фонд, волонтерську ініціативу, бізнес або є великим донатором – нижче можна заповнити
@@ -1109,7 +1523,7 @@ a { color: inherit; }
         </details>
       </section>
 
-      <!-- ПОДІЛИТИСЯ СТОРІНКОЮ -->
+      <!-- ПОДІЛИТИСЯ -->
       <section class="card big-block" id="share-ua">
         <h2 class="section-title">Розповісти іншим</h2>
 
@@ -1179,331 +1593,311 @@ a { color: inherit; }
         ↑
       </button>
 
-      <!-- Плаваюча кнопка донату -->
-      <button type="button" id="floatingDonate" class="floating-donate-btn">
-        <span class="icon">💳</span>
-        Підтримати
-      </button>
-
-      <!-- Бейдж підтримки -->
-      <div class="supporters-badge" id="supporters-badge">
-        <div class="dot"></div>
-        <span>Вже підтримали:</span>
-        <span id="supporters-count">—</span>
-        <span>людей</span>
-      </div>
-
     </main>
   </div>
 </div>
 
 <script>
-// === QR-коди ===
-function setQR(id, data) {
-  var el = document.getElementById(id);
-  if (!el) return;
-  var api = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=";
-  el.src = api + encodeURIComponent(data);
-}
-
-setQR("qr-mono",   "https://send.monobank.ua/jar/8PfzHBQuu4");
-setQR("qr-privat", "https://www.privat24.ua/send/3xbxx");
-setQR("qr-btc",    "https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p");
-setQR("qr-paupay", "nadelnuikviktor@gmail.com");
-
-// === Копіювання в буфер ===
-function copyText(text) {
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(text)
-      .then(function () {
-        alert('Скопійовано: ' + text);
-      })
-      .catch(function () {
-        fallbackCopy(text);
-      });
-  } else {
-    fallbackCopy(text);
-  }
-}
-
-function fallbackCopy(text) {
-  var area = document.createElement('textarea');
-  area.value = text;
-  area.style.position = 'fixed';
-  area.style.left = '-9999px';
-  document.body.appendChild(area);
-  area.focus();
-  area.select();
-  try {
-    document.execCommand('copy');
-    alert('Скопійовано: ' + text);
-  } catch (e) {
-    alert('Не вдалося скопіювати. Будь ласка, скопіюйте вручну: ' + text);
-  }
-  document.body.removeChild(area);
-}
-
-// === Шерінг (UA) ===
-const SHARE_TEXT_UA = 'Привіт! Це збір для взводу технічного забезпечення 142 ОМБр. Хлопці ремонтують вантажівки та броню прямо на передовій, щоб техніка їхала і всі повертались живими.';
-const SHARE_URL_UA  = 'https://viktornadelniuk.github.io/DOFAMIN95/';
-
-function shareUa(service) {
-  const text = SHARE_TEXT_UA + ' ' + SHARE_URL_UA;
-  let shareUrl = '';
-
-  switch (service) {
-    case 'telegram':
-      shareUrl = 'https://t.me/share/url?url='
-        + encodeURIComponent(SHARE_URL_UA)
-        + '&text=' + encodeURIComponent(SHARE_TEXT_UA);
-      break;
-    case 'viber':
-      shareUrl = 'viber://forward?text=' + encodeURIComponent(text);
-      break;
-    case 'whatsapp':
-      shareUrl = 'https://wa.me/?text=' + encodeURIComponent(text);
-      break;
-    case 'facebook':
-      shareUrl = 'https://www.facebook.com/sharer/sharer.php?u='
-        + encodeURIComponent(SHARE_URL_UA);
-      break;
-    case 'instagram':
-      copyText(text);
-      shareUrl = 'https://www.instagram.com/';
-      break;
-    default:
-      copyText(text);
-      return;
+  // QR-коди
+  function setQR(id, data) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var api = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=";
+    el.src = api + encodeURIComponent(data);
   }
 
-  window.open(shareUrl, '_blank');
-}
+  setQR("qr-mono",   "https://send.monobank.ua/jar/8PfzHBQuu4");
+  setQR("qr-privat", "https://www.privat24.ua/send/3xbxx");
+  setQR("qr-btc",    "https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p");
+  setQR("qr-paupay", "nadelnuikviktor@gmail.com");
 
-// === LIGHTBOX галереї ===
-(function () {
-  var lightbox = document.getElementById('lightbox');
-  if (!lightbox) return;
-
-  var images = document.querySelectorAll('.gallery-item img');
-  if (!images.length) return;
-
-  var lightboxImg = document.getElementById('lightbox-img');
-  var lightboxCaption = document.getElementById('lightbox-caption');
-  var btnClose = lightbox.querySelector('.lightbox-close');
-  var btnPrev = lightbox.querySelector('.lightbox-prev');
-  var btnNext = lightbox.querySelector('.lightbox-next');
-
-  var currentIndex = 0;
-  var items = [];
-
-  images.forEach(function (img, index) {
-    var caption = '';
-    var parent = img.parentElement;
-    if (parent && parent.querySelector('.gallery-caption')) {
-      caption = parent.querySelector('.gallery-caption').innerText.trim();
-    } else if (img.alt) {
-      caption = img.alt;
-    }
-
-    items.push({
-      src: img.src,
-      alt: img.alt || '',
-      caption: caption
-    });
-
-    img.style.cursor = 'zoom-in';
-    img.addEventListener('click', function () {
-      openLightbox(index);
-    });
-  });
-
-  function openLightbox(index) {
-    currentIndex = index;
-    updateLightbox();
-    lightbox.classList.add('is-open');
-    lightbox.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox() {
-    lightbox.classList.remove('is-open');
-    lightbox.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
-
-  function updateLightbox() {
-    var item = items[currentIndex];
-    lightboxImg.src = item.src;
-    lightboxImg.alt = item.alt;
-    lightboxCaption.textContent = item.caption || '';
-  }
-
-  function showNext() {
-    currentIndex = (currentIndex + 1) % items.length;
-    updateLightbox();
-  }
-
-  function showPrev() {
-    currentIndex = (currentIndex - 1 + items.length) % items.length;
-    updateLightbox();
-  }
-
-  btnClose.addEventListener('click', closeLightbox);
-  btnNext.addEventListener('click', showNext);
-  btnPrev.addEventListener('click', showPrev);
-
-  lightbox.addEventListener('click', function (e) {
-    if (e.target === lightbox) {
-      closeLightbox();
-    }
-  });
-
-  document.addEventListener('keydown', function (e) {
-    if (!lightbox.classList.contains('is-open')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') showNext();
-    if (e.key === 'ArrowLeft') showPrev();
-  });
-})();
-
-// === Кнопка "наверх" ===
-(function () {
-  var btn = document.getElementById('scrollTopBtn');
-  if (!btn) return;
-
-  window.addEventListener('scroll', function () {
-    var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollY > 250) {
-      btn.classList.add('scroll-top-btn--visible');
+  // Копіювання в буфер
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text)
+        .then(function () {
+          alert('Скопійовано: ' + text);
+        })
+        .catch(function () {
+          fallbackCopy(text);
+        });
     } else {
-      btn.classList.remove('scroll-top-btn--visible');
+      fallbackCopy(text);
     }
-  });
+  }
 
-  btn.addEventListener('click', function () {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
-})();
-
-// === Лічильник відвідувань ===
-(function () {
-  var el = document.getElementById('visitor-counter-ua');
-  if (!el) return;
-
-  fetch('https://api.countapi.xyz/hit/vtz-142omb/site')
-    .then(function (res) { return res.json(); })
-    .then(function (data) {
-      el.textContent = 'Відвідувань сторінки: ' + data.value;
-    })
-    .catch(function () {
-      el.textContent = 'Відвідувань сторінки: —';
-    });
-})();
-
-// === Форма для фондів (mailto) ===
-function handleFundsUa(event) {
-  event.preventDefault();
-  var form = event.target;
-
-  var org      = form.org.value.trim();
-  var person   = form.person.value.trim();
-  var email    = form.email.value.trim();
-  var telegram = form.telegram.value.trim();
-  var country  = form.country.value.trim();
-  var type     = form.supportType.value.trim();
-  var budget   = form.budget.value.trim();
-  var comment  = form.comment.value.trim();
-
-  var subject = 'Запит від фонду / донора: ' + (org || 'без назви');
-
-  var body =
-    'Організація / фонд / компанія: ' + org + '\n' +
-    'Контактна особа: ' + person + '\n' +
-    'Email: ' + email + '\n' +
-    'Телеграм / телефон: ' + (telegram || '-') + '\n' +
-    'Країна / місто: ' + (country || '-') + '\n' +
-    'Тип підтримки: ' + type + '\n' +
-    'Орієнтовний бюджет / формат: ' + (budget || '-') + '\n' +
-    '---\n' +
-    'Коментар / деталі:\n' + (comment || '-') + '\n\n' +
-    'Надіслано через форму на сайті взводу ТЗ 142 ОМБр.';
-
-  var mailto =
-    'mailto:nadelnuikviktor@gmail.com'
-    + '?subject=' + encodeURIComponent(subject)
-    + '&body=' + encodeURIComponent(body);
-
-  window.location.href = mailto;
-}
-
-// === Прогрес донату (безстроковий збір) ===
-(function () {
-  // Можеш виставити суми, коли захочеш
-  var TARGET  = 0;      // якщо захочеш мати ціль, наприклад 200000
-  var CURRENT = 0;      // скільки зараз зібрано, наприклад 54321
-
-  var fill = document.getElementById('progress-fill-ua');
-  var text = document.getElementById('progress-text-ua');
-  if (!fill || !text) return;
-
-  function formatUAH(value) {
+  function fallbackCopy(text) {
+    var area = document.createElement('textarea');
+    area.value = text;
+    area.style.position = 'fixed';
+    area.style.left = '-9999px';
+    document.body.appendChild(area);
+    area.focus();
+    area.select();
     try {
-      return value.toLocaleString('uk-UA', { maximumFractionDigits: 0 });
+      document.execCommand('copy');
+      alert('Скопійовано: ' + text);
     } catch (e) {
-      return String(value);
+      alert('Не вдалося скопіювати. Будь ласка, скопіюйте вручну: ' + text);
     }
+    document.body.removeChild(area);
   }
 
-  var percent = 0;
-  if (TARGET > 0 && CURRENT > 0) {
-    percent = Math.round((CURRENT / TARGET) * 100);
-    if (percent < 5)  percent = 5;
-    if (percent > 100) percent = 100;
+  // Шерінг
+  const SHARE_TEXT_UA = 'Привіт! Це збір для взводу технічного забезпечення 142 ОМБр. Хлопці ремонтують вантажівки та броню прямо на передовій, щоб техніка їхала і всі повертались живими.';
+  const SHARE_URL_UA  = 'https://viktornadelniuk.github.io/DOFAMIN95/';
+
+  function shareUa(service) {
+    const text = SHARE_TEXT_UA + ' ' + SHARE_URL_UA;
+    let shareUrl = '';
+
+    switch (service) {
+      case 'telegram':
+        shareUrl = 'https://t.me/share/url?url='
+          + encodeURIComponent(SHARE_URL_UA)
+          + '&text=' + encodeURIComponent(SHARE_TEXT_UA);
+        break;
+      case 'viber':
+        shareUrl = 'viber://forward?text='
+          + encodeURIComponent(text);
+        break;
+      case 'whatsapp':
+        shareUrl = 'https://wa.me/?text='
+          + encodeURIComponent(text);
+        break;
+      case 'facebook':
+          shareUrl = 'https://www.facebook.com/sharer/sharer.php?u='
+          + encodeURIComponent(SHARE_URL_UA);
+        break;
+      case 'instagram':
+        copyText(text);
+        shareUrl = 'https://www.instagram.com/';
+        break;
+      default:
+        copyText(text);
+        return;
+    }
+
+    window.open(shareUrl, '_blank');
   }
 
-  fill.style.width = percent + '%';
+  // LIGHTBOX ГАЛЕРЕЯ
+  (function () {
+    var lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
 
-  var label = 'Збір активний';
-  if (TARGET > 0 && CURRENT > 0) {
-    label = percent + '%';
-  }
-  fill.setAttribute('data-label', label);
+    var images = document.querySelectorAll('.gallery-item img');
+    if (!images.length) return;
 
-  var textValue = 'Зібрано: ';
-  if (CURRENT > 0) {
-    textValue += formatUAH(CURRENT) + ' ₴';
-  } else {
-    textValue += '—';
-  }
-  if (TARGET > 0) {
-    textValue += ' із ' + formatUAH(TARGET) + ' ₴';
-  }
-  text.textContent = textValue;
-})();
+    var lightboxImg = document.getElementById('lightbox-img');
+    var lightboxCaption = document.getElementById('lightbox-caption');
+    var btnClose = lightbox.querySelector('.lightbox-close');
+    var btnPrev = lightbox.querySelector('.lightbox-prev');
+    var btnNext = lightbox.querySelector('.lightbox-next');
 
-// === Кнопка "Підтримати взвод" в кожному великому блоці ===
-(function () {
-  var blocks = document.querySelectorAll('.card.big-block');
-  blocks.forEach(function (block) {
-    if (block.querySelector('.block-donate-btn')) return;
+    var currentIndex = 0;
+    var items = [];
 
-    var btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'block-donate-btn';
-    btn.innerHTML = '<span class="icon">🇺🇦</span> Підтримати взвод';
+    images.forEach(function (img, index) {
+      var caption = '';
+      var parent = img.parentElement;
+      if (parent && parent.querySelector('.gallery-caption')) {
+        caption = parent.querySelector('.gallery-caption').innerText.trim();
+      } else if (img.alt) {
+        caption = img.alt;
+      }
+
+      items.push({
+        src: img.src,
+        alt: img.alt || '',
+        caption: caption
+      });
+
+      img.addEventListener('click', function () {
+        openLightbox(index);
+      });
+    });
+
+    function openLightbox(index) {
+      currentIndex = index;
+      updateLightbox();
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function updateLightbox() {
+      var item = items[currentIndex];
+      lightboxImg.src = item.src;
+      lightboxImg.alt = item.alt;
+      lightboxCaption.textContent = item.caption || '';
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % items.length;
+      updateLightbox();
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + items.length) % items.length;
+      updateLightbox();
+    }
+
+    btnClose.addEventListener('click', closeLightbox);
+    btnNext.addEventListener('click', showNext);
+    btnPrev.addEventListener('click', showPrev);
+
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (!lightbox.classList.contains('is-open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
+    });
+  })();
+
+  // SCROLL TO TOP BUTTON
+  (function () {
+    var btn = document.getElementById('scrollTopBtn');
+    if (!btn) return;
+
+    window.addEventListener('scroll', function () {
+      var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollY > 250) {
+        btn.classList.add('scroll-top-btn--visible');
+      } else {
+        btn.classList.remove('scroll-top-btn--visible');
+      }
+    });
 
     btn.addEventListener('click', function () {
-      var donate = document.getElementById('donate');
-      if (donate) donate.scrollIntoView({ behavior: "smooth" });
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
+  })();
 
-    block.appendChild(btn);
-  });
-})();
+  // ЛІЧИЛЬНИК ВІДВІДУВАНЬ (як "скільки людей зайшли підтримати")
+  (function () {
+    var el = document.getElementById('visitor-counter-ua');
+    if (!el) return;
+
+    fetch('https://api.countapi.xyz/hit/vtz-142omb/site')
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        el.textContent = 'Людей, які зайшли на сторінку підтримки (перегляди): ' + data.value;
+      })
+      .catch(function () {
+        el.textContent = 'Людей, які зайшли на сторінку підтримки: —';
+      });
+  })();
+
+  // ФОРМА ДЛЯ ФОНДІВ (UA) -> mailto
+  function handleFundsUa(event) {
+    event.preventDefault();
+    var form = event.target;
+
+    var org      = form.org.value.trim();
+    var person   = form.person.value.trim();
+    var email    = form.email.value.trim();
+    var telegram = form.telegram.value.trim();
+    var country  = form.country.value.trim();
+    var type     = form.supportType.value.trim();
+    var budget   = form.budget.value.trim();
+    var comment  = form.comment.value.trim();
+
+    var subject = 'Запит від фонду / донора: ' + (org || 'без назви');
+
+    var body =
+      'Організація / фонд / компанія: ' + org + '\n' +
+      'Контактна особа: ' + person + '\n' +
+      'Email: ' + email + '\n' +
+      'Телеграм / телефон: ' + (telegram || '-') + '\n' +
+      'Країна / місто: ' + (country || '-') + '\n' +
+      'Тип підтримки: ' + type + '\n' +
+      'Орієнтовний бюджет / формат: ' + (budget || '-') + '\n' +
+      '---\n' +
+      'Коментар / деталі:\n' + (comment || '-') + '\n\n' +
+      'Надіслано через форму на сайті взводу ТЗ 142 ОМБр.';
+
+    var mailto =
+      'mailto:nadelnuikviktor@gmail.com'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body);
+
+    window.location.href = mailto;
+  }
+
+  // КНОПКИ "ПІДТРИМАТИ ВЗВОД" У КОЖНОМУ ВЕЛИКОМУ БЛОЦІ
+  (function () {
+    var blocks = document.querySelectorAll('.big-block');
+    blocks.forEach(function (block) {
+      if (block.querySelector('.block-donate-btn')) return;
+
+      var btn = document.createElement('button');
+      btn.className = 'block-donate-btn';
+      btn.innerHTML = '<span class="icon">🇺🇦</span> Підтримати взвод';
+
+      btn.addEventListener('click', function () {
+        var donate = document.getElementById('donate');
+        if (donate) donate.scrollIntoView({ behavior: "smooth" });
+      });
+
+      block.appendChild(btn);
+    });
+  })();
+
+  // DONATION PROGRESS (UA) — тут можна вручну оновлювати суму
+  (function () {
+    // ЦІЛЬ та ПОТОЧНА СУМА (грн)
+    var TARGET = 200000;  // змінюєш на свою ціль або залишаєш як орієнтир
+    var CURRENT = 0;      // сюди вручну підставляєш скільки вже зібрано
+
+    var fill = document.getElementById('progress-fill-ua');
+    var text = document.getElementById('progress-text-ua');
+    if (!fill || !text) return;
+
+    function formatUAH(value) {
+      try {
+        return value.toLocaleString('uk-UA', { maximumFractionDigits: 0 });
+      } catch (e) {
+        return value.toString();
+      }
+    }
+
+    var percent = 0;
+    if (TARGET > 0 && CURRENT >= 0) {
+      percent = TARGET > 0 ? Math.round((CURRENT / TARGET) * 100) : 0;
+      if (percent < 5 && CURRENT > 0) percent = 5;
+      if (percent > 100) percent = 100;
+    }
+
+    fill.style.width = (percent > 0 ? percent : 15) + '%';
+    fill.setAttribute(
+      'data-label',
+      (TARGET > 0 && CURRENT > 0)
+        ? (percent + '%')
+        : 'Збір активний'
+    );
+
+    var textValue = 'Зібрано: ' + (CURRENT > 0 ? formatUAH(CURRENT) + ' ₴' : '—');
+    if (TARGET > 0) {
+      textValue += ' із ' + formatUAH(TARGET) + ' ₴';
+    }
+    text.textContent = textValue;
+  })();
 </script>
-
 </body>
 </html>
