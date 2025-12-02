@@ -708,6 +708,86 @@
       50%  { transform: translateY(-1px) scale(1.07); box-shadow: 0 10px 24px rgba(0,0,0,0.7); }
       100% { transform: translateY(0) scale(1);   box-shadow: 0 6px 16px rgba(0,0,0,0.45); }
     }
+    /* === ЖИВИЙ ДВИГУН ПІД ЗАГОЛОВКОМ HERO === */
+.hero {
+  position: relative;
+  overflow: hidden; /* щоб іскра не вилазила за межі блоку */
+}
+
+/* Обгортка лінії двигуна */
+.engine-line-wrap {
+  margin: 10px 0 14px;
+}
+
+/* Сама лінія */
+.engine-line {
+  position: relative;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/* “Ядро” що біжить, як робота валу / індикатор */
+.engine-line::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    #ffd700 25%,
+    #ffffff 40%,
+    #ffd700 55%,
+    transparent 100%);
+  animation: engine-move 1.6s linear infinite;
+  filter: blur(0.3px);
+}
+
+/* Анімація руху */
+@keyframes engine-move {
+  from { transform: translateX(-120%); }
+  to   { transform: translateX(120%); }
+}
+
+/* Легка “іскра зварювання” по HERO */
+.hero::after {
+  content: "";
+  position: absolute;
+  left: -20%;
+  top: 55%;
+  width: 140%;
+  height: 2px;
+  pointer-events: none;
+  background: radial-gradient(circle at 0 50%,
+    rgba(255, 255, 210, 0.9) 0,
+    rgba(255, 255, 150, 0.4) 25%,
+    rgba(255, 255, 0, 0) 55%);
+  opacity: 0;
+  filter: blur(0.6px);
+  animation: weld-spark 3.7s ease-in-out infinite;
+}
+
+/* Анімація "іскри" – іноді проскакує */
+@keyframes weld-spark {
+  0%, 60% {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  65% {
+    opacity: 1;
+    transform: translateX(10%);
+  }
+  80% {
+    opacity: 0.5;
+    transform: translateX(60%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(120%);
+  }
+}
+
   </style>
 </head>
 <body>
@@ -729,6 +809,11 @@
       <section class="hero">
         <div class="hero-badge">Ремонт та підтримка техніки на передовій</div>
         <div class="hero-title">Техніка має їхати. Люди мають повертатися живими.</div>
+        
+        <div class="engine-line-wrap">
+    <div class="engine-line"></div>
+  </div>
+    
         <p class="hero-sub">
           Наш взвод ремонтує вантажівки та бронетехніку безпосередньо в районі бойових дій,
           щоб батальйон міг виконувати завдання, а машини доставляли боєкомплект, людей та евакуйовували поранених.
