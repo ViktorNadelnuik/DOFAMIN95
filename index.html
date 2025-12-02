@@ -806,7 +806,55 @@
         width: 110px;
       }
     }
+/* === SUPER PATCH ANIMATION === */
+.header-patch {
+  animation:
+    patch-breath 3.5s ease-in-out infinite,
+    patch-tilt 6s ease-in-out infinite,
+    patch-glow 4s ease-in-out infinite;
+  filter:
+    drop-shadow(0 0 10px rgba(255,215,0,0.45))
+    drop-shadow(0 0 4px rgba(255,215,0,0.25));
+  transform-origin: center;
+}
 
+/* Легке “дихання” */
+@keyframes patch-breath {
+  0%   { transform: scale(0.98); }
+  50%  { transform: scale(1.03); }
+  100% { transform: scale(0.98); }
+}
+
+/* Легке похитування 3D */
+@keyframes patch-tilt {
+  0%   { transform: rotateX(0deg) rotateY(0deg); }
+  25%  { transform: rotateX(2deg) rotateY(-2deg); }
+  50%  { transform: rotateX(0deg) rotateY(0deg); }
+  75%  { transform: rotateX(-2deg) rotateY(2deg); }
+  100% { transform: rotateX(0deg) rotateY(0deg); }
+}
+
+/* Золоте світіння */
+@keyframes patch-glow {
+  0%   { filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
+  50%  { filter: drop-shadow(0 0 12px rgba(255,215,0,0.7)); }
+  100% { filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
+}
+/* === SUPER PATCH ANIMATION === */
+   .header-patch {
+     animation:
+       patch-breath 3.5s ease-in-out infinite,
+       patch-tilt 6s ease-in-out infinite,
+       patch-glow 4s ease-in-out infinite;
+     filter:
+       drop-shadow(0 0 10px rgba(255,215,0,0.45))
+       drop-shadow(0 0 4px rgba(255,215,0,0.25));
+     transform-origin: center;
+   }
+
+   @keyframes patch-breath { ... }
+   @keyframes patch-tilt { ... }
+   @keyframes patch-glow { ... }
   </style>
 </head>
 <body>
