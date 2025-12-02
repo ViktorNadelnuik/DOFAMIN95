@@ -787,6 +787,37 @@
     transform: translateX(120%);
   }
 }
+/* === ШЕВРОН У ХЕДЕРІ === */
+.header-patch-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+  margin-top: -4px;
+  padding-top: 10px;
+}
+
+.header-patch {
+  width: 140px;
+  height: auto;
+  filter: drop-shadow(0 0 14px rgba(0,0,0,0.65))
+          drop-shadow(0 0 8px rgba(255,215,0,0.25));
+  animation: patchAppear 1.2s ease-out forwards;
+  transform-origin: center;
+}
+
+@keyframes patchAppear {
+  0%   { opacity: 0; transform: scale(0.75) rotate(-3deg); }
+  60%  { opacity: 1; transform: scale(1.05) rotate(1deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+/* Трохи адаптації на мобільному */
+@media (max-width: 480px) {
+  .header-patch {
+    width: 110px;
+  }
+}
 
   </style>
 </head>
@@ -795,6 +826,10 @@
   <div class="container">
 
     <header>
+     <div class="header-patch-wrap">
+  <img src="images/vtz-mpb-patch.png" alt="Шеврон ВТЗ МПБ" class="header-patch">
+</div>
+
       <div class="top-row">
         <div class="top-bar">
           <img src="logo.png" alt="Лого" class="logo">
