@@ -1851,315 +1851,300 @@
 </div>
 
 <script>
-  // QR-коди
-  function setQR(id, data) {
-    var el = document.getElementById(id);
-    if (!el) return;
-    var api = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=";
-    el.src = api + encodeURIComponent(data);
-  }
+// === QR-коди ===
+function setQR(id, data) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var api = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=";
+  el.src = api + encodeURIComponent(data);
+}
 
-  setQR("qr-mono",   "https://send.monobank.ua/jar/8PfzHBQuu4");
-  setQR("qr-privat", "https://www.privat24.ua/send/3xbxx");
-  setQR("qr-btc",    "https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p");
-  setQR("qr-paupay", "nadelnuikviktor@gmail.com");
+setQR("qr-mono",   "https://send.monobank.ua/jar/8PfzHBQuu4");
+setQR("qr-privat", "https://www.privat24.ua/send/3xbxx");
+setQR("qr-btc",    "https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p");
+setQR("qr-paupay", "nadelnuikviktor@gmail.com");
 
-  // Копіювання в буфер
-  function copyText(text) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text)
-        .then(function () {
-          alert('Скопійовано: ' + text);
-        })
-        .catch(function () {
-          fallbackCopy(text);
-        });
-    } else {
-      fallbackCopy(text);
-    }
-  }
-
-  function fallbackCopy(text) {
-    var area = document.createElement('textarea');
-    area.value = text;
-    area.style.position = 'fixed';
-    area.style.left = '-9999px';
-    document.body.appendChild(area);
-    area.focus();
-    area.select();
-    try {
-      document.execCommand('copy');
-      alert('Скопійовано: ' + text);
-    } catch (e) {
-      alert('Не вдалося скопіювати. Будь ласка, скопіюйте вручну: ' + text);
-    }
-    document.body.removeChild(area);
-  }
-
-  // ===== ШЕРІНГ (UA) =====
-  const SHARE_TEXT_UA = 'Привіт! Це збір для взводу технічного забезпечення 142 ОМБр. Хлопці ремонтують вантажівки та броню прямо на передовій, щоб техніка їхала і всі повертались живими.';
-  const SHARE_URL_UA  = 'https://viktornadelniuk.github.io/DOFAMIN95/';
-
-  function shareUa(service) {
-    const text = SHARE_TEXT_UA + ' ' + SHARE_URL_UA;
-    let shareUrl = '';
-
-    switch (service) {
-      case 'telegram':
-        shareUrl = 'https://t.me/share/url?url='
-          + encodeURIComponent(SHARE_URL_UA)
-          + '&text=' + encodeURIComponent(SHARE_TEXT_UA);
-        break;
-      case 'viber':
-        shareUrl = 'viber://forward?text='
-          + encodeURIComponent(text);
-        break;
-      case 'whatsapp':
-        shareUrl = 'https://wa.me/?text='
-          + encodeURIComponent(text);
-        break;
-      case 'facebook':
-        shareUrl = 'https://www.facebook.com/sharer/sharer.php?u='
-          + encodeURIComponent(SHARE_URL_UA);
-        break;
-      case 'instagram':
-        copyText(text);
-        shareUrl = 'https://www.instagram.com/';
-        break;
-      default:
-        copyText(text);
-        return;
-    }
-
-    window.open(shareUrl, '_blank');
-  }
-
-  // ===== LIGHTBOX ГАЛЕРЕЯ =====
-  (function () {
-    var lightbox = document.getElementById('lightbox');
-    if (!lightbox) return;
-
-    var images = document.querySelectorAll('.gallery-item img');
-    if (!images.length) return;
-
-    var lightboxImg = document.getElementById('lightbox-img');
-    var lightboxCaption = document.getElementById('lightbox-caption');
-    var btnClose = lightbox.querySelector('.lightbox-close');
-    var btnPrev = lightbox.querySelector('.lightbox-prev');
-    var btnNext = lightbox.querySelector('.lightbox-next');
-
-    var currentIndex = 0;
-    var items = [];
-
-    images.forEach(function (img, index) {
-      var caption = '';
-      var parent = img.parentElement;
-      if (parent && parent.querySelector('.gallery-caption')) {
-        caption = parent.querySelector('.gallery-caption').innerText.trim();
-      } else if (img.alt) {
-        caption = img.alt;
-      }
-
-      items.push({
-        src: img.src,
-        alt: img.alt || '',
-        caption: caption
-      });
-
-      img.style.cursor = 'zoom-in';
-      img.addEventListener('click', function () {
-        openLightbox(index);
-      });
-    });
-
-    function openLightbox(index) {
-      currentIndex = index;
-      updateLightbox();
-      lightbox.classList.add('is-open');
-      lightbox.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      lightbox.classList.remove('is-open');
-      lightbox.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    function updateLightbox() {
-      var item = items[currentIndex];
-      lightboxImg.src = item.src;
-      lightboxImg.alt = item.alt;
-      lightboxCaption.textContent = item.caption || '';
-    }
-
-    function showNext() {
-      currentIndex = (currentIndex + 1) % items.length;
-      updateLightbox();
-    }
-
-    function showPrev() {
-      currentIndex = (currentIndex - 1 + items.length) % items.length;
-      updateLightbox();
-    }
-
-    btnClose.addEventListener('click', closeLightbox);
-    btnNext.addEventListener('click', showNext);
-    btnPrev.addEventListener('click', showPrev);
-
-    lightbox.addEventListener('click', function (e) {
-      if (e.target === lightbox) {
-        closeLightbox();
-      }
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (!lightbox.classList.contains('is-open')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') showNext();
-      if (e.key === 'ArrowLeft') showPrev();
-    });
-  })();
-
-  // === SCROLL TO TOP BUTTON ===
-  (function () {
-    var btn = document.getElementById('scrollTopBtn');
-    if (!btn) return;
-
-    window.addEventListener('scroll', function () {
-      var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollY > 250) {
-        btn.classList.add('scroll-top-btn--visible');
-      } else {
-        btn.classList.remove('scroll-top-btn--visible');
-      }
-    });
-
-    btn.addEventListener('click', function () {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  })();
-
-  // ===== ЛІЧИЛЬНИК ВІДВІДУВАНЬ (UA) =====
-  (function () {
-    var el = document.getElementById('visitor-counter-ua');
-    if (!el) return;
-
-    fetch('https://api.countapi.xyz/hit/vtz-142omb/site')
-      .then(function (res) { return res.json(); })
-      .then(function (data) {
-        el.textContent = 'Відвідувань сторінки: ' + data.value;
+// === Копіювання в буфер ===
+function copyText(text) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text)
+      .then(function () {
+        alert('Скопійовано: ' + text);
       })
       .catch(function () {
-        el.textContent = 'Відвідувань сторінки: —';
+        fallbackCopy(text);
       });
-  })();
+  } else {
+    fallbackCopy(text);
+  }
+}
 
-  // ===== ФОРМА ДЛЯ ФОНДІВ (UA) -> mailto =====
-  function handleFundsUa(event) {
-    event.preventDefault();
-    var form = event.target;
+function fallbackCopy(text) {
+  var area = document.createElement('textarea');
+  area.value = text;
+  area.style.position = 'fixed';
+  area.style.left = '-9999px';
+  document.body.appendChild(area);
+  area.focus();
+  area.select();
+  try {
+    document.execCommand('copy');
+    alert('Скопійовано: ' + text);
+  } catch (e) {
+    alert('Не вдалося скопіювати. Будь ласка, скопіюйте вручну: ' + text);
+  }
+  document.body.removeChild(area);
+}
 
-    var org      = form.org.value.trim();
-    var person   = form.person.value.trim();
-    var email    = form.email.value.trim();
-    var telegram = form.telegram.value.trim();
-    var country  = form.country.value.trim();
-    var type     = form.supportType.value.trim();
-    var budget   = form.budget.value.trim();
-    var comment  = form.comment.value.trim();
+// === Шерінг (UA) ===
+const SHARE_TEXT_UA = 'Привіт! Це збір для взводу технічного забезпечення 142 ОМБр. Хлопці ремонтують вантажівки та броню прямо на передовій, щоб техніка їхала і всі повертались живими.';
+const SHARE_URL_UA  = 'https://viktornadelniuk.github.io/DOFAMIN95/';
 
-    var subject = 'Запит від фонду / донора: ' + (org || 'без назви');
+function shareUa(service) {
+  const text = SHARE_TEXT_UA + ' ' + SHARE_URL_UA;
+  let shareUrl = '';
 
-    var body =
-      'Організація / фонд / компанія: ' + org + '\n' +
-      'Контактна особа: ' + person + '\n' +
-      'Email: ' + email + '\n' +
-      'Телеграм / телефон: ' + (telegram || '-') + '\n' +
-      'Країна / місто: ' + (country || '-') + '\n' +
-      'Тип підтримки: ' + type + '\n' +
-      'Орієнтовний бюджет / формат: ' + (budget || '-') + '\n' +
-      '---\n' +
-      'Коментар / деталі:\n' + (comment || '-') + '\n\n' +
-      'Надіслано через форму на сайті взводу ТЗ 142 ОМБр.';
-
-    var mailto =
-      'mailto:nadelnuikviktor@gmail.com'
-      + '?subject=' + encodeURIComponent(subject)
-      + '&body=' + encodeURIComponent(body);
-
-    window.location.href = mailto;
+  switch (service) {
+    case 'telegram':
+      shareUrl = 'https://t.me/share/url?url='
+        + encodeURIComponent(SHARE_URL_UA)
+        + '&text=' + encodeURIComponent(SHARE_TEXT_UA);
+      break;
+    case 'viber':
+      shareUrl = 'viber://forward?text=' + encodeURIComponent(text);
+      break;
+    case 'whatsapp':
+      shareUrl = 'https://wa.me/?text=' + encodeURIComponent(text);
+      break;
+    case 'facebook':
+      shareUrl = 'https://www.facebook.com/sharer/sharer.php?u='
+        + encodeURIComponent(SHARE_URL_UA);
+      break;
+    case 'instagram':
+      copyText(text);
+      shareUrl = 'https://www.instagram.com/';
+      break;
+    default:
+      copyText(text);
+      return;
   }
 
-  // ===== DONATION PROGRESS (UA) =====
-  (function () {
-    // ТУТ ВСТАВЛЯЄШ ЧИСЛА ЗБОРУ
-    var TARGET = безстроковий;  // ціль у грн
-    var CURRENT = безстроковий; // скільки зібрано
+  window.open(shareUrl, '_blank');
+}
 
-    var fill = document.getElementById('progress-fill-ua');
-    var text = document.getElementById('progress-text-ua');
-    if (!fill || !text) return;
-
-    function formatUAH(value) {
-      try {
-        return value.toLocaleString('uk-UA', { maximumFractionDigits: 0 });
-      } catch (e) {
-        return value.toString();
-      }
-    }
-
-    var percent = 0;
-    if (TARGET > 0 && CURRENT > 0) {
-      percent = Math.round((CURRENT / TARGET) * 100);
-      if (percent < 5) percent = 5;
-      if (percent > 100) percent = 100;
-    }
-
-    fill.style.width = percent + '%';
-    fill.setAttribute(
-      'data-label',
-      TARGET > 0 && CURRENT > 0 ? (percent + '%') : 'Збір активний'
-    );
-
-    var textValue = 'Зібрано: ' + formatUAH(CURRENT) + ' ₴';
-    if (TARGET > 0) {
-      textValue += ' із ' + formatUAH(TARGET) + ' ₴';
-    }
-    text.textContent = textValue;
-  })();
-
-  // === HERO PARALLAX + DARKEN BACKGROUND ON SCROLL ===
-  (function () {
-    var hero = document.querySelector('.hero');
-    if (!hero) return;
-
-    window.addEventListener('scroll', function () {
-      var scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
-
-      // паралакс фону hero
-      var offset = scrollY * 0.35;
-      hero.style.backgroundPosition = 'center ' + (-offset) + 'px';
-
-      if (scrollY > 320) {
-        document.body.classList.add('scroll-deep');
-      } else {
-        document.body.classList.remove('scroll-deep');
-      }
-    });
-  })();
-
- // === AUTO ADD SUPPORT BUTTON IN EVERY BLOCK (card + big-block) ===
+// === LIGHTBOX галереї ===
 (function () {
-  var blocks = document.querySelectorAll('.big-block, .card');
+  var lightbox = document.getElementById('lightbox');
+  if (!lightbox) return;
+
+  var images = document.querySelectorAll('.gallery-item img');
+  if (!images.length) return;
+
+  var lightboxImg = document.getElementById('lightbox-img');
+  var lightboxCaption = document.getElementById('lightbox-caption');
+  var btnClose = lightbox.querySelector('.lightbox-close');
+  var btnPrev = lightbox.querySelector('.lightbox-prev');
+  var btnNext = lightbox.querySelector('.lightbox-next');
+
+  var currentIndex = 0;
+  var items = [];
+
+  images.forEach(function (img, index) {
+    var caption = '';
+    var parent = img.parentElement;
+    if (parent && parent.querySelector('.gallery-caption')) {
+      caption = parent.querySelector('.gallery-caption').innerText.trim();
+    } else if (img.alt) {
+      caption = img.alt;
+    }
+
+    items.push({
+      src: img.src,
+      alt: img.alt || '',
+      caption: caption
+    });
+
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', function () {
+      openLightbox(index);
+    });
+  });
+
+  function openLightbox(index) {
+    currentIndex = index;
+    updateLightbox();
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function updateLightbox() {
+    var item = items[currentIndex];
+    lightboxImg.src = item.src;
+    lightboxImg.alt = item.alt;
+    lightboxCaption.textContent = item.caption || '';
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % items.length;
+    updateLightbox();
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    updateLightbox();
+  }
+
+  btnClose.addEventListener('click', closeLightbox);
+  btnNext.addEventListener('click', showNext);
+  btnPrev.addEventListener('click', showPrev);
+
+  lightbox.addEventListener('click', function (e) {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') showNext();
+    if (e.key === 'ArrowLeft') showPrev();
+  });
+})();
+
+// === Кнопка "наверх" ===
+(function () {
+  var btn = document.getElementById('scrollTopBtn');
+  if (!btn) return;
+
+  window.addEventListener('scroll', function () {
+    var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollY > 250) {
+      btn.classList.add('scroll-top-btn--visible');
+    } else {
+      btn.classList.remove('scroll-top-btn--visible');
+    }
+  });
+
+  btn.addEventListener('click', function () {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+})();
+
+// === Лічильник відвідувань ===
+(function () {
+  var el = document.getElementById('visitor-counter-ua');
+  if (!el) return;
+
+  fetch('https://api.countapi.xyz/hit/vtz-142omb/site')
+    .then(function (res) { return res.json(); })
+    .then(function (data) {
+      el.textContent = 'Відвідувань сторінки: ' + data.value;
+    })
+    .catch(function () {
+      el.textContent = 'Відвідувань сторінки: —';
+    });
+})();
+
+// === Форма для фондів (mailto) ===
+function handleFundsUa(event) {
+  event.preventDefault();
+  var form = event.target;
+
+  var org      = form.org.value.trim();
+  var person   = form.person.value.trim();
+  var email    = form.email.value.trim();
+  var telegram = form.telegram.value.trim();
+  var country  = form.country.value.trim();
+  var type     = form.supportType.value.trim();
+  var budget   = form.budget.value.trim();
+  var comment  = form.comment.value.trim();
+
+  var subject = 'Запит від фонду / донора: ' + (org || 'без назви');
+
+  var body =
+    'Організація / фонд / компанія: ' + org + '\n' +
+    'Контактна особа: ' + person + '\n' +
+    'Email: ' + email + '\n' +
+    'Телеграм / телефон: ' + (telegram || '-') + '\n' +
+    'Країна / місто: ' + (country || '-') + '\n' +
+    'Тип підтримки: ' + type + '\n' +
+    'Орієнтовний бюджет / формат: ' + (budget || '-') + '\n' +
+    '---\n' +
+    'Коментар / деталі:\n' + (comment || '-') + '\n\n' +
+    'Надіслано через форму на сайті взводу ТЗ 142 ОМБр.';
+
+  var mailto =
+    'mailto:nadelnuikviktor@gmail.com'
+    + '?subject=' + encodeURIComponent(subject)
+    + '&body=' + encodeURIComponent(body);
+
+  window.location.href = mailto;
+}
+
+// === Прогрес донату (безстроковий збір) ===
+(function () {
+  // Можеш виставити суми, коли захочеш
+  var TARGET  = 0;      // якщо захочеш мати ціль, наприклад 200000
+  var CURRENT = 0;      // скільки зараз зібрано, наприклад 54321
+
+  var fill = document.getElementById('progress-fill-ua');
+  var text = document.getElementById('progress-text-ua');
+  if (!fill || !text) return;
+
+  function formatUAH(value) {
+    try {
+      return value.toLocaleString('uk-UA', { maximumFractionDigits: 0 });
+    } catch (e) {
+      return String(value);
+    }
+  }
+
+  var percent = 0;
+  if (TARGET > 0 && CURRENT > 0) {
+    percent = Math.round((CURRENT / TARGET) * 100);
+    if (percent < 5)  percent = 5;
+    if (percent > 100) percent = 100;
+  }
+
+  fill.style.width = percent + '%';
+
+  var label = 'Збір активний';
+  if (TARGET > 0 && CURRENT > 0) {
+    label = percent + '%';
+  }
+  fill.setAttribute('data-label', label);
+
+  var textValue = 'Зібрано: ';
+  if (CURRENT > 0) {
+    textValue += formatUAH(CURRENT) + ' ₴';
+  } else {
+    textValue += '—';
+  }
+  if (TARGET > 0) {
+    textValue += ' із ' + formatUAH(TARGET) + ' ₴';
+  }
+  text.textContent = textValue;
+})();
+
+// === Кнопка "Підтримати взвод" в кожному великому блоці ===
+(function () {
+  var blocks = document.querySelectorAll('.card.big-block');
   blocks.forEach(function (block) {
-    // якщо кнопка вже є - не дублюємо
     if (block.querySelector('.block-donate-btn')) return;
 
     var btn = document.createElement('button');
+    btn.type = 'button';
     btn.className = 'block-donate-btn';
     btn.innerHTML = '<span class="icon">🇺🇦</span> Підтримати взвод';
 
@@ -2171,75 +2156,7 @@
     block.appendChild(btn);
   });
 })();
-
-
-  // === SUPPORTERS COUNTER (COUNTAPI) ===
-  (function () {
-    var countEl = document.getElementById('supporters-count');
-    if (!countEl) return;
-
-    var API_BASE = 'https://api.countapi.xyz';
-
-    function loadSupporters() {
-      fetch(API_BASE + '/get/vtz-142omb/supporters')
-        .then(function (res) { return res.json(); })
-        .then(function (data) {
-          if (typeof data.value === 'number') {
-            countEl.textContent = data.value.toLocaleString('uk-UA');
-          } else {
-            countEl.textContent = '—';
-          }
-        })
-        .catch(function () {
-          countEl.textContent = '—';
-        });
-    }
-
-    function incrementSupporters() {
-      fetch(API_BASE + '/hit/vtz-142omb/supporters')
-        .then(function (res) { return res.json(); })
-        .then(function (data) {
-          if (typeof data.value === 'number') {
-            countEl.textContent = data.value.toLocaleString('uk-UA');
-          }
-        })
-        .catch(function () {
-          // якщо помилка – просто ігноруємо
-        });
-    }
-
-    var heroDonate = document.getElementById('hero-donate-btn');
-    if (heroDonate) {
-      heroDonate.addEventListener('click', incrementSupporters);
-    }
-
-    var donateSection = document.getElementById('donate');
-    if (donateSection) {
-      donateSection.addEventListener('click', function (e) {
-        var btn = e.target.closest('.donate-btn');
-        if (!btn) return;
-        incrementSupporters();
-      });
-    }
-
-    var floatingDonate = document.getElementById('floatingDonate');
-    if (floatingDonate) {
-      floatingDonate.addEventListener('click', function () {
-        var donate = document.getElementById('donate');
-        if (donate) donate.scrollIntoView({ behavior: 'smooth' });
-        incrementSupporters();
-      });
-    }
-
-    loadSupporters();
-  })();
-
-  // Неоновий пульс для кнопки в hero
-  (function () {
-    var heroBtn = document.getElementById('hero-donate-btn');
-    if (!heroBtn) return;
-    heroBtn.style.animation = 'glowPulse 2.8s ease-in-out infinite';
-  })();
 </script>
+
 </body>
 </html>
