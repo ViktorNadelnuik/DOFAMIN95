@@ -1320,10 +1320,12 @@
           <div id="progress-fill-ua" class="progress-fill" data-label="Збір активний"></div>
         </div>
 
-        <div class="progress-meta">
-          <span id="progress-text-ua">Зібрано: —</span>
-          <span>Статус: безстроковий збір · Оновлено: 01.12.2025</span>
-        </div>
+         <div class="progress-meta">
+    <span id="progress-text-ua">Збір активний</span>
+    <span>Безстроковий збір · Оновлено: 01.12.2025</span>
+  </div>
+</section>
+
       </section>
 
       <!-- ДОНАТИ -->
@@ -1859,45 +1861,22 @@
     });
   })();
 
-  // DONATION PROGRESS (UA) — тут можна вручну оновлювати суму
-  (function () {
-    // ЦІЛЬ та ПОТОЧНА СУМА (грн)
-    var TARGET = 200000;  // змінюєш на свою ціль або залишаєш як орієнтир
-    var CURRENT = 0;      // сюди вручну підставляєш скільки вже зібрано
+ // DONATION PROGRESS (UA) — без сум, просто "Збір активний"
+(function () {
+  var fill = document.getElementById('progress-fill-ua');
+  var text = document.getElementById('progress-text-ua');
+  if (!fill || !text) return;
 
-    var fill = document.getElementById('progress-fill-ua');
-    var text = document.getElementById('progress-text-ua');
-    if (!fill || !text) return;
+  // Просто зробимо, щоб смужка була видимою (наприклад, 40%)
+  var percent = 40;
 
-    function formatUAH(value) {
-      try {
-        return value.toLocaleString('uk-UA', { maximumFractionDigits: 0 });
-      } catch (e) {
-        return value.toString();
-      }
-    }
+  fill.style.width = percent + '%';
+  fill.setAttribute('data-label', 'Збір активний');
 
-    var percent = 0;
-    if (TARGET > 0 && CURRENT >= 0) {
-      percent = TARGET > 0 ? Math.round((CURRENT / TARGET) * 100) : 0;
-      if (percent < 5 && CURRENT > 0) percent = 5;
-      if (percent > 100) percent = 100;
-    }
+  // Текст під смужкою
+  text.textContent = 'Збір активний';
+})();
 
-    fill.style.width = (percent > 0 ? percent : 15) + '%';
-    fill.setAttribute(
-      'data-label',
-      (TARGET > 0 && CURRENT > 0)
-        ? (percent + '%')
-        : 'Збір активний'
-    );
-
-    var textValue = 'Зібрано: ' + (CURRENT > 0 ? formatUAH(CURRENT) + ' ₴' : '—');
-    if (TARGET > 0) {
-      textValue += ' із ' + formatUAH(TARGET) + ' ₴';
-    }
-    text.textContent = textValue;
-  })();
 </script>
 </body>
 </html>
