@@ -129,13 +129,17 @@
       content: "";
       position: absolute;
       left: -20%;
-      right: -20%;
-      bottom: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #ffd700, #ffec8a, #ffd700);
-      opacity: 0.9;
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
-      animation: engineLine 2.4s infinite ease-in-out;
+      top: 55%;
+      width: 140%;
+      height: 2px;
+      pointer-events: none;
+      background: radial-gradient(circle at 0 50%,
+        rgba(255, 255, 210, 0.9) 0,
+        rgba(255, 255, 150, 0.4) 25%,
+        rgba(255, 255, 0, 0) 55%);
+      opacity: 0;
+      filter: blur(0.6px);
+      animation: weld-spark 3.7s ease-in-out infinite;
     }
 
     .hero-badge {
@@ -708,116 +712,100 @@
       50%  { transform: translateY(-1px) scale(1.07); box-shadow: 0 10px 24px rgba(0,0,0,0.7); }
       100% { transform: translateY(0) scale(1);   box-shadow: 0 6px 16px rgba(0,0,0,0.45); }
     }
+
     /* === ЖИВИЙ ДВИГУН ПІД ЗАГОЛОВКОМ HERO === */
-.hero {
-  position: relative;
-  overflow: hidden; /* щоб іскра не вилазила за межі блоку */
-}
+    .hero {
+      position: relative;
+      overflow: hidden; /* щоб іскра не вилазила за межі блоку */
+    }
 
-/* Обгортка лінії двигуна */
-.engine-line-wrap {
-  margin: 10px 0 14px;
-}
+    /* Обгортка лінії двигуна */
+    .engine-line-wrap {
+      margin: 10px 0 14px;
+    }
 
-/* Сама лінія */
-.engine-line {
-  position: relative;
-  height: 4px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
-  overflow: hidden;
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
-}
+    /* Сама лінія */
+    .engine-line {
+      position: relative;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      overflow: hidden;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+    }
 
-/* “Ядро” що біжить, як робота валу / індикатор */
-.engine-line::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg,
-    transparent 0%,
-    #ffd700 25%,
-    #ffffff 40%,
-    #ffd700 55%,
-    transparent 100%);
-  animation: engine-move 1.6s linear infinite;
-  filter: blur(0.3px);
-}
+    /* “Ядро” що біжить, як робота валу / індикатор */
+    .engine-line::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        #ffd700 25%,
+        #ffffff 40%,
+        #ffd700 55%,
+        transparent 100%);
+      animation: engine-move 1.6s linear infinite;
+      filter: blur(0.3px);
+    }
 
-/* Анімація руху */
-@keyframes engine-move {
-  from { transform: translateX(-120%); }
-  to   { transform: translateX(120%); }
-}
+    /* Анімація руху */
+    @keyframes engine-move {
+      from { transform: translateX(-120%); }
+      to   { transform: translateX(120%); }
+    }
 
-/* Легка “іскра зварювання” по HERO */
-.hero::after {
-  content: "";
-  position: absolute;
-  left: -20%;
-  top: 55%;
-  width: 140%;
-  height: 2px;
-  pointer-events: none;
-  background: radial-gradient(circle at 0 50%,
-    rgba(255, 255, 210, 0.9) 0,
-    rgba(255, 255, 150, 0.4) 25%,
-    rgba(255, 255, 0, 0) 55%);
-  opacity: 0;
-  filter: blur(0.6px);
-  animation: weld-spark 3.7s ease-in-out infinite;
-}
+    /* Анімація "іскри" – іноді проскакує */
+    @keyframes weld-spark {
+      0%, 60% {
+        opacity: 0;
+        transform: translateX(-10%);
+      }
+      65% {
+        opacity: 1;
+        transform: translateX(10%);
+      }
+      80% {
+        opacity: 0.5;
+        transform: translateX(60%);
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(120%);
+      }
+    }
 
-/* Анімація "іскри" – іноді проскакує */
-@keyframes weld-spark {
-  0%, 60% {
-    opacity: 0;
-    transform: translateX(-10%);
-  }
-  65% {
-    opacity: 1;
-    transform: translateX(10%);
-  }
-  80% {
-    opacity: 0.5;
-    transform: translateX(60%);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(120%);
-  }
-}
-/* === ШЕВРОН У ХЕДЕРІ === */
-.header-patch-wrap {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 14px;
-  margin-top: -4px;
-  padding-top: 10px;
-}
+    /* === ШЕВРОН У ХЕДЕРІ === */
+    .header-patch-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 14px;
+      margin-top: -4px;
+      padding-top: 10px;
+    }
 
-.header-patch {
-  width: 140px;
-  height: auto;
-  filter: drop-shadow(0 0 14px rgba(0,0,0,0.65))
-          drop-shadow(0 0 8px rgba(255,215,0,0.25));
-  animation: patchAppear 1.2s ease-out forwards;
-  transform-origin: center;
-}
+    .header-patch {
+      width: 140px;
+      height: auto;
+      filter: drop-shadow(0 0 14px rgba(0,0,0,0.65))
+              drop-shadow(0 0 8px rgba(255,215,0,0.25));
+      animation: patchAppear 1.2s ease-out forwards;
+      transform-origin: center;
+    }
 
-@keyframes patchAppear {
-  0%   { opacity: 0; transform: scale(0.75) rotate(-3deg); }
-  60%  { opacity: 1; transform: scale(1.05) rotate(1deg); }
-  100% { opacity: 1; transform: scale(1) rotate(0deg); }
-}
+    @keyframes patchAppear {
+      0%   { opacity: 0; transform: scale(0.75) rotate(-3deg); }
+      60%  { opacity: 1; transform: scale(1.05) rotate(1deg); }
+      100% { opacity: 1; transform: scale(1) rotate(0deg); }
+    }
 
-/* Трохи адаптації на мобільному */
-@media (max-width: 480px) {
-  .header-patch {
-    width: 110px;
-  }
-}
+    /* Трохи адаптації на мобільному */
+    @media (max-width: 480px) {
+      .header-patch {
+        width: 110px;
+      }
+    }
 
   </style>
 </head>
@@ -826,9 +814,9 @@
   <div class="container">
 
     <header>
-     <div class="header-patch-wrap">
-  <img src="images/vtz-mpb-patch.png" alt="Шеврон ВТЗ МПБ" class="header-patch">
-</div>
+      <div class="header-patch-wrap">
+        <img src="images/vtz-mpb-patch.png" alt="Шеврон ВТЗ МПБ" class="header-patch">
+      </div>
 
       <div class="top-row">
         <div class="top-bar">
@@ -844,11 +832,11 @@
       <section class="hero">
         <div class="hero-badge">Ремонт та підтримка техніки на передовій</div>
         <div class="hero-title">Техніка має їхати. Люди мають повертатися живими.</div>
-        
+
         <div class="engine-line-wrap">
-    <div class="engine-line"></div>
-  </div>
-    
+          <div class="engine-line"></div>
+        </div>
+
         <p class="hero-sub">
           Наш взвод ремонтує вантажівки та бронетехніку безпосередньо в районі бойових дій,
           щоб батальйон міг виконувати завдання, а машини доставляли боєкомплект, людей та евакуйовували поранених.
@@ -1313,7 +1301,7 @@
           </div>
 
           <!-- ГАЗ-66 -->
-          <div class="card" style="min-height:180px;">
+          <div class="card" style="min-height:180px%;">
             <h3>ГАЗ-66</h3>
             <small style="opacity:0.75;">Статус:</small>
             <p>
@@ -1440,12 +1428,10 @@
           <div id="progress-fill-ua" class="progress-fill" data-label="Збір активний"></div>
         </div>
 
-         <div class="progress-meta">
-    <span id="progress-text-ua">Збір активний</span>
-    <span>Безстроковий збір · Оновлено: 01.12.2025</span>
-  </div>
-</section>
-
+        <div class="progress-meta">
+          <span id="progress-text-ua">Збір активний</span>
+          <span>Безстроковий збір · Оновлено: 01.12.2025</span>
+        </div>
       </section>
 
       <!-- ДОНАТИ -->
@@ -1788,7 +1774,7 @@
           + encodeURIComponent(text);
         break;
       case 'facebook':
-          shareUrl = 'https://www.facebook.com/sharer/sharer.php?u='
+        shareUrl = 'https://www.facebook.com/sharer/sharer.php?u='
           + encodeURIComponent(SHARE_URL_UA);
         break;
       case 'instagram':
@@ -1981,22 +1967,21 @@
     });
   })();
 
- // DONATION PROGRESS (UA) — без сум, просто "Збір активний"
-(function () {
-  var fill = document.getElementById('progress-fill-ua');
-  var text = document.getElementById('progress-text-ua');
-  if (!fill || !text) return;
+  // DONATION PROGRESS (UA) — без сум, просто "Збір активний"
+  (function () {
+    var fill = document.getElementById('progress-fill-ua');
+    var text = document.getElementById('progress-text-ua');
+    if (!fill || !text) return;
 
-  // Просто зробимо, щоб смужка була видимою (наприклад, 40%)
-  var percent = 40;
+    // Просто зробимо, щоб смужка була видимою (наприклад, 40%)
+    var percent = 40;
 
-  fill.style.width = percent + '%';
-  fill.setAttribute('data-label', 'Збір активний');
+    fill.style.width = percent + '%';
+    fill.setAttribute('data-label', 'Збір активний');
 
-  // Текст під смужкою
-  text.textContent = 'Збір активний';
-})();
-
+    // Текст під смужкою
+    text.textContent = 'Збір активний';
+  })();
 </script>
 </body>
 </html>
