@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Підтримати · Взвод технічного забезпечення · 142 ОМБр</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="deion" content="Підтримайте взвод технічного забезпечення 142-ї бригади. Ваші донати допомагають ремонтувати техніку і рятувати життя.">
+  <meta name="description" content="Підтримайте взвод технічного забезпечення 142-ї бригади. Ваші донати допомагають ремонтувати техніку і рятувати життя.">
 
   <link rel="icon"
         href="https://viktornadelniuk.github.io/DOFAMIN95/favicon.png"
@@ -13,22 +13,18 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Підтримати взвод технічного забезпечення · 142 ОМБр">
-  <meta property="og:deion" content="Взвод технічного забезпечення ремонтує техніку прямо на передовій, щоб машини їхали, а бійці поверталися живими.">
+  <meta property="og:description" content="Взвод технічного забезпечення ремонтує техніку прямо на передовій, щоб машини їхали, а бійці поверталися живими.">
   <meta property="og:url" content="https://viktornadelniuk.github.io/DOFAMIN95/">
   <meta property="og:image" content="https://viktornadelniuk.github.io/DOFAMIN95/hero-bg.jpg">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Підтримати взвод технічного забезпечення · 142 ОМБр">
-  <meta name="twitter:deion" content="Підтримайте взвод технічного забезпечення, який ремонтує техніку прямо на передовій.">
+  <meta name="twitter:description" content="Підтримайте взвод технічного забезпечення, який ремонтує техніку прямо на передовій.">
   <meta name="twitter:image" content="https://viktornadelniuk.github.io/DOFAMIN95/hero-bg.jpg">
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html {
-      scroll-behavior: smooth;
-    }
 
     body {
       font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -39,11 +35,12 @@
       overflow-x: hidden;
     }
 
+    /* Стальний фоновий “ангар” */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
-      z-index: -1;
+      z-index: -2;
       background:
         repeating-linear-gradient(
           -35deg,
@@ -55,6 +52,7 @@
       opacity: 0.6;
     }
 
+    /* Легка верхня засвітка */
     body::after {
       content: "";
       position: fixed;
@@ -72,8 +70,6 @@
       display: flex;
       justify-content: center;
       animation: fadeInPage 0.7s ease-out;
-      position: relative;
-      z-index: 2;
     }
 
     .container {
@@ -157,7 +153,7 @@
       overflow: hidden;
     }
 
-    /* Анімована "іскра" */
+    /* Зварювальна “іскра” по HERO */
     .hero::after {
       content: "";
       position: absolute;
@@ -237,11 +233,6 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
       animation: cardFade 0.55s ease-out;
     }
-.card {
-  /* ТЕ, ЩО ВЖЕ Є — НЕ ЧІПАЄМО */
-  position: relative;
-  overflow: hidden;
-}
 
     .card:hover {
       transform: translateY(-4px);
@@ -326,7 +317,6 @@
       border: 1px solid rgba(255,255,255,0.12);
       background: #050910;
       aspect-ratio: 4 / 3;
-      transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
     }
 
     .gallery-item img {
@@ -368,7 +358,6 @@
       border: 1px solid rgba(255,255,255,0.16);
       background: #050910;
       box-shadow: 0 10px 26px rgba(0,0,0,0.7);
-      transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
     }
 
     .youtube-wrap {
@@ -611,11 +600,79 @@
       line-height: 1;
     }
 
-    /* Підсвічування при скролі */
-    .scroll-glow {
-      box-shadow: 0 18px 44px rgba(0,0,0,0.95);
-      border-color: rgba(255,255,255,0.3) !important;
-      transform: translateY(-2px);
+    /* === ЖИВИЙ ДВИГУН ПІД ЗАГОЛОВКОМ HERO === */
+    .engine-line-wrap {
+      margin: 10px 0 14px;
+    }
+
+    .engine-line {
+      position: relative;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      overflow: hidden;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+    }
+
+    .engine-line::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        #ffd700 25%,
+        #ffffff 40%,
+        #ffd700 55%,
+        transparent 100%);
+      animation: engine-move 1.6s linear infinite;
+      filter: blur(0.3px);
+    }
+
+    /* === ШЕВРОН У ХЕДЕРІ === */
+    .header-patch-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 14px;
+      margin-top: -4px;
+      padding-top: 10px;
+    }
+
+    .header-patch {
+      width: 140px;
+      height: auto;
+      transform-origin: center;
+      animation:
+        patch-breath 3.5s ease-in-out infinite,
+        patch-tilt 6s ease-in-out infinite,
+        patch-glow 4s ease-in-out infinite;
+      filter:
+        drop-shadow(0 0 10px rgba(255,215,0,0.45))
+        drop-shadow(0 0 4px rgba(255,215,0,0.25));
+    }
+
+    @media (max-width: 480px) {
+      .header-patch {
+        width: 110px;
+      }
+    }
+
+    /* REVEAL ON SCROLL – легке підсвічування при появі */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(12px);
+      transition:
+        opacity 0.6s ease-out,
+        transform 0.6s ease-out,
+        box-shadow 0.6s ease-out,
+        border-color 0.6s ease-out;
+    }
+
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+      box-shadow: 0 18px 42px rgba(0,0,0,0.85);
+      border-color: rgba(255,255,255,0.22);
     }
 
     @media (max-width: 1024px) {
@@ -749,43 +806,15 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    @keyframes engine-move {
+      from { transform: translateX(-120%); }
+      to   { transform: translateX(120%); }
+    }
+
     @keyframes buttonPulse {
       0%   { transform: translateY(0) scale(1);   box-shadow: 0 6px 16px rgba(0,0,0,0.45); }
       50%  { transform: translateY(-1px) scale(1.07); box-shadow: 0 10px 24px rgba(0,0,0,0.7); }
       100% { transform: translateY(0) scale(1);   box-shadow: 0 6px 16px rgba(0,0,0,0.45); }
-    }
-
-    /* Лінія-двигун під заголовком */
-    .engine-line-wrap {
-      margin: 10px 0 14px;
-    }
-
-    .engine-line {
-      position: relative;
-      height: 4px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.12);
-      overflow: hidden;
-      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
-    }
-
-    .engine-line::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg,
-        transparent 0%,
-        #ffd700 25%,
-        #ffffff 40%,
-        #ffd700 55%,
-        transparent 100%);
-      animation: engine-move 1.6s linear infinite;
-      filter: blur(0.3px);
-    }
-
-    @keyframes engine-move {
-      from { transform: translateX(-120%); }
-      to   { transform: translateX(120%); }
     }
 
     @keyframes weld-spark {
@@ -807,28 +836,7 @@
       }
     }
 
-    /* Шеврон у хедері */
-    .header-patch-wrap {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      margin-bottom: 14px;
-      margin-top: -4px;
-      padding-top: 10px;
-    }
-
-    .header-patch {
-      width: 140px;
-      height: auto;
-      filter: drop-shadow(0 0 14px rgba(0,0,0,0.65))
-              drop-shadow(0 0 8px rgba(255,215,0,0.25));
-      transform-origin: center;
-      animation:
-        patch-breath 3.5s ease-in-out infinite,
-        patch-tilt 6s ease-in-out infinite,
-        patch-glow 4s ease-in-out infinite;
-    }
-
+    /* Шеврон – дихання, 3D, сяйво */
     @keyframes patch-breath {
       0%   { transform: scale(0.98); }
       50%  { transform: scale(1.03); }
@@ -848,234 +856,20 @@
       50%  { filter: drop-shadow(0 0 12px rgba(255,215,0,0.7)); }
       100% { filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
     }
-
-    @media (max-width: 480px) {
-      .header-patch {
-        width: 110px;
-      }
-    }
-
-    /* Світло за курсором (desktop only) */
-    .cursor-glow {
-      position: fixed;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      pointer-events: none;
-      background: radial-gradient(circle,
-        rgba(0, 227, 170, 0.13) 0,
-        rgba(0, 114, 255, 0.0) 60%);
-      mix-blend-mode: screen;
-      opacity: 0;
-      z-index: 1;
-      transition: opacity 0.35s ease-out, transform 0.06s linear;
-    }
-
-    @media (max-width: 768px) {
-      .cursor-glow {
-        display: none;
-      }
-    }
-/* === SCROLL REVEAL + GLOW === */
-.reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(18px);
-  transition:
-    opacity 0.6s ease-out,
-    transform 0.6s ease-out,
-    box-shadow 0.6s ease-out,
-    border-color 0.6s ease-out;
-}
-
-.reveal-on-scroll.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-  box-shadow: 0 18px 42px rgba(0,0,0,0.9);
-  border-color: rgba(255,255,255,0.22);
-}
-
-/* Неонова «хребетна» смуга для великих блоків */
-.card.big-block {
-  position: relative;
-  overflow: hidden;
-}
-
-.card.big-block::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 14%;
-  bottom: 14%;
-  width: 3px;
-  border-radius: 999px;
-  background: linear-gradient(to bottom, #00e3aa, #0072ff);
-  opacity: 0.5;
-  box-shadow: 0 0 14px rgba(0, 179, 255, 0.7);
-}
-
-/* Блиск на кнопках донату */
-.donate-btn {
-  position: relative;
-  overflow: hidden;
-}
-
-.donate-btn::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.45) 45%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  transform: skewX(-20deg);
-  transition: transform 0.4s ease-out, left 0.4s ease-out;
-}
-
-.donate-btn:hover::after {
-  left: 130%;
-}
-
-/* Стрілочка у FAQ, що обертається */
-#faq-ua summary {
-  position: relative;
-}
-
-#faq-ua summary::after {
-  content: "›";
-  margin-left: 6px;
-  display: inline-block;
-  transition: transform 0.2s ease;
-}
-
-#faq-ua details[open] summary::after {
-  transform: rotate(90deg);
-}
-
-/* Підсвітити секцію, якщо по ній перейшли по якорю */
-.card.big-block:target {
-  box-shadow:
-    0 0 0 1px rgba(0,227,170,0.8),
-    0 18px 46px rgba(0,0,0,0.95);
-}
-/* Картка, яка в зоні видимості */
-.card.glow-visible {
-  box-shadow: 0 0 28px rgba(0, 255, 180, 0.35), 0 0 60px rgba(0, 114, 255, 0.35);
-  border-color: rgba(0, 255, 200, 0.7);
-  transform: translateY(-2px) scale(1.01);
-}
-
-/* Легка “блукаюча” засвітка зверху картки */
-.card.glow-visible::before {
-  content: "";
-  position: absolute;
-  inset: -40%;
-  background:
-    radial-gradient(circle at 10% 0, rgba(0,255,200,0.09), transparent 50%),
-    radial-gradient(circle at 90% 100%, rgba(0,114,255,0.12), transparent 50%);
-  opacity: 0.9;
-  pointer-events: none;
-  animation: card-glow-move 9s ease-in-out infinite;
-}
-
-@keyframes card-glow-move {
-  0%   { transform: translateX(-6%) translateY(-4%); opacity: 0.4; }
-  40%  { transform: translateX(4%) translateY(2%);   opacity: 0.8; }
-  70%  { transform: translateX(2%) translateY(-3%);  opacity: 0.6; }
-  100% { transform: translateX(-6%) translateY(-4%); opacity: 0.4; }
-}
-/* HUD-ПАНЕЛЬ ТЗ */
-.hud-panel {
-  position: fixed;
-  left: 16px;
-  bottom: 18px;
-  min-width: 230px;
-  max-width: 280px;
-  padding: 10px 12px;
-  border-radius: 12px;
-  background: rgba(2, 6, 23, 0.96);
-  border: 1px solid rgba(0, 255, 200, 0.4);
-  box-shadow: 0 0 22px rgba(0, 0, 0, 0.9);
-  font-family: "SF Mono", "Consolas", monospace;
-  font-size: 11px;
-  color: #e5fdf7;
-  z-index: 9998;
-  backdrop-filter: blur(6px);
-  opacity: 0.0;
-  transform: translateY(10px);
-  animation: hud-appear 1s ease-out 1.5s forwards;
-}
-
-.hud-title {
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 10px;
-  margin-bottom: 4px;
-  color: #7fffd4;
-}
-
-.hud-line {
-  white-space: normal;
-  line-height: 1.4;
-  position: relative;
-  padding-right: 10px;
-}
-
-/* Мигаючий курсор */
-.hud-line::after {
-  content: "▌";
-  position: absolute;
-  right: 0;
-  bottom: -1px;
-  font-size: 11px;
-  animation: hud-caret 0.8s steps(1) infinite;
-}
-
-@keyframes hud-caret {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
-}
-
-@keyframes hud-appear {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* На дуже малих екранах не перекривати кнопку ↑ */
-@media (max-width: 480px) {
-  .hud-panel {
-    left: 10px;
-    bottom: 60px;
-    max-width: 220px;
-    padding: 8px 10px;
-  }
-}
-
   </style>
 </head>
 <body>
-<div id="cursorGlow" class="cursor-glow"></div>
-
 <div class="page">
   <div class="container">
 
-    <header>
+    <header class="reveal-on-scroll">
       <div class="header-patch-wrap">
-        <img src="vtz-mpb-patch.png"
-             alt="Шеврон ВТЗ МПБ"
-             class="header-patch"
-             loading="lazy"
-             decoding="async">
+        <img src="vtz-mpb-patch.png" alt="Шеврон ВТЗ МПБ" class="header-patch" loading="lazy">
       </div>
 
       <div class="top-row">
         <div class="top-bar">
-          <img src="logo.png" alt="Лого" class="logo" loading="lazy" decoding="async">
+          <img src="logo.png" alt="Лого" class="logo" loading="lazy">
           <span class="site-title">142 ОМБр • Взвод технічного забезпечення</span>
         </div>
         <div class="lang-switch">
@@ -1232,105 +1026,105 @@
 
         <div class="gallery-grid">
           <figure class="gallery-item">
-            <img src="gallery1.jpg" alt="Ремонт вантажівки після евакуації з передової" loading="lazy" decoding="async">
+            <img src="gallery1.jpg" alt="Ремонт вантажівки після евакуації з передової" loading="lazy">
             <figcaption class="gallery-caption">
               Ремонт вантажівки після евакуації з передової
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery2.jpg" alt="Польовий ремонт підвіски просто неба" loading="lazy" decoding="async">
+            <img src="gallery2.jpg" alt="Польовий ремонт підвіски просто неба" loading="lazy">
             <figcaption class="gallery-caption">
               Польовий ремонт підвіски просто неба
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery3.jpg" alt="Імпровізована майстерня взводу ТЗ в роботі" loading="lazy" decoding="async">
+            <img src="gallery3.jpg" alt="Імпровізована майстерня взводу ТЗ в роботі" loading="lazy">
             <figcaption class="gallery-caption">
               Імпровізована майстерня взводу ТЗ в роботі
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery4.jpg" alt="Евакуація пошкодженої техніки з небезпечної ділянки" loading="lazy" decoding="async">
+            <img src="gallery4.jpg" alt="Евакуація пошкодженої техніки з небезпечної ділянки" loading="lazy">
             <figcaption class="gallery-caption">
               Евакуація пошкодженої техніки з небезпечної ділянки
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery5.jpg" alt="Заміна колеса на дорозі під обстрілами" loading="lazy" decoding="async">
+            <img src="gallery5.jpg" alt="Заміна колеса на дорозі під обстрілами" loading="lazy">
             <figcaption class="gallery-caption">
               Заміна колеса на дорозі під обстрілами
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery6.jpg" alt="Нічний ремонт при світлі прожекторів" loading="lazy" decoding="async">
+            <img src="gallery6.jpg" alt="Нічний ремонт при світлі прожекторів" loading="lazy">
             <figcaption class="gallery-caption">
               Нічний ремонт при світлі прожекторів
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery7.jpg" alt="Робота з гальмівною системою вантажівки" loading="lazy" decoding="async">
+            <img src="gallery7.jpg" alt="Робота з гальмівною системою вантажівки" loading="lazy">
             <figcaption class="gallery-caption">
               Робота з гальмівною системою вантажівки
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery8.jpg" alt="Зварювальні роботи на рамі автомобіля" loading="lazy" decoding="async">
+            <img src="gallery8.jpg" alt="Зварювальні роботи на рамі автомобіля" loading="lazy">
             <figcaption class="gallery-caption">
               Зварювальні роботи на рамі автомобіля
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery9.jpg" alt="Перевірка електрики та проводки в польових умовах" loading="lazy" decoding="async">
+            <img src="gallery9.jpg" alt="Перевірка електрики та проводки в польових умовах" loading="lazy">
             <figcaption class="gallery-caption">
               Перевірка електрики та проводки в польових умовах
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery10.jpg" alt="Підготовка техніки до виїзду на завдання" loading="lazy" decoding="async">
+            <img src="gallery10.jpg" alt="Підготовка техніки до виїзду на завдання" loading="lazy">
             <figcaption class="gallery-caption">
               Підготовка техніки до виїзду на завдання
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery11.jpg" alt="Заміна мастил та фільтрів" loading="lazy" decoding="async">
+            <img src="gallery11.jpg" alt="Заміна мастил та фільтрів" loading="lazy">
             <figcaption class="gallery-caption">
               Заміна мастил та фільтрів
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery12.jpg" alt="Ремонт підвіски і ходової частини" loading="lazy" decoding="async">
+            <img src="gallery12.jpg" alt="Ремонт підвіски і ходової частини" loading="lazy">
             <figcaption class="gallery-caption">
               Ремонт підвіски і ходової частини
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery13.jpg" alt="Відновлення паливної системи вантажівки" loading="lazy" decoding="async">
+            <img src="gallery13.jpg" alt="Відновлення паливної системи вантажівки" loading="lazy">
             <figcaption class="gallery-caption">
               Відновлення паливної системи вантажівки
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery14.jpg" alt="Робота взводу ТЗ біля евакуйованої техніки" loading="lazy" decoding="async">
+            <img src="gallery14.jpg" alt="Робота взводу ТЗ біля евакуйованої техніки" loading="lazy">
             <figcaption class="gallery-caption">
               Робота взводу ТЗ біля евакуйованої техніки
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery15.jpg" alt="Техніка після ремонту знову виходить на лінію" loading="lazy" decoding="async">
+            <img src="gallery15.jpg" alt="Техніка після ремонту знову виходить на лінію" loading="lazy">
             <figcaption class="gallery-caption">
               Техніка після ремонту знову виходить на лінію
             </figcaption>
@@ -1717,7 +1511,7 @@
               </button>
             </div>
             <div class="qr-wrap">
-              <img id="qr-mono" class="qr" alt="QR Monobank" loading="lazy" decoding="async">
+              <img id="qr-mono" class="qr" alt="QR Monobank" loading="lazy">
             </div>
           </div>
         </section>
@@ -1743,7 +1537,7 @@
               </button>
             </div>
             <div class="qr-wrap">
-              <img id="qr-privat" class="qr" alt="QR PrivatBank" loading="lazy" decoding="async">
+              <img id="qr-privat" class="qr" alt="QR PrivatBank" loading="lazy">
             </div>
           </div>
         </section>
@@ -1764,7 +1558,7 @@
               </button>
             </div>
             <div class="qr-wrap">
-              <img id="qr-paupay" class="qr" alt="QR Paupay / PayPal" loading="lazy" decoding="async">
+              <img id="qr-paupay" class="qr" alt="QR Paupay / PayPal" loading="lazy">
             </div>
             <p style="font-size:12px; opacity:0.8; margin-top:6px;">
               У примітці до платежу, будь ласка, вкажіть:
@@ -1824,7 +1618,7 @@
             </div>
 
             <div class="qr-wrap">
-              <img id="qr-btc" class="qr" alt="QR BTC" loading="lazy" decoding="async">
+              <img id="qr-btc" class="qr" alt="QR BTC" loading="lazy">
             </div>
           </div>
         </section>
@@ -1963,7 +1757,7 @@
   </div>
 </div>
 
-<>
+<script>
   // QR-коди
   function setQR(id, data) {
     var el = document.getElementById(id);
@@ -2155,7 +1949,7 @@
     });
   })();
 
-  // ЛІЧИЛЬНИК ВІДВІДУВАНЬ (як "скільки людей зайшли підтримати")
+  // ЛІЧИЛЬНИК ВІДВІДУВАНЬ
   (function () {
     var el = document.getElementById('visitor-counter-ua');
     if (!el) return;
@@ -2239,148 +2033,35 @@
     text.textContent = 'Збір активний';
   })();
 
-  // Підсвічування карток / галереї / відео при скролі
+  // ПІДСВІЧУВАННЯ КАРТОК ПРИ СКРОЛІ
   (function () {
-    if (!('IntersectionObserver' in window)) return;
+    var revealEls = document.querySelectorAll('.card, header, .hero');
+    if (!('IntersectionObserver' in window)) {
+      revealEls.forEach(function (el) {
+        el.classList.add('is-visible');
+      });
+      return;
+    }
 
-    var targets = document.querySelectorAll('.card, .gallery-item, .video-item');
-    if (!targets.length) return;
+    revealEls.forEach(function (el) {
+      el.classList.add('reveal-on-scroll');
+    });
 
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add('scroll-glow');
-        } else {
-          entry.target.classList.remove('scroll-glow');
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
         }
       });
     }, {
-      threshold: 0.35
+      threshold: 0.15
     });
 
-    targets.forEach(function (el) {
+    revealEls.forEach(function (el) {
       observer.observe(el);
     });
   })();
-
-  // Світло за курсором
-  (function () {
-    var glow = document.getElementById('cursorGlow');
-    if (!glow) return;
-
-    var hideTimeout;
-
-    document.addEventListener('mousemove', function (e) {
-      var x = e.clientX - 130;
-      var y = e.clientY - 130;
-      glow.style.transform = 'translate(' + x + 'px,' + y + 'px)';
-      glow.style.opacity = '1';
-
-      clearTimeout(hideTimeout);
-      hideTimeout = setTimeout(function () {
-        glow.style.opacity = '0';
-      }, 1200);
-    });
-  })();
-  // SCROLL REVEAL для hero та карток
-(function () {
-  if (!('IntersectionObserver' in window)) return;
-
-  var targets = document.querySelectorAll('.hero, .card.big-block, .card:not(.big-block)');
-  if (!targets.length) return;
-
-  targets.forEach(function (el) {
-    el.classList.add('reveal-on-scroll');
-  });
-
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.18 });
-
-  targets.forEach(function (el) {
-    observer.observe(el);
-  });
-})();
-
-// АВТОМАТИЧНИЙ loading="lazy" для зображень та відео
-document.addEventListener('DOMContentLoaded', function () {
-  var imgs = document.querySelectorAll('img');
-  imgs.forEach(function (img) {
-    if (!img.hasAttribute('loading')) {
-      img.setAttribute('loading', 'lazy');
-    }
-  });
-
-  var iframes = document.querySelectorAll('iframe');
-  iframes.forEach(function (frame) {
-    if (!frame.hasAttribute('loading')) {
-      frame.setAttribute('loading', 'lazy');
-    }
-  });
-});
-
-// ЛЕГКИЙ ПАРАЛАКС HERO
-(function () {
-  var hero = document.querySelector('.hero');
-  if (!hero) return;
-
-  function handleMove(xRatio, yRatio) {
-    // трохи зміщуємо фон, щоб був ефект глибини
-    var x = (xRatio - 0.5) * 8;  // від -4 до 4
-    var y = (yRatio - 0.5) * 6;  // від -3 до 3
-    hero.style.backgroundPosition = (50 + x) + '% ' + (50 + y) + '%';
-  }
-
-  hero.addEventListener('mousemove', function (e) {
-    var rect = hero.getBoundingClientRect();
-    var xRatio = (e.clientX - rect.left) / rect.width;
-    var yRatio = (e.clientY - rect.top) / rect.height;
-    handleMove(xRatio, yRatio);
-  });
-
-  // Для дотиків (мобілки) – беремо середину пальця
-  hero.addEventListener('touchmove', function (e) {
-    if (!e.touches || !e.touches[0]) return;
-    var touch = e.touches[0];
-    var rect = hero.getBoundingClientRect();
-    var xRatio = (touch.clientX - rect.left) / rect.width;
-    var yRatio = (touch.clientY - rect.top) / rect.height;
-    handleMove(xRatio, yRatio);
-  });
-})();
-// GLOW-EФЕКТ ДЛЯ КАРТОК ПРИ СКРОЛІ
-(function () {
-  if (!('IntersectionObserver' in window)) return;
-
-  var cards = document.querySelectorAll('.card');
-  if (!cards.length) return;
-
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('glow-visible');
-      } else {
-        entry.target.classList.remove('glow-visible');
-      }
-    });
-  }, {
-    threshold: 0.35
-  });
-
-  cards.forEach(function (card) {
-    observer.observe(card);
-  });
-})();
-<div class="hud-panel" id="hudPanel">
-  <div class="hud-title">VTZ · Live status</div>
-  <div class="hud-line" id="hudLine">Initializing diagnostics...</div>
-</div>
-
-</>
+</script>
 </body>
 </html>
