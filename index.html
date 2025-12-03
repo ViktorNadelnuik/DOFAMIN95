@@ -35,12 +35,12 @@
       overflow-x: hidden;
     }
 
-    /* Тактичний фон “рушничок” */
+    /* Фонові "гаражні" смуги */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
-      z-index: -2;
+      z-index: -1;
       background:
         repeating-linear-gradient(
           -35deg,
@@ -52,7 +52,7 @@
       opacity: 0.6;
     }
 
-    /* Легка світлова пляма зверху */
+    /* Легке світіння з верху */
     body::after {
       content: "";
       position: fixed;
@@ -141,7 +141,7 @@
     /* HERO */
     .hero {
       background:
-        linear-gradient(135deg, rgba(0,0,0,0.78), rgba(0,0,0,0.94)),
+        linear-gradient(135deg, rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
         url("hero-bg.jpg") center/cover no-repeat;
       border-radius: 24px;
       padding: 24px 22px 20px;
@@ -151,10 +151,9 @@
       animation: heroReveal 0.9s ease-out;
       position: relative;
       overflow: hidden;
-      will-change: background-position;
     }
 
-    /* Іскра зварювання через HERO */
+    /* Іскра-зварка по HERO */
     .hero::after {
       content: "";
       position: absolute;
@@ -170,6 +169,25 @@
       opacity: 0;
       filter: blur(0.6px);
       animation: weld-spark 3.7s ease-in-out infinite;
+    }
+
+    @keyframes weld-spark {
+      0%, 60% {
+        opacity: 0;
+        transform: translateX(-10%);
+      }
+      65% {
+        opacity: 1;
+        transform: translateX(10%);
+      }
+      80% {
+        opacity: 0.5;
+        transform: translateX(60%);
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(120%);
+      }
     }
 
     .hero-badge {
@@ -231,14 +249,34 @@
       flex-direction: column;
       justify-content: space-between;
       min-height: 260px;
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        border-color 0.25s ease,
-        background 0.25s ease,
-        opacity 0.25s ease;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease, opacity 0.25s ease;
       animation: cardFade 0.55s ease-out;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Легка підсвітка кутів */
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background:
+        linear-gradient(135deg, rgba(0, 228, 255, 0.12), transparent 60%),
+        radial-gradient(circle at top left, rgba(0, 255, 200, 0.16), transparent 55%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover::before {
       opacity: 1;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.75);
+      border-color: rgba(255,255,255,0.24);
     }
 
     .card.big-block {
@@ -250,25 +288,11 @@
     .card small { opacity: 0.7; font-size: 11px; letter-spacing: 0.08em; }
     .card p { font-size: 13px; margin: 6px 0; }
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 36px rgba(0,0,0,0.85);
-      border-color: rgba(255,255,255,0.24);
-      background: radial-gradient(circle at top left, #29385d 0, #050a16 70%);
-    }
-
-    /* Анімація появи при скролі */
-    .card--reveal {
-      opacity: 0;
-      transform: translateY(18px) scale(0.97);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-    }
-
-    .card--visible {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      box-shadow: 0 16px 36px rgba(0,0,0,0.9);
-      border-color: rgba(255,255,255,0.22);
+    /* Картка, яка зʼявилася у вʼюпорті */
+    .card--in-view {
+      box-shadow: 0 16px 40px rgba(0,0,0,0.85);
+      border-color: rgba(0, 229, 255, 0.35);
+      transform: translateY(-2px);
     }
 
     .mono-label { color: #00ffc3; font-weight: 600; }
@@ -621,7 +645,40 @@
       line-height: 1;
     }
 
-    /* === ШЕВРОН У ХЕДЕРІ === */
+    /* HERO двигун-лінія */
+    .engine-line-wrap {
+      margin: 10px 0 14px;
+    }
+
+    .engine-line {
+      position: relative;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      overflow: hidden;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+    }
+
+    .engine-line::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        #ffd700 25%,
+        #ffffff 40%,
+        #ffd700 55%,
+        transparent 100%);
+      animation: engine-move 1.6s linear infinite;
+      filter: blur(0.3px);
+    }
+
+    @keyframes engine-move {
+      from { transform: translateX(-120%); }
+      to   { transform: translateX(120%); }
+    }
+
+    /* ШЕВРОН У ХЕДЕРІ */
     .header-patch-wrap {
       width: 100%;
       display: flex;
@@ -644,14 +701,12 @@
         drop-shadow(0 0 4px rgba(255,215,0,0.25));
     }
 
-    /* Легке “дихання” шеврона */
     @keyframes patch-breath {
       0%   { transform: scale(0.98); }
       50%  { transform: scale(1.03); }
       100% { transform: scale(0.98); }
     }
 
-    /* Легке похитування */
     @keyframes patch-tilt {
       0%   { transform: rotateX(0deg) rotateY(0deg); }
       25%  { transform: rotateX(2deg) rotateY(-2deg); }
@@ -660,7 +715,6 @@
       100% { transform: rotateX(0deg) rotateY(0deg); }
     }
 
-    /* Золоте світіння */
     @keyframes patch-glow {
       0%   { filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
       50%  { filter: drop-shadow(0 0 12px rgba(255,215,0,0.7)); }
@@ -673,31 +727,7 @@
       }
     }
 
-    /* CURSOR GLOW — мʼяке світло за курсором */
-    .cursor-glow {
-      position: fixed;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 999;
-      background: radial-gradient(circle,
-        rgba(0, 227, 170, 0.35) 0,
-        rgba(0, 180, 255, 0.18) 40%,
-        transparent 70%);
-      mix-blend-mode: screen;
-      opacity: 0;
-      transform: translate(-50%, -50%);
-      transition: opacity 0.25s ease;
-    }
-
-    @media (max-width: 768px) {
-      .cursor-glow {
-        display: none;
-      }
-    }
-
-    /* RESPONSIVE */
+    /* АДАПТИВ */
     @media (max-width: 1024px) {
       .page {
         padding: 20px 10px 32px;
@@ -835,62 +865,17 @@
       100% { transform: translateY(0) scale(1);   box-shadow: 0 6px 16px rgba(0,0,0,0.45); }
     }
 
-    /* Двигун-лінія під заголовком */
-    .engine-line-wrap {
-      margin: 10px 0 14px;
-    }
-
-    .engine-line {
-      position: relative;
-      height: 4px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.12);
-      overflow: hidden;
-      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
-    }
-
-    .engine-line::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg,
-        transparent 0%,
-        #ffd700 25%,
-        #ffffff 40%,
-        #ffd700 55%,
-        transparent 100%);
-      animation: engine-move 1.6s linear infinite;
-      filter: blur(0.3px);
-    }
-
-    @keyframes engine-move {
-      from { transform: translateX(-120%); }
-      to   { transform: translateX(120%); }
-    }
-
-    @keyframes weld-spark {
-      0%, 60% {
-        opacity: 0;
-        transform: translateX(-10%);
-      }
-      65% {
-        opacity: 1;
-        transform: translateX(10%);
-      }
-      80% {
-        opacity: 0.5;
-        transform: translateX(60%);
-      }
-      100% {
-        opacity: 0;
-        transform: translateX(120%);
+    /* Поважаємо користувачів з reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
       }
     }
   </style>
 </head>
 <body>
-<div class="cursor-glow" id="cursorGlow"></div>
-
 <div class="page">
   <div class="container">
 
@@ -1981,7 +1966,7 @@
     });
   })();
 
-  // ЛІЧИЛЬНИК ВІДВІДУВАНЬ (як "скільки людей зайшли підтримати")
+  // ЛІЧИЛЬНИК ВІДВІДУВАНЬ
   (function () {
     var el = document.getElementById('visitor-counter-ua');
     if (!el) return;
@@ -2057,67 +2042,32 @@
     var text = document.getElementById('progress-text-ua');
     if (!fill || !text) return;
 
-    var percent = 40; // просто щоб смужка була видима
+    var percent = 40; // просто для візуалу
 
     fill.style.width = percent + '%';
     fill.setAttribute('data-label', 'Збір активний');
-
     text.textContent = 'Збір активний';
   })();
 
-  // Анімація карток при скролі (легке підсвічування+поява)
+  // ПІДСВІЧУВАННЯ КАРТОК ПРИ СКРОЛІ (IntersectionObserver)
   (function () {
+    if (!('IntersectionObserver' in window)) return;
+
     var cards = document.querySelectorAll('.card');
-    if (!cards.length || !('IntersectionObserver' in window)) return;
+    if (!cards.length) return;
 
-    cards.forEach(function(card) {
-      card.classList.add('card--reveal');
-    });
-
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add('card--visible');
-          observer.unobserve(entry.target);
+          entry.target.classList.add('card--in-view');
         }
       });
     }, {
-      threshold: 0.18
+      threshold: 0.3
     });
 
-    cards.forEach(function(card) {
+    cards.forEach(function (card) {
       observer.observe(card);
-    });
-  })();
-
-  // Parallax HERO фон
-  (function () {
-    var hero = document.querySelector('.hero');
-    if (!hero) return;
-
-    window.addEventListener('scroll', function () {
-      var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-      var offset = scrollY * 0.25;
-      hero.style.backgroundPosition = 'center ' + (-offset) + 'px';
-    });
-  })();
-
-  // Cursor glow ефект
-  (function () {
-    var glow = document.getElementById('cursorGlow');
-    if (!glow) return;
-
-    var timeoutId;
-
-    document.addEventListener('mousemove', function (e) {
-      glow.style.left = e.clientX + 'px';
-      glow.style.top = e.clientY + 'px';
-      glow.style.opacity = 1;
-
-      if (timeoutId) clearTimeout(timeoutId);
-      timeoutId = setTimeout(function () {
-        glow.style.opacity = 0;
-      }, 1200);
     });
   })();
 </script>
