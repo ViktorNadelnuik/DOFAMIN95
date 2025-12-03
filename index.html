@@ -850,6 +850,44 @@
         width: 110px;
       }
     }
+    /* ДЕКОР ПІД ЗАГОЛОВКАМИ СЕКЦІЙ */
+.section-title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #00e3aa, #00b4ff, #ffd700);
+  box-shadow: 0 0 10px rgba(0, 180, 255, 0.5);
+  opacity: 0.9;
+}
+/* ДОДАТКОВИЙ ГЛОУ ДЛЯ КАРТОК ПРИ ХОВЕРІ */
+.card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    outline 0.2s ease;
+  outline: 0 solid rgba(0, 227, 170, 0);
+}
+
+.card:hover {
+  outline: 1px solid rgba(0, 227, 170, 0.25);
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.85),
+    0 0 18px rgba(0, 180, 255, 0.35);
+  background: radial-gradient(circle at top left, #273861 0, #050914 75%);
+}
+
   </style>
 </head>
 <body>
