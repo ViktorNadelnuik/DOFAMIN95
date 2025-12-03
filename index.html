@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Підтримати · Взвод технічного забезпечення · 142 ОМБр</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Підтримайте взвод технічного забезпечення 142-ї бригади. Ваші донати допомагають ремонтувати техніку і рятувати життя.">
+  <meta name="deion" content="Підтримайте взвод технічного забезпечення 142-ї бригади. Ваші донати допомагають ремонтувати техніку і рятувати життя.">
 
   <link rel="icon"
         href="https://viktornadelniuk.github.io/DOFAMIN95/favicon.png"
@@ -13,14 +13,14 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Підтримати взвод технічного забезпечення · 142 ОМБр">
-  <meta property="og:description" content="Взвод технічного забезпечення ремонтує техніку прямо на передовій, щоб машини їхали, а бійці поверталися живими.">
+  <meta property="og:deion" content="Взвод технічного забезпечення ремонтує техніку прямо на передовій, щоб машини їхали, а бійці поверталися живими.">
   <meta property="og:url" content="https://viktornadelniuk.github.io/DOFAMIN95/">
   <meta property="og:image" content="https://viktornadelniuk.github.io/DOFAMIN95/hero-bg.jpg">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Підтримати взвод технічного забезпечення · 142 ОМБр">
-  <meta name="twitter:description" content="Підтримайте взвод технічного забезпечення, який ремонтує техніку прямо на передовій.">
+  <meta name="twitter:deion" content="Підтримайте взвод технічного забезпечення, який ремонтує техніку прямо на передовій.">
   <meta name="twitter:image" content="https://viktornadelniuk.github.io/DOFAMIN95/hero-bg.jpg">
 
   <style>
@@ -237,6 +237,11 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
       animation: cardFade 0.55s ease-out;
     }
+.card {
+  /* ТЕ, ЩО ВЖЕ Є — НЕ ЧІПАЄМО */
+  position: relative;
+  overflow: hidden;
+}
 
     .card:hover {
       transform: translateY(-4px);
@@ -956,6 +961,99 @@
   box-shadow:
     0 0 0 1px rgba(0,227,170,0.8),
     0 18px 46px rgba(0,0,0,0.95);
+}
+/* Картка, яка в зоні видимості */
+.card.glow-visible {
+  box-shadow: 0 0 28px rgba(0, 255, 180, 0.35), 0 0 60px rgba(0, 114, 255, 0.35);
+  border-color: rgba(0, 255, 200, 0.7);
+  transform: translateY(-2px) scale(1.01);
+}
+
+/* Легка “блукаюча” засвітка зверху картки */
+.card.glow-visible::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background:
+    radial-gradient(circle at 10% 0, rgba(0,255,200,0.09), transparent 50%),
+    radial-gradient(circle at 90% 100%, rgba(0,114,255,0.12), transparent 50%);
+  opacity: 0.9;
+  pointer-events: none;
+  animation: card-glow-move 9s ease-in-out infinite;
+}
+
+@keyframes card-glow-move {
+  0%   { transform: translateX(-6%) translateY(-4%); opacity: 0.4; }
+  40%  { transform: translateX(4%) translateY(2%);   opacity: 0.8; }
+  70%  { transform: translateX(2%) translateY(-3%);  opacity: 0.6; }
+  100% { transform: translateX(-6%) translateY(-4%); opacity: 0.4; }
+}
+/* HUD-ПАНЕЛЬ ТЗ */
+.hud-panel {
+  position: fixed;
+  left: 16px;
+  bottom: 18px;
+  min-width: 230px;
+  max-width: 280px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(2, 6, 23, 0.96);
+  border: 1px solid rgba(0, 255, 200, 0.4);
+  box-shadow: 0 0 22px rgba(0, 0, 0, 0.9);
+  font-family: "SF Mono", "Consolas", monospace;
+  font-size: 11px;
+  color: #e5fdf7;
+  z-index: 9998;
+  backdrop-filter: blur(6px);
+  opacity: 0.0;
+  transform: translateY(10px);
+  animation: hud-appear 1s ease-out 1.5s forwards;
+}
+
+.hud-title {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 10px;
+  margin-bottom: 4px;
+  color: #7fffd4;
+}
+
+.hud-line {
+  white-space: normal;
+  line-height: 1.4;
+  position: relative;
+  padding-right: 10px;
+}
+
+/* Мигаючий курсор */
+.hud-line::after {
+  content: "▌";
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  font-size: 11px;
+  animation: hud-caret 0.8s steps(1) infinite;
+}
+
+@keyframes hud-caret {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes hud-appear {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* На дуже малих екранах не перекривати кнопку ↑ */
+@media (max-width: 480px) {
+  .hud-panel {
+    left: 10px;
+    bottom: 60px;
+    max-width: 220px;
+    padding: 8px 10px;
+  }
 }
 
   </style>
@@ -1865,7 +1963,7 @@
   </div>
 </div>
 
-<script>
+<>
   // QR-коди
   function setQR(id, data) {
     var el = document.getElementById(id);
@@ -2255,7 +2353,34 @@ document.addEventListener('DOMContentLoaded', function () {
     handleMove(xRatio, yRatio);
   });
 })();
+// GLOW-EФЕКТ ДЛЯ КАРТОК ПРИ СКРОЛІ
+(function () {
+  if (!('IntersectionObserver' in window)) return;
 
-</script>
+  var cards = document.querySelectorAll('.card');
+  if (!cards.length) return;
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('glow-visible');
+      } else {
+        entry.target.classList.remove('glow-visible');
+      }
+    });
+  }, {
+    threshold: 0.35
+  });
+
+  cards.forEach(function (card) {
+    observer.observe(card);
+  });
+})();
+<div class="hud-panel" id="hudPanel">
+  <div class="hud-title">VTZ · Live status</div>
+  <div class="hud-line" id="hudLine">Initializing diagnostics...</div>
+</div>
+
+</>
 </body>
 </html>
