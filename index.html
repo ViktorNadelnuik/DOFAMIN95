@@ -26,6 +26,10 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
       color: #f5f5f5;
@@ -68,6 +72,8 @@
       display: flex;
       justify-content: center;
       animation: fadeInPage 0.7s ease-out;
+      position: relative;
+      z-index: 2;
     }
 
     .container {
@@ -151,6 +157,7 @@
       overflow: hidden;
     }
 
+    /* Анімована "іскра" */
     .hero::after {
       content: "";
       position: absolute;
@@ -237,13 +244,6 @@
       border-color: rgba(255,255,255,0.24);
     }
 
-    /* Підсвічування карток при появі на екрані */
-    .card-scroll-visible {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.9);
-      border-color: rgba(255,255,255,0.32);
-    }
-
     .card.big-block {
       grid-column: 1 / -1;
       min-height: auto;
@@ -321,6 +321,7 @@
       border: 1px solid rgba(255,255,255,0.12);
       background: #050910;
       aspect-ratio: 4 / 3;
+      transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
     }
 
     .gallery-item img {
@@ -362,6 +363,7 @@
       border: 1px solid rgba(255,255,255,0.16);
       background: #050910;
       box-shadow: 0 10px 26px rgba(0,0,0,0.7);
+      transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
     }
 
     .youtube-wrap {
@@ -369,6 +371,7 @@
       width: 100%;
       padding-bottom: 56.25%; /* 16:9 */
       overflow: hidden;
+      background:#000;
     }
 
     .youtube-wrap iframe {
@@ -603,6 +606,13 @@
       line-height: 1;
     }
 
+    /* Підсвічування при скролі */
+    .scroll-glow {
+      box-shadow: 0 18px 44px rgba(0,0,0,0.95);
+      border-color: rgba(255,255,255,0.3) !important;
+      transform: translateY(-2px);
+    }
+
     @media (max-width: 1024px) {
       .page {
         padding: 20px 10px 32px;
@@ -734,43 +744,13 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes engineLine {
-      0%   { transform: translateX(-5%); opacity: 0.7; }
-      50%  { transform: translateX(5%);  opacity: 1;   }
-      100% { transform: translateX(-5%); opacity: 0.7; }
-    }
-
     @keyframes buttonPulse {
       0%   { transform: translateY(0) scale(1);   box-shadow: 0 6px 16px rgba(0,0,0,0.45); }
       50%  { transform: translateY(-1px) scale(1.07); box-shadow: 0 10px 24px rgba(0,0,0,0.7); }
       100% { transform: translateY(0) scale(1);   box-shadow: 0 6px 16px rgba(0,0,0,0.45); }
     }
 
-    @keyframes weld-spark {
-      0%, 60% {
-        opacity: 0;
-        transform: translateX(-10%);
-      }
-      65% {
-        opacity: 1;
-        transform: translateX(10%);
-      }
-      80% {
-        opacity: 0.5;
-        transform: translateX(60%);
-      }
-      100% {
-        opacity: 0;
-        transform: translateX(120%);
-      }
-    }
-
-    /* === ЖИВИЙ ДВИГУН ПІД ЗАГОЛОВКОМ HERO === */
-    .hero {
-      position: relative;
-      overflow: hidden;
-    }
-
+    /* Лінія-двигун під заголовком */
     .engine-line-wrap {
       margin: 10px 0 14px;
     }
@@ -803,7 +783,26 @@
       to   { transform: translateX(120%); }
     }
 
-    /* === ШЕВРОН У ХЕДЕРІ === */
+    @keyframes weld-spark {
+      0%, 60% {
+        opacity: 0;
+        transform: translateX(-10%);
+      }
+      65% {
+        opacity: 1;
+        transform: translateX(10%);
+      }
+      80% {
+        opacity: 0.5;
+        transform: translateX(60%);
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(120%);
+      }
+    }
+
+    /* Шеврон у хедері */
     .header-patch-wrap {
       width: 100%;
       display: flex;
@@ -818,11 +817,11 @@
       height: auto;
       filter: drop-shadow(0 0 14px rgba(0,0,0,0.65))
               drop-shadow(0 0 8px rgba(255,215,0,0.25));
+      transform-origin: center;
       animation:
         patch-breath 3.5s ease-in-out infinite,
         patch-tilt 6s ease-in-out infinite,
         patch-glow 4s ease-in-out infinite;
-      transform-origin: center;
     }
 
     @keyframes patch-breath {
@@ -850,58 +849,49 @@
         width: 110px;
       }
     }
-    /* ДЕКОР ПІД ЗАГОЛОВКАМИ СЕКЦІЙ */
-.section-title {
-  position: relative;
-  display: inline-block;
-  padding-bottom: 4px;
-}
 
-.section-title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 2px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #00e3aa, #00b4ff, #ffd700);
-  box-shadow: 0 0 10px rgba(0, 180, 255, 0.5);
-  opacity: 0.9;
-}
-/* ДОДАТКОВИЙ ГЛОУ ДЛЯ КАРТОК ПРИ ХОВЕРІ */
-.card {
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease,
-    background 0.2s ease,
-    outline 0.2s ease;
-  outline: 0 solid rgba(0, 227, 170, 0);
-}
+    /* Світло за курсором (desktop only) */
+    .cursor-glow {
+      position: fixed;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      pointer-events: none;
+      background: radial-gradient(circle,
+        rgba(0, 227, 170, 0.13) 0,
+        rgba(0, 114, 255, 0.0) 60%);
+      mix-blend-mode: screen;
+      opacity: 0;
+      z-index: 1;
+      transition: opacity 0.35s ease-out, transform 0.06s linear;
+    }
 
-.card:hover {
-  outline: 1px solid rgba(0, 227, 170, 0.25);
-  box-shadow:
-    0 16px 36px rgba(0, 0, 0, 0.85),
-    0 0 18px rgba(0, 180, 255, 0.35);
-  background: radial-gradient(circle at top left, #273861 0, #050914 75%);
-}
+    @media (max-width: 768px) {
+      .cursor-glow {
+        display: none;
+      }
+    }
 
   </style>
 </head>
 <body>
+<div id="cursorGlow" class="cursor-glow"></div>
+
 <div class="page">
   <div class="container">
 
     <header>
       <div class="header-patch-wrap">
-        <img src="vtz-mpb-patch.png" alt="Шеврон ВТЗ МПБ" class="header-patch">
+        <img src="vtz-mpb-patch.png"
+             alt="Шеврон ВТЗ МПБ"
+             class="header-patch"
+             loading="lazy"
+             decoding="async">
       </div>
 
       <div class="top-row">
         <div class="top-bar">
-          <img src="logo.png" alt="Лого" class="logo">
+          <img src="logo.png" alt="Лого" class="logo" loading="lazy" decoding="async">
           <span class="site-title">142 ОМБр • Взвод технічного забезпечення</span>
         </div>
         <div class="lang-switch">
@@ -1058,105 +1048,105 @@
 
         <div class="gallery-grid">
           <figure class="gallery-item">
-            <img src="gallery1.jpg" alt="Ремонт вантажівки після евакуації з передової">
+            <img src="gallery1.jpg" alt="Ремонт вантажівки після евакуації з передової" loading="lazy" decoding="async">
             <figcaption class="gallery-caption">
               Ремонт вантажівки після евакуації з передової
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery2.jpg" alt="Польовий ремонт підвіски просто неба">
+            <img src="gallery2.jpg" alt="Польовий ремонт підвіски просто неба" loading="lazy" decoding="async">
             <figcaption class="gallery-caption">
               Польовий ремонт підвіски просто неба
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery3.jpg" alt="Імпровізована майстерня взводу ТЗ в роботі">
+            <img src="gallery3.jpg" alt="Імпровізована майстерня взводу ТЗ в роботі" loading="lazy" decoding="async">
             <figcaption class="gallery-caption">
               Імпровізована майстерня взводу ТЗ в роботі
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery4.jpg" alt="Евакуація пошкодженої техніки з небезпечної ділянки">
+            <img src="gallery4.jpg" alt="Евакуація пошкодженої техніки з небезпечної ділянки" loading="lazy" decoding="async">
             <figcaption class="gallery-caption">
               Евакуація пошкодженої техніки з небезпечної ділянки
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery5.jpg" alt="Заміна колеса на дорозі під обстрілами">
+            <img src="gallery5.jpg" alt="Заміна колеса на дорозі під обстрілами" loading="lazy" decoding="async">
             <figcaption class="gallery-caption">
               Заміна колеса на дорозі під обстрілами
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery6.jpg" alt="Нічний ремонт при світлі прожекторів">
+            <img src="gallery6.jpg" alt="Нічний ремонт при світлі прожекторів" loading="lazy" decoding="async">
             <figcaption class="gallery-caption">
               Нічний ремонт при світлі прожекторів
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery7.jpg" alt="Робота з гальмівною системою вантажівки">
+            <img src="gallery7.jpg" alt="Робота з гальмівною системою вантажівки" loading="lazy" decoding="async">
             <figcaption class="gallery-caption">
               Робота з гальмівною системою вантажівки
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery8.jpg" alt="Зварювальні роботи на рамі автомобіля">
+            <img src="gallery8.jpg" alt="Зварювальні роботи на рамі автомобіля" loading="lazy" decoding="async">
             <figcaption class="gallery-caption">
               Зварювальні роботи на рамі автомобіля
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery9.jpg" alt="Перевірка електрики та проводки в польових умовах">
+            <img src="gallery9.jpg" alt="Перевірка електрики та проводки в польових умовах" loading="lazy" decoding="async">
             <figcaption class="gallery-caption">
               Перевірка електрики та проводки в польових умовах
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery10.jpg" alt="Підготовка техніки до виїзду на завдання">
+            <img src="gallery10.jpg" alt="Підготовка техніки до виїзду на завдання" loading="lazy" decoding="async">
             <figcaption class="gallery-caption">
               Підготовка техніки до виїзду на завдання
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery11.jpg" alt="Заміна мастил та фільтрів">
+            <img src="gallery11.jpg" alt="Заміна мастил та фільтрів" loading="lazy" decoding="async">
             <figcaption class="gallery-caption">
               Заміна мастил та фільтрів
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery12.jpg" alt="Ремонт підвіски і ходової частини">
+            <img src="gallery12.jpg" alt="Ремонт підвіски і ходової частини" loading="lazy" decoding="async">
             <figcaption class="gallery-caption">
               Ремонт підвіски і ходової частини
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery13.jpg" alt="Відновлення паливної системи вантажівки">
+            <img src="gallery13.jpg" alt="Відновлення паливної системи вантажівки" loading="lazy" decoding="async">
             <figcaption class="gallery-caption">
               Відновлення паливної системи вантажівки
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery14.jpg" alt="Робота взводу ТЗ біля евакуйованої техніки">
+            <img src="gallery14.jpg" alt="Робота взводу ТЗ біля евакуйованої техніки" loading="lazy" decoding="async">
             <figcaption class="gallery-caption">
               Робота взводу ТЗ біля евакуйованої техніки
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery15.jpg" alt="Техніка після ремонту знову виходить на лінію">
+            <img src="gallery15.jpg" alt="Техніка після ремонту знову виходить на лінію" loading="lazy" decoding="async">
             <figcaption class="gallery-caption">
               Техніка після ремонту знову виходить на лінію
             </figcaption>
@@ -1180,6 +1170,7 @@
               <iframe
                 src="https://www.youtube.com/embed/jUTx6Om_L90"
                 title="YouTube video"
+                loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             </div>
@@ -1191,6 +1182,7 @@
               <iframe
                 src="https://www.youtube.com/embed/DR1o8KQuTp4"
                 title="YouTube video"
+                loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             </div>
@@ -1202,6 +1194,7 @@
               <iframe
                 src="https://www.youtube.com/embed/er5Kzpb7stc"
                 title="YouTube video"
+                loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             </div>
@@ -1371,6 +1364,7 @@
 
         <div class="card-grid" style="margin-top:10px;">
 
+          <!-- УРАЛ-43203 -->
           <div class="card" style="min-height:180px;">
             <h3>УРАЛ-43203</h3>
             <small style="opacity:0.75;">Статус:</small>
@@ -1380,6 +1374,7 @@
             </p>
           </div>
 
+          <!-- ГАЗ-66 -->
           <div class="card" style="min-height:180px;">
             <h3>ГАЗ-66</h3>
             <small style="opacity:0.75;">Статус:</small>
@@ -1389,6 +1384,7 @@
             </p>
           </div>
 
+          <!-- Легкові авто -->
           <div class="card" style="min-height:180px;">
             <h3>Легкові авто</h3>
             <small style="opacity:0.75;">Статус:</small>
@@ -1537,7 +1533,7 @@
               </button>
             </div>
             <div class="qr-wrap">
-              <img id="qr-mono" class="qr" alt="QR Monobank">
+              <img id="qr-mono" class="qr" alt="QR Monobank" loading="lazy" decoding="async">
             </div>
           </div>
         </section>
@@ -1563,7 +1559,7 @@
               </button>
             </div>
             <div class="qr-wrap">
-              <img id="qr-privat" class="qr" alt="QR PrivatBank">
+              <img id="qr-privat" class="qr" alt="QR PrivatBank" loading="lazy" decoding="async">
             </div>
           </div>
         </section>
@@ -1584,7 +1580,7 @@
               </button>
             </div>
             <div class="qr-wrap">
-              <img id="qr-paupay" class="qr" alt="QR Paupay / PayPal">
+              <img id="qr-paupay" class="qr" alt="QR Paupay / PayPal" loading="lazy" decoding="async">
             </div>
             <p style="font-size:12px; opacity:0.8; margin-top:6px;">
               У примітці до платежу, будь ласка, вкажіть:
@@ -1644,7 +1640,7 @@
             </div>
 
             <div class="qr-wrap">
-              <img id="qr-btc" class="qr" alt="QR BTC">
+              <img id="qr-btc" class="qr" alt="QR BTC" loading="lazy" decoding="async">
             </div>
           </div>
         </section>
@@ -1975,7 +1971,7 @@
     });
   })();
 
-  // ЛІЧИЛЬНИК ВІДВІДУВАНЬ
+  // ЛІЧИЛЬНИК ВІДВІДУВАНЬ (як "скільки людей зайшли підтримати")
   (function () {
     var el = document.getElementById('visitor-counter-ua');
     if (!el) return;
@@ -2055,30 +2051,51 @@
 
     fill.style.width = percent + '%';
     fill.setAttribute('data-label', 'Збір активний');
+
     text.textContent = 'Збір активний';
   })();
 
-  // ПІДСВІЧУВАННЯ КАРТОК ПРИ СКРОЛІ (IntersectionObserver)
+  // Підсвічування карток / галереї / відео при скролі
   (function () {
     if (!('IntersectionObserver' in window)) return;
 
-    var cards = document.querySelectorAll('.card');
-    if (!cards.length) return;
+    var targets = document.querySelectorAll('.card, .gallery-item, .video-item');
+    if (!targets.length) return;
 
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add('card-scroll-visible');
+          entry.target.classList.add('scroll-glow');
         } else {
-          entry.target.classList.remove('card-scroll-visible');
+          entry.target.classList.remove('scroll-glow');
         }
       });
     }, {
-      threshold: 0.3
+      threshold: 0.35
     });
 
-    cards.forEach(function (card) {
-      observer.observe(card);
+    targets.forEach(function (el) {
+      observer.observe(el);
+    });
+  })();
+
+  // Світло за курсором
+  (function () {
+    var glow = document.getElementById('cursorGlow');
+    if (!glow) return;
+
+    var hideTimeout;
+
+    document.addEventListener('mousemove', function (e) {
+      var x = e.clientX - 130;
+      var y = e.clientY - 130;
+      glow.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+      glow.style.opacity = '1';
+
+      clearTimeout(hideTimeout);
+      hideTimeout = setTimeout(function () {
+        glow.style.opacity = '0';
+      }, 1200);
     });
   })();
 </script>
