@@ -884,6 +884,19 @@ body::after {
    @keyframes patch-breath { ... }
    @keyframes patch-tilt { ... }
    @keyframes patch-glow { ... }
+    /* === SCROLL GLOW REVEAL === */
+.card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out, box-shadow 0.7s ease-out;
+}
+
+.card.reveal {
+  opacity: 1;
+  transform: translateY(0);
+  box-shadow: 0 12px 30px rgba(0, 180, 255, 0.25);
+}
+
   </style>
 </head>
 <body>
@@ -2059,6 +2072,24 @@ body::after {
     // Текст під смужкою
     text.textContent = 'Збір активний';
   })();
+
+  <script>
+  const cards = document.querySelectorAll('.card');
+
+  function revealOnScroll() {
+    const trigger = window.innerHeight * 0.85;
+
+    cards.forEach(card => {
+      const top = card.getBoundingClientRect().top;
+      if (top < trigger) {
+        card.classList.add('reveal');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
 </script>
+
 </body>
 </html>
