@@ -35,7 +35,6 @@
       overflow-x: hidden;
     }
 
-    /* Фонові "гаражні" смуги */
     body::before {
       content: "";
       position: fixed;
@@ -52,7 +51,6 @@
       opacity: 0.6;
     }
 
-    /* Легке світіння з верху */
     body::after {
       content: "";
       position: fixed;
@@ -153,7 +151,7 @@
       overflow: hidden;
     }
 
-    /* Іскра-зварка по HERO */
+    /* Анімація "іскри" */
     .hero::after {
       content: "";
       position: absolute;
@@ -169,25 +167,6 @@
       opacity: 0;
       filter: blur(0.6px);
       animation: weld-spark 3.7s ease-in-out infinite;
-    }
-
-    @keyframes weld-spark {
-      0%, 60% {
-        opacity: 0;
-        transform: translateX(-10%);
-      }
-      65% {
-        opacity: 1;
-        transform: translateX(10%);
-      }
-      80% {
-        opacity: 0.5;
-        transform: translateX(60%);
-      }
-      100% {
-        opacity: 0;
-        transform: translateX(120%);
-      }
     }
 
     .hero-badge {
@@ -249,28 +228,8 @@
       flex-direction: column;
       justify-content: space-between;
       min-height: 260px;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease, opacity 0.25s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
       animation: cardFade 0.55s ease-out;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Легка підсвітка кутів */
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background:
-        linear-gradient(135deg, rgba(0, 228, 255, 0.12), transparent 60%),
-        radial-gradient(circle at top left, rgba(0, 255, 200, 0.16), transparent 55%);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .card:hover::before {
-      opacity: 1;
     }
 
     .card:hover {
@@ -287,13 +246,6 @@
     .card h3 { font-size: 16px; margin-bottom: 6px; }
     .card small { opacity: 0.7; font-size: 11px; letter-spacing: 0.08em; }
     .card p { font-size: 13px; margin: 6px 0; }
-
-    /* Картка, яка зʼявилася у вʼюпорті */
-    .card--in-view {
-      box-shadow: 0 16px 40px rgba(0,0,0,0.85);
-      border-color: rgba(0, 229, 255, 0.35);
-      transform: translateY(-2px);
-    }
 
     .mono-label { color: #00ffc3; font-weight: 600; }
     .privat-label { color: #55efc4; font-weight: 600; }
@@ -645,89 +597,6 @@
       line-height: 1;
     }
 
-    /* HERO двигун-лінія */
-    .engine-line-wrap {
-      margin: 10px 0 14px;
-    }
-
-    .engine-line {
-      position: relative;
-      height: 4px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.12);
-      overflow: hidden;
-      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
-    }
-
-    .engine-line::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg,
-        transparent 0%,
-        #ffd700 25%,
-        #ffffff 40%,
-        #ffd700 55%,
-        transparent 100%);
-      animation: engine-move 1.6s linear infinite;
-      filter: blur(0.3px);
-    }
-
-    @keyframes engine-move {
-      from { transform: translateX(-120%); }
-      to   { transform: translateX(120%); }
-    }
-
-    /* ШЕВРОН У ХЕДЕРІ */
-    .header-patch-wrap {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      margin-bottom: 14px;
-      margin-top: -4px;
-      padding-top: 10px;
-    }
-
-    .header-patch {
-      width: 140px;
-      height: auto;
-      transform-origin: center;
-      animation:
-        patch-breath 3.5s ease-in-out infinite,
-        patch-tilt 6s ease-in-out infinite,
-        patch-glow 4s ease-in-out infinite;
-      filter:
-        drop-shadow(0 0 10px rgba(255,215,0,0.45))
-        drop-shadow(0 0 4px rgba(255,215,0,0.25));
-    }
-
-    @keyframes patch-breath {
-      0%   { transform: scale(0.98); }
-      50%  { transform: scale(1.03); }
-      100% { transform: scale(0.98); }
-    }
-
-    @keyframes patch-tilt {
-      0%   { transform: rotateX(0deg) rotateY(0deg); }
-      25%  { transform: rotateX(2deg) rotateY(-2deg); }
-      50%  { transform: rotateX(0deg) rotateY(0deg); }
-      75%  { transform: rotateX(-2deg) rotateY(2deg); }
-      100% { transform: rotateX(0deg) rotateY(0deg); }
-    }
-
-    @keyframes patch-glow {
-      0%   { filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
-      50%  { filter: drop-shadow(0 0 12px rgba(255,215,0,0.7)); }
-      100% { filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
-    }
-
-    @media (max-width: 480px) {
-      .header-patch {
-        width: 110px;
-      }
-    }
-
-    /* АДАПТИВ */
     @media (max-width: 1024px) {
       .page {
         padding: 20px 10px 32px;
@@ -859,34 +728,313 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    @keyframes engine-move {
+      from { transform: translateX(-120%); }
+      to   { transform: translateX(120%); }
+    }
+
     @keyframes buttonPulse {
       0%   { transform: translateY(0) scale(1);   box-shadow: 0 6px 16px rgba(0,0,0,0.45); }
       50%  { transform: translateY(-1px) scale(1.07); box-shadow: 0 10px 24px rgba(0,0,0,0.7); }
       100% { transform: translateY(0) scale(1);   box-shadow: 0 6px 16px rgba(0,0,0,0.45); }
     }
 
-    /* Поважаємо користувачів з reduced motion */
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.001ms !important;
+    @keyframes weld-spark {
+      0%, 60% {
+        opacity: 0;
+        transform: translateX(-10%);
+      }
+      65% {
+        opacity: 1;
+        transform: translateX(10%);
+      }
+      80% {
+        opacity: 0.5;
+        transform: translateX(60%);
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(120%);
       }
     }
+
+    /* === ЖИВИЙ ДВИГУН ПІД ЗАГОЛОВКОМ HERO === */
+    .hero {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .engine-line-wrap {
+      margin: 10px 0 14px;
+    }
+
+    .engine-line {
+      position: relative;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      overflow: hidden;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+    }
+
+    .engine-line::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        #ffd700 25%,
+        #ffffff 40%,
+        #ffd700 55%,
+        transparent 100%);
+      animation: engine-move 1.6s linear infinite;
+      filter: blur(0.3px);
+    }
+
+    /* === ШЕВРОН У ХЕДЕРІ === */
+    .header-patch-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 14px;
+      margin-top: -4px;
+      padding-top: 10px;
+    }
+
+    .header-patch {
+      width: 140px;
+      height: auto;
+      transform-origin: center;
+      animation:
+        patch-breath 3.5s ease-in-out infinite,
+        patch-tilt 6s ease-in-out infinite,
+        patch-glow 4s ease-in-out infinite;
+      filter:
+        drop-shadow(0 0 10px rgba(255,215,0,0.45))
+        drop-shadow(0 0 4px rgba(255,215,0,0.25));
+    }
+
+    @keyframes patch-breath {
+      0%   { transform: scale(0.98); }
+      50%  { transform: scale(1.03); }
+      100% { transform: scale(0.98); }
+    }
+
+    @keyframes patch-tilt {
+      0%   { transform: rotateX(0deg) rotateY(0deg); }
+      25%  { transform: rotateX(2deg) rotateY(-2deg); }
+      50%  { transform: rotateX(0deg) rotateY(0deg); }
+      75%  { transform: rotateX(-2deg) rotateY(2deg); }
+      100% { transform: rotateX(0deg) rotateY(0deg); }
+    }
+
+    @keyframes patch-glow {
+      0%   { filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
+      50%  { filter: drop-shadow(0 0 12px rgba(255,215,0,0.7)); }
+      100% { filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
+    }
+
+    @media (max-width: 480px) {
+      .header-patch {
+        width: 110px;
+      }
+    }
+
+    /* === CINEMATIC INTRO OVERLAY === */
+    .intro-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 12000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at top, rgba(0, 0, 0, 0.9), #000 60%),
+        repeating-linear-gradient(
+          0deg,
+          rgba(255,255,255,0.04) 0,
+          rgba(255,255,255,0.04) 1px,
+          transparent 1px,
+          transparent 3px
+        );
+      backdrop-filter: blur(3px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .intro-overlay.intro-hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(1.02);
+    }
+
+    .intro-inner {
+      max-width: 520px;
+      width: 90%;
+      padding: 26px 20px 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: radial-gradient(circle at top, #111827, #020617 70%);
+      box-shadow:
+        0 22px 60px rgba(0,0,0,0.9),
+        0 0 40px rgba(37,99,235,0.4);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro-inner::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 10% 0, rgba(56,189,248,0.16), transparent 55%),
+        radial-gradient(circle at 90% 100%, rgba(250,204,21,0.18), transparent 55%);
+      opacity: 0.8;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .intro-core {
+      position: relative;
+      z-index: 1;
+    }
+
+    .intro-badge {
+      display: inline-flex;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.7);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+      background: rgba(15,23,42,0.9);
+      margin-bottom: 10px;
+    }
+
+    .intro-title {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #f9fafb;
+      margin-bottom: 8px;
+      text-shadow: 0 0 15px rgba(0,0,0,0.9);
+    }
+
+    .intro-sub {
+      font-size: 13px;
+      opacity: 0.85;
+      margin-bottom: 16px;
+    }
+
+    .intro-progress {
+      position: relative;
+      width: 100%;
+      height: 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.7);
+      background: radial-gradient(circle at top, rgba(15,23,42,0.9), rgba(15,23,42,0.8));
+      padding: 2px;
+      overflow: hidden;
+      box-shadow: inset 0 0 12px rgba(0,0,0,0.8);
+    }
+
+    .intro-bar {
+      position: relative;
+      display: block;
+      height: 100%;
+      width: 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #22c55e, #0ea5e9, #22c55e);
+      box-shadow: 0 0 14px rgba(34,197,94,0.6);
+      animation: intro-bar-fill 3.1s ease-out forwards;
+    }
+
+    .intro-bar::after {
+      content: "BOOTING FIELD WORKSHOP INTERFACE…";
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: #f9fafb;
+      text-shadow: 0 0 6px rgba(0,0,0,0.8);
+      white-space: nowrap;
+    }
+
+    .intro-meta {
+      margin-top: 10px;
+      font-size: 11px;
+      opacity: 0.75;
+    }
+
+    .intro-skip {
+      margin-top: 14px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.8);
+      background: rgba(15,23,42,0.95);
+      color: #e5e7eb;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .intro-skip:hover {
+      background: rgba(30,64,175,0.95);
+      box-shadow: 0 0 14px rgba(59,130,246,0.7);
+      transform: translateY(-1px);
+    }
+
+    @keyframes intro-bar-fill {
+      0%   { width: 0; }
+      35%  { width: 40%; }
+      65%  { width: 65%; }
+      100% { width: 100%; }
+    }
+
   </style>
 </head>
 <body>
+
+<!-- CINEMATIC INTRO -->
+<div id="intro" class="intro-overlay">
+  <div class="intro-inner">
+    <div class="intro-core">
+      <div class="intro-badge">VTZ · 142 ОМБр</div>
+      <div class="intro-title">TECH SUPPORT PLATOON ONLINE</div>
+      <div class="intro-sub">
+        Завантаження польової майстерні… перевірка інструменту, пневмосистем, зварки та евакуації техніки.
+      </div>
+      <div class="intro-progress">
+        <span class="intro-bar"></span>
+      </div>
+      <div class="intro-meta">
+        Якщо поспішаєш до реквізитів — натисни “Skip intro”.
+      </div>
+      <button type="button" id="introSkip" class="intro-skip">
+        Skip intro
+      </button>
+    </div>
+  </div>
+</div>
+
 <div class="page">
   <div class="container">
 
     <header>
       <div class="header-patch-wrap">
-        <img src="vtz-mpb-patch.png" alt="Шеврон ВТЗ МПБ" class="header-patch" loading="lazy">
+        <img src="vtz-mpb-patch.png" alt="Шеврон ВТЗ МПБ" class="header-patch">
       </div>
 
       <div class="top-row">
         <div class="top-bar">
-          <img src="logo.png" alt="Лого" class="logo" loading="lazy">
+          <img src="logo.png" alt="Лого" class="logo">
           <span class="site-title">142 ОМБр • Взвод технічного забезпечення</span>
         </div>
         <div class="lang-switch">
@@ -1043,105 +1191,105 @@
 
         <div class="gallery-grid">
           <figure class="gallery-item">
-            <img src="gallery1.jpg" alt="Ремонт вантажівки після евакуації з передової" loading="lazy">
+            <img src="gallery1.jpg" alt="Ремонт вантажівки після евакуації з передової">
             <figcaption class="gallery-caption">
               Ремонт вантажівки після евакуації з передової
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery2.jpg" alt="Польовий ремонт підвіски просто неба" loading="lazy">
+            <img src="gallery2.jpg" alt="Польовий ремонт підвіски просто неба">
             <figcaption class="gallery-caption">
               Польовий ремонт підвіски просто неба
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery3.jpg" alt="Імпровізована майстерня взводу ТЗ в роботі" loading="lazy">
+            <img src="gallery3.jpg" alt="Імпровізована майстерня взводу ТЗ в роботі">
             <figcaption class="gallery-caption">
               Імпровізована майстерня взводу ТЗ в роботі
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery4.jpg" alt="Евакуація пошкодженої техніки з небезпечної ділянки" loading="lazy">
+            <img src="gallery4.jpg" alt="Евакуація пошкодженої техніки з небезпечної ділянки">
             <figcaption class="gallery-caption">
               Евакуація пошкодженої техніки з небезпечної ділянки
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery5.jpg" alt="Заміна колеса на дорозі під обстрілами" loading="lazy">
+            <img src="gallery5.jpg" alt="Заміна колеса на дорозі під обстрілами">
             <figcaption class="gallery-caption">
               Заміна колеса на дорозі під обстрілами
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery6.jpg" alt="Нічний ремонт при світлі прожекторів" loading="lazy">
+            <img src="gallery6.jpg" alt="Нічний ремонт при світлі прожекторів">
             <figcaption class="gallery-caption">
               Нічний ремонт при світлі прожекторів
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery7.jpg" alt="Робота з гальмівною системою вантажівки" loading="lazy">
+            <img src="gallery7.jpg" alt="Робота з гальмівною системою вантажівки">
             <figcaption class="gallery-caption">
               Робота з гальмівною системою вантажівки
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery8.jpg" alt="Зварювальні роботи на рамі автомобіля" loading="lazy">
+            <img src="gallery8.jpg" alt="Зварювальні роботи на рамі автомобіля">
             <figcaption class="gallery-caption">
               Зварювальні роботи на рамі автомобіля
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery9.jpg" alt="Перевірка електрики та проводки в польових умовах" loading="lazy">
+            <img src="gallery9.jpg" alt="Перевірка електрики та проводки в польових умовах">
             <figcaption class="gallery-caption">
               Перевірка електрики та проводки в польових умовах
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery10.jpg" alt="Підготовка техніки до виїзду на завдання" loading="lazy">
+            <img src="gallery10.jpg" alt="Підготовка техніки до виїзду на завдання">
             <figcaption class="gallery-caption">
               Підготовка техніки до виїзду на завдання
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery11.jpg" alt="Заміна мастил та фільтрів" loading="lazy">
+            <img src="gallery11.jpg" alt="Заміна мастил та фільтрів">
             <figcaption class="gallery-caption">
               Заміна мастил та фільтрів
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery12.jpg" alt="Ремонт підвіски і ходової частини" loading="lazy">
+            <img src="gallery12.jpg" alt="Ремонт підвіски і ходової частини">
             <figcaption class="gallery-caption">
               Ремонт підвіски і ходової частини
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery13.jpg" alt="Відновлення паливної системи вантажівки" loading="lazy">
+            <img src="gallery13.jpg" alt="Відновлення паливної системи вантажівки">
             <figcaption class="gallery-caption">
               Відновлення паливної системи вантажівки
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery14.jpg" alt="Робота взводу ТЗ біля евакуйованої техніки" loading="lazy">
+            <img src="gallery14.jpg" alt="Робота взводу ТЗ біля евакуйованої техніки">
             <figcaption class="gallery-caption">
               Робота взводу ТЗ біля евакуйованої техніки
             </figcaption>
           </figure>
 
           <figure class="gallery-item">
-            <img src="gallery15.jpg" alt="Техніка після ремонту знову виходить на лінію" loading="lazy">
+            <img src="gallery15.jpg" alt="Техніка після ремонту знову виходить на лінію">
             <figcaption class="gallery-caption">
               Техніка після ремонту знову виходить на лінію
             </figcaption>
@@ -1165,7 +1313,6 @@
               <iframe
                 src="https://www.youtube.com/embed/jUTx6Om_L90"
                 title="YouTube video"
-                loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             </div>
@@ -1177,7 +1324,6 @@
               <iframe
                 src="https://www.youtube.com/embed/DR1o8KQuTp4"
                 title="YouTube video"
-                loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             </div>
@@ -1189,7 +1335,6 @@
               <iframe
                 src="https://www.youtube.com/embed/er5Kzpb7stc"
                 title="YouTube video"
-                loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
             </div>
@@ -1528,7 +1673,7 @@
               </button>
             </div>
             <div class="qr-wrap">
-              <img id="qr-mono" class="qr" alt="QR Monobank" loading="lazy">
+              <img id="qr-mono" class="qr" alt="QR Monobank">
             </div>
           </div>
         </section>
@@ -1554,7 +1699,7 @@
               </button>
             </div>
             <div class="qr-wrap">
-              <img id="qr-privat" class="qr" alt="QR PrivatBank" loading="lazy">
+              <img id="qr-privat" class="qr" alt="QR PrivatBank">
             </div>
           </div>
         </section>
@@ -1575,7 +1720,7 @@
               </button>
             </div>
             <div class="qr-wrap">
-              <img id="qr-paupay" class="qr" alt="QR Paupay / PayPal" loading="lazy">
+              <img id="qr-paupay" class="qr" alt="QR Paupay / PayPal">
             </div>
             <p style="font-size:12px; opacity:0.8; margin-top:6px;">
               У примітці до платежу, будь ласка, вкажіть:
@@ -1635,7 +1780,7 @@
             </div>
 
             <div class="qr-wrap">
-              <img id="qr-btc" class="qr" alt="QR BTC" loading="lazy">
+              <img id="qr-btc" class="qr" alt="QR BTC">
             </div>
           </div>
         </section>
@@ -1775,6 +1920,31 @@
 </div>
 
 <script>
+  // CINEMATIC INTRO LOGIC
+  (function () {
+    var intro = document.getElementById('intro');
+    if (!intro) return;
+
+    var skip = document.getElementById('introSkip');
+
+    function hideIntro() {
+      if (!intro || intro.classList.contains('intro-hidden')) return;
+      intro.classList.add('intro-hidden');
+      setTimeout(function () {
+        if (intro && intro.parentNode) {
+          intro.parentNode.removeChild(intro);
+        }
+      }, 900);
+    }
+
+    // авто-закриття
+    setTimeout(hideIntro, 3600);
+
+    if (skip) {
+      skip.addEventListener('click', hideIntro);
+    }
+  })();
+
   // QR-коди
   function setQR(id, data) {
     var el = document.getElementById(id);
@@ -2042,33 +2212,11 @@
     var text = document.getElementById('progress-text-ua');
     if (!fill || !text) return;
 
-    var percent = 40; // просто для візуалу
+    var percent = 40;
 
     fill.style.width = percent + '%';
     fill.setAttribute('data-label', 'Збір активний');
     text.textContent = 'Збір активний';
-  })();
-
-  // ПІДСВІЧУВАННЯ КАРТОК ПРИ СКРОЛІ (IntersectionObserver)
-  (function () {
-    if (!('IntersectionObserver' in window)) return;
-
-    var cards = document.querySelectorAll('.card');
-    if (!cards.length) return;
-
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('card--in-view');
-        }
-      });
-    }, {
-      threshold: 0.3
-    });
-
-    cards.forEach(function (card) {
-      observer.observe(card);
-    });
   })();
 </script>
 </body>
