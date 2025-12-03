@@ -27,40 +27,38 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-     
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  color: #f5f5f5;
-  line-height: 1.5;
-  background: #02040a;
-  position: relative;
-  overflow-x: hidden;
-}
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: #f5f5f5;
+      line-height: 1.5;
+      background: #02040a;
+      position: relative;
+      overflow-x: hidden;
+    }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background:
-    repeating-linear-gradient(
-      -35deg,
-      #04101f 0,
-      #04101f 12px,
-      #050918 12px,
-      #050918 24px
-    );
-  opacity: 0.6;
-}
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        repeating-linear-gradient(
+          -35deg,
+          #04101f 0,
+          #04101f 12px,
+          #050918 12px,
+          #050918 24px
+        );
+      opacity: 0.6;
+    }
 
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.07), transparent 55%);
-  mix-blend-mode: soft-light;
-}
-
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.07), transparent 55%);
+      mix-blend-mode: soft-light;
+    }
 
     a { color: inherit; }
 
@@ -153,7 +151,6 @@ body::after {
       overflow: hidden;
     }
 
-    /* Тонка анімована лінія як «двигун» */
     .hero::after {
       content: "";
       position: absolute;
@@ -238,6 +235,13 @@ body::after {
       transform: translateY(-4px);
       box-shadow: 0 16px 36px rgba(0,0,0,0.75);
       border-color: rgba(255,255,255,0.24);
+    }
+
+    /* Підсвічування карток при появі на екрані */
+    .card-scroll-visible {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.9);
+      border-color: rgba(255,255,255,0.32);
     }
 
     .card.big-block {
@@ -742,49 +746,6 @@ body::after {
       100% { transform: translateY(0) scale(1);   box-shadow: 0 6px 16px rgba(0,0,0,0.45); }
     }
 
-    /* === ЖИВИЙ ДВИГУН ПІД ЗАГОЛОВКОМ HERO === */
-    .hero {
-      position: relative;
-      overflow: hidden; /* щоб іскра не вилазила за межі блоку */
-    }
-
-    /* Обгортка лінії двигуна */
-    .engine-line-wrap {
-      margin: 10px 0 14px;
-    }
-
-    /* Сама лінія */
-    .engine-line {
-      position: relative;
-      height: 4px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.12);
-      overflow: hidden;
-      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
-    }
-
-    /* “Ядро” що біжить, як робота валу / індикатор */
-    .engine-line::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg,
-        transparent 0%,
-        #ffd700 25%,
-        #ffffff 40%,
-        #ffd700 55%,
-        transparent 100%);
-      animation: engine-move 1.6s linear infinite;
-      filter: blur(0.3px);
-    }
-
-    /* Анімація руху */
-    @keyframes engine-move {
-      from { transform: translateX(-120%); }
-      to   { transform: translateX(120%); }
-    }
-
-    /* Анімація "іскри" – іноді проскакує */
     @keyframes weld-spark {
       0%, 60% {
         opacity: 0;
@@ -804,6 +765,44 @@ body::after {
       }
     }
 
+    /* === ЖИВИЙ ДВИГУН ПІД ЗАГОЛОВКОМ HERO === */
+    .hero {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .engine-line-wrap {
+      margin: 10px 0 14px;
+    }
+
+    .engine-line {
+      position: relative;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      overflow: hidden;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+    }
+
+    .engine-line::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        #ffd700 25%,
+        #ffffff 40%,
+        #ffd700 55%,
+        transparent 100%);
+      animation: engine-move 1.6s linear infinite;
+      filter: blur(0.3px);
+    }
+
+    @keyframes engine-move {
+      from { transform: translateX(-120%); }
+      to   { transform: translateX(120%); }
+    }
+
     /* === ШЕВРОН У ХЕДЕРІ === */
     .header-patch-wrap {
       width: 100%;
@@ -819,103 +818,38 @@ body::after {
       height: auto;
       filter: drop-shadow(0 0 14px rgba(0,0,0,0.65))
               drop-shadow(0 0 8px rgba(255,215,0,0.25));
-      animation: patchAppear 1.2s ease-out forwards;
+      animation:
+        patch-breath 3.5s ease-in-out infinite,
+        patch-tilt 6s ease-in-out infinite,
+        patch-glow 4s ease-in-out infinite;
       transform-origin: center;
     }
 
-    @keyframes patchAppear {
-      0%   { opacity: 0; transform: scale(0.75) rotate(-3deg); }
-      60%  { opacity: 1; transform: scale(1.05) rotate(1deg); }
-      100% { opacity: 1; transform: scale(1) rotate(0deg); }
+    @keyframes patch-breath {
+      0%   { transform: scale(0.98); }
+      50%  { transform: scale(1.03); }
+      100% { transform: scale(0.98); }
     }
 
-    /* Трохи адаптації на мобільному */
+    @keyframes patch-tilt {
+      0%   { transform: rotateX(0deg) rotateY(0deg); }
+      25%  { transform: rotateX(2deg) rotateY(-2deg); }
+      50%  { transform: rotateX(0deg) rotateY(0deg); }
+      75%  { transform: rotateX(-2deg) rotateY(2deg); }
+      100% { transform: rotateX(0deg) rotateY(0deg); }
+    }
+
+    @keyframes patch-glow {
+      0%   { filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
+      50%  { filter: drop-shadow(0 0 12px rgba(255,215,0,0.7)); }
+      100% { filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
+    }
+
     @media (max-width: 480px) {
       .header-patch {
         width: 110px;
       }
     }
-/* === SUPER PATCH ANIMATION === */
-.header-patch {
-  animation:
-    patch-breath 3.5s ease-in-out infinite,
-    patch-tilt 6s ease-in-out infinite,
-    patch-glow 4s ease-in-out infinite;
-  filter:
-    drop-shadow(0 0 10px rgba(255,215,0,0.45))
-    drop-shadow(0 0 4px rgba(255,215,0,0.25));
-  transform-origin: center;
-}
-
-/* Легке “дихання” */
-@keyframes patch-breath {
-  0%   { transform: scale(0.98); }
-  50%  { transform: scale(1.03); }
-  100% { transform: scale(0.98); }
-}
-
-/* Легке похитування 3D */
-@keyframes patch-tilt {
-  0%   { transform: rotateX(0deg) rotateY(0deg); }
-  25%  { transform: rotateX(2deg) rotateY(-2deg); }
-  50%  { transform: rotateX(0deg) rotateY(0deg); }
-  75%  { transform: rotateX(-2deg) rotateY(2deg); }
-  100% { transform: rotateX(0deg) rotateY(0deg); }
-}
-
-/* Золоте світіння */
-@keyframes patch-glow {
-  0%   { filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
-  50%  { filter: drop-shadow(0 0 12px rgba(255,215,0,0.7)); }
-  100% { filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
-}
-/* === SUPER PATCH ANIMATION === */
-   .header-patch {
-     animation:
-       patch-breath 3.5s ease-in-out infinite,
-       patch-tilt 6s ease-in-out infinite,
-       patch-glow 4s ease-in-out infinite;
-     filter:
-       drop-shadow(0 0 10px rgba(255,215,0,0.45))
-       drop-shadow(0 0 4px rgba(255,215,0,0.25));
-     transform-origin: center;
-   }
-
-   @keyframes patch-breath { ... }
-   @keyframes patch-tilt { ... }
-   @keyframes patch-glow { ... }
-    /* === SCROLL GLOW REVEAL === */
-.card {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out, box-shadow 0.7s ease-out;
-}
-
-.card.reveal {
-  opacity: 1;
-  transform: translateY(0);
-  box-shadow: 0 12px 30px rgba(0, 180, 255, 0.25);
-}
-/* Легка поява + підсвічування карток при скролі */
-.card {
-  opacity: 0;
-  transform: translateY(12px);
-  transition:
-    opacity 0.45s ease-out,
-    transform 0.45s ease-out,
-    box-shadow 0.25s ease-out,
-    border-color 0.25s ease-out,
-    background 0.25s ease-out;
-}
-
-/* Коли картка вже "активна" на екрані */
-.card--visible {
-  opacity: 1;
-  transform: translateY(0);
-  box-shadow: 0 16px 36px rgba(0,0,0,0.8);
-  border-color: rgba(255,255,255,0.28);
-}
-
   </style>
 </head>
 <body>
@@ -1399,7 +1333,6 @@ body::after {
 
         <div class="card-grid" style="margin-top:10px;">
 
-          <!-- УРАЛ-43203 -->
           <div class="card" style="min-height:180px;">
             <h3>УРАЛ-43203</h3>
             <small style="opacity:0.75;">Статус:</small>
@@ -1409,8 +1342,7 @@ body::after {
             </p>
           </div>
 
-          <!-- ГАЗ-66 -->
-          <div class="card" style="min-height:180px%;">
+          <div class="card" style="min-height:180px;">
             <h3>ГАЗ-66</h3>
             <small style="opacity:0.75;">Статус:</small>
             <p>
@@ -1419,7 +1351,6 @@ body::after {
             </p>
           </div>
 
-          <!-- Легкові авто -->
           <div class="card" style="min-height:180px;">
             <h3>Легкові авто</h3>
             <small style="opacity:0.75;">Статус:</small>
@@ -2006,7 +1937,7 @@ body::after {
     });
   })();
 
-  // ЛІЧИЛЬНИК ВІДВІДУВАНЬ (як "скільки людей зайшли підтримати")
+  // ЛІЧИЛЬНИК ВІДВІДУВАНЬ
   (function () {
     var el = document.getElementById('visitor-counter-ua');
     if (!el) return;
@@ -2082,55 +2013,36 @@ body::after {
     var text = document.getElementById('progress-text-ua');
     if (!fill || !text) return;
 
-    // Просто зробимо, щоб смужка була видимою (наприклад, 40%)
     var percent = 40;
 
     fill.style.width = percent + '%';
     fill.setAttribute('data-label', 'Збір активний');
-
-    // Текст під смужкою
     text.textContent = 'Збір активний';
   })();
 
-  <script>
-  const cards = document.querySelectorAll('.card');
+  // ПІДСВІЧУВАННЯ КАРТОК ПРИ СКРОЛІ (IntersectionObserver)
+  (function () {
+    if (!('IntersectionObserver' in window)) return;
 
-  function revealOnScroll() {
-    const trigger = window.innerHeight * 0.85;
+    var cards = document.querySelectorAll('.card');
+    if (!cards.length) return;
 
-    cards.forEach(card => {
-      const top = card.getBoundingClientRect().top;
-      if (top < trigger) {
-        card.classList.add('reveal');
-      }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('card-scroll-visible');
+        } else {
+          entry.target.classList.remove('card-scroll-visible');
+        }
+      });
+    }, {
+      threshold: 0.3
     });
-  }
 
-  window.addEventListener('scroll', revealOnScroll);
-  revealOnScroll();
-  // Плавна поява та підсвічування карток при скролі
-(function () {
-  var cards = document.querySelectorAll('.card');
-  if (!cards.length) return;
-
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('card--visible');
-        // Якщо не хочеш, щоб анімація повторювалась при скролі вверх-вниз:
-        observer.unobserve(entry.target);
-      }
+    cards.forEach(function (card) {
+      observer.observe(card);
     });
-  }, {
-    threshold: 0.15
-  });
-
-  cards.forEach(function (card) {
-    observer.observe(card);
-  });
-})();
-
+  })();
 </script>
-
 </body>
 </html>
