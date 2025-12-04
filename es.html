@@ -13,7 +13,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Apoya al pelotón de apoyo técnico · 142. Brigada">
-  <meta property="og:description" content="El pelotón de apoyo técnico repara vehículos directamente en la línea del frente para que los camiones sigan moviéndose y los soldados regresen con vida.">
+  <meta property="og:description" content="El pelotón de apoyo técnico repara vehículos directamente en la línea del frente para que los camiones se muevan y los soldados regresen vivos.">
   <meta property="og:url" content="https://viktornadelniuk.github.io/DOFAMIN95/es.html">
   <meta property="og:image" content="https://viktornadelniuk.github.io/DOFAMIN95/hero-bg.jpg">
 
@@ -23,14 +23,7 @@
   <meta name="twitter:description" content="Apoya al pelotón de apoyo técnico que repara vehículos directamente en la zona de combate.">
   <meta name="twitter:image" content="https://viktornadelniuk.github.io/DOFAMIN95/hero-bg.jpg">
 
-  <!-- CSS: такий самий, як у de.html -->
   <style>
-    /* той самий стиль, що в de.html, можна просто копіювати 1:1
-       щоб не дублювати тут ще 200 рядків, ти можеш буквально
-       скопіювати блок <style> з de.html і вставити сюди */
-
-    /* Щоб не залишати порожнім, кину скорочену версію ключових блоків: */
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
@@ -42,6 +35,7 @@
       overflow-x: hidden;
     }
 
+    /* Striped steel background */
     body::before {
       content: "";
       position: fixed;
@@ -74,6 +68,7 @@
       padding: 24px 12px 40px;
       display: flex;
       justify-content: center;
+      animation: fadeInPage 0.7s ease-out;
     }
 
     .container {
@@ -82,100 +77,764 @@
       margin: 0 auto;
     }
 
-    .top-row { display:flex; flex-direction:column; gap:6px; margin-bottom:10px; }
-    .top-bar { display:flex; align-items:center; gap:10px; }
-
-    .logo {
-      width: 42px; height: 42px; border-radius: 12px;
-      object-fit: cover; box-shadow: 0 0 6px rgba(0,0,0,0.4);
+    .top-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 10px;
     }
 
-    .site-title { font-size:18px; font-weight:700; }
+    .top-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      object-fit: cover;
+      background: transparent;
+      box-shadow: 0 0 6px rgba(0,0,0,0.4);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05) rotate(-2deg);
+      box-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
+
+    .site-title {
+      font-size: 18px;
+      font-weight: 700;
+    }
 
     .lang-switch {
-      display:flex; justify-content:flex-end; gap:6px;
-      font-size:12px; opacity:0.9;
+      display: flex;
+      justify-content: flex-end;
+      gap: 6px;
+      font-size: 12px;
+      opacity: 0.9;
     }
 
     .lang-switch a {
-      padding:2px 8px; border-radius:999px;
-      border:1px solid rgba(255,255,255,0.25);
-      text-decoration:none; color:#fff;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.25);
+      text-decoration: none;
+      color: #fff;
+      transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
     }
 
-    .lang-switch a.active { background:rgba(255,255,255,0.16); font-weight:700; }
+    .lang-switch a.active {
+      background: rgba(255,255,255,0.16);
+      font-weight: 700;
+    }
 
+    .lang-switch a:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,0.6);
+    }
+
+    /* HERO */
     .hero {
       background:
-        linear-gradient(135deg, rgba(0,0,0,0.8), rgba(0,0,0,0.9)),
+        linear-gradient(135deg, rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
         url("hero-bg.jpg") center/cover no-repeat;
-      border-radius:24px;
-      padding:24px 22px 22px;
-      margin-bottom:26px;
-      border:1px solid rgba(255,255,255,0.08);
-      box-shadow:0 18px 40px rgba(0,0,0,0.5);
+      border-radius: 24px;
+      padding: 24px 22px 20px;
+      margin-bottom: 26px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.5);
+      animation: heroReveal 0.9s ease-out;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Welding spark line across hero */
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: -20%;
+      top: 55%;
+      width: 140%;
+      height: 2px;
+      pointer-events: none;
+      background: radial-gradient(circle at 0 50%,
+        rgba(255, 255, 210, 0.9) 0,
+        rgba(255, 255, 150, 0.4) 25%,
+        rgba(255, 255, 0, 0) 55%);
+      opacity: 0;
+      filter: blur(0.6px);
+      animation: weld-spark 3.7s ease-in-out infinite;
     }
 
     .hero-badge {
-      display:inline-flex; padding:4px 10px; margin-bottom:10px;
-      border-radius:999px; border:1px solid rgba(255,255,255,0.2);
-      font-size:12px; text-transform:uppercase; letter-spacing:0.08em;
+      display: inline-flex;
+      padding: 4px 10px;
+      margin-bottom: 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(0,0,0,0.45);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.9;
     }
 
-    .hero-title { font-size:26px; font-weight:800; margin-bottom:10px; }
+    .hero-title {
+      font-size: 26px;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      letter-spacing: 0.06em;
+      text-shadow:
+        0 0 8px rgba(0,0,0,0.9),
+        0 0 14px rgba(0,0,0,0.8);
+    }
 
-    .hero-sub { font-size:15px; margin-bottom:8px; opacity:0.9; }
-    .hero-note { font-size:13px; opacity:0.8; }
+    .hero-sub {
+      font-size: 16px;
+      opacity: 0.9;
+      margin-bottom: 8px;
+    }
 
-    .header-patch-wrap { display:flex; justify-content:center; margin-bottom:14px; margin-top:-4px; padding-top:10px; }
-    .header-patch { width:140px; }
+    .hero-note {
+      font-size: 13px;
+      opacity: 0.75;
+    }
 
-    .section-title { font-size:22px; margin:12px 0 12px; font-weight:700; }
+    .section-title {
+      font-size: 22px;
+      margin: 12px 0 12px;
+      font-weight: 700;
+    }
 
+    /* GRID */
     .card-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:18px; margin-top:10px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 10px;
     }
 
     .card {
       background: radial-gradient(circle at top left, #202b46 0, #070e1d 70%);
-      border-radius:22px;
-      padding:16px 16px 18px;
-      border:1px solid rgba(255,255,255,0.07);
-      box-shadow:0 12px 30px rgba(0,0,0,0.7);
+      border-radius: 22px;
+      padding: 16px 16px 18px;
+      border: 1px solid rgba(255,255,255,0.07);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 260px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      animation: cardFade 0.55s ease-out;
     }
 
-    .btn-row { display:flex; flex-wrap:wrap; gap:8px; margin:8px 0; }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.75);
+      border-color: rgba(255,255,255,0.24);
+    }
+
+    .card.big-block {
+      grid-column: 1 / -1;
+      min-height: auto;
+    }
+
+    .card h3 { font-size: 16px; margin-bottom: 6px; }
+    .card small { opacity: 0.7; font-size: 11px; letter-spacing: 0.08em; }
+    .card p { font-size: 13px; margin: 6px 0; }
+
+    .mono-label { color: #00ffc3; font-weight: 600; }
+    .privat-label { color: #55efc4; font-weight: 600; }
+    .paypal-label { color: #00b4ff; font-weight: 600; }
+    .crypto-label { color: #ffd86b; font-weight: 600; }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 8px 0;
+    }
 
     .donate-btn {
-      padding:9px 18px; border-radius:999px; border:1px solid rgba(255,255,255,0.2);
-      font-size:13px; font-weight:600; color:#fff;
-      background:linear-gradient(135deg,#00c6ff,#0072ff);
-      cursor:pointer;
+      padding: 9px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 13px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, opacity 0.15s ease;
+      white-space: nowrap;
+      cursor: pointer;
+      background-clip: padding-box;
     }
 
-    .mono-label { color:#00ffc3; font-weight:600; }
-    .privat-label { color:#55efc4; font-weight:600; }
-    .paypal-label { color:#00b4ff; font-weight:600; }
-    .crypto-label { color:#ffd86b; font-weight:600; }
+    .donate-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.5);
+      opacity: 0.98;
+    }
 
-    .qr-wrap { display:flex; justify-content:center; margin-top:8px; }
-    .qr { width:150px; height:150px; border-radius:18px; background:#02040a; }
+    .donate-btn--mono   { background: linear-gradient(135deg, #00e3aa, #00b894); }
+    .donate-btn--privat { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+    .donate-btn--paypal { background: linear-gradient(135deg, #009cde, #003087); }
+    .donate-btn--crypto { background: linear-gradient(135deg, #f6d365, #fda085); }
 
-    footer { margin-top:22px; text-align:center; opacity:0.7; font-size:12px; }
+    .qr-wrap {
+      margin-top: 8px;
+      display: flex;
+      justify-content: center;
+    }
 
+    .qr {
+      width: 150px;
+      height: 150px;
+      border-radius: 18px;
+      background:#02040a;
+      display: block;
+    }
+
+    /* GALLERY */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: #050910;
+      aspect-ratio: 4 / 3;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      cursor: zoom-in;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+      opacity: 0.92;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 4px 6px;
+      font-size: 11px;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      opacity: 0.9;
+    }
+
+    /* VIDEO */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .video-item {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: #050910;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.7);
+    }
+
+    .youtube-wrap {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 */
+      overflow: hidden;
+    }
+
+    .youtube-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-caption {
+      font-size: 12px;
+      padding: 6px 9px 8px;
+      opacity: 0.85;
+    }
+
+    footer {
+      margin-top: 22px;
+      text-align: center;
+      opacity: 0.7;
+      font-size: 12px;
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 16px;
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      position: relative;
+      max-width: 980px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lightbox-img-wrap {
+      position: relative;
+      max-height: calc(100vh - 140px);
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 16px;
+      background: #050910;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: calc(100vh - 160px);
+      object-fit: contain;
+      display: block;
+    }
+
+    .lightbox-caption {
+      font-size: 13px;
+      text-align: center;
+      opacity: 0.85;
+    }
+
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      border: none;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      cursor: pointer;
+      border-radius: 999px;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.6);
+      transition: background 0.15s ease, transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .lightbox-close {
+      top: -12px;
+      right: -12px;
+      background: rgba(0,0,0,0.8);
+      font-size: 22px;
+    }
+
+    .lightbox-prev {
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-next {
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-close:hover,
+    .lightbox-prev:hover,
+    .lightbox-next:hover {
+      background: rgba(0,0,0,0.95);
+      transform: scale(1.06);
+    }
+
+    /* PROGRESS BAR */
+    .progress-text {
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 16px;
+      border-radius: 999px;
+      background: rgba(3,7,18,0.9);
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 2px;
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.7);
+      margin-top: 6px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #00e3aa, #00b4ff);
+      width: 0;
+      position: relative;
+      transition: width 0.5s ease-out;
+    }
+
+    .progress-fill::after {
+      content: attr(data-label);
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 11px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .progress-meta {
+      margin-top: 6px;
+      font-size: 12px;
+      opacity: 0.8;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* SCROLL TO TOP BUTTON */
     .scroll-top-btn {
-      position:fixed; right:18px; bottom:20px;
-      width:42px; height:42px; border-radius:999px;
-      border:1px solid rgba(255,255,255,0.35);
+      position: fixed;
+      right: 18px;
+      bottom: 20px;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.35);
       background: radial-gradient(circle at 30% 0, #00e3aa 0, #0072ff 70%);
-      color:#fff; font-size:22px; font-weight:700;
-      display:flex; align-items:center; justify-content:center;
-      opacity:0; pointer-events:none;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px) scale(0.9);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      z-index: 9999;
     }
 
-    .scroll-top-btn--visible { opacity:1; pointer-events:auto; }
+    .scroll-top-btn--visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    .scroll-top-btn:hover {
+      box-shadow: 0 14px 30px rgba(0,0,0,0.85);
+      transform: translateY(-2px) scale(1.05);
+    }
+
+    /* “Support the platoon” button in each block */
+    .block-donate-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #0057b7, #ffd700);
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.32);
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.45);
+      transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
+      animation: buttonPulse 1.8s ease-in-out infinite;
+    }
+
+    .block-donate-btn:hover {
+      transform: translateY(-2px) scale(1.05);
+      opacity: 0.95;
+      box-shadow: 0 9px 22px rgba(0,0,0,0.6);
+    }
+
+    .block-donate-btn .icon {
+      font-size: 15px;
+      line-height: 1;
+    }
+
+    @media (max-width: 1024px) {
+      .page {
+        padding: 20px 10px 32px;
+      }
+      .hero {
+        padding: 20px 18px 18px;
+        margin-bottom: 22px;
+      }
+      .hero-title {
+        font-size: 24px;
+      }
+      .card-grid {
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page {
+        padding: 18px 8px 28px;
+      }
+      .hero {
+        padding: 18px 14px 16px;
+      }
+      .hero-badge {
+        font-size: 11px;
+      }
+      .hero-title {
+        font-size: 21px;
+        line-height: 1.2;
+      }
+      .hero-sub {
+        font-size: 14px;
+      }
+      .hero-note {
+        font-size: 12px;
+      }
+
+      .card {
+        padding: 14px 14px 16px;
+        min-height: auto;
+      }
+
+      .card.big-block {
+        padding: 16px 14px 18px;
+      }
+
+      .card p {
+        font-size: 13px;
+      }
+
+      .btn-row {
+        flex-direction: column;
+      }
+
+      .btn-row .donate-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+
+      .qr {
+        width: 130px;
+        height: 130px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        border-radius: 18px;
+      }
+
+      .hero-title {
+        font-size: 19px;
+      }
+
+      .section-title {
+        font-size: 20px;
+      }
+
+      .card {
+        border-radius: 18px;
+        padding: 12px 12px 14px;
+      }
+
+      .card p {
+        font-size: 12.5px;
+      }
+
+      .btn-row {
+        gap: 6px;
+      }
+
+      .donate-btn {
+        padding: 8px 14px;
+        font-size: 12px;
+      }
+
+      .qr {
+        width: 120px;
+        height: 120px;
+      }
+
+      .gallery-caption {
+        font-size: 10px;
+      }
+
+      .scroll-top-btn {
+        right: 12px;
+        bottom: 14px;
+        width: 38px;
+        height: 38px;
+        font-size: 20px;
+      }
+    }
+
+    /* Animations */
+    @keyframes fadeInPage {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes heroReveal {
+      from { opacity: 0; transform: translateY(8px) scale(0.99); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes cardFade {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes buttonPulse {
+      0%   { transform: translateY(0) scale(1);   box-shadow: 0 6px 16px rgba(0,0,0,0.45); }
+      50%  { transform: translateY(-1px) scale(1.07); box-shadow: 0 10px 24px rgba(0,0,0,0.7); }
+      100% { transform: translateY(0) scale(1);   box-shadow: 0 6px 16px rgba(0,0,0,0.45); }
+    }
+
+    @keyframes engine-move {
+      from { transform: translateX(-120%); }
+      to   { transform: translateX(120%); }
+    }
+
+    @keyframes weld-spark {
+      0%, 60% {
+        opacity: 0;
+        transform: translateX(-10%);
+      }
+      65% {
+        opacity: 1;
+        transform: translateX(10%);
+      }
+      80% {
+        opacity: 0.5;
+        transform: translateX(60%);
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(120%);
+      }
+    }
+
+    /* Engine line under hero title */
+    .engine-line-wrap {
+      margin: 10px 0 14px;
+    }
+
+    .engine-line {
+      position: relative;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      overflow: hidden;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+    }
+
+    .engine-line::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        #ffd700 25%,
+        #ffffff 40%,
+        #ffd700 55%,
+        transparent 100%);
+      animation: engine-move 1.6s linear infinite;
+      filter: blur(0.3px);
+    }
+
+    /* PATCH IN HEADER */
+    .header-patch-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 14px;
+      margin-top: -4px;
+      padding-top: 10px;
+    }
+
+    .header-patch {
+      width: 140px;
+      height: auto;
+      transform-origin: center;
+      animation:
+        patch-breath 3.5s ease-in-out infinite,
+        patch-tilt 6s ease-in-out infinite,
+        patch-glow 4s ease-in-out infinite;
+      filter:
+        drop-shadow(0 0 10px rgba(255,215,0,0.45))
+        drop-shadow(0 0 4px rgba(255,215,0,0.25));
+    }
+
+    @keyframes patch-breath {
+      0%   { transform: scale(0.98); }
+      50%  { transform: scale(1.03); }
+      100% { transform: scale(0.98); }
+    }
+
+    @keyframes patch-tilt {
+      0%   { transform: rotateX(0deg) rotateY(0deg); }
+      25%  { transform: rotateX(2deg) rotateY(-2deg); }
+      50%  { transform: rotateX(0deg) rotateY(0deg); }
+      75%  { transform: rotateX(-2deg) rotateY(2deg); }
+      100% { transform: rotateX(0deg) rotateY(0deg); }
+    }
+
+    @keyframes patch-glow {
+      0%   { filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
+      50%  { filter: drop-shadow(0 0 12px rgba(255,215,0,0.7)); }
+      100% { filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
+    }
+
+    @media (max-width: 480px) {
+      .header-patch {
+        width: 110px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -203,8 +862,12 @@
       </div>
 
       <section class="hero">
-        <div class="hero-badge">Reparación y apoyo de vehículos en la línea del frente</div>
+        <div class="hero-badge">Reparación de vehículos y apoyo en la línea del frente</div>
         <div class="hero-title">Los vehículos deben moverse. Las personas deben volver con vida.</div>
+
+        <div class="engine-line-wrap">
+          <div class="engine-line"></div>
+        </div>
 
         <p class="hero-sub">
           Nuestro pelotón repara camiones y vehículos blindados directamente en la zona de combate,
@@ -213,7 +876,7 @@
         </p>
         <p class="hero-note">
           Cada donación se convierte en una herramienta, un repuesto, un lubricante o material de soldadura
-          que da al vehículo un viaje más y a nuestros hombres una oportunidad más de regresar a casa.
+          que da al vehículo un viaje más y a nuestra gente una oportunidad más de regresar a casa.
         </p>
 
         <div style="margin-top:14px;">
@@ -225,15 +888,632 @@
     </header>
 
     <main>
-      <section>
+
+      <!-- ABOUT THE PLATOON -->
+      <section class="card big-block" id="about-platoon-en">
         <h2 class="section-title">Sobre el pelotón</h2>
+
         <p>
-          Somos el pelotón de apoyo técnico de un batallón de infantería mecanizada de la 142. Brigada.
-          Nuestra tarea es mantener operativos los vehículos del batallón en una de las direcciones
-          más difíciles del frente.
+          Somos el pelotón de apoyo técnico de un batallón de infantería mecanizada dentro de la
+          142. Brigada Mecanizada Separada. Nuestra tarea es mantener los vehículos del batallón
+          operativos en uno de los sectores más calientes del frente.
+        </p>
+
+        <p>
+          Nuestro trabajo rara vez aparece en fotos o en las noticias, pero influye directamente en
+          si un camión llega a la posición, si una unidad recibe munición y si los heridos pueden
+          ser evacuados a tiempo.
+        </p>
+
+        <h3>Qué hacemos</h3>
+
+        <p><strong>• Mantenimiento</strong><br>
+          Realizamos mantenimiento programado y no programado, cambiamos aceites, filtros y fluidos,
+          y comprobamos el estado técnico de los vehículos. Nos aseguramos de que cada vehículo
+          pueda moverse en cualquier momento.
+        </p>
+
+        <p><strong>• Reparación y restauración</strong><br>
+          Reparamos motores, cajas de cambios, suspensión, sistemas de frenos, electricidad,
+          hidráulica y sistemas de combustible. Trabajamos con todo: desde pequeños sensores
+          hasta conjuntos completos.
+        </p>
+
+        <p><strong>• Recuperación de vehículos</strong><br>
+          Cuando un vehículo no puede moverse por sí mismo, está dañado, alcanzado o atascado,
+          salimos a recuperarlo. A menudo trabajamos bajo fuego para sacar vehículos de las
+          “carreteras de la vida”.
+        </p>
+
+        <p><strong>• Diagnóstico y localización de averías</strong><br>
+          Conocemos nuestros vehículos “de oído”, detectamos problemas ocultos y los solucionamos
+          para que el vehículo no falle en el momento más crítico.
+        </p>
+
+        <p><strong>• Reparaciones de campaña</strong><br>
+          Nuestro taller es lo que podamos construir con lo que tenemos:
+          suelo, lona, linterna, generador y un juego de herramientas. Trabajamos sin iluminación
+          normal, en barro, bajo la lluvia, de noche y bajo bombardeo. ¿No hay condiciones?
+          Las creamos.
+        </p>
+
+        <p><strong>• Mantener la movilidad del batallón</strong><br>
+          Vehículos operativos significan entrega de munición, rotaciones, evacuación de heridos,
+          agua, comida, maniobra y supervivencia. Hacemos todo para que estos procesos no se detengan.
         </p>
       </section>
 
+      <!-- PLATOON TEAM -->
+      <section class="card big-block" id="team-en">
+        <h2 class="section-title">Equipo del pelotón de apoyo técnico</h2>
+
+        <p>
+          Trabajamos como un solo equipo. Cada uno tiene su función, pero compartimos un objetivo:
+          los vehículos deben moverse y las unidades deben cumplir sus misiones y volver con vida.
+        </p>
+
+        <div class="card-grid" style="margin-top:10px;">
+
+          <div class="card" style="min-height:180px;">
+            <h3>Comandante del pelotón</h3>
+            <p>
+              Planifica el trabajo, fija las prioridades y coordina la recuperación y las reparaciones.
+              Decide qué vehículo salvar primero para que las unidades no se detengan.
+            </p>
+          </div>
+
+          <div class="card" style="min-height:180px;">
+            <h3>Mecánico jefe / ajustador</h3>
+            <p>
+              Dirige reparaciones complejas, asesora sobre soluciones técnicas y controla la calidad
+              del trabajo realizado. Sabe “devolver a la vida” lo que parece irreparable.
+            </p>
+          </div>
+
+          <div class="card" style="min-height:180px;">
+            <h3>Mecánicos-conductores de camiones</h3>
+            <p>
+              Conocen sus camiones hasta el último tornillo. Salen a misiones de recuperación,
+              trabajan en el campo y ayudan a reparar suspensión, frenos, neumática y sistemas de combustible.
+            </p>
+          </div>
+
+          <div class="card" style="min-height:180px;">
+            <h3>Autoelectricistas y diagnosticadores</h3>
+            <p>
+              Electricidad, cableado, motores de arranque, alternadores, sensores, conectores,
+              fusibles, testers. Persiguen los “fantasmas” en el cableado para que los vehículos
+              arranquen y funcionen con fiabilidad.
+            </p>
+          </div>
+
+          <div class="card" style="min-height:180px;">
+            <h3>Soldadores y trabajo de metal</h3>
+            <p>
+              Sueldan bastidores, carrocerías, depósitos, soportes, blindaje y elementos estructurales.
+              A menudo trabajan en talleres improvisados bajo lonas y con iluminación mínima.
+            </p>
+          </div>
+
+          <div class="card" style="min-height:180px;">
+            <h3>Equipo de recuperación</h3>
+            <p>
+              Sale a por vehículos que no pueden moverse: alcanzados, averiados, atascados.
+              Trabaja bajo fuego para sacar vehículos de zonas peligrosas y llevarlos al taller.
+            </p>
+          </div>
+
+          <div class="card" style="min-height:180px;">
+            <h3>Suministros y logística</h3>
+            <p>
+              Búsqueda y entrega de repuestos, aceites, herramientas y consumibles.
+              Sin ellos no hay reparación: convierten las donaciones en piezas reales y equipo.
+            </p>
+          </div>
+
+        </div>
+
+        <p style="font-size:12px; opacity:0.8; margin-top:10px;">
+          Deliberadamente ocultamos algunos rostros por motivos de seguridad, pero detrás de cada
+          vehículo que vuelve al servicio hay un equipo vivo de personas que hace este trabajo cada día.
+        </p>
+      </section>
+
+      <!-- GALLERY -->
+      <section class="card big-block" id="gallery-en">
+        <h2 class="section-title">Galería de fotos</h2>
+
+        <p>
+          Parte de nuestro trabajo diario: recuperación de vehículos dañados, reparaciones de campaña,
+          talleres improvisados y momentos de trabajo del pelotón de apoyo técnico.
+        </p>
+
+        <div class="gallery-grid">
+          <figure class="gallery-item">
+            <img src="gallery1.jpg" alt="Reparación de un camión tras evacuarlo del frente">
+            <figcaption class="gallery-caption">
+              Reparación de un camión tras evacuarlo del frente
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="gallery2.jpg" alt="Reparación de suspensión en campo abierto">
+            <figcaption class="gallery-caption">
+              Reparación de suspensión en campo abierto
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="gallery3.jpg" alt="Taller improvisado del pelotón de apoyo técnico en funcionamiento">
+            <figcaption class="gallery-caption">
+              Taller improvisado del pelotón de apoyo técnico en funcionamiento
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="gallery4.jpg" alt="Recuperación de un vehículo dañado de una zona peligrosa">
+            <figcaption class="gallery-caption">
+              Recuperación de un vehículo dañado de una zona peligrosa
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="gallery5.jpg" alt="Cambio de rueda en la carretera bajo fuego">
+            <figcaption class="gallery-caption">
+              Cambio de rueda en la carretera bajo fuego
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="gallery6.jpg" alt="Reparación nocturna bajo focos">
+            <figcaption class="gallery-caption">
+              Reparación nocturna bajo focos
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="gallery7.jpg" alt="Trabajo en el sistema de frenos de un camión">
+            <figcaption class="gallery-caption">
+              Trabajo en el sistema de frenos de un camión
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="gallery8.jpg" alt="Trabajo de soldadura en el bastidor del vehículo">
+            <figcaption class="gallery-caption">
+              Trabajo de soldadura en el bastidor del vehículo
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="gallery9.jpg" alt="Comprobación de cableado y electricidad en condiciones de campo">
+            <figcaption class="gallery-caption">
+              Comprobación de cableado y electricidad en condiciones de campo
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="gallery10.jpg" alt="Preparación de un vehículo para una misión">
+            <figcaption class="gallery-caption">
+              Preparación de un vehículo para una misión
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="gallery11.jpg" alt="Cambio de aceites y filtros">
+            <figcaption class="gallery-caption">
+              Cambio de aceites y filtros
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="gallery12.jpg" alt="Reparación de suspensión y tren de rodaje">
+            <figcaption class="gallery-caption">
+              Reparación de suspensión y tren de rodaje
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="gallery13.jpg" alt="Restauración del sistema de combustible de un camión">
+            <figcaption class="gallery-caption">
+              Restauración del sistema de combustible de un camión
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="gallery14.jpg" alt="Pelotón de apoyo técnico trabajando alrededor de vehículos recuperados">
+            <figcaption class="gallery-caption">
+              Pelotón de apoyo técnico trabajando alrededor de vehículos recuperados
+            </figcaption>
+          </figure>
+
+          <figure class="gallery-item">
+            <img src="gallery15.jpg" alt="Vehículos que regresan al frente tras la reparación">
+            <figcaption class="gallery-caption">
+              Vehículos que regresan al frente tras la reparación
+            </figcaption>
+          </figure>
+        </div>
+
+        <p style="font-size:12px; opacity:0.8; margin-top:6px;">
+          Para añadir nuevas fotos, simplemente súbelas al repositorio y añade otro bloque
+          <code>&lt;figure class="gallery-item"&gt;...&lt;/figure&gt;</code>.
+        </p>
+      </section>
+
+      <!-- VIDEO -->
+      <section class="card big-block" id="video-en">
+        <h2 class="section-title">Vídeos del trabajo del pelotón</h2>
+        <p>Varios clips cortos de recuperación, reparación y trabajo cotidiano del pelotón de apoyo técnico.</p>
+
+        <div class="video-grid">
+          <div class="video-item">
+            <div class="youtube-wrap">
+              <iframe
+                src="https://www.youtube.com/embed/jUTx6Om_L90"
+                title="YouTube video"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <div class="video-caption">Vídeo corto del trabajo del pelotón · 1</div>
+          </div>
+
+          <div class="video-item">
+            <div class="youtube-wrap">
+              <iframe
+                src="https://www.youtube.com/embed/DR1o8KQuTp4"
+                title="YouTube video"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <div class="video-caption">Vídeo corto del trabajo del pelotón · 2</div>
+          </div>
+
+          <div class="video-item">
+            <div class="youtube-wrap">
+              <iframe
+                src="https://www.youtube.com/embed/er5Kzpb7stc"
+                title="YouTube video"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <div class="video-caption">Vídeo corto del trabajo del pelotón · 3</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CURRENT NEEDS -->
+      <section class="card big-block" id="current-needs-en">
+        <h2 class="section-title">Necesidades actuales</h2>
+
+        <p>En este momento tus donaciones se transforman principalmente en:</p>
+
+        <p><strong>• Herramientas y equipamiento para reparar camiones y vehículos blindados</strong><br>
+          Juegos de llaves, vasos, alargadores, gatos, extractores, herramientas de suspensión,
+          herramientas neumáticas, alargadores y iluminación de trabajo.
+        </p>
+
+        <p><strong>• Soldadura y consumibles</strong><br>
+          Electrodos, hilo, máscaras, guantes, alargadores, cables: todo lo que permite devolver
+          a la vida bastidores, carrocerías, soportes, depósitos, protección y elementos de blindaje.
+        </p>
+
+        <p><strong>• Repuestos y consumibles</strong><br>
+          Filtros, correas, pastillas de freno, manguitos, rodamientos, abrazaderas, sensores,
+          bujías, tornillería. Todas las “pequeñas cosas” sin las cuales las grandes reparaciones
+          son imposibles.
+        </p>
+
+        <p><strong>• Fluidos y lubricantes</strong><br>
+          Aceites de motor y caja de cambios, líquido de frenos, anticongelante, grasas para
+          conjuntos de alta carga.
+        </p>
+
+        <p><strong>• Diagnóstico y electricidad</strong><br>
+          Testers, multímetros, lámparas, mazos de cables, terminales, conectores, fusibles:
+          todo para detectar y solucionar rápidamente problemas eléctricos.
+        </p>
+
+        <p><strong>• Logística y condiciones de trabajo</strong><br>
+          Generadores, alargadores, iluminación, lonas, plásticos, guantes y ropa de trabajo,
+          para que podamos trabajar en el campo con cualquier tiempo.
+        </p>
+
+        <p>
+          Cada hryvnia, euro o dólar se convierte en algo muy concreto en nuestras manos:
+          una herramienta, un repuesto, un aceite o material de soldadura; algo que da al vehículo
+          una misión más y a nuestra gente una oportunidad más.
+        </p>
+      </section>
+
+      <!-- OUR MISSION -->
+      <section class="card big-block" id="mission-en">
+        <h2 class="section-title">Nuestra misión</h2>
+
+        <p>
+          Nuestra misión es garantizar la movilidad ininterrumpida del batallón y proteger la vida
+          de nuestros soldados.
+        </p>
+
+        <p>
+          Reparamos y restauramos camiones y vehículos blindados directamente en la zona de combate
+          para que las unidades puedan cumplir sus tareas sin interrupciones.
+        </p>
+
+        <p>
+          Devolvemos al servicio los vehículos que llevan munición, agua, suministros y evacúan
+          a los heridos.
+        </p>
+
+        <p>
+          Trabajamos de noche, bajo fuego, con lluvia y frío, sin condiciones normales,
+          pero siempre terminamos el trabajo.
+        </p>
+
+        <p>
+          Cada herramienta, cada repuesto y cada donación significan un viaje más de un vehículo,
+          una misión completada más y una vida más salvada.
+        </p>
+      </section>
+
+      <!-- PRINCIPLES -->
+      <section class="card big-block" id="principles-en">
+        <h2 class="section-title">Nuestros principios</h2>
+
+        <p>
+          En el trabajo del pelotón de apoyo técnico no hay casualidad. Seguimos varios principios claros
+          que salvan vehículos y vidas todos los días.
+        </p>
+
+        <div class="card-grid" style="margin-top:10px;">
+
+          <div class="card" style="min-height:160px;">
+            <h3>⚡ Velocidad</h3>
+            <p>
+              Reaccionamos rápidamente ante averías, fallos de vehículos y solicitudes de las unidades.
+              En el campo, cada minuto cuenta: no ralentizamos el proceso.
+            </p>
+          </div>
+
+          <div class="card" style="min-height:160px;">
+            <h3>🎯 Precisión</h3>
+            <p>
+              Diagnóstico, reparación, ajustes: lo hacemos todo lo más preciso posible.
+              Un error en la reparación puede costar un vehículo o la vida de un soldado.
+            </p>
+          </div>
+
+          <div class="card" style="min-height:160px;">
+            <h3>🛠️ Profesionalidad</h3>
+            <p>
+              Cada integrante del pelotón conoce sus vehículos hasta el último tornillo.
+              Ponemos nuestra experiencia, conocimientos y manos en cada máquina que debe moverse.
+            </p>
+          </div>
+
+          <div class="card" style="min-height:160px;">
+            <h3>💪 Responsabilidad</h3>
+            <p>
+              Entendemos el valor de nuestro trabajo: un vehículo reparado = una misión de combate cumplida.
+              Somos responsables del resultado, no sólo del proceso.
+            </p>
+          </div>
+
+          <div class="card" style="min-height:160px;">
+            <h3>🚚 Movilidad</h3>
+            <p>
+              Trabajamos en cualquier lugar: en el campo, en el barro, bajo fuego, con lluvia o escarcha.
+              ¿Sin taller? Lo montamos nosotros mismos.
+            </p>
+          </div>
+
+          <div class="card" style="min-height:160px;">
+            <h3>🔥 Resistencia</h3>
+            <p>
+              Terminamos el trabajo. Sin excusas.
+              Los vehículos deben moverse — y se moverán.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- WHY TECHNICAL SUPPORT PLATOON -->
+      <section class="card big-block" id="why-tz-en">
+        <h2 class="section-title">¿Por qué apoyar al pelotón de apoyo técnico?</h2>
+
+        <p>
+          El trabajo del pelotón de apoyo técnico a menudo queda “entre bastidores”, pero sin nosotros
+          ninguna unidad se mueve. Los vehículos son el sistema circulatorio del frente.
+          Si se detienen, todo se detiene.
+        </p>
+
+        <ul style="margin-left:18px; margin-top:6px; font-size:13px; opacity:0.95; display:grid; gap:4px;">
+          <li>🚚 <strong>Sin camiones no hay suministro.</strong><br>
+              Munición, agua, comida, rotaciones — todo depende de los vehículos.</li>
+
+          <li>🏥 <strong>Sin vehículos operativos no hay evacuación de heridos.</strong><br>
+              Si un vehículo no arranca, un soldado herido puede no llegar a tiempo
+              a la estabilización.</li>
+
+          <li>⚙️ <strong>Sin reparación no hay movilidad de unidades.</strong><br>
+              Infantería, drones, reconocimiento, zapadores: todos dependen de la capacidad de moverse.</li>
+
+          <li>🛠️ <strong>Reparamos directamente en el frente.</strong><br>
+              Recuperamos vehículos bajo fuego, reparamos en el campo, de noche, bajo la lluvia,
+              a la luz de linternas.</li>
+
+          <li>🔥 <strong>Cada donación = un resultado concreto.</strong><br>
+              Herramienta → reparación → vehículo vuelve al servicio → misión cumplida → vidas salvadas.</li>
+        </ul>
+
+        <p style="margin-top:10px; font-size:12px; opacity:0.8;">
+          Apoyar al pelotón de apoyo técnico es una de las formas más eficaces de ayudar a la defensa:
+          se convierte directamente en vehículos operativos y vidas salvadas.
+        </p>
+      </section>
+
+      <!-- VEHICLES CURRENTLY UNDER REPAIR -->
+      <section class="card big-block" id="current-repairs-en">
+        <h2 class="section-title">Vehículos actualmente en reparación</h2>
+
+        <p>
+          Este es el estado actual de los vehículos en los que está trabajando ahora el pelotón.
+          Se actualiza manualmente.
+        </p>
+
+        <div class="card-grid" style="margin-top:10px;">
+
+          <!-- URAL-43203 -->
+          <div class="card" style="min-height:180px;">
+            <h3>URAL-43203</h3>
+            <small style="opacity:0.75;">Estado:</small>
+            <p>
+              <strong>🔧 En proceso:</strong> revisión completa del sistema neumático, sustitución de líneas,
+              búsqueda de pérdidas de presión y ajuste de frenos.
+            </p>
+          </div>
+
+          <!-- GAZ-66 -->
+          <div class="card" style="min-height:180px;">
+            <h3>GAZ-66</h3>
+            <small style="opacity:0.75;">Estado:</small>
+            <p>
+              <strong>⏳ En espera de repuestos:</strong> nuevo juego de zapatas de freno para el eje delantero
+              y reparación del freno de mano.
+            </p>
+          </div>
+
+          <!-- Passenger cars -->
+          <div class="card" style="min-height:180px;">
+            <h3>Turismos</h3>
+            <small style="opacity:0.75;">Estado:</small>
+            <p>
+              <strong>🔥 Tras recuperación:</strong> restauración del tren de rodaje, sustitución de rodamiento
+              de buje, reparación de junta homocinética y revisión de la dirección.
+            </p>
+          </div>
+
+        </div>
+
+        <p style="font-size:12px; opacity:0.75; margin-top:10px;">
+          Si quieres cubrir por completo una de estas posiciones, escríbenos y te enviaremos
+          una lista precisa de piezas o herramientas necesarias.
+        </p>
+      </section>
+
+      <!-- FOR FUNDS & LARGE DONORS -->
+      <section class="card big-block" id="funds-request-en">
+        <h2 class="section-title">Para fundaciones, organizaciones y grandes donantes</h2>
+
+        <p>
+          Si representas una fundación, iniciativa de voluntariado, empresa o eres un donante importante,
+          puedes rellenar el formulario breve de abajo y recibiremos tu solicitud estructurada.
+        </p>
+
+        <p style="margin-bottom:8px;">
+          Áreas prioritarias de apoyo: herramientas, equipamiento, repuestos, soldadura, diagnóstico,
+          lubricantes y todo lo relacionado con la reparación y el mantenimiento de los camiones
+          y vehículos blindados del batallón.
+        </p>
+
+        <form id="fundsFormEn" onsubmit="handleFundsEn(event)" style="margin-top:6px; display:grid; gap:8px;">
+          <div>
+            <label for="org_en" style="font-size:13px;">Organización / fundación / empresa*</label><br>
+            <input id="org_en" name="org" required
+                   style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
+          </div>
+
+          <div style="display:grid; gap:8px;">
+            <div>
+              <label for="person_en" style="font-size:13px;">Persona de contacto*</label><br>
+              <input id="person_en" name="person" required
+                     style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
+            </div>
+
+            <div>
+              <label for="email_en" style="font-size:13px;">Email*</label><br>
+              <input id="email_en" name="email" type="email" required
+                     style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
+            </div>
+
+            <div>
+              <label for="telegram_en" style="font-size:13px;">Telegram / teléfono (opcional)</label><br>
+              <input id="telegram_en" name="telegram"
+                     placeholder="@usuario o número de teléfono"
+                     style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
+            </div>
+          </div>
+
+          <div>
+            <label for="country_en" style="font-size:13px;">País / ciudad</label><br>
+            <input id="country_en" name="country"
+                   style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
+          </div>
+
+          <div>
+            <label for="type_en" style="font-size:13px;">¿Qué tipo de apoyo consideras?*</label><br>
+            <select id="type_en" name="supportType" required
+                    style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.85); color:#fff; font-size:13px;">
+              <option value="">Selecciona una opción</option>
+              <option value="Tools and equipment">Herramientas y equipamiento</option>
+              <option value="Spare parts / consumables">Repuestos / consumibles</option>
+              <option value="Welding and metalwork">Soldadura y trabajo de metal</option>
+              <option value="Diagnostics and electrics">Diagnóstico y electricidad</option>
+              <option value="Comprehensive / long-term support">Apoyo integral / a largo plazo</option>
+              <option value="Other">Otro</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="budget_en" style="font-size:13px;">Presupuesto aproximado o formato de apoyo</label><br>
+            <input id="budget_en" name="budget"
+                   placeholder="cantidad, rango o “equipo / herramientas / repuestos”"
+                   style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
+          </div>
+
+          <div>
+            <label for="comment_en" style="font-size:13px;">Comentario / detalles</label><br>
+            <textarea id="comment_en" name="comment" rows="4"
+                      placeholder="Describe brevemente lo que consideras, plazos, condiciones, etc."
+                      style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px; resize:vertical;"></textarea>
+          </div>
+
+          <button type="submit" class="donate-btn" style="margin-top:4px; align-self:flex-start;">
+            Rellenar y crear correo
+          </button>
+
+          <p style="font-size:11px; opacity:0.75;">
+            Tras hacer clic, se abrirá tu cliente de correo con un mensaje preparado a
+            <strong>nadelnuikviktor@gmail.com</strong> que contendrá todos los datos introducidos.
+          </p>
+        </form>
+      </section>
+
+      <!-- OPEN-ENDED FUNDRAISER / PROGRESS -->
+      <section class="card big-block" id="progress-en">
+        <h2 class="section-title">Recaudación abierta</h2>
+
+        <p class="progress-text">
+          Esta es una recaudación abierta para el trabajo diario del pelotón de apoyo técnico:
+          herramientas, repuestos, lubricantes, soldadura, diagnóstico y talleres de campo.
+          Cada contribución nos ayuda a mantener los vehículos en servicio.
+        </p>
+
+        <div class="progress-track">
+          <div id="progress-fill-en" class="progress-fill" data-label="Recaudación activa"></div>
+        </div>
+
+        <div class="progress-meta">
+          <span id="progress-text-en">Recaudación activa</span>
+          <span>Recaudación abierta · Actualizado: 01.12.2025</span>
+        </div>
+      </section>
+
+      <!-- DONATIONS -->
       <h2 class="section-title" id="donate">Cómo apoyar al pelotón</h2>
 
       <div class="card-grid">
@@ -241,16 +1521,16 @@
         <section class="card">
           <div>
             <small>UAH · CUENTA BANCARIA</small>
-            <h3><span class="mono-label">Monobank</span> · “142. Brigada · pelotón técnico” jar</h3>
+            <h3><span class="mono-label">Monobank</span> · “142. Brigada · pelotón de apoyo técnico” jar</h3>
             <p><strong>Beneficiario:</strong> Nadelniuk Viktor Mykolaiovych</p>
             <p><strong>IBAN:</strong><br>UA683220010000026208372629615</p>
-            <p><strong>Concepto:</strong> <code>VTZ MPB 142 OMBr</code></p>
+            <p><strong>Concepto de pago:</strong> <code>VTZ MPB 142 OMBr</code></p>
           </div>
           <div>
             <div class="btn-row">
               <button class="donate-btn donate-btn--mono" type="button"
                       onclick="window.open('https://send.monobank.ua/jar/8PfzHBQuu4','_blank')">
-                Abrir Monobank jar
+                Abrir jar de Monobank
               </button>
               <button class="donate-btn" type="button"
                       onclick="copyText('UA683220010000026208372629615')">
@@ -270,7 +1550,7 @@
             <h3><span class="privat-label">PrivatBank</span> · Recarga de tarjeta</h3>
             <p><strong>Beneficiario:</strong> NADELNIUK VIKTOR MYKOLAYOVYCH</p>
             <p><strong>IBAN:</strong><br>UA023052990262076400994803502</p>
-            <p><strong>Concepto:</strong> <code>VTZ MPB 142 OMBr</code></p>
+            <p><strong>Concepto de pago:</strong> <code>VTZ MPB 142 OMBr</code></p>
           </div>
           <div>
             <div class="btn-row">
@@ -289,13 +1569,13 @@
           </div>
         </section>
 
-        <!-- PAYPAL -->
+        <!-- PAYPAL / PAUPAY -->
         <section class="card">
           <div>
             <small>PAGOS INTERNACIONALES</small>
             <h3><span class="paypal-label">PayPal / Paupay</span></h3>
             <p><strong>Email:</strong><br>nadelnuikviktor@gmail.com</p>
-            <p><strong>Nota:</strong><br><code>VTZ MPB 142 OMBr</code></p>
+            <p><strong>Nota / concepto:</strong><br><code>VTZ MPB 142 OMBr</code></p>
           </div>
           <div>
             <div class="btn-row">
@@ -307,6 +1587,10 @@
             <div class="qr-wrap">
               <img id="qr-paupay" class="qr" alt="QR Paupay / PayPal">
             </div>
+            <p style="font-size:12px; opacity:0.8; margin-top:6px;">
+              Por favor, incluye
+              <strong>VTZ MPB 142 OMBr</strong> en la nota del pago.
+            </p>
           </div>
         </section>
 
@@ -367,10 +1651,79 @@
         </section>
       </div>
 
-      <section style="margin-top:22px;">
-        <h2 class="section-title">Compartir con otros</h2>
+      <!-- FAQ -->
+      <section class="card big-block" id="faq-en">
+        <h2 class="section-title">Preguntas frecuentes</h2>
+
+        <details style="margin-bottom:6px;">
+          <summary style="cursor:pointer; font-weight:600; font-size:14px;">
+            ¿Sois una unidad oficial de las Fuerzas Armadas de Ucrania?
+          </summary>
+          <p style="margin-top:4px; font-size:13px;">
+            Sí. Somos el pelotón de apoyo técnico de un batallón de infantería mecanizada
+            dentro de la 142. Brigada Mecanizada Separada. Todos los vehículos con los que trabajamos
+            están oficialmente asignados a unidades de las Fuerzas Armadas de Ucrania.
+          </p>
+        </details>
+
+        <details style="margin-bottom:6px;">
+          <summary style="cursor:pointer; font-weight:600; font-size:14px;">
+            ¿En qué se gastan exactamente las donaciones?
+          </summary>
+          <p style="margin-top:4px; font-size:13px;">
+            Principalmente en herramientas, repuestos, consumibles, aceites, soldadura,
+            diagnóstico y condiciones básicas para nuestro taller de campaña. Es decir,
+            directamente en lo que nos permite reparar camiones y vehículos blindados
+            para que sigan cumpliendo misiones de combate.
+          </p>
+        </details>
+
+        <details style="margin-bottom:6px;">
+          <summary style="cursor:pointer; font-weight:600; font-size:14px;">
+            ¿Puedo ayudar no con dinero sino con herramientas o repuestos?
+          </summary>
+          <p style="margin-top:4px; font-size:13px;">
+            Sí. Si puedes proporcionar herramientas, equipamiento, repuestos u otros materiales,
+            por favor escríbenos al correo
+            <strong><a href="mailto:nadelnuikviktor@gmail.com">nadelnuikviktor@gmail.com</a></strong>
+            o por <strong>Telegram</strong> <code>@DOFAMIN95</code>, y te enviaremos una lista
+            de necesidades actuales y detalles de entrega.
+          </p>
+        </details>
+
+        <details style="margin-bottom:6px;">
+          <summary style="cursor:pointer; font-weight:600; font-size:14px;">
+            ¿Proporcionáis informes sobre las donaciones?
+          </summary>
+          <p style="margin-top:4px; font-size:13px;">
+            Sí. Para fundaciones, grandes donantes e iniciativas podemos preparar un informe aparte:
+            fotos, descripción de lo que se compró, en qué se gastaron los fondos y cómo ayudó
+            al trabajo del pelotón. Sólo tenéis que contactarnos mediante el formulario para
+            fundaciones o directamente por correo.
+          </p>
+        </details>
+
+        <details>
+          <summary style="cursor:pointer; font-weight:600; font-size:14px;">
+            ¿Podemos mencionar públicamente vuestra unidad o utilizar fotos con vehículos?
+          </summary>
+          <p style="margin-top:4px; font-size:13px;">
+            Este tipo de cosas las coordinamos por separado, teniendo en cuenta la seguridad.
+            Si eres una fundación, medio de comunicación o empresa y quieres mencionar públicamente
+            la unidad o usar fotos, por favor escríbenos y aclararemos qué se puede publicar
+            y qué debe limitarse.
+          </p>
+        </details>
+      </section>
+
+      <!-- SHARE -->
+      <section class="card big-block" id="share-en">
+        <h2 class="section-title">Cuéntaselo a otros</h2>
+
         <p>
-          También puedes ayudar compartiendo esta página con amigos, familiares o grupos de apoyo a Ucrania.
+          Puedes ayudar no sólo con donaciones, sino también compartiendo información sobre
+          el pelotón de apoyo técnico. Copia un texto listo o comparte esta página directamente
+          en tu mensajero o red social favorita.
         </p>
 
         <div class="btn-row" style="margin-top:10px; margin-bottom:14px;">
@@ -386,14 +1739,51 @@
             Копіювати український текст
           </button>
         </div>
+
+        <div class="btn-row">
+          <button class="donate-btn" type="button" onclick="shareEn('telegram')">
+            Compartir en Telegram
+          </button>
+
+          <button class="donate-btn" type="button" onclick="shareEn('viber')">
+            Compartir en Viber
+          </button>
+
+          <button class="donate-btn" type="button" onclick="shareEn('whatsapp')">
+            Compartir en WhatsApp
+          </button>
+
+          <button class="donate-btn" type="button" onclick="shareEn('facebook')">
+            Compartir en Facebook
+          </button>
+
+          <button class="donate-btn" type="button" onclick="shareEn('instagram')">
+            Compartir en Instagram
+          </button>
+        </div>
       </section>
+
+      <!-- LIGHTBOX -->
+      <div id="lightbox" class="lightbox" aria-hidden="true">
+        <div class="lightbox-inner" role="dialog" aria-modal="true">
+          <div class="lightbox-img-wrap">
+            <button type="button" class="lightbox-prev" aria-label="Foto anterior">&lsaquo;</button>
+            <img id="lightbox-img" class="lightbox-img" src="" alt="">
+            <button type="button" class="lightbox-next" aria-label="Siguiente foto">&rsaquo;</button>
+            <button type="button" class="lightbox-close" aria-label="Cerrar">&times;</button>
+          </div>
+          <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+      </div>
 
       <footer>
         Gracias por apoyar al pelotón de apoyo técnico de la 142. Brigada.<br>
-        Tu ayuda mantiene los vehículos en servicio y salva vidas.
+        Tu ayuda mantiene los vehículos en servicio y a nuestros soldados con vida.
+        <div id="visitor-counter-en" style="margin-top:6px; font-size:11px; opacity:0.75;"></div>
       </footer>
 
-      <button type="button" id="scrollTopBtn" class="scroll-top-btn" aria-label="Arriba">
+      <!-- SCROLL TO TOP BUTTON -->
+      <button type="button" id="scrollTopBtn" class="scroll-top-btn" aria-label="Volver arriba">
         ↑
       </button>
 
@@ -402,6 +1792,7 @@
 </div>
 
 <script>
+  // QR codes
   function setQR(id, data) {
     var el = document.getElementById(id);
     if (!el) return;
@@ -414,11 +1805,16 @@
   setQR("qr-btc",    "https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p");
   setQR("qr-paupay", "nadelnuikviktor@gmail.com");
 
+  // Copy to clipboard
   function copyText(text) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text)
-        .then(function () { alert('Copied: ' + text); })
-        .catch(function () { fallbackCopy(text); });
+        .then(function () {
+          alert('Copied: ' + text);
+        })
+        .catch(function () {
+          fallbackCopy(text);
+        });
     } else {
       fallbackCopy(text);
     }
@@ -441,18 +1837,19 @@
     document.body.removeChild(area);
   }
 
-  const SHARE_TEXT_ES = 'Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade. They repair trucks and armored vehicles right at the frontline so that vehicles keep moving and soldiers return alive.';
-  const SHARE_URL_ES  = 'https://viktornadelniuk.github.io/DOFAMIN95/es.html';
+  // Sharing
+  const SHARE_TEXT_EN = 'Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade. They repair trucks and armored vehicles right at the frontline so that vehicles keep moving and soldiers return alive.';
+  const SHARE_URL_EN  = 'https://viktornadelniuk.github.io/DOFAMIN95/es.html';
 
-  function shareEs(service) {
-    const text = SHARE_TEXT_ES + ' ' + SHARE_URL_ES;
+  function shareEn(service) {
+    const text = SHARE_TEXT_EN + ' ' + SHARE_URL_EN;
     let shareUrl = '';
 
     switch (service) {
       case 'telegram':
         shareUrl = 'https://t.me/share/url?url='
-          + encodeURIComponent(SHARE_URL_ES)
-          + '&text=' + encodeURIComponent(SHARE_TEXT_ES);
+          + encodeURIComponent(SHARE_URL_EN)
+          + '&text=' + encodeURIComponent(SHARE_TEXT_EN);
         break;
       case 'viber':
         shareUrl = 'viber://forward?text='
@@ -464,7 +1861,11 @@
         break;
       case 'facebook':
         shareUrl = 'https://www.facebook.com/sharer/sharer.php?u='
-          + encodeURIComponent(SHARE_URL_ES);
+          + encodeURIComponent(SHARE_URL_EN);
+        break;
+      case 'instagram':
+        copyText(text);
+        shareUrl = 'https://www.instagram.com/';
         break;
       default:
         copyText(text);
@@ -474,6 +1875,93 @@
     window.open(shareUrl, '_blank');
   }
 
+  // LIGHTBOX GALLERY
+  (function () {
+    var lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
+
+    var images = document.querySelectorAll('.gallery-item img');
+    if (!images.length) return;
+
+    var lightboxImg = document.getElementById('lightbox-img');
+    var lightboxCaption = document.getElementById('lightbox-caption');
+    var btnClose = lightbox.querySelector('.lightbox-close');
+    var btnPrev = lightbox.querySelector('.lightbox-prev');
+    var btnNext = lightbox.querySelector('.lightbox-next');
+
+    var currentIndex = 0;
+    var items = [];
+
+    images.forEach(function (img, index) {
+      var caption = '';
+      var parent = img.parentElement;
+      if (parent && parent.querySelector('.gallery-caption')) {
+        caption = parent.querySelector('.gallery-caption').innerText.trim();
+      } else if (img.alt) {
+        caption = img.alt;
+      }
+
+      items.push({
+        src: img.src,
+        alt: img.alt || '',
+        caption: caption
+      });
+
+      img.addEventListener('click', function () {
+        openLightbox(index);
+      });
+    });
+
+    function openLightbox(index) {
+      currentIndex = index;
+      updateLightbox();
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function updateLightbox() {
+      var item = items[currentIndex];
+      lightboxImg.src = item.src;
+      lightboxImg.alt = item.alt;
+      lightboxCaption.textContent = item.caption || '';
+    }
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % items.length;
+      updateLightbox();
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + items.length) % items.length;
+      updateLightbox();
+    }
+
+    btnClose.addEventListener('click', closeLightbox);
+    btnNext.addEventListener('click', showNext);
+    btnPrev.addEventListener('click', showPrev);
+
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (!lightbox.classList.contains('is-open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
+    });
+  })();
+
+  // SCROLL TO TOP BUTTON
   (function () {
     var btn = document.getElementById('scrollTopBtn');
     if (!btn) return;
@@ -488,8 +1976,95 @@
     });
 
     btn.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
+  })();
+
+  // VISITOR COUNTER
+  (function () {
+    var el = document.getElementById('visitor-counter-en');
+    if (!el) return;
+
+    fetch('https://api.countapi.xyz/hit/vtz-142omb/site')
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        el.textContent = 'Personas que visitaron esta página de apoyo (vistas): ' + data.value;
+      })
+      .catch(function () {
+        el.textContent = 'Personas que visitaron esta página de apoyo: —';
+      });
+  })();
+
+  // FUNDS FORM (ES) -> mailto (reutilizamos handleFundsEn)
+  function handleFundsEn(event) {
+    event.preventDefault();
+    var form = event.target;
+
+    var org      = form.org.value.trim();
+    var person   = form.person.value.trim();
+    var email    = form.email.value.trim();
+    var telegram = form.telegram.value.trim();
+    var country  = form.country.value.trim();
+    var type     = form.supportType.value.trim();
+    var budget   = form.budget.value.trim();
+    var comment  = form.comment.value.trim();
+
+    var subject = 'Solicitud de apoyo de fundación / donante: ' + (org || 'sin nombre');
+
+    var body =
+      'Organización / fundación / empresa: ' + org + '\n' +
+      'Persona de contacto: ' + person + '\n' +
+      'Email: ' + email + '\n' +
+      'Telegram / teléfono: ' + (telegram || '-') + '\n' +
+      'País / ciudad: ' + (country || '-') + '\n' +
+      'Tipo de apoyo: ' + type + '\n' +
+      'Presupuesto aprox. / formato: ' + (budget || '-') + '\n' +
+      '---\n' +
+      'Comentario / detalles:\n' + (comment || '-') + '\n\n' +
+      'Enviado a través del formulario web del pelotón de apoyo técnico de la 142. Brigada Mecanizada Separada.';
+
+    var mailto =
+      'mailto:nadelnuikviktor@gmail.com'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body);
+
+    window.location.href = mailto;
+  }
+
+  // “SUPPORT THE PLATOON” BUTTONS IN EVERY BIG BLOCK
+  (function () {
+    var blocks = document.querySelectorAll('.big-block');
+    blocks.forEach(function (block) {
+      if (block.querySelector('.block-donate-btn')) return;
+
+      var btn = document.createElement('button');
+      btn.className = 'block-donate-btn';
+      btn.innerHTML = '<span class="icon">🇺🇦</span> Apoyar al pelotón';
+
+      btn.addEventListener('click', function () {
+        var donate = document.getElementById('donate');
+        if (donate) donate.scrollIntoView({ behavior: "smooth" });
+      });
+
+      block.appendChild(btn);
+    });
+  })();
+
+  // DONATION PROGRESS (ES)
+  (function () {
+    var fill = document.getElementById('progress-fill-en');
+    var text = document.getElementById('progress-text-en');
+    if (!fill || !text) return;
+
+    var percent = 40;  // sólo para que la barra sea visible
+
+    fill.style.width = percent + '%';
+    fill.setAttribute('data-label', 'Recaudación activa');
+
+    text.textContent = 'Recaudación activa';
   })();
 </script>
 </body>
