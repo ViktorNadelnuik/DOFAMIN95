@@ -1,1 +1,495 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Soutenir · Peloton de soutien technique · 142ᵉ brigade</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Soutenez le peloton de soutien technique de la 142ᵉ brigade. Vos dons aident à réparer les véhicules et à sauver des vies.">
+
+  <link rel="icon"
+        href="https://viktornadelniuk.github.io/DOFAMIN95/favicon.png"
+        type="image/png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Soutenir le peloton de soutien technique · 142ᵉ brigade">
+  <meta property="og:description" content="Le peloton de soutien technique répare les véhicules directement en première ligne pour que les camions roulent et que les soldats reviennent vivants.">
+  <meta property="og:url" content="https://viktornadelniuk.github.io/DOFAMIN95/fr.html">
+  <meta property="og:image" content="https://viktornadelniuk.github.io/DOFAMIN95/hero-bg.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Soutenir le peloton de soutien technique · 142ᵉ brigade">
+  <meta name="twitter:description" content="Soutenez le peloton de soutien technique qui répare les véhicules directement dans la zone de combat.">
+  <meta name="twitter:image" content="https://viktornadelniuk.github.io/DOFAMIN95/hero-bg.jpg">
+
+  <!-- Стиль: можна копіювати повністю з de.html -->
+  <style>
+    /* Щоб не повторюватися, можеш взяти той самий <style> із de.html один в один.
+       Нижче — скорочена версія, як у es.html, але краще скопіюй повний з de.html */
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: #f5f5f5;
+      line-height: 1.5;
+      background: #02040a;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        repeating-linear-gradient(
+          -35deg,
+          #04101f 0,
+          #04101f 12px,
+          #050918 12px,
+          #050918 24px
+        );
+      opacity: 0.6;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.07), transparent 55%);
+      mix-blend-mode: soft-light;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      min-height: 100vh;
+      padding: 24px 12px 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .top-row { display:flex; flex-direction:column; gap:6px; margin-bottom:10px; }
+    .top-bar { display:flex; align-items:center; gap:10px; }
+
+    .logo {
+      width: 42px; height: 42px; border-radius: 12px;
+      object-fit: cover; box-shadow: 0 0 6px rgba(0,0,0,0.4);
+    }
+
+    .site-title { font-size:18px; font-weight:700; }
+
+    .lang-switch {
+      display:flex; justify-content:flex-end; gap:6px;
+      font-size:12px; opacity:0.9;
+    }
+
+    .lang-switch a {
+      padding:2px 8px; border-radius:999px;
+      border:1px solid rgba(255,255,255,0.25);
+      text-decoration:none; color:#fff;
+    }
+
+    .lang-switch a.active { background:rgba(255,255,255,0.16); font-weight:700; }
+
+    .hero {
+      background:
+        linear-gradient(135deg, rgba(0,0,0,0.8), rgba(0,0,0,0.9)),
+        url("hero-bg.jpg") center/cover no-repeat;
+      border-radius:24px;
+      padding:24px 22px 22px;
+      margin-bottom:26px;
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 18px 40px rgba(0,0,0,0.5);
+    }
+
+    .hero-badge {
+      display:inline-flex; padding:4px 10px; margin-bottom:10px;
+      border-radius:999px; border:1px solid rgba(255,255,255,0.2);
+      font-size:12px; text-transform:uppercase; letter-spacing:0.08em;
+    }
+
+    .hero-title { font-size:26px; font-weight:800; margin-bottom:10px; }
+
+    .hero-sub { font-size:15px; margin-bottom:8px; opacity:0.9; }
+    .hero-note { font-size:13px; opacity:0.8; }
+
+    .header-patch-wrap { display:flex; justify-content:center; margin-bottom:14px; margin-top:-4px; padding-top:10px; }
+    .header-patch { width:140px; }
+
+    .section-title { font-size:22px; margin:12px 0 12px; font-weight:700; }
+
+    .card-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:18px; margin-top:10px;
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, #202b46 0, #070e1d 70%);
+      border-radius:22px;
+      padding:16px 16px 18px;
+      border:1px solid rgba(255,255,255,0.07);
+      box-shadow:0 12px 30px rgba(0,0,0,0.7);
+    }
+
+    .btn-row { display:flex; flex-wrap:wrap; gap:8px; margin:8px 0; }
+
+    .donate-btn {
+      padding:9px 18px; border-radius:999px; border:1px solid rgba(255,255,255,0.2);
+      font-size:13px; font-weight:600; color:#fff;
+      background:linear-gradient(135deg,#00c6ff,#0072ff);
+      cursor:pointer;
+    }
+
+    .mono-label { color:#00ffc3; font-weight:600; }
+    .privat-label { color:#55efc4; font-weight:600; }
+    .paypal-label { color:#00b4ff; font-weight:600; }
+    .crypto-label { color:#ffd86b; font-weight:600; }
+
+    .qr-wrap { display:flex; justify-content:center; margin-top:8px; }
+    .qr { width:150px; height:150px; border-radius:18px; background:#02040a; }
+
+    footer { margin-top:22px; text-align:center; opacity:0.7; font-size:12px; }
+
+    .scroll-top-btn {
+      position:fixed; right:18px; bottom:20px;
+      width:42px; height:42px; border-radius:999px;
+      border:1px solid rgba(255,255,255,0.35);
+      background: radial-gradient(circle at 30% 0, #00e3aa 0, #0072ff 70%);
+      color:#fff; font-size:22px; font-weight:700;
+      display:flex; align-items:center; justify-content:center;
+      opacity:0; pointer-events:none;
+    }
+
+    .scroll-top-btn--visible { opacity:1; pointer-events:auto; }
+  </style>
+</head>
+<body>
+<div class="page">
+  <div class="container">
+
+    <header>
+      <div class="header-patch-wrap">
+        <img src="vtz-mpb-patch.png" alt="Écusson du peloton VTZ MPB" class="header-patch">
+      </div>
+
+      <div class="top-row">
+        <div class="top-bar">
+          <img src="logo.png" alt="Logo" class="logo">
+          <span class="site-title">142ᵉ brigade · Peloton de soutien technique</span>
+        </div>
+        <div class="lang-switch">
+          <a href="index.html">UA</a>
+          <a href="en.html">EN</a>
+          <a href="pl.html">PL</a>
+          <a href="de.html">DE</a>
+          <a href="es.html">ES</a>
+          <a href="fr.html" class="active">FR</a>
+        </div>
+      </div>
+
+      <section class="hero">
+        <div class="hero-badge">Réparation et soutien des véhicules en première ligne</div>
+        <div class="hero-title">Les véhicules doivent rouler. Les hommes doivent revenir vivants.</div>
+
+        <p class="hero-sub">
+          Notre peloton répare des camions et des véhicules blindés directement dans la zone de combat,
+          afin que le bataillon puisse accomplir ses missions et que les véhicules transportent
+          munitions, personnel et évacuent les blessés.
+        </p>
+        <p class="hero-note">
+          Chaque don se transforme en outil, pièce de rechange, lubrifiant ou matériau de soudure
+          qui donne un trajet de plus au véhicule et une chance de plus à nos hommes de rentrer chez eux.
+        </p>
+
+        <div style="margin-top:14px;">
+          <a href="#donate" class="donate-btn" style="display:inline-block;">
+            Soutenir le peloton
+          </a>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section>
+        <h2 class="section-title">À propos du peloton</h2>
+        <p>
+          Nous sommes le peloton de soutien technique d’un bataillon d’infanterie mécanisée
+          au sein de la 142ᵉ brigade mécanisée. Notre mission est de maintenir les véhicules du bataillon
+          en état de marche sur l’un des secteurs les plus difficiles du front.
+        </p>
+      </section>
+
+      <h2 class="section-title" id="donate">Comment soutenir le peloton</h2>
+
+      <div class="card-grid">
+        <!-- MONOBANK -->
+        <section class="card">
+          <div>
+            <small>UAH · COMPTE BANCAIRE</small>
+            <h3><span class="mono-label">Monobank</span> · “142ᵉ brigade · peloton technique” jar</h3>
+            <p><strong>Bénéficiaire :</strong> Nadelniuk Viktor Mykolaiovych</p>
+            <p><strong>IBAN :</strong><br>UA683220010000026208372629615</p>
+            <p><strong>Objet :</strong> <code>VTZ MPB 142 OMBr</code></p>
+          </div>
+          <div>
+            <div class="btn-row">
+              <button class="donate-btn donate-btn--mono" type="button"
+                      onclick="window.open('https://send.monobank.ua/jar/8PfzHBQuu4','_blank')">
+                Ouvrir Monobank jar
+              </button>
+              <button class="donate-btn" type="button"
+                      onclick="copyText('UA683220010000026208372629615')">
+                Copier l’IBAN
+              </button>
+            </div>
+            <div class="qr-wrap">
+              <img id="qr-mono" class="qr" alt="QR Monobank">
+            </div>
+          </div>
+        </section>
+
+        <!-- PRIVATBANK -->
+        <section class="card">
+          <div>
+            <small>UAH · COMPTE BANCAIRE</small>
+            <h3><span class="privat-label">PrivatBank</span> · Recharge de carte</h3>
+            <p><strong>Bénéficiaire :</strong> NADELNIUK VIKTOR MYKOLAYOVYCH</p>
+            <p><strong>IBAN :</strong><br>UA023052990262076400994803502</p>
+            <p><strong>Objet :</strong> <code>VTZ MPB 142 OMBr</code></p>
+          </div>
+          <div>
+            <div class="btn-row">
+              <button class="donate-btn donate-btn--privat" type="button"
+                      onclick="window.open('https://www.privat24.ua/send/3xbxx','_blank')">
+                Ouvrir Privat24
+              </button>
+              <button class="donate-btn" type="button"
+                      onclick="copyText('UA023052990262076400994803502')">
+                Copier l’IBAN
+              </button>
+            </div>
+            <div class="qr-wrap">
+              <img id="qr-privat" class="qr" alt="QR PrivatBank">
+            </div>
+          </div>
+        </section>
+
+        <!-- PAYPAL -->
+        <section class="card">
+          <div>
+            <small>PAIEMENTS INTERNATIONAUX</small>
+            <h3><span class="paypal-label">PayPal / Paupay</span></h3>
+            <p><strong>E-mail :</strong><br>nadelnuikviktor@gmail.com</p>
+            <p><strong>Référence :</strong><br><code>VTZ MPB 142 OMBr</code></p>
+          </div>
+          <div>
+            <div class="btn-row">
+              <button class="donate-btn donate-btn--paypal" type="button"
+                      onclick="copyText('nadelnuikviktor@gmail.com')">
+                Copier l’e-mail
+              </button>
+            </div>
+            <div class="qr-wrap">
+              <img id="qr-paupay" class="qr" alt="QR Paupay / PayPal">
+            </div>
+          </div>
+        </section>
+
+        <!-- CRYPTO -->
+        <section class="card">
+          <div>
+            <small>CRYPTOMONNAIES</small>
+            <h3><span class="crypto-label">Crypto</span> · BTC · ETH · SOL · BNB</h3>
+
+            <p><strong>Bitcoin (BTC) :</strong><br>
+              bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p</p>
+
+            <p><strong>Ethereum (ETH) :</strong><br>
+              0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</p>
+
+            <p><strong>Solana (SOL) :</strong><br>
+              DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525</p>
+
+            <p><strong>BNB (BEP-20) :</strong><br>
+              0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</p>
+          </div>
+
+          <div>
+            <div class="btn-row">
+              <button class="donate-btn donate-btn--crypto" type="button"
+                      onclick="window.open('https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p','_blank')">
+                Ouvrir BTC
+              </button>
+              <button class="donate-btn donate-btn--crypto" type="button"
+                      onclick="window.open('https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b','_blank')">
+                Ouvrir ETH
+              </button>
+              <button class="donate-btn donate-btn--crypto" type="button"
+                      onclick="window.open('https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525','_blank')">
+                Ouvrir SOL
+              </button>
+            </div>
+
+            <div class="btn-row">
+              <button class="donate-btn" type="button"
+                      onclick="copyText('bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p')">
+                Copier BTC
+              </button>
+              <button class="donate-btn" type="button"
+                      onclick="copyText('0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b')">
+                Copier ETH / BNB
+              </button>
+              <button class="donate-btn" type="button"
+                      onclick="copyText('DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525')">
+                Copier SOL
+              </button>
+            </div>
+
+            <div class="qr-wrap">
+              <img id="qr-btc" class="qr" alt="QR BTC">
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section style="margin-top:22px;">
+        <h2 class="section-title">Partager</h2>
+        <p>
+          Vous pouvez aussi aider en partageant cette page avec vos amis, vos collègues
+          ou des organisations qui soutiennent l’Ukraine.
+        </p>
+
+        <div class="btn-row" style="margin-top:10px; margin-bottom:14px;">
+          <button class="donate-btn"
+                  type="button"
+                  onclick="copyText('Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade. They repair trucks and armored vehicles right at the frontline so that vehicles keep moving and soldiers return alive. If you can, please support with a donation or by sharing this link: https://viktornadelniuk.github.io/DOFAMIN95/fr.html')">
+            Copier le texte en anglais
+          </button>
+
+          <button class="donate-btn"
+                  type="button"
+                  onclick="copyText('Привіт! Це збір для взводу технічного забезпечення 142 ОМБр. Хлопці ремонтують вантажівки та броню прямо на передовій, щоб техніка їхала і всі повертались живими. Якщо маєш змогу — підтримай гривнею, репостом або словом: https://viktornadelniuk.github.io/DOFAMIN95/')">
+            Копіювати український текст
+          </button>
+        </div>
+      </section>
+
+      <footer>
+        Merci de soutenir le peloton de soutien technique de la 142ᵉ brigade.<br>
+        Votre aide maintient les véhicules en service et sauve des vies.
+      </footer>
+
+      <button type="button" id="scrollTopBtn" class="scroll-top-btn" aria-label="Haut de page">
+        ↑
+      </button>
+
+    </main>
+  </div>
+</div>
+
+<script>
+  function setQR(id, data) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var api = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=";
+    el.src = api + encodeURIComponent(data);
+  }
+
+  setQR("qr-mono",   "https://send.monobank.ua/jar/8PfzHBQuu4");
+  setQR("qr-privat", "https://www.privat24.ua/send/3xbxx");
+  setQR("qr-btc",    "https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p");
+  setQR("qr-paupay", "nadelnuikviktor@gmail.com");
+
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text)
+        .then(function () { alert('Copied: ' + text); })
+        .catch(function () { fallbackCopy(text); });
+    } else {
+      fallbackCopy(text);
+    }
+  }
+
+  function fallbackCopy(text) {
+    var area = document.createElement('textarea');
+    area.value = text;
+    area.style.position = 'fixed';
+    area.style.left = '-9999px';
+    document.body.appendChild(area);
+    area.focus();
+    area.select();
+    try {
+      document.execCommand('copy');
+      alert('Copied: ' + text);
+    } catch (e) {
+      alert('Failed to copy. Please copy manually: ' + text);
+    }
+    document.body.removeChild(area);
+  }
+
+  const SHARE_TEXT_FR = 'Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade. They repair trucks and armored vehicles right at the frontline so that vehicles keep moving and soldiers return alive.';
+  const SHARE_URL_FR  = 'https://viktornadelniuk.github.io/DOFAMIN95/fr.html';
+
+  function shareFr(service) {
+    const text = SHARE_TEXT_FR + ' ' + SHARE_URL_FR;
+    let shareUrl = '';
+
+    switch (service) {
+      case 'telegram':
+        shareUrl = 'https://t.me/share/url?url='
+          + encodeURIComponent(SHARE_URL_FR)
+          + '&text=' + encodeURIComponent(SHARE_TEXT_FR);
+        break;
+      case 'viber':
+        shareUrl = 'viber://forward?text='
+          + encodeURIComponent(text);
+        break;
+      case 'whatsapp':
+        shareUrl = 'https://wa.me/?text='
+          + encodeURIComponent(text);
+        break;
+      case 'facebook':
+        shareUrl = 'https://www.facebook.com/sharer/sharer.php?u='
+          + encodeURIComponent(SHARE_URL_FR);
+        break;
+      default:
+        copyText(text);
+        return;
+    }
+
+    window.open(shareUrl, '_blank');
+  }
+
+  (function () {
+    var btn = document.getElementById('scrollTopBtn');
+    if (!btn) return;
+
+    window.addEventListener('scroll', function () {
+      var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollY > 250) {
+        btn.classList.add('scroll-top-btn--visible');
+      } else {
+        btn.classList.remove('scroll-top-btn--visible');
+      }
+    });
+
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+</body>
+</html>
 
