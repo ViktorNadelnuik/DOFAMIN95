@@ -1006,6 +1006,20 @@
       65%  { width: 65%; }
       100% { width: 100%; }
     }
+.card span {
+  font-family: monospace;
+  font-size: 16px;
+  background: rgba(255,255,255,0.10);
+  padding: 6px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.card small {
+  opacity: 0.7;
+  font-size: 12px;
+}
 
   </style>
 </head>
@@ -1668,6 +1682,67 @@
 
       <!-- ДОНАТИ -->
       <h2 class="section-title" id="donate">Як підтримати взвод</h2>
+<!-- MONOBANK -->
+<section class="card">
+  <small>🇺🇦 Швидкий платіж · Україна</small>
+  <h3><span class="mono-label">Monobank</span></h3>
+
+  <p><strong>Картка:</strong><br>
+    <span id="mono-card">5375 4141 0948 5439</span>
+  </p>
+
+  <div class="btn-row">
+    <button class="donate-btn donate-btn--mono" onclick="copyCard('mono-card')">
+      Скопіювати номер
+    </button>
+  </div>
+
+  <div class="qr-wrap">
+    <img id="qr-mono-card" class="qr" alt="QR Monobank">
+  </div>
+</section>
+
+
+<!-- PRIVATBANK -->
+<section class="card">
+  <small>🇺🇦 Швидкий платіж · Україна</small>
+  <h3><span class="privat-label">PrivatBank</span></h3>
+
+  <p><strong>Картка:</strong><br>
+    <span id="privat-card">4246 0010 5394 7109</span>
+  </p>
+
+  <div class="btn-row">
+    <button class="donate-btn donate-btn--privat" onclick="copyCard('privat-card')">
+      Скопіювати номер
+    </button>
+  </div>
+
+  <div class="qr-wrap">
+    <img id="qr-privat-card" class="qr" alt="QR PrivatBank">
+  </div>
+</section>
+
+
+<!-- PAYPAL (опційно) -->
+<section class="card">
+  <small>🌍 Міжнародна підтримка</small>
+  <h3><span class="paypal-label">PayPal</span></h3>
+
+  <p><strong>Email:</strong><br>
+    <span id="paypal-card">nadelnuikviktor@gmail.com</span>
+  </p>
+
+  <div class="btn-row">
+    <button class="donate-btn donate-btn--paypal" onclick="copyCard('paypal-card')">
+      Copy email
+    </button>
+  </div>
+
+  <p style="font-size:12px; opacity:0.7; margin-top:6px;">
+    У коментарі платежу вкажіть: <code>VTZ MPB 142 OMBr</code>
+  </p>
+</section>
 
       <div class="card-grid">
         <!-- MONOBANK -->
@@ -2236,6 +2311,13 @@
     fill.setAttribute('data-label', 'Збір активний');
     text.textContent = 'Збір активний';
   })();
+  function copyCard(id) {
+  const text = document.getElementById(id).innerText.trim();
+  navigator.clipboard.writeText(text)
+    .then(() => alert('Скопійовано: ' + text))
+    .catch(() => alert('Скопіюйте вручну: ' + text));
+}
+
 </script>
 </body>
 </html>
