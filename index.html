@@ -1,2059 +1,1628 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Підтримати · Взвод технічного забезпечення · 142 ОМБр</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Підтримайте взвод технічного забезпечення 142 ОМБр. Ваші донати допомагають ремонтувати техніку, яка возить боєкомплект, ПММ, їжу та евакуює поранених.">
-
-  <link rel="icon"
-        href="https://viktornadelniuk.github.io/DOFAMIN95/favicon.png"
-        type="image/png">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Підтримати взвод технічного забезпечення · 142 ОМБр">
-  <meta property="og:description" content="Взвод технічного забезпечення ремонтує техніку прямо на передовій, щоб машини їхали, а люди повертались живими.">
-  <meta property="og:url" content="https://viktornadelniuk.github.io/DOFAMIN95/">
-  <meta property="og:image" content="https://viktornadelniuk.github.io/DOFAMIN95/hero-bg.jpg">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Підтримати взвод технічного забезпечення · 142 ОМБр">
-  <meta name="twitter:description" content="Підтримайте взвод технічного забезпечення, який ремонтує техніку прямо в зоні бойових дій.">
-  <meta name="twitter:image" content="https://viktornadelniuk.github.io/DOFAMIN95/hero-bg.jpg">
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y0HDG5SKZX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-Y0HDG5SKZX');
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Взвод технічного забезпечення мотопіхотного батальйону 142 ОМБр. Ремонт техніки на передовій, евакуація, обслуговування, зварка, діагностика. Підтримайте взвод — кожен донат це ще один виїзд техніки." />
+  <meta property="og:title" content="Підтримати · Взвод технічного забезпечення · 142 ОМБр" />
+  <meta property="og:description" content="Ми ремонтуємо вантажівки й бронетехніку прямо в зоні бойових дій. Кожен донат перетворюється на інструмент, запчастину, мастило чи зварку." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://viktornadelnuik.github.io/DOFAMIN95/index.html" />
+  <!-- Якщо є логотип/картинка — вкажи шлях тут -->
+  <!-- <meta property="og:image" content="images/og-image.jpg" /> -->
 
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #05060a;
+      --bg-alt: #0c0f16;
+      --card: #111622;
+      --accent: #ffd447;
+      --accent-soft: rgba(255, 212, 71, 0.14);
+      --text-main: #f5f5f7;
+      --text-muted: #b4b7c2;
+      --border-soft: #252b39;
+      --danger: #ff5c5c;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.65);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
-      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-      color: #f5f5f5;
-      line-height: 1.5;
-      background: #02040a;
-      position: relative;
-      overflow-x: hidden;
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1c2333 0, #05060a 55%);
+      color: var(--text-main);
+      line-height: 1.6;
     }
 
-    /* Striped steel background */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      background:
-        repeating-linear-gradient(
-          -35deg,
-          #04101f 0,
-          #04101f 12px,
-          #050918 12px,
-          #050918 24px
-        );
-      opacity: 0.6;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
-
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.07), transparent 55%);
-      mix-blend-mode: soft-light;
-    }
-
-    a { color: inherit; }
 
     .page {
       min-height: 100vh;
-      padding: 24px 12px 40px;
       display: flex;
-      justify-content: center;
-      animation: fadeInPage 0.7s ease-out;
+      flex-direction: column;
     }
 
     .container {
       width: 100%;
-      max-width: 1180px;
+      max-width: 1120px;
       margin: 0 auto;
+      padding: 20px 16px 40px;
     }
 
-    .top-row {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 10px;
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(5, 6, 10, 0.96), rgba(5, 6, 10, 0.78));
+      border-bottom: 1px solid rgba(130, 139, 170, 0.18);
     }
 
     .top-bar {
       display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 16px;
+      max-width: 1120px;
+      margin: 0 auto;
     }
 
-    .logo {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      object-fit: cover;
-      background: transparent;
-      box-shadow: 0 0 6px rgba(0,0,0,0.4);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .logo:hover {
-      transform: scale(1.05) rotate(-2deg);
-      box-shadow: 0 0 10px rgba(0,0,0,0.7);
-    }
-
-    .site-title {
-      font-size: 18px;
-      font-weight: 700;
-    }
-
-    .lang-switch {
+    .brand {
       display: flex;
-      justify-content: flex-end;
-      gap: 6px;
-      font-size: 12px;
-      opacity: 0.9;
-      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
     }
 
-    .lang-switch a {
-      padding: 2px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.25);
-      text-decoration: none;
-      color: #fff;
-      transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
-    }
-
-    .lang-switch a.active {
-      background: rgba(255,255,255,0.16);
+    .brand-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 212, 71, 0.4);
+      background: radial-gradient(circle at 30% 0, #ffd447, #292f46);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
       font-weight: 700;
+      color: #05060a;
     }
 
-    .lang-switch a:hover {
-      transform: translateY(-1px);
-      border-color: rgba(255,255,255,0.6);
+    .lang-switcher {
+      display: flex;
+      gap: 4px;
+      font-size: 13px;
     }
 
-    /* HERO */
-    .hero {
-      background:
-        linear-gradient(135deg, rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
-        url("hero-bg.jpg") center/cover no-repeat;
-      border-radius: 24px;
-      padding: 24px 22px 20px;
-      margin-bottom: 26px;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.5);
-      animation: heroReveal 0.9s ease-out;
+    .lang-switcher button {
+      border-radius: 999px;
+      border: 1px solid transparent;
+      padding: 3px 9px;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: default;
+    }
+
+    .lang-switcher button.active {
+      background: var(--accent-soft);
+      color: #000;
+      border-color: rgba(255, 212, 71, 0.5);
+      font-weight: 600;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 28px;
+      margin-top: 26px;
+      margin-bottom: 32px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, rgba(255, 212, 71, 0.14), transparent 55%), var(--bg-alt);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 22px 20px 20px;
+      box-shadow: var(--shadow-soft);
       position: relative;
       overflow: hidden;
-    }
-
-    /* Welding spark line across hero */
-    .hero::after {
-      content: "";
-      position: absolute;
-      left: -20%;
-      top: 55%;
-      width: 140%;
-      height: 2px;
-      pointer-events: none;
-      background: radial-gradient(circle at 0 50%,
-        rgba(255, 255, 210, 0.9) 0,
-        rgba(255, 255, 150, 0.4) 25%,
-        rgba(255, 255, 0, 0) 55%);
-      opacity: 0;
-      filter: blur(0.6px);
-      animation: weld-spark 3.7s ease-in-out infinite;
     }
 
     .hero-badge {
       display: inline-flex;
-      padding: 4px 10px;
-      margin-bottom: 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.2);
-      background: rgba(0,0,0,0.45);
+      align-items: center;
+      gap: 8px;
       font-size: 12px;
-      letter-spacing: 0.08em;
       text-transform: uppercase;
-      opacity: 0.9;
+      letter-spacing: 0.16em;
+      background: rgba(12, 16, 24, 0.9);
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 4px 10px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .hero-badge-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #00ff88, #117744);
+      box-shadow: 0 0 12px rgba(0, 255, 136, 0.7);
     }
 
     .hero-title {
-      font-size: 26px;
-      font-weight: 800;
+      font-size: clamp(26px, 4vw, 32px);
+      font-weight: 750;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
+      line-height: 1.2;
       margin-bottom: 10px;
-      letter-spacing: 0.06em;
-      text-shadow:
-        0 0 8px rgba(0,0,0,0.9),
-        0 0 14px rgba(0,0,0,0.8);
     }
 
-    .hero-sub {
-      font-size: 16px;
-      opacity: 0.9;
-      margin-bottom: 8px;
+    .hero-subtitle {
+      font-size: 17px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
     }
 
-    .hero-note {
-      font-size: 13px;
-      opacity: 0.75;
+    .hero-text {
+      font-size: 14px;
+      color: var(--text-main);
+      margin-bottom: 18px;
     }
 
-    .section-title {
-      font-size: 22px;
-      margin: 12px 0 12px;
-      font-weight: 700;
-    }
-
-    /* GRID */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-      margin-top: 10px;
-    }
-
-    .card {
-      background: radial-gradient(circle at top left, #202b46 0, #070e1d 70%);
-      border-radius: 22px;
-      padding: 16px 16px 18px;
-      border: 1px solid rgba(255,255,255,0.07);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.7);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 260px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-      animation: cardFade 0.55s ease-out;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 36px rgba(0,0,0,0.75);
-      border-color: rgba(255,255,255,0.24);
-    }
-
-    .card.big-block {
-      grid-column: 1 / -1;
-      min-height: auto;
-    }
-
-    .card h3 { font-size: 16px; margin-bottom: 6px; }
-    .card small { opacity: 0.7; font-size: 11px; letter-spacing: 0.08em; }
-    .card p { font-size: 13px; margin: 6px 0; }
-
-    .mono-label { color: #00ffc3; font-weight: 600; }
-    .privat-label { color: #55efc4; font-weight: 600; }
-    .paypal-label { color: #00b4ff; font-weight: 600; }
-    .crypto-label { color: #ffd86b; font-weight: 600; }
-
-    .btn-row {
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin: 8px 0;
-    }
-
-    .donate-btn {
-      padding: 9px 18px;
-      border-radius: 999px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: 600;
-      font-size: 13px;
-      border: 1px solid rgba(255,255,255,0.2);
-      background: linear-gradient(135deg, #00c6ff, #0072ff);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.35);
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, opacity 0.15s ease;
-      white-space: nowrap;
-      cursor: pointer;
-      background-clip: padding-box;
-    }
-
-    .donate-btn:hover {
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 10px 22px rgba(0,0,0,0.5);
-      opacity: 0.98;
-    }
-
-    .donate-btn--mono   { background: linear-gradient(135deg, #00e3aa, #00b894); }
-    .donate-btn--privat { background: linear-gradient(135deg, #2ecc71, #27ae60); }
-    .donate-btn--paypal { background: linear-gradient(135deg, #009cde, #003087); }
-    .donate-btn--crypto { background: linear-gradient(135deg, #f6d365, #fda085); }
-
-    .qr-wrap {
-      margin-top: 8px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .qr {
-      width: 150px;
-      height: 150px;
-      border-radius: 18px;
-      background:#02040a;
-      display: block;
-    }
-
-    /* GALLERY */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
       gap: 10px;
-      margin-top: 10px;
+      align-items: center;
     }
 
-    .gallery-item {
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 999px;
+      border: none;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      background: linear-gradient(135deg, #ffd447, #ffb347);
+      color: #000;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5);
       position: relative;
       overflow: hidden;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: #050910;
-      aspect-ratio: 4 / 3;
     }
 
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-      transition: transform 0.25s ease, opacity 0.25s ease;
-      cursor: zoom-in;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.05);
-      opacity: 0.92;
-    }
-
-    .gallery-caption {
+    .btn-primary::after {
+      content: "";
       position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 4px 6px;
-      font-size: 11px;
-      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-      opacity: 0.9;
+      inset: 0;
+      background: radial-gradient(circle at 10% 0, rgba(255, 255, 255, 0.4), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
     }
 
-    /* VIDEO */
-    .video-grid {
+    .btn-primary:hover::after {
+      opacity: 1;
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 9px 14px;
+      font-size: 13px;
+      background: rgba(7, 8, 12, 0.7);
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    .btn-ghost span.icon {
+      font-size: 16px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .meta-pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(7, 8, 12, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-aside {
+      background: var(--bg-alt);
+      border-radius: var(--radius-xl);
+      padding: 18px 16px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .hero-aside-title {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .hero-aside-main {
+      font-size: 15px;
+      color: var(--text-main);
+    }
+
+    .hero-aside-note {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .section {
+      margin-bottom: 32px;
+      background: var(--bg-alt);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      padding: 20px 18px 18px;
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.65);
+    }
+
+    .section + .section {
+      margin-top: 18px;
+    }
+
+    .section-header {
+      margin-bottom: 12px;
+    }
+
+    .section-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .section h2 {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .section h3 {
+      font-size: 16px;
+      margin-top: 12px;
+      margin-bottom: 4px;
+    }
+
+    .section p {
+      font-size: 14px;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .muted {
+      color: var(--text-muted);
+    }
+
+    .two-col {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
+      gap: 18px;
+    }
+
+    @media (max-width: 800px) {
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .pill-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+      margin-bottom: 6px;
+    }
+
+    .pill-list li {
+      font-size: 12px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(255, 212, 71, 0.08);
+      border: 1px solid rgba(255, 212, 71, 0.25);
+      color: var(--text-main);
+    }
+
+    .donate-columns {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
       margin-top: 10px;
     }
 
-    .video-item {
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.16);
-      background: #050910;
-      box-shadow: 0 10px 26px rgba(0,0,0,0.7);
+    @media (max-width: 850px) {
+      .donate-columns {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
 
-    .youtube-wrap {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%; /* 16:9 */
-      overflow: hidden;
+    .donate-block {
+      background: radial-gradient(circle at top left, rgba(255, 212, 71, 0.12), transparent 60%), #080b12;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 12px 12px 10px;
     }
 
-    .youtube-wrap iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
+    .donate-block h3 {
+      margin-top: 0;
     }
 
-    .video-caption {
-      font-size: 12px;
-      padding: 6px 9px 8px;
-      opacity: 0.85;
+    .donate-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 2px;
     }
 
-    footer {
-      margin-top: 22px;
-      text-align: center;
-      opacity: 0.7;
-      font-size: 12px;
+    .donate-field {
+      font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 13px;
+      padding: 6px 8px;
+      border-radius: 8px;
+      background: rgba(3, 4, 7, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 6px;
+      color: var(--text-main);
+      word-break: break-all;
     }
 
-    /* LIGHTBOX */
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.92);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      padding: 16px;
-    }
-
-    .lightbox.is-open {
+    .btn-row {
       display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
     }
 
-    .lightbox-inner {
-      position: relative;
-      max-width: 980px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .btn-sm {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(7, 8, 12, 0.9);
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    .btn-sm.highlight {
+      border-color: rgba(255, 212, 71, 0.6);
+      background: rgba(255, 212, 71, 0.12);
+      color: var(--accent);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 10px;
     }
 
-    .lightbox-img-wrap {
-      position: relative;
-      max-height: calc(100vh - 140px);
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      border-radius: 16px;
-      background: #050910;
-      border: 1px solid rgba(255,255,255,0.25);
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
-    .lightbox-img {
-      max-width: 100%;
-      max-height: calc(100vh - 160px);
-      object-fit: contain;
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .gallery-item {
+      background: #080b12;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 8px 8px 10px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .gallery-item strong {
       display: block;
+      color: var(--text-main);
+      margin-bottom: 2px;
     }
 
-    .lightbox-caption {
+    .video-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
       font-size: 13px;
-      text-align: center;
-      opacity: 0.85;
     }
 
-    .lightbox-close,
-    .lightbox-prev,
-    .lightbox-next {
-      position: absolute;
-      border: none;
-      background: rgba(0,0,0,0.6);
-      color: #fff;
-      cursor: pointer;
-      border-radius: 999px;
-      width: 34px;
-      height: 34px;
+    @media (max-width: 800px) {
+      .video-list {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .video-item {
+      background: #080b12;
+      border-radius: 14px;
+      border: 1px dashed rgba(255, 255, 255, 0.16);
+      padding: 8px 10px;
+    }
+
+    .bullets {
+      margin-left: 16px;
+      font-size: 14px;
+      color: var(--text-main);
+    }
+
+    .bullets li {
+      margin-bottom: 4px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 8px;
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 800px) {
+      .stats-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .stat-card {
+      background: #080b12;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 8px 10px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .stat-card-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 2px;
+      color: var(--text-main);
+    }
+
+    .stat-card-status {
+      font-size: 13px;
+      color: var(--text-main);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 800px) {
+      .form-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .form-field {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.6);
-      transition: background 0.15s ease, transform 0.15s ease, opacity 0.15s ease;
-    }
-
-    .lightbox-close {
-      top: -12px;
-      right: -12px;
-      background: rgba(0,0,0,0.8);
-      font-size: 22px;
-    }
-
-    .lightbox-prev {
-      left: 8px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    .lightbox-next {
-      right: 8px;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-
-    .lightbox-close:hover,
-    .lightbox-prev:hover,
-    .lightbox-next:hover {
-      background: rgba(0,0,0,0.95);
-      transform: scale(1.06);
-    }
-
-    /* PROGRESS BAR */
-    .progress-text {
+      flex-direction: column;
+      gap: 3px;
       font-size: 13px;
-      margin-bottom: 10px;
     }
 
-    .progress-track {
-      width: 100%;
-      height: 16px;
-      border-radius: 999px;
-      background: rgba(3,7,18,0.9);
-      border: 1px solid rgba(255,255,255,0.18);
-      padding: 2px;
-      box-shadow: inset 0 0 8px rgba(0,0,0,0.7);
-      margin-top: 6px;
-    }
-
-    .progress-fill {
-      height: 100%;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #00e3aa, #00b4ff);
-      width: 0;
-      position: relative;
-      transition: width 0.5s ease-out;
-    }
-
-    .progress-fill::after {
-      content: attr(data-label);
-      position: absolute;
-      right: 6px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 11px;
-      font-weight: 600;
-      color: #fff;
-    }
-
-    .progress-meta {
-      margin-top: 6px;
+    .form-field label {
+      color: var(--text-muted);
       font-size: 12px;
-      opacity: 0.8;
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      flex-wrap: wrap;
     }
 
-    /* SCROLL TO TOP BUTTON */
-    .scroll-top-btn {
-      position: fixed;
-      right: 18px;
-      bottom: 20px;
-      width: 42px;
-      height: 42px;
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.35);
-      background: radial-gradient(circle at 30% 0, #00e3aa 0, #0072ff 70%);
-      color: #fff;
-      font-size: 22px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(8px) scale(0.9);
-      transition: opacity 0.25s ease, transform 0.25s ease;
-      z-index: 9999;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(7, 8, 12, 0.9);
+      padding: 8px 10px;
+      color: var(--text-main);
+      font-size: 13px;
+      font-family: inherit;
+      outline: none;
     }
 
-    .scroll-top-btn--visible {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0) scale(1);
+    .form-field textarea {
+      border-radius: 12px;
+      min-height: 80px;
+      resize: vertical;
     }
 
-    .scroll-top-btn:hover {
-      box-shadow: 0 14px 30px rgba(0,0,0,0.85);
-      transform: translateY(-2px) scale(1.05);
-    }
-
-    /* “Підтримати взвод” кнопка */
-    .block-donate-btn {
+    .badge-live {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      margin-top: 14px;
-      padding: 8px 16px;
+      padding: 4px 9px;
       border-radius: 999px;
-      background: linear-gradient(135deg, #0057b7, #ffd700);
-      font-size: 13px;
-      font-weight: 700;
-      color: #fff;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.32);
-      cursor: pointer;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.45);
-      transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
-      animation: buttonPulse 1.8s ease-in-out infinite;
+      background: rgba(0, 255, 136, 0.08);
+      border: 1px solid rgba(0, 255, 136, 0.45);
+      font-size: 11px;
+      color: #7fffd4;
+      margin-top: 4px;
+      margin-bottom: 2px;
     }
 
-    .block-donate-btn:hover {
-      transform: translateY(-2px) scale(1.05);
-      opacity: 0.95;
-      box-shadow: 0 9px 22px rgba(0,0,0,0.6);
-    }
-
-    .block-donate-btn .icon {
-      font-size: 15px;
-      line-height: 1;
-    }
-
-    @media (max-width: 1024px) {
-      .page {
-        padding: 20px 10px 32px;
-      }
-      .hero {
-        padding: 20px 18px 18px;
-        margin-bottom: 22px;
-      }
-      .hero-title {
-        font-size: 24px;
-      }
-      .card-grid {
-        gap: 16px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .page {
-        padding: 18px 8px 28px;
-      }
-      .hero {
-        padding: 18px 14px 16px;
-      }
-      .hero-badge {
-        font-size: 11px;
-      }
-      .hero-title {
-        font-size: 21px;
-        line-height: 1.2;
-      }
-      .hero-sub {
-        font-size: 14px;
-      }
-      .hero-note {
-        font-size: 12px;
-      }
-
-      .card {
-        padding: 14px 14px 16px;
-        min-height: auto;
-      }
-
-      .card.big-block {
-        padding: 16px 14px 18px;
-      }
-
-      .card p {
-        font-size: 13px;
-      }
-
-      .btn-row {
-        flex-direction: column;
-      }
-
-      .btn-row .donate-btn {
-        width: 100%;
-        text-align: center;
-        justify-content: center;
-      }
-
-      .qr {
-        width: 130px;
-        height: 130px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero {
-        border-radius: 18px;
-      }
-
-      .hero-title {
-        font-size: 19px;
-      }
-
-      .section-title {
-        font-size: 20px;
-      }
-
-      .card {
-        border-radius: 18px;
-        padding: 12px 12px 14px;
-      }
-
-      .card p {
-        font-size: 12.5px;
-      }
-
-      .btn-row {
-        gap: 6px;
-      }
-
-      .donate-btn {
-        padding: 8px 14px;
-        font-size: 12px;
-      }
-
-      .qr {
-        width: 120px;
-        height: 120px;
-      }
-
-      .gallery-caption {
-        font-size: 10px;
-      }
-
-      .scroll-top-btn {
-        right: 12px;
-        bottom: 14px;
-        width: 38px;
-        height: 38px;
-        font-size: 20px;
-      }
-    }
-
-    /* Animations */
-    @keyframes fadeInPage {
-      from { opacity: 0; transform: translateY(10px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes heroReveal {
-      from { opacity: 0; transform: translateY(8px) scale(0.99); }
-      to   { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    @keyframes cardFade {
-      from { opacity: 0; transform: translateY(10px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes buttonPulse {
-      0%   { transform: translateY(0) scale(1);   box-shadow: 0 6px 16px rgba(0,0,0,0.45); }
-      50%  { transform: translateY(-1px) scale(1.07); box-shadow: 0 10px 24px rgba(0,0,0,0.7); }
-      100% { transform: translateY(0) scale(1);   box-shadow: 0 6px 16px rgba(0,0,0,0.45); }
-    }
-
-    @keyframes engine-move {
-      from { transform: translateX(-120%); }
-      to   { transform: translateX(120%); }
-    }
-
-    @keyframes weld-spark {
-      0%, 60% {
-        opacity: 0;
-        transform: translateX(-10%);
-      }
-      65% {
-        opacity: 1;
-        transform: translateX(10%);
-      }
-      80% {
-        opacity: 0.5;
-        transform: translateX(60%);
-      }
-      100% {
-        opacity: 0;
-        transform: translateX(120%);
-      }
-    }
-
-    /* Engine line under hero title */
-    .engine-line-wrap {
-      margin: 10px 0 14px;
-    }
-
-    .engine-line {
-      position: relative;
-      height: 4px;
+    .badge-live-dot {
+      width: 9px;
+      height: 9px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.12);
-      overflow: hidden;
-      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+      background: radial-gradient(circle at 30% 0, #00ff88, #117744);
+      box-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
     }
 
-    .engine-line::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg,
-        transparent 0%,
-        #ffd700 25%,
-        #ffffff 40%,
-        #ffd700 55%,
-        transparent 100%);
-      animation: engine-move 1.6s linear infinite;
-      filter: blur(0.3px);
+    .faq-item {
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
 
-    /* PATCH IN HEADER */
-    .header-patch-wrap {
-      width: 100%;
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .share-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 800px) {
+      .share-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .share-buttons {
       display: flex;
-      justify-content: center;
-      margin-bottom: 14px;
-      margin-top: -4px;
-      padding-top: 10px;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
     }
 
-    .header-patch {
-      width: 140px;
-      height: auto;
-      transform-origin: center;
-      animation:
-        patch-breath 3.5s ease-in-out infinite,
-        patch-tilt 6s ease-in-out infinite,
-        patch-glow 4s ease-in-out infinite;
-      filter:
-        drop-shadow(0 0 10px rgba(255,215,0,0.45))
-        drop-shadow(0 0 4px rgba(255,215,0,0.25));
+    .share-btn {
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(7, 8, 12, 0.9);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
 
-    @keyframes patch-breath {
-      0%   { transform: scale(0.98); }
-      50%  { transform: scale(1.03); }
-      100% { transform: scale(0.98); }
+    .share-btn span.icon {
+      font-size: 14px;
     }
 
-    @keyframes patch-tilt {
-      0%   { transform: rotateX(0deg) rotateY(0deg); }
-      25%  { transform: rotateX(2deg) rotateY(-2deg); }
-      50%  { transform: rotateX(0deg) rotateY(0deg); }
-      75%  { transform: rotateX(-2deg) rotateY(2deg); }
-      100% { transform: rotateX(0deg) rotateY(0deg); }
+    footer {
+      border-top: 1px solid rgba(130, 139, 170, 0.25);
+      padding: 12px 16px 18px;
+      margin-top: 10px;
+      font-size: 12px;
+      text-align: center;
+      color: var(--text-muted);
+      background: radial-gradient(circle at bottom, #151b24 0, #05060a 55%);
     }
 
-    @keyframes patch-glow {
-      0%   { filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
-      50%  { filter: drop-shadow(0 0 12px rgba(255,215,0,0.7)); }
-      100% { filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
+    .to-top {
+      font-size: 11px;
+      text-decoration: underline;
+      cursor: pointer;
     }
 
-    @media (max-width: 480px) {
-      .header-patch {
-        width: 110px;
-      }
+    .toast {
+      position: fixed;
+      bottom: 18px;
+      right: 16px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.85);
+      color: var(--text-main);
+      font-size: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      z-index: 50;
+      opacity: 0;
+      transform: translateY(8px);
+      pointer-events: none;
+      transition: opacity 0.2s ease-out, transform 0.2s ease-out;
     }
+
+    .toast.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
   </style>
 </head>
 <body>
 <div class="page">
-  <div class="container">
-
-    <header>
-      <div class="header-patch-wrap">
-        <img src="vtz-mpb-patch.png" alt="Шеврон взводу технічного забезпечення" class="header-patch">
-      </div>
-
-      <div class="top-row">
-        <div class="top-bar">
-          <img src="logo.png" alt="Логотип" class="logo">
-          <span class="site-title">142 ОМБр • Взвод технічного забезпечення</span>
-        </div>
-        <div class="lang-switch">
-          <a href="index.html" class="active">UA</a>
-          <a href="en.html">EN</a>
-          <a href="pl.html">PL</a>
-          <a href="de.html">DE</a>
-          <a href="es.html">ES</a>
-          <a href="fr.html">FR</a>
+  <header>
+    <div class="top-bar">
+      <div class="brand">
+        <div class="brand-badge">142</div>
+        <div>
+          <div>Взвод технічного забезпечення</div>
+          <div style="font-size:11px; opacity:0.8;">мотопіхотний батальйон · 142 ОМБр</div>
         </div>
       </div>
+      <div class="lang-switcher" aria-label="Вибір мови">
+        <button class="active">UA</button>
+        <button>EN</button>
+        <button>PL</button>
+        <button>DE</button>
+        <button>ES</button>
+        <button>FR</button>
+      </div>
+    </div>
+  </header>
 
-      <section class="hero">
-        <div class="hero-badge">Ремонт техніки на передовій</div>
-        <div class="hero-title">Техніка має їхати. Люди мають повернутись живими.</div>
+  <main>
+    <div class="container">
+      <!-- HERO -->
+      <section class="hero-grid">
+        <article class="hero-card">
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            Ремонт техніки на передовій
+          </div>
+          <h1 class="hero-title">Техніка має їхати. Люди мають повернутись живими.</h1>
+          <p class="hero-subtitle">
+            Ми — взвод технічного забезпечення мотопіхотного батальйону 142 ОМБр.
+          </p>
+          <p class="hero-text">
+            Ремонтуємо вантажівки й бронетехніку прямо в зоні бойових дій, щоб машини возили боєкомплект, ПММ, провізію та
+            вивозили поранених. Кожна гривня, євро чи долар перетворюється на інструмент, запчастину, мастило чи зварку, які
+            дають машині ще один виїзд — а комусь ще один шанс повернутися додому.
+          </p>
+          <div class="hero-actions">
+            <a href="#donate" class="btn-primary">
+              Підтримати взвод
+              <span>→</span>
+            </a>
+            <button type="button" class="btn-ghost" onclick="document.getElementById('why').scrollIntoView({behavior:'smooth'});">
+              <span class="icon">⚙️</span>
+              Чому це важливо?
+            </button>
+          </div>
+          <div class="hero-meta">
+            <span class="meta-pill">142 ОМБр · Взвод технічного забезпечення</span>
+            <span class="meta-pill">Ремонт, евакуація, діагностика</span>
+          </div>
+        </article>
 
-        <div class="engine-line-wrap">
-          <div class="engine-line"></div>
-        </div>
+        <aside class="hero-aside">
+          <div class="hero-aside-title">Що ми робимо щодня</div>
+          <div class="hero-aside-main">
+            Обслуговування, ремонт, евакуація та польові майстерні для вантажівок і бронетехніки батальйону на одному з
+            найгарячіших напрямків фронту.
+          </div>
+          <div class="hero-aside-note">
+            Нас рідко видно на фото чи в новинах, але від нашої роботи залежить, чи доїде машина до позиції, чи отримає
+            підрозділ боєкомплект і чи встигнуть вчасно евакуювати поранених.
+          </div>
+        </aside>
+      </section>
 
-        <p class="hero-sub">
-          Ми — взвод технічного забезпечення мотопіхотного батальйону 142 ОМБр.
-          Ремонтуємо вантажівки й бронетехніку прямо в зоні бойових дій, щоб машини возили
-          боєкомплект, ПММ, провізію та вивозили поранених.
+      <!-- ПРО ВЗВОД (2-й блок) -->
+      <section class="section" id="about">
+        <header class="section-header">
+          <div class="section-tag">Про взвод</div>
+          <h2>Взвод технічного забезпечення мотопіхотного батальйону 142 ОМБр</h2>
+        </header>
+
+        <p>
+          Ми — взвод технічного забезпечення мотопіхотного батальйону 142-ї окремої механізованої бригади. Наше завдання —
+          утримувати техніку батальйону в роботі на одному з найгарячіших напрямків фронту.
         </p>
-        <p class="hero-note">
-          Кожна гривня, євро чи долар перетворюється на інструмент, запчастину, мастило чи зварку,
-          які дають машині ще один виїзд — а комусь ще один шанс повернутися додому.
+        <p>
+          Нас рідко видно на фото чи в новинах, але від нашої роботи залежить, чи доїде машина до позиції, чи отримає
+          підрозділ боєкомплект і чи встигнуть вчасно евакуювати поранених.
         </p>
 
-        <div style="margin-top:14px;">
-          <a href="#donate" class="donate-btn" style="display:inline-block;">
-            Підтримати взвод
-          </a>
+        <div class="two-col" style="margin-top:10px;">
+          <div>
+            <h3>Чим ми займаємось</h3>
+            <p><strong>• Обслуговування</strong></p>
+            <p>
+              Проводимо планове й позапланове ТО, міняємо масла, фільтри та рідини, перевіряємо технічний стан машин.
+              Робимо все, щоб техніка була готова рушити будь-якої миті.
+            </p>
+
+            <p><strong>• Ремонт і відновлення</strong></p>
+            <p>
+              Ремонтуємо двигуни, коробки, підвіску, гальмівні системи, електрику, гідравліку та паливну. Працюємо з усім —
+              від дрібних датчиків до великих агрегатів.
+            </p>
+
+            <p><strong>• Евакуація техніки</strong></p>
+            <p>
+              Коли машина не може рухатися сама, підбита, зламана чи загрузла — ми їдемо за нею. Часто працюємо під
+              обстрілами, витягуючи техніку з “доріг життя”.
+            </p>
+
+            <p><strong>• Діагностика і пошук несправностей</strong></p>
+            <p>
+              Знаємо свої машини “на слух”, ловимо приховані проблеми та усуваємо їх, щоб техніка не стала в критичний момент.
+            </p>
+
+            <p><strong>• Польовий ремонт</strong></p>
+            <p>
+              Наш бокс — це те, що ми можемо зібрати з того, що є: земля, тент, ліхтар, генератор і набір інструментів.
+              Працюємо без нормального освітлення, в багнюці, під дощем, вночі, під обстрілами. Немає умов? Створюємо їх.
+            </p>
+
+            <p><strong>• Підтримка мобільності батальйону</strong></p>
+            <p>
+              Робоча техніка — це підвіз боєкомплекту, ротації, евакуація поранених, вода, їжа, маневр і виживання. Робимо
+              все, щоб ці процеси не зупинялись.
+            </p>
+          </div>
+
+          <div>
+            <h3>Команда взводу технічного забезпечення</h3>
+            <p>
+              Ми працюємо як один механізм. У кожного своя роль, але мета одна — техніка має їхати, а підрозділи мають
+              виконувати задачі й повертатися живими.
+            </p>
+
+            <p><strong>Командир взводу</strong></p>
+            <p>
+              Планує роботу, розставляє пріоритети, координує евакуацію і ремонти. Приймає рішення, яку машину рятувати
+              першою, щоб підрозділи не зупинились.
+            </p>
+
+            <p><strong>Старший механік-водій / слюсар</strong></p>
+            <p>
+              Веде складні ремонти, підказує технічні рішення, контролює якість виконаних робіт. Знає, як “оживити” те, що
+              виглядає безнадійно.
+            </p>
+
+            <p><strong>Механіки-водії вантажівок</strong></p>
+            <p>
+              Знають свої машини до останнього болта. Виїжджають на евакуацію, працюють у полі, допомагають ремонтувати
+              підвіску, гальмівну, пневматичну та паливну системи.
+            </p>
+
+            <p><strong>Автоелектрики та діагностичні</strong></p>
+            <p>
+              Електрика, проводка, стартери, генератори, датчики, фішки, запобіжники, тестери. Вони ловлять “привидів” у
+              проводці, щоб машини впевнено заводились і працювали.
+            </p>
+
+            <p><strong>Зварювальники та метал</strong></p>
+            <p>
+              Варять рами, кузови, баки, кріплення, броню, силові елементи. Часто працюють у польових умовах, під тентами,
+              з мінімальним освітленням.
+            </p>
+
+            <p><strong>Група евакуації</strong></p>
+            <p>
+              Виїжджає за технікою, яка не може рухатись: підбита, зламана, застрягла. Під обстрілами вивозить машини з
+              небезпечних ділянок, щоб потім ми змогли їх відновити.
+            </p>
+
+            <p><strong>Забезпечення та логістика</strong></p>
+            <p>
+              Пошук і доставка запчастин, масел, інструментів, витратників. Без них не було б жодного ремонту: вони
+              перетворюють донати на реальні деталі й обладнання.
+            </p>
+
+            <p class="muted" style="margin-top:6px;">
+              Частину облич ми свідомо не показуємо з міркувань безпеки, але за кожною машиною, яка повертається в стрій,
+              стоїть жива команда людей, які роблять цю роботу щодня.
+            </p>
+          </div>
         </div>
       </section>
-    </header>
 
-    <main>
+      <!-- ТУТ МИ ПЕРЕНЕСЛИ БЛОК ДОНАТІВ ПІСЛЯ "ПРО ВЗВОД" -->
+      <section class="section" id="donate">
+        <header class="section-header">
+          <div class="section-tag">Як підтримати взвод</div>
+          <h2>Реквізити для підтримки взводу технічного забезпечення</h2>
+          <p class="muted">UAH-рахунки, міжнародні платежі та криптовалюта.</p>
+        </header>
 
-      <!-- DONATIONS — ТЕПЕР ОДРАЗУ ПІД HERO -->
-      <h2 class="section-title" id="donate">Як підтримати взвод</h2>
+        <div class="donate-columns">
+          <!-- UAH Monobank -->
+          <div class="donate-block">
+            <div class="donate-label">UAH · БАНКІВСЬКИЙ РАХУНОК</div>
+            <h3>Monobank · Банка “142 ОМБр · взвод технічного забезпечення”</h3>
+            <p class="muted">Отримувач: <strong>Надельнюк Віктор Миколайович</strong></p>
 
-      <div class="card-grid">
-        <!-- MONOBANK -->
-        <section class="card">
-          <div>
-            <small>UAH · БАНКІВСЬКИЙ РАХУНОК</small>
-            <h3><span class="mono-label">Monobank</span> · Банка “142 ОМБр · взвод технічного забезпечення”</h3>
-            <p><strong>Отримувач:</strong> Надельнюк Віктор Миколайович</p>
-            <p><strong>IBAN:</strong><br>UA683220010000026208372629615</p>
-            <p><strong>Номер картки:</strong><br>4874&nbsp;1000&nbsp;2019&nbsp;8902</p>
-            <p><strong>Призначення платежу:</strong> <code>ВТЗ МПБ 142 ОМБр</code></p>
-          </div>
-          <div>
+            <p class="donate-label">IBAN</p>
+            <div class="donate-field" id="mono-iban">
+              UA683220010000026208372629615
+            </div>
+            <p class="donate-label">Номер картки</p>
+            <div class="donate-field" id="mono-card">
+              4874&nbsp;1000&nbsp;2019&nbsp;8902
+            </div>
+            <p class="donate-label">Призначення платежу</p>
+            <div class="donate-field">
+              <code>ВТЗ МПБ 142 ОМБр</code>
+            </div>
+
             <div class="btn-row">
-              <button class="donate-btn donate-btn--mono" type="button"
-                      onclick="window.open('https://send.monobank.ua/jar/8PfzHBQuu4','_blank')">
+              <a class="btn-sm highlight" href="https://send.monobank.ua/jar" target="_blank" rel="noopener">
                 Відкрити банку Monobank
-              </button>
-              <button class="donate-btn" type="button"
-                      onclick="copyText('UA683220010000026208372629615')">
-                Скопіювати IBAN
-              </button>
-              <button class="donate-btn" type="button"
-                      onclick="copyText('4874100020198902')">
-                Скопіювати номер картки
-              </button>
-            </div>
-            <div class="qr-wrap">
-              <img id="qr-mono" class="qr" alt="QR Monobank">
+              </a>
+              <button class="btn-sm" onclick="copyFromElement('mono-iban')">Скопіювати IBAN</button>
+              <button class="btn-sm" onclick="copyFromElement('mono-card')">Скопіювати номер картки</button>
             </div>
           </div>
-        </section>
 
-        <!-- PRIVATBANK -->
-        <section class="card">
-          <div>
-            <small>UAH · БАНКІВСЬКИЙ РАХУНОК</small>
-            <h3><span class="privat-label">PrivatBank</span> · Поповнення картки</h3>
-            <p><strong>Отримувач:</strong> NADELNIUK VIKTOR MYKOLAYOVYCH</p>
-            <p><strong>IBAN:</strong><br>UA023052990262076400994803502</p>
-            <p><strong>Номер картки:</strong><br>5168&nbsp;7521&nbsp;4764&nbsp;9654</p>
-            <p><strong>Призначення платежу:</strong> <code>ВТЗ МПБ 142 ОМБр</code></p>
-          </div>
-          <div>
+          <!-- UAH PrivatBank -->
+          <div class="donate-block">
+            <div class="donate-label">UAH · БАНКІВСЬКИЙ РАХУНОК</div>
+            <h3>PrivatBank · Поповнення картки</h3>
+            <p class="muted">Отримувач: <strong>NADELNIUK VIKTOR MYKOLAYOVYCH</strong></p>
+
+            <p class="donate-label">IBAN</p>
+            <div class="donate-field" id="privat-iban">
+              UA023052990262076400994803502
+            </div>
+            <p class="donate-label">Номер картки</p>
+            <div class="donate-field" id="privat-card">
+              5168&nbsp;7521&nbsp;4764&nbsp;9654
+            </div>
+            <p class="donate-label">Призначення платежу</p>
+            <div class="donate-field">
+              <code>ВТЗ МПБ 142 ОМБр</code>
+            </div>
+
             <div class="btn-row">
-              <button class="donate-btn donate-btn--privat" type="button"
-                      onclick="window.open('https://www.privat24.ua/send/3xbxx','_blank')">
+              <a class="btn-sm highlight" href="https://www.privat24.ua/" target="_blank" rel="noopener">
                 Відкрити Privat24
-              </button>
-              <button class="donate-btn" type="button"
-                      onclick="copyText('UA023052990262076400994803502')">
-                Скопіювати IBAN
-              </button>
-              <button class="donate-btn" type="button"
-                      onclick="copyText('5168752147649654')">
-                Скопіювати номер картки
-              </button>
-            </div>
-            <div class="qr-wrap">
-              <img id="qr-privat" class="qr" alt="QR PrivatBank">
+              </a>
+              <button class="btn-sm" onclick="copyFromElement('privat-iban')">Скопіювати IBAN</button>
+              <button class="btn-sm" onclick="copyFromElement('privat-card')">Скопіювати номер картки</button>
             </div>
           </div>
-        </section>
 
-        <!-- PAYPAL / PAUPAY -->
-        <section class="card">
-          <div>
-            <small>МІЖНАРОДНІ ПЛАТЕЖІ</small>
-            <h3><span class="paypal-label">PayPal / Paupay</span></h3>
-            <p><strong>Email для переказів:</strong><br>nadelnuikviktor@gmail.com</p>
-            <p><strong>Примітка до платежу:</strong><br><code>VTZ MPB 142 OMBr</code></p>
-          </div>
-          <div>
+          <!-- PayPal -->
+          <div class="donate-block">
+            <div class="donate-label">МІЖНАРОДНІ ПЛАТЕЖІ</div>
+            <h3>PayPal / Paupay</h3>
+            <p class="donate-label">Email для переказів</p>
+            <div class="donate-field" id="paypal-email">
+              nadelnuikviktor@gmail.com
+            </div>
+            <p class="donate-label">Примітка до платежу</p>
+            <div class="donate-field">
+              <code>VTZ MPB 142 OMBr</code>
+            </div>
+            <p class="muted">Будь ласка, додайте <code>VTZ MPB 142 OMBr</code> у примітку платежу.</p>
             <div class="btn-row">
-              <button class="donate-btn donate-btn--paypal" type="button"
-                      onclick="copyText('nadelnuikviktor@gmail.com')">
-                Скопіювати email
-              </button>
+              <button class="btn-sm highlight" onclick="copyFromElement('paypal-email')">Скопіювати email</button>
             </div>
-            <div class="qr-wrap">
-              <img id="qr-paupay" class="qr" alt="QR Paupay / PayPal">
-            </div>
-            <p style="font-size:12px; opacity:0.8; margin-top:6px;">
-              Будь ласка, додайте
-              <strong>VTZ MPB 142 OMBr</strong> у примітку платежу.
-            </p>
-          </div>
-        </section>
-
-        <!-- CRYPTO -->
-        <section class="card">
-          <div>
-            <small>КРИПТОВАЛЮТА</small>
-            <h3><span class="crypto-label">Crypto</span> · BTC · ETH · SOL · BNB</h3>
-
-            <p><strong>Bitcoin (BTC):</strong><br>
-              bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p</p>
-
-            <p><strong>Ethereum (ETH):</strong><br>
-              0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</p>
-
-            <p><strong>Solana (SOL):</strong><br>
-              DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525</p>
-
-            <p><strong>BNB (BEP-20):</strong><br>
-              0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</p>
           </div>
 
-          <div>
-            <div class="btn-row">
-              <button class="donate-btn donate-btn--crypto" type="button"
-                      onclick="window.open('https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p','_blank')">
-                Відкрити BTC
-              </button>
-              <button class="donate-btn donate-btn--crypto" type="button"
-                      onclick="window.open('https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b','_blank')">
-                Відкрити ETH
-              </button>
-              <button class="donate-btn donate-btn--crypto" type="button"
-                      onclick="window.open('https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525','_blank')">
-                Відкрити SOL
-              </button>
+          <!-- Crypto -->
+          <div class="donate-block">
+            <div class="donate-label">КРИПТОВАЛЮТА</div>
+            <h3>Crypto · BTC · ETH · SOL · BNB</h3>
+
+            <p class="donate-label">Bitcoin (BTC)</p>
+            <div class="donate-field" id="btc">
+              bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p
+            </div>
+
+            <p class="donate-label">Ethereum (ETH)</p>
+            <div class="donate-field" id="eth">
+              0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b
+            </div>
+
+            <p class="donate-label">Solana (SOL)</p>
+            <div class="donate-field" id="sol">
+              DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525
+            </div>
+
+            <p class="donate-label">BNB (BEP-20)</p>
+            <div class="donate-field" id="bnb">
+              0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b
             </div>
 
             <div class="btn-row">
-              <button class="donate-btn" type="button"
-                      onclick="copyText('bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p')">
-                Скопіювати BTC
-              </button>
-              <button class="donate-btn" type="button"
-                      onclick="copyText('0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b')">
-                Скопіювати ETH / BNB
-              </button>
-              <button class="donate-btn" type="button"
-                      onclick="copyText('DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525')">
-                Скопіювати SOL
-              </button>
-            </div>
-
-            <div class="qr-wrap">
-              <img id="qr-btc" class="qr" alt="QR BTC">
+              <button class="btn-sm" onclick="copyFromElement('btc')">Скопіювати BTC</button>
+              <button class="btn-sm" onclick="copyFromElement('eth')">Скопіювати ETH / BNB</button>
+              <button class="btn-sm" onclick="copyFromElement('sol')">Скопіювати SOL</button>
             </div>
           </div>
-        </section>
-      </div>
-
-      <!-- ПРО ВЗВОД -->
-      <section class="card big-block" id="about-platoon-ua">
-        <h2 class="section-title">Про взвод</h2>
-
-        <p>Ми — взвод технічного забезпечення мотопіхотного батальйону 142-ї окремої механізованої бригади. Наше завдання — утримувати техніку батальйону в роботі на одному з найгарячіших напрямків фронту.</p>
-
-        <p>Нас рідко видно на фото чи в новинах, але від нашої роботи залежить, чи доїде машина до позиції, чи отримає підрозділ боєкомплект і чи встигнуть вчасно евакуювати поранених.</p>
-
-        <h3>Чим ми займаємось</h3>
-
-        <p><strong>• Обслуговування</strong><br>
-          Проводимо планове й позапланове ТО, міняємо масла, фільтри та рідини,
-          перевіряємо технічний стан машин. Робимо все, щоб техніка була готова рушити будь-якої миті.
-        </p>
-
-        <p><strong>• Ремонт і відновлення</strong><br>
-          Ремонтуємо двигуни, коробки, підвіску, гальмівні системи, електрику, гідравліку та паливну.
-          Працюємо з усім — від дрібних датчиків до великих агрегатів.
-        </p>
-
-        <p><strong>• Евакуація техніки</strong><br>
-          Коли машина не може рухатися сама, підбита, зламана чи загрузла — ми їдемо за нею.
-          Часто працюємо під обстрілами, витягуючи техніку з “доріг життя”.
-        </p>
-
-        <p><strong>• Діагностика і пошук несправностей</strong><br>
-          Знаємо свої машини “на слух”, ловимо приховані проблеми та усуваємо їх,
-          щоб техніка не стала в критичний момент.
-        </p>
-
-        <p><strong>• Польовий ремонт</strong><br>
-          Наш бокс — це те, що ми можемо зібрати з того, що є:
-          земля, тент, ліхтар, генератор і набір інструментів. Працюємо без нормального освітлення,
-          в багнюці, під дощем, вночі, під обстрілами. Немає умов? Створюємо їх.
-        </p>
-
-        <p><strong>• Підтримка мобільності батальйону</strong><br>
-          Робоча техніка — це підвіз боєкомплекту, ротації, евакуація поранених, вода, їжа, маневр і виживання.
-          Робимо все, щоб ці процеси не зупинялись.
-        </p>
-      </section>
-
-      <!-- КОМАНДА -->
-      <section class="card big-block" id="team-ua">
-        <h2 class="section-title">Команда взводу технічного забезпечення</h2>
-
-        <p>
-          Ми працюємо як один механізм. У кожного своя роль, але мета одна —
-          техніка має їхати, а підрозділи мають виконувати задачі й повертатися живими.
-        </p>
-
-        <div class="card-grid" style="margin-top:10px;">
-
-          <div class="card" style="min-height:180px;">
-            <h3>Командир взводу</h3>
-            <p>
-              Планує роботу, розставляє пріоритети, координує евакуацію і ремонти.
-              Приймає рішення, яку машину рятувати першою, щоб підрозділи не зупинились.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:180px;">
-            <h3>Старший механік-водій / слюсар</h3>
-            <p>
-              Веде складні ремонти, підказує технічні рішення, контролює якість виконаних робіт.
-              Знає, як “оживити” те, що виглядає безнадійно.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:180px;">
-            <h3>Механіки-водії вантажівок</h3>
-            <p>
-              Знають свої машини до останнього болта. Виїжджають на евакуацію,
-              працюють у полі, допомагають ремонтувати підвіску, гальмівну, пневматичну та паливну системи.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:180px;">
-            <h3>Автоелектрики та діагностичні</h3>
-            <p>
-              Електрика, проводка, стартери, генератори, датчики, фішки, запобіжники, тестери.
-              Вони ловлять “привидів” у проводці, щоб машини впевнено заводились і працювали.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:180px;">
-            <h3>Зварювальники та метал</h3>
-            <p>
-              Варять рами, кузови, баки, кріплення, броню, силові елементи.
-              Часто працюють у польових умовах, під тентами, з мінімальним освітленням.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:180px;">
-            <h3>Група евакуації</h3>
-            <p>
-              Виїжджає за технікою, яка не може рухатись: підбита, зламана, застрягла.
-              Під обстрілами вивозить машини з небезпечних ділянок, щоб потім ми змогли їх відновити.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:180px;">
-            <h3>Забезпечення та логістика</h3>
-            <p>
-              Пошук і доставка запчастин, масел, інструментів, витратників.
-              Без них не було б жодного ремонту: вони перетворюють донати на реальні деталі й обладнання.
-            </p>
-          </div>
-
         </div>
-
-        <p style="font-size:12px; opacity:0.8; margin-top:10px;">
-          Частину облич ми свідомо не показуємо з міркувань безпеки, але за кожною машиною,
-          яка повертається в стрій, стоїть жива команда людей, які роблять цю роботу щодня.
-        </p>
       </section>
 
-      <!-- ГАЛЕРЕЯ -->
-      <section class="card big-block" id="gallery-ua">
-        <h2 class="section-title">Фотогалерея</h2>
+      <!-- ФОТОГАЛЕРЕЯ -->
+      <section class="section" id="gallery">
+        <header class="section-header">
+          <div class="section-tag">Фотогалерея</div>
+          <h2>Робота взводу технічного забезпечення</h2>
+          <p class="muted">
+            Частина нашої щоденної роботи: евакуація пошкодженої техніки, польові ремонти, імпровізовані майстерні та робочі
+            моменти взводу технічного забезпечення.
+          </p>
+        </header>
 
-        <p>
-          Частина нашої щоденної роботи: евакуація пошкодженої техніки, польові ремонти,
-          імпровізовані майстерні та робочі моменти взводу технічного забезпечення.
-        </p>
-
+        <!-- Тут я не змінюю шляхи до картинок. Якщо у тебе вже є <img>, можеш вставити їх замість текстових блоків -->
         <div class="gallery-grid">
           <figure class="gallery-item">
-            <img src="gallery1.jpg" alt="Ремонт вантажівки після евакуації з передової">
-            <figcaption class="gallery-caption">
-              Ремонт вантажівки після евакуації з передової
-            </figcaption>
+            <strong>Ремонт вантажівки після евакуації з передової</strong>
+            <span class="muted">Відновлення техніки після виходу з небезпечної ділянки.</span>
           </figure>
-
           <figure class="gallery-item">
-            <img src="gallery2.jpg" alt="Польовий ремонт підвіски просто неба">
-            <figcaption class="gallery-caption">
-              Польовий ремонт підвіски просто неба
-            </figcaption>
+            <strong>Польовий ремонт підвіски просто неба</strong>
+            <span class="muted">Працюємо там, де зупинилася машина.</span>
           </figure>
-
           <figure class="gallery-item">
-            <img src="gallery3.jpg" alt="Імпровізована майстерня взводу технічного забезпечення">
-            <figcaption class="gallery-caption">
-              Імпровізована майстерня взводу технічного забезпечення
-            </figcaption>
+            <strong>Імпровізована майстерня взводу технічного забезпечення</strong>
+            <span class="muted">Земля, тент, інструмент — і техніка знову в строю.</span>
           </figure>
-
           <figure class="gallery-item">
-            <img src="gallery4.jpg" alt="Евакуація пошкодженої техніки з небезпечної зони">
-            <figcaption class="gallery-caption">
-              Евакуація пошкодженої техніки з небезпечної зони
-            </figcaption>
+            <strong>Евакуація пошкодженої техніки з небезпечної зони</strong>
+            <span class="muted">Вивозимо машини з “червоної” зони, щоб повернути їх у стрій.</span>
           </figure>
-
           <figure class="gallery-item">
-            <img src="gallery5.jpg" alt="Заміна колеса в дорозі під обстрілами">
-            <figcaption class="gallery-caption">
-              Заміна колеса в дорозі під обстрілами
-            </figcaption>
+            <strong>Заміна колеса в дорозі під обстрілами</strong>
+            <span class="muted">Коли часу на очікування немає зовсім.</span>
           </figure>
-
           <figure class="gallery-item">
-            <img src="gallery6.jpg" alt="Нічний ремонт під прожекторами">
-            <figcaption class="gallery-caption">
-              Нічний ремонт під прожекторами
-            </figcaption>
+            <strong>Нічний ремонт під прожекторами</strong>
+            <span class="muted">Працюємо вночі, щоб техніка виїхала на ранок.</span>
           </figure>
-
           <figure class="gallery-item">
-            <img src="gallery7.jpg" alt="Робота з гальмівною системою вантажівки">
-            <figcaption class="gallery-caption">
-              Робота з гальмівною системою вантажівки
-            </figcaption>
+            <strong>Робота з гальмівною системою вантажівки</strong>
+            <span class="muted">Без гальм техніка — це вже не допомога, а загроза.</span>
           </figure>
-
           <figure class="gallery-item">
-            <img src="gallery8.jpg" alt="Зварювальні роботи по рамі машини">
-            <figcaption class="gallery-caption">
-              Зварювальні роботи по рамі машини
-            </figcaption>
+            <strong>Зварювальні роботи по рамі машини</strong>
+            <span class="muted">Повертаємо жорсткість та ресурс вантажівок.</span>
           </figure>
-
           <figure class="gallery-item">
-            <img src="gallery9.jpg" alt="Перевірка електрики та проводки в польових умовах">
-            <figcaption class="gallery-caption">
-              Перевірка електрики та проводки в польових умовах
-            </figcaption>
+            <strong>Перевірка електрики та проводки в польових умовах</strong>
+            <span class="muted">Шукаємо “привидів” у проводці без боксу та ями.</span>
           </figure>
-
           <figure class="gallery-item">
-            <img src="gallery10.jpg" alt="Підготовка машини до виїзду">
-            <figcaption class="gallery-caption">
-              Підготовка машини до виїзду
-            </figcaption>
+            <strong>Підготовка машини до виїзду</strong>
+            <span class="muted">Останні перевірки перед черговим виїздом.</span>
           </figure>
-
           <figure class="gallery-item">
-            <img src="gallery11.jpg" alt="Заміна масел та фільтрів">
-            <figcaption class="gallery-caption">
-              Заміна масел та фільтрів
-            </figcaption>
+            <strong>Заміна масел та фільтрів</strong>
+            <span class="muted">Планове ТО, без якого не буває довгого ресурсу.</span>
           </figure>
-
           <figure class="gallery-item">
-            <img src="gallery12.jpg" alt="Ремонт підвіски та ходової частини">
-            <figcaption class="gallery-caption">
-              Ремонт підвіски та ходової частини
-            </figcaption>
+            <strong>Ремонт підвіски та ходової частини</strong>
+            <span class="muted">Повертаємо машинам можливість рухатися по фронтових дорогах.</span>
           </figure>
-
           <figure class="gallery-item">
-            <img src="gallery13.jpg" alt="Відновлення паливної системи вантажівки">
-            <figcaption class="gallery-caption">
-              Відновлення паливної системи вантажівки
-            </figcaption>
+            <strong>Відновлення паливної системи вантажівки</strong>
+            <span class="muted">Без стабільного палива не поїде жоден двигун.</span>
           </figure>
-
           <figure class="gallery-item">
-            <img src="gallery14.jpg" alt="Робота взводу технічного забезпечення біля евакуйованої техніки">
-            <figcaption class="gallery-caption">
-              Робота взводу технічного забезпечення біля евакуйованої техніки
-            </figcaption>
+            <strong>Робота взводу біля евакуйованої техніки</strong>
+            <span class="muted">Командна робота на кожному етапі від евакуації до ремонту.</span>
           </figure>
-
           <figure class="gallery-item">
-            <img src="gallery15.jpg" alt="Машини повертаються в стрій після ремонту">
-            <figcaption class="gallery-caption">
-              Машини повертаються в стрій після ремонту
-            </figcaption>
+            <strong>Машини повертаються в стрій після ремонту</strong>
+            <span class="muted">Найкращий результат нашої роботи — техніка знову працює.</span>
           </figure>
         </div>
 
-        <p style="font-size:12px; opacity:0.8; margin-top:6px;">
-          Щоб додати нові фото, просто завантажте їх у репозиторій і додайте ще один блок
-          <code>&lt;figure class="gallery-item"&gt;...&lt;/figure&gt;</code>.
+        <p class="muted" style="margin-top:8px; font-size:12px;">
+          Щоб додати нові фото, просто завантажте їх у репозиторій і додайте ще один блок <code>&lt;figure
+          class="gallery-item"&gt;...&lt;/figure&gt;</code>.
         </p>
       </section>
 
       <!-- ВІДЕО -->
-      <section class="card big-block" id="video-ua">
-        <h2 class="section-title">Відео з роботи взводу</h2>
-        <p>Кілька коротких роликів з евакуації, ремонту та нашої щоденної роботи.</p>
+      <section class="section" id="video">
+        <header class="section-header">
+          <div class="section-tag">Відео</div>
+          <h2>Відео з роботи взводу</h2>
+          <p class="muted">Кілька коротких роликів з евакуації, ремонту та нашої щоденної роботи.</p>
+        </header>
 
-        <div class="video-grid">
-          <div class="video-item">
-            <div class="youtube-wrap">
-              <iframe
-                src="https://www.youtube.com/embed/jUTx6Om_L90"
-                title="YouTube video"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
-            </div>
-            <div class="video-caption">Коротке відео з роботи взводу · 1</div>
-          </div>
-
-          <div class="video-item">
-            <div class="youtube-wrap">
-              <iframe
-                src="https://www.youtube.com/embed/DR1o8KQuTp4"
-                title="YouTube video"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
-            </div>
-            <div class="video-caption">Коротке відео з роботи взводу · 2</div>
-          </div>
-
-          <div class="video-item">
-            <div class="youtube-wrap">
-              <iframe
-                src="https://www.youtube.com/embed/er5Kzpb7stc"
-                title="YouTube video"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
-            </div>
-            <div class="video-caption">Коротке відео з роботи взводу · 3</div>
-          </div>
+        <div class="video-list">
+          <div class="video-item">Коротке відео з роботи взводу · 1</div>
+          <div class="video-item">Коротке відео з роботи взводу · 2</div>
+          <div class="video-item">Коротке відео з роботи взводу · 3</div>
         </div>
       </section>
 
       <!-- ПОТОЧНІ ПОТРЕБИ -->
-      <section class="card big-block" id="current-needs-ua">
-        <h2 class="section-title">Поточні потреби</h2>
+      <section class="section" id="needs">
+        <header class="section-header">
+          <div class="section-tag">Поточні потреби</div>
+          <h2>На що зараз перетворюються ваші донати</h2>
+        </header>
 
         <p>Зараз ваші донати в першу чергу перетворюються на:</p>
+        <ul class="bullets">
+          <li>
+            <strong>Інструмент і обладнання для ремонту вантажівок та броні.</strong>
+            Набори головок, ключі, подовжувачі, домкрати, знімачі, інструмент по підвісці, пневмоінструмент, подовжувачі та
+            робоче освітлення.
+          </li>
+          <li>
+            <strong>Зварка та витратники.</strong>
+            Електроди, дріт, маски, рукавиці, подовжувачі, кабелі — усе, що дозволяє оживляти рами, кузови, кріплення, баки,
+            захист і броньовані елементи.
+          </li>
+          <li>
+            <strong>Запчастини та витратні матеріали.</strong>
+            Фільтри, ремені, гальмівні колодки, шланги, підшипники, хомути, датчики, свічки, кріплення. Усі “дрібниці”,
+            без яких неможливий жоден великий ремонт.
+          </li>
+          <li>
+            <strong>Рідини та мастила.</strong>
+            Моторні та трансмісійні масла, гальмівна рідина, антифриз, мастила для вузлів з великим навантаженням.
+          </li>
+          <li>
+            <strong>Діагностика та електрика.</strong>
+            Тестери, мультиметри, лампи, проводка, клеми, фішки, запобіжники — усе для швидкого виявлення та усунення
+            електричних проблем.
+          </li>
+          <li>
+            <strong>Логістика та умови роботи.</strong>
+            Генератори, подовжувачі, освітлення, плівка, тенти, рукавиці та робочий одяг — щоб ми могли працювати в полі за
+            будь-якої погоди.
+          </li>
+        </ul>
 
-        <p><strong>• Інструмент і обладнання для ремонту вантажівок та броні</strong><br>
-          Набори головок, ключі, подовжувачі, домкрати, знімачі, інструмент по підвісці,
-          пневмоінструмент, подовжувачі та робоче освітлення.
-        </p>
-
-        <p><strong>• Зварка та витратники</strong><br>
-          Електроди, дріт, маски, рукавиці, подовжувачі, кабелі — усе, що дозволяє
-          оживляти рами, кузови, кріплення, баки, захист і броньовані елементи.
-        </p>
-
-        <p><strong>• Запчастини та витратні матеріали</strong><br>
-          Фільтри, ремені, гальмівні колодки, шланги, підшипники, хомути, датчики, свічки, кріплення.
-          Усі “дрібниці”, без яких неможливий жоден великий ремонт.
-        </p>
-
-        <p><strong>• Рідини та мастила</strong><br>
-          Моторні та трансмісійні масла, гальмівна рідина, антифриз, мастила для вузлів з великим навантаженням.
-        </p>
-
-        <p><strong>• Діагностика та електрика</strong><br>
-          Тестери, мультиметри, лампи, проводка, клеми, фішки, запобіжники — усе для швидкого
-          виявлення та усунення електричних проблем.
-        </p>
-
-        <p><strong>• Логістика та умови роботи</strong><br>
-          Генератори, подовжувачі, освітлення, плівка, тенти, рукавиці та робочий одяг —
-          щоб ми могли працювати в полі за будь-якої погоди.
-        </p>
-
-        <p>Кожна гривня, євро чи долар у наших руках перетворюється на дуже конкретну річ:
-          інструмент, запчастину, масло чи зварку — те, що дає машині ще один виїзд,
-          а нашим людям — ще один шанс.
+        <p style="margin-top:6px;">
+          Кожна гривня, євро чи долар у наших руках перетворюється на дуже конкретну річ: інструмент, запчастину, масло чи
+          зварку — те, що дає машині ще один виїзд, а нашим людям — ще один шанс.
         </p>
       </section>
 
-      <!-- МІСІЯ -->
-      <section class="card big-block" id="mission-ua">
-        <h2 class="section-title">Наша місія</h2>
+      <!-- НАША МІСІЯ -->
+      <section class="section" id="mission">
+        <header class="section-header">
+          <div class="section-tag">Наша місія</div>
+          <h2>Мобільність батальйону та збережені життя</h2>
+        </header>
 
         <p>
           Наша місія — забезпечити безперервну мобільність батальйону і зберегти життя наших воїнів.
         </p>
-
         <p>
-          Ми ремонтуємо та відновлюємо вантажівки й бронетехніку безпосередньо в зоні бойових дій,
-          щоб підрозділи могли виконувати задачі без зупинок.
+          Ми ремонтуємо та відновлюємо вантажівки й бронетехніку безпосередньо в зоні бойових дій, щоб підрозділи могли
+          виконувати задачі без зупинок.
         </p>
-
         <p>
-          Ми повертаємо в стрій машини, які возять боєкомплект, воду, провізію, ПММ
-          та евакуюють поранених.
+          Ми повертаємо в стрій машини, які возять боєкомплект, воду, провізію, ПММ та евакуюють поранених.
         </p>
-
         <p>
-          Працюємо вночі, під обстрілами, під дощем і в холод, без нормальних умов —
-          але завжди доводимо роботу до кінця.
+          Працюємо вночі, під обстрілами, під дощем і в холод, без нормальних умов — але завжди доводимо роботу до кінця.
         </p>
-
         <p>
-          Кожен інструмент, кожна деталь і кожен донат означає ще один виїзд машини,
-          ще одну виконану задачу й одне врятоване життя.
+          Кожен інструмент, кожна деталь і кожен донат означає ще один виїзд машини, ще одну виконану задачу й одне врятоване
+          життя.
         </p>
       </section>
 
       <!-- ПРИНЦИПИ -->
-      <section class="card big-block" id="principles-ua">
-        <h2 class="section-title">Наші принципи</h2>
+      <section class="section" id="principles">
+        <header class="section-header">
+          <div class="section-tag">Наші принципи</div>
+          <h2>Те, на чому тримається робота взводу</h2>
+        </header>
 
-        <p>У роботі взводу технічного забезпечення немає випадковостей. Ми тримаємося кількох простих, але жорстких принципів, які щодня рятують техніку й життя.</p>
-
-        <div class="card-grid" style="margin-top:10px;">
-
-          <div class="card" style="min-height:160px;">
+        <div class="two-col">
+          <div>
             <h3>⚡ Швидкість</h3>
             <p>
-              Оперативно реагуємо на поломки, відмови техніки та запити підрозділів.
-              У полі важлива кожна хвилина — ми не тягнемо час.
+              Оперативно реагуємо на поломки, відмови техніки та запити підрозділів. У полі важлива кожна хвилина — ми не
+              тягнемо час.
             </p>
-          </div>
 
-          <div class="card" style="min-height:160px;">
             <h3>🎯 Точність</h3>
             <p>
-              Діагностика, ремонт, регулювання — робимо максимально якісно.
-              Помилка в ремонті може коштувати машини або життя бійця.
+              Діагностика, ремонт, регулювання — робимо максимально якісно. Помилка в ремонті може коштувати машини або
+              життя бійця.
             </p>
-          </div>
 
-          <div class="card" style="min-height:160px;">
             <h3>🛠️ Професійність</h3>
             <p>
-              Кожен у взводі знає свою техніку до останнього болта.
-              Ми вкладаємо досвід, знання й руки в кожну машину, яка має їхати.
+              Кожен у взводі знає свою техніку до останнього болта. Ми вкладаємо досвід, знання й руки в кожну машину, яка
+              має їхати.
             </p>
           </div>
-
-          <div class="card" style="min-height:160px;">
-            <h3>💪 Відповідальність</h3>
+          <div>
+            <h3>🎖️ Відповідальність</h3>
             <p>
-              Розуміємо ціну нашої роботи: відремонтована машина = виконана бойова задача.
-              Відповідаємо за результат, а не за процес.
+              Розуміємо ціну нашої роботи: відремонтована машина = виконана бойова задача. Відповідаємо за результат, а не
+              за процес.
             </p>
-          </div>
 
-          <div class="card" style="min-height:160px;">
             <h3>🚚 Мобільність</h3>
             <p>
-              Працюємо будь-де: в полі, на ґрунті, під обстрілами, під дощем чи морозом.
-              Немає боксу? Робимо його з того, що є.
+              Працюємо будь-де: в полі, на ґрунті, під обстрілами, під дощем чи морозом. Немає боксу? Робимо його з того, що
+              є.
             </p>
-          </div>
 
-          <div class="card" style="min-height:160px;">
-            <h3>🔥 Стійкість</h3>
+            <h3>🧱 Стійкість</h3>
             <p>
-              Доводимо роботу до кінця. Без відмазок.
-              Техніка має їхати — і вона поїде.
+              Доводимо роботу до кінця. Без відмазок. Техніка має їхати — і вона поїде.
             </p>
           </div>
-
         </div>
       </section>
 
-      <!-- ЧОМУ ВАЖЛИВО ПІДТРИМАТИ ВТЗ -->
-      <section class="card big-block" id="why-tz-ua">
-        <h2 class="section-title">Чому підтримка взводу технічного забезпечення — це важливо?</h2>
+      <!-- ЧОМУ ЦЕ ВАЖЛИВО -->
+      <section class="section" id="why">
+        <header class="section-header">
+          <div class="section-tag">Чому це важливо</div>
+          <h2>Чому підтримка взводу технічного забезпечення — це важливо?</h2>
+        </header>
 
         <p>
           Робота взводу технічного забезпечення часто залишається “за кадром”, але без нас не рухається жоден підрозділ.
           Техніка — це кровоносна система фронту. Якщо вона зупиняється — зупиняється все.
         </p>
 
-        <ul style="margin-left:18px; margin-top:6px; font-size:13px; opacity:0.95; display:grid; gap:4px;">
-          <li>🚚 <strong>Без вантажівок немає підвозу.</strong><br> Боєкомплект, вода, їжа, ротації — усе зав’язано на техніці.</li>
-
-          <li>🏥 <strong>Без робочих машин немає евакуації поранених.</strong><br>
-              Якщо машина не заводиться — поранений може не встигнути до стабілізації.</li>
-
-          <li>⚙️ <strong>Без ремонту немає мобільності підрозділів.</strong><br>
-              Піхота, БПЛА, розвідка, сапери — всі залежать від можливості рухатись.</li>
-
-          <li>🛠️ <strong>Ми ремонтуємо прямо на передовій.</strong><br>
-              Евакуйовуємо під обстрілами, ремонтуємо в полі, вночі, під дощем, при світлі ліхтарика.</li>
-
-          <li>🔥 <strong>Кожен донат = конкретний результат.</strong><br>
-              Інструмент → ремонт → техніка повертається в стрій → виконана задача → збережені життя.</li>
+        <ul class="bullets">
+          <li>
+            <strong>Без вантажівок немає підвозу.</strong>
+            Боєкомплект, вода, їжа, ротації — усе зав’язано на техніці.
+          </li>
+          <li>
+            <strong>Без робочих машин немає евакуації поранених.</strong>
+            Якщо машина не заводиться — поранений може не встигнути до стабілізації.
+          </li>
+          <li>
+            <strong>⚙️ Без ремонту немає мобільності підрозділів.</strong>
+            Піхота, БПЛА, розвідка, сапери — всі залежать від можливості рухатись.
+          </li>
+          <li>
+            <strong>️ Ми ремонтуємо прямо на передовій.</strong>
+            Евакуйовуємо під обстрілами, ремонтуємо в полі, вночі, під дощем, при світлі ліхтарика.
+          </li>
+          <li>
+            <strong>Кожен донат = конкретний результат.</strong>
+            Інструмент → ремонт → техніка повертається в стрій → виконана задача → збережені життя.
+          </li>
         </ul>
 
-        <p style="margin-top:10px; font-size:12px; opacity:0.8;">
-          Підтримка взводу технічного забезпечення — один із найефективніших внесків в оборону:
-          вона напряму перетворюється на робочі машини і врятовані життя.
+        <p style="margin-top:6px;">
+          Підтримка взводу технічного забезпечення — один із найефективніших внесків в оборону: вона напряму перетворюється
+          на робочі машини і врятовані життя.
         </p>
       </section>
 
-      <!-- ПОТОЧНІ РЕМОНТИ -->
-      <section class="card big-block" id="current-repairs-ua">
-        <h2 class="section-title">Техніка, яка зараз у роботі</h2>
+      <!-- ТЕХНІКА В РОБОТІ -->
+      <section class="section" id="tech">
+        <header class="section-header">
+          <div class="section-tag">Техніка, яка зараз у роботі</div>
+          <h2>Невелика частина того, чим ми займаємось зараз</h2>
+          <p class="muted">Оновлюється вручну.</p>
+        </header>
 
-        <p>
-          Невелика частина того, чим ми займаємось зараз. Оновлюється вручну.
-        </p>
-
-        <div class="card-grid" style="margin-top:10px;">
-
-          <!-- URAL-43203 -->
-          <div class="card" style="min-height:180px;">
-            <h3>УРАЛ-43203</h3>
-            <small style="opacity:0.75;">Статус:</small>
-            <p>
-              <strong>🔧 В роботі:</strong> повна ревізія пневмосистеми, заміна магістралей,
-              пошук витоків тиску та регулювання гальм.
-            </p>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-card-title">УРАЛ-43203</div>
+            <div class="stat-card-status">
+              В роботі: повна ревізія пневмосистеми, заміна магістралей, пошук витоків тиску та регулювання гальм.
+            </div>
           </div>
-
-          <!-- GAZ-66 -->
-          <div class="card" style="min-height:180px;">
-            <h3>ГАЗ-66</h3>
-            <small style="opacity:0.75;">Статус:</small>
-            <p>
-              <strong>⏳ Очікує запчастин:</strong> комплект гальмівних колодок на передню вісь
-              та ремонт приводу ручного гальма.
-            </p>
+          <div class="stat-card">
+            <div class="stat-card-title">ГАЗ-66</div>
+            <div class="stat-card-status">
+              ⏳ Очікує запчастин: комплект гальмівних колодок на передню вісь та ремонт приводу ручного гальма.
+            </div>
           </div>
-
-          <!-- ЛЕГКОВІ -->
-          <div class="card" style="min-height:180px;">
-            <h3>Легкові авто</h3>
-            <small style="opacity:0.75;">Статус:</small>
-            <p>
-              <strong>🔥 Після евакуації:</strong> відновлення ходової, заміна ступичного підшипника,
-              ремонт ШРУСа та перевірка рульових тяг.
-            </p>
+          <div class="stat-card">
+            <div class="stat-card-title">Легкові авто</div>
+            <div class="stat-card-status">
+              Після евакуації: відновлення ходової, заміна ступичного підшипника, ремонт ШРУСа та перевірка рульових тяг.
+            </div>
           </div>
-
         </div>
 
-        <p style="font-size:12px; opacity:0.75; margin-top:10px;">
-          Якщо ви хочете повністю закрити одну з цих позицій — напишіть нам, і ми надішлемо конкретний список
-          необхідних запчастин чи інструментів.
+        <p style="margin-top:6px;">
+          Якщо ви хочете повністю закрити одну з цих позицій — напишіть нам, і ми надішлемо конкретний список необхідних
+          запчастин чи інструментів.
         </p>
       </section>
 
-      <!-- ДЛЯ ФОНДІВ ТА ВЕЛИКИХ ДОНАТОРІВ -->
-      <section class="card big-block" id="funds-request-ua">
-        <h2 class="section-title">Для фондів, організацій та великих донаторів</h2>
+      <!-- ДЛЯ ФОНДІВ -->
+      <section class="section" id="funds">
+        <header class="section-header">
+          <div class="section-tag">Для фондів та організацій</div>
+          <h2>Для фондів, організацій та великих донаторів</h2>
+        </header>
 
         <p>
-          Якщо ви представляєте фонд, волонтерську ініціативу, бізнес або є великим донатором —
-          можете заповнити коротку форму нижче, і ми отримаємо від вас структурований запит.
+          Якщо ви представляєте фонд, волонтерську ініціативу, бізнес або є великим донатором — можете заповнити коротку
+          форму нижче, і ми отримаємо від вас структурований запит.
+        </p>
+        <p>
+          Пріоритетні напрямки підтримки: інструмент, обладнання, запчастини, зварка, діагностика, мастила та все, що
+          стосується ремонту та обслуговування вантажної й бронетехніки батальйону.
         </p>
 
-        <p style="margin-bottom:8px;">
-          Пріоритетні напрямки підтримки: інструмент, обладнання, запчастини, зварка, діагностика, мастила
-          та все, що стосується ремонту та обслуговування вантажної й бронетехніки батальйону.
-        </p>
-
-        <form id="fundsFormUa" onsubmit="handleFundsUa(event)" style="margin-top:6px; display:grid; gap:8px;">
-          <div>
-            <label for="org_ua" style="font-size:13px;">Організація / фонд / компанія*</label><br>
-            <input id="org_ua" name="org" required
-                   style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
-          </div>
-
-          <div style="display:grid; gap:8px;">
-            <div>
-              <label for="person_ua" style="font-size:13px;">Контактна особа*</label><br>
-              <input id="person_ua" name="person" required
-                     style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
+        <form onsubmit="openFundEmail(event)">
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="org">Організація / фонд / компанія*</label>
+              <input id="org" name="org" required />
             </div>
-
-            <div>
-              <label for="email_ua" style="font-size:13px;">Email*</label><br>
-              <input id="email_ua" name="email" type="email" required
-                     style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
+            <div class="form-field">
+              <label for="person">Контактна особа*</label>
+              <input id="person" name="person" required />
             </div>
-
-            <div>
-              <label for="telegram_ua" style="font-size:13px;">Telegram / телефон (опційно)</label><br>
-              <input id="telegram_ua" name="telegram"
-                     placeholder="@username або номер телефону"
-                     style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
+            <div class="form-field">
+              <label for="email">Email*</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+            <div class="form-field">
+              <label for="telegram">Telegram / телефон (опційно)</label>
+              <input id="telegram" name="telegram" />
+            </div>
+            <div class="form-field">
+              <label for="city">Країна / місто</label>
+              <input id="city" name="city" />
+            </div>
+            <div class="form-field">
+              <label for="support">Яку підтримку ви розглядаєте?*</label>
+              <select id="support" name="support" required>
+                <option value="">Оберіть варіант</option>
+                <option>Інструмент та обладнання</option>
+                <option>Запчастини / витратники</option>
+                <option>Зварка та метал</option>
+                <option>Діагностика та електрика</option>
+                <option>Комплексна / довгострокова підтримка</option>
+                <option>Інше</option>
+              </select>
             </div>
           </div>
 
-          <div>
-            <label for="country_ua" style="font-size:13px;">Країна / місто</label><br>
-            <input id="country_ua" name="country"
-                   style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
+          <div class="form-field">
+            <label for="budget">Орієнтовний бюджет або формат підтримки</label>
+            <input id="budget" name="budget" />
           </div>
 
-          <div>
-            <label for="type_ua" style="font-size:13px;">Яку підтримку ви розглядаєте?*</label><br>
-            <select id="type_ua" name="supportType" required
-                    style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.85); color:#fff; font-size:13px;">
-              <option value="">Оберіть варіант</option>
-              <option value="Інструмент та обладнання">Інструмент та обладнання</option>
-              <option value="Запчастини / витратники">Запчастини / витратники</option>
-              <option value="Зварка та метал">Зварка та метал</option>
-              <option value="Діагностика та електрика">Діагностика та електрика</option>
-              <option value="Комплексна / довгострокова підтримка">Комплексна / довгострокова підтримка</option>
-              <option value="Інше">Інше</option>
-            </select>
+          <div class="form-field">
+            <label for="comment">Коментар / деталі</label>
+            <textarea id="comment" name="comment"></textarea>
           </div>
 
-          <div>
-            <label for="budget_ua" style="font-size:13px;">Орієнтовний бюджет або формат підтримки</label><br>
-            <input id="budget_ua" name="budget"
-                   placeholder="сума, діапазон або “обладнання / інструмент / запчастини”"
-                   style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
-          </div>
-
-          <div>
-            <label for="comment_ua" style="font-size:13px;">Коментар / деталі</label><br>
-            <textarea id="comment_ua" name="comment" rows="4"
-                      placeholder="Коротко опишіть, що саме розглядаєте, строки, умови тощо."
-                      style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px; resize:vertical;"></textarea>
-          </div>
-
-          <button type="submit" class="donate-btn" style="margin-top:4px; align-self:flex-start;">
+          <button type="submit" class="btn-primary" style="margin-top:8px;">
             Заповнити та створити лист
           </button>
-
-          <p style="font-size:11px; opacity:0.75;">
-            Після натискання у вас відкриється пошта з готовим листом на
-            <strong>nadelnuikviktor@gmail.com</strong> з усіма введеними даними.
+          <p class="muted" style="margin-top:6px; font-size:12px;">
+            Після натискання у вас відкриється пошта з готовим листом на <code>nadelnuikviktor@gmail.com</code> з усіма
+            введеними даними.
           </p>
         </form>
       </section>
 
       <!-- БЕЗСТРОКОВИЙ ЗБІР -->
-      <section class="card big-block" id="progress-ua">
-        <h2 class="section-title">Безстроковий збір</h2>
+      <section class="section" id="campaign">
+        <header class="section-header">
+          <div class="section-tag">Безстроковий збір</div>
+          <h2>Безстроковий збір на роботу взводу</h2>
+        </header>
 
-        <p class="progress-text">
-          Це безстроковий збір на щоденну роботу взводу технічного забезпечення:
-          інструмент, запчастини, мастила, зварка, діагностика та польові майстерні.
-          Кожен внесок допомагає тримати техніку в строю.
+        <p>
+          Це безстроковий збір на щоденну роботу взводу технічного забезпечення: інструмент, запчастини, мастила, зварка,
+          діагностика та польові майстерні. Кожен внесок допомагає тримати техніку в строю.
         </p>
 
-        <div class="progress-track">
-          <div id="progress-fill-ua" class="progress-fill" data-label="Збір активний"></div>
+        <div class="badge-live">
+          <span class="badge-live-dot"></span>
+          Збір активний · Безстроковий збір · Оновлено: 01.12.2025
         </div>
 
-        <div class="progress-meta">
-          <span id="progress-text-ua">Збір активний</span>
-          <span>Безстроковий збір · Оновлено: 01.12.2025</span>
+        <div style="margin-top:10px;">
+          <a href="#donate" class="btn-primary">Підтримати взвод зараз</a>
         </div>
       </section>
 
       <!-- FAQ -->
-      <section class="card big-block" id="faq-ua">
-        <h2 class="section-title">Питання та відповіді</h2>
+      <section class="section" id="faq">
+        <header class="section-header">
+          <div class="section-tag">Питання та відповіді</div>
+          <h2>Питання та відповіді</h2>
+        </header>
 
-        <details style="margin-bottom:6px;">
-          <summary style="cursor:pointer; font-weight:600; font-size:14px;">
-            Ви офіційний підрозділ Збройних сил України?
-          </summary>
-          <p style="margin-top:4px; font-size:13px;">
-            Так. Ми — взвод технічного забезпечення мотопіхотного батальйону 142-ї окремої механізованої бригади.
-            Уся техніка, з якою ми працюємо, офіційно закріплена за підрозділами ЗСУ.
+        <div class="faq-item">
+          <div class="faq-q">Ви офіційний підрозділ Збройних сил України?</div>
+          <p>
+            Так. Ми — взвод технічного забезпечення мотопіхотного батальйону 142-ї окремої механізованої бригади. Уся
+            техніка, з якою ми працюємо, офіційно закріплена за підрозділами ЗСУ.
           </p>
-        </details>
-
-        <details style="margin-bottom:6px;">
-          <summary style="cursor:pointer; font-weight:600; font-size:14px;">
-            На що саме йдуть донати?
-          </summary>
-          <p style="margin-top:4px; font-size:13px;">
-            У першу чергу — на інструмент, запчастини, витратні матеріали, масла, зварку, діагностику
-            та базові умови для польової майстерні. Тобто безпосередньо на те, що дозволяє нам
-            ремонтувати вантажівки та броню, щоб вони продовжували виконувати бойові задачі.
-          </p>
-        </details>
-
-        <details style="margin-bottom:6px;">
-          <summary style="cursor:pointer; font-weight:600; font-size:14px;">
-            Чи можу я допомогти не грошима, а інструментом чи запчастинами?
-          </summary>
-          <p style="margin-top:4px; font-size:13px;">
-            Так. Якщо ви готові передати інструмент, обладнання, запчастини або інші матеріали —
-            напишіть на <strong><a href="mailto:nadelnuikviktor@gmail.com">nadelnuikviktor@gmail.com</a></strong>
-            або в <strong>Telegram</strong> <code>@DOFAMIN95</code>, і ми надішлемо список актуальних потреб
-            та деталі щодо доставки.
-          </p>
-        </details>
-
-        <details style="margin-bottom:6px;">
-          <summary style="cursor:pointer; font-weight:600; font-size:14px;">
-            Чи надаєте ви звітність по донатах?
-          </summary>
-          <p style="margin-top:4px; font-size:13px;">
-            Так. Для фондів, великих донаторів та ініціатив можемо підготувати окремий звіт:
-            фото, перелік закупленого, опис, на що конкретно пішли кошти та як це допомогло роботі взводу.
-            Просто зв’яжіться з нами через форму на сайті або напряму на email.
-          </p>
-        </details>
-
-        <details>
-          <summary style="cursor:pointer; font-weight:600; font-size:14px;">
-            Чи можна публічно згадувати ваш підрозділ або використовувати фото техніки?
-          </summary>
-          <p style="margin-top:4px; font-size:13px;">
-            Такі речі ми погоджуємо окремо, з урахуванням безпеки. Якщо ви фонд, медіа чи компанія
-            й хочете публічно згадати підрозділ або використати фото — напишіть нам, і ми уточнимо,
-            що можна показувати, а що ні.
-          </p>
-        </details>
-      </section>
-
-      <!-- ПОДІЛИТИСЬ -->
-      <section class="card big-block" id="share-ua">
-        <h2 class="section-title">Розкажіть іншим</h2>
-
-        <p>
-          Допомогти можна не лише донатом, а й поширенням інформації.
-          Скопіюйте готовий текст або поділіться цією сторінкою в улюбленому месенджері чи соцмережі.
-        </p>
-
-        <div class="btn-row" style="margin-top:10px; margin-bottom:14px;">
-          <button class="donate-btn"
-                  type="button"
-                  onclick="copyText('Привіт! Це збір для взводу технічного забезпечення мотопіхотного батальйону 142 ОМБр. Ми ремонтуємо техніку, яка возить боєкомплект, ПММ, їжу та евакуює поранених. Якщо маєш змогу — підтримай донатом або поширенням: https://viktornadelniuk.github.io/DOFAMIN95/')">
-            Скопіювати текст українською
-          </button>
-
-          <button class="donate-btn"
-                  type="button"
-                  onclick="copyText('Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade (mechanized infantry battalion). They repair trucks and armored vehicles right at the frontline so that vehicles keep moving, supplies and fuel arrive, and the wounded can be evacuated. If you can, please support with a donation or by sharing this link: https://viktornadelniuk.github.io/DOFAMIN95/en.html')">
-            Скопіювати текст англійською
-          </button>
         </div>
 
-        <div class="btn-row">
-          <button class="donate-btn" type="button" onclick="shareUa('telegram')">
-            Поділитися в Telegram
-          </button>
+        <div class="faq-item">
+          <div class="faq-q">На що саме йдуть донати?</div>
+          <p>
+            У першу чергу — на інструмент, запчастини, витратні матеріали, масла, зварку, діагностику та базові умови для
+            польової майстерні. Тобто безпосередньо на те, що дозволяє нам ремонтувати вантажівки та броню, щоб вони
+            продовжували виконувати бойові задачі.
+          </p>
+        </div>
 
-          <button class="donate-btn" type="button" onclick="shareUa('viber')">
-            Поділитися у Viber
-          </button>
+        <div class="faq-item">
+          <div class="faq-q">Чи можу я допомогти не грошима, а інструментом чи запчастинами?</div>
+          <p>
+            Так. Якщо ви готові передати інструмент, обладнання, запчастини або інші матеріали — напишіть на
+            <code>nadelnuikviktor@gmail.com</code> або в Telegram <code>@DOFAMIN95</code>, і ми надішлемо список актуальних
+            потреб та деталі щодо доставки.
+          </p>
+        </div>
 
-          <button class="donate-btn" type="button" onclick="shareUa('whatsapp')">
-            Поділитися в WhatsApp
-          </button>
+        <div class="faq-item">
+          <div class="faq-q">Чи надаєте ви звітність по донатах?</div>
+          <p>
+            Так. Для фондів, великих донаторів та ініціатив можемо підготувати окремий звіт: фото, перелік закупленого,
+            опис, на що конкретно пішли кошти та як це допомогло роботі взводу. Просто зв’яжіться з нами через форму на
+            сайті або напряму на email.
+          </p>
+        </div>
 
-          <button class="donate-btn" type="button" onclick="shareUa('facebook')">
-            Поділитися у Facebook
-          </button>
-
-          <button class="donate-btn" type="button" onclick="shareUa('instagram')">
-            Поділитися в Instagram
-          </button>
+        <div class="faq-item">
+          <div class="faq-q">Чи можна публічно згадувати ваш підрозділ або використовувати фото техніки?</div>
+          <p>
+            Такі речі ми погоджуємо окремо, з урахуванням безпеки. Якщо ви фонд, медіа чи компанія й хочете публічно
+            згадати підрозділ або використати фото — напишіть нам, і ми уточнимо, що можна показувати, а що ні.
+          </p>
         </div>
       </section>
 
-      <!-- LIGHTBOX -->
-      <div id="lightbox" class="lightbox" aria-hidden="true">
-        <div class="lightbox-inner" role="dialog" aria-modal="true">
-          <div class="lightbox-img-wrap">
-            <button type="button" class="lightbox-prev" aria-label="Попереднє фото">&lsaquo;</button>
-            <img id="lightbox-img" class="lightbox-img" src="" alt="">
-            <button type="button" class="lightbox-next" aria-label="Наступне фото">&rsaquo;</button>
-            <button type="button" class="lightbox-close" aria-label="Закрити">&times;</button>
+      <!-- SHARE -->
+      <section class="section" id="share">
+        <header class="section-header">
+          <div class="section-tag">Розкажіть іншим</div>
+          <h2>Допомогти можна не лише донатом</h2>
+        </header>
+
+        <div class="share-grid">
+          <div>
+            <p>
+              Допомогти можна не лише донатом, а й поширенням інформації. Скопіюйте готовий текст або поділіться цією
+              сторінкою в улюбленому месенджері чи соцмережі.
+            </p>
+
+            <div class="btn-row" style="margin-top:8px;">
+              <button class="btn-sm" onclick="copyShareText('ua')">Скопіювати текст українською</button>
+              <button class="btn-sm" onclick="copyShareText('en')">Скопіювати текст англійською</button>
+            </div>
           </div>
-          <div id="lightbox-caption" class="lightbox-caption"></div>
+
+          <div>
+            <p class="muted">Швидкі кнопки поширення:</p>
+            <div class="share-buttons">
+              <button class="share-btn" onclick="shareLink('telegram')">
+                <span class="icon">📨</span> Telegram
+              </button>
+              <button class="share-btn" onclick="shareLink('viber')">
+                <span class="icon">💬</span> Viber
+              </button>
+              <button class="share-btn" onclick="shareLink('whatsapp')">
+                <span class="icon">🟢</span> WhatsApp
+              </button>
+              <button class="share-btn" onclick="shareLink('facebook')">
+                <span class="icon">📘</span> Facebook
+              </button>
+              <button class="share-btn" onclick="shareLink('instagram')">
+                <span class="icon">📸</span> Instagram
+              </button>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <footer>
-        Дякуємо за підтримку взводу технічного забезпечення 142 ОМБр.<br>
-        Ваша допомога тримає техніку в строю — а наших воїнів живими.
-        <div id="visitor-counter-ua" style="margin-top:6px; font-size:11px; opacity:0.75;"></div>
-      </footer>
+    </div>
+  </main>
 
-      <!-- SCROLL TO TOP BUTTON -->
-      <button type="button" id="scrollTopBtn" class="scroll-top-btn" aria-label="До початку сторінки">
-        ↑
-      </button>
+  <footer>
+    <div>Дякуємо за підтримку взводу технічного забезпечення 142 ОМБр.</div>
+    <div>Ваша допомога тримає техніку в строю — а наших воїнів живими.</div>
+    <div style="margin-top:6px;">
+      <span class="to-top" onclick="window.scrollTo({top:0, behavior:'smooth'});">↑ Повернутися нагору</span>
+    </div>
+  </footer>
 
-    </main>
-  </div>
+  <div id="toast" class="toast"></div>
 </div>
 
 <script>
-  // QR codes
-  function setQR(id, data) {
-    var el = document.getElementById(id);
+  function showToast(message) {
+    const toast = document.getElementById('toast');
+    if (!toast) return;
+    toast.textContent = message;
+    toast.classList.add('visible');
+    setTimeout(() => {
+      toast.classList.remove('visible');
+    }, 2200);
+  }
+
+  function copyFromElement(id) {
+    const el = document.getElementById(id);
     if (!el) return;
-    var api = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=";
-    el.src = api + encodeURIComponent(data);
-  }
-
-  setQR("qr-mono",   "https://send.monobank.ua/jar/8PfzHBQuu4");
-  setQR("qr-privat", "https://www.privat24.ua/send/3xbxx");
-  setQR("qr-btc",    "https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p");
-  setQR("qr-paupay", "nadelnuikviktor@gmail.com");
-
-  // Copy to clipboard
-  function copyText(text) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text)
-        .then(function () {
-          alert('Скопійовано: ' + text);
-        })
-        .catch(function () {
-          fallbackCopy(text);
-        });
+    const text = el.textContent.trim();
+    if (!navigator.clipboard) {
+      const temp = document.createElement('textarea');
+      temp.value = text;
+      document.body.appendChild(temp);
+      temp.select();
+      try {
+        document.execCommand('copy');
+      } finally {
+        document.body.removeChild(temp);
+      }
     } else {
-      fallbackCopy(text);
+      navigator.clipboard.writeText(text).catch(() => {});
     }
+    showToast('Скопійовано в буфер обміну');
   }
 
-  function fallbackCopy(text) {
-    var area = document.createElement('textarea');
-    area.value = text;
-    area.style.position = 'fixed';
-    area.style.left = '-9999px';
-    document.body.appendChild(area);
-    area.focus();
-    area.select();
-    try {
-      document.execCommand('copy');
-      alert('Скопійовано: ' + text);
-    } catch (e) {
-      alert('Не вдалося скопіювати. Спробуйте вручну: ' + text);
+  const shareTexts = {
+    ua: `Це не тільки вибухи і новини. Іноді війна — це зламаний УРАЛ, ГАЗ-66 або легковик, які мають довезти боєкомплект, воду, їжу чи пораненого.
+
+Я прошу підтримати взвод технічного забезпечення мотопіхотного батальйону 142 ОМБр. Хлопці ремонтують вантажівки й броню прямо в зоні бойових дій: евакуюють техніку під обстрілами, збирають польові майстерні з того, що є, і повертають машини в стрій.
+
+Будь-яка сума = інструмент, запчастина, мастило чи зварка, які дають машині ще один виїзд — а комусь ще один шанс повернутися додому.
+
+Деталі та реквізити для донату тут:
+https://viktornadelnuik.github.io/DOFAMIN95/index.html`,
+    en: `War is not only explosions and headlines. Sometimes it is a broken truck that has to deliver ammo, water, food or evacuate a wounded soldier.
+
+I’m asking you to support the technical platoon of the 142nd Mechanized Brigade. These guys repair trucks and armored vehicles directly in the combat zone: evacuate broken vehicles under fire, set up improvised workshops and bring machines back to life.
+
+Any amount turns into tools, spare parts, oil or welding — one more trip for the vehicle and one more chance for someone to come back home alive.
+
+Details and donation options:
+https://viktornadelnuik.github.io/DOFAMIN95/index.html`
+  };
+
+  function copyShareText(lang) {
+    const text = shareTexts[lang];
+    if (!text) return;
+    if (!navigator.clipboard) {
+      const temp = document.createElement('textarea');
+      temp.value = text;
+      document.body.appendChild(temp);
+      temp.select();
+      try {
+        document.execCommand('copy');
+      } finally {
+        document.body.removeChild(temp);
+      }
+    } else {
+      navigator.clipboard.writeText(text).catch(() => {});
     }
-    document.body.removeChild(area);
+    showToast('Текст скопійовано. Можна вставляти в пост або повідомлення.');
   }
 
-  // Sharing (UA)
-  const SHARE_TEXT_UA = 'Привіт! Це збір для взводу технічного забезпечення мотопіхотного батальйону 142 ОМБр. Ми ремонтуємо техніку, яка возить боєкомплект, ПММ, їжу та евакуює поранених.';
-  const SHARE_URL_UA  = 'https://viktornadelniuk.github.io/DOFAMIN95/';
-
-  function shareUa(service) {
-    const text = SHARE_TEXT_UA + ' ' + SHARE_URL_UA;
-    let shareUrl = '';
+  function shareLink(service) {
+    const url = encodeURIComponent('https://viktornadelnuik.github.io/DOFAMIN95/index.html');
+    const text = encodeURIComponent('Підтримайте взвод технічного забезпечення 142 ОМБр: ремонт техніки на передовій, евакуація, діагностика. Деталі та реквізити за посиланням.');
+    let link = url;
 
     switch (service) {
       case 'telegram':
-        shareUrl = 'https://t.me/share/url?url='
-          + encodeURIComponent(SHARE_URL_UA)
-          + '&text=' + encodeURIComponent(SHARE_TEXT_UA);
+        link = `https://t.me/share/url?url=${url}&text=${text}`;
         break;
       case 'viber':
-        shareUrl = 'viber://forward?text='
-          + encodeURIComponent(text);
+        link = `viber://forward?text=${text}%20${url}`;
         break;
       case 'whatsapp':
-        shareUrl = 'https://wa.me/?text='
-          + encodeURIComponent(text);
+        link = `https://api.whatsapp.com/send?text=${text}%20${url}`;
         break;
       case 'facebook':
-        shareUrl = 'https://www.facebook.com/sharer/sharer.php?u='
-          + encodeURIComponent(SHARE_URL_UA);
+        link = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
         break;
       case 'instagram':
-        copyText(text);
-        shareUrl = 'https://www.instagram.com/';
-        break;
-      default:
-        copyText(text);
+        // Для Instagram прямого шарингу немає — просто копіюємо посилання
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(`Підтримати взвод технічного забезпечення 142 ОМБр: ${decodeURIComponent(text)} ${decodeURIComponent(url)}`)
+            .catch(() => {});
+        }
+        showToast('Посилання скопійовано — вставте його в сторіс або пост Instagram.');
         return;
     }
 
-    window.open(shareUrl, '_blank');
+    window.open(link, '_blank');
   }
 
-  // LIGHTBOX GALLERY
-  (function () {
-    var lightbox = document.getElementById('lightbox');
-    if (!lightbox) return;
-
-    var images = document.querySelectorAll('.gallery-item img');
-    if (!images.length) return;
-
-    var lightboxImg = document.getElementById('lightbox-img');
-    var lightboxCaption = document.getElementById('lightbox-caption');
-    var btnClose = lightbox.querySelector('.lightbox-close');
-    var btnPrev = lightbox.querySelector('.lightbox-prev');
-    var btnNext = lightbox.querySelector('.lightbox-next');
-
-    var currentIndex = 0;
-    var items = [];
-
-    images.forEach(function (img, index) {
-      var caption = '';
-      var parent = img.parentElement;
-      if (parent && parent.querySelector('.gallery-caption')) {
-        caption = parent.querySelector('.gallery-caption').innerText.trim();
-      } else if (img.alt) {
-        caption = img.alt;
-      }
-
-      items.push({
-        src: img.src,
-        alt: img.alt || '',
-        caption: caption
-      });
-
-      img.addEventListener('click', function () {
-        openLightbox(index);
-      });
-    });
-
-    function openLightbox(index) {
-      currentIndex = index;
-      updateLightbox();
-      lightbox.classList.add('is-open');
-      lightbox.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      lightbox.classList.remove('is-open');
-      lightbox.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    function updateLightbox() {
-      var item = items[currentIndex];
-      lightboxImg.src = item.src;
-      lightboxImg.alt = item.alt;
-      lightboxCaption.textContent = item.caption || '';
-    }
-
-    function showNext() {
-      currentIndex = (currentIndex + 1) % items.length;
-      updateLightbox();
-    }
-
-    function showPrev() {
-      currentIndex = (currentIndex - 1 + items.length) % items.length;
-      updateLightbox();
-    }
-
-    btnClose.addEventListener('click', closeLightbox);
-    btnNext.addEventListener('click', showNext);
-    btnPrev.addEventListener('click', showPrev);
-
-    lightbox.addEventListener('click', function (e) {
-      if (e.target === lightbox) {
-        closeLightbox();
-      }
-    });
-
-    document.addEventListener('keydown', function (e) {
-      if (!lightbox.classList.contains('is-open')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') showNext();
-      if (e.key === 'ArrowLeft') showPrev();
-    });
-  })();
-
-  // SCROLL TO TOP BUTTON
-  (function () {
-    var btn = document.getElementById('scrollTopBtn');
-    if (!btn) return;
-
-    window.addEventListener('scroll', function () {
-      var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollY > 250) {
-        btn.classList.add('scroll-top-btn--visible');
-      } else {
-        btn.classList.remove('scroll-top-btn--visible');
-      }
-    });
-
-    btn.addEventListener('click', function () {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  })();
-
-  // VISITOR COUNTER
-  (function () {
-    var el = document.getElementById('visitor-counter-ua');
-    if (!el) return;
-
-    fetch('https://api.countapi.xyz/hit/vtz-142omb/site')
-      .then(function (res) { return res.json(); })
-      .then(function (data) {
-        el.textContent = 'Людей, які відвідали цю сторінку підтримки (перегляди): ' + data.value;
-      })
-      .catch(function () {
-        el.textContent = 'Людей, які відвідали цю сторінку: —';
-      });
-  })();
-
-  // FUNDS FORM (UA) -> mailto
-  function handleFundsUa(event) {
+  function openFundEmail(event) {
     event.preventDefault();
-    var form = event.target;
+    const org = document.getElementById('org').value || '';
+    const person = document.getElementById('person').value || '';
+    const email = document.getElementById('email').value || '';
+    const telegram = document.getElementById('telegram').value || '';
+    const city = document.getElementById('city').value || '';
+    const support = document.getElementById('support').value || '';
+    const budget = document.getElementById('budget').value || '';
+    const comment = document.getElementById('comment').value || '';
 
-    var org      = form.org.value.trim();
-    var person   = form.person.value.trim();
-    var email    = form.email.value.trim();
-    var telegram = form.telegram.value.trim();
-    var country  = form.country.value.trim();
-    var type     = form.supportType.value.trim();
-    var budget   = form.budget.value.trim();
-    var comment  = form.comment.value.trim();
+    const subject = encodeURIComponent(`Підтримка взводу технічного забезпечення · ${org || 'новий запит'}`);
 
-    var subject = 'Запит від фонду / донатора: ' + (org || 'без назви');
+    const bodyLines = [
+      `Організація / фонд / компанія: ${org}`,
+      `Контактна особа: ${person}`,
+      `Email: ${email}`,
+      `Telegram / телефон: ${telegram}`,
+      `Країна / місто: ${city}`,
+      ``,
+      `Яку підтримку розглядаємо: ${support}`,
+      `Орієнтовний бюджет / формат підтримки: ${budget}`,
+      ``,
+      `Коментар / деталі:`,
+      comment
+    ];
 
-    var body =
-      'Організація / фонд / компанія: ' + org + '\n' +
-      'Контактна особа: ' + person + '\n' +
-      'Email: ' + email + '\n' +
-      'Telegram / телефон: ' + (telegram || '-') + '\n' +
-      'Країна / місто: ' + (country || '-') + '\n' +
-      'Тип підтримки: ' + type + '\n' +
-      'Орієнтовний бюджет / формат: ' + (budget || '-') + '\n' +
-      '---\n' +
-      'Коментар / деталі:\n' + (comment || '-') + '\n\n' +
-      'Надіслано через форму на сайті взводу технічного забезпечення 142-ї окремої механізованої бригади.';
-
-    var mailto =
-      'mailto:nadelnuikviktor@gmail.com'
-      + '?subject=' + encodeURIComponent(subject)
-      + '&body=' + encodeURIComponent(body);
-
+    const body = encodeURIComponent(bodyLines.join('\n'));
+    const mailto = `mailto:nadelnuikviktor@gmail.com?subject=${subject}&body=${body}`;
     window.location.href = mailto;
   }
-
-  // “ПІДТРИМАТИ ВЗВОД” КНОПКА В КОЖНОМУ ВЕЛИКОМУ БЛОЦІ
-  (function () {
-    var blocks = document.querySelectorAll('.big-block');
-    blocks.forEach(function (block) {
-      if (block.querySelector('.block-donate-btn')) return;
-
-      var btn = document.createElement('button');
-      btn.className = 'block-donate-btn';
-      btn.innerHTML = '<span class="icon">🇺🇦</span> Підтримати взвод';
-
-      btn.addEventListener('click', function () {
-        var donate = document.getElementById('donate');
-        if (donate) donate.scrollIntoView({ behavior: "smooth" });
-      });
-
-      block.appendChild(btn);
-    });
-  })();
-
-  // DONATION PROGRESS (UA)
-  (function () {
-    var fill = document.getElementById('progress-fill-ua');
-    var text = document.getElementById('progress-text-ua');
-    if (!fill || !text) return;
-
-    var percent = 40;  // просто щоб смуга була видима
-
-    fill.style.width = percent + '%';
-    fill.setAttribute('data-label', 'Збір активний');
-
-    text.textContent = 'Збір активний';
-  })();
 </script>
+
 </body>
 </html>
