@@ -579,6 +579,97 @@
       box-shadow: 0 14px 30px rgba(0,0,0,0.85);
       transform: translateY(-2px) scale(1.05);
     }
+<!-- ===== АНОНІМНА ПІДТРИМКА ===== -->
+<section id="supporters" class="supporters">
+  <div class="supporters__inner">
+
+    <header class="supporters__head">
+      <h2 class="supporters__title">Підтримка, яка працює</h2>
+      <p class="supporters__subtitle">
+        Тут немає імен і публічності.  
+        Тут є конкретні речі, які вже працюють на ремонт техніки.
+      </p>
+    </header>
+
+    <div class="supporters__grid">
+
+      <!-- CARD 1 -->
+      <article class="support-card">
+        <a class="support-card__media"
+           href="assets/support/support-01.jpg"
+           target="_blank"
+           rel="noopener">
+          <img src="assets/support/support-01.jpg"
+               alt="Анонімна підтримка інструментами"
+               loading="lazy">
+        </a>
+
+        <div class="support-card__body">
+          <div class="support-card__top">
+            <h3 class="support-card__name">Анонімна підтримка</h3>
+            <span class="support-card__tag">Інструменти</span>
+          </div>
+
+          <p class="support-card__desc">
+            Передані інструменти та обладнання для ремонту техніки.
+            Саме такі речі вирішують, поїде машина чи ні.
+          </p>
+
+          <p class="support-card__quote">
+            “Без імен. Без постів. Просто допомога.”
+          </p>
+        </div>
+      </article>
+
+      <!-- CARD 2 -->
+      <article class="support-card">
+        <a class="support-card__media"
+           href="assets/support/support-02.jpg"
+           target="_blank"
+           rel="noopener">
+          <img src="assets/support/support-02.jpg"
+               alt="Анонімна підтримка обладнанням"
+               loading="lazy">
+        </a>
+
+        <div class="support-card__body">
+          <div class="support-card__top">
+            <h3 class="support-card__name">Анонімна підтримка</h3>
+            <span class="support-card__tag">Обладнання</span>
+          </div>
+
+          <p class="support-card__desc">
+            Передане обладнання, яке вже використовується
+            під час ремонтів і виїздів.
+          </p>
+
+          <p class="support-card__quote">
+            “Техніка має їхати. Решта — неважливо.”
+          </p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="supporters__footer">
+      <p class="supporters__note">
+        Цей список не закритий.  
+        Якщо хочеш допомогти інструментами або матеріалами —
+        напиши. Додамо без публічності.
+      </p>
+
+      <!-- ЗАМІНИ НА СВІЙ КОНТАКТ -->
+      <a class="supporters__cta"
+         href="https://t.me/ВАШ_НІК"
+         target="_blank"
+         rel="noopener">
+        Запропонувати підтримку
+      </a>
+    </div>
+
+  </div>
+</section>
+<!-- ===== /АНОНІМНА ПІДТРИМКА ===== -->
 
     /* “Підтримати взвод” кнопка */
     .block-donate-btn {
@@ -848,6 +939,153 @@
         width: 110px;
       }
     }
+	  /* ===== SUPPORTERS BLOCK ===== */
+.supporters {
+  padding: clamp(26px, 5vw, 56px) 0;
+}
+
+.supporters__inner {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+}
+
+.supporters__head {
+  margin-bottom: 22px;
+}
+
+.supporters__title {
+  margin: 0 0 10px;
+  font-size: clamp(24px, 3.5vw, 36px);
+  letter-spacing: 0.3px;
+}
+
+.supporters__subtitle {
+  margin: 0;
+  max-width: 70ch;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.supporters__grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.support-card {
+  grid-column: span 12;
+  background: rgba(0,0,0,0.28);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 14px 36px rgba(0,0,0,0.35);
+  transition: transform .18s ease, border-color .18s ease;
+}
+
+.support-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,255,255,0.28);
+}
+
+.support-card__media {
+  display: block;
+  aspect-ratio: 16 / 10;
+  background: rgba(255,255,255,0.05);
+}
+
+.support-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.support-card__body {
+  padding: 16px 16px 18px;
+}
+
+.support-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.support-card__name {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.support-card__tag {
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.08);
+  white-space: nowrap;
+}
+
+.support-card__desc {
+  margin: 0 0 12px;
+  line-height: 1.6;
+  opacity: 0.92;
+}
+
+.support-card__quote {
+  margin: 0;
+  padding: 12px 14px;
+  border-left: 3px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.06);
+  border-radius: 12px;
+  line-height: 1.6;
+  font-style: italic;
+  opacity: 0.95;
+}
+
+.supporters__footer {
+  margin-top: 26px;
+  padding-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.supporters__note {
+  margin: 0;
+  max-width: 80ch;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.supporters__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.08);
+  text-decoration: none;
+  color: inherit;
+  font-weight: 700;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.supporters__cta:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.35);
+}
+
+@media (min-width: 820px) {
+  .support-card { grid-column: span 6; }
+}
+
   </style>
 </head>
 <body>
