@@ -1,0 +1,55 @@
+/* ===== thx (supporters) ===== */
+.thx-wrap{ padding: 28px 0; }
+.thx-inner{ width: min(1100px, 92vw); margin: 0 auto; }
+.thx-head{ margin-bottom: 14px; }
+.thx-title{ margin: 0 0 8px; font-size: clamp(20px, 3vw, 32px); }
+.thx-sub{ margin: 0; line-height: 1.55; opacity: .88; max-width: 80ch; }
+
+.thx-grid{ display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; margin-top: 16px; }
+.thx-card{
+  grid-column: span 12;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.22);
+  box-shadow: 0 14px 36px rgba(0,0,0,.30);
+  transition: transform .18s ease, border-color .18s ease;
+}
+.thx-card:hover{ transform: translateY(-2px); border-color: rgba(255,255,255,.26); }
+
+.thx-media{ display:block; aspect-ratio: 16 / 10; background: rgba(255,255,255,.06); }
+.thx-media img{ width:100%; height:100%; object-fit: cover; display:block; }
+
+.thx-body{ padding: 14px 14px 16px; }
+.thx-top{ display:flex; justify-content:space-between; margin-bottom: 10px; gap:10px; }
+.thx-name{ font-weight: 800; }
+.thx-badge{
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.06);
+}
+.thx-text{ line-height: 1.55; opacity: .9; }
+
+.thx-foot{
+  margin-top: 16px;
+  padding-top: 10px;
+  display:flex;
+  justify-content:space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.thx-note{ margin:0; line-height:1.55; opacity:.78; }
+.thx-cta{
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.07);
+  text-decoration:none;
+  font-weight: 800;
+}
+
+@media (min-width: 820px){
+  .thx-card{ grid-column: span 6; }
+}
