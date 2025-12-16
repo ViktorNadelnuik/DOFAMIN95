@@ -848,6 +848,14 @@
         width: 110px;
       }
     }
+	  /* ===== Відео iframe ===== */
+.gal__slide iframe{
+  width:100%;
+  aspect-ratio:16/9;
+  border:0;
+  display:block;
+}
+
   </style>
 	<link rel="stylesheet" href="supporters.css">
 
@@ -1108,7 +1116,7 @@
 
         <p>Ми — взвод технічного забезпечення мотопіхотного батальйону 142-ї окремої механізованої бригади. Наше завдання — утримувати техніку батальйону в роботі на одному з найгарячіших напрямків фронту.</p>
 
-        <p>Нас рідко видно на фото чи в новинах, але від нашої роботи залежить, чи доїде машина до позиції, чи отримає підрозділ боєкомплект і чи встигнуть вчасно евакуювати поранених.</p>
+        <p>Нас рідко видно на  чи в новинах, але від нашої роботи залежить, чи доїде машина до позиції, чи отримає підрозділ боєкомплект і чи встигнуть вчасно евакуювати поранених.</p>
 
         <h3>Чим ми займаємось</h3>
 
@@ -1340,6 +1348,73 @@
           <code>&lt;figure class="gallery-item"&gt;...&lt;/figure&gt;</code>.
         </p>
       </section>
+<section id="videos" class="gal">
+  <div class="gal__head">
+    <h2 class="gal__title">Відео</h2>
+    <p class="gal__sub">
+      Робота технічного взводу 142 ОМБр.
+      Те, що ламається щодня — ми лагодимо.
+    </p>
+  </div>
+
+  <div class="gal__wrap" data-gallery="videos">
+    <button class="gal__btn gal__btn--prev" aria-label="Попереднє відео">‹</button>
+
+    <div class="gal__viewport">
+      <div class="gal__track">
+
+        <!-- Відео 1 -->
+        <figure class="gal__slide">
+          <iframe
+            src="https://www.youtube.com/embed/Rz_Y3Tj6Rz4"
+            title="Робота технічного взводу"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </figure>
+
+        <!-- Відео 2 -->
+        <figure class="gal__slide">
+          <iframe
+            src="https://www.youtube.com/embed/KlInbRyOCuY"
+            title="Ремонт техніки"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </figure>
+
+        <!-- Відео 3 -->
+        <figure class="gal__slide">
+          <iframe
+            src="https://www.youtube.com/embed/QTbz0BHjAzA"
+            title="Польові ремонти"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </figure>
+
+        <!-- Відео 4 -->
+        <figure class="gal__slide">
+          <iframe
+            src="https://www.youtube.com/embed/xvvbYfiG_rk"
+            title="Техніка в строю"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </figure>
+
+      </div>
+    </div>
+
+    <button class="gal__btn gal__btn--next" aria-label="Наступне відео">›</button>
+  </div>
+
+  <div class="gal__dots" data-dots="videos"></div>
+</section>
 
       <!-- ВІДЕО -->
       <section class="card big-block" id="video-ua">
