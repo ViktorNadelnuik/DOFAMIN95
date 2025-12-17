@@ -1147,6 +1147,63 @@
   .mobile-donate-btn{ animation: none; }
 }
 </style>
+<style>
+/* === TEAM CAROUSEL (UA) === */
+#team-ua .team-carousel-wrap{
+  position: relative;
+  padding: 10px 46px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  overflow: hidden;
+}
+
+#team-ua .team-carousel{
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 14px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
+}
+
+#team-ua .team-slide{
+  flex: 0 0 340px !important;
+  width: 340px !important;
+  max-width: 340px !important;
+  scroll-snap-align: start;
+  min-height: 190px;
+}
+
+#team-ua .tc-btn{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.60);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  cursor: pointer;
+  z-index: 50;
+}
+
+#team-ua .tc-prev{ left: 8px; }
+#team-ua .tc-next{ right: 8px; }
+
+@media (max-width: 520px){
+  #team-ua .team-slide{
+    flex-basis: 280px !important;
+    width: 280px !important;
+    max-width: 280px !important;
+  }
+}
+</style>
 
 </head>
 <body>
@@ -1441,60 +1498,142 @@
         </p>
       </section>
 
-      <!-- КОМАНДА -->
-      <section class="card big-block" id="team-ua">
-        <h2 class="section-title">Команда взводу технічного забезпечення</h2>
+     <!-- КОМАНДА -->
+<section class="card big-block" id="team-ua">
+  <h2 class="section-title">Команда взводу технічного забезпечення</h2>
 
+  <p>
+    Ми працюємо як один механізм. У кожного своя роль, але мета одна —
+    техніка має їхати, а підрозділи мають виконувати задачі й повертатися живими.
+  </p>
+
+  <div class="team-carousel-wrap" style="margin-top:12px;">
+    <button class="tc-btn tc-prev" type="button" aria-label="Назад">‹</button>
+
+    <div class="team-carousel" id="teamCarouselUA">
+
+      <div class="card team-slide">
+        <h3>Командир взводу</h3>
         <p>
-          Ми працюємо як один механізм. У кожного своя роль, але мета одна —
-          техніка має їхати, а підрозділи мають виконувати задачі й повертатися живими.
+          Планує роботу, розставляє пріоритети, координує евакуацію і ремонти.
+          Приймає рішення, що рятувати першим, щоб підрозділи не зупинились.
         </p>
+      </div>
 
-     
-         <div class="team-carousel-wrap">
+      <div class="card team-slide">
+        <h3>Заступник / старший майстер</h3>
+        <p>
+          Організовує роботу бригади на місці, контролює якість ремонту,
+          веде облік задач і відповідальних, забезпечує змінність та темп.
+        </p>
+      </div>
 
-  <!-- кнопка НАЗАД -->
-  <button class="tc-btn tc-prev" type="button">‹</button>
+      <div class="card team-slide">
+        <h3>Старший механік-водій / слюсар</h3>
+        <p>
+          Складні ремонти, підготовка техніки до виїздів, дефектування вузлів,
+          контроль безпеки та готовності машин до задач.
+        </p>
+      </div>
 
-  <!-- стрічка карток -->
-  <div class="team-carousel" id="teamCarousel">
+      <div class="card team-slide">
+        <h3>Механік-агрегатник</h3>
+        <p>
+          Двигун, зчеплення, КПП/РК, мости, кардан, підшипники. Заміна вузлів,
+          відновлення працездатності “в полі” та в ППД.
+        </p>
+      </div>
 
-    <!-- ТВОЇ КАРТКИ (НЕ МІНЯЄМО) -->
-    <div class="card" style="min-height:180px;">
-      <h3>Командир взводу</h3>
-      <p>Планує роботу, розставляє пріоритети, координує евакуацію і ремонти.</p>
+      <div class="card team-slide">
+        <h3>Ходова / підвіска / гальма</h3>
+        <p>
+          Ресори, амортизатори, ступиці, гальмівна система, рульове.
+          Усунення люфтів, підтікання, перегрівів, “биття”, клинів.
+        </p>
+      </div>
+
+      <div class="card team-slide">
+        <h3>Автоелектрик</h3>
+        <p>
+          Проводка, стартер/генератор, освітлення, запобіжники, “маси”,
+          реле, зарядка. Відновлення після пошкоджень, пошук коротких замикань.
+        </p>
+      </div>
+
+      <div class="card team-slide">
+        <h3>Діагност / сканер</h3>
+        <p>
+          Читання помилок, перевірка датчиків/паливної/впуску, базові тести.
+          Дає точну причину несправності, щоб не витрачати час на “вгадування”.
+        </p>
+      </div>
+
+      <div class="card team-slide">
+        <h3>Зварювальник / кузовні роботи</h3>
+        <p>
+          Тріщини рам, кронштейни, кріплення, підсилення вузлів,
+          дрібні кузовні ремонти. Швидке відновлення після ударів і вібрацій.
+        </p>
+      </div>
+
+      <div class="card team-slide">
+        <h3>Шиномонтаж / колеса</h3>
+        <p>
+          Ремонт шин, підкачка, заміна камер/вентилів, баланс по можливості,
+          латання проколів. Підготовка запасок, контроль тиску під навантаженням.
+        </p>
+      </div>
+
+      <div class="card team-slide">
+        <h3>Евакуація техніки</h3>
+        <p>
+          Витягування та буксирування, робота з тросами/стропами/лебідками,
+          підготовка маршрутів і безпечної евакуації. Вивіз машини з ризикових зон.
+        </p>
+      </div>
+
+      <div class="card team-slide">
+        <h3>Водії (підвіз/перегін)</h3>
+        <p>
+          Доставка запчастин і розхідників, перегін техніки, підвіз інструменту.
+          Забезпечення руху між точками ремонту та бойовими підрозділами.
+        </p>
+      </div>
+
+      <div class="card team-slide">
+        <h3>Забезпечення та логістика</h3>
+        <p>
+          Пошук і доставка запчастин, масел, інструментів, витратників.
+          Формування заявок, облік, розподіл ресурсів, контроль залишків.
+        </p>
+      </div>
+
+      <div class="card team-slide">
+        <h3>Склад / облік / звітність</h3>
+        <p>
+          Облік інструменту, видача/повернення, списання витратників,
+          фіксація ремонтів і потреб. Порядок, щоб нічого не “пропадало”.
+        </p>
+      </div>
+
+      <div class="card team-slide">
+        <h3>ПММ та експлуатація</h3>
+        <p>
+          Контроль витрат палива, норми/прогрів, маршрути, логіка видачі,
+          технічні рідини (антифриз, гальмівна, масла) — щоб техніка не стала “в нуль”.
+        </p>
+      </div>
+
     </div>
 
-    <div class="card" style="min-height:180px;">
-      <h3>Старший механік-водій / слюсар</h3>
-      <p>Виконує складні ремонти, підготовку техніки та евакуацію.</p>
-    </div>
-
-    <div class="card" style="min-height:180px;">
-      <h3>Забезпечення та логістика</h3>
-      <p>Пошук і доставка запчастин, масел, інструментів.</p>
-    </div>
-
-    <!-- якщо є ще картки — вони тут -->
-
+    <button class="tc-btn tc-next" type="button" aria-label="Вперед">›</button>
   </div>
 
-  <!-- кнопка ВПЕРЕД -->
-  <button class="tc-btn tc-next" type="button">›</button>
-
-</div>
-
-  <button class="tc-btn tc-next" type="button">›</button>
-
-</div> <!-- team-carousel-wrap -->
-
-        </div>
-
-        <p style="font-size:12px; opacity:0.8; margin-top:10px;">
-          Частину облич ми свідомо не показуємо з міркувань безпеки, але за кожною машиною,
-          яка повертається в стрій, стоїть жива команда людей, які роблять цю роботу щодня.
-        </p>
-      </section>
+  <p style="font-size:12px; opacity:0.8; margin-top:12px;">
+    Частину деталей ми свідомо не показуємо з міркувань безпеки. Але за кожною машиною,
+    яка повертається в стрій, стоїть жива команда людей і години важкої роботи.
+  </p>
+</section>
 
       <!-- ГАЛЕРЕЯ -->
 	<section id="gallery" class="gallery-section">
@@ -2341,6 +2480,29 @@
 </script>
 
 <a href="#donate" class="mobile-donate-btn">Підтримати взвод</a>
+<script>
+(function(){
+  const track = document.getElementById('teamCarouselUA');
+  if(!track) return;
+
+  const prev = document.querySelector('#team-ua .tc-prev');
+  const next = document.querySelector('#team-ua .tc-next');
+
+  function step(){
+    const card = track.querySelector('.team-slide');
+    const gap = 14;
+    return card ? (card.getBoundingClientRect().width + gap) : 320;
+  }
+
+  prev && prev.addEventListener('click', () => {
+    track.scrollBy({ left: -step(), behavior: 'smooth' });
+  });
+
+  next && next.addEventListener('click', () => {
+    track.scrollBy({ left: step(), behavior: 'smooth' });
+  });
+})();
+</script>
 
 </body>
 </html>
