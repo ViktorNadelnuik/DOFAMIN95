@@ -2271,6 +2271,19 @@
 })();
 </script>
 <a href="#donate" class="mobile-donate-btn">Підтримати взвод</a>
+<script>
+(function(){
+  const btn = document.querySelector('.mobile-donate-btn');
+  const donate = document.getElementById('donate');
+  if(!btn || !donate) return;
+
+  const obs = new IntersectionObserver(([e]) => {
+    btn.style.display = e.isIntersecting ? 'none' : '';
+  }, { threshold: 0.2 });
+
+  obs.observe(donate);
+})();
+</script>
 
 
 </body>
