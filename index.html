@@ -947,6 +947,70 @@
   #videos .video-carousel-wrap{ padding: 10px 42px; }
 }
 </style>
+<style>
+/* ===== GALLERY BLOCK + CAROUSEL ===== */
+#gallery.gallery-section{ padding: 40px 0; }
+
+#gallery .gallery-head{
+  display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
+}
+
+#gallery .btn-support{
+  display:inline-block; padding:12px 16px; border-radius:14px;
+  border:1px solid rgba(255,255,255,.22); background:rgba(0,0,0,.55); color:#fff; text-decoration:none;
+}
+
+#gallery .gallery-carousel-wrap{
+  position:relative; margin-top:16px; padding:10px 46px;
+  border-radius:18px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.06);
+  overflow:hidden;
+}
+
+#gallery .gallery-carousel{
+  display:flex !important;
+  gap:14px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+  padding-bottom:8px;
+}
+
+#gallery .gc-item{
+  flex:0 0 420px;
+  scroll-snap-align:start;
+  margin:0;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(0,0,0,.35);
+}
+
+#gallery .gc-item img{
+  width:100%;
+  height:280px;
+  display:block;
+  object-fit:cover;
+}
+
+#gallery .gc-btn{
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:34px; height:34px; border-radius:999px;
+  border:1px solid rgba(255,255,255,.22);
+  background:rgba(0,0,0,.55);
+  color:#fff; font-size:22px; line-height:32px;
+  cursor:pointer; z-index:5;
+}
+
+#gallery .gc-prev{ left:10px; }
+#gallery .gc-next{ right:10px; }
+
+@media (max-width:520px){
+  #gallery .gc-item{ flex-basis:300px; }
+  #gallery .gc-item img{ height:220px; }
+  #gallery .gallery-carousel-wrap{ padding:10px 42px; }
+}
+</style>
 
 </head>
 <body>
@@ -1317,42 +1381,41 @@
       </section>
 
       <!-- ГАЛЕРЕЯ -->
-		<section id="gallery" class="gallery-section">
+	<section id="gallery" class="gallery-section">
   <div class="container">
-
     <div class="gallery-head">
       <h2 class="section-title">Фотогалерея</h2>
       <a class="btn-support" href="#donate">Підтримати взвод</a>
     </div>
 
     <div class="gallery-carousel-wrap">
-      <button class="gc-btn gc-prev">‹</button>
+      <button class="gc-btn gc-prev" type="button" aria-label="Назад">‹</button>
 
       <div class="gallery-carousel" id="galleryCarousel">
-        <figure class="gc-item"><img src="assets/photos/p1.jpg"  loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p2.jpg"  loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p3.jpg"  loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p4.jpg"  loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p5.jpg"  loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p6.jpg"  loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p7.jpg"  loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p8.jpg"  loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p9.jpg"  loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p10.jpg" loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p11.jpg" loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p12.jpg" loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p13.jpg" loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p14.jpg" loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p15.jpg" loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p16.jpg" loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p17.jpg" loading="lazy"></figure>
+        <figure class="gc-item"><img src="assets/photos/p1.jpg"  alt="" loading="lazy"></figure>
+        <figure class="gc-item"><img src="assets/photos/p2.jpg"  alt="" loading="lazy"></figure>
+        <figure class="gc-item"><img src="assets/photos/p3.jpg"  alt="" loading="lazy"></figure>
+        <figure class="gc-item"><img src="assets/photos/p4.jpg"  alt="" loading="lazy"></figure>
+        <figure class="gc-item"><img src="assets/photos/p5.jpg"  alt="" loading="lazy"></figure>
+        <figure class="gc-item"><img src="assets/photos/p6.jpg"  alt="" loading="lazy"></figure>
+        <figure class="gc-item"><img src="assets/photos/p7.jpg"  alt="" loading="lazy"></figure>
+        <figure class="gc-item"><img src="assets/photos/p8.jpg"  alt="" loading="lazy"></figure>
+        <figure class="gc-item"><img src="assets/photos/p9.jpg"  alt="" loading="lazy"></figure>
+        <figure class="gc-item"><img src="assets/photos/p10.jpg" alt="" loading="lazy"></figure>
+        <figure class="gc-item"><img src="assets/photos/p11.jpg" alt="" loading="lazy"></figure>
+        <figure class="gc-item"><img src="assets/photos/p12.jpg" alt="" loading="lazy"></figure>
+        <figure class="gc-item"><img src="assets/photos/p13.jpg" alt="" loading="lazy"></figure>
+        <figure class="gc-item"><img src="assets/photos/p14.jpg" alt="" loading="lazy"></figure>
+        <figure class="gc-item"><img src="assets/photos/p15.jpg" alt="" loading="lazy"></figure>
+        <figure class="gc-item"><img src="assets/photos/p16.jpg" alt="" loading="lazy"></figure>
+        <figure class="gc-item"><img src="assets/photos/p17.jpg" alt="" loading="lazy"></figure>
       </div>
 
-      <button class="gc-btn gc-next">›</button>
+      <button class="gc-btn gc-next" type="button" aria-label="Вперед">›</button>
     </div>
-
   </div>
 </section>
+	
 
 		<section id="videos" class="videos-section">
   <div class="container">
@@ -2163,6 +2226,25 @@
   next && next.addEventListener('click', () => {
     track.scrollBy({ left: getStep(), behavior: 'smooth' });
   });
+})();
+</script>
+<script>
+(function(){
+  const track = document.getElementById('galleryCarousel');
+  if(!track) return;
+
+  const prev = document.querySelector('#gallery .gc-prev');
+  const next = document.querySelector('#gallery .gc-next');
+
+  function step(){
+    const first = track.querySelector('.gc-item');
+    if(!first) return 320;
+    const gap = parseInt(getComputedStyle(track).gap || '14', 10);
+    return first.getBoundingClientRect().width + gap;
+  }
+
+  prev && prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+  next && next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
 })();
 </script>
 
