@@ -876,6 +876,77 @@
   }
 }
 </style>
+<style>
+/* === VIDEO CAROUSEL (slider) === */
+#videos .video-carousel-wrap{
+  position: relative;
+  margin-top: 16px;
+  padding: 10px 46px;           /* місце під кнопки */
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  overflow: hidden;
+}
+
+#videos .video-carousel{
+  display: flex !important;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
+}
+
+#videos .video-carousel::-webkit-scrollbar{ height: 8px; }
+#videos .video-carousel::-webkit-scrollbar-thumb{ background: rgba(255,255,255,0.25); border-radius: 20px; }
+#videos .video-carousel::-webkit-scrollbar-track{ background: rgba(255,255,255,0.08); border-radius: 20px; }
+
+#videos .vc-item{
+  flex: 0 0 320px;              /* ширина одного слайду */
+  scroll-snap-align: start;
+}
+
+#videos .vc-frame{
+  position: relative;
+  width: 100%;
+  padding-top: 177.78%;         /* 9:16 */
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+#videos .vc-frame iframe{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* кнопки */
+#videos .vc-btn{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.22);
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  font-size: 22px;
+  line-height: 32px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+#videos .vc-prev{ left: 10px; }
+#videos .vc-next{ right: 10px; }
+
+@media (max-width: 420px){
+  #videos .vc-item{ flex-basis: 260px; }
+  #videos .video-carousel-wrap{ padding: 10px 42px; }
+}
+</style>
 
 </head>
 <body>
@@ -1365,6 +1436,56 @@
           Щоб додати нові фото, просто завантажте їх у репозиторій і додайте ще один блок
           <code>&lt;figure class="gallery-item"&gt;...&lt;/figure&gt;</code>.
         </p>
+		  <section id="videos" class="videos-section">
+  <div class="container">
+    <h2 class="section-title">Відео</h2>
+
+    <div class="video-carousel-wrap">
+      <button class="vc-btn vc-prev" type="button" aria-label="Назад">‹</button>
+
+      <div class="video-carousel" id="videoCarousel">
+        <div class="vc-item">
+          <div class="vc-frame">
+            <iframe src="https://www.youtube.com/embed/Rz_Y3Tj6Rz4"
+              title="YouTube video" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <div class="vc-item">
+          <div class="vc-frame">
+            <iframe src="https://www.youtube.com/embed/KlInbRyOCuY"
+              title="YouTube video" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <div class="vc-item">
+          <div class="vc-frame">
+            <iframe src="https://www.youtube.com/embed/QTbz0BHjAzA"
+              title="YouTube video" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <div class="vc-item">
+          <div class="vc-frame">
+            <iframe src="https://www.youtube.com/embed/xvvbYfiG_rk"
+              title="YouTube video" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <button class="vc-btn vc-next" type="button" aria-label="Вперед">›</button>
+    </div>
+  </div>
+</section>
+
       </section>
 <section id="videos" class="gal">
   <div class="gal__head">
@@ -2161,5 +2282,30 @@
     text.textContent = 'Збір активний';
   })();
 </script>
+	<script>
+(function(){
+  const track = document.getElementById('videoCarousel');
+  if(!track) return;
+
+  const prev = document.querySelector('#videos .vc-prev');
+  const next = document.querySelector('#videos .vc-next');
+
+  function getStep(){
+    const first = track.querySelector('.vc-item');
+    if(!first) return 300;
+    const gap = parseInt(getComputedStyle(track).gap || '14', 10);
+    return first.getBoundingClientRect().width + gap;
+  }
+
+  prev && prev.addEventListener('click', () => {
+    track.scrollBy({ left: -getStep(), behavior: 'smooth' });
+  });
+
+  next && next.addEventListener('click', () => {
+    track.scrollBy({ left: getStep(), behavior: 'smooth' });
+  });
+})();
+</script>
+
 </body>
 </html>
