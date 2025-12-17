@@ -4,6 +4,30 @@
 	<!DOCTYPE html>
 <html lang="uk">
 <head>
+	/* === MOBILE FIXED DONATE BUTTON === */
+.mobile-donate-btn{
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+  z-index: 999;
+  display: none;
+  text-align: center;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(0,0,0,0.85);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+}
+
+/* показуємо ТІЛЬКИ на мобільних */
+@media (max-width: 768px){
+  .mobile-donate-btn{ display: block; }
+}
+
   <meta charset="UTF-8">
   <title>Підтримати · Взвод технічного забезпечення · 142 ОМБр</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -2209,6 +2233,7 @@
   next && next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
 })();
 </script>
+<a href="#donate" class="mobile-donate-btn">Підтримати взвод</a>
 
 </body>
 </html>
