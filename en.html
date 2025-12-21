@@ -1,19 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y0HDG5SKZX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Y0HDG5SKZX');
-</script>
   <meta charset="UTF-8">
   <title>Support · Technical Support Platoon · 142nd Brigade</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Support the technical support platoon of the 142nd Mechanized Brigade. Your donations keep vehicles running and save lives.">
+  <meta name="description"
+        content="Support the Technical Support Platoon of the 142nd Brigade. Your donations help repair vehicles that carry ammo, fuel, food and evacuate the wounded.">
 
   <link rel="icon"
         href="https://viktornadelniuk.github.io/DOFAMIN95/favicon.png"
@@ -22,15 +14,26 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Support the Technical Support Platoon · 142nd Brigade">
-  <meta property="og:description" content="The technical support platoon repairs vehicles directly near the frontline so trucks move and soldiers return alive.">
+  <meta property="og:description"
+        content="The Technical Support Platoon repairs vehicles right near the frontline so that vehicles move and people come back alive.">
   <meta property="og:url" content="https://viktornadelniuk.github.io/DOFAMIN95/en.html">
   <meta property="og:image" content="https://viktornadelniuk.github.io/DOFAMIN95/hero-bg.jpg">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Support the Technical Support Platoon · 142nd Brigade">
-  <meta name="twitter:description" content="Support the technical support platoon that repairs vehicles right at the frontline.">
+  <meta name="twitter:description"
+        content="Support the Technical Support Platoon that repairs vehicles directly in the combat zone.">
   <meta name="twitter:image" content="https://viktornadelniuk.github.io/DOFAMIN95/hero-bg.jpg">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y0HDG5SKZX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Y0HDG5SKZX');
+  </script>
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -44,7 +47,7 @@
       overflow-x: hidden;
     }
 
-    /* Striped dark background */
+    /* Striped steel background */
     body::before {
       content: "";
       position: fixed;
@@ -61,7 +64,6 @@
       opacity: 0.6;
     }
 
-    /* Soft radial light at top */
     body::after {
       content: "";
       position: fixed;
@@ -126,6 +128,7 @@
       gap: 6px;
       font-size: 12px;
       opacity: 0.9;
+      flex-wrap: wrap;
     }
 
     .lang-switch a {
@@ -162,7 +165,7 @@
       overflow: hidden;
     }
 
-    /* Welding spark across hero */
+    /* Welding spark line across hero */
     .hero::after {
       content: "";
       position: absolute;
@@ -577,7 +580,7 @@
       transform: translateY(-2px) scale(1.05);
     }
 
-    /* "Support platoon" button in every big block */
+    /* “Support platoon” button */
     .block-donate-btn {
       display: inline-flex;
       align-items: center;
@@ -606,35 +609,6 @@
     .block-donate-btn .icon {
       font-size: 15px;
       line-height: 1;
-    }
-
-    /* HEADER PATCH */
-    .header-patch-wrap {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      margin-bottom: 14px;
-      margin-top: -4px;
-      padding-top: 10px;
-    }
-
-    .header-patch {
-      width: 140px;
-      height: auto;
-      transform-origin: center;
-      animation:
-        patch-breath 3.5s ease-in-out infinite,
-        patch-tilt 6s ease-in-out infinite,
-        patch-glow 4s ease-in-out infinite;
-      filter:
-        drop-shadow(0 0 10px rgba(255,215,0,0.45))
-        drop-shadow(0 0 4px rgba(255,215,0,0.25));
-    }
-
-    @media (max-width: 480px) {
-      .header-patch {
-        width: 110px;
-      }
     }
 
     @media (max-width: 1024px) {
@@ -774,6 +748,30 @@
       100% { transform: translateY(0) scale(1);   box-shadow: 0 6px 16px rgba(0,0,0,0.45); }
     }
 
+    @keyframes engine-move {
+      from { transform: translateX(-120%); }
+      to   { transform: translateX(120%); }
+    }
+
+    @keyframes weld-spark {
+      0%, 60% {
+        opacity: 0;
+        transform: translateX(-10%);
+      }
+      65% {
+        opacity: 1;
+        transform: translateX(10%);
+      }
+      80% {
+        opacity: 0.5;
+        transform: translateX(60%);
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(120%);
+      }
+    }
+
     /* Engine line under hero title */
     .engine-line-wrap {
       margin: 10px 0 14px;
@@ -802,32 +800,29 @@
       filter: blur(0.3px);
     }
 
-    @keyframes engine-move {
-      from { transform: translateX(-120%); }
-      to   { transform: translateX(120%); }
+    /* PATCH IN HEADER */
+    .header-patch-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 14px;
+      margin-top: -4px;
+      padding-top: 10px;
     }
 
-    /* Weld spark animation */
-    @keyframes weld-spark {
-      0%, 60% {
-        opacity: 0;
-        transform: translateX(-10%);
-      }
-      65% {
-        opacity: 1;
-        transform: translateX(10%);
-      }
-      80% {
-        opacity: 0.5;
-        transform: translateX(60%);
-      }
-      100% {
-        opacity: 0;
-        transform: translateX(120%);
-      }
+    .header-patch {
+      width: 140px;
+      height: auto;
+      transform-origin: center;
+      animation:
+        patch-breath 3.5s ease-in-out infinite,
+        patch-tilt 6s ease-in-out infinite,
+        patch-glow 4s ease-in-out infinite;
+      filter:
+        drop-shadow(0 0 10px rgba(255,215,0,0.45))
+        drop-shadow(0 0 4px rgba(255,215,0,0.25));
     }
 
-    /* Patch animations */
     @keyframes patch-breath {
       0%   { transform: scale(0.98); }
       50%  { transform: scale(1.03); }
@@ -847,38 +842,404 @@
       50%  { filter: drop-shadow(0 0 12px rgba(255,215,0,0.7)); }
       100% { filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
     }
+
+    @media (max-width: 480px) {
+      .header-patch {
+        width: 110px;
+      }
+    }
+
+    /* ===== Відео iframe ===== */
+    .gal__slide iframe{
+      width:100%;
+      aspect-ratio:16/9;
+      border:0;
+      display:block;
+    }
+    /* === DONATE BUTTON SHINE EFFECT === */
+    .mobile-donate-btn{
+      position: fixed;
+      overflow: hidden;
+    }
+
+    .mobile-donate-btn::before{
+      content:"";
+      position:absolute;
+      top:-40%;
+      left:-30%;
+      width: 40%;
+      height: 180%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.40),
+        transparent
+      );
+      transform: rotate(18deg);
+      animation: shine 3.2s infinite;
+      opacity: 0.55;
+    }
+
+    @keyframes shine{
+      0%{ transform: translateX(-140%) rotate(18deg); }
+      45%{ transform: translateX(320%) rotate(18deg); }
+      100%{ transform: translateX(320%) rotate(18deg); }
+    }
+  </style>
+
+  <link rel="stylesheet" href="supporters.css">
+
+  <style>
+    /* === VIDEO GRID FIX === */
+    #videos .video-grid{
+      display: grid !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 16px !important;
+    }
+
+    #videos .video-card{
+      width: auto !important;
+    }
+
+    @media (max-width: 900px){
+      #videos .video-grid{
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+
+  <style>
+    /* === VIDEO CAROUSEL (slider) === */
+    #videos .video-carousel-wrap{
+      position: relative;
+      margin-top: 16px;
+      padding: 10px 46px;           /* space for buttons */
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      overflow: hidden;
+    }
+
+    #videos .video-carousel{
+      display: flex !important;
+      gap: 14px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 8px;
+    }
+
+    #videos .video-carousel::-webkit-scrollbar{ height: 8px; }
+    #videos .video-carousel::-webkit-scrollbar-thumb{
+      background: rgba(255,255,255,0.25);
+      border-radius: 20px;
+    }
+    #videos .video-carousel::-webkit-scrollbar-track{
+      background: rgba(255,255,255,0.08);
+      border-radius: 20px;
+    }
+
+    #videos .vc-item{
+      flex: 0 0 320px;              /* one slide width */
+      scroll-snap-align: start;
+    }
+
+    #videos .vc-frame{
+      position: relative;
+      width: 100%;
+      padding-top: 177.78%;         /* 9:16 */
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    #videos .vc-frame iframe{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* buttons */
+    #videos .vc-btn{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      font-size: 22px;
+      line-height: 32px;
+      cursor: pointer;
+      z-index: 5;
+    }
+
+    #videos .vc-prev{ left: 10px; }
+    #videos .vc-next{ right: 10px; }
+
+    @media (max-width: 420px){
+      #videos .vc-item{ flex-basis: 260px; }
+      #videos .video-carousel-wrap{ padding: 10px 42px; }
+    }
+  </style>
+
+  <style>
+    /* ===== GALLERY BLOCK + CAROUSEL ===== */
+    #gallery.gallery-section{ padding: 40px 0; }
+
+    #gallery .gallery-head{
+      display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
+    }
+
+    #gallery .btn-support{
+      display:inline-block; padding:12px 16px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.22); background:rgba(0,0,0,.55); color:#fff; text-decoration:none;
+    }
+
+    #gallery .gallery-carousel-wrap{
+      position:relative; margin-top:16px; padding:10px 46px;
+      border-radius:18px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.06);
+      overflow:hidden;
+    }
+
+    #gallery .gallery-carousel{
+      display:flex !important;
+      gap:14px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      scroll-behavior:smooth;
+      -webkit-overflow-scrolling:touch;
+      padding-bottom:8px;
+    }
+
+    #gallery .gc-item{
+      flex:0 0 420px;
+      scroll-snap-align:start;
+      margin:0;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.35);
+    }
+
+    #gallery .gc-item img{
+      width:100%;
+      height:280px;
+      display:block;
+      object-fit:cover;
+    }
+
+    #gallery .gc-btn{
+      position:absolute; top:50%; transform:translateY(-50%);
+      width:34px; height:34px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(0,0,0,.55);
+      color:#fff; font-size:22px; line-height:32px;
+      cursor:pointer; z-index:5;
+    }
+
+    #gallery .gc-prev{ left:10px; }
+    #gallery .gc-next{ right:10px; }
+
+    @media (max-width:520px){
+      #gallery .gc-item{ flex-basis:300px; }
+      #gallery .gc-item img{ height:220px; }
+      #gallery .gallery-carousel-wrap{ padding:10px 42px; }
+    }
+  </style>
+
+  <style>
+    /* === MOBILE FIXED DONATE BUTTON === */
+    .mobile-donate-btn{
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 14px;
+      z-index: 999;
+      display: none;
+      text-align: center;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(0,0,0,0.85);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      backdrop-filter: blur(6px);
+    }
+
+    @media (max-width: 768px){
+      .mobile-donate-btn{ display: block; }
+    }
+  </style>
+
+  <style>
+    .mobile-donate-btn{
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 14px;
+      z-index: 99999;
+      display: none !important;
+      text-align: center;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(0,0,0,0.85);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      backdrop-filter: blur(6px);
+    }
+
+    @media (max-width: 768px){
+      .mobile-donate-btn{ display: block !important; }
+    }
+  </style>
+
+  <style>
+    /* === MOBILE DONATE BUTTON BASE === */
+    .mobile-donate-btn{
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 14px;
+      z-index: 99999;
+      display: none !important;
+      text-align: center;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(255,200,60,0.95), rgba(255,160,20,0.95));
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #0b0b0b;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow:
+        0 10px 26px rgba(0,0,0,0.45),
+        0 0 0 0 rgba(255,180,40,0.55);
+
+      animation: donatePulse 1.8s ease-in-out infinite;
+    }
+
+    /* show only on mobile */
+    @media (max-width: 768px){
+      .mobile-donate-btn{ display: block !important; }
+    }
+
+    /* === PULSE ANIMATION === */
+    @keyframes donatePulse{
+      0%{
+        box-shadow:
+          0 10px 26px rgba(0,0,0,0.45),
+          0 0 0 0 rgba(255,180,40,0.55);
+        filter: brightness(1);
+      }
+      60%{
+        box-shadow:
+          0 12px 30px rgba(0,0,0,0.5),
+          0 0 0 14px rgba(255,180,40,0);
+        filter: brightness(1.05);
+      }
+      100%{
+        box-shadow:
+          0 10px 26px rgba(0,0,0,0.45),
+          0 0 0 0 rgba(255,180,40,0);
+        filter: brightness(1);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .mobile-donate-btn{ animation: none; }
+    }
+  </style>
+
+  <style>
+    /* === TEAM CAROUSEL (EN) === */
+    #team-en .team-carousel-wrap{
+      position: relative;
+      padding: 10px 46px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      overflow: hidden;
+    }
+
+    #team-en .team-carousel{
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      gap: 14px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 8px;
+    }
+
+    #team-en .team-slide{
+      flex: 0 0 340px !important;
+      width: 340px !important;
+      max-width: 340px !important;
+      scroll-snap-align: start;
+      min-height: 190px;
+    }
+
+    #team-en .tc-btn{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.60);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      cursor: pointer;
+      z-index: 50;
+    }
+
+    #team-en .tc-prev{ left: 8px; }
+    #team-en .tc-next{ right: 8px; }
+
+    @media (max-width: 520px){
+      #team-en .team-slide{
+        flex-basis: 280px !important;
+        width: 280px !important;
+        max-width: 280px !important;
+      }
+    }
   </style>
 </head>
 <body>
 <div class="page">
   <div class="container">
- <header>
-  <div class="header-patch-wrap">
-    <img src="vtz-mpb-patch.png" alt="Patch" class="header-patch">
-  </div>
 
-  <div class="top-row">
-    <div class="top-bar">
-      <img src="logo.png" alt="Logo" class="logo">
-      <span class="site-title">142nd Brigade • Technical Support Platoon</span>
-    </div>
+    <header>
+      <div class="header-patch-wrap">
+        <img src="vtz-mpb-patch.png" alt="Technical Support Platoon patch" class="header-patch">
+      </div>
 
-   <div class="lang-switch">
-  <a href="index.html">UA</a>
-  <a href="en.html" class="active">EN</a>
-  <a href="pl.html">PL</a>
-  <a href="de.html">DE</a>
-  <a href="es.html">ES</a>
-  <a href="fr.html">FR</a>
-</div>
-
-  </div>
-</header>
-
-
+      <div class="top-row">
+        <div class="top-bar">
+          <img src="logo.png" alt="Logo" class="logo">
+          <span class="site-title">142nd Brigade • Technical Support Platoon</span>
+        </div>
+        <div class="lang-switch">
+          <a href="index.html">UA</a>
+          <a href="en.html" class="active">EN</a>
+          <a href="pl.html">PL</a>
+          <a href="de.html">DE</a>
+          <a href="es.html">ES</a>
+          <a href="fr.html">FR</a>
+        </div>
+      </div>
 
       <section class="hero">
-        <div class="hero-badge">Repair & support of vehicles near the frontline</div>
+        <div class="hero-badge">Frontline vehicle repair</div>
         <div class="hero-title">Vehicles must move. People must come back alive.</div>
 
         <div class="engine-line-wrap">
@@ -886,13 +1247,13 @@
         </div>
 
         <p class="hero-sub">
-          Our platoon repairs trucks and armored vehicles directly in the combat zone
-          so the battalion can complete its tasks and vehicles deliver ammunition,
-          personnel and evacuate the wounded.
+          We are the Technical Support Platoon of the mechanized infantry battalion of the 142nd Brigade.
+          We repair trucks and armored vehicles directly in the combat zone so they can deliver ammunition,
+          fuel, supplies and evacuate the wounded.
         </p>
         <p class="hero-note">
-          Every donation turns into tools, spare parts, oils or welding materials
-          that give each vehicle one more trip — and our people one more chance to come home.
+          Every hryvnia, euro or dollar turns into a tool, spare part, oil or welding that gives a vehicle one more trip —
+          and someone one more chance to return home.
         </p>
 
         <div style="margin-top:14px;">
@@ -905,588 +1266,6 @@
 
     <main>
 
-      <!-- ABOUT PLATOON -->
-      <section class="card big-block" id="about-platoon-en">
-        <h2 class="section-title">About the platoon</h2>
-
-        <p>We are the technical support platoon of a motorized infantry battalion within the 142nd Separate Mechanized Brigade. Our task is to keep the battalion’s vehicles operational on one of the hottest sectors of the front.</p>
-
-        <p>Our work doesn’t always appear in photos or news, but it directly determines whether a vehicle reaches the position, whether a unit receives ammunition and whether the wounded can be evacuated in time.</p>
-
-        <h3>What we do</h3>
-
-        <p><strong>• Maintenance</strong><br>
-          Scheduled and unscheduled maintenance, changing oils, filters and fluids,
-          checking the technical condition of vehicles. We make sure each vehicle can roll out at any moment.</p>
-
-        <p><strong>• Repair & restoration</strong><br>
-          Engines, gearboxes, suspension, brakes, electrics, hydraulics and fuel systems.
-          We work on everything — from tiny sensors to large assemblies.</p>
-
-        <p><strong>• Vehicle recovery</strong><br>
-          If a vehicle can’t move on its own, is hit, damaged or stalled — we go out and recover it.
-          Often under fire, pulling it off the “road of life”.</p>
-
-        <p><strong>• Diagnostics & troubleshooting</strong><br>
-          We know our vehicles “by ear”, find hidden problems and fix them
-          so they don’t fail at the most critical moment.</p>
-
-        <p><strong>• Field repairs</strong><br>
-          Our workshop is what we can build from what we have:
-          earth, a tarp, a flashlight, a generator and a set of tools. We work without proper lighting,
-          in mud, under rain, at night, under fire. No conditions? We create them.</p>
-
-        <p><strong>• Keeping the battalion mobile</strong><br>
-          Operational vehicles mean ammunition deliveries, rotations, evacuation of wounded, water, food,
-          maneuver and survival. We do everything to keep these processes running.</p>
-      </section>
-
-      <!-- TEAM -->
-      <section class="card big-block" id="team-en">
-        <h2 class="section-title">Technical support platoon team</h2>
-
-        <p>
-          We work as one team. Everyone has their role, but we all share one goal —
-          vehicles must move and units must complete missions and come back alive.
-        </p>
-
-        <div class="card-grid" style="margin-top:10px;">
-
-          <div class="card" style="min-height:180px;">
-            <h3>Platoon commander</h3>
-            <p>
-              Plans work, sets priorities, coordinates recovery and repairs.
-              Decides which vehicle to save first so unit tasks are not stopped.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:180px;">
-            <h3>Senior mechanic / fitter</h3>
-            <p>
-              Leads complex repairs, advises on technical solutions, controls work quality.
-              Can “bring back to life” what seems beyond repair at first glance.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:180px;">
-            <h3>Truck mechanics & drivers</h3>
-            <p>
-              Know their trucks down to the last bolt. Go on recovery missions, work in the field,
-              help repair suspension, brake, pneumatic and fuel systems.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:180px;">
-            <h3>Auto electricians & diagnostics</h3>
-            <p>
-              Electrics, wiring, starters, alternators, sensors, connectors, fuses, testers.
-              They chase “ghosts” in wiring so vehicles start and run reliably.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:180px;">
-            <h3>Welders & metalwork</h3>
-            <p>
-              Weld frames, bodies, tanks, mounts, armor and structural elements.
-              Often work in improvised workshops, under tarps and minimal lighting.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:180px;">
-            <h3>Recovery group</h3>
-            <p>
-              Goes after vehicles that cannot move: hit, broken, stuck.
-              Works under fire to pull a vehicle off dangerous stretches and bring it to repair.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:180px;">
-            <h3>Supply & logistics</h3>
-            <p>
-              Search and delivery of spare parts, oils, tools and consumables.
-              Without them no repair happens: they turn donations into real parts and equipment.
-            </p>
-          </div>
-
-        </div>
-
-        <p style="font-size:12px; opacity:0.8; margin-top:10px;">
-          We deliberately don’t show some faces for security reasons, but behind every repaired vehicle
-          stands a living team that does this work every day.
-        </p>
-      </section>
-
-      <!-- GALLERY -->
-      <section class="card big-block" id="gallery-en">
-        <h2 class="section-title">Photo gallery</h2>
-
-        <p>
-          A glimpse into our daily work: vehicle recovery, field repairs, improvised workshops and
-          working moments of the technical support platoon.
-        </p>
-
-        <div class="gallery-grid">
-          <figure class="gallery-item">
-            <img src="gallery1.jpg" alt="Truck repair after recovery from the frontline" loading="lazy">
-            <figcaption class="gallery-caption">
-              Truck repair after recovery from the frontline
-            </figcaption>
-          </figure>
-
-          <figure class="gallery-item">
-            <img src="gallery2.jpg" alt="Field suspension repair in the open" loading="lazy">
-            <figcaption class="gallery-caption">
-              Field suspension repair in the open
-            </figcaption>
-          </figure>
-
-          <figure class="gallery-item">
-            <img src="gallery3.jpg" alt="Improvised workshop of the technical support platoon" loading="lazy">
-            <figcaption class="gallery-caption">
-              Improvised workshop of the technical support platoon
-            </figcaption>
-          </figure>
-
-          <figure class="gallery-item">
-            <img src="gallery4.jpg" alt="Recovery of damaged vehicle from a dangerous area" loading="lazy">
-            <figcaption class="gallery-caption">
-              Recovery of damaged vehicle from a dangerous area
-            </figcaption>
-          </figure>
-
-          <figure class="gallery-item">
-            <img src="gallery5.jpg" alt="Wheel change on the road under shelling" loading="lazy">
-            <figcaption class="gallery-caption">
-              Wheel change on the road under shelling
-            </figcaption>
-          </figure>
-
-          <figure class="gallery-item">
-            <img src="gallery6.jpg" alt="Night repair under floodlights" loading="lazy">
-            <figcaption class="gallery-caption">
-              Night repair under floodlights
-            </figcaption>
-          </figure>
-
-          <figure class="gallery-item">
-            <img src="gallery7.jpg" alt="Work on the truck braking system" loading="lazy">
-            <figcaption class="gallery-caption">
-              Work on the truck braking system
-            </figcaption>
-          </figure>
-
-          <figure class="gallery-item">
-            <img src="gallery8.jpg" alt="Welding the vehicle frame" loading="lazy">
-            <figcaption class="gallery-caption">
-              Welding the vehicle frame
-            </figcaption>
-          </figure>
-
-          <figure class="gallery-item">
-            <img src="gallery9.jpg" alt="Checking electrics and wiring in the field" loading="lazy">
-            <figcaption class="gallery-caption">
-              Checking electrics and wiring in the field
-            </figcaption>
-          </figure>
-
-          <figure class="gallery-item">
-            <img src="gallery10.jpg" alt="Preparing vehicles for a mission" loading="lazy">
-            <figcaption class="gallery-caption">
-              Preparing vehicles for a mission
-            </figcaption>
-          </figure>
-
-          <figure class="gallery-item">
-            <img src="gallery11.jpg" alt="Oil and filter change" loading="lazy">
-            <figcaption class="gallery-caption">
-              Oil and filter change
-            </figcaption>
-          </figure>
-
-          <figure class="gallery-item">
-            <img src="gallery12.jpg" alt="Suspension and running gear repair" loading="lazy">
-            <figcaption class="gallery-caption">
-              Suspension and running gear repair
-            </figcaption>
-          </figure>
-
-          <figure class="gallery-item">
-            <img src="gallery13.jpg" alt="Restoring the truck fuel system" loading="lazy">
-            <figcaption class="gallery-caption">
-              Restoring the truck fuel system
-            </figcaption>
-          </figure>
-
-          <figure class="gallery-item">
-            <img src="gallery14.jpg" alt="Technical support platoon at recovered vehicle" loading="lazy">
-            <figcaption class="gallery-caption">
-              Technical support platoon at recovered vehicle
-            </figcaption>
-          </figure>
-
-          <figure class="gallery-item">
-            <img src="gallery15.jpg" alt="Vehicle back in service after repair" loading="lazy">
-            <figcaption class="gallery-caption">
-              Vehicle back in service after repair
-            </figcaption>
-          </figure>
-        </div>
-
-        <p style="font-size:12px; opacity:0.8; margin-top:6px;">
-          To add new photos, upload them to the repository and add another
-          <code>&lt;figure class="gallery-item"&gt;...&lt;/figure&gt;</code> block.
-        </p>
-      </section>
-
-      <!-- VIDEO -->
-      <section class="card big-block" id="video-en">
-        <h2 class="section-title">Video from the platoon’s work</h2>
-        <p>Short clips from recovery missions, repairs and everyday work of the technical support platoon.</p>
-
-        <div class="video-grid">
-          <div class="video-item">
-            <div class="youtube-wrap">
-              <iframe
-                src="https://www.youtube.com/embed/jUTx6Om_L90"
-                title="VTZ 142nd Brigade · Video 1"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
-            </div>
-            <div class="video-caption">Technical support platoon in action · 1</div>
-          </div>
-
-          <div class="video-item">
-            <div class="youtube-wrap">
-              <iframe
-                src="https://www.youtube.com/embed/DR1o8KQuTp4"
-                title="VTZ 142nd Brigade · Video 2"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
-            </div>
-            <div class="video-caption">Technical support platoon in action · 2</div>
-          </div>
-
-          <div class="video-item">
-            <div class="youtube-wrap">
-              <iframe
-                src="https://www.youtube.com/embed/er5Kzpb7stc"
-                title="VTZ 142nd Brigade · Video 3"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
-            </div>
-            <div class="video-caption">Technical support platoon in action · 3</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CURRENT NEEDS -->
-      <section class="card big-block" id="current-needs-en">
-        <h2 class="section-title">Current priorities</h2>
-
-        <p>Right now your donations are primarily turned into:</p>
-
-        <p><strong>• Tools & equipment for truck and armored vehicle repairs</strong><br>
-          Socket sets, wrenches, extensions, jacks, pullers, suspension tools,
-          pneumatic tools, extension cords and work lights.</p>
-
-        <p><strong>• Welding & consumables</strong><br>
-          Electrodes, wire, helmets, gloves, extension cords, cables — everything needed
-          to bring frames, bodies, tanks, mounts, protection and armor elements back to life.</p>
-
-        <p><strong>• Spare parts & consumables</strong><br>
-          Filters, belts, brake pads, hoses, bearings, clamps, sensors, plugs, fasteners —
-          all the “small things” without which big repairs become impossible.</p>
-
-        <p><strong>• Fluids & oils</strong><br>
-          Engine and transmission oils, brake fluid, coolant, lubricants for high-load assemblies.</p>
-
-        <p><strong>• Diagnostics & electrics</strong><br>
-          Testers, multimeters, lamps, wiring, terminals, connectors, fuses — everything for fast
-          troubleshooting of electrical issues.</p>
-
-        <p><strong>• Logistics & working conditions</strong><br>
-          Generators, extension cords, lighting, film, tarps, gloves and workwear —
-          so we can work in the field in any weather.</p>
-
-        <p>Every hryvnia, euro or dollar becomes a very concrete thing in our hands:
-          a tool, a spare part, oil or welding rod — something that gives a vehicle one more trip
-          and our people one more chance.</p>
-      </section>
-
-      <!-- MISSION -->
-      <section class="card big-block" id="mission-en">
-        <h2 class="section-title">Our mission</h2>
-
-        <p>
-          Our mission is to ensure the battalion’s mobility and save the lives of our soldiers.
-        </p>
-
-        <p>
-          We repair and restore trucks and armored vehicles directly in the combat zone
-          so units can carry out their missions without interruption.
-        </p>
-
-        <p>
-          We bring back into service vehicles that deliver ammunition, water, food
-          and evacuate the wounded.
-        </p>
-
-        <p>
-          We work at night, under fire, in rain, cold and without proper conditions —
-          but we always see the job through.
-        </p>
-
-        <p>
-          Every tool, every spare part and every donation
-          is one more vehicle trip,
-          one more completed combat mission and one more saved life.
-        </p>
-      </section>
-
-      <!-- PRINCIPLES -->
-      <section class="card big-block" id="principles-en">
-        <h2 class="section-title">Our principles</h2>
-
-        <p>There is no randomness in the work of a technical support platoon. We follow several clear principles that save vehicles and lives every day.</p>
-
-        <div class="card-grid" style="margin-top:10px;">
-
-          <div class="card" style="min-height:160px;">
-            <h3>⚡ Speed</h3>
-            <p>
-              We respond quickly to breakdowns, vehicle failures and unit requests.
-              In the field every minute counts — we don’t slow the process down.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:160px;">
-            <h3>🎯 Precision</h3>
-            <p>
-              Diagnostics, repair, adjustment — everything is done accurately.
-              A mistake in repair can cost a vehicle or a soldier’s life.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:160px;">
-            <h3>🛠️ Professionalism</h3>
-            <p>
-              Everyone in the platoon knows their vehicles to the last bolt.
-              We put our experience, knowledge and hands into every vehicle that must move.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:160px;">
-            <h3>💪 Responsibility</h3>
-            <p>
-              We understand the price of our work — a repaired vehicle = a completed combat task.
-              We are responsible for the result, not just the process.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:160px;">
-            <h3>🚚 Mobility</h3>
-            <p>
-              We work anywhere: in the field, on the ground, under fire, in rain or frost.
-              No workshop? We build it ourselves.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:160px;">
-            <h3>🔥 Resilience</h3>
-            <p>
-              We finish what we start. No excuses.
-              The vehicle must move — and it will.
-            </p>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- WHY VTZ -->
-      <section class="card big-block" id="why-tz-en">
-        <h2 class="section-title">Why a technical support platoon?</h2>
-
-        <p>
-          The work of the technical support platoon often stays “off camera”, but without us
-          no unit moves. Vehicles are the circulatory system of the front. If they stop — everything stops.
-        </p>
-
-        <ul style="margin-left:18px; margin-top:6px; font-size:13px; opacity:0.95; display:grid; gap:4px;">
-          <li>🚚 <strong>No trucks — no supply.</strong><br> Ammunition, water, food, rotations — all depend on vehicles.</li>
-
-          <li>🏥 <strong>No working vehicles — no evacuation of wounded.</strong><br>
-              If a vehicle doesn’t start, a wounded soldier may not make it to stabilization.</li>
-
-          <li>⚙️ <strong>No repairs — no unit mobility.</strong><br>
-              Infantry, drones, reconnaissance, sappers — all depend on the ability to move.</li>
-
-          <li>🛠️ <strong>We repair directly near the frontline.</strong><br>
-              We recover vehicles under fire, repair in the field, at night, in the rain, by flashlight.</li>
-
-          <li>🔥 <strong>Every donation = concrete result.</strong><br>
-              Tools → repair → vehicle back in service → mission completed → lives saved.</li>
-        </ul>
-
-        <p style="margin-top:10px; font-size:12px; opacity:0.8;">
-          Supporting the technical support platoon is one of the most efficient contributions to defense:
-          it directly turns into working vehicles and saved lives.
-        </p>
-      </section>
-
-      <!-- VEHICLES IN REPAIR -->
-      <section class="card big-block" id="current-repairs-en">
-        <h2 class="section-title">Vehicles currently in repair</h2>
-
-        <p>
-          These are the current statuses of vehicles the platoon is working on. Updated manually.
-        </p>
-
-        <div class="card-grid" style="margin-top:10px;">
-
-          <div class="card" style="min-height:180px;">
-            <h3>URAL-43203</h3>
-            <small style="opacity:0.75;">Status:</small>
-            <p>
-              <strong>🔧 In progress:</strong> full revision of the pneumatic system, replacement of lines,
-              search for pressure loss and brake adjustment.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:180px;">
-            <h3>GAZ-66</h3>
-            <small style="opacity:0.75;">Status:</small>
-            <p>
-              <strong>⏳ Awaiting parts:</strong> new front axle brake shoe set
-              and parking brake drive repair.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:180px;">
-            <h3>Light vehicles</h3>
-            <small style="opacity:0.75;">Status:</small>
-            <p>
-              <strong>🔥 After recovery:</strong> restoring running gear, hub bearing replacement,
-              CV joint repair and steering linkage check.
-            </p>
-          </div>
-
-        </div>
-
-        <p style="font-size:12px; opacity:0.75; margin-top:10px;">
-          If you want to fully cover one of these positions — write to us and we’ll send an exact list of required parts or tools.
-        </p>
-      </section>
-
-      <!-- FOR FUNDS -->
-      <section class="card big-block" id="funds-request-en">
-        <h2 class="section-title">For foundations, organizations & major donors</h2>
-
-        <p>
-          If you represent a foundation, volunteer initiative, business or are a major donor,
-          you can fill out the short form below and we will receive a structured request from you.
-        </p>
-
-        <p style="margin-bottom:8px;">
-          Priority support areas: tools, equipment, spare parts, welding, diagnostics, oils
-          and everything related to repair and maintenance of the battalion’s trucks and armored vehicles.
-        </p>
-
-        <form id="fundsFormEn" onsubmit="handleFundsEn(event)" style="margin-top:6px; display:grid; gap:8px;">
-          <div>
-            <label for="org_en" style="font-size:13px;">Organization / fund / company*</label><br>
-            <input id="org_en" name="org" required
-                   style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
-          </div>
-
-          <div style="display:grid; gap:8px;">
-            <div>
-              <label for="person_en" style="font-size:13px;">Contact person*</label><br>
-              <input id="person_en" name="person" required
-                     style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
-            </div>
-
-            <div>
-              <label for="email_en" style="font-size:13px;">Email*</label><br>
-              <input id="email_en" name="email" type="email" required
-                     style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
-            </div>
-
-            <div>
-              <label for="telegram_en" style="font-size:13px;">Telegram / phone (optional)</label><br>
-              <input id="telegram_en" name="telegram"
-                     placeholder="@username or phone number"
-                     style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
-            </div>
-          </div>
-
-          <div>
-            <label for="country_en" style="font-size:13px;">Country / city</label><br>
-            <input id="country_en" name="country"
-                   style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
-          </div>
-
-          <div>
-            <label for="type_en" style="font-size:13px;">Type of support you consider*</label><br>
-            <select id="type_en" name="supportType" required
-                    style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.85); color:#fff; font-size:13px;">
-              <option value="">Choose an option</option>
-              <option value="Tools and equipment">Tools and equipment</option>
-              <option value="Spare parts / consumables">Spare parts / consumables</option>
-              <option value="Welding and metalwork">Welding and metalwork</option>
-              <option value="Diagnostics and electrics">Diagnostics and electrics</option>
-              <option value="Comprehensive / long-term support">Comprehensive / long-term support</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="budget_en" style="font-size:13px;">Approximate budget or support format</label><br>
-            <input id="budget_en" name="budget"
-                   placeholder="amount, range or “equipment / tools / spare parts”"
-                   style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
-          </div>
-
-          <div>
-            <label for="comment_en" style="font-size:13px;">Comment / details</label><br>
-            <textarea id="comment_en" name="comment" rows="4"
-                      placeholder="Briefly describe what you are considering, timing, conditions, etc."
-                      style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px; resize:vertical;"></textarea>
-          </div>
-
-          <button type="submit" class="donate-btn" style="margin-top:4px; align-self:flex-start;">
-            Fill in and create email
-          </button>
-
-          <p style="font-size:11px; opacity:0.75;">
-            After clicking, your email client will open with a ready-to-send message to
-            <strong>nadelnuikviktor@gmail.com</strong> with all fields filled in automatically.
-          </p>
-        </form>
-      </section>
-
-      <!-- OPEN-ENDED FUNDRAISER -->
-      <section class="card big-block" id="progress-en">
-        <h2 class="section-title">Open-ended fundraiser</h2>
-
-        <p class="progress-text">
-          This is an open-ended fundraiser for the daily work of the technical support platoon:
-          tools, spare parts, oils, welding, diagnostics and field workshops.
-          Every contribution helps us keep vehicles in service.
-        </p>
-
-        <div class="progress-track">
-          <div id="progress-fill-en" class="progress-fill" data-label="Fundraiser active"></div>
-        </div>
-
-        <div class="progress-meta">
-          <span id="progress-text-en">Fundraiser active</span>
-          <span>Open-ended fundraiser · Updated: 01.12.2025</span>
-        </div>
-      </section>
-
       <!-- DONATIONS -->
       <h2 class="section-title" id="donate">How to support the platoon</h2>
 
@@ -1495,10 +1274,11 @@
         <section class="card">
           <div>
             <small>UAH · BANK ACCOUNT</small>
-            <h3><span class="mono-label">Monobank</span> · “142nd Brigade · VTZ platoon” jar</h3>
+            <h3><span class="mono-label">Monobank</span> · Jar “142nd Brigade · Technical Support Platoon”</h3>
             <p><strong>Recipient:</strong> Nadelniuk Viktor Mykolaiovych</p>
             <p><strong>IBAN:</strong><br>UA683220010000026208372629615</p>
-            <p><strong>Payment reference:</strong> <code>ВТЗ МПБ 142 ОМБр</code></p>
+            <p><strong>Card number:</strong><br>4874&nbsp;1000&nbsp;2019&nbsp;8902</p>
+            <p><strong>Payment purpose:</strong> <code>VTZ MPB 142 OMBr</code></p>
           </div>
           <div>
             <div class="btn-row">
@@ -1510,9 +1290,13 @@
                       onclick="copyText('UA683220010000026208372629615')">
                 Copy IBAN
               </button>
+              <button class="donate-btn" type="button"
+                      onclick="copyText('4874100020198902')">
+                Copy card number
+              </button>
             </div>
             <div class="qr-wrap">
-              <img id="qr-mono" class="qr" alt="QR Monobank" loading="lazy">
+              <img id="qr-mono" class="qr" alt="QR Monobank">
             </div>
           </div>
         </section>
@@ -1524,7 +1308,8 @@
             <h3><span class="privat-label">PrivatBank</span> · Card top-up</h3>
             <p><strong>Recipient:</strong> NADELNIUK VIKTOR MYKOLAYOVYCH</p>
             <p><strong>IBAN:</strong><br>UA023052990262076400994803502</p>
-            <p><strong>Payment reference:</strong> <code>ВТЗ МПБ 142 ОМБр</code></p>
+            <p><strong>Card number:</strong><br>5168&nbsp;7521&nbsp;4764&nbsp;9654</p>
+            <p><strong>Payment purpose:</strong> <code>VTZ MPB 142 OMBr</code></p>
           </div>
           <div>
             <div class="btn-row">
@@ -1536,9 +1321,13 @@
                       onclick="copyText('UA023052990262076400994803502')">
                 Copy IBAN
               </button>
+              <button class="donate-btn" type="button"
+                      onclick="copyText('5168752147649654')">
+                Copy card number
+              </button>
             </div>
             <div class="qr-wrap">
-              <img id="qr-privat" class="qr" alt="QR PrivatBank" loading="lazy">
+              <img id="qr-privat" class="qr" alt="QR PrivatBank">
             </div>
           </div>
         </section>
@@ -1548,8 +1337,8 @@
           <div>
             <small>INTERNATIONAL PAYMENTS</small>
             <h3><span class="paypal-label">PayPal / Paupay</span></h3>
-            <p><strong>Email:</strong><br>nadelnuikviktor@gmail.com</p>
-            <p><strong>Note / payment description:</strong><br><code>ВТЗ МПБ 142 ОМБр</code></p>
+            <p><strong>Email for transfers:</strong><br>nadelnuikviktor@gmail.com</p>
+            <p><strong>Payment note:</strong><br><code>VTZ MPB 142 OMBr</code></p>
           </div>
           <div>
             <div class="btn-row">
@@ -1559,11 +1348,11 @@
               </button>
             </div>
             <div class="qr-wrap">
-              <img id="qr-paupay" class="qr" alt="QR Paupay / PayPal" loading="lazy">
+              <img id="qr-paupay" class="qr" alt="QR Paupay / PayPal">
             </div>
             <p style="font-size:12px; opacity:0.8; margin-top:6px;">
-              In the payment note, please write:
-              <strong>ВТЗ МПБ 142 ОМБр</strong>.
+              Please add
+              <strong>VTZ MPB 142 OMBr</strong> to the payment note.
             </p>
           </div>
         </section>
@@ -1619,34 +1408,654 @@
             </div>
 
             <div class="qr-wrap">
-              <img id="qr-btc" class="qr" alt="QR BTC" loading="lazy">
+              <img id="qr-btc" class="qr" alt="QR BTC">
             </div>
           </div>
         </section>
       </div>
 
+      <!-- SUPPORTED -->
+      <section id="supporters" class="thx-wrap">
+        <div class="thx-inner">
+          <div class="thx-head">
+            <h2 class="thx-title">Supported</h2>
+            <p class="thx-sub">
+              This is real help, without publicity. We thank those who do things quietly — but effectively.
+              Names are not published for privacy and safety.
+            </p>
+          </div>
+
+          <div class="thx-grid">
+            <article class="thx-card">
+              <a class="thx-media" href="assets/support/support-01.jpg" target="_blank" rel="noopener">
+                <img src="assets/support/support-01.jpg" alt="Anonymous support of the unit" loading="lazy">
+              </a>
+              <div class="thx-body">
+                <div class="thx-top">
+                  <div class="thx-name">Anonymous support</div>
+                  <div class="thx-badge">Generator</div>
+                </div>
+                <div class="thx-text">
+                  Equipment provided for repair work. This makes it possible to keep the workshop running in field conditions.
+                </div>
+              </div>
+            </article>
+
+            <article class="thx-card">
+              <a class="thx-media" href="assets/support/support-02.jpg" target="_blank" rel="noopener">
+                <img src="assets/support/support-02.jpg" alt="Anonymous support of the unit" loading="lazy">
+              </a>
+              <div class="thx-body">
+                <div class="thx-top">
+                  <div class="thx-name">Anonymous support</div>
+                  <div class="thx-badge">Car scanner</div>
+                </div>
+                <div class="thx-text">
+                  Without diagnostics the repair simply stops — and vehicles must move.
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="thx-foot">
+            <p class="thx-note">
+              We gradually add examples of support here — tools, equipment and materials that directly help our platoon work.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT PLATOON -->
+      <section class="card big-block" id="about-platoon-en">
+        <h2 class="section-title">About the platoon</h2>
+
+        <p>
+          We are the Technical Support Platoon of the mechanized infantry battalion of the 142nd Separate Mechanized Brigade.
+          Our task is to keep the battalion’s vehicles running on one of the hottest directions of the front.
+        </p>
+
+        <p>
+          You rarely see us on camera or in the news, but our work determines whether a vehicle reaches the position,
+          whether a unit receives ammunition and whether the wounded are evacuated in time.
+        </p>
+
+        <h3>What we do</h3>
+
+        <p><strong>• Maintenance</strong><br>
+          Planned and unscheduled service, oil, filters and fluid changes, technical condition checks.
+          We do everything so that vehicles are ready to move at any moment.
+        </p>
+
+        <p><strong>• Repair and recovery</strong><br>
+          We repair engines, gearboxes, suspension, brakes, electrics, hydraulics and fuel systems.
+          From small sensors to large assemblies.
+        </p>
+
+        <p><strong>• Vehicle recovery</strong><br>
+          When a vehicle cannot move on its own, is damaged, stuck or broken — we go for it.
+          Often under fire, pulling vehicles off the “roads of life”.
+        </p>
+
+        <p><strong>• Diagnostics and fault finding</strong><br>
+          We know our vehicles “by sound”, catch hidden problems and fix them so they do not appear at a critical moment.
+        </p>
+
+        <p><strong>• Field repairs</strong><br>
+          Our workshop is what we can build from what we have:
+          ground, tarp, flashlight, generator and tool set. We work without normal lighting, in mud,
+          under rain, at night, under shelling. No conditions? Then we create them.
+        </p>
+
+        <p><strong>• Maintaining battalion mobility</strong><br>
+          Working vehicles mean ammo delivery, rotations, casualty evacuation, water, food, maneuver and survival.
+          We do everything so that these processes do not stop.
+        </p>
+      </section>
+
+      <!-- TEAM -->
+      <section class="card big-block" id="team-en">
+        <h2 class="section-title">Technical Support Platoon team</h2>
+
+        <p>
+          We work as a single mechanism. Everyone has their role, but the goal is the same —
+          vehicles must move, and units must complete tasks and come back alive.
+        </p>
+
+        <div class="team-carousel-wrap" style="margin-top:12px;">
+          <button class="tc-btn tc-prev" type="button" aria-label="Previous">‹</button>
+
+          <div class="team-carousel" id="teamCarouselEN">
+
+            <div class="card team-slide">
+              <h3>Platoon commander</h3>
+              <p>
+                Plans work, sets priorities, coordinates recovery and repairs.
+                Makes decisions on what to save first so that units do not stop.
+              </p>
+            </div>
+
+            <div class="card team-slide">
+              <h3>Deputy / senior master</h3>
+              <p>
+                Organizes work on site, monitors repair quality, keeps a log of tasks and responsible persons,
+                maintains tempo and rotation.
+              </p>
+            </div>
+
+            <div class="card team-slide">
+              <h3>Senior mechanic-driver / mechanic</h3>
+              <p>
+                Complex repairs, preparing vehicles for missions, defect detection of critical components,
+                controlling safety and readiness.
+              </p>
+            </div>
+
+            <div class="card team-slide">
+              <h3>Powertrain mechanic</h3>
+              <p>
+                Engine, clutch, gearbox/transfer case, axles, driveshafts, bearings.
+                Replacement of assemblies and restoring functionality in the field and at base.
+              </p>
+            </div>
+
+            <div class="card team-slide">
+              <h3>Suspension / chassis / brakes</h3>
+              <p>
+                Leaf springs, shock absorbers, hubs, brake system, steering.
+                Eliminating play, leaks, overheating, vibration and jams.
+              </p>
+            </div>
+
+            <div class="card team-slide">
+              <h3>Auto electrician</h3>
+              <p>
+                Wiring, starter/alternator, lights, fuses, grounds, relays, charging.
+                Recovery after damage, searching for short circuits and hidden faults.
+              </p>
+            </div>
+
+            <div class="card team-slide">
+              <h3>Diagnostics / scanner</h3>
+              <p>
+                Reading error codes, checking sensors/fuel/air intake, basic tests.
+                Gives the exact cause of a fault so we do not lose time guessing.
+              </p>
+            </div>
+
+            <div class="card team-slide">
+              <h3>Welder / body repair</h3>
+              <p>
+                Frame cracks, brackets, mounts, reinforcements,
+                small body repairs. Quick restoration after impacts and vibration.
+              </p>
+            </div>
+
+            <div class="card team-slide">
+              <h3>Tyres / wheels</h3>
+              <p>
+                Tyre repair, inflation, tube/valve replacement, balancing where possible,
+                patching punctures. Preparing spares, controlling pressure under load.
+              </p>
+            </div>
+
+            <div class="card team-slide">
+              <h3>Recovery team</h3>
+              <p>
+                Winching and towing, working with ropes/straps/winches,
+                preparing routes and safe recovery. Extracting vehicles from risky areas.
+              </p>
+            </div>
+
+            <div class="card team-slide">
+              <h3>Drivers (delivery / relocation)</h3>
+              <p>
+                Delivering spare parts and consumables, moving vehicles,
+                delivering tools. Ensuring movement between the repair point and units.
+              </p>
+            </div>
+
+            <div class="card team-slide">
+              <h3>Supply and logistics</h3>
+              <p>
+                Searching and delivering spare parts, oils, tools, consumables.
+                Requests, inventory, resource allocation and stock control.
+              </p>
+            </div>
+
+          </div>
+
+          <button class="tc-btn tc-next" type="button" aria-label="Next">›</button>
+        </div>
+
+        <p style="font-size:12px; opacity:0.8; margin-top:12px;">
+          For security reasons, we deliberately do not show certain details.
+          But behind every vehicle that returns to service there is a real team and hours of hard work.
+        </p>
+      </section>
+
+      <!-- GALLERY -->
+      <section id="gallery" class="gallery-section">
+        <div class="container">
+          <div class="gallery-head">
+            <h2 class="section-title">Photo gallery</h2>
+            <a class="btn-support" href="#donate">Support the platoon</a>
+          </div>
+
+          <div class="gallery-carousel-wrap">
+            <button class="gc-btn gc-prev" type="button" aria-label="Previous">‹</button>
+
+            <div class="gallery-carousel" id="galleryCarousel">
+              <figure class="gc-item"><img src="assets/photos/p1.jpg"  alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p2.jpg"  alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p3.jpg"  alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p4.jpg"  alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p5.jpg"  alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p6.jpg"  alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p7.jpg"  alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p8.jpg"  alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p9.jpg"  alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p10.jpg" alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p11.jpg" alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p12.jpg" alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p13.jpg" alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p14.jpg" alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p15.jpg" alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p16.jpg" alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p17.jpg" alt="" loading="lazy"></figure>
+            </div>
+
+            <button class="gc-btn gc-next" type="button" aria-label="Next">›</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIDEOS -->
+      <section id="videos" class="videos-section">
+        <div class="container">
+          <h2 class="section-title">Videos</h2>
+
+          <div class="video-carousel-wrap">
+            <button class="vc-btn vc-prev" type="button" aria-label="Previous">‹</button>
+
+            <div class="video-carousel" id="videoCarousel">
+              <div class="vc-item">
+                <div class="vc-frame">
+                  <iframe src="https://www.youtube.com/embed/Rz_Y3Tj6Rz4"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowfullscreen loading="lazy"></iframe>
+                </div>
+              </div>
+              <div class="vc-item">
+                <div class="vc-frame">
+                  <iframe src="https://www.youtube.com/embed/KlInbRyOCuY"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowfullscreen loading="lazy"></iframe>
+                </div>
+              </div>
+              <div class="vc-item">
+                <div class="vc-frame">
+                  <iframe src="https://www.youtube.com/embed/QTbz0BHjAzA"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowfullscreen loading="lazy"></iframe>
+                </div>
+              </div>
+              <div class="vc-item">
+                <div class="vc-frame">
+                  <iframe src="https://www.youtube.com/embed/xvvbYfiG_rk"
+                          frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowfullscreen loading="lazy"></iframe>
+                </div>
+              </div>
+            </div>
+
+            <button class="vc-btn vc-next" type="button" aria-label="Next">›</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- CURRENT NEEDS -->
+      <section class="card big-block" id="current-needs-en">
+        <h2 class="section-title">Current needs</h2>
+
+        <p>Right now your donations are primarily turned into:</p>
+
+        <p><strong>• Tools and equipment for truck and armored vehicle repair</strong><br>
+          Socket sets, wrenches, extensions, jacks, pullers, suspension tools,
+          pneumatic tools, extension cords and work lighting.
+        </p>
+
+        <p><strong>• Welding and consumables</strong><br>
+          Electrodes, wire, masks, gloves, extension cables — everything that allows us
+          to bring frames, bodies, mounts, tanks, protection and armored elements back to life.
+        </p>
+
+        <p><strong>• Spare parts and consumables</strong><br>
+          Filters, belts, brake pads, hoses, bearings, clamps, sensors, spark plugs, fasteners.
+          All the “little things” without which no major repair is possible.
+        </p>
+
+        <p><strong>• Fluids and oils</strong><br>
+          Engine and gearbox oils, brake fluid, coolant, lubricants for high-load assemblies.
+        </p>
+
+        <p><strong>• Diagnostics and electrics</strong><br>
+          Testers, multimeters, lamps, wiring, terminals, connectors, fuses — everything for quickly
+          identifying and fixing electrical problems.
+        </p>
+
+        <p><strong>• Logistics and work conditions</strong><br>
+          Generators, extension cords, lighting, plastic, tarps, gloves and work clothes —
+          so that we can work in the field in any weather.
+        </p>
+
+        <p>
+          Every hryvnia, euro or dollar in our hands becomes something very concrete:
+          a tool, a spare part, oil or welding — what gives a vehicle one more trip
+          and our people one more chance.
+        </p>
+      </section>
+
+      <!-- MISSION -->
+      <section class="card big-block" id="mission-en">
+        <h2 class="section-title">Our mission</h2>
+
+        <p>
+          Our mission is to provide uninterrupted mobility for the battalion and save the lives of our soldiers.
+        </p>
+
+        <p>
+          We repair and restore trucks and armored vehicles directly in the combat zone,
+          so that units can perform tasks without stopping.
+        </p>
+
+        <p>
+          We return to service the vehicles that transport ammunition, water, food, fuel
+          and evacuate the wounded.
+        </p>
+
+        <p>
+          We work at night, under shelling, in rain and cold, without normal conditions —
+          but we always finish the job.
+        </p>
+
+        <p>
+          Every tool, every part and every donation means one more vehicle trip,
+          one more completed mission and one saved life.
+        </p>
+      </section>
+
+      <!-- PRINCIPLES -->
+      <section class="card big-block" id="principles-en">
+        <h2 class="section-title">Our principles</h2>
+
+        <p>
+          There are no coincidences in the work of a technical support platoon.
+          We follow a few simple but strict principles that save vehicles and lives every day.
+        </p>
+
+        <div class="card-grid" style="margin-top:10px;">
+
+          <div class="card" style="min-height:160px;">
+            <h3>⚡ Speed</h3>
+            <p>
+              We react quickly to breakdowns, vehicle failures and unit requests.
+              In the field every minute matters — we do not waste time.
+            </p>
+          </div>
+
+          <div class="card" style="min-height:160px;">
+            <h3>🎯 Accuracy</h3>
+            <p>
+              Diagnostics, repair and adjustment — we aim for maximum quality.
+              An error in repair can cost a vehicle or a soldier’s life.
+            </p>
+          </div>
+
+          <div class="card" style="min-height:160px;">
+            <h3>🛠️ Professionalism</h3>
+            <p>
+              Everyone in the platoon knows their vehicles down to the last bolt.
+              We put experience, knowledge and hands into every machine that must move.
+            </p>
+          </div>
+
+          <div class="card" style="min-height:160px;">
+            <h3>💪 Responsibility</h3>
+            <p>
+              We understand the price of our work: a repaired vehicle = a completed mission.
+              We are responsible for the result, not the process.
+            </p>
+          </div>
+
+          <div class="card" style="min-height:160px;">
+            <h3>🚚 Mobility</h3>
+            <p>
+              We work anywhere: in the field, on dirt, under fire, in rain or frost.
+              No workshop? We build one from what we have.
+            </p>
+          </div>
+
+          <div class="card" style="min-height:160px;">
+            <h3>🔥 Resilience</h3>
+            <p>
+              We finish what we start. No excuses.
+              Vehicles must move — and they will.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- WHY SUPPORT VTZ -->
+      <section class="card big-block" id="why-tz-en">
+        <h2 class="section-title">Why supporting the technical support platoon matters</h2>
+
+        <p>
+          The work of the Technical Support Platoon often stays “behind the scenes”, but without us no unit moves.
+          Vehicles are the circulatory system of the front. If they stop — everything stops.
+        </p>
+
+        <ul style="margin-left:18px; margin-top:6px; font-size:13px; opacity:0.95; display:grid; gap:4px;">
+          <li>🚚 <strong>Without trucks there is no delivery.</strong><br>
+            Ammunition, water, food, rotations — everything depends on vehicles.</li>
+
+          <li>🏥 <strong>Without working vehicles there is no casualty evacuation.</strong><br>
+            If a vehicle does not start — the wounded may not reach stabilization in time.</li>
+
+          <li>⚙️ <strong>Without repair there is no mobility.</strong><br>
+            Infantry, UAV units, reconnaissance, engineers — all depend on the ability to move.</li>
+
+          <li>🛠️ <strong>We repair directly at the frontline.</strong><br>
+            We recover under fire, repair in the field, at night, in rain, by the light of a flashlight.</li>
+
+          <li>🔥 <strong>Every donation = a concrete result.</strong><br>
+            Tool → repair → vehicle back in service → mission completed → lives saved.</li>
+        </ul>
+
+        <p style="margin-top:10px; font-size:12px; opacity:0.8;">
+          Supporting the Technical Support Platoon is one of the most effective contributions to defence:
+          it directly turns into working vehicles and saved lives.
+        </p>
+      </section>
+
+      <!-- CURRENT REPAIRS -->
+      <section class="card big-block" id="current-repairs-en">
+        <h2 class="section-title">Vehicles currently in work</h2>
+
+        <p>
+          A small part of what we are working on now. Updated manually.
+        </p>
+
+        <div class="card-grid" style="margin-top:10px;">
+
+          <div class="card" style="min-height:180px;">
+            <h3>URAL-43203</h3>
+            <small style="opacity:0.75;">Status:</small>
+            <p>
+              <strong>🔧 In progress:</strong> full service, line replacement,
+              searching for pressure leaks and brake adjustment.
+            </p>
+          </div>
+
+          <div class="card" style="min-height:180px;">
+            <h3>GAZ-66</h3>
+            <small style="opacity:0.75;">Status:</small>
+            <p>
+              <strong>⏳ Awaiting spare parts:</strong> gasket set, seals, mounts and bushings.
+            </p>
+          </div>
+
+          <div class="card" style="min-height:180px;">
+            <h3>Passenger vehicles</h3>
+            <small style="opacity:0.75;">Status:</small>
+            <p>
+              <strong>🔥 After evacuation:</strong> Full suspension replacement, hub bearing replacement,
+              CV joint repair and steering tie rod check.
+            </p>
+          </div>
+
+        </div>
+
+        <p style="font-size:12px; opacity:0.75; margin-top:10px;">
+          If you want to fully cover one of these items — contact us and we will send a specific list
+          of spare parts or tools needed.
+        </p>
+      </section>
+
+      <!-- FOR FUNDS / LARGE DONORS -->
+      <section class="card big-block" id="funds-request-en">
+        <h2 class="section-title">For foundations, organizations and large donors</h2>
+
+        <p>
+          If you represent a foundation, volunteer initiative, business or are a large donor —
+          you can fill in the short form below and we will receive a structured request from you.
+        </p>
+
+        <p style="margin-bottom:8px;">
+          Priority support areas: tools, equipment, spare parts, welding, diagnostics, oils
+          and everything related to repair and maintenance of trucks and armored vehicles of the battalion.
+        </p>
+
+        <form id="fundsFormEn" onsubmit="handleFundsEn(event)" style="margin-top:6px; display:grid; gap:8px;">
+          <div>
+            <label for="org_en" style="font-size:13px;">Organization / foundation / company*</label><br>
+            <input id="org_en" name="org" required
+                   style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
+          </div>
+
+          <div style="display:grid; gap:8px;">
+            <div>
+              <label for="person_en" style="font-size:13px;">Contact person*</label><br>
+              <input id="person_en" name="person" required
+                     style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
+            </div>
+
+            <div>
+              <label for="email_en" style="font-size:13px;">Email*</label><br>
+              <input id="email_en" name="email" type="email" required
+                     style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
+            </div>
+
+            <div>
+              <label for="telegram_en" style="font-size:13px;">Telegram / phone (optional)</label><br>
+              <input id="telegram_en" name="telegram"
+                     placeholder="@username or phone number"
+                     style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
+            </div>
+          </div>
+
+          <div>
+            <label for="country_en" style="font-size:13px;">Country / city</label><br>
+            <input id="country_en" name="country"
+                   style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
+          </div>
+
+          <div>
+            <label for="type_en" style="font-size:13px;">What type of support are you considering?*</label><br>
+            <select id="type_en" name="supportType" required
+                    style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.85); color:#fff; font-size:13px;">
+              <option value="">Choose an option</option>
+              <option value="Tools and equipment">Tools and equipment</option>
+              <option value="Spare parts / consumables">Spare parts / consumables</option>
+              <option value="Welding and metal">Welding and metal</option>
+              <option value="Diagnostics and electrics">Diagnostics and electrics</option>
+              <option value="Comprehensive / long-term support">Comprehensive / long-term support</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="budget_en" style="font-size:13px;">Approximate budget or support format</label><br>
+            <input id="budget_en" name="budget"
+                   placeholder="amount, range or “equipment / tools / spare parts”"
+                   style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
+          </div>
+
+          <div>
+            <label for="comment_en" style="font-size:13px;">Comment / details</label><br>
+            <textarea id="comment_en" name="comment" rows="4"
+                      placeholder="Briefly describe what you are considering, terms, conditions, etc."
+                      style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px; resize:vertical;"></textarea>
+          </div>
+
+          <button type="submit" class="donate-btn" style="margin-top:4px; align-self:flex-start;">
+            Fill in and create an email
+          </button>
+
+          <p style="font-size:11px; opacity:0.75;">
+            After clicking, your email client will open with a ready-made letter to
+            <strong>nadelnuikviktor@gmail.com</strong> containing all the data you entered.
+          </p>
+        </form>
+      </section>
+
+      <!-- PERMANENT FUNDRAISER -->
+      <section class="card big-block" id="progress-en">
+        <h2 class="section-title">Ongoing fundraiser</h2>
+
+        <p class="progress-text">
+          This is an open-ended fundraiser for the daily work of the Technical Support Platoon:
+          tools, spare parts, oils, welding, diagnostics and field workshop needs.
+          Every contribution helps keep vehicles in service.
+        </p>
+
+        <div class="progress-track">
+          <div id="progress-fill-en" class="progress-fill" data-label="Active fundraiser"></div>
+        </div>
+
+        <div class="progress-meta">
+          <span id="progress-text-en">Active fundraiser</span>
+          <span>Ongoing collection · Updated: 01.12.2025</span>
+        </div>
+      </section>
+
       <!-- FAQ -->
       <section class="card big-block" id="faq-en">
-        <h2 class="section-title">FAQ</h2>
+        <h2 class="section-title">Questions and answers</h2>
 
         <details style="margin-bottom:6px;">
           <summary style="cursor:pointer; font-weight:600; font-size:14px;">
-            Are you an official Ukrainian Armed Forces unit?
+            Are you an official unit of the Armed Forces of Ukraine?
           </summary>
           <p style="margin-top:4px; font-size:13px;">
-            Yes. We are the technical support platoon of a motorized infantry battalion within the 142nd Separate Mechanized Brigade.
-            All vehicles we work with are officially assigned to Ukrainian Armed Forces units.
+            Yes. We are the Technical Support Platoon of the mechanized infantry battalion
+            of the 142nd Separate Mechanized Brigade.
+            All the vehicles we work with are officially assigned to AFU units.
           </p>
         </details>
 
         <details style="margin-bottom:6px;">
           <summary style="cursor:pointer; font-weight:600; font-size:14px;">
-            What exactly are donations used for?
+            What exactly do donations go to?
           </summary>
           <p style="margin-top:4px; font-size:13px;">
-            Primarily for tools, spare parts, consumables, oils, welding, diagnostics and basic conditions
-            for a field workshop. In other words, directly for what allows us to repair trucks and armored vehicles
-            so they can continue performing combat missions.
+            Primarily to tools, spare parts, consumables, oils, welding, diagnostics
+            and basic conditions for a field workshop. In other words — directly to what allows us
+            to repair trucks and armored vehicles so they can continue performing missions.
           </p>
         </details>
 
@@ -1655,69 +2064,70 @@
             Can I help not with money but with tools or spare parts?
           </summary>
           <p style="margin-top:4px; font-size:13px;">
-            Yes. If you are ready to provide tools, equipment, spare parts or other materials,
-            please contact us via <strong>Email</strong> <a href="mailto:nadelnuikviktor@gmail.com">nadelnuikviktor@gmail.com</a>
-            or <strong>Telegram</strong> <code>@DOFAMIN95</code>, and we will send a list of current needs and delivery details.
+            Yes. If you are ready to provide tools, equipment, spare parts or other materials —
+            write to <strong><a href="mailto:nadelnuikviktor@gmail.com">nadelnuikviktor@gmail.com</a></strong>
+            or in <strong>Telegram</strong> <code>@DOFAMIN95</code>, and we will send a list of current needs
+            and details regarding delivery.
           </p>
         </details>
 
         <details style="margin-bottom:6px;">
           <summary style="cursor:pointer; font-weight:600; font-size:14px;">
-            Do you provide reports on the funds spent?
+            Do you provide reports on donations?
           </summary>
           <p style="margin-top:4px; font-size:13px;">
-            Yes. For foundations, major donors and initiatives we can prepare a separate report:
-            photos, list of purchased items, how exactly the funds were used and how this helped the platoon’s work.
-            Just contact us through the form for foundations or directly via email.
+            Yes. For foundations, large donors and initiatives we can prepare a separate report:
+            photos, list of purchased items, description of what the funds were used for and how it helped the platoon.
+            Just contact us through the form on the site or directly via email.
           </p>
         </details>
 
         <details>
           <summary style="cursor:pointer; font-weight:600; font-size:14px;">
-            Can we publicly mention your unit or use photos with vehicles?
+            Can we publicly mention your unit or use photos of vehicles?
           </summary>
           <p style="margin-top:4px; font-size:13px;">
-            We coordinate such things separately with security in mind. If you are a foundation, media outlet or company
-            and want to publicly mention the unit or use photos — please write to us and we’ll tell you what can be published
-            and what needs to be restricted.
+            Such things we coordinate separately, considering security.
+            If you are a foundation, media or company and want to publicly mention the unit or use photos —
+            write to us, and we will clarify what can and cannot be shown.
           </p>
         </details>
       </section>
 
       <!-- SHARE -->
       <section class="card big-block" id="share-en">
-        <h2 class="section-title">Share with others</h2>
+        <h2 class="section-title">Spread the word</h2>
 
         <p>
-          You can help not only with a donation but also by spreading the word about the technical support platoon.
-          Copy a ready-made text or share the page directly in your favorite messenger or social network.
+          You can help not only with donations but also by sharing this page.
+          Copy the ready-made text or share this page in your messenger or social network.
         </p>
 
         <div class="btn-row" style="margin-top:10px; margin-bottom:14px;">
           <button class="donate-btn"
                   type="button"
-                  onclick="copyText('Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade. They repair trucks and armored vehicles right at the frontline so that vehicles keep moving and soldiers return alive. If you can, please support with a donation or by sharing this link: https://viktornadelniuk.github.io/DOFAMIN95/en.html')">
-            Copy English text
+                  onclick="copyText('Hi! This is a fundraising page for the Technical Support Platoon of the 142nd Brigade (mechanized infantry battalion). They repair trucks and armored vehicles right at the frontline so that vehicles keep moving, supplies and fuel arrive, and the wounded can be evacuated. If you can, please support with a donation or by sharing this link: https://viktornadelniuk.github.io/DOFAMIN95/en.html')">
+            Copy text in English
           </button>
 
           <button class="donate-btn"
                   type="button"
-                  onclick="copyText('Привіт! Це збір для взводу технічного забезпечення 142 ОМБр. Хлопці ремонтують вантажівки та броню прямо на передовій, щоб техніка їхала і всі повертались живими. Якщо маєш змогу — підтримай гривнею, репостом або словом: https://viktornadelniuk.github.io/DOFAMIN95/')">
-            Copy Ukrainian text
+                  onclick="copyText('Привіт! Це збір для взводу технічного забезпечення мотопіхотного батальйону 142 ОМБр. Ми ремонтуємо техніку, яка возить боєкомплект, ПММ, їжу та евакуює поранених. Якщо маєш змогу — підтримай донатом або поширенням: https://viktornadelniuk.github.io/DOFAMIN95/')">
+            Copy text in Ukrainian
           </button>
         </div>
 
         <div class="btn-row">
           <button class="donate-btn" type="button" onclick="shareEn('telegram')">
-            Share on Telegram
+            Share in Telegram
           </button>
 
           <button class="donate-btn" type="button" onclick="shareEn('viber')">
-            Share on Viber
+            Share in Viber
           </button>
 
           <button class="donate-btn" type="button" onclick="shareEn('whatsapp')">
-            Share on WhatsApp
+            Share in WhatsApp
           </button>
 
           <button class="donate-btn" type="button" onclick="shareEn('facebook')">
@@ -1725,7 +2135,7 @@
           </button>
 
           <button class="donate-btn" type="button" onclick="shareEn('instagram')">
-            Share on Instagram
+            Share in Instagram
           </button>
         </div>
       </section>
@@ -1744,7 +2154,7 @@
       </div>
 
       <footer>
-        Thank you for supporting the technical support platoon of the 142nd Brigade.<br>
+        Thank you for supporting the Technical Support Platoon of the 142nd Brigade.<br>
         Your help keeps vehicles in service — and our soldiers alive.
         <div id="visitor-counter-en" style="margin-top:6px; font-size:11px; opacity:0.75;"></div>
       </footer>
@@ -1805,7 +2215,7 @@
   }
 
   // Sharing (EN)
-  const SHARE_TEXT_EN = 'Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade. They repair trucks and armored vehicles right at the frontline so that vehicles keep moving and soldiers return alive.';
+  const SHARE_TEXT_EN = 'Hi! This is a fundraising page for the Technical Support Platoon of the 142nd Brigade. They repair vehicles that carry ammo, fuel, food and evacuate the wounded.';
   const SHARE_URL_EN  = 'https://viktornadelniuk.github.io/DOFAMIN95/en.html';
 
   function shareEn(service) {
@@ -1847,7 +2257,7 @@
     var lightbox = document.getElementById('lightbox');
     if (!lightbox) return;
 
-    var images = document.querySelectorAll('.gallery-item img');
+    var images = document.querySelectorAll('.gc-item img');
     if (!images.length) return;
 
     var lightboxImg = document.getElementById('lightbox-img');
@@ -1950,18 +2360,18 @@
     });
   })();
 
-  // VISITOR COUNTER (as "people who opened the support page")
+  // VISITOR COUNTER (EN)
   (function () {
     var el = document.getElementById('visitor-counter-en');
     if (!el) return;
 
-    fetch('https://api.countapi.xyz/hit/vtz-142omb/site')
+    fetch('https://api.countapi.xyz/hit/vtz-142omb/site-en')
       .then(function (res) { return res.json(); })
       .then(function (data) {
-        el.textContent = 'People who visited this support page (views): ' + data.value;
+        el.textContent = 'Visitors who opened this support page (views): ' + data.value;
       })
       .catch(function () {
-        el.textContent = 'People who visited this support page: —';
+        el.textContent = 'Visitors who opened this page: —';
       });
   })();
 
@@ -1979,10 +2389,10 @@
     var budget   = form.budget.value.trim();
     var comment  = form.comment.value.trim();
 
-    var subject = 'Support inquiry from: ' + (org || 'no organization name');
+    var subject = 'Support request from: ' + (org || 'no organization name');
 
     var body =
-      'Organization / fund / company: ' + org + '\n' +
+      'Organization / foundation / company: ' + org + '\n' +
       'Contact person: ' + person + '\n' +
       'Email: ' + email + '\n' +
       'Telegram / phone: ' + (telegram || '-') + '\n' +
@@ -1991,7 +2401,7 @@
       'Approximate budget / format: ' + (budget || '-') + '\n' +
       '---\n' +
       'Comment / details:\n' + (comment || '-') + '\n\n' +
-      'Sent via the technical support platoon website (142nd Brigade).';
+      'Submitted via the support form on the Technical Support Platoon page (142nd Brigade).';
 
     var mailto =
       'mailto:nadelnuikviktor@gmail.com'
@@ -2001,7 +2411,7 @@
     window.location.href = mailto;
   }
 
-  // "Support platoon" buttons in each big block
+  // “SUPPORT THE PLATOON” BUTTON IN LARGE BLOCKS
   (function () {
     var blocks = document.querySelectorAll('.big-block');
     blocks.forEach(function (block) {
@@ -2020,19 +2430,104 @@
     });
   })();
 
-  // DONATION PROGRESS (EN) — no sums, just "Fundraiser active"
+  // DONATION PROGRESS (EN)
   (function () {
     var fill = document.getElementById('progress-fill-en');
     var text = document.getElementById('progress-text-en');
     if (!fill || !text) return;
 
-    var percent = 40; // just to make the bar visible
+    var percent = 40;  // visual, not real
 
     fill.style.width = percent + '%';
-    fill.setAttribute('data-label', 'Fundraiser active');
+    fill.setAttribute('data-label', 'Active fundraiser');
 
-    text.textContent = 'Fundraiser active';
+    text.textContent = 'Active fundraiser';
   })();
 </script>
+
+<script>
+  (function(){
+    const track = document.getElementById('videoCarousel');
+    if(!track) return;
+
+    const prev = document.querySelector('#videos .vc-prev');
+    const next = document.querySelector('#videos .vc-next');
+
+    function getStep(){
+      const first = track.querySelector('.vc-item');
+      if(!first) return 300;
+      const gap = parseInt(getComputedStyle(track).gap || '14', 10);
+      return first.getBoundingClientRect().width + gap;
+    }
+
+    prev && prev.addEventListener('click', () => {
+      track.scrollBy({ left: -getStep(), behavior: 'smooth' });
+    });
+
+    next && next.addEventListener('click', () => {
+      track.scrollBy({ left: getStep(), behavior: 'smooth' });
+    });
+  })();
+</script>
+
+<script>
+  (function(){
+    const track = document.getElementById('galleryCarousel');
+    if(!track) return;
+
+    const prev = document.querySelector('#gallery .gc-prev');
+    const next = document.querySelector('#gallery .gc-next');
+
+    function step(){
+      const first = track.querySelector('.gc-item');
+      if(!first) return 320;
+      const gap = parseInt(getComputedStyle(track).gap || '14', 10);
+      return first.getBoundingClientRect().width + gap;
+    }
+
+    prev && prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+    next && next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+  })();
+</script>
+
+<a href="#donate" class="mobile-donate-btn">Support the platoon</a>
+<script>
+  (function(){
+    const btn = document.querySelector('.mobile-donate-btn');
+    const donate = document.getElementById('donate');
+    if(!btn || !donate) return;
+
+    const obs = new IntersectionObserver(([e]) => {
+      btn.style.display = e.isIntersecting ? 'none' : '';
+    }, { threshold: 0.2 });
+
+    obs.observe(donate);
+  })();
+</script>
+
+<script>
+  (function(){
+    const track = document.getElementById('teamCarouselEN');
+    if(!track) return;
+
+    const prev = document.querySelector('#team-en .tc-prev');
+    const next = document.querySelector('#team-en .tc-next');
+
+    function step(){
+      const card = track.querySelector('.team-slide');
+      const gap = 14;
+      return card ? (card.getBoundingClientRect().width + gap) : 320;
+    }
+
+    prev && prev.addEventListener('click', () => {
+      track.scrollBy({ left: -step(), behavior: 'smooth' });
+    });
+
+    next && next.addEventListener('click', () => {
+      track.scrollBy({ left: step(), behavior: 'smooth' });
+    });
+  })();
+</script>
+
 </body>
 </html>
