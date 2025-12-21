@@ -1,11 +1,6 @@
-
-
-
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="uk">
 <head>
-	
-
   <meta charset="UTF-8">
   <title>Підтримати · Взвод технічного забезпечення · 142 ОМБр</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,7 +31,6 @@
     gtag('js', new Date());
     gtag('config', 'G-Y0HDG5SKZX');
   </script>
-
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -851,359 +845,366 @@
         width: 110px;
       }
     }
-	  /* ===== Відео iframe ===== */
-.gal__slide iframe{
-  width:100%;
-  aspect-ratio:16/9;
-  border:0;
-  display:block;
-}
-/* === DONATE BUTTON SHINE EFFECT === */
-.mobile-donate-btn{
-  position: fixed;
-  overflow: hidden;
-}
 
-.mobile-donate-btn::before{
-  content:"";
-  position:absolute;
-  top:-40%;
-  left:-30%;
-  width: 40%;
-  height: 180%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,0.40),
-    transparent
-  );
-  transform: rotate(18deg);
-  animation: shine 3.2s infinite;
-  opacity: 0.55;
-}
+    /* ===== Відео iframe ===== */
+    .gal__slide iframe{
+      width:100%;
+      aspect-ratio:16/9;
+      border:0;
+      display:block;
+    }
 
-@keyframes shine{
-  0%{ transform: translateX(-140%) rotate(18deg); }
-  45%{ transform: translateX(320%) rotate(18deg); }
-  100%{ transform: translateX(320%) rotate(18deg); }
-}
+    /* === DONATE BUTTON SHINE EFFECT === */
+    .mobile-donate-btn{
+      position: fixed;
+      overflow: hidden;
+    }
 
+    .mobile-donate-btn::before{
+      content:"";
+      position:absolute;
+      top:-40%;
+      left:-30%;
+      width: 40%;
+      height: 180%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.40),
+        transparent
+      );
+      transform: rotate(18deg);
+      animation: shine 3.2s infinite;
+      opacity: 0.55;
+    }
+
+    @keyframes shine{
+      0%{ transform: translateX(-140%) rotate(18deg); }
+      45%{ transform: translateX(320%) rotate(18deg); }
+      100%{ transform: translateX(320%) rotate(18deg); }
+    }
   </style>
-	<link rel="stylesheet" href="supporters.css">
-<style>
-/* === VIDEO GRID FIX === */
-#videos .video-grid{
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 16px !important;
-}
 
-#videos .video-card{
-  width: auto !important;
-}
+  <link rel="stylesheet" href="supporters.css">
 
-@media (max-width: 900px){
-  #videos .video-grid{
-    grid-template-columns: 1fr !important;
-  }
-}
-</style>
-<style>
-/* === VIDEO CAROUSEL (slider) === */
-#videos .video-carousel-wrap{
-  position: relative;
-  margin-top: 16px;
-  padding: 10px 46px;           /* місце під кнопки */
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.06);
-  overflow: hidden;
-}
+  <style>
+    /* === VIDEO GRID FIX === */
+    #videos .video-grid{
+      display: grid !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      gap: 16px !important;
+    }
 
-#videos .video-carousel{
-  display: flex !important;
-  gap: 14px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 8px;
-}
+    #videos .video-card{
+      width: auto !important;
+    }
 
-#videos .video-carousel::-webkit-scrollbar{ height: 8px; }
-#videos .video-carousel::-webkit-scrollbar-thumb{ background: rgba(255,255,255,0.25); border-radius: 20px; }
-#videos .video-carousel::-webkit-scrollbar-track{ background: rgba(255,255,255,0.08); border-radius: 20px; }
+    @media (max-width: 900px){
+      #videos .video-grid{
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
 
-#videos .vc-item{
-  flex: 0 0 320px;              /* ширина одного слайду */
-  scroll-snap-align: start;
-}
+  <style>
+    /* === VIDEO CAROUSEL (slider) === */
+    #videos .video-carousel-wrap{
+      position: relative;
+      margin-top: 16px;
+      padding: 10px 46px;           /* місце під кнопки */
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      overflow: hidden;
+    }
 
-#videos .vc-frame{
-  position: relative;
-  width: 100%;
-  padding-top: 177.78%;         /* 9:16 */
-  border-radius: 16px;
-  overflow: hidden;
-}
+    #videos .video-carousel{
+      display: flex !important;
+      gap: 14px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 8px;
+    }
 
-#videos .vc-frame iframe{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
+    #videos .video-carousel::-webkit-scrollbar{ height: 8px; }
+    #videos .video-carousel::-webkit-scrollbar-thumb{ background: rgba(255,255,255,0.25); border-radius: 20px; }
+    #videos .video-carousel::-webkit-scrollbar-track{ background: rgba(255,255,255,0.08); border-radius: 20px; }
 
-/* кнопки */
-#videos .vc-btn{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.22);
-  background: rgba(0,0,0,0.55);
-  color: #fff;
-  font-size: 22px;
-  line-height: 32px;
-  cursor: pointer;
-  z-index: 5;
-}
+    #videos .vc-item{
+      flex: 0 0 320px;              /* ширина одного слайду */
+      scroll-snap-align: start;
+    }
 
-#videos .vc-prev{ left: 10px; }
-#videos .vc-next{ right: 10px; }
+    #videos .vc-frame{
+      position: relative;
+      width: 100%;
+      padding-top: 177.78%;         /* 9:16 */
+      border-radius: 16px;
+      overflow: hidden;
+    }
 
-@media (max-width: 420px){
-  #videos .vc-item{ flex-basis: 260px; }
-  #videos .video-carousel-wrap{ padding: 10px 42px; }
-}
-</style>
-<style>
-/* ===== GALLERY BLOCK + CAROUSEL ===== */
-#gallery.gallery-section{ padding: 40px 0; }
+    #videos .vc-frame iframe{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
 
-#gallery .gallery-head{
-  display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
-}
+    /* кнопки */
+    #videos .vc-btn{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      font-size: 22px;
+      line-height: 32px;
+      cursor: pointer;
+      z-index: 5;
+    }
 
-#gallery .btn-support{
-  display:inline-block; padding:12px 16px; border-radius:14px;
-  border:1px solid rgba(255,255,255,.22); background:rgba(0,0,0,.55); color:#fff; text-decoration:none;
-}
+    #videos .vc-prev{ left: 10px; }
+    #videos .vc-next{ right: 10px; }
 
-#gallery .gallery-carousel-wrap{
-  position:relative; margin-top:16px; padding:10px 46px;
-  border-radius:18px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.06);
-  overflow:hidden;
-}
+    @media (max-width: 420px){
+      #videos .vc-item{ flex-basis: 260px; }
+      #videos .video-carousel-wrap{ padding: 10px 42px; }
+    }
+  </style>
 
-#gallery .gallery-carousel{
-  display:flex !important;
-  gap:14px;
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  scroll-behavior:smooth;
-  -webkit-overflow-scrolling:touch;
-  padding-bottom:8px;
-}
+  <style>
+    /* ===== GALLERY BLOCK + CAROUSEL ===== */
+    #gallery.gallery-section{ padding: 40px 0; }
 
-#gallery .gc-item{
-  flex:0 0 420px;
-  scroll-snap-align:start;
-  margin:0;
-  border-radius:16px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(0,0,0,.35);
-}
+    #gallery .gallery-head{
+      display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
+    }
 
-#gallery .gc-item img{
-  width:100%;
-  height:280px;
-  display:block;
-  object-fit:cover;
-}
+    #gallery .btn-support{
+      display:inline-block; padding:12px 16px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.22); background:rgba(0,0,0,.55); color:#fff; text-decoration:none;
+    }
 
-#gallery .gc-btn{
-  position:absolute; top:50%; transform:translateY(-50%);
-  width:34px; height:34px; border-radius:999px;
-  border:1px solid rgba(255,255,255,.22);
-  background:rgba(0,0,0,.55);
-  color:#fff; font-size:22px; line-height:32px;
-  cursor:pointer; z-index:5;
-}
+    #gallery .gallery-carousel-wrap{
+      position:relative; margin-top:16px; padding:10px 46px;
+      border-radius:18px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.06);
+      overflow:hidden;
+    }
 
-#gallery .gc-prev{ left:10px; }
-#gallery .gc-next{ right:10px; }
+    #gallery .gallery-carousel{
+      display:flex !important;
+      gap:14px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      scroll-behavior:smooth;
+      -webkit-overflow-scrolling:touch;
+      padding-bottom:8px;
+    }
 
-@media (max-width:520px){
-  #gallery .gc-item{ flex-basis:300px; }
-  #gallery .gc-item img{ height:220px; }
-  #gallery .gallery-carousel-wrap{ padding:10px 42px; }
-}
-</style>
-<style>
-<style>
-/* === MOBILE FIXED DONATE BUTTON === */
-.mobile-donate-btn{
-  position: fixed;
-  left: 16px;
-  right: 16px;
-  bottom: 14px;
-  z-index: 999;
-  display: none;
-  text-align: center;
-  padding: 14px 16px;
-  border-radius: 16px;
-  background: rgba(0,0,0,0.85);
-  border: 1px solid rgba(255,255,255,0.25);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  backdrop-filter: blur(6px);
-}
+    #gallery .gc-item{
+      flex:0 0 420px;
+      scroll-snap-align:start;
+      margin:0;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.35);
+    }
 
-@media (max-width: 768px){
-  .mobile-donate-btn{ display: block; }
-}
-</style>
-<style>
-.mobile-donate-btn{
-  position: fixed;
-  left: 16px;
-  right: 16px;
-  bottom: 14px;
-  z-index: 99999;
-  display: none !important;
-  text-align: center;
-  padding: 14px 16px;
-  border-radius: 16px;
-  background: rgba(0,0,0,0.85);
-  border: 1px solid rgba(255,255,255,0.25);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-  backdrop-filter: blur(6px);
-}
+    #gallery .gc-item img{
+      width:100%;
+      height:280px;
+      display:block;
+      object-fit:cover;
+    }
 
-@media (max-width: 768px){
-  .mobile-donate-btn{ display: block !important; }
-}
-</style>
-<style>
-/* === MOBILE DONATE BUTTON BASE === */
-.mobile-donate-btn{
-  position: fixed;
-  left: 16px;
-  right: 16px;
-  bottom: 14px;
-  z-index: 99999;
-  display: none !important;
-  text-align: center;
-  padding: 14px 16px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, rgba(255,200,60,0.95), rgba(255,160,20,0.95));
-  border: 1px solid rgba(255,255,255,0.25);
-  color: #0b0b0b;
-  text-decoration: none;
-  font-weight: 700;
-  box-shadow:
-    0 10px 26px rgba(0,0,0,0.45),
-    0 0 0 0 rgba(255,180,40,0.55);
+    #gallery .gc-btn{
+      position:absolute; top:50%; transform:translateY(-50%);
+      width:34px; height:34px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(0,0,0,.55);
+      color:#fff; font-size:22px; line-height:32px;
+      cursor:pointer; z-index:5;
+    }
 
-  animation: donatePulse 1.8s ease-in-out infinite;
-}
+    #gallery .gc-prev{ left:10px; }
+    #gallery .gc-next{ right:10px; }
 
-/* показуємо ТІЛЬКИ на мобільних */
-@media (max-width: 768px){
-  .mobile-donate-btn{ display: block !important; }
-}
+    @media (max-width:520px){
+      #gallery .gc-item{ flex-basis:300px; }
+      #gallery .gc-item img{ height:220px; }
+      #gallery .gallery-carousel-wrap{ padding:10px 42px; }
+    }
+  </style>
 
-/* === PULSE ANIMATION === */
-@keyframes donatePulse{
-  0%{
-    box-shadow:
-      0 10px 26px rgba(0,0,0,0.45),
-      0 0 0 0 rgba(255,180,40,0.55);
-    filter: brightness(1);
-  }
-  60%{
-    box-shadow:
-      0 12px 30px rgba(0,0,0,0.5),
-      0 0 0 14px rgba(255,180,40,0);
-    filter: brightness(1.05);
-  }
-  100%{
-    box-shadow:
-      0 10px 26px rgba(0,0,0,0.45),
-      0 0 0 0 rgba(255,180,40,0);
-    filter: brightness(1);
-  }
-}
+  <style>
+    /* === MOBILE FIXED DONATE BUTTON === */
+    .mobile-donate-btn{
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 14px;
+      z-index: 999;
+      display: none;
+      text-align: center;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(0,0,0,0.85);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      backdrop-filter: blur(6px);
+    }
 
-/* якщо у користувача вимкнені анімації */
-@media (prefers-reduced-motion: reduce){
-  .mobile-donate-btn{ animation: none; }
-}
-</style>
-<style>
-/* === TEAM CAROUSEL (UA) === */
-#team-ua .team-carousel-wrap{
-  position: relative;
-  padding: 10px 46px;
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.06);
-  overflow: hidden;
-}
+    @media (max-width: 768px){
+      .mobile-donate-btn{ display: block; }
+    }
+  </style>
 
-#team-ua .team-carousel{
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
-  gap: 14px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 8px;
-}
+  <style>
+    .mobile-donate-btn{
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 14px;
+      z-index: 99999;
+      display: none !important;
+      text-align: center;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(0,0,0,0.85);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      backdrop-filter: blur(6px);
+    }
 
-#team-ua .team-slide{
-  flex: 0 0 340px !important;
-  width: 340px !important;
-  max-width: 340px !important;
-  scroll-snap-align: start;
-  min-height: 190px;
-}
+    @media (max-width: 768px){
+      .mobile-donate-btn{ display: block !important; }
+    }
+  </style>
 
-#team-ua .tc-btn{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.60);
-  border: 1px solid rgba(255,255,255,0.25);
-  color: #fff;
-  cursor: pointer;
-  z-index: 50;
-}
+  <style>
+    /* === MOBILE DONATE BUTTON BASE === */
+    .mobile-donate-btn{
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 14px;
+      z-index: 99999;
+      display: none !important;
+      text-align: center;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(255,200,60,0.95), rgba(255,160,20,0.95));
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #0b0b0b;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow:
+        0 10px 26px rgba(0,0,0,0.45),
+        0 0 0 0 rgba(255,180,40,0.55);
+      animation: donatePulse 1.8s ease-in-out infinite;
+    }
 
-#team-ua .tc-prev{ left: 8px; }
-#team-ua .tc-next{ right: 8px; }
+    /* показуємо ТІЛЬКИ на мобільних */
+    @media (max-width: 768px){
+      .mobile-donate-btn{ display: block !important; }
+    }
 
-@media (max-width: 520px){
-  #team-ua .team-slide{
-    flex-basis: 280px !important;
-    width: 280px !important;
-    max-width: 280px !important;
-  }
-}
-</style>
+    /* === PULSE ANIMATION === */
+    @keyframes donatePulse{
+      0%{
+        box-shadow:
+          0 10px 26px rgba(0,0,0,0.45),
+          0 0 0 0 rgba(255,180,40,0.55);
+        filter: brightness(1);
+      }
+      60%{
+        box-shadow:
+          0 12px 30px rgba(0,0,0,0.5),
+          0 0 0 14px rgba(255,180,40,0);
+        filter: brightness(1.05);
+      }
+      100%{
+        box-shadow:
+          0 10px 26px rgba(0,0,0,0.45),
+          0 0 0 0 rgba(255,180,40,0);
+        filter: brightness(1);
+      }
+    }
+
+    /* якщо у користувача вимкнені анімації */
+    @media (prefers-reduced-motion: reduce){
+      .mobile-donate-btn{ animation: none; }
+    }
+  </style>
+
+  <style>
+    /* === TEAM CAROUSEL (UA) === */
+    #team-ua .team-carousel-wrap{
+      position: relative;
+      padding: 10px 46px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      overflow: hidden;
+    }
+
+    #team-ua .team-carousel{
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      gap: 14px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 8px;
+    }
+
+    #team-ua .team-slide{
+      flex: 0 0 340px !important;
+      width: 340px !important;
+      max-width: 340px !important;
+      scroll-snap-align: start;
+      min-height: 190px;
+    }
+
+    #team-ua .tc-btn{
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.60);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      cursor: pointer;
+      z-index: 50;
+    }
+
+    #team-ua .tc-prev{ left: 8px; }
+    #team-ua .tc-next{ right: 8px; }
+
+    @media (max-width: 520px){
+      #team-ua .team-slide{
+        flex-basis: 280px !important;
+        width: 280px !important;
+        max-width: 280px !important;
+      }
+    }
+  </style>
 
 </head>
 <body>
@@ -1223,10 +1224,6 @@
         <div class="lang-switch">
           <a href="index.html" class="active">UA</a>
           <a href="en.html">EN</a>
-          <a href="pl.html">PL</a>
-          <a href="de.html">DE</a>
-          <a href="es.html">ES</a>
-          <a href="fr.html">FR</a>
         </div>
       </div>
 
@@ -1405,56 +1402,55 @@
           </div>
         </section>
       </div>
-<!-- ===== ПІДТРИМАЛИ  ===== -->
-<section id="supporters" class="thx-wrap">
-  <div class="thx-inner">
-    <div class="thx-head">
-      <h2 class="thx-title">Підтримали </h2>
-      <p class="thx-sub">
-        Це реальна допомога , без публічності. Дякуємо Юрію та Володимиру, хто робить тихо — але по ділу.
-      </p>
-    </div>
 
-    <div class="thx-grid">
-      <article class="thx-card">
-        <a class="thx-media" href="assets/support/support-01.jpg" target="_blank" rel="noopener">
-          <img src="assets/support/support-01.jpg" alt="Анонімна підтримка підрозділу" loading="lazy">
-        </a>
-        <div class="thx-body">
-          <div class="thx-top">
-            <div class="thx-name">Анонімна підтримка</div>
-            <div class="thx-badge">Генератор</div>
+      <!-- ===== ПІДТРИМАЛИ  ===== -->
+      <section id="supporters" class="thx-wrap">
+        <div class="thx-inner">
+          <div class="thx-head">
+            <h2 class="thx-title">Підтримали</h2>
+            <p class="thx-sub">
+              Це реальна допомога, без публічності. Дякуємо Юрію та Володимиру, хто робить тихо — але по ділу.
+            </p>
           </div>
-          <div class="thx-text">
-            Передані обладнання для ремонтів. 
+
+          <div class="thx-grid">
+            <article class="thx-card">
+              <a class="thx-media" href="assets/support/support-01.jpg" target="_blank" rel="noopener">
+                <img src="assets/support/support-01.jpg" alt="Анонімна підтримка підрозділу" loading="lazy">
+              </a>
+              <div class="thx-body">
+                <div class="thx-top">
+                  <div class="thx-name">Анонімна підтримка</div>
+                  <div class="thx-badge">Генератор</div>
+                </div>
+                <div class="thx-text">
+                  Передані обладнання для ремонтів.
+                </div>
+              </div>
+            </article>
+
+            <article class="thx-card">
+              <a class="thx-media" href="assets/support/support-02.jpg" target="_blank" rel="noopener">
+                <img src="assets/support/support-02.jpg" alt="Анонімна підтримка підрозділу" loading="lazy">
+              </a>
+              <div class="thx-body">
+                <div class="thx-top">
+                  <div class="thx-name">Анонімна підтримка</div>
+                  <div class="thx-badge">Автосканер</div>
+                </div>
+                <div class="thx-text">
+                  Без цього ремонт просто зупиняється — а техніка повинна їхати.
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="thx-foot">
+            <p class="thx-note"></p>
           </div>
         </div>
-      </article>
-
-      <article class="thx-card">
-        <a class="thx-media" href="assets/support/support-02.jpg" target="_blank" rel="noopener">
-          <img src="assets/support/support-02.jpg" alt="Анонімна підтримка підрозділу" loading="lazy">
-        </a>
-        <div class="thx-body">
-          <div class="thx-top">
-            <div class="thx-name">Анонімна підтримка</div>
-            <div class="thx-badge">Автосканер</div>
-          </div>
-          <div class="thx-text">
-         Без цього ремонт просто зупиняється — а техніка повинна їхати.
-          </div>
-        </div>
-      </article>
-    </div>
-
-    <div class="thx-foot">
-      <p class="thx-note">
-      
-
-    </div>
-  </div>
-</section>
-<!-- ===== /ПІДТРИМАЛИ ===== -->
+      </section>
+      <!-- ===== /ПІДТРИМАЛИ ===== -->
 
       <!-- ПРО ВЗВОД -->
       <section class="card big-block" id="about-platoon-ua">
@@ -1462,7 +1458,7 @@
 
         <p>Ми — взвод технічного забезпечення мотопіхотного батальйону 142-ї окремої механізованої бригади. Наше завдання — утримувати техніку батальйону в роботі на одному з найгарячіших напрямків фронту.</p>
 
-        <p>Нас рідко видно на  чи в новинах, але від нашої роботи залежить, чи доїде машина до позиції, чи отримає підрозділ боєкомплект і чи встигнуть вчасно евакуювати поранених.</p>
+        <p>Нас рідко видно в новинах, але від нашої роботи залежить, чи доїде машина до позиції, чи отримає підрозділ боєкомплект і чи встигнуть вчасно евакуювати поранених.</p>
 
         <h3>Чим ми займаємось</h3>
 
@@ -1498,189 +1494,207 @@
         </p>
       </section>
 
-     <!-- КОМАНДА -->
-<section class="card big-block" id="team-ua">
-  <h2 class="section-title">Команда взводу технічного забезпечення</h2>
+      <!-- КОМАНДА -->
+      <section class="card big-block" id="team-ua">
+        <h2 class="section-title">Команда взводу технічного забезпечення</h2>
 
-  <p>
-    Ми працюємо як один механізм. У кожного своя роль, але мета одна —
-    техніка має їхати, а підрозділи мають виконувати задачі й повертатися живими.
-  </p>
-
-  <div class="team-carousel-wrap" style="margin-top:12px;">
-    <button class="tc-btn tc-prev" type="button" aria-label="Назад">‹</button>
-
-    <div class="team-carousel" id="teamCarouselUA">
-
-      <div class="card team-slide">
-        <h3>Командир взводу</h3>
         <p>
-          Планує роботу, розставляє пріоритети, координує евакуацію і ремонти.
-          Приймає рішення, що рятувати першим, щоб підрозділи не зупинились.
+          Ми працюємо як один механізм. У кожного своя роль, але мета одна —
+          техніка має їхати, а підрозділи мають виконувати задачі й повертатися живими.
         </p>
-      </div>
 
-      <div class="card team-slide">
-        <h3>Заступник / старший майстер</h3>
-        <p>
-          Організовує роботу бригади на місці, контролює якість ремонту,
-          веде облік задач і відповідальних, забезпечує змінність та темп.
+        <div class="team-carousel-wrap" style="margin-top:12px;">
+          <button class="tc-btn tc-prev" type="button" aria-label="Назад">‹</button>
+
+          <div class="team-carousel" id="teamCarouselUA">
+
+            <div class="card team-slide">
+              <h3>Командир взводу</h3>
+              <p>
+                Планує роботу, розставляє пріоритети, координує евакуацію і ремонти.
+                Приймає рішення, що рятувати першим, щоб підрозділи не зупинились.
+              </p>
+            </div>
+
+            <div class="card team-slide">
+              <h3>Заступник / старший майстер</h3>
+              <p>
+                Організовує роботу бригади на місці, контролює якість ремонту,
+                веде облік задач і відповідальних, забезпечує змінність та темп.
+              </p>
+            </div>
+
+            <div class="card team-slide">
+              <h3>Старший механік-водій / слюсар</h3>
+              <p>
+                Складні ремонти, підготовка техніки до виїздів, дефектування вузлів,
+                контроль безпеки та готовності машин до задач.
+              </p>
+            </div>
+
+            <div class="card team-slide">
+              <h3>Механік-агрегатник</h3>
+              <p>
+                Двигун, зчеплення, КПП/РК, мости, кардан, підшипники. Заміна вузлів,
+                відновлення працездатності “в полі” та в ППД.
+              </p>
+            </div>
+
+            <div class="card team-slide">
+              <h3>Ходова / підвіска / гальма</h3>
+              <p>
+                Ресори, амортизатори, ступиці, гальмівна система, рульове.
+                Усунення люфтів, підтікання, перегрівів, “биття”, клинів.
+              </p>
+            </div>
+
+            <div class="card team-slide">
+              <h3>Автоелектрик</h3>
+              <p>
+                Проводка, стартер/генератор, освітлення, запобіжники, “маси”,
+                реле, зарядка. Відновлення після пошкоджень, пошук коротких замикань.
+              </p>
+            </div>
+
+            <div class="card team-slide">
+              <h3>Діагност / сканер</h3>
+              <p>
+                Читання помилок, перевірка датчиків/паливної/впуску, базові тести.
+                Дає точну причину несправності, щоб не витрачати час на “вгадування”.
+              </p>
+            </div>
+
+            <div class="card team-slide">
+              <h3>Зварювальник / кузовні роботи</h3>
+              <p>
+                Тріщини рам, кронштейни, кріплення, підсилення вузлів,
+                дрібні кузовні ремонти. Швидке відновлення після ударів і вібрацій.
+              </p>
+            </div>
+
+            <div class="card team-slide">
+              <h3>Шиномонтаж / колеса</h3>
+              <p>
+                Ремонт шин, підкачка, заміна камер/вентилів, баланс по можливості,
+                латання проколів. Підготовка запасок, контроль тиску під навантаженням.
+              </p>
+            </div>
+
+            <div class="card team-slide">
+              <h3>Евакуація група</h3>
+              <p>
+                Витягування та буксирування, робота з тросами/стропами/лебідками,
+                підготовка маршрутів і безпечної евакуації. Вивіз машини з ризикових зон.
+              </p>
+            </div>
+
+            <div class="card team-slide">
+              <h3>Водії (підвіз/перегін)</h3>
+              <p>
+                Доставка запчастин і розхідників, перегін техніки, підвіз інструменту.
+                Забезпечення руху між точками ремонту та бойовими підрозділами.
+              </p>
+            </div>
+
+            <div class="card team-slide">
+              <h3>Забезпечення та логістика</h3>
+              <p>
+                Пошук і доставка запчастин, масел, інструментів, витратників.
+                Формування заявок, облік, розподіл ресурсів, контроль залишків.
+              </p>
+            </div>
+          </div>
+
+          <button class="tc-btn tc-next" type="button" aria-label="Вперед">›</button>
+        </div>
+
+        <p style="font-size:12px; opacity:0.8; margin-top:12px;">
+          Частину деталей ми свідомо не показуємо з міркувань безпеки. Але за кожною машиною,
+          яка повертається в стрій, стоїть жива команда людей і години важкої роботи.
         </p>
-      </div>
-
-      <div class="card team-slide">
-        <h3>Старший механік-водій / слюсар</h3>
-        <p>
-          Складні ремонти, підготовка техніки до виїздів, дефектування вузлів,
-          контроль безпеки та готовності машин до задач.
-        </p>
-      </div>
-
-      <div class="card team-slide">
-        <h3>Механік-агрегатник</h3>
-        <p>
-          Двигун, зчеплення, КПП/РК, мости, кардан, підшипники. Заміна вузлів,
-          відновлення працездатності “в полі” та в ППД.
-        </p>
-      </div>
-
-      <div class="card team-slide">
-        <h3>Ходова / підвіска / гальма</h3>
-        <p>
-          Ресори, амортизатори, ступиці, гальмівна система, рульове.
-          Усунення люфтів, підтікання, перегрівів, “биття”, клинів.
-        </p>
-      </div>
-
-      <div class="card team-slide">
-        <h3>Автоелектрик</h3>
-        <p>
-          Проводка, стартер/генератор, освітлення, запобіжники, “маси”,
-          реле, зарядка. Відновлення після пошкоджень, пошук коротких замикань.
-        </p>
-      </div>
-
-      <div class="card team-slide">
-        <h3>Діагност / сканер</h3>
-        <p>
-          Читання помилок, перевірка датчиків/паливної/впуску, базові тести.
-          Дає точну причину несправності, щоб не витрачати час на “вгадування”.
-        </p>
-      </div>
-
-      <div class="card team-slide">
-        <h3>Зварювальник / кузовні роботи</h3>
-        <p>
-          Тріщини рам, кронштейни, кріплення, підсилення вузлів,
-          дрібні кузовні ремонти. Швидке відновлення після ударів і вібрацій.
-        </p>
-      </div>
-
-      <div class="card team-slide">
-        <h3>Шиномонтаж / колеса</h3>
-        <p>
-          Ремонт шин, підкачка, заміна камер/вентилів, баланс по можливості,
-          латання проколів. Підготовка запасок, контроль тиску під навантаженням.
-        </p>
-      </div>
-
-      <div class="card team-slide">
-        <h3>Евакуація група</h3>
-        <p>
-          Витягування та буксирування, робота з тросами/стропами/лебідками,
-          підготовка маршрутів і безпечної евакуації. Вивіз машини з ризикових зон.
-        </p>
-      </div>
-
-      <div class="card team-slide">
-        <h3>Водії (підвіз/перегін)</h3>
-        <p>
-          Доставка запчастин і розхідників, перегін техніки, підвіз інструменту.
-          Забезпечення руху між точками ремонту та бойовими підрозділами.
-        </p>
-      </div>
-
-      <div class="card team-slide">
-        <h3>Забезпечення та логістика</h3>
-        <p>
-          Пошук і доставка запчастин, масел, інструментів, витратників.
-          Формування заявок, облік, розподіл ресурсів, контроль залишків.
-        </p>
-      </div>
-  </div>
-
-    <button class="tc-btn tc-next" type="button" aria-label="Вперед">›</button>
-  </div>
-
-  <p style="font-size:12px; opacity:0.8; margin-top:12px;">
-    Частину деталей ми свідомо не показуємо з міркувань безпеки. Але за кожною машиною,
-    яка повертається в стрій, стоїть жива команда людей і години важкої роботи.
-  </p>
-</section>
+      </section>
 
       <!-- ГАЛЕРЕЯ -->
-	<section id="gallery" class="gallery-section">
-  <div class="container">
-    <div class="gallery-head">
-      <h2 class="section-title">Фотогалерея</h2>
-      <a class="btn-support" href="#donate">Підтримати взвод</a>
-    </div>
+      <section id="gallery" class="gallery-section">
+        <div class="container">
+          <div class="gallery-head">
+            <h2 class="section-title">Фотогалерея</h2>
+            <a class="btn-support" href="#donate">Підтримати взвод</a>
+          </div>
 
-    <div class="gallery-carousel-wrap">
-      <button class="gc-btn gc-prev" type="button" aria-label="Назад">‹</button>
+          <div class="gallery-carousel-wrap">
+            <button class="gc-btn gc-prev" type="button" aria-label="Назад">‹</button>
 
-      <div class="gallery-carousel" id="galleryCarousel">
-        <figure class="gc-item"><img src="assets/photos/p1.jpg"  alt="" loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p2.jpg"  alt="" loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p3.jpg"  alt="" loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p4.jpg"  alt="" loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p5.jpg"  alt="" loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p6.jpg"  alt="" loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p7.jpg"  alt="" loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p8.jpg"  alt="" loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p9.jpg"  alt="" loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p10.jpg" alt="" loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p11.jpg" alt="" loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p12.jpg" alt="" loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p13.jpg" alt="" loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p14.jpg" alt="" loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p15.jpg" alt="" loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p16.jpg" alt="" loading="lazy"></figure>
-        <figure class="gc-item"><img src="assets/photos/p17.jpg" alt="" loading="lazy"></figure>
-      </div>
+            <div class="gallery-carousel" id="galleryCarousel">
+              <figure class="gc-item"><img src="assets/photos/p1.jpg"  alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p2.jpg"  alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p3.jpg"  alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p4.jpg"  alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p5.jpg"  alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p6.jpg"  alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p7.jpg"  alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p8.jpg"  alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p9.jpg"  alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p10.jpg" alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p11.jpg" alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p12.jpg" alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p13.jpg" alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p14.jpg" alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p15.jpg" alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p16.jpg" alt="" loading="lazy"></figure>
+              <figure class="gc-item"><img src="assets/photos/p17.jpg" alt="" loading="lazy"></figure>
+            </div>
 
-      <button class="gc-btn gc-next" type="button" aria-label="Вперед">›</button>
-    </div>
-  </div>
-</section>
-	
+            <button class="gc-btn gc-next" type="button" aria-label="Вперед">›</button>
+          </div>
+        </div>
+      </section>
 
-		<section id="videos" class="videos-section">
-  <div class="container">
-    <h2 class="section-title">Відео</h2>
+      <!-- ВІДЕО -->
+      <section id="videos" class="videos-section">
+        <div class="container">
+          <h2 class="section-title">Відео</h2>
 
-    <div class="video-carousel-wrap">
-      <button class="vc-btn vc-prev" type="button" aria-label="Назад">‹</button>
+          <div class="video-carousel-wrap">
+            <button class="vc-btn vc-prev" type="button" aria-label="Назад">‹</button>
 
-      <div class="video-carousel" id="videoCarousel">
-        <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/Rz_Y3Tj6Rz4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div></div>
-        <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/KlInbRyOCuY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div></div>
-        <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/QTbz0BHjAzA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div></div>
-        <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/xvvbYfiG_rk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div></div>
-      </div>
+            <div class="video-carousel" id="videoCarousel">
+              <div class="vc-item">
+                <div class="vc-frame">
+                  <iframe src="https://www.youtube.com/embed/Rz_Y3Tj6Rz4" frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowfullscreen loading="lazy"></iframe>
+                </div>
+              </div>
+              <div class="vc-item">
+                <div class="vc-frame">
+                  <iframe src="https://www.youtube.com/embed/KlInbRyOCuY" frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowfullscreen loading="lazy"></iframe>
+                </div>
+              </div>
+              <div class="vc-item">
+                <div class="vc-frame">
+                  <iframe src="https://www.youtube.com/embed/QTbz0BHjAzA" frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowfullscreen loading="lazy"></iframe>
+                </div>
+              </div>
+              <div class="vc-item">
+                <div class="vc-frame">
+                  <iframe src="https://www.youtube.com/embed/xvvbYfiG_rk" frameborder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowfullscreen loading="lazy"></iframe>
+                </div>
+              </div>
+            </div>
 
-      <button class="vc-btn vc-next" type="button" aria-label="Вперед">›</button>
-    </div>
-  </div>
-</section>
+            <button class="vc-btn vc-next" type="button" aria-label="Вперед">›</button>
+          </div>
+        </div>
+      </section>
 
-   
-
-
- 
-    
-
-    <!-- ПОТОЧНІ ПОТРЕБИ -->
+      <!-- ПОТОЧНІ ПОТРЕБИ -->
       <section class="card big-block" id="current-needs-ua">
         <h2 class="section-title">Поточні потреби</h2>
 
@@ -1860,12 +1874,12 @@
             </p>
           </div>
 
-          <!-- МАЗ "ЗУБРЬОНОК" -->
+          <!-- ГАЗ-66 -->
           <div class="card" style="min-height:180px;">
             <h3>ГАЗ-66</h3>
             <small style="opacity:0.75;">Статус:</small>
             <p>
-              <strong>⏳ Очікує запчастин:</strong> комплект прокладок , сальники, подушки
+              <strong>⏳ Очікує запчастин:</strong> комплект прокладок, сальники, подушки.
             </p>
           </div>
 
@@ -2404,87 +2418,89 @@
     text.textContent = 'Збір активний';
   })();
 </script>
-	<script>
-(function(){
-  const track = document.getElementById('videoCarousel');
-  if(!track) return;
 
-  const prev = document.querySelector('#videos .vc-prev');
-  const next = document.querySelector('#videos .vc-next');
-
-  function getStep(){
-    const first = track.querySelector('.vc-item');
-    if(!first) return 300;
-    const gap = parseInt(getComputedStyle(track).gap || '14', 10);
-    return first.getBoundingClientRect().width + gap;
-  }
-
-  prev && prev.addEventListener('click', () => {
-    track.scrollBy({ left: -getStep(), behavior: 'smooth' });
-  });
-
-  next && next.addEventListener('click', () => {
-    track.scrollBy({ left: getStep(), behavior: 'smooth' });
-  });
-})();
-</script>
 <script>
-(function(){
-  const track = document.getElementById('galleryCarousel');
-  if(!track) return;
+  (function(){
+    const track = document.getElementById('videoCarousel');
+    if(!track) return;
 
-  const prev = document.querySelector('#gallery .gc-prev');
-  const next = document.querySelector('#gallery .gc-next');
+    const prev = document.querySelector('#videos .vc-prev');
+    const next = document.querySelector('#videos .vc-next');
 
-  function step(){
-    const first = track.querySelector('.gc-item');
-    if(!first) return 320;
-    const gap = parseInt(getComputedStyle(track).gap || '14', 10);
-    return first.getBoundingClientRect().width + gap;
-  }
+    function getStep(){
+      const first = track.querySelector('.vc-item');
+      if(!first) return 300;
+      const gap = parseInt(getComputedStyle(track).gap || '14', 10);
+      return first.getBoundingClientRect().width + gap;
+    }
 
-  prev && prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
-  next && next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
-})();
+    prev && prev.addEventListener('click', () => {
+      track.scrollBy({ left: -getStep(), behavior: 'smooth' });
+    });
+
+    next && next.addEventListener('click', () => {
+      track.scrollBy({ left: getStep(), behavior: 'smooth' });
+    });
+  })();
 </script>
-<a href="#donate" class="mobile-donate-btn">Підтримати взвод</a>
+
 <script>
-(function(){
-  const btn = document.querySelector('.mobile-donate-btn');
-  const donate = document.getElementById('donate');
-  if(!btn || !donate) return;
+  (function(){
+    const track = document.getElementById('galleryCarousel');
+    if(!track) return;
 
-  const obs = new IntersectionObserver(([e]) => {
-    btn.style.display = e.isIntersecting ? 'none' : '';
-  }, { threshold: 0.2 });
+    const prev = document.querySelector('#gallery .gc-prev');
+    const next = document.querySelector('#gallery .gc-next');
 
-  obs.observe(donate);
-})();
+    function step(){
+      const first = track.querySelector('.gc-item');
+      if(!first) return 320;
+      const gap = parseInt(getComputedStyle(track).gap || '14', 10);
+      return first.getBoundingClientRect().width + gap;
+    }
+
+    prev && prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+    next && next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+  })();
 </script>
 
 <a href="#donate" class="mobile-donate-btn">Підтримати взвод</a>
 <script>
-(function(){
-  const track = document.getElementById('teamCarouselUA');
-  if(!track) return;
+  (function(){
+    const btn = document.querySelector('.mobile-donate-btn');
+    const donate = document.getElementById('donate');
+    if(!btn || !donate) return;
 
-  const prev = document.querySelector('#team-ua .tc-prev');
-  const next = document.querySelector('#team-ua .tc-next');
+    const obs = new IntersectionObserver(([e]) => {
+      btn.style.display = e.isIntersecting ? 'none' : '';
+    }, { threshold: 0.2 });
 
-  function step(){
-    const card = track.querySelector('.team-slide');
-    const gap = 14;
-    return card ? (card.getBoundingClientRect().width + gap) : 320;
-  }
+    obs.observe(donate);
+  })();
+</script>
 
-  prev && prev.addEventListener('click', () => {
-    track.scrollBy({ left: -step(), behavior: 'smooth' });
-  });
+<script>
+  (function(){
+    const track = document.getElementById('teamCarouselUA');
+    if(!track) return;
 
-  next && next.addEventListener('click', () => {
-    track.scrollBy({ left: step(), behavior: 'smooth' });
-  });
-})();
+    const prev = document.querySelector('#team-ua .tc-prev');
+    const next = document.querySelector('#team-ua .tc-next');
+
+    function step(){
+      const card = track.querySelector('.team-slide');
+      const gap = 14;
+      return card ? (card.getBoundingClientRect().width + gap) : 320;
+    }
+
+    prev && prev.addEventListener('click', () => {
+      track.scrollBy({ left: -step(), behavior: 'smooth' });
+    });
+
+    next && next.addEventListener('click', () => {
+      track.scrollBy({ left: step(), behavior: 'smooth' });
+    });
+  })();
 </script>
 
 </body>
