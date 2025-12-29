@@ -311,7 +311,7 @@
       display: block;
     }
 
-    /* GALLERY */
+    /* GALLERY GRID (старий lightbox, зараз не використовується, але лишаємо стилі) */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -577,7 +577,7 @@
       transform: translateY(-2px) scale(1.05);
     }
 
-    /* “Підтримати взвод” кнопка */
+    /* “Підтримати взвод” кнопка у блоках */
     .block-donate-btn {
       display: inline-flex;
       align-items: center;
@@ -846,7 +846,7 @@
       }
     }
 
-    /* ===== Відео iframe ===== */
+    /* Відео iframe у старому слайдері */
     .gal__slide iframe{
       width:100%;
       aspect-ratio:16/9;
@@ -854,7 +854,7 @@
       display:block;
     }
 
-    /* === DONATE BUTTON SHINE EFFECT === */
+    /* DONATE BUTTON SHINE EFFECT */
     .mobile-donate-btn{
       position: fixed;
       overflow: hidden;
@@ -888,7 +888,7 @@
   <link rel="stylesheet" href="supporters.css">
 
   <style>
-    /* === VIDEO GRID FIX === */
+    /* VIDEO GRID FIX */
     #videos .video-grid{
       display: grid !important;
       grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -907,11 +907,11 @@
   </style>
 
   <style>
-    /* === VIDEO CAROUSEL (slider) === */
+    /* VIDEO CAROUSEL (slider) */
     #videos .video-carousel-wrap{
       position: relative;
       margin-top: 16px;
-      padding: 10px 46px;           /* місце під кнопки */
+      padding: 10px 46px;
       border-radius: 18px;
       border: 1px solid rgba(255,255,255,0.12);
       background: rgba(255,255,255,0.06);
@@ -933,14 +933,14 @@
     #videos .video-carousel::-webkit-scrollbar-track{ background: rgba(255,255,255,0.08); border-radius: 20px; }
 
     #videos .vc-item{
-      flex: 0 0 320px;              /* ширина одного слайду */
+      flex: 0 0 320px;
       scroll-snap-align: start;
     }
 
     #videos .vc-frame{
       position: relative;
       width: 100%;
-      padding-top: 177.78%;         /* 9:16 */
+      padding-top: 177.78%; /* 9:16 */
       border-radius: 16px;
       overflow: hidden;
     }
@@ -952,7 +952,6 @@
       height: 100%;
     }
 
-    /* кнопки */
     #videos .vc-btn{
       position: absolute;
       top: 50%;
@@ -979,7 +978,7 @@
   </style>
 
   <style>
-    /* ===== GALLERY BLOCK + CAROUSEL ===== */
+    /* GALLERY BLOCK + CAROUSEL */
     #gallery.gallery-section{ padding: 40px 0; }
 
     #gallery .gallery-head{
@@ -1044,56 +1043,7 @@
   </style>
 
   <style>
-    /* === MOBILE FIXED DONATE BUTTON === */
-    .mobile-donate-btn{
-      position: fixed;
-      left: 16px;
-      right: 16px;
-      bottom: 14px;
-      z-index: 999;
-      display: none;
-      text-align: center;
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: rgba(0,0,0,0.85);
-      border: 1px solid rgba(255,255,255,0.25);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      backdrop-filter: blur(6px);
-    }
-
-    @media (max-width: 768px){
-      .mobile-donate-btn{ display: block; }
-    }
-  </style>
-
-  <style>
-    .mobile-donate-btn{
-      position: fixed;
-      left: 16px;
-      right: 16px;
-      bottom: 14px;
-      z-index: 99999;
-      display: none !important;
-      text-align: center;
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: rgba(0,0,0,0.85);
-      border: 1px solid rgba(255,255,255,0.25);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      backdrop-filter: blur(6px);
-    }
-
-    @media (max-width: 768px){
-      .mobile-donate-btn{ display: block !important; }
-    }
-  </style>
-
-  <style>
-    /* === MOBILE DONATE BUTTON BASE === */
+    /* MOBILE DONATE BUTTON BASE */
     .mobile-donate-btn{
       position: fixed;
       left: 16px;
@@ -1112,15 +1062,14 @@
       box-shadow:
         0 10px 26px rgba(0,0,0,0.45),
         0 0 0 0 rgba(255,180,40,0.55);
+
       animation: donatePulse 1.8s ease-in-out infinite;
     }
 
-    /* показуємо ТІЛЬКИ на мобільних */
     @media (max-width: 768px){
       .mobile-donate-btn{ display: block !important; }
     }
 
-    /* === PULSE ANIMATION === */
     @keyframes donatePulse{
       0%{
         box-shadow:
@@ -1142,14 +1091,13 @@
       }
     }
 
-    /* якщо у користувача вимкнені анімації */
     @media (prefers-reduced-motion: reduce){
       .mobile-donate-btn{ animation: none; }
     }
   </style>
 
   <style>
-    /* === TEAM CAROUSEL (UA) === */
+    /* TEAM CAROUSEL (UA) */
     #team-ua .team-carousel-wrap{
       position: relative;
       padding: 10px 46px;
@@ -1205,8 +1153,8 @@
       }
     }
   </style>
-
 </head>
+
 <body>
 <div class="page">
   <div class="container">
@@ -1255,7 +1203,7 @@
 
     <main>
 
-      <!-- DONATIONS — ТЕПЕР ОДРАЗУ ПІД HERO -->
+      <!-- DONATIONS -->
       <h2 class="section-title" id="donate">Як підтримати взвод</h2>
 
       <div class="card-grid">
@@ -1403,7 +1351,7 @@
         </section>
       </div>
 
-      <!-- ===== ПІДТРИМАЛИ  ===== -->
+      <!-- ПІДТРИМАЛИ -->
       <section id="supporters" class="thx-wrap">
         <div class="thx-inner">
           <div class="thx-head">
@@ -1424,7 +1372,7 @@
                   <div class="thx-badge">Генератор</div>
                 </div>
                 <div class="thx-text">
-                  Передані обладнання для ремонтів.
+                  Передане обладнання для ремонтів.
                 </div>
               </div>
             </article>
@@ -1450,7 +1398,6 @@
           </div>
         </div>
       </section>
-      <!-- ===== /ПІДТРИМАЛИ ===== -->
 
       <!-- ПРО ВЗВОД -->
       <section class="card big-block" id="about-platoon-ua">
@@ -1458,7 +1405,7 @@
 
         <p>Ми — взвод технічного забезпечення мотопіхотного батальйону 142-ї окремої механізованої бригади. Наше завдання — утримувати техніку батальйону в роботі на одному з найгарячіших напрямків фронту.</p>
 
-        <p>Нас рідко видно в новинах, але від нашої роботи залежить, чи доїде машина до позиції, чи отримає підрозділ боєкомплект і чи встигнуть вчасно евакуювати поранених.</p>
+        <p>Нас рідко видно в кадрі чи в новинах, але від нашої роботи залежить, чи доїде машина до позиції, чи отримає підрозділ боєкомплект і чи встигнуть вчасно евакуювати поранених.</p>
 
         <h3>Чим ми займаємось</h3>
 
@@ -1581,7 +1528,7 @@
             </div>
 
             <div class="card team-slide">
-              <h3>Евакуація група</h3>
+              <h3>Евакуаційна група</h3>
               <p>
                 Витягування та буксирування, робота з тросами/стропами/лебідками,
                 підготовка маршрутів і безпечної евакуації. Вивіз машини з ризикових зон.
@@ -1661,28 +1608,35 @@
             <div class="video-carousel" id="videoCarousel">
               <div class="vc-item">
                 <div class="vc-frame">
-                  <iframe src="https://www.youtube.com/embed/Rz_Y3Tj6Rz4" frameborder="0"
+                  <iframe src="https://www.youtube.com/embed/Rz_Y3Tj6Rz4"
+                          frameborder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                           allowfullscreen loading="lazy"></iframe>
                 </div>
               </div>
+
               <div class="vc-item">
                 <div class="vc-frame">
-                  <iframe src="https://www.youtube.com/embed/KlInbRyOCuY" frameborder="0"
+                  <iframe src="https://www.youtube.com/embed/KlInbRyOCuY"
+                          frameborder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                           allowfullscreen loading="lazy"></iframe>
                 </div>
               </div>
+
               <div class="vc-item">
                 <div class="vc-frame">
-                  <iframe src="https://www.youtube.com/embed/QTbz0BHjAzA" frameborder="0"
+                  <iframe src="https://www.youtube.com/embed/QTbz0BHjAzA"
+                          frameborder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                           allowfullscreen loading="lazy"></iframe>
                 </div>
               </div>
+
               <div class="vc-item">
                 <div class="vc-frame">
-                  <iframe src="https://www.youtube.com/embed/xvvbYfiG_rk" frameborder="0"
+                  <iframe src="https://www.youtube.com/embed/xvvbYfiG_rk"
+                          frameborder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                           allowfullscreen loading="lazy"></iframe>
                 </div>
@@ -1735,33 +1689,24 @@
         </p>
       </section>
 
-      <!-- МІСІЯ -->
-      <section class="card big-block" id="mission-ua">
-        <h2 class="section-title">Наша місія</h2>
+      <!-- БЕЗСТРОКОВИЙ ЗБІР -->
+      <section class="card big-block" id="progress-ua">
+        <h2 class="section-title">Безстроковий збір</h2>
 
-        <p>
-          Наша місія — забезпечити безперервну мобільність батальйону і зберегти життя наших воїнів.
+        <p class="progress-text">
+          Це безстроковий збір на щоденну роботу взводу технічного забезпечення:
+          інструмент, запчастини, мастила, зварка, діагностика та польові майстерні.
+          Кожен внесок допомагає тримати техніку в строю.
         </p>
 
-        <p>
-          Ми ремонтуємо та відновлюємо вантажівки й бронетехніку безпосередньо в зоні бойових дій,
-          щоб підрозділи могли виконувати задачі без зупинок.
-        </p>
+        <div class="progress-track">
+          <div id="progress-fill-ua" class="progress-fill" data-label="Збір активний"></div>
+        </div>
 
-        <p>
-          Ми повертаємо в стрій машини, які возять боєкомплект, воду, провізію, ПММ
-          та евакуюють поранених.
-        </p>
-
-        <p>
-          Працюємо вночі, під обстрілами, під дощем і в холод, без нормальних умов —
-          але завжди доводимо роботу до кінця.
-        </p>
-
-        <p>
-          Кожен інструмент, кожна деталь і кожен донат означає ще один виїзд машини,
-          ще одну виконану задачу й одне врятоване життя.
-        </p>
+        <div class="progress-meta">
+          <span id="progress-text-ua">Збір активний</span>
+          <span>Безстроковий збір · Оновлено: 01.12.2025</span>
+        </div>
       </section>
 
       <!-- ПРИНЦИПИ -->
@@ -1820,191 +1765,6 @@
             </p>
           </div>
 
-        </div>
-      </section>
-
-      <!-- ЧОМУ ВАЖЛИВО ПІДТРИМАТИ ВТЗ -->
-      <section class="card big-block" id="why-tz-ua">
-        <h2 class="section-title">Чому підтримка взводу технічного забезпечення — це важливо?</h2>
-
-        <p>
-          Робота взводу технічного забезпечення часто залишається “за кадром”, але без нас не рухається жоден підрозділ.
-          Техніка — це кровоносна система фронту. Якщо вона зупиняється — зупиняється все.
-        </p>
-
-        <ul style="margin-left:18px; margin-top:6px; font-size:13px; opacity:0.95; display:grid; gap:4px;">
-          <li>🚚 <strong>Без вантажівок немає підвозу.</strong><br> Боєкомплект, вода, їжа, ротації — усе зав’язано на техніці.</li>
-
-          <li>🏥 <strong>Без робочих машин немає евакуації поранених.</strong><br>
-              Якщо машина не заводиться — поранений може не встигнути до стабілізації.</li>
-
-          <li>⚙️ <strong>Без ремонту немає мобільності підрозділів.</strong><br>
-              Піхота, БПЛА, розвідка, сапери — всі залежать від можливості рухатись.</li>
-
-          <li>🛠️ <strong>Ми ремонтуємо прямо на передовій.</strong><br>
-              Евакуйовуємо під обстрілами, ремонтуємо в полі, вночі, під дощем, при світлі ліхтарика.</li>
-
-          <li>🔥 <strong>Кожен донат = конкретний результат.</strong><br>
-              Інструмент → ремонт → техніка повертається в стрій → виконана задача → збережені життя.</li>
-        </ul>
-
-        <p style="margin-top:10px; font-size:12px; opacity:0.8;">
-          Підтримка взводу технічного забезпечення — один із найефективніших внесків в оборону:
-          вона напряму перетворюється на робочі машини і врятовані життя.
-        </p>
-      </section>
-
-      <!-- ПОТОЧНІ РЕМОНТИ -->
-      <section class="card big-block" id="current-repairs-ua">
-        <h2 class="section-title">Техніка, яка зараз у роботі</h2>
-
-        <p>
-          Невелика частина того, чим ми займаємось зараз. Оновлюється вручну.
-        </p>
-
-        <div class="card-grid" style="margin-top:10px;">
-
-          <!-- URAL-43203 -->
-          <div class="card" style="min-height:180px;">
-            <h3>УРАЛ-43203</h3>
-            <small style="opacity:0.75;">Статус:</small>
-            <p>
-              <strong>🔧 В роботі:</strong> повне ТО, заміна магістралей,
-              пошук витоків тиску та регулювання гальм.
-            </p>
-          </div>
-
-          <!-- ГАЗ-66 -->
-          <div class="card" style="min-height:180px;">
-            <h3>ГАЗ-66</h3>
-            <small style="opacity:0.75;">Статус:</small>
-            <p>
-              <strong>⏳ Очікує запчастин:</strong> комплект прокладок, сальники, подушки.
-            </p>
-          </div>
-
-          <!-- ЛЕГКОВІ -->
-          <div class="card" style="min-height:180px;">
-            <h3>Легкові авто</h3>
-            <small style="opacity:0.75;">Статус:</small>
-            <p>
-              <strong>🔥 Після евакуації:</strong> Повна заміна ходової, заміна ступичного підшипника,
-              ремонт ШРУСа та перевірка рульових тяг.
-            </p>
-          </div>
-
-        </div>
-
-        <p style="font-size:12px; opacity:0.75; margin-top:10px;">
-          Якщо ви хочете повністю закрити одну з цих позицій — напишіть нам, і ми надішлемо конкретний список
-          необхідних запчастин чи інструментів.
-        </p>
-      </section>
-
-      <!-- ДЛЯ ФОНДІВ ТА ВЕЛИКИХ ДОНАТОРІВ -->
-      <section class="card big-block" id="funds-request-ua">
-        <h2 class="section-title">Для фондів, організацій та великих донаторів</h2>
-
-        <p>
-          Якщо ви представляєте фонд, волонтерську ініціативу, бізнес або є великим донатором —
-          можете заповнити коротку форму нижче, і ми отримаємо від вас структурований запит.
-        </p>
-
-        <p style="margin-bottom:8px;">
-          Пріоритетні напрямки підтримки: інструмент, обладнання, запчастини, зварка, діагностика, мастила
-          та все, що стосується ремонту та обслуговування вантажної й бронетехніки батальйону.
-        </p>
-
-        <form id="fundsFormUa" onsubmit="handleFundsUa(event)" style="margin-top:6px; display:grid; gap:8px;">
-          <div>
-            <label for="org_ua" style="font-size:13px;">Організація / фонд / компанія*</label><br>
-            <input id="org_ua" name="org" required
-                   style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
-          </div>
-
-          <div style="display:grid; gap:8px;">
-            <div>
-              <label for="person_ua" style="font-size:13px;">Контактна особа*</label><br>
-              <input id="person_ua" name="person" required
-                     style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
-            </div>
-
-            <div>
-              <label for="email_ua" style="font-size:13px;">Email*</label><br>
-              <input id="email_ua" name="email" type="email" required
-                     style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
-            </div>
-
-            <div>
-              <label for="telegram_ua" style="font-size:13px;">Telegram / телефон (опційно)</label><br>
-              <input id="telegram_ua" name="telegram"
-                     placeholder="@username або номер телефону"
-                     style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
-            </div>
-          </div>
-
-          <div>
-            <label for="country_ua" style="font-size:13px;">Країна / місто</label><br>
-            <input id="country_ua" name="country"
-                   style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
-          </div>
-
-          <div>
-            <label for="type_ua" style="font-size:13px;">Яку підтримку ви розглядаєте?*</label><br>
-            <select id="type_ua" name="supportType" required
-                    style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.85); color:#fff; font-size:13px;">
-              <option value="">Оберіть варіант</option>
-              <option value="Інструмент та обладнання">Інструмент та обладнання</option>
-              <option value="Запчастини / витратники">Запчастини / витратники</option>
-              <option value="Зварка та метал">Зварка та метал</option>
-              <option value="Діагностика та електрика">Діагностика та електрика</option>
-              <option value="Комплексна / довгострокова підтримка">Комплексна / довгострокова підтримка</option>
-              <option value="Інше">Інше</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="budget_ua" style="font-size:13px;">Орієнтовний бюджет або формат підтримки</label><br>
-            <input id="budget_ua" name="budget"
-                   placeholder="сума, діапазон або “обладнання / інструмент / запчастини”"
-                   style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px;">
-          </div>
-
-          <div>
-            <label for="comment_ua" style="font-size:13px;">Коментар / деталі</label><br>
-            <textarea id="comment_ua" name="comment" rows="4"
-                      placeholder="Коротко опишіть, що саме розглядаєте, строки, умови тощо."
-                      style="width:100%; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,0.25); background:rgba(0,0,0,0.6); color:#fff; font-size:13px; resize:vertical;"></textarea>
-          </div>
-
-          <button type="submit" class="donate-btn" style="margin-top:4px; align-self:flex-start;">
-            Заповнити та створити лист
-          </button>
-
-          <p style="font-size:11px; opacity:0.75;">
-            Після натискання у вас відкриється пошта з готовим листом на
-            <strong>nadelnuikviktor@gmail.com</strong> з усіма введеними даними.
-          </p>
-        </form>
-      </section>
-
-      <!-- БЕЗСТРОКОВИЙ ЗБІР -->
-      <section class="card big-block" id="progress-ua">
-        <h2 class="section-title">Безстроковий збір</h2>
-
-        <p class="progress-text">
-          Це безстроковий збір на щоденну роботу взводу технічного забезпечення:
-          інструмент, запчастини, мастила, зварка, діагностика та польові майстерні.
-          Кожен внесок допомагає тримати техніку в строю.
-        </p>
-
-        <div class="progress-track">
-          <div id="progress-fill-ua" class="progress-fill" data-label="Збір активний"></div>
-        </div>
-
-        <div class="progress-meta">
-          <span id="progress-text-ua">Збір активний</span>
-          <span>Безстроковий збір · Оновлено: 01.12.2025</span>
         </div>
       </section>
 
@@ -2226,7 +1986,7 @@
     window.open(shareUrl, '_blank');
   }
 
-  // LIGHTBOX GALLERY
+  // LIGHTBOX GALLERY (старий lightbox, але працює якщо будеш додавати .gallery-item)
   (function () {
     var lightbox = document.getElementById('lightbox');
     if (!lightbox) return;
@@ -2349,43 +2109,7 @@
       });
   })();
 
-  // FUNDS FORM (UA) -> mailto
-  function handleFundsUa(event) {
-    event.preventDefault();
-    var form = event.target;
-
-    var org      = form.org.value.trim();
-    var person   = form.person.value.trim();
-    var email    = form.email.value.trim();
-    var telegram = form.telegram.value.trim();
-    var country  = form.country.value.trim();
-    var type     = form.supportType.value.trim();
-    var budget   = form.budget.value.trim();
-    var comment  = form.comment.value.trim();
-
-    var subject = 'Запит від фонду / донатора: ' + (org || 'без назви');
-
-    var body =
-      'Організація / фонд / компанія: ' + org + '\n' +
-      'Контактна особа: ' + person + '\n' +
-      'Email: ' + email + '\n' +
-      'Telegram / телефон: ' + (telegram || '-') + '\n' +
-      'Країна / місто: ' + (country || '-') + '\n' +
-      'Тип підтримки: ' + type + '\n' +
-      'Орієнтовний бюджет / формат: ' + (budget || '-') + '\n' +
-      '---\n' +
-      'Коментар / деталі:\n' + (comment || '-') + '\n\n' +
-      'Надіслано через форму на сайті взводу технічного забезпечення 142-ї окремої механізованої бригади.';
-
-    var mailto =
-      'mailto:nadelnuikviktor@gmail.com'
-      + '?subject=' + encodeURIComponent(subject)
-      + '&body=' + encodeURIComponent(body);
-
-    window.location.href = mailto;
-  }
-
-  // “ПІДТРИМАТИ ВЗВОД” КНОПКА В КОЖНОМУ ВЕЛИКОМУ БЛОЦІ
+  // “Підтримати взвод” кнопка в кожному великому блоці
   (function () {
     var blocks = document.querySelectorAll('.big-block');
     blocks.forEach(function (block) {
@@ -2417,9 +2141,8 @@
 
     text.textContent = 'Збір активний';
   })();
-</script>
 
-<script>
+  // VIDEO CAROUSEL JS
   (function(){
     const track = document.getElementById('videoCarousel');
     if(!track) return;
@@ -2442,9 +2165,8 @@
       track.scrollBy({ left: getStep(), behavior: 'smooth' });
     });
   })();
-</script>
 
-<script>
+  // GALLERY CAROUSEL JS
   (function(){
     const track = document.getElementById('galleryCarousel');
     if(!track) return;
@@ -2462,10 +2184,8 @@
     prev && prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
     next && next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
   })();
-</script>
 
-<a href="#donate" class="mobile-donate-btn">Підтримати взвод</a>
-<script>
+  // MOBILE DONATE BUTTON VISIBILITY
   (function(){
     const btn = document.querySelector('.mobile-donate-btn');
     const donate = document.getElementById('donate');
@@ -2477,9 +2197,8 @@
 
     obs.observe(donate);
   })();
-</script>
 
-<script>
+  // TEAM CAROUSEL JS
   (function(){
     const track = document.getElementById('teamCarouselUA');
     if(!track) return;
@@ -2502,6 +2221,8 @@
     });
   })();
 </script>
+
+<a href="#donate" class="mobile-donate-btn">Підтримати взвод</a>
 
 </body>
 </html>
