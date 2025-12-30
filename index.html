@@ -32,6 +32,7 @@
     gtag('config', 'G-Y0HDG5SKZX');
   </script>
 
+  <!-- ОСНОВНИЙ СТИЛЬ -->
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -162,6 +163,16 @@
       overflow: hidden;
     }
 
+    /* Тепле новорічне світло в HERO */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -40px;
+      background: radial-gradient(circle at top, rgba(255, 220, 150, 0.22), transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
     /* Welding spark line across hero */
     .hero::after {
       content: "";
@@ -191,6 +202,8 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       opacity: 0.9;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-title {
@@ -202,17 +215,23 @@
       text-shadow:
         0 0 8px rgba(0,0,0,0.9),
         0 0 14px rgba(0,0,0,0.8);
+      position: relative;
+      z-index: 1;
     }
 
     .hero-sub {
       font-size: 16px;
       opacity: 0.9;
       margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-note {
       font-size: 13px;
       opacity: 0.75;
+      position: relative;
+      z-index: 1;
     }
 
     .section-title {
@@ -772,6 +791,8 @@
     /* Engine line under hero title */
     .engine-line-wrap {
       margin: 10px 0 14px;
+      position: relative;
+      z-index: 1;
     }
 
     .engine-line {
@@ -854,7 +875,7 @@
       display:block;
     }
 
-    /* DONATE BUTTON SHINE EFFECT (mobile button) */
+    /* DONATE BUTTON SHINE EFFECT */
     .mobile-donate-btn{
       position: fixed;
       overflow: hidden;
@@ -887,7 +908,7 @@
 
   <link rel="stylesheet" href="supporters.css">
 
-  <!-- CAROUSEL STYLES -->
+  <!-- КАРУСЕЛЬ "ЩО ВЖЕ ЗАКУПИЛИ" -->
   <style>
     .carousel {
       position: relative;
@@ -954,8 +975,8 @@
     }
   </style>
 
+  <!-- VIDEO GRID FIX -->
   <style>
-    /* VIDEO GRID FIX */
     #videos .video-grid{
       display: grid !important;
       grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -973,8 +994,8 @@
     }
   </style>
 
+  <!-- VIDEO CAROUSEL (slider) -->
   <style>
-    /* VIDEO CAROUSEL (slider) */
     #videos .video-carousel-wrap{
       position: relative;
       margin-top: 16px;
@@ -1044,8 +1065,8 @@
     }
   </style>
 
+  <!-- GALLERY BLOCK + CAROUSEL -->
   <style>
-    /* GALLERY BLOCK + CAROUSEL */
     #gallery.gallery-section{ padding: 40px 0; }
 
     #gallery .gallery-head{
@@ -1109,8 +1130,8 @@
     }
   </style>
 
+  <!-- MOBILE DONATE BUTTON BASE -->
   <style>
-    /* MOBILE DONATE BUTTON BASE */
     .mobile-donate-btn{
       position: fixed;
       left: 16px;
@@ -1163,8 +1184,8 @@
     }
   </style>
 
+  <!-- TEAM CAROUSEL (UA) -->
   <style>
-    /* TEAM CAROUSEL (UA) */
     #team-ua .team-carousel-wrap{
       position: relative;
       padding: 10px 46px;
@@ -1221,56 +1242,118 @@
     }
   </style>
 
-  <!-- Новорічні ефекти: гірлянда, світло в hero, сніг -->
+  <!-- НОВОРІЧНІ ДОПОВНЕННЯ: ГІРЛЯНДА, СНІГ, ЯЛИНКИ, ІКОНКИ -->
   <style>
-    /* Гірлянда під шапкою */
-    .garland{
-      width:100%;
-      height:4px;
-      position:relative;
-      margin-top:-6px;
-      background:linear-gradient(90deg,
-        rgba(255,0,0,.8),
-        rgba(255,200,0,.9),
-        rgba(0,180,255,.9),
-        rgba(0,255,120,.9),
-        rgba(255,215,0,.9));
-      background-size:400%;
-      animation:garlandGlow 4s linear infinite;
-      box-shadow:0 0 12px rgba(255,255,255,.5);
-      z-index:5;
+    /* SNOW CANVAS */
+    #snow-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
     }
 
-    @keyframes garlandGlow{
-      0%{background-position:0%}
-      100%{background-position:400%}
+    /* ГІРЛЯНДА ЛАМПОЧОК НАВЕРХУ */
+    .garland-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg,
+        #ff4b4b,
+        #ffd93b,
+        #4bd4ff,
+        #4bff88,
+        #ffd93b,
+        #ff4b4b);
+      background-size: 300% 100%;
+      animation: garlandShift 6s linear infinite;
+      box-shadow: 0 0 10px rgba(255,255,255,0.7);
+      z-index: 10000;
     }
 
-    /* Тепле світло в hero-блоці */
-    .hero{
-      position:relative;
-    }
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:radial-gradient(circle at top center,
-        rgba(255,215,0,.12),
-        transparent 60%);
-      pointer-events:none;
+    @keyframes garlandShift {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 300% 50%; }
     }
 
-    /* Canvas для снігу */
-    #snow{
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      z-index:6;
+    /* ЯЛИНКОВІ ГІЛКИ В HERO */
+    .hero .spruce {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.9;
+      filter: drop-shadow(0 6px 14px rgba(0,0,0,0.8));
+      z-index: 1;
+    }
+
+    .hero .spruce-left {
+      bottom: -20px;
+      left: -30px;
+      width: 160px;
+      height: 180px;
+      background: url("spruce-left.png") center/contain no-repeat;
+    }
+
+    .hero .spruce-right {
+      top: -30px;
+      right: -40px;
+      width: 170px;
+      height: 190px;
+      background: url("spruce-right.png") center/contain no-repeat;
+    }
+
+    @media (max-width: 768px) {
+      .hero .spruce-left {
+        left: -10px;
+        width: 110px;
+        height: 130px;
+        opacity: 0.8;
+      }
+      .hero .spruce-right {
+        right: -14px;
+        width: 120px;
+        height: 140px;
+        opacity: 0.8;
+      }
+    }
+
+    /* Маленька ялинкова іконка в заголовках */
+    .section-title--spruce {
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .section-title--spruce::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 22px;
+      height: 22px;
+      background: url("spruce-icon.png") center/contain no-repeat;
+      filter: drop-shadow(0 0 6px rgba(0,0,0,0.7));
+    }
+
+    /* Фото в блоці "Підтримали" трохи компактніші */
+    #supporters .thx-media img {
+      width: 100%;
+      max-height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      #supporters .thx-media img {
+        max-height: 200px;
+      }
     }
   </style>
 </head>
 
 <body>
+<div class="garland-bar"></div>
+
 <div class="page">
   <div class="container">
 
@@ -1308,16 +1391,17 @@
           які дають машині ще один виїзд — а комусь ще один шанс повернутися додому.
         </p>
 
-        <div style="margin-top:14px;">
+        <div style="margin-top:14px; position:relative; z-index:1;">
           <a href="#donate" class="donate-btn" style="display:inline-block;">
             Підтримати взвод
           </a>
         </div>
+
+        <!-- Новорічні ялинкові гілки -->
+        <div class="spruce spruce-left"></div>
+        <div class="spruce spruce-right"></div>
       </section>
     </header>
-
-    <!-- Новорічна гірлянда під шапкою -->
-    <div class="garland"></div>
 
     <main>
 
@@ -1517,9 +1601,9 @@
         </div>
       </section>
 
-      <!-- ЩО ВЖЕ ЗАКУПЛЕНО ЗАВДЯКИ ДОНАТАМ – картки -->
+      <!-- ЩО ВЖЕ ЗАКУПЛЕНО ЗАВДЯКИ ДОНАТАМ (грид) -->
       <section class="card big-block" id="purchased-ua">
-        <h2 class="section-title">Що вже закупили завдяки донатам</h2>
+        <h2 class="section-title section-title--spruce">Що вже закупили завдяки донатам</h2>
 
         <p>
           Частину найкритичніших речей для роботи взводу вже вдалося закрити завдяки вашим донатам.
@@ -1580,9 +1664,9 @@
         </p>
       </section>
 
-      <!-- КАРУСЕЛЬ ЗАКУПЛЕНОГО -->
+      <!-- ЩО ВЖЕ ЗАКУПИЛИ: КАРУСЕЛЬ -->
       <section class="card big-block" id="purchased-carousel">
-        <h2 class="section-title">Що вже закупили завдяки донатам</h2>
+        <h2 class="section-title section-title--spruce">Що вже закупили завдяки донатам</h2>
 
         <p>
           Це не “історії для соцмереж”. Це реальні речі, які вже працюють на фронті
@@ -1591,15 +1675,15 @@
 
         <div class="carousel">
           <div class="carousel-track">
-            <div class="carousel-item"><img src="assets/purchased-01.jpg" alt=""></div>
-            <div class="carousel-item"><img src="assets/purchased-02.jpg" alt=""></div>
-            <div class="carousel-item"><img src="assets/purchased-03.jpg" alt=""></div>
-            <div class="carousel-item"><img src="assets/purchased-04.jpg" alt=""></div>
-            <div class="carousel-item"><img src="assets/purchased-05.jpg" alt=""></div>
+            <div class="carousel-item"><img src="assets/purchased-01.jpg" loading="lazy" alt=""></div>
+            <div class="carousel-item"><img src="assets/purchased-02.jpg" loading="lazy" alt=""></div>
+            <div class="carousel-item"><img src="assets/purchased-03.jpg" loading="lazy" alt=""></div>
+            <div class="carousel-item"><img src="assets/purchased-04.jpg" loading="lazy" alt=""></div>
+            <div class="carousel-item"><img src="assets/purchased-05.jpg" loading="lazy" alt=""></div>
           </div>
 
-          <button class="carousel-btn prev">‹</button>
-          <button class="carousel-btn next">›</button>
+          <button class="carousel-btn prev" type="button" aria-label="Попереднє фото">‹</button>
+          <button class="carousel-btn next" type="button" aria-label="Наступне фото">›</button>
 
           <div class="carousel-dots">
             <span></span><span></span><span></span><span></span><span></span>
@@ -1777,7 +1861,7 @@
       <section id="gallery" class="gallery-section">
         <div class="container">
           <div class="gallery-head">
-            <h2 class="section-title">Фотогалерея</h2>
+            <h2 class="section-title section-title--spruce">Фотогалерея</h2>
             <a class="btn-support" href="#donate">Підтримати взвод</a>
           </div>
 
@@ -2101,7 +2185,10 @@
 
       <footer>
         Дякуємо за підтримку взводу технічного забезпечення 142 ОМБр.<br>
-        Ваша допомога тримає техніку в строю — а наших воїнів живими.
+        Ваша допомога тримає техніку в строю — а наших воїнів живими.<br>
+        <span style="font-size:12px; opacity:0.8;">
+          З Різдвом та Новим роком. Ми продовжуємо роботу — щоб у когось точно був наступний рік.
+        </span>
         <div id="visitor-counter-ua" style="margin-top:6px; font-size:11px; opacity:0.75;"></div>
       </footer>
 
@@ -2437,78 +2524,88 @@
 <a href="#donate" class="mobile-donate-btn">Підтримати взвод</a>
 
 <script>
-  // Purchased carousel
+  // PICTURE CAROUSEL "Що вже закупили"
   const track = document.querySelector('#purchased-carousel .carousel-track');
-  const slides = Array.from(track.children);
+  const slides = track ? Array.from(track.children) : [];
   const nextBtn = document.querySelector('#purchased-carousel .next');
   const prevBtn = document.querySelector('#purchased-carousel .prev');
   const dotsNav = document.querySelector('#purchased-carousel .carousel-dots');
-  const dots = Array.from(dotsNav.children);
+  const dots = dotsNav ? Array.from(dotsNav.children) : [];
   let index = 0;
 
   function updateCarousel() {
+    if(!track) return;
     track.style.transform = `translateX(-${index * 100}%)`;
+    if(!dots.length) return;
     dots.forEach(d => d.classList.remove('active'));
     dots[index].classList.add('active');
   }
 
-  nextBtn.onclick = () => {
-    index = (index + 1) % slides.length;
-    updateCarousel();
+  if(nextBtn){
+    nextBtn.onclick = () => {
+      index = (index + 1) % slides.length;
+      updateCarousel();
+    }
   }
 
-  prevBtn.onclick = () => {
-    index = (index - 1 + slides.length) % slides.length;
-    updateCarousel();
+  if(prevBtn){
+    prevBtn.onclick = () => {
+      index = (index - 1 + slides.length) % slides.length;
+      updateCarousel();
+    }
   }
 
   dots.forEach((dot,i)=>dot.onclick=()=>{ index=i; updateCarousel(); });
 
-  updateCarousel();
+  if(slides.length){
+    updateCarousel();
+  }
 </script>
 
-<!-- Canvas + JS для легкого снігу -->
-<canvas id="snow"></canvas>
+<!-- СНІГ -->
+<canvas id="snow-canvas"></canvas>
 <script>
   (function(){
-    const c = document.getElementById("snow");
-    if(!c) return;
-    const ctx = c.getContext("2d");
-    let w, h;
+    const canvas = document.getElementById('snow-canvas');
+    if(!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let width, height;
     const flakes = [];
+    const FLAKE_COUNT = 80;
 
     function resize(){
-      w = c.width = window.innerWidth;
-      h = c.height = window.innerHeight;
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
     }
-    window.addEventListener("resize", resize);
+    window.addEventListener('resize', resize);
     resize();
 
-    for(let i=0;i<70;i++){
+    for(let i=0; i<FLAKE_COUNT; i++){
       flakes.push({
-        x:Math.random()*w,
-        y:Math.random()*h,
-        r:Math.random()*2+1,
-        s:Math.random()*1+0.6
+        x: Math.random()*width,
+        y: Math.random()*height,
+        r: Math.random()*2+1,
+        s: Math.random()*0.8+0.4
       });
     }
 
-    function snow(){
-      ctx.clearRect(0,0,w,h);
-      ctx.fillStyle="rgba(255,255,255,.9)";
-      flakes.forEach(f=>{
+    function draw(){
+      ctx.clearRect(0,0,width,height);
+      ctx.fillStyle = 'rgba(255,255,255,0.9)';
+      for(const f of flakes){
         ctx.beginPath();
         ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
         ctx.fill();
-        f.y+=f.s;
-        if(f.y>h){
-          f.y=-2;
-          f.x=Math.random()*w;
+        f.y += f.s;
+        f.x += Math.sin(f.y * 0.01) * 0.3;
+        if(f.y > height+5){
+          f.y = -5;
+          f.x = Math.random()*width;
         }
-      });
-      requestAnimationFrame(snow);
+      }
+      requestAnimationFrame(draw);
     }
-    snow();
+    draw();
   })();
 </script>
 
