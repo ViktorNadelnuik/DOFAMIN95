@@ -32,7 +32,6 @@
     gtag('config', 'G-Y0HDG5SKZX');
   </script>
 
-  <!-- ОСНОВНИЙ СТИЛЬ -->
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -50,7 +49,7 @@
       content: "";
       position: fixed;
       inset: 0;
-      z-index: -1;
+      z-index: -3;
       background:
         repeating-linear-gradient(
           -35deg,
@@ -66,12 +65,56 @@
       content: "";
       position: fixed;
       inset: 0;
-      z-index: -1;
+      z-index: -3;
       background: radial-gradient(circle at top, rgba(255, 255, 255, 0.07), transparent 55%);
       mix-blend-mode: soft-light;
     }
 
     a { color: inherit; }
+
+    /* ===== UNIQUE OVERLAYS (НЕ ЛАМАЮТЬ САЙТ) ===== */
+    /* Snow canvas */
+    #snow {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+      opacity: 0.85;
+    }
+
+    /* Technical traces: appears subtly on scroll */
+    #tech-traces {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 3;
+      opacity: 0.06;
+      mix-blend-mode: overlay;
+      background:
+        repeating-linear-gradient(
+          -25deg,
+          rgba(255,255,255,0.020) 0,
+          rgba(255,255,255,0.020) 2px,
+          transparent 2px,
+          transparent 18px
+        );
+      transition: opacity 0.35s ease;
+    }
+
+    /* Optional: add a second ultra-soft layer for depth */
+    #tech-traces::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(255,255,255,0.06), transparent 35%),
+        radial-gradient(circle at 80% 60%, rgba(255,255,255,0.04), transparent 40%);
+      opacity: 0.20;
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      #tech-traces { transition: none; }
+    }
 
     .page {
       min-height: 100vh;
@@ -79,6 +122,8 @@
       display: flex;
       justify-content: center;
       animation: fadeInPage 0.7s ease-out;
+      position: relative;
+      z-index: 5; /* content above overlays */
     }
 
     .container {
@@ -163,16 +208,6 @@
       overflow: hidden;
     }
 
-    /* Тепле новорічне світло в HERO */
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: -40px;
-      background: radial-gradient(circle at top, rgba(255, 220, 150, 0.22), transparent 65%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
     /* Welding spark line across hero */
     .hero::after {
       content: "";
@@ -202,9 +237,33 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       opacity: 0.9;
-      position: relative;
-      z-index: 1;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
     }
+
+    /* Unique: system state (subtle) */
+    .system-state {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(0,0,0,0.35);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.88;
+    }
+    .system-dot{
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.55);
+      box-shadow: 0 0 10px rgba(255,255,255,0.18);
+    }
+    .system-text{ white-space: nowrap; }
 
     .hero-title {
       font-size: 26px;
@@ -215,23 +274,17 @@
       text-shadow:
         0 0 8px rgba(0,0,0,0.9),
         0 0 14px rgba(0,0,0,0.8);
-      position: relative;
-      z-index: 1;
     }
 
     .hero-sub {
       font-size: 16px;
       opacity: 0.9;
       margin-bottom: 8px;
-      position: relative;
-      z-index: 1;
     }
 
     .hero-note {
       font-size: 13px;
       opacity: 0.75;
-      position: relative;
-      z-index: 1;
     }
 
     .section-title {
@@ -260,6 +313,7 @@
       min-height: 260px;
       transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
       animation: cardFade 0.55s ease-out;
+      position: relative;
     }
 
     .card:hover {
@@ -628,118 +682,46 @@
     }
 
     @media (max-width: 1024px) {
-      .page {
-        padding: 20px 10px 32px;
-      }
-      .hero {
-        padding: 20px 18px 18px;
-        margin-bottom: 22px;
-      }
-      .hero-title {
-        font-size: 24px;
-      }
-      .card-grid {
-        gap: 16px;
-      }
+      .page { padding: 20px 10px 32px; }
+      .hero { padding: 20px 18px 18px; margin-bottom: 22px; }
+      .hero-title { font-size: 24px; }
+      .card-grid { gap: 16px; }
     }
 
     @media (max-width: 768px) {
-      .page {
-        padding: 18px 8px 28px;
-      }
-      .hero {
-        padding: 18px 14px 16px;
-      }
-      .hero-badge {
-        font-size: 11px;
-      }
-      .hero-title {
-        font-size: 21px;
-        line-height: 1.2;
-      }
-      .hero-sub {
-        font-size: 14px;
-      }
-      .hero-note {
-        font-size: 12px;
-      }
+      .page { padding: 18px 8px 28px; }
+      .hero { padding: 18px 14px 16px; }
+      .hero-badge { font-size: 11px; }
+      .hero-title { font-size: 21px; line-height: 1.2; }
+      .hero-sub { font-size: 14px; }
+      .hero-note { font-size: 12px; }
 
-      .card {
-        padding: 14px 14px 16px;
-        min-height: auto;
-      }
+      .card { padding: 14px 14px 16px; min-height: auto; }
+      .card.big-block { padding: 16px 14px 18px; }
 
-      .card.big-block {
-        padding: 16px 14px 18px;
-      }
+      .card p { font-size: 13px; }
 
-      .card p {
-        font-size: 13px;
-      }
+      .btn-row { flex-direction: column; }
+      .btn-row .donate-btn { width: 100%; text-align: center; justify-content: center; }
 
-      .btn-row {
-        flex-direction: column;
-      }
-
-      .btn-row .donate-btn {
-        width: 100%;
-        text-align: center;
-        justify-content: center;
-      }
-
-      .qr {
-        width: 130px;
-        height: 130px;
-      }
+      .qr { width: 130px; height: 130px; }
     }
 
     @media (max-width: 480px) {
-      .hero {
-        border-radius: 18px;
-      }
+      .hero { border-radius: 18px; }
+      .hero-title { font-size: 19px; }
+      .section-title { font-size: 20px; }
 
-      .hero-title {
-        font-size: 19px;
-      }
+      .card { border-radius: 18px; padding: 12px 12px 14px; }
+      .card p { font-size: 12.5px; }
 
-      .section-title {
-        font-size: 20px;
-      }
+      .btn-row { gap: 6px; }
+      .donate-btn { padding: 8px 14px; font-size: 12px; }
+      .qr { width: 120px; height: 120px; }
 
-      .card {
-        border-radius: 18px;
-        padding: 12px 12px 14px;
-      }
+      .gallery-caption { font-size: 10px; }
 
-      .card p {
-        font-size: 12.5px;
-      }
-
-      .btn-row {
-        gap: 6px;
-      }
-
-      .donate-btn {
-        padding: 8px 14px;
-        font-size: 12px;
-      }
-
-      .qr {
-        width: 120px;
-        height: 120px;
-      }
-
-      .gallery-caption {
-        font-size: 10px;
-      }
-
-      .scroll-top-btn {
-        right: 12px;
-        bottom: 14px;
-        width: 38px;
-        height: 38px;
-        font-size: 20px;
-      }
+      .scroll-top-btn { right: 12px; bottom: 14px; width: 38px; height: 38px; font-size: 20px; }
     }
 
     /* Animations */
@@ -770,30 +752,14 @@
     }
 
     @keyframes weld-spark {
-      0%, 60% {
-        opacity: 0;
-        transform: translateX(-10%);
-      }
-      65% {
-        opacity: 1;
-        transform: translateX(10%);
-      }
-      80% {
-        opacity: 0.5;
-        transform: translateX(60%);
-      }
-      100% {
-        opacity: 0;
-        transform: translateX(120%);
-      }
+      0%, 60% { opacity: 0; transform: translateX(-10%); }
+      65% { opacity: 1; transform: translateX(10%); }
+      80% { opacity: 0.5; transform: translateX(60%); }
+      100% { opacity: 0; transform: translateX(120%); }
     }
 
     /* Engine line under hero title */
-    .engine-line-wrap {
-      margin: 10px 0 14px;
-      position: relative;
-      z-index: 1;
-    }
+    .engine-line-wrap { margin: 10px 0 14px; }
 
     .engine-line {
       position: relative;
@@ -862,17 +828,7 @@
     }
 
     @media (max-width: 480px) {
-      .header-patch {
-        width: 110px;
-      }
-    }
-
-    /* Відео iframe у старому слайдері */
-    .gal__slide iframe{
-      width:100%;
-      aspect-ratio:16/9;
-      border:0;
-      display:block;
+      .header-patch { width: 110px; }
     }
 
     /* DONATE BUTTON SHINE EFFECT */
@@ -904,11 +860,26 @@
       45%{ transform: translateX(320%) rotate(18deg); }
       100%{ transform: translateX(320%) rotate(18deg); }
     }
+
+    /* ===== FIX: supporters images too big (override) ===== */
+    /* Не чіпаємо supporters.css, просто робимо фото акуратнішими */
+    #supporters .thx-media img{
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      border-radius: 14px;
+    }
+    @media (max-width: 520px){
+      #supporters .thx-media img{ height: 190px; }
+    }
+
   </style>
 
+  <!-- зовнішні стилі (залишаємо як є) -->
   <link rel="stylesheet" href="supporters.css">
 
-  <!-- КАРУСЕЛЬ "ЩО ВЖЕ ЗАКУПИЛИ" -->
+  <!-- ===== ВАЖЛИВО: CSS КАРУСЕЛІ (раніше був “голим” у head і ламав документ) ===== -->
   <style>
     .carousel {
       position: relative;
@@ -921,6 +892,7 @@
     .carousel-track {
       display: flex;
       transition: transform .4s ease-in-out;
+      will-change: transform;
     }
 
     .carousel-item {
@@ -932,6 +904,12 @@
       width: 100%;
       display: block;
       border-radius: 14px;
+      height: 360px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 640px){
+      .carousel-item img { height: 260px; }
     }
 
     .carousel-btn {
@@ -946,10 +924,11 @@
       height: 36px;
       border-radius: 50%;
       cursor: pointer;
+      z-index: 5;
     }
 
     .carousel-btn:hover {
-      background: black;
+      background: rgba(0,0,0,.9);
     }
 
     .prev { left: 10px; }
@@ -975,8 +954,8 @@
     }
   </style>
 
-  <!-- VIDEO GRID FIX -->
   <style>
+    /* VIDEO GRID FIX */
     #videos .video-grid{
       display: grid !important;
       grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -994,8 +973,8 @@
     }
   </style>
 
-  <!-- VIDEO CAROUSEL (slider) -->
   <style>
+    /* VIDEO CAROUSEL (slider) */
     #videos .video-carousel-wrap{
       position: relative;
       margin-top: 16px;
@@ -1065,8 +1044,8 @@
     }
   </style>
 
-  <!-- GALLERY BLOCK + CAROUSEL -->
   <style>
+    /* GALLERY BLOCK + CAROUSEL */
     #gallery.gallery-section{ padding: 40px 0; }
 
     #gallery .gallery-head{
@@ -1130,8 +1109,8 @@
     }
   </style>
 
-  <!-- MOBILE DONATE BUTTON BASE -->
   <style>
+    /* MOBILE DONATE BUTTON BASE */
     .mobile-donate-btn{
       position: fixed;
       left: 16px;
@@ -1184,8 +1163,8 @@
     }
   </style>
 
-  <!-- TEAM CAROUSEL (UA) -->
   <style>
+    /* TEAM CAROUSEL (UA) */
     #team-ua .team-carousel-wrap{
       position: relative;
       padding: 10px 46px;
@@ -1241,118 +1220,13 @@
       }
     }
   </style>
-
-  <!-- НОВОРІЧНІ ДОПОВНЕННЯ: ГІРЛЯНДА, СНІГ, ЯЛИНКИ, ІКОНКИ -->
-  <style>
-    /* SNOW CANVAS */
-    #snow-canvas {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 9999;
-    }
-
-    /* ГІРЛЯНДА ЛАМПОЧОК НАВЕРХУ */
-    .garland-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg,
-        #ff4b4b,
-        #ffd93b,
-        #4bd4ff,
-        #4bff88,
-        #ffd93b,
-        #ff4b4b);
-      background-size: 300% 100%;
-      animation: garlandShift 6s linear infinite;
-      box-shadow: 0 0 10px rgba(255,255,255,0.7);
-      z-index: 10000;
-    }
-
-    @keyframes garlandShift {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 300% 50%; }
-    }
-
-    /* ЯЛИНКОВІ ГІЛКИ В HERO */
-    .hero .spruce {
-      position: absolute;
-      pointer-events: none;
-      opacity: 0.9;
-      filter: drop-shadow(0 6px 14px rgba(0,0,0,0.8));
-      z-index: 1;
-    }
-
-    .hero .spruce-left {
-      bottom: -20px;
-      left: -30px;
-      width: 160px;
-      height: 180px;
-      background: url("spruce-left.png") center/contain no-repeat;
-    }
-
-    .hero .spruce-right {
-      top: -30px;
-      right: -40px;
-      width: 170px;
-      height: 190px;
-      background: url("spruce-right.png") center/contain no-repeat;
-    }
-
-    @media (max-width: 768px) {
-      .hero .spruce-left {
-        left: -10px;
-        width: 110px;
-        height: 130px;
-        opacity: 0.8;
-      }
-      .hero .spruce-right {
-        right: -14px;
-        width: 120px;
-        height: 140px;
-        opacity: 0.8;
-      }
-    }
-
-    /* Маленька ялинкова іконка в заголовках */
-    .section-title--spruce {
-      position: relative;
-      padding-left: 30px;
-    }
-
-    .section-title--spruce::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 22px;
-      height: 22px;
-      background: url("spruce-icon.png") center/contain no-repeat;
-      filter: drop-shadow(0 0 6px rgba(0,0,0,0.7));
-    }
-
-    /* Фото в блоці "Підтримали" трохи компактніші */
-    #supporters .thx-media img {
-      width: 100%;
-      max-height: 260px;
-      object-fit: cover;
-      display: block;
-    }
-
-    @media (max-width: 768px) {
-      #supporters .thx-media img {
-        max-height: 200px;
-      }
-    }
-  </style>
 </head>
 
 <body>
-<div class="garland-bar"></div>
+
+<!-- overlays (не впливають на розмітку) -->
+<canvas id="snow"></canvas>
+<div id="tech-traces"></div>
 
 <div class="page">
   <div class="container">
@@ -1374,7 +1248,14 @@
       </div>
 
       <section class="hero">
-        <div class="hero-badge">Ремонт техніки на передовій</div>
+        <div class="hero-badge">
+          <span>Ремонт техніки на передовій</span>
+          <span class="system-state" id="systemState">
+            <span class="system-dot" id="systemDot"></span>
+            <span class="system-text" id="systemText">СТАН: РОБОТА ЙДЕ</span>
+          </span>
+        </div>
+
         <div class="hero-title">Техніка має їхати. Люди мають повернутись живими.</div>
 
         <div class="engine-line-wrap">
@@ -1391,15 +1272,11 @@
           які дають машині ще один виїзд — а комусь ще один шанс повернутися додому.
         </p>
 
-        <div style="margin-top:14px; position:relative; z-index:1;">
+        <div style="margin-top:14px;">
           <a href="#donate" class="donate-btn" style="display:inline-block;">
             Підтримати взвод
           </a>
         </div>
-
-        <!-- Новорічні ялинкові гілки -->
-        <div class="spruce spruce-left"></div>
-        <div class="spruce spruce-right"></div>
       </section>
     </header>
 
@@ -1601,30 +1478,27 @@
         </div>
       </section>
 
-      <!-- ЩО ВЖЕ ЗАКУПЛЕНО ЗАВДЯКИ ДОНАТАМ (грид) -->
-     
-      <!-- ЩО ВЖЕ ЗАКУПИЛИ: КАРУСЕЛЬ -->
+      <!-- ✅ ЗАЛИШИЛИ ТІЛЬКИ ОДИН БЛОК "ЩО ЗАКУПИЛИ" — КАРУСЕЛЬ -->
       <section class="card big-block" id="purchased-carousel">
-        <h2 class="section-title section-title--spruce">Що вже закупили завдяки донатам</h2>
+        <h2 class="section-title">Що вже закупили завдяки донатам</h2>
 
         <p>
-          Це не “історії для соцмереж”. Це реальні речі, які вже працюють на фронті
-          та допомагають нам тримати техніку в строю.
+          Це реальні речі, які вже працюють на фронті та допомагають нам тримати техніку в строю.
         </p>
 
         <div class="carousel">
           <div class="carousel-track">
-            <div class="carousel-item"><img src="assets/purchased-01.jpg" loading="lazy" alt=""></div>
-            <div class="carousel-item"><img src="assets/purchased-02.jpg" loading="lazy" alt=""></div>
-            <div class="carousel-item"><img src="assets/purchased-03.jpg" loading="lazy" alt=""></div>
-            <div class="carousel-item"><img src="assets/purchased-04.jpg" loading="lazy" alt=""></div>
-            <div class="carousel-item"><img src="assets/purchased-05.jpg" loading="lazy" alt=""></div>
+            <div class="carousel-item"><img src="assets/purchased-01.jpg" alt="Закуплено завдяки донатам" loading="lazy"></div>
+            <div class="carousel-item"><img src="assets/purchased-02.jpg" alt="Закуплено завдяки донатам" loading="lazy"></div>
+            <div class="carousel-item"><img src="assets/purchased-03.jpg" alt="Закуплено завдяки донатам" loading="lazy"></div>
+            <div class="carousel-item"><img src="assets/purchased-04.jpg" alt="Закуплено завдяки донатам" loading="lazy"></div>
+            <div class="carousel-item"><img src="assets/purchased-05.jpg" alt="Закуплено завдяки донатам" loading="lazy"></div>
           </div>
 
           <button class="carousel-btn prev" type="button" aria-label="Попереднє фото">‹</button>
           <button class="carousel-btn next" type="button" aria-label="Наступне фото">›</button>
 
-          <div class="carousel-dots">
+          <div class="carousel-dots" aria-label="Навігація каруселі">
             <span></span><span></span><span></span><span></span><span></span>
           </div>
         </div>
@@ -1800,7 +1674,7 @@
       <section id="gallery" class="gallery-section">
         <div class="container">
           <div class="gallery-head">
-            <h2 class="section-title section-title--spruce">Фотогалерея</h2>
+            <h2 class="section-title">Фотогалерея</h2>
             <a class="btn-support" href="#donate">Підтримати взвод</a>
           </div>
 
@@ -1953,7 +1827,7 @@
         <div class="card-grid" style="margin-top:10px;">
 
           <div class="card" style="min-height:160px;">
-            <h3>⚡ Швидкість</h3>
+            <h3>Швидкість</h3>
             <p>
               Оперативно реагуємо на поломки, відмови техніки та запити підрозділів.
               У полі важлива кожна хвилина — ми не тягнемо час.
@@ -1961,7 +1835,7 @@
           </div>
 
           <div class="card" style="min-height:160px;">
-            <h3>🎯 Точність</h3>
+            <h3>Точність</h3>
             <p>
               Діагностика, ремонт, регулювання — робимо максимально якісно.
               Помилка в ремонті може коштувати машини або життя бійця.
@@ -1969,7 +1843,7 @@
           </div>
 
           <div class="card" style="min-height:160px;">
-            <h3>🛠️ Професійність</h3>
+            <h3>Професійність</h3>
             <p>
               Кожен у взводі знає свою техніку до останнього болта.
               Ми вкладаємо досвід, знання й руки в кожну машину, яка має їхати.
@@ -1977,7 +1851,7 @@
           </div>
 
           <div class="card" style="min-height:160px;">
-            <h3>💪 Відповідальність</h3>
+            <h3>Відповідальність</h3>
             <p>
               Розуміємо ціну нашої роботи: відремонтована машина = виконана бойова задача.
               Відповідаємо за результат, а не за процес.
@@ -1985,7 +1859,7 @@
           </div>
 
           <div class="card" style="min-height:160px;">
-            <h3>🚚 Мобільність</h3>
+            <h3>Мобільність</h3>
             <p>
               Працюємо будь-де: в полі, на ґрунті, під обстрілами, під дощем чи морозом.
               Немає боксу? Робимо його з того, що є.
@@ -1993,7 +1867,7 @@
           </div>
 
           <div class="card" style="min-height:160px;">
-            <h3>🔥 Стійкість</h3>
+            <h3>Стійкість</h3>
             <p>
               Доводимо роботу до кінця. Без відмазок.
               Техніка має їхати — і вона поїде.
@@ -2124,10 +1998,7 @@
 
       <footer>
         Дякуємо за підтримку взводу технічного забезпечення 142 ОМБр.<br>
-        Ваша допомога тримає техніку в строю — а наших воїнів живими.<br>
-        <span style="font-size:12px; opacity:0.8;">
-          З Різдвом та Новим роком. Ми продовжуємо роботу — щоб у когось точно був наступний рік.
-        </span>
+        Ваша допомога тримає техніку в строю — а наших воїнів живими.
         <div id="visitor-counter-ua" style="margin-top:6px; font-size:11px; opacity:0.75;"></div>
       </footer>
 
@@ -2158,12 +2029,8 @@
   function copyText(text) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text)
-        .then(function () {
-          alert('Скопійовано: ' + text);
-        })
-        .catch(function () {
-          fallbackCopy(text);
-        });
+        .then(function () { alert('Скопійовано: ' + text); })
+        .catch(function () { fallbackCopy(text); });
     } else {
       fallbackCopy(text);
     }
@@ -2201,16 +2068,13 @@
           + '&text=' + encodeURIComponent(SHARE_TEXT_UA);
         break;
       case 'viber':
-        shareUrl = 'viber://forward?text='
-          + encodeURIComponent(text);
+        shareUrl = 'viber://forward?text=' + encodeURIComponent(text);
         break;
       case 'whatsapp':
-        shareUrl = 'https://wa.me/?text='
-          + encodeURIComponent(text);
+        shareUrl = 'https://wa.me/?text=' + encodeURIComponent(text);
         break;
       case 'facebook':
-        shareUrl = 'https://www.facebook.com/sharer/sharer.php?u='
-          + encodeURIComponent(SHARE_URL_UA);
+        shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(SHARE_URL_UA);
         break;
       case 'instagram':
         copyText(text);
@@ -2224,7 +2088,7 @@
     window.open(shareUrl, '_blank');
   }
 
-  // LIGHTBOX GALLERY
+  // LIGHTBOX GALLERY (старий lightbox, але працює якщо будеш додавати .gallery-item)
   (function () {
     var lightbox = document.getElementById('lightbox');
     if (!lightbox) return;
@@ -2250,15 +2114,9 @@
         caption = img.alt;
       }
 
-      items.push({
-        src: img.src,
-        alt: img.alt || '',
-        caption: caption
-      });
+      items.push({ src: img.src, alt: img.alt || '', caption: caption });
 
-      img.addEventListener('click', function () {
-        openLightbox(index);
-      });
+      img.addEventListener('click', function () { openLightbox(index); });
     });
 
     function openLightbox(index) {
@@ -2282,25 +2140,14 @@
       lightboxCaption.textContent = item.caption || '';
     }
 
-    function showNext() {
-      currentIndex = (currentIndex + 1) % items.length;
-      updateLightbox();
-    }
-
-    function showPrev() {
-      currentIndex = (currentIndex - 1 + items.length) % items.length;
-      updateLightbox();
-    }
+    function showNext() { currentIndex = (currentIndex + 1) % items.length; updateLightbox(); }
+    function showPrev() { currentIndex = (currentIndex - 1 + items.length) % items.length; updateLightbox(); }
 
     btnClose.addEventListener('click', closeLightbox);
     btnNext.addEventListener('click', showNext);
     btnPrev.addEventListener('click', showPrev);
 
-    lightbox.addEventListener('click', function (e) {
-      if (e.target === lightbox) {
-        closeLightbox();
-      }
-    });
+    lightbox.addEventListener('click', function (e) { if (e.target === lightbox) closeLightbox(); });
 
     document.addEventListener('keydown', function (e) {
       if (!lightbox.classList.contains('is-open')) return;
@@ -2317,18 +2164,12 @@
 
     window.addEventListener('scroll', function () {
       var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollY > 250) {
-        btn.classList.add('scroll-top-btn--visible');
-      } else {
-        btn.classList.remove('scroll-top-btn--visible');
-      }
+      if (scrollY > 250) btn.classList.add('scroll-top-btn--visible');
+      else btn.classList.remove('scroll-top-btn--visible');
     });
 
     btn.addEventListener('click', function () {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   })();
 
@@ -2355,7 +2196,7 @@
 
       var btn = document.createElement('button');
       btn.className = 'block-donate-btn';
-      btn.innerHTML = '<span class="icon">🇺🇦</span> Підтримати взвод';
+      btn.innerHTML = '<span class="icon">UA</span> Підтримати взвод';
 
       btn.addEventListener('click', function () {
         var donate = document.getElementById('donate');
@@ -2373,10 +2214,8 @@
     if (!fill || !text) return;
 
     var percent = 40;  // просто щоб смуга була видима
-
     fill.style.width = percent + '%';
     fill.setAttribute('data-label', 'Збір активний');
-
     text.textContent = 'Збір активний';
   })();
 
@@ -2458,95 +2297,147 @@
       track.scrollBy({ left: step(), behavior: 'smooth' });
     });
   })();
-</script>
 
-<a href="#donate" class="mobile-donate-btn">Підтримати взвод</a>
-
-<script>
-  // PICTURE CAROUSEL "Що вже закупили"
-  const track = document.querySelector('#purchased-carousel .carousel-track');
-  const slides = track ? Array.from(track.children) : [];
-  const nextBtn = document.querySelector('#purchased-carousel .next');
-  const prevBtn = document.querySelector('#purchased-carousel .prev');
-  const dotsNav = document.querySelector('#purchased-carousel .carousel-dots');
-  const dots = dotsNav ? Array.from(dotsNav.children) : [];
-  let index = 0;
-
-  function updateCarousel() {
-    if(!track) return;
-    track.style.transform = `translateX(-${index * 100}%)`;
-    if(!dots.length) return;
-    dots.forEach(d => d.classList.remove('active'));
-    dots[index].classList.add('active');
-  }
-
-  if(nextBtn){
-    nextBtn.onclick = () => {
-      index = (index + 1) % slides.length;
-      updateCarousel();
-    }
-  }
-
-  if(prevBtn){
-    prevBtn.onclick = () => {
-      index = (index - 1 + slides.length) % slides.length;
-      updateCarousel();
-    }
-  }
-
-  dots.forEach((dot,i)=>dot.onclick=()=>{ index=i; updateCarousel(); });
-
-  if(slides.length){
-    updateCarousel();
-  }
-</script>
-
-<!-- СНІГ -->
-<canvas id="snow-canvas"></canvas>
-<script>
+  // PURCHASED CAROUSEL JS
   (function(){
-    const canvas = document.getElementById('snow-canvas');
-    if(!canvas) return;
-    const ctx = canvas.getContext('2d');
-    let width, height;
+    const track = document.querySelector('#purchased-carousel .carousel-track');
+    if(!track) return;
+
+    const slides = Array.from(track.children);
+    const nextBtn = document.querySelector('#purchased-carousel .next');
+    const prevBtn = document.querySelector('#purchased-carousel .prev');
+    const dotsNav = document.querySelector('#purchased-carousel .carousel-dots');
+    const dots = dotsNav ? Array.from(dotsNav.children) : [];
+    let index = 0;
+
+    function updateCarousel() {
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach(d => d.classList.remove('active'));
+      if(dots[index]) dots[index].classList.add('active');
+    }
+
+    nextBtn && (nextBtn.onclick = () => { index = (index + 1) % slides.length; updateCarousel(); });
+    prevBtn && (prevBtn.onclick = () => { index = (index - 1 + slides.length) % slides.length; updateCarousel(); });
+
+    dots.forEach((dot,i)=>dot.onclick=()=>{ index=i; updateCarousel(); });
+
+    updateCarousel();
+  })();
+
+  // UNIQUE: TECH-TRACES ON SCROLL (subtle)
+  (function(){
+    const traces = document.getElementById('tech-traces');
+    if(!traces) return;
+
+    let t;
+    function boost(){
+      traces.style.opacity = '0.14';
+      clearTimeout(t);
+      t = setTimeout(()=>{ traces.style.opacity = '0.06'; }, 220);
+    }
+    window.addEventListener('scroll', boost, { passive:true });
+  })();
+
+  // UNIQUE: SYSTEM STATE (slow, calm)
+  (function(){
+    const textEl = document.getElementById('systemText');
+    const dotEl = document.getElementById('systemDot');
+    if(!textEl || !dotEl) return;
+
+    const states = [
+      { t:'СТАН: РОБОТА ЙДЕ',       c:'rgba(255,255,255,0.55)', g:'rgba(255,255,255,0.18)'},
+      { t:'СТАН: НАВАНТАЖЕННЯ ВИСОКЕ', c:'rgba(255,215,0,0.65)', g:'rgba(255,215,0,0.22)'},
+      { t:'СТАН: ОЧІКУЄМО РЕСУРС',  c:'rgba(0,180,255,0.65)',   g:'rgba(0,180,255,0.20)'}
+    ];
+
+    let i = 0;
+    function apply(s){
+      textEl.style.opacity = '0';
+      setTimeout(()=>{
+        textEl.textContent = s.t;
+        dotEl.style.background = s.c;
+        dotEl.style.boxShadow = `0 0 10px ${s.g}`;
+        textEl.style.opacity = '1';
+      }, 220);
+    }
+
+    apply(states[i]);
+    setInterval(()=>{
+      i = (i + 1) % states.length;
+      apply(states[i]);
+    }, 9000);
+  })();
+
+  // SNOW (lightweight)
+  (function(){
+    const c = document.getElementById('snow');
+    if(!c) return;
+    const ctx = c.getContext('2d', { alpha:true });
+
+    let w, h, dpr;
     const flakes = [];
-    const FLAKE_COUNT = 80;
+    const COUNT = 70;
 
     function resize(){
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = Math.floor(window.innerWidth);
+      h = Math.floor(window.innerHeight);
+      c.width = Math.floor(w * dpr);
+      c.height = Math.floor(h * dpr);
+      c.style.width = w + 'px';
+      c.style.height = h + 'px';
+      ctx.setTransform(dpr,0,0,dpr,0,0);
     }
     window.addEventListener('resize', resize);
     resize();
 
-    for(let i=0; i<FLAKE_COUNT; i++){
-      flakes.push({
-        x: Math.random()*width,
-        y: Math.random()*height,
-        r: Math.random()*2+1,
-        s: Math.random()*0.8+0.4
-      });
+    function seed(){
+      flakes.length = 0;
+      for(let i=0;i<COUNT;i++){
+        flakes.push({
+          x: Math.random()*w,
+          y: Math.random()*h,
+          r: 0.8 + Math.random()*2.2,
+          s: 0.35 + Math.random()*0.95,
+          dx: (Math.random()-0.5)*0.25
+        });
+      }
     }
+    seed();
 
-    function draw(){
-      ctx.clearRect(0,0,width,height);
-      ctx.fillStyle = 'rgba(255,255,255,0.9)';
+    function tick(){
+      ctx.clearRect(0,0,w,h);
+      ctx.fillStyle = 'rgba(255,255,255,0.85)';
+
       for(const f of flakes){
         ctx.beginPath();
-        ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
+        ctx.arc(f.x, f.y, f.r, 0, Math.PI*2);
         ctx.fill();
+
         f.y += f.s;
-        f.x += Math.sin(f.y * 0.01) * 0.3;
-        if(f.y > height+5){
-          f.y = -5;
-          f.x = Math.random()*width;
+        f.x += f.dx;
+
+        if(f.y > h + 8){
+          f.y = -10;
+          f.x = Math.random()*w;
         }
+        if(f.x < -10) f.x = w + 10;
+        if(f.x > w + 10) f.x = -10;
       }
-      requestAnimationFrame(draw);
+
+      requestAnimationFrame(tick);
     }
-    draw();
+
+    // If user prefers reduced motion, keep only a tiny static layer
+    if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      c.style.opacity = '0.25';
+    } else {
+      tick();
+    }
   })();
 </script>
+
+<a href="#donate" class="mobile-donate-btn">Підтримати взвод</a>
 
 </body>
 </html>
