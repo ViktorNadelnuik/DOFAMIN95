@@ -961,6 +961,83 @@
       background: rgba(0,0,0,0.35);
     }
   </style>
+/* ===== ФОТОГАЛЕРЕЯ ===== */
+.gallery-section{
+  margin:80px 0;
+}
+
+.gallery-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  margin-bottom:20px;
+}
+
+.section-title{
+  font-size:26px;
+  font-weight:800;
+}
+
+.btn-support{
+  padding:10px 18px;
+  background:#f6c453;
+  color:#000;
+  text-decoration:none;
+  border-radius:999px;
+  font-weight:700;
+}
+
+.gallery-carousel-wrap{
+  position:relative;
+}
+
+.gallery-carousel{
+  display:flex;
+  gap:16px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  padding:10px 0;
+}
+
+.gallery-carousel::-webkit-scrollbar{
+  display:none;
+}
+
+.gc-item{
+  flex:0 0 auto;
+}
+
+.gc-item img{
+  width:260px;
+  height:170px;
+  object-fit:cover;
+  border-radius:14px;
+}
+
+.gc-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:none;
+  background:#f6c453;
+  font-size:28px;
+  cursor:pointer;
+  z-index:5;
+}
+
+.gc-prev{left:-20px}
+.gc-next{right:-20px}
+
+@media (max-width:600px){
+  .gc-item img{
+    width:200px;
+    height:130px;
+  }
+}
 
   <style>
     /* VIDEO GRID FIX */
@@ -2009,7 +2086,7 @@ track.addEventListener('touchend', e => {
         </p>
       </section>
 
-    <!-- ===================== ГАЛЕРЕЯ (JS генерація p1-p37) ===================== -->
+   <!-- ===== ФОТОГАЛЕРЕЯ ===== -->
 <section id="gallery" class="gallery-section">
   <div class="container">
     <div class="gallery-head">
@@ -2020,38 +2097,13 @@ track.addEventListener('touchend', e => {
     <div class="gallery-carousel-wrap">
       <button class="gc-btn gc-prev" type="button" aria-label="Назад">‹</button>
 
-      <div class="gallery-carousel" id="galleryCarousel">
-        <!-- Фото автоматично згенеруються JS -->
-      </div>
+      <div class="gallery-carousel" id="galleryCarousel"></div>
 
       <button class="gc-btn gc-next" type="button" aria-label="Вперед">›</button>
     </div>
   </div>
 </section>
 
-<script>
-// Автоматична генерація фото p1 - p37
-const carousel = document.getElementById('galleryCarousel');
-for(let i = 1; i <= 37; i++){
-  const figure = document.createElement('figure');
-  figure.className = 'gc-item';
-  figure.innerHTML = `<img src="assets/photos/p${i}.jpg" alt="Фото ${i}" loading="lazy">`;
-  carousel.appendChild(figure);
-}
-
-// ================== Проста логіка каруселі ==================
-const prevBtn = document.querySelector('.gc-prev');
-const nextBtn = document.querySelector('.gc-next');
-let scrollAmount = 0;
-const itemWidth = carousel.querySelector('.gc-item')?.offsetWidth || 200;
-
-prevBtn.addEventListener('click', () => {
-  carousel.scrollBy({ left: -itemWidth, behavior: 'smooth' });
-});
-nextBtn.addEventListener('click', () => {
-  carousel.scrollBy({ left: itemWidth, behavior: 'smooth' });
-});
-</script>
 
       <!-- ВІДЕО -->
       <section id="videos" class="videos-section">
@@ -2976,6 +3028,36 @@ nextBtn.addEventListener('click', () => {
       });
     });
   })();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  const carousel = document.getElementById('galleryCarousel');
+  const prevBtn = document.querySelector('.gc-prev');
+  const nextBtn = document.querySelector('.gc-next');
+
+  // Генерація фото p1–p37
+  for(let i = 1; i <= 37; i++){
+    const figure = document.createElement('figure');
+    figure.className = 'gc-item';
+    figure.innerHTML = `
+      <img src="assets/photos/p${i}.jpg" alt="Фото ${i}" loading="lazy">
+    `;
+    carousel.appendChild(figure);
+  }
+
+  const getItemWidth = () =>
+    carousel.querySelector('.gc-item')?.offsetWidth + 16 || 260;
+
+  prevBtn.addEventListener('click', () => {
+    carousel.scrollBy({ left: -getItemWidth(), behavior: 'smooth' });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    carousel.scrollBy({ left: getItemWidth(), behavior: 'smooth' });
+  });
+
+});
 </script>
 
 </body>
