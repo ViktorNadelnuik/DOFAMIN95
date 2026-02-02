@@ -2009,41 +2009,49 @@ track.addEventListener('touchend', e => {
         </p>
       </section>
 
-      <!-- ГАЛЕРЕЯ -->
-      <section id="gallery" class="gallery-section">
-        <div class="container">
-          <div class="gallery-head">
-            <h2 class="section-title">Фотогалерея</h2>
-            <a class="btn-support" href="#donate">Підтримати взвод</a>
-          </div>
+    <!-- ===================== ГАЛЕРЕЯ (JS генерація p1-p37) ===================== -->
+<section id="gallery" class="gallery-section">
+  <div class="container">
+    <div class="gallery-head">
+      <h2 class="section-title">Фотогалерея</h2>
+      <a class="btn-support" href="#donate">Підтримати взвод</a>
+    </div>
 
-          <div class="gallery-carousel-wrap">
-            <button class="gc-btn gc-prev" type="button" aria-label="Назад">‹</button>
+    <div class="gallery-carousel-wrap">
+      <button class="gc-btn gc-prev" type="button" aria-label="Назад">‹</button>
 
-            <div class="gallery-carousel" id="galleryCarousel">
-              <figure class="gc-item"><img src="assets/photos/p1.jpg"  alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p2.jpg"  alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p3.jpg"  alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p4.jpg"  alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p5.jpg"  alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p6.jpg"  alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p7.jpg"  alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p8.jpg"  alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p9.jpg"  alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p10.jpg" alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p11.jpg" alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p12.jpg" alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p13.jpg" alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p14.jpg" alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p15.jpg" alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p16.jpg" alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p17.jpg" alt="" loading="lazy"></figure>
-            </div>
+      <div class="gallery-carousel" id="galleryCarousel">
+        <!-- Фото автоматично згенеруються JS -->
+      </div>
 
-            <button class="gc-btn gc-next" type="button" aria-label="Вперед">›</button>
-          </div>
-        </div>
-      </section>
+      <button class="gc-btn gc-next" type="button" aria-label="Вперед">›</button>
+    </div>
+  </div>
+</section>
+
+<script>
+// Автоматична генерація фото p1 - p37
+const carousel = document.getElementById('galleryCarousel');
+for(let i = 1; i <= 37; i++){
+  const figure = document.createElement('figure');
+  figure.className = 'gc-item';
+  figure.innerHTML = `<img src="assets/photos/p${i}.jpg" alt="Фото ${i}" loading="lazy">`;
+  carousel.appendChild(figure);
+}
+
+// ================== Проста логіка каруселі ==================
+const prevBtn = document.querySelector('.gc-prev');
+const nextBtn = document.querySelector('.gc-next');
+let scrollAmount = 0;
+const itemWidth = carousel.querySelector('.gc-item')?.offsetWidth || 200;
+
+prevBtn.addEventListener('click', () => {
+  carousel.scrollBy({ left: -itemWidth, behavior: 'smooth' });
+});
+nextBtn.addEventListener('click', () => {
+  carousel.scrollBy({ left: itemWidth, behavior: 'smooth' });
+});
+</script>
 
       <!-- ВІДЕО -->
       <section id="videos" class="videos-section">
