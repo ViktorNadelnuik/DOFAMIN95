@@ -6,9 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Підтримайте взвод технічного забезпечення 142 ОМБр. Ваші донати допомагають ремонтувати техніку, яка возить боєкомплект, ПММ, їжу та евакуює поранених.">
 
-  <link rel="icon"
-        href="https://viktornadelniuk.github.io/DOFAMIN95/favicon.png"
-        type="image/png">
+  <link rel="icon" href="https://viktornadelniuk.github.io/DOFAMIN95/favicon.png" type="image/png">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -31,6 +29,9 @@
     gtag('js', new Date());
     gtag('config', 'G-Y0HDG5SKZX');
   </script>
+
+  <!-- зовнішні стилі (залишаємо як є) -->
+  <link rel="stylesheet" href="supporters.css">
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -73,7 +74,6 @@
     a { color: inherit; }
 
     /* ===== UNIQUE OVERLAYS (НЕ ЛАМАЮТЬ САЙТ) ===== */
-    /* Snow canvas */
     #snow {
       position: fixed;
       inset: 0;
@@ -82,7 +82,6 @@
       opacity: 0.85;
     }
 
-    /* Technical traces: appears subtly on scroll */
     #tech-traces {
       position: fixed;
       inset: 0;
@@ -101,7 +100,6 @@
       transition: opacity 0.35s ease;
     }
 
-    /* Optional: add a second ultra-soft layer for depth */
     #tech-traces::after{
       content:"";
       position:absolute;
@@ -242,7 +240,6 @@
       flex-wrap: wrap;
     }
 
-    /* Unique: system state (subtle) */
     .system-state {
       display: inline-flex;
       align-items: center;
@@ -384,83 +381,12 @@
       display: block;
     }
 
-    /* GALLERY GRID (старий lightbox, зараз не використовується, але лишаємо стилі) */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: #050910;
-      aspect-ratio: 4 / 3;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-      transition: transform 0.25s ease, opacity 0.25s ease;
-      cursor: zoom-in;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.05);
-      opacity: 0.92;
-    }
-
-    .gallery-caption {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 4px 6px;
-      font-size: 11px;
-      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-      opacity: 0.9;
-    }
-
     /* VIDEO */
     .video-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 14px;
       margin-top: 10px;
-    }
-
-    .video-item {
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.16);
-      background: #050910;
-      box-shadow: 0 10px 26px rgba(0,0,0,0.7);
-    }
-
-    .youtube-wrap {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%; /* 16:9 */
-      overflow: hidden;
-    }
-
-    .youtube-wrap iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    .video-caption {
-      font-size: 12px;
-      padding: 6px 9px 8px;
-      opacity: 0.85;
     }
 
     footer {
@@ -681,83 +607,6 @@
       line-height: 1;
     }
 
-    @media (max-width: 1024px) {
-      .page { padding: 20px 10px 32px; }
-      .hero { padding: 20px 18px 18px; margin-bottom: 22px; }
-      .hero-title { font-size: 24px; }
-      .card-grid { gap: 16px; }
-    }
-
-    @media (max-width: 768px) {
-      .page { padding: 18px 8px 28px; }
-      .hero { padding: 18px 14px 16px; }
-      .hero-badge { font-size: 11px; }
-      .hero-title { font-size: 21px; line-height: 1.2; }
-      .hero-sub { font-size: 14px; }
-      .hero-note { font-size: 12px; }
-
-      .card { padding: 14px 14px 16px; min-height: auto; }
-      .card.big-block { padding: 16px 14px 18px; }
-
-      .card p { font-size: 13px; }
-
-      .btn-row { flex-direction: column; }
-      .btn-row .donate-btn { width: 100%; text-align: center; justify-content: center; }
-
-      .qr { width: 130px; height: 130px; }
-    }
-
-    @media (max-width: 480px) {
-      .hero { border-radius: 18px; }
-      .hero-title { font-size: 19px; }
-      .section-title { font-size: 20px; }
-
-      .card { border-radius: 18px; padding: 12px 12px 14px; }
-      .card p { font-size: 12.5px; }
-
-      .btn-row { gap: 6px; }
-      .donate-btn { padding: 8px 14px; font-size: 12px; }
-      .qr { width: 120px; height: 120px; }
-
-      .gallery-caption { font-size: 10px; }
-
-      .scroll-top-btn { right: 12px; bottom: 14px; width: 38px; height: 38px; font-size: 20px; }
-    }
-
-    /* Animations */
-    @keyframes fadeInPage {
-      from { opacity: 0; transform: translateY(10px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes heroReveal {
-      from { opacity: 0; transform: translateY(8px) scale(0.99); }
-      to   { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    @keyframes cardFade {
-      from { opacity: 0; transform: translateY(10px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes buttonPulse {
-      0%   { transform: translateY(0) scale(1);   box-shadow: 0 6px 16px rgba(0,0,0,0.45); }
-      50%  { transform: translateY(-1px) scale(1.07); box-shadow: 0 10px 24px rgba(0,0,0,0.7); }
-      100% { transform: translateY(0) scale(1);   box-shadow: 0 6px 16px rgba(0,0,0,0.45); }
-    }
-
-    @keyframes engine-move {
-      from { transform: translateX(-120%); }
-      to   { transform: translateX(120%); }
-    }
-
-    @keyframes weld-spark {
-      0%, 60% { opacity: 0; transform: translateX(-10%); }
-      65% { opacity: 1; transform: translateX(10%); }
-      80% { opacity: 0.5; transform: translateX(60%); }
-      100% { opacity: 0; transform: translateX(120%); }
-    }
-
     /* Engine line under hero title */
     .engine-line-wrap { margin: 10px 0 14px; }
 
@@ -807,30 +656,6 @@
         drop-shadow(0 0 4px rgba(255,215,0,0.25));
     }
 
-    @keyframes patch-breath {
-      0%   { transform: scale(0.98); }
-      50%  { transform: scale(1.03); }
-      100% { transform: scale(0.98); }
-    }
-
-    @keyframes patch-tilt {
-      0%   { transform: rotateX(0deg) rotateY(0deg); }
-      25%  { transform: rotateX(2deg) rotateY(-2deg); }
-      50%  { transform: rotateX(0deg) rotateY(0deg); }
-      75%  { transform: rotateX(-2deg) rotateY(2deg); }
-      100% { transform: rotateX(0deg) rotateY(0deg); }
-    }
-
-    @keyframes patch-glow {
-      0%   { filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
-      50%  { filter: drop-shadow(0 0 12px rgba(255,215,0,0.7)); }
-      100% { filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
-    }
-
-    @media (max-width: 480px) {
-      .header-patch { width: 110px; }
-    }
-
     /* DONATE BUTTON SHINE EFFECT */
     .mobile-donate-btn{
       position: fixed;
@@ -844,25 +669,13 @@
       left:-30%;
       width: 40%;
       height: 180%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,0.40),
-        transparent
-      );
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.40), transparent);
       transform: rotate(18deg);
       animation: shine 3.2s infinite;
       opacity: 0.55;
     }
 
-    @keyframes shine{
-      0%{ transform: translateX(-140%) rotate(18deg); }
-      45%{ transform: translateX(320%) rotate(18deg); }
-      100%{ transform: translateX(320%) rotate(18deg); }
-    }
-
     /* ===== FIX: supporters images too big (override) ===== */
-    /* Не чіпаємо supporters.css, просто робимо фото акуратнішими */
     #supporters .thx-media img{
       width: 100%;
       height: 220px;
@@ -873,14 +686,9 @@
     @media (max-width: 520px){
       #supporters .thx-media img{ height: 190px; }
     }
-  </style>
 
-  <!-- зовнішні стилі (залишаємо як є) -->
-  <link rel="stylesheet" href="supporters.css">
-
-  <!-- ===== CSS КАРУСЕЛІ ===== -->
-  <style>
-    .carousel {
+    /* ===== PURCHASED CAROUSEL (SCOPED) ===== */
+    #purchased-carousel .pcarousel{
       position: relative;
       width: 100%;
       overflow: hidden;
@@ -890,31 +698,27 @@
       border: 1px solid rgba(255,255,255,0.10);
     }
 
-    .carousel-track {
+    #purchased-carousel .pcarousel-track{
       display: flex;
-      transition: transform .4s ease-in-out;
+      transition: transform .45s ease-in-out;
       will-change: transform;
     }
 
-    .carousel-item {
+    #purchased-carousel .pcarousel-item{
       min-width: 100%;
       user-select: none;
     }
 
-    .carousel-item img {
+    #purchased-carousel .pcarousel-item img{
       width: 100%;
       display: block;
       border-radius: 14px;
-      height: 360px;
-      object-fit: cover; /* default */
-      background: rgba(0,0,0,0.22);
+      height: 400px;
+      object-fit: contain;
+      background: rgba(0,0,0,0.35);
     }
 
-    @media (max-width: 640px){
-      .carousel-item img { height: 260px; }
-    }
-
-    .carousel-btn {
+    #purchased-carousel .pcarousel-btn{
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
@@ -927,139 +731,108 @@
       border-radius: 50%;
       cursor: pointer;
       z-index: 5;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
 
-    .carousel-btn:hover {
-      background: rgba(0,0,0,.9);
-    }
+    #purchased-carousel .pcarousel-btn:hover{ background: rgba(0,0,0,.9); }
+    #purchased-carousel .pcarousel-prev{ left: 10px; }
+    #purchased-carousel .pcarousel-next{ right: 10px; }
 
-    .prev { left: 10px; }
-    .next { right: 10px; }
-
-    .carousel-dots {
-      display: flex;
-      justify-content: center;
+    #purchased-carousel .pcarousel-dots{
+      display:flex;
+      justify-content:center;
       gap: 6px;
-      margin-top: 8px;
+      margin-top: 10px;
+      flex-wrap: wrap;
     }
 
-    .carousel-dots span {
-      width: 9px;
-      height: 9px;
+    #purchased-carousel .pcarousel-dots button{
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      background: rgba(255,255,255,.3);
+      border: none;
+      background: rgba(255,255,255,.30);
       cursor: pointer;
     }
+    #purchased-carousel .pcarousel-dots button.active{ background: #f4b30b; }
 
-    .carousel-dots span.active {
-      background: #f4b30b;
+    @media (max-width: 768px){
+      #purchased-carousel .pcarousel-item img{ height: 260px; }
+      #purchased-carousel .pcarousel-btn{ font-size: 22px; width: 34px; height: 34px; }
     }
 
-    /* ✅ PURCHASED: show photo fully (not cropped) */
-    #purchased-carousel .carousel-item img{
-      object-fit: contain;
-      background: rgba(0,0,0,0.35);
-    }
-  </style>
-/* ===== ФОТОГАЛЕРЕЯ ===== */
-.gallery-section{
-  margin:80px 0;
-}
+    /* ===== GALLERY BLOCK + CAROUSEL (SCOPED) ===== */
+    #gallery.gallery-section{ padding: 40px 0; margin-top: 8px; }
 
-.gallery-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:16px;
-  margin-bottom:20px;
-}
-
-.section-title{
-  font-size:26px;
-  font-weight:800;
-}
-
-.btn-support{
-  padding:10px 18px;
-  background:#f6c453;
-  color:#000;
-  text-decoration:none;
-  border-radius:999px;
-  font-weight:700;
-}
-
-.gallery-carousel-wrap{
-  position:relative;
-}
-
-.gallery-carousel{
-  display:flex;
-  gap:16px;
-  overflow-x:auto;
-  scroll-behavior:smooth;
-  padding:10px 0;
-}
-
-.gallery-carousel::-webkit-scrollbar{
-  display:none;
-}
-
-.gc-item{
-  flex:0 0 auto;
-}
-
-.gc-item img{
-  width:260px;
-  height:170px;
-  object-fit:cover;
-  border-radius:14px;
-}
-
-.gc-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:44px;
-  height:44px;
-  border-radius:50%;
-  border:none;
-  background:#f6c453;
-  font-size:28px;
-  cursor:pointer;
-  z-index:5;
-}
-
-.gc-prev{left:-20px}
-.gc-next{right:-20px}
-
-@media (max-width:600px){
-  .gc-item img{
-    width:200px;
-    height:130px;
-  }
-}
-
-  <style>
-    /* VIDEO GRID FIX */
-    #videos .video-grid{
-      display: grid !important;
-      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-      gap: 16px !important;
+    #gallery .gallery-head{
+      display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
     }
 
-    #videos .video-card{
-      width: auto !important;
+    #gallery .btn-support{
+      display:inline-block; padding:12px 16px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.22); background:rgba(0,0,0,.55); color:#fff; text-decoration:none;
+      font-weight:700;
     }
 
-    @media (max-width: 900px){
-      #videos .video-grid{
-        grid-template-columns: 1fr !important;
-      }
+    #gallery .gallery-carousel-wrap{
+      position:relative; margin-top:16px; padding:10px 46px;
+      border-radius:18px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.06);
+      overflow:hidden;
     }
-  </style>
 
-  <style>
-    /* VIDEO CAROUSEL (slider) */
+    #gallery .gallery-carousel{
+      display:flex !important;
+      gap:14px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      scroll-behavior:smooth;
+      -webkit-overflow-scrolling:touch;
+      padding-bottom:8px;
+    }
+
+    #gallery .gallery-carousel::-webkit-scrollbar{ height: 8px; }
+    #gallery .gallery-carousel::-webkit-scrollbar-thumb{ background: rgba(255,255,255,0.25); border-radius: 20px; }
+    #gallery .gallery-carousel::-webkit-scrollbar-track{ background: rgba(255,255,255,0.08); border-radius: 20px; }
+
+    #gallery .gc-item{
+      flex:0 0 420px;
+      scroll-snap-align:start;
+      margin:0;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.35);
+    }
+
+    #gallery .gc-item img{
+      width:100%;
+      height:280px;
+      display:block;
+      object-fit:cover;
+    }
+
+    #gallery .gc-btn{
+      position:absolute; top:50%; transform:translateY(-50%);
+      width:34px; height:34px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(0,0,0,.55);
+      color:#fff; font-size:22px; line-height:32px;
+      cursor:pointer; z-index:5;
+      display:flex; align-items:center; justify-content:center;
+    }
+
+    #gallery .gc-prev{ left:10px; }
+    #gallery .gc-next{ right:10px; }
+
+    @media (max-width:520px){
+      #gallery .gc-item{ flex-basis:300px; }
+      #gallery .gc-item img{ height:220px; }
+      #gallery .gallery-carousel-wrap{ padding:10px 42px; }
+    }
+
+    /* ===== VIDEO CAROUSEL (slider) ===== */
     #videos .video-carousel-wrap{
       position: relative;
       margin-top: 16px;
@@ -1095,6 +868,8 @@
       padding-top: 177.78%; /* 9:16 */
       border-radius: 16px;
       overflow: hidden;
+      background: #050910;
+      border: 1px solid rgba(255,255,255,0.10);
     }
 
     #videos .vc-frame iframe{
@@ -1102,6 +877,7 @@
       inset: 0;
       width: 100%;
       height: 100%;
+      border: 0;
     }
 
     #videos .vc-btn{
@@ -1118,6 +894,7 @@
       line-height: 32px;
       cursor: pointer;
       z-index: 5;
+      display:flex; align-items:center; justify-content:center;
     }
 
     #videos .vc-prev{ left: 10px; }
@@ -1127,75 +904,8 @@
       #videos .vc-item{ flex-basis: 260px; }
       #videos .video-carousel-wrap{ padding: 10px 42px; }
     }
-  </style>
 
-  <style>
-    /* GALLERY BLOCK + CAROUSEL */
-    #gallery.gallery-section{ padding: 40px 0; }
-
-    #gallery .gallery-head{
-      display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
-    }
-
-    #gallery .btn-support{
-      display:inline-block; padding:12px 16px; border-radius:14px;
-      border:1px solid rgba(255,255,255,.22); background:rgba(0,0,0,.55); color:#fff; text-decoration:none;
-    }
-
-    #gallery .gallery-carousel-wrap{
-      position:relative; margin-top:16px; padding:10px 46px;
-      border-radius:18px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.06);
-      overflow:hidden;
-    }
-
-    #gallery .gallery-carousel{
-      display:flex !important;
-      gap:14px;
-      overflow-x:auto;
-      scroll-snap-type:x mandatory;
-      scroll-behavior:smooth;
-      -webkit-overflow-scrolling:touch;
-      padding-bottom:8px;
-    }
-
-    #gallery .gc-item{
-      flex:0 0 420px;
-      scroll-snap-align:start;
-      margin:0;
-      border-radius:16px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(0,0,0,.35);
-    }
-
-    #gallery .gc-item img{
-      width:100%;
-      height:280px;
-      display:block;
-      object-fit:cover;
-    }
-
-    #gallery .gc-btn{
-      position:absolute; top:50%; transform:translateY(-50%);
-      width:34px; height:34px; border-radius:999px;
-      border:1px solid rgba(255,255,255,.22);
-      background:rgba(0,0,0,.55);
-      color:#fff; font-size:22px; line-height:32px;
-      cursor:pointer; z-index:5;
-    }
-
-    #gallery .gc-prev{ left:10px; }
-    #gallery .gc-next{ right:10px; }
-
-    @media (max-width:520px){
-      #gallery .gc-item{ flex-basis:300px; }
-      #gallery .gc-item img{ height:220px; }
-      #gallery .gallery-carousel-wrap{ padding:10px 42px; }
-    }
-  </style>
-
-  <style>
-    /* MOBILE DONATE BUTTON BASE (fixed: no !important so JS can hide/show) */
+    /* ===== MOBILE DONATE BUTTON BASE (no !important so JS can hide/show) ===== */
     .mobile-donate-btn{
       position: fixed;
       left: 16px;
@@ -1214,7 +924,6 @@
       box-shadow:
         0 10px 26px rgba(0,0,0,0.45),
         0 0 0 0 rgba(255,180,40,0.55);
-
       animation: donatePulse 1.8s ease-in-out infinite;
     }
 
@@ -1222,34 +931,7 @@
       .mobile-donate-btn{ display: block; }
     }
 
-    @keyframes donatePulse{
-      0%{
-        box-shadow:
-          0 10px 26px rgba(0,0,0,0.45),
-          0 0 0 0 rgba(255,180,40,0.55);
-        filter: brightness(1);
-      }
-      60%{
-        box-shadow:
-          0 12px 30px rgba(0,0,0,0.5),
-          0 0 0 14px rgba(255,180,40,0);
-        filter: brightness(1.05);
-      }
-      100%{
-        box-shadow:
-          0 10px 26px rgba(0,0,0,0.45),
-          0 0 0 0 rgba(255,180,40,0);
-        filter: brightness(1);
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      .mobile-donate-btn{ animation: none; }
-    }
-  </style>
-
-  <style>
-    /* TEAM CAROUSEL (UA) */
+    /* ===== TEAM CAROUSEL (UA) ===== */
     #team-ua .team-carousel-wrap{
       position: relative;
       padding: 10px 46px;
@@ -1292,6 +974,11 @@
       color: #fff;
       cursor: pointer;
       z-index: 50;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size: 20px;
+      line-height: 1;
     }
 
     #team-ua .tc-prev{ left: 8px; }
@@ -1304,14 +991,12 @@
         max-width: 280px !important;
       }
     }
-  </style>
 
-  <style>
-    /* ===== TOAST (instead of alert) ===== */
+    /* ===== TOAST ===== */
     .toast {
       position: fixed;
       left: 50%;
-      bottom: 90px; /* щоб не конфліктувало з mobile donate btn */
+      bottom: 90px;
       transform: translateX(-50%) translateY(12px);
       background: rgba(0,0,0,0.78);
       border: 1px solid rgba(255,255,255,0.22);
@@ -1344,6 +1029,7 @@
       opacity: 0.95;
       line-height: 1.35;
     }
+
     @media (max-width: 768px){
       .toast{ bottom: 86px; }
     }
@@ -1447,9 +1133,7 @@
       align-items: center;
       gap: 8px;
     }
-    .qr-action-btn:hover{
-      background: rgba(0,0,0,0.55);
-    }
+    .qr-action-btn:hover{ background: rgba(0,0,0,0.55); }
     .qr-action-btn.primary{
       background: linear-gradient(135deg, #00c6ff, #0072ff);
       border-color: rgba(255,255,255,0.28);
@@ -1469,645 +1153,560 @@
 
     @media (prefers-reduced-motion: reduce){
       .toast, .toast--show { transition: none; }
+      .mobile-donate-btn{ animation: none; }
+      .header-patch{ animation: none; }
+    }
+
+    @media (max-width: 1024px) {
+      .page { padding: 20px 10px 32px; }
+      .hero { padding: 20px 18px 18px; margin-bottom: 22px; }
+      .hero-title { font-size: 24px; }
+      .card-grid { gap: 16px; }
+    }
+
+    @media (max-width: 768px) {
+      .page { padding: 18px 8px 28px; }
+      .hero { padding: 18px 14px 16px; }
+      .hero-badge { font-size: 11px; }
+      .hero-title { font-size: 21px; line-height: 1.2; }
+      .hero-sub { font-size: 14px; }
+      .hero-note { font-size: 12px; }
+
+      .card { padding: 14px 14px 16px; min-height: auto; }
+      .card.big-block { padding: 16px 14px 18px; }
+
+      .btn-row { flex-direction: column; }
+      .btn-row .donate-btn { width: 100%; text-align: center; justify-content: center; }
+
+      .qr { width: 130px; height: 130px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero { border-radius: 18px; }
+      .hero-title { font-size: 19px; }
+      .section-title { font-size: 20px; }
+
+      .card { border-radius: 18px; padding: 12px 12px 14px; }
+      .card p { font-size: 12.5px; }
+
+      .btn-row { gap: 6px; }
+      .donate-btn { padding: 8px 14px; font-size: 12px; }
+      .qr { width: 120px; height: 120px; }
+
+      .scroll-top-btn { right: 12px; bottom: 14px; width: 38px; height: 38px; font-size: 20px; }
+      .header-patch { width: 110px; }
+    }
+
+    /* Animations */
+    @keyframes fadeInPage {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes heroReveal {
+      from { opacity: 0; transform: translateY(8px) scale(0.99); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes cardFade {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes buttonPulse {
+      0%   { transform: translateY(0) scale(1);   box-shadow: 0 6px 16px rgba(0,0,0,0.45); }
+      50%  { transform: translateY(-1px) scale(1.07); box-shadow: 0 10px 24px rgba(0,0,0,0.7); }
+      100% { transform: translateY(0) scale(1);   box-shadow: 0 6px 16px rgba(0,0,0,0.45); }
+    }
+
+    @keyframes engine-move {
+      from { transform: translateX(-120%); }
+      to   { transform: translateX(120%); }
+    }
+
+    @keyframes weld-spark {
+      0%, 60% { opacity: 0; transform: translateX(-10%); }
+      65% { opacity: 1; transform: translateX(10%); }
+      80% { opacity: 0.5; transform: translateX(60%); }
+      100% { opacity: 0; transform: translateX(120%); }
+    }
+
+    @keyframes patch-breath {
+      0%   { transform: scale(0.98); }
+      50%  { transform: scale(1.03); }
+      100% { transform: scale(0.98); }
+    }
+
+    @keyframes patch-tilt {
+      0%   { transform: rotateX(0deg) rotateY(0deg); }
+      25%  { transform: rotateX(2deg) rotateY(-2deg); }
+      50%  { transform: rotateX(0deg) rotateY(0deg); }
+      75%  { transform: rotateX(-2deg) rotateY(2deg); }
+      100% { transform: rotateX(0deg) rotateY(0deg); }
+    }
+
+    @keyframes patch-glow {
+      0%   { filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
+      50%  { filter: drop-shadow(0 0 12px rgba(255,215,0,0.7)); }
+      100% { filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
+    }
+
+    @keyframes donatePulse{
+      0%{
+        box-shadow:
+          0 10px 26px rgba(0,0,0,0.45),
+          0 0 0 0 rgba(255,180,40,0.55);
+        filter: brightness(1);
+      }
+      60%{
+        box-shadow:
+          0 12px 30px rgba(0,0,0,0.5),
+          0 0 0 14px rgba(255,180,40,0);
+        filter: brightness(1.05);
+      }
+      100%{
+        box-shadow:
+          0 10px 26px rgba(0,0,0,0.45),
+          0 0 0 0 rgba(255,180,40,0);
+        filter: brightness(1);
+      }
+    }
+
+    @keyframes shine{
+      0%{ transform: translateX(-140%) rotate(18deg); }
+      45%{ transform: translateX(320%) rotate(18deg); }
+      100%{ transform: translateX(320%) rotate(18deg); }
     }
   </style>
 </head>
 
 <body>
+  <!-- overlays (не впливають на розмітку) -->
+  <canvas id="snow"></canvas>
+  <div id="tech-traces"></div>
 
-<!-- overlays (не впливають на розмітку) -->
-<canvas id="snow"></canvas>
-<div id="tech-traces"></div>
+  <div class="page">
+    <div class="container">
 
-<div class="page">
-  <div class="container">
-
-    <header>
-      <div class="header-patch-wrap">
-        <img src="vtz-mpb-patch.png" alt="Шеврон взводу технічного забезпечення" class="header-patch">
-      </div>
-
-      <div class="top-row">
-        <div class="top-bar">
-          <img src="logo.png" alt="Логотип" class="logo">
-          <span class="site-title">142 ОМБр • Взвод технічного забезпечення</span>
-        </div>
-        <div class="lang-switch">
-          <a href="index.html" class="active">UA</a>
-          <a href="en.html">EN</a>
-        </div>
-      </div>
-
-      <section class="hero">
-        <div class="hero-badge">
-          <span>Ремонт техніки на передовій</span>
-          <span class="system-state" id="systemState">
-            <span class="system-dot" id="systemDot"></span>
-            <span class="system-text" id="systemText">СТАН: РОБОТА ЙДЕ</span>
-          </span>
+      <header>
+        <div class="header-patch-wrap">
+          <img src="vtz-mpb-patch.png" alt="Шеврон взводу технічного забезпечення" class="header-patch">
         </div>
 
-        <div class="hero-title">Техніка має їхати. Люди мають повернутись живими.</div>
-
-        <div class="engine-line-wrap">
-          <div class="engine-line"></div>
-        </div>
-
-        <p class="hero-sub">
-          Ми — взвод технічного забезпечення мотопіхотного батальйону 142 ОМБр.
-          Ремонтуємо вантажівки й бронетехніку прямо в зоні бойових дій, щоб машини возили
-          боєкомплект, ПММ, провізію та вивозили поранених.
-        </p>
-        <p class="hero-note">
-          Кожна гривня, євро чи долар перетворюється на інструмент, запчастину, мастило чи зварку,
-          які дають машині ще один виїзд — а комусь ще один шанс повернутися додому.
-        </p>
-
-        <div style="margin-top:14px;">
-          <a href="#donate" class="donate-btn" style="display:inline-block;">
-            Підтримати взвод
-          </a>
-        </div>
-      </section>
-    </header>
-
-    <main>
-
-      <!-- DONATIONS -->
-      <h2 class="section-title" id="donate">Як підтримати взвод</h2>
-
-      <div class="card-grid">
-        <!-- MONOBANK -->
-        <section class="card">
-          <div>
-            <small>UAH · БАНКІВСЬКИЙ РАХУНОК</small>
-            <h3><span class="mono-label">Monobank</span> · Банка “142 ОМБр · взвод технічного забезпечення”</h3>
-            <p><strong>Отримувач:</strong> Надельнюк Віктор Миколайович</p>
-            <p><strong>IBAN:</strong><br>UA683220010000026208372629615</p>
-            <p><strong>Номер картки:</strong><br>4874&nbsp;1000&nbsp;2019&nbsp;8902</p>
-            <p><strong>Призначення платежу:</strong> <code>ВТЗ МПБ 142 ОМБр</code></p>
+        <div class="top-row">
+          <div class="top-bar">
+            <img src="logo.png" alt="Логотип" class="logo">
+            <span class="site-title">142 ОМБр • Взвод технічного забезпечення</span>
           </div>
-          <div>
-            <div class="btn-row">
-              <button class="donate-btn donate-btn--mono" type="button"
-                      onclick="window.open('https://send.monobank.ua/jar/8PfzHBQuu4','_blank')">
-                Відкрити банку Monobank
-              </button>
-              <button class="donate-btn" type="button"
-                      onclick="copyText('UA683220010000026208372629615')">
-                Скопіювати IBAN
-              </button>
-              <button class="donate-btn" type="button"
-                      onclick="copyText('4874100020198902')">
-                Скопіювати номер картки
-              </button>
-            </div>
-            <div class="qr-wrap">
-              <img id="qr-mono" class="qr" alt="QR Monobank" loading="lazy">
-            </div>
-            <p style="font-size:12px; opacity:0.78; margin-top:6px; text-align:center;">
-              Натисніть на QR — відкриється великий код
-            </p>
+          <div class="lang-switch">
+            <a href="index.html" class="active">UA</a>
+            <a href="en.html">EN</a>
+          </div>
+        </div>
+
+        <section class="hero">
+          <div class="hero-badge">
+            <span>Ремонт техніки на передовій</span>
+            <span class="system-state" id="systemState">
+              <span class="system-dot" id="systemDot"></span>
+              <span class="system-text" id="systemText">СТАН: РОБОТА ЙДЕ</span>
+            </span>
+          </div>
+
+          <div class="hero-title">Техніка має їхати. Люди мають повернутись живими.</div>
+
+          <div class="engine-line-wrap">
+            <div class="engine-line"></div>
+          </div>
+
+          <p class="hero-sub">
+            Ми — взвод технічного забезпечення мотопіхотного батальйону 142 ОМБр.
+            Ремонтуємо вантажівки й бронетехніку прямо в зоні бойових дій, щоб машини возили
+            боєкомплект, ПММ, провізію та вивозили поранених.
+          </p>
+          <p class="hero-note">
+            Кожна гривня, євро чи долар перетворюється на інструмент, запчастину, мастило чи зварку,
+            які дають машині ще один виїзд — а комусь ще один шанс повернутися додому.
+          </p>
+
+          <div style="margin-top:14px;">
+            <a href="#donate" class="donate-btn" style="display:inline-block;">
+              Підтримати взвод
+            </a>
           </div>
         </section>
+      </header>
 
-        <!-- PRIVATBANK -->
-        <section class="card">
-          <div>
-            <small>UAH · БАНКІВСЬКИЙ РАХУНОК</small>
-            <h3><span class="privat-label">PrivatBank</span> · Поповнення картки</h3>
-            <p><strong>Отримувач:</strong> NADELNIUK VIKTOR MYKOLAYOVYCH</p>
-            <p><strong>IBAN:</strong><br>UA023052990262076400994803502</p>
-            <p><strong>Номер картки:</strong><br>5168&nbsp;7521&nbsp;4764&nbsp;9654</p>
-            <p><strong>Призначення платежу:</strong> <code>ВТЗ МПБ 142 ОМБр</code></p>
-          </div>
-          <div>
-            <div class="btn-row">
-              <button class="donate-btn donate-btn--privat" type="button"
-                      onclick="window.open('https://www.privat24.ua/send/3xbxx','_blank')">
-                Відкрити Privat24
-              </button>
-              <button class="donate-btn" type="button"
-                      onclick="copyText('UA023052990262076400994803502')">
-                Скопіювати IBAN
-              </button>
-              <button class="donate-btn" type="button"
-                      onclick="copyText('5168752147649654')">
-                Скопіювати номер картки
-              </button>
+      <main>
+        <!-- DONATIONS -->
+        <h2 class="section-title" id="donate">Як підтримати взвод</h2>
+
+        <div class="card-grid">
+          <!-- MONOBANK -->
+          <section class="card">
+            <div>
+              <small>UAH · БАНКІВСЬКИЙ РАХУНОК</small>
+              <h3><span class="mono-label">Monobank</span> · Банка “142 ОМБр · взвод технічного забезпечення”</h3>
+              <p><strong>Отримувач:</strong> Надельнюк Віктор Миколайович</p>
+              <p><strong>IBAN:</strong><br>UA683220010000026208372629615</p>
+              <p><strong>Номер картки:</strong><br>4874&nbsp;1000&nbsp;2019&nbsp;8902</p>
+              <p><strong>Призначення платежу:</strong> <code>ВТЗ МПБ 142 ОМБр</code></p>
             </div>
-            <div class="qr-wrap">
-              <img id="qr-privat" class="qr" alt="QR PrivatBank" loading="lazy">
-            </div>
-            <p style="font-size:12px; opacity:0.78; margin-top:6px; text-align:center;">
-              Натисніть на QR — відкриється великий код
-            </p>
-          </div>
-        </section>
-
-        <!-- PAYPAL / PAUPAY -->
-        <section class="card">
-          <div>
-            <small>МІЖНАРОДНІ ПЛАТЕЖІ</small>
-            <h3><span class="paypal-label">PayPal / Paupay</span></h3>
-            <p><strong>Email для переказів:</strong><br>nadelnuikviktor@gmail.com</p>
-            <p><strong>Примітка до платежу:</strong><br><code>VTZ MPB 142 OMBr</code></p>
-          </div>
-          <div>
-            <div class="btn-row">
-              <button class="donate-btn donate-btn--paypal" type="button"
-                      onclick="copyText('nadelnuikviktor@gmail.com')">
-                Скопіювати email
-              </button>
-            </div>
-            <div class="qr-wrap">
-              <img id="qr-paupay" class="qr" alt="QR Paupay / PayPal" loading="lazy">
-            </div>
-            <p style="font-size:12px; opacity:0.8; margin-top:6px;">
-              Будь ласка, додайте <strong>VTZ MPB 142 OMBr</strong> у примітку платежу.
-            </p>
-          </div>
-        </section>
-
-        <!-- CRYPTO -->
-        <section class="card">
-          <div>
-            <small>КРИПТОВАЛЮТА</small>
-            <h3><span class="crypto-label">Crypto</span> · BTC · ETH · SOL · BNB</h3>
-
-            <p><strong>Bitcoin (BTC):</strong><br>
-              bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p</p>
-
-            <p><strong>Ethereum (ETH):</strong><br>
-              0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</p>
-
-            <p><strong>Solana (SOL):</strong><br>
-              DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525</p>
-
-            <p><strong>BNB (BEP-20):</strong><br>
-              0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</p>
-          </div>
-
-          <div>
-            <div class="btn-row">
-              <button class="donate-btn donate-btn--crypto" type="button"
-                      onclick="window.open('https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p','_blank')">
-                Відкрити BTC
-              </button>
-              <button class="donate-btn donate-btn--crypto" type="button"
-                      onclick="window.open('https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b','_blank')">
-                Відкрити ETH
-              </button>
-              <button class="donate-btn donate-btn--crypto" type="button"
-                      onclick="window.open('https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525','_blank')">
-                Відкрити SOL
-              </button>
-            </div>
-
-            <div class="btn-row">
-              <button class="donate-btn" type="button"
-                      onclick="copyText('bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p')">
-                Скопіювати BTC
-              </button>
-              <button class="donate-btn" type="button"
-                      onclick="copyText('0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b')">
-                Скопіювати ETH / BNB
-              </button>
-              <button class="donate-btn" type="button"
-                      onclick="copyText('DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525')">
-                Скопіювати SOL
-              </button>
-            </div>
-
-            <div class="qr-wrap">
-              <img id="qr-btc" class="qr" alt="QR BTC" loading="lazy">
-            </div>
-            <p style="font-size:12px; opacity:0.78; margin-top:6px; text-align:center;">
-              Натисніть на QR — відкриється великий код
-            </p>
-          </div>
-        </section>
-      </div>
-
-      <!-- ПІДТРИМАЛИ -->
-      <section id="supporters" class="thx-wrap">
-        <div class="thx-inner">
-          <div class="thx-head">
-            <h2 class="thx-title">Підтримали</h2>
-            <p class="thx-sub">
-              Це реальна допомога, без публічності. Дякуємо Юрію та Володимиру, хто робить тихо — але по ділу.
-            </p>
-          </div>
-
-          <div class="thx-grid">
-            <article class="thx-card">
-              <a class="thx-media" href="assets/support/support-01.jpg" target="_blank" rel="noopener">
-                <img src="assets/support/support-01.jpg" alt="Анонімна підтримка підрозділу" loading="lazy">
-              </a>
-              <div class="thx-body">
-                <div class="thx-top">
-                  <div class="thx-name">Анонімна підтримка</div>
-                  <div class="thx-badge">Генератор</div>
-                </div>
-                <div class="thx-text">
-                  Передане обладнання для ремонтів.
-                </div>
+            <div>
+              <div class="btn-row">
+                <button class="donate-btn donate-btn--mono" type="button"
+                        onclick="window.open('https://send.monobank.ua/jar/8PfzHBQuu4','_blank')">
+                  Відкрити банку Monobank
+                </button>
+                <button class="donate-btn" type="button" onclick="copyText('UA683220010000026208372629615')">
+                  Скопіювати IBAN
+                </button>
+                <button class="donate-btn" type="button" onclick="copyText('4874100020198902')">
+                  Скопіювати номер картки
+                </button>
               </div>
-            </article>
-
-            <article class="thx-card">
-              <a class="thx-media" href="assets/support/support-02.jpg" target="_blank" rel="noopener">
-                <img src="assets/support/support-02.jpg" alt="Анонімна підтримка підрозділу" loading="lazy">
-              </a>
-              <div class="thx-body">
-                <div class="thx-top">
-                  <div class="thx-name">Анонімна підтримка</div>
-                  <div class="thx-badge">Автосканер</div>
-                </div>
-                <div class="thx-text">
-                  Без цього ремонт просто зупиняється — а техніка повинна їхати.
-                </div>
+              <div class="qr-wrap">
+                <img id="qr-mono" class="qr" alt="QR Monobank" loading="lazy">
               </div>
-            </article>
-          </div>
-
-          <div class="thx-foot">
-            <p class="thx-note"></p>
-          </div>
-        </div>
-      </section>
-
-      <!-- ✅ "Що закупили" — карусель (виправлена розмітка + фото видно повністю) -->
-      <section class="card big-block" id="purchased-carousel">
-        <h2 class="section-title">Що вже закупили завдяки донатам</h2>
-
-        <p>
-          Це реальні речі, які вже працюють на фронті та допомагають нам тримати техніку в строю.
-        </p>
-
-      
- <!-- ===================== КАРУСЕЛЬ: Закуплено завдяки донатам ===================== -->
-<section class="carousel-section">
-  <h2 class="carousel-title">Закуплено завдяки донатам</h2>
-  <div class="carousel">
-    <button class="carousel-btn prev">&lt;</button>
-    <div class="carousel-track-container">
-      <ul class="carousel-track">
-        <li class="carousel-item"><img src="assets/purchased-01.jpg" alt="Закуплено 1" loading="lazy"></li>
-        <li class="carousel-item"><img src="assets/purchased-02.jpg" alt="Закуплено 2" loading="lazy"></li>
-        <li class="carousel-item"><img src="assets/purchased-03.jpg" alt="Закуплено 3" loading="lazy"></li>
-        <li class="carousel-item"><img src="assets/purchased-04.jpg" alt="Закуплено 4" loading="lazy"></li>
-        <li class="carousel-item"><img src="assets/purchased-05.jpg" alt="Закуплено 5" loading="lazy"></li>
-        <li class="carousel-item"><img src="assets/purchased-06.jpg" alt="Закуплено 6" loading="lazy"></li>
-        <li class="carousel-item"><img src="assets/purchased-07.jpg" alt="Закуплено 7" loading="lazy"></li>
-        <li class="carousel-item"><img src="assets/purchased-08.jpg" alt="Закуплено 8" loading="lazy"></li>
-        <li class="carousel-item"><img src="assets/purchased-09.jpg" alt="Закуплено 9" loading="lazy"></li>
-        <li class="carousel-item"><img src="assets/purchased-10.jpg" alt="Закуплено 10" loading="lazy"></li>
-        <li class="carousel-item"><img src="assets/purchased-11.jpg" alt="Закуплено 11" loading="lazy"></li>
-      </ul>
-    </div>
-    <button class="carousel-btn next">&gt;</button>
-    <div class="carousel-nav">
-      <!-- 11 крапок -->
-      <button class="carousel-indicator current"></button>
-      <button class="carousel-indicator"></button>
-      <button class="carousel-indicator"></button>
-      <button class="carousel-indicator"></button>
-      <button class="carousel-indicator"></button>
-      <button class="carousel-indicator"></button>
-      <button class="carousel-indicator"></button>
-      <button class="carousel-indicator"></button>
-      <button class="carousel-indicator"></button>
-      <button class="carousel-indicator"></button>
-      <button class="carousel-indicator"></button>
-    </div>
-  </div>
-</section>
-
-<style>
-.carousel-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.carousel-title {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #fff;
-  text-shadow: 1px 1px 4px #000;
-}
-
-.carousel {
-  position: relative;
-  overflow: hidden;
-}
-
-.carousel-track-container {
-  overflow: hidden;
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.5s ease;
-  scroll-behavior: smooth;
-}
-
-.carousel-item {
-  min-width: 100%;
-  user-select: none;
-}
-
-.carousel-item img {
-  width: 100%;
-  height: 400px;
-  object-fit: contain;
-  display: block;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  color: #fff;
-  border: none;
-  font-size: 2rem;
-  padding: 10px 20px;
-  cursor: pointer;
-  z-index: 10;
-  border-radius: 50%;
-  transition: background 0.3s;
-}
-
-.carousel-btn:hover {
-  background: rgba(0,0,0,0.8);
-}
-
-.prev { left: 10px; }
-.next { right: 10px; }
-
-.carousel-nav {
-  text-align: center;
-  margin-top: 15px;
-}
-
-.carousel-indicator {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: none;
-  margin: 0 5px;
-  background: rgba(255,255,255,0.5);
-  cursor: pointer;
-}
-
-.carousel-indicator.current {
-  background: #fff;
-}
-
-/* Мобільна адаптація */
-@media (max-width: 768px) {
-  .carousel-item img {
-    height: 250px;
-  }
-  .carousel-btn {
-    font-size: 1.5rem;
-    padding: 8px 15px;
-  }
-}
-</style>
-
-<script>
-const track = document.querySelector('.carousel-track');
-const slides = Array.from(track.children);
-const nextBtn = document.querySelector('.carousel-btn.next');
-const prevBtn = document.querySelector('.carousel-btn.prev');
-const indicators = Array.from(document.querySelectorAll('.carousel-indicator'));
-
-let currentIndex = 0;
-
-const updateCarousel = () => {
-  const width = slides[0].getBoundingClientRect().width;
-  track.style.transform = `translateX(-${width * currentIndex}px)`;
-  indicators.forEach((ind, i) => ind.classList.toggle('current', i === currentIndex));
-};
-
-// Стрілки
-nextBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % slides.length;
-  updateCarousel();
-});
-prevBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-  updateCarousel();
-});
-
-// Індикатори
-indicators.forEach((ind, i) => {
-  ind.addEventListener('click', () => {
-    currentIndex = i;
-    updateCarousel();
-  });
-});
-
-// Swipe для мобільного
-let startX = 0;
-track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-track.addEventListener('touchend', e => {
-  const endX = e.changedTouches[0].clientX;
-  if (endX - startX > 50) prevBtn.click();
-  if (startX - endX > 50) nextBtn.click();
-});
-</script>
-
-      <!-- ПРО ВЗВОД -->
-      <section class="card big-block" id="about-platoon-ua">
-        <h2 class="section-title">Про взвод</h2>
-
-        <p>Ми — взвод технічного забезпечення мотопіхотного батальйону 142-ї окремої механізованої бригади. Наше завдання — утримувати техніку батальйону в роботі на одному з найгарячіших напрямків фронту.</p>
-
-        <p>Нас рідко видно в кадрі чи в новинах, але від нашої роботи залежить, чи доїде машина до позиції, чи отримає підрозділ боєкомплект і чи встигнуть вчасно евакуювати поранених.</p>
-
-        <h3>Чим ми займаємось</h3>
-
-        <p><strong>• Обслуговування</strong><br>
-          Проводимо планове й позапланове ТО, міняємо масла, фільтри та рідини,
-          перевіряємо технічний стан машин. Робимо все, щоб техніка була готова рушити будь-якої миті.
-        </p>
-
-        <p><strong>• Ремонт і відновлення</strong><br>
-          Ремонтуємо двигуни, коробки, підвіску, гальмівні системи, електрику, гідравліку та паливну.
-          Працюємо з усім — від дрібних датчиків до великих агрегатів.
-        </p>
-
-        <p><strong>• Евакуація техніки</strong><br>
-          Коли машина не може рухатися сама, підбита, зламана чи загрузла — ми їдемо за нею.
-          Часто працюємо під обстрілами, витягуючи техніку з “доріг життя”.
-        </p>
-
-        <p><strong>• Діагностика і пошук несправностей</strong><br>
-          Знаємо свої машини “на слух”, ловимо приховані проблеми та усуваємо їх,
-          щоб техніка не стала в критичний момент.
-        </p>
-
-        <p><strong>• Польовий ремонт</strong><br>
-          Наш бокс — це те, що ми можемо зібрати з того, що є:
-          земля, тент, ліхтар, генератор і набір інструментів. Працюємо без нормального освітлення,
-          в багнюці, під дощем, вночі, під обстрілами. Немає умов? Створюємо їх.
-        </p>
-
-        <p><strong>• Підтримка мобільності батальйону</strong><br>
-          Робоча техніка — це підвіз боєкомплекту, ротації, евакуація поранених, вода, їжа, маневр і виживання.
-          Робимо все, щоб ці процеси не зупинялись.
-        </p>
-      </section>
-
-      <!-- КОМАНДА -->
-      <section class="card big-block" id="team-ua">
-        <h2 class="section-title">Команда взводу технічного забезпечення</h2>
-
-        <p>
-          Ми працюємо як один механізм. У кожного своя роль, але мета одна —
-          техніка має їхати, а підрозділи мають виконувати задачі й повертатися живими.
-        </p>
-
-        <div class="team-carousel-wrap" style="margin-top:12px;">
-          <button class="tc-btn tc-prev" type="button" aria-label="Назад">‹</button>
-
-          <div class="team-carousel" id="teamCarouselUA">
-
-            <div class="card team-slide">
-              <h3>Командир взводу</h3>
-              <p>
-                Планує роботу, розставляє пріоритети, координує евакуацію і ремонти.
-                Приймає рішення, що рятувати першим, щоб підрозділи не зупинились.
+              <p style="font-size:12px; opacity:0.78; margin-top:6px; text-align:center;">
+                Натисніть на QR — відкриється великий код
               </p>
             </div>
+          </section>
 
-            <div class="card team-slide">
-              <h3>Заступник / старший майстер</h3>
-              <p>
-                Організовує роботу бригади на місці, контролює якість ремонту,
-                веде облік задач і відповідальних, забезпечує змінність та темп.
+          <!-- PRIVATBANK -->
+          <section class="card">
+            <div>
+              <small>UAH · БАНКІВСЬКИЙ РАХУНОК</small>
+              <h3><span class="privat-label">PrivatBank</span> · Поповнення картки</h3>
+              <p><strong>Отримувач:</strong> NADELNIUK VIKTOR MYKOLAYOVYCH</p>
+              <p><strong>IBAN:</strong><br>UA023052990262076400994803502</p>
+              <p><strong>Номер картки:</strong><br>5168&nbsp;7521&nbsp;4764&nbsp;9654</p>
+              <p><strong>Призначення платежу:</strong> <code>ВТЗ МПБ 142 ОМБр</code></p>
+            </div>
+            <div>
+              <div class="btn-row">
+                <button class="donate-btn donate-btn--privat" type="button"
+                        onclick="window.open('https://www.privat24.ua/send/3xbxx','_blank')">
+                  Відкрити Privat24
+                </button>
+                <button class="donate-btn" type="button" onclick="copyText('UA023052990262076400994803502')">
+                  Скопіювати IBAN
+                </button>
+                <button class="donate-btn" type="button" onclick="copyText('5168752147649654')">
+                  Скопіювати номер картки
+                </button>
+              </div>
+              <div class="qr-wrap">
+                <img id="qr-privat" class="qr" alt="QR PrivatBank" loading="lazy">
+              </div>
+              <p style="font-size:12px; opacity:0.78; margin-top:6px; text-align:center;">
+                Натисніть на QR — відкриється великий код
               </p>
             </div>
+          </section>
 
-            <div class="card team-slide">
-              <h3>Старший механік-водій / слюсар</h3>
-              <p>
-                Складні ремонти, підготовка техніки до виїздів, дефектування вузлів,
-                контроль безпеки та готовності машин до задач.
+          <!-- PAYPAL / PAUPAY -->
+          <section class="card">
+            <div>
+              <small>МІЖНАРОДНІ ПЛАТЕЖІ</small>
+              <h3><span class="paypal-label">PayPal / Paupay</span></h3>
+              <p><strong>Email для переказів:</strong><br>nadelnuikviktor@gmail.com</p>
+              <p><strong>Примітка до платежу:</strong><br><code>VTZ MPB 142 OMBr</code></p>
+            </div>
+            <div>
+              <div class="btn-row">
+                <button class="donate-btn donate-btn--paypal" type="button"
+                        onclick="copyText('nadelnuikviktor@gmail.com')">
+                  Скопіювати email
+                </button>
+              </div>
+              <div class="qr-wrap">
+                <img id="qr-paupay" class="qr" alt="QR Paupay / PayPal" loading="lazy">
+              </div>
+              <p style="font-size:12px; opacity:0.8; margin-top:6px;">
+                Будь ласка, додайте <strong>VTZ MPB 142 OMBr</strong> у примітку платежу.
               </p>
             </div>
+          </section>
 
-            <div class="card team-slide">
-              <h3>Механік-агрегатник</h3>
-              <p>
-                Двигун, зчеплення, КПП/РК, мости, кардан, підшипники. Заміна вузлів,
-                відновлення працездатності “в полі” та в ППД.
-              </p>
+          <!-- CRYPTO -->
+          <section class="card">
+            <div>
+              <small>КРИПТОВАЛЮТА</small>
+              <h3><span class="crypto-label">Crypto</span> · BTC · ETH · SOL · BNB</h3>
+
+              <p><strong>Bitcoin (BTC):</strong><br>
+                bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p</p>
+
+              <p><strong>Ethereum (ETH):</strong><br>
+                0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</p>
+
+              <p><strong>Solana (SOL):</strong><br>
+                DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525</p>
+
+              <p><strong>BNB (BEP-20):</strong><br>
+                0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</p>
             </div>
 
-            <div class="card team-slide">
-              <h3>Ходова / підвіска / гальма</h3>
-              <p>
-                Ресори, амортизатори, ступиці, гальмівна система, рульове.
-                Усунення люфтів, підтікання, перегрівів, “биття”, клинів.
+            <div>
+              <div class="btn-row">
+                <button class="donate-btn donate-btn--crypto" type="button"
+                        onclick="window.open('https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p','_blank')">
+                  Відкрити BTC
+                </button>
+                <button class="donate-btn donate-btn--crypto" type="button"
+                        onclick="window.open('https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b','_blank')">
+                  Відкрити ETH
+                </button>
+                <button class="donate-btn donate-btn--crypto" type="button"
+                        onclick="window.open('https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525','_blank')">
+                  Відкрити SOL
+                </button>
+              </div>
+
+              <div class="btn-row">
+                <button class="donate-btn" type="button"
+                        onclick="copyText('bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p')">
+                  Скопіювати BTC
+                </button>
+                <button class="donate-btn" type="button"
+                        onclick="copyText('0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b')">
+                  Скопіювати ETH / BNB
+                </button>
+                <button class="donate-btn" type="button"
+                        onclick="copyText('DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525')">
+                  Скопіювати SOL
+                </button>
+              </div>
+
+              <div class="qr-wrap">
+                <img id="qr-btc" class="qr" alt="QR BTC" loading="lazy">
+              </div>
+              <p style="font-size:12px; opacity:0.78; margin-top:6px; text-align:center;">
+                Натисніть на QR — відкриється великий код
               </p>
             </div>
-
-            <div class="card team-slide">
-              <h3>Автоелектрик</h3>
-              <p>
-                Проводка, стартер/генератор, освітлення, запобіжники, “маси”,
-                реле, зарядка. Відновлення після пошкоджень, пошук коротких замикань.
-              </p>
-            </div>
-
-            <div class="card team-slide">
-              <h3>Діагност / сканер</h3>
-              <p>
-                Читання помилок, перевірка датчиків/паливної/впуску, базові тести.
-                Дає точну причину несправності, щоб не витрачати час на “вгадування”.
-              </p>
-            </div>
-
-            <div class="card team-slide">
-              <h3>Зварювальник / кузовні роботи</h3>
-              <p>
-                Тріщини рам, кронштейни, кріплення, підсилення вузлів,
-                дрібні кузовні ремонти. Швидке відновлення після ударів і вібрацій.
-              </p>
-            </div>
-
-            <div class="card team-slide">
-              <h3>Шиномонтаж / колеса</h3>
-              <p>
-                Ремонт шин, підкачка, заміна камер/вентилів, баланс по можливості,
-                латання проколів. Підготовка запасок, контроль тиску під навантаженням.
-              </p>
-            </div>
-
-            <div class="card team-slide">
-              <h3>Евакуаційна група</h3>
-              <p>
-                Витягування та буксирування, робота з тросами/стропами/лебідками,
-                підготовка маршрутів і безпечної евакуації. Вивіз машини з ризикових зон.
-              </p>
-            </div>
-
-            <div class="card team-slide">
-              <h3>Водії (підвіз/перегін)</h3>
-              <p>
-                Доставка запчастин і розхідників, перегін техніки, підвіз інструменту.
-                Забезпечення руху між точками ремонту та бойовими підрозділами.
-              </p>
-            </div>
-
-            <div class="card team-slide">
-              <h3>Забезпечення та логістика</h3>
-              <p>
-                Пошук і доставка запчастин, масел, інструментів, витратників.
-                Формування заявок, облік, розподіл ресурсів, контроль залишків.
-              </p>
-            </div>
-          </div>
-
-          <button class="tc-btn tc-next" type="button" aria-label="Вперед">›</button>
+          </section>
         </div>
 
-        <p style="font-size:12px; opacity:0.8; margin-top:12px;">
-          Частину деталей ми свідомо не показуємо з міркувань безпеки. Але за кожною машиною,
-          яка повертається в стрій, стоїть жива команда людей і години важкої роботи.
-        </p>
-      </section>
+        <!-- ПІДТРИМАЛИ -->
+        <section id="supporters" class="thx-wrap">
+          <div class="thx-inner">
+            <div class="thx-head">
+              <h2 class="thx-title">Підтримали</h2>
+              <p class="thx-sub">
+                Це реальна допомога, без публічності. Дякуємо Юрію та Володимиру, хто робить тихо — але по ділу.
+              </p>
+            </div>
 
-   <!-- ===== ФОТОГАЛЕРЕЯ ===== -->
-<section id="gallery" class="gallery-section">
-  <div class="container">
-    <div class="gallery-head">
-      <h2 class="section-title">Фотогалерея</h2>
-      <a class="btn-support" href="#donate">Підтримати взвод</a>
-    </div>
+            <div class="thx-grid">
+              <article class="thx-card">
+                <a class="thx-media" href="assets/support/support-01.jpg" target="_blank" rel="noopener">
+                  <img src="assets/support/support-01.jpg" alt="Анонімна підтримка підрозділу" loading="lazy">
+                </a>
+                <div class="thx-body">
+                  <div class="thx-top">
+                    <div class="thx-name">Анонімна підтримка</div>
+                    <div class="thx-badge">Генератор</div>
+                  </div>
+                  <div class="thx-text">
+                    Передане обладнання для ремонтів.
+                  </div>
+                </div>
+              </article>
 
-    <div class="gallery-carousel-wrap">
-      <button class="gc-btn gc-prev" type="button" aria-label="Назад">‹</button>
+              <article class="thx-card">
+                <a class="thx-media" href="assets/support/support-02.jpg" target="_blank" rel="noopener">
+                  <img src="assets/support/support-02.jpg" alt="Анонімна підтримка підрозділу" loading="lazy">
+                </a>
+                <div class="thx-body">
+                  <div class="thx-top">
+                    <div class="thx-name">Анонімна підтримка</div>
+                    <div class="thx-badge">Автосканер</div>
+                  </div>
+                  <div class="thx-text">
+                    Без цього ремонт просто зупиняється — а техніка повинна їхати.
+                  </div>
+                </div>
+              </article>
+            </div>
 
-      <div class="gallery-carousel" id="galleryCarousel"></div>
+            <div class="thx-foot">
+              <p class="thx-note"></p>
+            </div>
+          </div>
+        </section>
 
-      <button class="gc-btn gc-next" type="button" aria-label="Вперед">›</button>
-    </div>
-  </div>
-</section>
+        <!-- ✅ "Що закупили" — 1 карусель (без дубля стилів/скриптів) -->
+        <section class="card big-block" id="purchased-carousel">
+          <h2 class="section-title">Що вже закупили завдяки донатам</h2>
+          <p>Це реальні речі, які вже працюють на фронті та допомагають нам тримати техніку в строю.</p>
 
+          <div class="pcarousel" aria-label="Карусель закупівель">
+            <button class="pcarousel-btn pcarousel-prev" type="button" aria-label="Назад">‹</button>
 
-      <!-- ВІДЕО -->
-      <section id="videos" class="videos-section">
-        <div class="container">
+            <div class="pcarousel-track" id="purchasedTrack">
+              <div class="pcarousel-item"><img src="assets/purchased-01.jpg" alt="Закуплено 1" loading="lazy"></div>
+              <div class="pcarousel-item"><img src="assets/purchased-02.jpg" alt="Закуплено 2" loading="lazy"></div>
+              <div class="pcarousel-item"><img src="assets/purchased-03.jpg" alt="Закуплено 3" loading="lazy"></div>
+              <div class="pcarousel-item"><img src="assets/purchased-04.jpg" alt="Закуплено 4" loading="lazy"></div>
+              <div class="pcarousel-item"><img src="assets/purchased-05.jpg" alt="Закуплено 5" loading="lazy"></div>
+              <div class="pcarousel-item"><img src="assets/purchased-06.jpg" alt="Закуплено 6" loading="lazy"></div>
+              <div class="pcarousel-item"><img src="assets/purchased-07.jpg" alt="Закуплено 7" loading="lazy"></div>
+              <div class="pcarousel-item"><img src="assets/purchased-08.jpg" alt="Закуплено 8" loading="lazy"></div>
+              <div class="pcarousel-item"><img src="assets/purchased-09.jpg" alt="Закуплено 9" loading="lazy"></div>
+              <div class="pcarousel-item"><img src="assets/purchased-10.jpg" alt="Закуплено 10" loading="lazy"></div>
+              <div class="pcarousel-item"><img src="assets/purchased-11.jpg" alt="Закуплено 11" loading="lazy"></div>
+            </div>
+
+            <button class="pcarousel-btn pcarousel-next" type="button" aria-label="Вперед">›</button>
+          </div>
+
+          <div class="pcarousel-dots" id="purchasedDots" aria-label="Індикатори каруселі"></div>
+        </section>
+
+        <!-- ПРО ВЗВОД -->
+        <section class="card big-block" id="about-platoon-ua">
+          <h2 class="section-title">Про взвод</h2>
+
+          <p>Ми — взвод технічного забезпечення мотопіхотного батальйону 142-ї окремої механізованої бригади. Наше завдання — утримувати техніку батальйону в роботі на одному з найгарячіших напрямків фронту.</p>
+
+          <p>Нас рідко видно в кадрі чи в новинах, але від нашої роботи залежить, чи доїде машина до позиції, чи отримає підрозділ боєкомплект і чи встигнуть вчасно евакуювати поранених.</p>
+
+          <h3>Чим ми займаємось</h3>
+
+          <p><strong>• Обслуговування</strong><br>
+            Проводимо планове й позапланове ТО, міняємо масла, фільтри та рідини,
+            перевіряємо технічний стан машин. Робимо все, щоб техніка була готова рушити будь-якої миті.
+          </p>
+
+          <p><strong>• Ремонт і відновлення</strong><br>
+            Ремонтуємо двигуни, коробки, підвіску, гальмівні системи, електрику, гідравліку та паливну.
+            Працюємо з усім — від дрібних датчиків до великих агрегатів.
+          </p>
+
+          <p><strong>• Евакуація техніки</strong><br>
+            Коли машина не може рухатися сама, підбита, зламана чи загрузла — ми їдемо за нею.
+            Часто працюємо під обстрілами, витягуючи техніку з “доріг життя”.
+          </p>
+
+          <p><strong>• Діагностика і пошук несправностей</strong><br>
+            Знаємо свої машини “на слух”, ловимо приховані проблеми та усуваємо їх,
+            щоб техніка не стала в критичний момент.
+          </p>
+
+          <p><strong>• Польовий ремонт</strong><br>
+            Наш бокс — це те, що ми можемо зібрати з того, що є:
+            земля, тент, ліхтар, генератор і набір інструментів. Працюємо без нормального освітлення,
+            в багнюці, під дощем, вночі, під обстрілами. Немає умов? Створюємо їх.
+          </p>
+
+          <p><strong>• Підтримка мобільності батальйону</strong><br>
+            Робоча техніка — це підвіз боєкомплекту, ротації, евакуація поранених, вода, їжа, маневр і виживання.
+            Робимо все, щоб ці процеси не зупинялись.
+          </p>
+        </section>
+
+        <!-- КОМАНДА -->
+        <section class="card big-block" id="team-ua">
+          <h2 class="section-title">Команда взводу технічного забезпечення</h2>
+
+          <p>
+            Ми працюємо як один механізм. У кожного своя роль, але мета одна —
+            техніка має їхати, а підрозділи мають виконувати задачі й повертатися живими.
+          </p>
+
+          <div class="team-carousel-wrap" style="margin-top:12px;">
+            <button class="tc-btn tc-prev" type="button" aria-label="Назад">‹</button>
+
+            <div class="team-carousel" id="teamCarouselUA">
+              <div class="card team-slide">
+                <h3>Командир взводу</h3>
+                <p>Планує роботу, розставляє пріоритети, координує евакуацію і ремонти. Приймає рішення, що рятувати першим, щоб підрозділи не зупинились.</p>
+              </div>
+
+              <div class="card team-slide">
+                <h3>Заступник / старший майстер</h3>
+                <p>Організовує роботу бригади на місці, контролює якість ремонту, веде облік задач і відповідальних, забезпечує змінність та темп.</p>
+              </div>
+
+              <div class="card team-slide">
+                <h3>Старший механік-водій / слюсар</h3>
+                <p>Складні ремонти, підготовка техніки до виїздів, дефектування вузлів, контроль безпеки та готовності машин до задач.</p>
+              </div>
+
+              <div class="card team-slide">
+                <h3>Механік-агрегатник</h3>
+                <p>Двигун, зчеплення, КПП/РК, мости, кардан, підшипники. Заміна вузлів, відновлення працездатності “в полі” та в ППД.</p>
+              </div>
+
+              <div class="card team-slide">
+                <h3>Ходова / підвіска / гальма</h3>
+                <p>Ресори, амортизатори, ступиці, гальмівна система, рульове. Усунення люфтів, підтікання, перегрівів, “биття”, клинів.</p>
+              </div>
+
+              <div class="card team-slide">
+                <h3>Автоелектрик</h3>
+                <p>Проводка, стартер/генератор, освітлення, запобіжники, “маси”, реле, зарядка. Відновлення після пошкоджень, пошук коротких замикань.</p>
+              </div>
+
+              <div class="card team-slide">
+                <h3>Діагност / сканер</h3>
+                <p>Читання помилок, перевірка датчиків/паливної/впуску, базові тести. Дає точну причину несправності, щоб не витрачати час на “вгадування”.</p>
+              </div>
+
+              <div class="card team-slide">
+                <h3>Зварювальник / кузовні роботи</h3>
+                <p>Тріщини рам, кронштейни, кріплення, підсилення вузлів, дрібні кузовні ремонти. Швидке відновлення після ударів і вібрацій.</p>
+              </div>
+
+              <div class="card team-slide">
+                <h3>Шиномонтаж / колеса</h3>
+                <p>Ремонт шин, підкачка, заміна камер/вентилів, баланс по можливості, латання проколів. Підготовка запасок, контроль тиску під навантаженням.</p>
+              </div>
+
+              <div class="card team-slide">
+                <h3>Евакуаційна група</h3>
+                <p>Витягування та буксирування, робота з тросами/стропами/лебідками, підготовка маршрутів і безпечної евакуації. Вивіз машини з ризикових зон.</p>
+              </div>
+
+              <div class="card team-slide">
+                <h3>Водії (підвіз/перегін)</h3>
+                <p>Доставка запчастин і розхідників, перегін техніки, підвіз інструменту. Забезпечення руху між точками ремонту та бойовими підрозділами.</p>
+              </div>
+
+              <div class="card team-slide">
+                <h3>Забезпечення та логістика</h3>
+                <p>Пошук і доставка запчастин, масел, інструментів, витратників. Формування заявок, облік, розподіл ресурсів, контроль залишків.</p>
+              </div>
+            </div>
+
+            <button class="tc-btn tc-next" type="button" aria-label="Вперед">›</button>
+          </div>
+
+          <p style="font-size:12px; opacity:0.8; margin-top:12px;">
+            Частину деталей ми свідомо не показуємо з міркувань безпеки. Але за кожною машиною,
+            яка повертається в стрій, стоїть жива команда людей і години важкої роботи.
+          </p>
+        </section>
+
+        <!-- ===== ФОТОГАЛЕРЕЯ ===== -->
+        <section id="gallery" class="gallery-section">
+          <div class="gallery-head">
+            <h2 class="section-title">Фотогалерея</h2>
+            <a class="btn-support" href="#donate">Підтримати взвод</a>
+          </div>
+
+          <div class="gallery-carousel-wrap">
+            <button class="gc-btn gc-prev" type="button" aria-label="Назад">‹</button>
+            <div class="gallery-carousel" id="galleryCarousel" aria-label="Фотогалерея (p1–p37)"></div>
+            <button class="gc-btn gc-next" type="button" aria-label="Вперед">›</button>
+          </div>
+        </section>
+
+        <!-- ВІДЕО -->
+        <section id="videos" class="videos-section">
           <h2 class="section-title">Відео</h2>
 
           <div class="video-carousel-wrap">
@@ -2117,7 +1716,6 @@ track.addEventListener('touchend', e => {
               <div class="vc-item">
                 <div class="vc-frame">
                   <iframe src="https://www.youtube.com/embed/Rz_Y3Tj6Rz4"
-                          frameborder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                           allowfullscreen loading="lazy"></iframe>
                 </div>
@@ -2126,7 +1724,6 @@ track.addEventListener('touchend', e => {
               <div class="vc-item">
                 <div class="vc-frame">
                   <iframe src="https://www.youtube.com/embed/KlInbRyOCuY"
-                          frameborder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                           allowfullscreen loading="lazy"></iframe>
                 </div>
@@ -2135,7 +1732,6 @@ track.addEventListener('touchend', e => {
               <div class="vc-item">
                 <div class="vc-frame">
                   <iframe src="https://www.youtube.com/embed/QTbz0BHjAzA"
-                          frameborder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                           allowfullscreen loading="lazy"></iframe>
                 </div>
@@ -2144,7 +1740,6 @@ track.addEventListener('touchend', e => {
               <div class="vc-item">
                 <div class="vc-frame">
                   <iframe src="https://www.youtube.com/embed/xvvbYfiG_rk"
-                          frameborder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                           allowfullscreen loading="lazy"></iframe>
                 </div>
@@ -2153,912 +1748,828 @@ track.addEventListener('touchend', e => {
 
             <button class="vc-btn vc-next" type="button" aria-label="Вперед">›</button>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- ПОТОЧНІ ПОТРЕБИ -->
-      <section class="card big-block" id="current-needs-ua">
-        <h2 class="section-title">Поточні потреби</h2>
+        <!-- ПОТОЧНІ ПОТРЕБИ -->
+        <section class="card big-block" id="current-needs-ua">
+          <h2 class="section-title">Поточні потреби</h2>
 
-        <p>Зараз ваші донати в першу чергу перетворюються на:</p>
+          <p>Зараз ваші донати в першу чергу перетворюються на:</p>
 
-        <p><strong>• Інструмент і обладнання для ремонту вантажівок та броні</strong><br>
-          Набори головок, ключі, подовжувачі, домкрати, знімачі, інструмент по підвісці,
-          пневмоінструмент, подовжувачі та робоче освітлення.
-        </p>
-
-        <p><strong>• Зварка та витратники</strong><br>
-          Електроди, дріт, маски, рукавиці, подовжувачі, кабелі — усе, що дозволяє
-          оживляти рами, кузови, кріплення, баки, захист і броньовані елементи.
-        </p>
-
-        <p><strong>• Запчастини та витратні матеріали</strong><br>
-          Фільтри, ремені, гальмівні колодки, шланги, підшипники, хомути, датчики, свічки, кріплення.
-          Усі “дрібниці”, без яких неможливий жоден великий ремонт.
-        </p>
-
-        <p><strong>• Рідини та мастила</strong><br>
-          Моторні та трансмісійні масла, гальмівна рідина, антифриз, мастила для вузлів з великим навантаженням.
-        </p>
-
-        <p><strong>• Діагностика та електрика</strong><br>
-          Тестери, мультиметри, лампи, проводка, клеми, фішки, запобіжники — усе для швидкого
-          виявлення та усунення електричних проблем.
-        </p>
-
-        <p><strong>• Логістика та умови роботи</strong><br>
-          Генератори, подовжувачі, освітлення, плівка, тенти, рукавиці та робочий одяг —
-          щоб ми могли працювати в полі за будь-якої погоди.
-        </p>
-
-        <p>Кожна гривня, євро чи долар у наших руках перетворюється на дуже конкретну річ:
-          інструмент, запчастину, масло чи зварку — те, що дає машині ще один виїзд,
-          а нашим людям — ще один шанс.
-        </p>
-      </section>
-
-      <!-- БЕЗСТРОКОВИЙ ЗБІР -->
-      <section class="card big-block" id="progress-ua">
-        <h2 class="section-title">Безстроковий збір</h2>
-
-        <p class="progress-text">
-          Це безстроковий збір на щоденну роботу взводу технічного забезпечення:
-          інструмент, запчастини, мастила, зварка, діагностика та польові майстерні.
-          Кожен внесок допомагає тримати техніку в строю.
-        </p>
-
-        <div class="progress-track">
-          <div id="progress-fill-ua" class="progress-fill" data-label="Збір активний"></div>
-        </div>
-
-        <div class="progress-meta">
-          <span id="progress-text-ua">Збір активний</span>
-          <span>Безстроковий збір · Оновлено: 01.12.2025</span>
-        </div>
-      </section>
-
-      <!-- ПРИНЦИПИ -->
-      <section class="card big-block" id="principles-ua">
-        <h2 class="section-title">Наші принципи</h2>
-
-        <p>У роботі взводу технічного забезпечення немає випадковостей. Ми тримаємося кількох простих, але жорстких принципів, які щодня рятують техніку й життя.</p>
-
-        <div class="card-grid" style="margin-top:10px;">
-
-          <div class="card" style="min-height:160px;">
-            <h3>Швидкість</h3>
-            <p>
-              Оперативно реагуємо на поломки, відмови техніки та запити підрозділів.
-              У полі важлива кожна хвилина — ми не тягнемо час.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:160px;">
-            <h3>Точність</h3>
-            <p>
-              Діагностика, ремонт, регулювання — робимо максимально якісно.
-              Помилка в ремонті може коштувати машини або життя бійця.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:160px;">
-            <h3>Професійність</h3>
-            <p>
-              Кожен у взводі знає свою техніку до останнього болта.
-              Ми вкладаємо досвід, знання й руки в кожну машину, яка має їхати.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:160px;">
-            <h3>Відповідальність</h3>
-            <p>
-              Розуміємо ціну нашої роботи: відремонтована машина = виконана бойова задача.
-              Відповідаємо за результат, а не за процес.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:160px;">
-            <h3>Мобільність</h3>
-            <p>
-              Працюємо будь-де: в полі, на ґрунті, під обстрілами, під дощем чи морозом.
-              Немає боксу? Робимо його з того, що є.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:160px;">
-            <h3>Стійкість</h3>
-            <p>
-              Доводимо роботу до кінця. Без відмазок.
-              Техніка має їхати — і вона поїде.
-            </p>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- FAQ -->
-      <section class="card big-block" id="faq-ua">
-        <h2 class="section-title">Питання та відповіді</h2>
-
-        <details style="margin-bottom:6px;">
-          <summary style="cursor:pointer; font-weight:600; font-size:14px;">
-            Ви офіційний підрозділ Збройних сил України?
-          </summary>
-          <p style="margin-top:4px; font-size:13px;">
-            Так. Ми — взвод технічного забезпечення мотопіхотного батальйону 142-ї окремої механізованої бригади.
-            Уся техніка, з якою ми працюємо, офіційно закріплена за підрозділами ЗСУ.
+          <p><strong>• Інструмент і обладнання для ремонту вантажівок та броні</strong><br>
+            Набори головок, ключі, подовжувачі, домкрати, знімачі, інструмент по підвісці,
+            пневмоінструмент, подовжувачі та робоче освітлення.
           </p>
-        </details>
 
-        <details style="margin-bottom:6px;">
-          <summary style="cursor:pointer; font-weight:600; font-size:14px;">
-            На що саме йдуть донати?
-          </summary>
-          <p style="margin-top:4px; font-size:13px;">
-            У першу чергу — на інструмент, запчастини, витратні матеріали, масла, зварку, діагностику
-            та базові умови для польової майстерні. Тобто безпосередньо на те, що дозволяє нам
-            ремонтувати вантажівки та броню, щоб вони продовжували виконувати бойові задачі.
+          <p><strong>• Зварка та витратники</strong><br>
+            Електроди, дріт, маски, рукавиці, подовжувачі, кабелі — усе, що дозволяє
+            оживляти рами, кузови, кріплення, баки, захист і броньовані елементи.
           </p>
-        </details>
 
-        <details style="margin-bottom:6px;">
-          <summary style="cursor:pointer; font-weight:600; font-size:14px;">
-            Чи можу я допомогти не грошима, а інструментом чи запчастинами?
-          </summary>
-          <p style="margin-top:4px; font-size:13px;">
-            Так. Якщо ви готові передати інструмент, обладнання, запчастини або інші матеріали —
-            напишіть на <strong><a href="mailto:nadelnuikviktor@gmail.com">nadelnuikviktor@gmail.com</a></strong>
-            або в <strong>Telegram</strong> <code>@DOFAMIN95</code>, і ми надішлемо список актуальних потреб
-            та деталі щодо доставки.
+          <p><strong>• Запчастини та витратні матеріали</strong><br>
+            Фільтри, ремені, гальмівні колодки, шланги, підшипники, хомути, датчики, свічки, кріплення.
+            Усі “дрібниці”, без яких неможливий жоден великий ремонт.
           </p>
-        </details>
 
-        <details style="margin-bottom:6px;">
-          <summary style="cursor:pointer; font-weight:600; font-size:14px;">
-            Чи надаєте ви звітність по донатах?
-          </summary>
-          <p style="margin-top:4px; font-size:13px;">
-            Так. Для фондів, великих донаторів та ініціатив можемо підготувати окремий звіт:
-            фото, перелік закупленого, опис, на що конкретно пішли кошти та як це допомогло роботі взводу.
-            Просто зв’яжіться з нами через форму на сайті або напряму на email.
+          <p><strong>• Рідини та мастила</strong><br>
+            Моторні та трансмісійні масла, гальмівна рідина, антифриз, мастила для вузлів з великим навантаженням.
           </p>
-        </details>
 
-        <details>
-          <summary style="cursor:pointer; font-weight:600; font-size:14px;">
-            Чи можна публічно згадувати ваш підрозділ або використовувати фото техніки?
-          </summary>
-          <p style="margin-top:4px; font-size:13px;">
-            Такі речі ми погоджуємо окремо, з урахуванням безпеки. Якщо ви фонд, медіа чи компанія
-            й хочете публічно згадати підрозділ або використати фото — напишіть нам, і ми уточнимо,
-            що можна показувати, а що ні.
+          <p><strong>• Діагностика та електрика</strong><br>
+            Тестери, мультиметри, лампи, проводка, клеми, фішки, запобіжники — усе для швидкого
+            виявлення та усунення електричних проблем.
           </p>
-        </details>
-      </section>
 
-      <!-- ПОДІЛИТИСЬ -->
-      <section class="card big-block" id="share-ua">
-        <h2 class="section-title">Розкажіть іншим</h2>
+          <p><strong>• Логістика та умови роботи</strong><br>
+            Генератори, подовжувачі, освітлення, плівка, тенти, рукавиці та робочий одяг —
+            щоб ми могли працювати в полі за будь-якої погоди.
+          </p>
 
-        <p>
-          Допомогти можна не лише донатом, а й поширенням інформації.
-          Скопіюйте готовий текст або поділіться цією сторінкою в улюбленому месенджері чи соцмережі.
-        </p>
+          <p>Кожна гривня, євро чи долар у наших руках перетворюється на дуже конкретну річ:
+            інструмент, запчастину, масло чи зварку — те, що дає машині ще один виїзд,
+            а нашим людям — ще один шанс.
+          </p>
+        </section>
 
-        <div class="btn-row" style="margin-top:10px; margin-bottom:14px;">
-          <button class="donate-btn"
-                  type="button"
-                  onclick="copyText('Привіт! Це збір для взводу технічного забезпечення мотопіхотного батальйону 142 ОМБр. Ми ремонтуємо техніку, яка возить боєкомплект, ПММ, їжу та евакуює поранених. Якщо маєш змогу — підтримай донатом або поширенням: https://viktornadelniuk.github.io/DOFAMIN95/')">
-            Скопіювати текст українською
-          </button>
+        <!-- БЕЗСТРОКОВИЙ ЗБІР -->
+        <section class="card big-block" id="progress-ua">
+          <h2 class="section-title">Безстроковий збір</h2>
 
-          <button class="donate-btn"
-                  type="button"
-                  onclick="copyText('Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade (mechanized infantry battalion). They repair trucks and armored vehicles right at the frontline so that vehicles keep moving, supplies and fuel arrive, and the wounded can be evacuated. If you can, please support with a donation or by sharing this link: https://viktornadelniuk.github.io/DOFAMIN95/en.html')">
-            Скопіювати текст англійською
-          </button>
-        </div>
+          <p class="progress-text">
+            Це безстроковий збір на щоденну роботу взводу технічного забезпечення:
+            інструмент, запчастини, мастила, зварка, діагностика та польові майстерні.
+            Кожен внесок допомагає тримати техніку в строю.
+          </p>
 
-        <div class="btn-row">
-          <button class="donate-btn" type="button" onclick="shareUa('telegram')">
-            Поділитися в Telegram
-          </button>
-
-          <button class="donate-btn" type="button" onclick="shareUa('viber')">
-            Поділитися у Viber
-          </button>
-
-          <button class="donate-btn" type="button" onclick="shareUa('whatsapp')">
-            Поділитися в WhatsApp
-          </button>
-
-          <button class="donate-btn" type="button" onclick="shareUa('facebook')">
-            Поділитися у Facebook
-          </button>
-
-          <button class="donate-btn" type="button" onclick="shareUa('instagram')">
-            Поділитися в Instagram
-          </button>
-        </div>
-      </section>
-
-      <!-- LIGHTBOX -->
-      <div id="lightbox" class="lightbox" aria-hidden="true">
-        <div class="lightbox-inner" role="dialog" aria-modal="true">
-          <div class="lightbox-img-wrap">
-            <button type="button" class="lightbox-prev" aria-label="Попереднє фото">&lsaquo;</button>
-            <img id="lightbox-img" class="lightbox-img" src="" alt="">
-            <button type="button" class="lightbox-next" aria-label="Наступне фото">&rsaquo;</button>
-            <button type="button" class="lightbox-close" aria-label="Закрити">&times;</button>
+          <div class="progress-track">
+            <div id="progress-fill-ua" class="progress-fill" data-label="Збір активний"></div>
           </div>
-          <div id="lightbox-caption" class="lightbox-caption"></div>
+
+          <div class="progress-meta">
+            <span id="progress-text-ua">Збір активний</span>
+            <span>Безстроковий збір · Оновлено: 01.12.2025</span>
+          </div>
+        </section>
+
+        <!-- ПРИНЦИПИ -->
+        <section class="card big-block" id="principles-ua">
+          <h2 class="section-title">Наші принципи</h2>
+
+          <p>У роботі взводу технічного забезпечення немає випадковостей. Ми тримаємося кількох простих, але жорстких принципів, які щодня рятують техніку й життя.</p>
+
+          <div class="card-grid" style="margin-top:10px;">
+            <div class="card" style="min-height:160px;">
+              <h3>Швидкість</h3>
+              <p>Оперативно реагуємо на поломки, відмови техніки та запити підрозділів. У полі важлива кожна хвилина — ми не тягнемо час.</p>
+            </div>
+
+            <div class="card" style="min-height:160px;">
+              <h3>Точність</h3>
+              <p>Діагностика, ремонт, регулювання — робимо максимально якісно. Помилка в ремонті може коштувати машини або життя бійця.</p>
+            </div>
+
+            <div class="card" style="min-height:160px;">
+              <h3>Професійність</h3>
+              <p>Кожен у взводі знає свою техніку до останнього болта. Ми вкладаємо досвід, знання й руки в кожну машину, яка має їхати.</p>
+            </div>
+
+            <div class="card" style="min-height:160px;">
+              <h3>Відповідальність</h3>
+              <p>Розуміємо ціну нашої роботи: відремонтована машина = виконана бойова задача. Відповідаємо за результат, а не за процес.</p>
+            </div>
+
+            <div class="card" style="min-height:160px;">
+              <h3>Мобільність</h3>
+              <p>Працюємо будь-де: в полі, на ґрунті, під обстрілами, під дощем чи морозом. Немає боксу? Робимо його з того, що є.</p>
+            </div>
+
+            <div class="card" style="min-height:160px;">
+              <h3>Стійкість</h3>
+              <p>Доводимо роботу до кінця. Без відмазок. Техніка має їхати — і вона поїде.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="card big-block" id="faq-ua">
+          <h2 class="section-title">Питання та відповіді</h2>
+
+          <details style="margin-bottom:6px;">
+            <summary style="cursor:pointer; font-weight:600; font-size:14px;">
+              Ви офіційний підрозділ Збройних сил України?
+            </summary>
+            <p style="margin-top:4px; font-size:13px;">
+              Так. Ми — взвод технічного забезпечення мотопіхотного батальйону 142-ї окремої механізованої бригади.
+              Уся техніка, з якою ми працюємо, офіційно закріплена за підрозділами ЗСУ.
+            </p>
+          </details>
+
+          <details style="margin-bottom:6px;">
+            <summary style="cursor:pointer; font-weight:600; font-size:14px;">
+              На що саме йдуть донати?
+            </summary>
+            <p style="margin-top:4px; font-size:13px;">
+              У першу чергу — на інструмент, запчастини, витратні матеріали, масла, зварку, діагностику
+              та базові умови для польової майстерні. Тобто безпосередньо на те, що дозволяє нам
+              ремонтувати вантажівки та броню, щоб вони продовжували виконувати бойові задачі.
+            </p>
+          </details>
+
+          <details style="margin-bottom:6px;">
+            <summary style="cursor:pointer; font-weight:600; font-size:14px;">
+              Чи можу я допомогти не грошима, а інструментом чи запчастинами?
+            </summary>
+            <p style="margin-top:4px; font-size:13px;">
+              Так. Якщо ви готові передати інструмент, обладнання, запчастини або інші матеріали —
+              напишіть на <strong><a href="mailto:nadelnuikviktor@gmail.com">nadelnuikviktor@gmail.com</a></strong>
+              або в <strong>Telegram</strong> <code>@DOFAMIN95</code>, і ми надішлемо список актуальних потреб
+              та деталі щодо доставки.
+            </p>
+          </details>
+
+          <details style="margin-bottom:6px;">
+            <summary style="cursor:pointer; font-weight:600; font-size:14px;">
+              Чи надаєте ви звітність по донатах?
+            </summary>
+            <p style="margin-top:4px; font-size:13px;">
+              Так. Для фондів, великих донаторів та ініціатив можемо підготувати окремий звіт:
+              фото, перелік закупленого, опис, на що конкретно пішли кошти та як це допомогло роботі взводу.
+              Просто зв’яжіться з нами через форму на сайті або напряму на email.
+            </p>
+          </details>
+
+          <details>
+            <summary style="cursor:pointer; font-weight:600; font-size:14px;">
+              Чи можна публічно згадувати ваш підрозділ або використовувати фото техніки?
+            </summary>
+            <p style="margin-top:4px; font-size:13px;">
+              Такі речі ми погоджуємо окремо, з урахуванням безпеки. Якщо ви фонд, медіа чи компанія
+              й хочете публічно згадати підрозділ або використати фото — напишіть нам, і ми уточнимо,
+              що можна показувати, а що ні.
+            </p>
+          </details>
+        </section>
+
+        <!-- ПОДІЛИТИСЬ -->
+        <section class="card big-block" id="share-ua">
+          <h2 class="section-title">Розкажіть іншим</h2>
+
+          <p>
+            Допомогти можна не лише донатом, а й поширенням інформації.
+            Скопіюйте готовий текст або поділіться цією сторінкою в улюбленому месенджері чи соцмережі.
+          </p>
+
+          <div class="btn-row" style="margin-top:10px; margin-bottom:14px;">
+            <button class="donate-btn" type="button"
+                    onclick="copyText('Привіт! Це збір для взводу технічного забезпечення мотопіхотного батальйону 142 ОМБр. Ми ремонтуємо техніку, яка возить боєкомплект, ПММ, їжу та евакуює поранених. Якщо маєш змогу — підтримай донатом або поширенням: https://viktornadelniuk.github.io/DOFAMIN95/')">
+              Скопіювати текст українською
+            </button>
+
+            <button class="donate-btn" type="button"
+                    onclick="copyText('Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade (mechanized infantry battalion). They repair trucks and armored vehicles right at the frontline so that vehicles keep moving, supplies and fuel arrive, and the wounded can be evacuated. If you can, please support with a donation or by sharing this link: https://viktornadelniuk.github.io/DOFAMIN95/en.html')">
+              Скопіювати текст англійською
+            </button>
+          </div>
+
+          <div class="btn-row">
+            <button class="donate-btn" type="button" onclick="shareUa('telegram')">Поділитися в Telegram</button>
+            <button class="donate-btn" type="button" onclick="shareUa('viber')">Поділитися у Viber</button>
+            <button class="donate-btn" type="button" onclick="shareUa('whatsapp')">Поділитися в WhatsApp</button>
+            <button class="donate-btn" type="button" onclick="shareUa('facebook')">Поділитися у Facebook</button>
+            <button class="donate-btn" type="button" onclick="shareUa('instagram')">Поділитися в Instagram</button>
+          </div>
+        </section>
+
+        <!-- LIGHTBOX (підтримка старого формату .gallery-item, якщо буде треба) -->
+        <div id="lightbox" class="lightbox" aria-hidden="true">
+          <div class="lightbox-inner" role="dialog" aria-modal="true">
+            <div class="lightbox-img-wrap">
+              <button type="button" class="lightbox-prev" aria-label="Попереднє фото">&lsaquo;</button>
+              <img id="lightbox-img" class="lightbox-img" src="" alt="">
+              <button type="button" class="lightbox-next" aria-label="Наступне фото">&rsaquo;</button>
+              <button type="button" class="lightbox-close" aria-label="Закрити">&times;</button>
+            </div>
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+          </div>
         </div>
-      </div>
 
-      <footer>
-        Дякуємо за підтримку взводу технічного забезпечення 142 ОМБр.<br>
-        Ваша допомога тримає техніку в строю — а наших воїнів живими.
-        <div id="visitor-counter-ua" style="margin-top:6px; font-size:11px; opacity:0.75;"></div>
-      </footer>
+        <footer>
+          Дякуємо за підтримку взводу технічного забезпечення 142 ОМБр.<br>
+          Ваша допомога тримає техніку в строю — а наших воїнів живими.
+          <div id="visitor-counter-ua" style="margin-top:6px; font-size:11px; opacity:0.75;"></div>
+        </footer>
 
-      <!-- SCROLL TO TOP BUTTON -->
-      <button type="button" id="scrollTopBtn" class="scroll-top-btn" aria-label="До початку сторінки">
-        ↑
-      </button>
+        <!-- SCROLL TO TOP BUTTON -->
+        <button type="button" id="scrollTopBtn" class="scroll-top-btn" aria-label="До початку сторінки">↑</button>
 
-    </main>
-  </div>
-</div>
-
-<!-- MOBILE DONATE BUTTON -->
-<a href="#donate" class="mobile-donate-btn">Підтримати взвод</a>
-
-<!-- TOAST -->
-<div id="toast" class="toast" aria-live="polite" aria-atomic="true">
-  <span class="toast-dot"></span>
-  <span class="toast-text" id="toastText">Готово</span>
-</div>
-
-<!-- FULLSCREEN QR MODAL -->
-<div id="qrModal" class="qr-modal" aria-hidden="true">
-  <div class="qr-modal-card" id="qrModalCard" role="dialog" aria-modal="true">
-    <div class="qr-modal-head">
-      <div>
-        <div class="qr-modal-title" id="qrModalTitle">QR</div>
-        <div class="qr-modal-sub" id="qrModalSub">Скануйте або відкрийте платіж</div>
-      </div>
-      <button type="button" class="qr-modal-close" id="qrModalClose" aria-label="Закрити">×</button>
-    </div>
-
-    <div class="qr-modal-body">
-      <div class="qr-modal-qrwrap">
-        <img id="qrModalImg" class="qr-modal-qr" alt="QR код" loading="lazy">
-      </div>
-
-      <div class="qr-modal-actions">
-        <button type="button" class="qr-action-btn primary" id="qrModalOpenBtn">Відкрити</button>
-        <button type="button" class="qr-action-btn" id="qrModalCopyBtn">Скопіювати</button>
-      </div>
-    </div>
-
-    <div class="qr-modal-foot" id="qrModalFoot">
-      Якщо сканер не бачить — збільште яскравість екрана.
+      </main>
     </div>
   </div>
-</div>
 
-<script>
-  // QR codes
-  function setQR(id, data) {
-    var el = document.getElementById(id);
-    if (!el) return;
-    var api = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=";
-    el.src = api + encodeURIComponent(data);
-  }
+  <!-- MOBILE DONATE BUTTON -->
+  <a href="#donate" class="mobile-donate-btn">Підтримати взвод</a>
 
-  setQR("qr-mono",   "https://send.monobank.ua/jar/8PfzHBQuu4");
-  setQR("qr-privat", "https://www.privat24.ua/send/3xbxx");
-  setQR("qr-btc",    "https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p");
-  setQR("qr-paupay", "nadelnuikviktor@gmail.com");
+  <!-- TOAST -->
+  <div id="toast" class="toast" aria-live="polite" aria-atomic="true">
+    <span class="toast-dot"></span>
+    <span class="toast-text" id="toastText">Готово</span>
+  </div>
 
-  // ===== TOAST =====
-  (function(){
-    const toast = document.getElementById('toast');
-    const textEl = document.getElementById('toastText');
-    let t;
+  <!-- FULLSCREEN QR MODAL -->
+  <div id="qrModal" class="qr-modal" aria-hidden="true">
+    <div class="qr-modal-card" id="qrModalCard" role="dialog" aria-modal="true">
+      <div class="qr-modal-head">
+        <div>
+          <div class="qr-modal-title" id="qrModalTitle">QR</div>
+          <div class="qr-modal-sub" id="qrModalSub">Скануйте або відкрийте платіж</div>
+        </div>
+        <button type="button" class="qr-modal-close" id="qrModalClose" aria-label="Закрити">×</button>
+      </div>
 
-    window.showToast = function(message){
-      if(!toast || !textEl) return;
-      textEl.textContent = message;
-      toast.classList.add('toast--show');
-      clearTimeout(t);
-      t = setTimeout(()=> toast.classList.remove('toast--show'), 1800);
+      <div class="qr-modal-body">
+        <div class="qr-modal-qrwrap">
+          <img id="qrModalImg" class="qr-modal-qr" alt="QR код" loading="lazy">
+        </div>
+
+        <div class="qr-modal-actions">
+          <button type="button" class="qr-action-btn primary" id="qrModalOpenBtn">Відкрити</button>
+          <button type="button" class="qr-action-btn" id="qrModalCopyBtn">Скопіювати</button>
+        </div>
+      </div>
+
+      <div class="qr-modal-foot" id="qrModalFoot">
+        Якщо сканер не бачить — збільште яскравість екрана.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ===== QR codes =====
+    function setQR(id, data) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      var api = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=";
+      el.src = api + encodeURIComponent(data);
     }
-  })();
 
-  // ===== Copy to clipboard (NO alert) =====
-  async function copyText(text) {
-    try{
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        await navigator.clipboard.writeText(text);
+    setQR("qr-mono",   "https://send.monobank.ua/jar/8PfzHBQuu4");
+    setQR("qr-privat", "https://www.privat24.ua/send/3xbxx");
+    setQR("qr-btc",    "https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p");
+    setQR("qr-paupay", "nadelnuikviktor@gmail.com");
+
+    // ===== TOAST =====
+    (function(){
+      const toast = document.getElementById('toast');
+      const textEl = document.getElementById('toastText');
+      let t;
+
+      window.showToast = function(message){
+        if(!toast || !textEl) return;
+        textEl.textContent = message;
+        toast.classList.add('toast--show');
+        clearTimeout(t);
+        t = setTimeout(()=> toast.classList.remove('toast--show'), 1800);
+      }
+    })();
+
+    // ===== Copy to clipboard (NO alert) =====
+    async function copyText(text) {
+      try{
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(text);
+          showToast('Скопійовано');
+          return;
+        }
+        fallbackCopy(text);
+      }catch(e){
+        fallbackCopy(text);
+      }
+    }
+
+    function fallbackCopy(text) {
+      var area = document.createElement('textarea');
+      area.value = text;
+      area.style.position = 'fixed';
+      area.style.left = '-9999px';
+      document.body.appendChild(area);
+      area.focus();
+      area.select();
+      try {
+        document.execCommand('copy');
         showToast('Скопійовано');
-        return;
+      } catch (e) {
+        showToast('Не вдалося скопіювати. Спробуйте вручну.');
       }
-      fallbackCopy(text);
-    }catch(e){
-      fallbackCopy(text);
-    }
-  }
-
-  function fallbackCopy(text) {
-    var area = document.createElement('textarea');
-    area.value = text;
-    area.style.position = 'fixed';
-    area.style.left = '-9999px';
-    document.body.appendChild(area);
-    area.focus();
-    area.select();
-    try {
-      document.execCommand('copy');
-      showToast('Скопійовано');
-    } catch (e) {
-      showToast('Не вдалося скопіювати. Спробуйте вручну.');
-    }
-    document.body.removeChild(area);
-  }
-
-  // Sharing (UA)
-  const SHARE_TEXT_UA = 'Привіт! Це збір для взводу технічного забезпечення мотопіхотного батальйону 142 ОМБр. Ми ремонтуємо техніку, яка возить боєкомплект, ПММ, їжу та евакуює поранених.';
-  const SHARE_URL_UA  = 'https://viktornadelniuk.github.io/DOFAMIN95/';
-
-  function shareUa(service) {
-    const text = SHARE_TEXT_UA + ' ' + SHARE_URL_UA;
-    let shareUrl = '';
-
-    switch (service) {
-      case 'telegram':
-        shareUrl = 'https://t.me/share/url?url='
-          + encodeURIComponent(SHARE_URL_UA)
-          + '&text=' + encodeURIComponent(SHARE_TEXT_UA);
-        break;
-      case 'viber':
-        shareUrl = 'viber://forward?text=' + encodeURIComponent(text);
-        break;
-      case 'whatsapp':
-        shareUrl = 'https://wa.me/?text=' + encodeURIComponent(text);
-        break;
-      case 'facebook':
-        shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(SHARE_URL_UA);
-        break;
-      case 'instagram':
-        copyText(text);
-        shareUrl = 'https://www.instagram.com/';
-        break;
-      default:
-        copyText(text);
-        return;
+      document.body.removeChild(area);
     }
 
-    window.open(shareUrl, '_blank');
-  }
+    // Sharing (UA)
+    const SHARE_TEXT_UA = 'Привіт! Це збір для взводу технічного забезпечення мотопіхотного батальйону 142 ОМБр. Ми ремонтуємо техніку, яка возить боєкомплект, ПММ, їжу та евакуює поранених.';
+    const SHARE_URL_UA  = 'https://viktornadelniuk.github.io/DOFAMIN95/';
 
-  // LIGHTBOX GALLERY (старий lightbox, але працює якщо будеш додавати .gallery-item)
-  (function () {
-    var lightbox = document.getElementById('lightbox');
-    if (!lightbox) return;
+    function shareUa(service) {
+      const text = SHARE_TEXT_UA + ' ' + SHARE_URL_UA;
+      let shareUrl = '';
 
-    var images = document.querySelectorAll('.gallery-item img');
-    if (!images.length) return;
-
-    var lightboxImg = document.getElementById('lightbox-img');
-    var lightboxCaption = document.getElementById('lightbox-caption');
-    var btnClose = lightbox.querySelector('.lightbox-close');
-    var btnPrev = lightbox.querySelector('.lightbox-prev');
-    var btnNext = lightbox.querySelector('.lightbox-next');
-
-    var currentIndex = 0;
-    var items = [];
-
-    images.forEach(function (img, index) {
-      var caption = '';
-      var parent = img.parentElement;
-      if (parent && parent.querySelector('.gallery-caption')) {
-        caption = parent.querySelector('.gallery-caption').innerText.trim();
-      } else if (img.alt) {
-        caption = img.alt;
+      switch (service) {
+        case 'telegram':
+          shareUrl = 'https://t.me/share/url?url='
+            + encodeURIComponent(SHARE_URL_UA)
+            + '&text=' + encodeURIComponent(SHARE_TEXT_UA);
+          break;
+        case 'viber':
+          shareUrl = 'viber://forward?text=' + encodeURIComponent(text);
+          break;
+        case 'whatsapp':
+          shareUrl = 'https://wa.me/?text=' + encodeURIComponent(text);
+          break;
+        case 'facebook':
+          shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(SHARE_URL_UA);
+          break;
+        case 'instagram':
+          copyText(text);
+          shareUrl = 'https://www.instagram.com/';
+          break;
+        default:
+          copyText(text);
+          return;
       }
 
-      items.push({ src: img.src, alt: img.alt || '', caption: caption });
-
-      img.addEventListener('click', function () { openLightbox(index); });
-    });
-
-    function openLightbox(index) {
-      currentIndex = index;
-      updateLightbox();
-      lightbox.classList.add('is-open');
-      lightbox.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
+      window.open(shareUrl, '_blank');
     }
 
-    function closeLightbox() {
-      lightbox.classList.remove('is-open');
-      lightbox.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
+    // LIGHTBOX GALLERY (старий lightbox, але працює якщо будеш додавати .gallery-item)
+    (function () {
+      var lightbox = document.getElementById('lightbox');
+      if (!lightbox) return;
 
-    function updateLightbox() {
-      var item = items[currentIndex];
-      lightboxImg.src = item.src;
-      lightboxImg.alt = item.alt;
-      lightboxCaption.textContent = item.caption || '';
-    }
+      var images = document.querySelectorAll('.gallery-item img');
+      if (!images.length) return;
 
-    function showNext() { currentIndex = (currentIndex + 1) % items.length; updateLightbox(); }
-    function showPrev() { currentIndex = (currentIndex - 1 + items.length) % items.length; updateLightbox(); }
+      var lightboxImg = document.getElementById('lightbox-img');
+      var lightboxCaption = document.getElementById('lightbox-caption');
+      var btnClose = lightbox.querySelector('.lightbox-close');
+      var btnPrev = lightbox.querySelector('.lightbox-prev');
+      var btnNext = lightbox.querySelector('.lightbox-next');
 
-    btnClose.addEventListener('click', closeLightbox);
-    btnNext.addEventListener('click', showNext);
-    btnPrev.addEventListener('click', showPrev);
+      var currentIndex = 0;
+      var items = [];
 
-    lightbox.addEventListener('click', function (e) { if (e.target === lightbox) closeLightbox(); });
+      images.forEach(function (img, index) {
+        var caption = '';
+        var parent = img.parentElement;
+        if (parent && parent.querySelector('.gallery-caption')) {
+          caption = parent.querySelector('.gallery-caption').innerText.trim();
+        } else if (img.alt) {
+          caption = img.alt;
+        }
 
-    document.addEventListener('keydown', function (e) {
-      if (!lightbox.classList.contains('is-open')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') showNext();
-      if (e.key === 'ArrowLeft') showPrev();
-    });
-  })();
-
-  // SCROLL TO TOP BUTTON
-  (function () {
-    var btn = document.getElementById('scrollTopBtn');
-    if (!btn) return;
-
-    window.addEventListener('scroll', function () {
-      var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollY > 250) btn.classList.add('scroll-top-btn--visible');
-      else btn.classList.remove('scroll-top-btn--visible');
-    });
-
-    btn.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  })();
-
-  // VISITOR COUNTER
-  (function () {
-    var el = document.getElementById('visitor-counter-ua');
-    if (!el) return;
-
-    fetch('https://api.countapi.xyz/hit/vtz-142omb/site')
-      .then(function (res) { return res.json(); })
-      .then(function (data) {
-        el.textContent = 'Людей, які відвідали цю сторінку підтримки (перегляди): ' + data.value;
-      })
-      .catch(function () {
-        el.textContent = 'Людей, які відвідали цю сторінку: —';
+        items.push({ src: img.src, alt: img.alt || '', caption: caption });
+        img.addEventListener('click', function () { openLightbox(index); });
       });
-  })();
 
-  // “Підтримати взвод” кнопка в кожному великому блоці
-  (function () {
-    var blocks = document.querySelectorAll('.big-block');
-    blocks.forEach(function (block) {
-      if (block.querySelector('.block-donate-btn')) return;
+      function openLightbox(index) {
+        currentIndex = index;
+        updateLightbox();
+        lightbox.classList.add('is-open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
 
-      var btn = document.createElement('button');
-      btn.className = 'block-donate-btn';
-      btn.innerHTML = '<span class="icon">UA</span> Підтримати взвод';
+      function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      function updateLightbox() {
+        var item = items[currentIndex];
+        lightboxImg.src = item.src;
+        lightboxImg.alt = item.alt;
+        lightboxCaption.textContent = item.caption || '';
+      }
+
+      function showNext() { currentIndex = (currentIndex + 1) % items.length; updateLightbox(); }
+      function showPrev() { currentIndex = (currentIndex - 1 + items.length) % items.length; updateLightbox(); }
+
+      btnClose.addEventListener('click', closeLightbox);
+      btnNext.addEventListener('click', showNext);
+      btnPrev.addEventListener('click', showPrev);
+
+      lightbox.addEventListener('click', function (e) { if (e.target === lightbox) closeLightbox(); });
+
+      document.addEventListener('keydown', function (e) {
+        if (!lightbox.classList.contains('is-open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+      });
+    })();
+
+    // SCROLL TO TOP BUTTON
+    (function () {
+      var btn = document.getElementById('scrollTopBtn');
+      if (!btn) return;
+
+      window.addEventListener('scroll', function () {
+        var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollY > 250) btn.classList.add('scroll-top-btn--visible');
+        else btn.classList.remove('scroll-top-btn--visible');
+      });
 
       btn.addEventListener('click', function () {
-        var donate = document.getElementById('donate');
-        if (donate) donate.scrollIntoView({ behavior: "smooth" });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
+    })();
 
-      block.appendChild(btn);
-    });
-  })();
+    // VISITOR COUNTER
+    (function () {
+      var el = document.getElementById('visitor-counter-ua');
+      if (!el) return;
 
-  // DONATION PROGRESS (UA)
-  (function () {
-    var fill = document.getElementById('progress-fill-ua');
-    var text = document.getElementById('progress-text-ua');
-    if (!fill || !text) return;
+      fetch('https://api.countapi.xyz/hit/vtz-142omb/site')
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          el.textContent = 'Людей, які відвідали цю сторінку підтримки (перегляди): ' + data.value;
+        })
+        .catch(function () {
+          el.textContent = 'Людей, які відвідали цю сторінку: —';
+        });
+    })();
 
-    var percent = 40;  // просто щоб смуга була видима
-    fill.style.width = percent + '%';
-    fill.setAttribute('data-label', 'Збір активний');
-    text.textContent = 'Збір активний';
-  })();
+    // “Підтримати взвод” кнопка в кожному великому блоці
+    (function () {
+      var blocks = document.querySelectorAll('.big-block');
+      blocks.forEach(function (block) {
+        if (block.querySelector('.block-donate-btn')) return;
 
-  // VIDEO CAROUSEL JS
-  (function(){
-    const track = document.getElementById('videoCarousel');
-    if(!track) return;
+        var btn = document.createElement('button');
+        btn.className = 'block-donate-btn';
+        btn.innerHTML = '<span class="icon">UA</span> Підтримати взвод';
 
-    const prev = document.querySelector('#videos .vc-prev');
-    const next = document.querySelector('#videos .vc-next');
+        btn.addEventListener('click', function () {
+          var donate = document.getElementById('donate');
+          if (donate) donate.scrollIntoView({ behavior: "smooth" });
+        });
 
-    function getStep(){
-      const first = track.querySelector('.vc-item');
-      if(!first) return 300;
-      const gap = parseInt(getComputedStyle(track).gap || '14', 10);
-      return first.getBoundingClientRect().width + gap;
-    }
-
-    prev && prev.addEventListener('click', () => {
-      track.scrollBy({ left: -getStep(), behavior: 'smooth' });
-    });
-
-    next && next.addEventListener('click', () => {
-      track.scrollBy({ left: getStep(), behavior: 'smooth' });
-    });
-  })();
-
-  // GALLERY CAROUSEL JS
-  (function(){
-    const track = document.getElementById('galleryCarousel');
-    if(!track) return;
-
-    const prev = document.querySelector('#gallery .gc-prev');
-    const next = document.querySelector('#gallery .gc-next');
-
-    function step(){
-      const first = track.querySelector('.gc-item');
-      if(!first) return 320;
-      const gap = parseInt(getComputedStyle(track).gap || '14', 10);
-      return first.getBoundingClientRect().width + gap;
-    }
-
-    prev && prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
-    next && next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
-  })();
-
-  // MOBILE DONATE BUTTON VISIBILITY (works now because display has no !important)
-  (function(){
-    const btn = document.querySelector('.mobile-donate-btn');
-    const donate = document.getElementById('donate');
-    if(!btn || !donate) return;
-
-    const obs = new IntersectionObserver(([e]) => {
-      btn.style.display = e.isIntersecting ? 'none' : '';
-    }, { threshold: 0.2 });
-
-    obs.observe(donate);
-  })();
-
-  // TEAM CAROUSEL JS
-  (function(){
-    const track = document.getElementById('teamCarouselUA');
-    if(!track) return;
-
-    const prev = document.querySelector('#team-ua .tc-prev');
-    const next = document.querySelector('#team-ua .tc-next');
-
-    function step(){
-      const card = track.querySelector('.team-slide');
-      const gap = 14;
-      return card ? (card.getBoundingClientRect().width + gap) : 320;
-    }
-
-    prev && prev.addEventListener('click', () => {
-      track.scrollBy({ left: -step(), behavior: 'smooth' });
-    });
-
-    next && next.addEventListener('click', () => {
-      track.scrollBy({ left: step(), behavior: 'smooth' });
-    });
-  })();
-
-  // PURCHASED CAROUSEL JS (fixed + dots auto)
-  (function(){
-    const root = document.getElementById('purchased-carousel');
-    if(!root) return;
-
-    const track = root.querySelector('.carousel-track');
-    if(!track) return;
-
-    const slides = Array.from(track.children);
-    const nextBtn = root.querySelector('.next');
-    const prevBtn = root.querySelector('.prev');
-    const dotsNav = document.getElementById('purchasedDots');
-
-    let index = 0;
-    let dots = [];
-
-    function buildDots(){
-      if(!dotsNav) return;
-      dotsNav.innerHTML = '';
-      dots = slides.map((_, i)=>{
-        const d = document.createElement('span');
-        d.setAttribute('role','button');
-        d.setAttribute('aria-label','Перейти до фото ' + (i+1));
-        d.addEventListener('click', ()=>{ index = i; updateCarousel(); });
-        dotsNav.appendChild(d);
-        return d;
+        block.appendChild(btn);
       });
-    }
+    })();
 
-    function updateCarousel() {
-      track.style.transform = `translateX(-${index * 100}%)`;
-      dots.forEach(d => d.classList.remove('active'));
-      if(dots[index]) dots[index].classList.add('active');
-    }
+    // DONATION PROGRESS (UA)
+    (function () {
+      var fill = document.getElementById('progress-fill-ua');
+      var text = document.getElementById('progress-text-ua');
+      if (!fill || !text) return;
 
-    nextBtn && (nextBtn.onclick = () => { index = (index + 1) % slides.length; updateCarousel(); });
-    prevBtn && (prevBtn.onclick = () => { index = (index - 1 + slides.length) % slides.length; updateCarousel(); });
+      var percent = 40;  // просто щоб смуга була видима
+      fill.style.width = percent + '%';
+      fill.setAttribute('data-label', 'Збір активний');
+      text.textContent = 'Збір активний';
+    })();
 
-    // swipe (mobile)
-    let startX = 0;
-    let dragging = false;
-    track.addEventListener('touchstart', (e)=>{
-      if(!e.touches || !e.touches[0]) return;
-      startX = e.touches[0].clientX;
-      dragging = true;
-    }, {passive:true});
+    // VIDEO CAROUSEL JS
+    (function(){
+      const track = document.getElementById('videoCarousel');
+      if(!track) return;
 
-    track.addEventListener('touchend', (e)=>{
-      if(!dragging) return;
-      dragging = false;
-      const endX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : startX;
-      const dx = endX - startX;
-      if(Math.abs(dx) < 40) return;
-      if(dx < 0) index = (index + 1) % slides.length;
-      else index = (index - 1 + slides.length) % slides.length;
-      updateCarousel();
-    }, {passive:true});
+      const prev = document.querySelector('#videos .vc-prev');
+      const next = document.querySelector('#videos .vc-next');
 
-    buildDots();
-    updateCarousel();
-  })();
+      function getStep(){
+        const first = track.querySelector('.vc-item');
+        if(!first) return 300;
+        const gap = parseInt(getComputedStyle(track).gap || '14', 10);
+        return first.getBoundingClientRect().width + gap;
+      }
 
-  // UNIQUE: TECH-TRACES ON SCROLL (subtle)
-  (function(){
-    const traces = document.getElementById('tech-traces');
-    if(!traces) return;
+      prev && prev.addEventListener('click', () => track.scrollBy({ left: -getStep(), behavior: 'smooth' }));
+      next && next.addEventListener('click', () => track.scrollBy({ left:  getStep(), behavior: 'smooth' }));
+    })();
 
-    let t;
-    function boost(){
-      traces.style.opacity = '0.14';
-      clearTimeout(t);
-      t = setTimeout(()=>{ traces.style.opacity = '0.06'; }, 220);
-    }
-    window.addEventListener('scroll', boost, { passive:true });
-  })();
+    // MOBILE DONATE BUTTON VISIBILITY
+    (function(){
+      const btn = document.querySelector('.mobile-donate-btn');
+      const donate = document.getElementById('donate');
+      if(!btn || !donate) return;
 
-  // UNIQUE: SYSTEM STATE (slow, calm)
-  (function(){
-    const textEl = document.getElementById('systemText');
-    const dotEl = document.getElementById('systemDot');
-    if(!textEl || !dotEl) return;
+      const obs = new IntersectionObserver(([e]) => {
+        btn.style.display = e.isIntersecting ? 'none' : '';
+      }, { threshold: 0.2 });
 
-    const states = [
-      { t:'СТАН: РОБОТА ЙДЕ',          c:'rgba(255,255,255,0.55)', g:'rgba(255,255,255,0.18)'},
-      { t:'СТАН: НАВАНТАЖЕННЯ ВИСОКЕ', c:'rgba(255,215,0,0.65)',   g:'rgba(255,215,0,0.22)'},
-      { t:'СТАН: ОЧІКУЄМО РЕСУРС',     c:'rgba(0,180,255,0.65)',   g:'rgba(0,180,255,0.20)'}
-    ];
+      obs.observe(donate);
+    })();
 
-    let i = 0;
-    function apply(s){
-      textEl.style.opacity = '0';
-      setTimeout(()=>{
-        textEl.textContent = s.t;
-        dotEl.style.background = s.c;
-        dotEl.style.boxShadow = `0 0 10px ${s.g}`;
-        textEl.style.opacity = '1';
-      }, 220);
-    }
+    // TEAM CAROUSEL JS
+    (function(){
+      const track = document.getElementById('teamCarouselUA');
+      if(!track) return;
 
-    apply(states[i]);
-    setInterval(()=>{
-      i = (i + 1) % states.length;
+      const prev = document.querySelector('#team-ua .tc-prev');
+      const next = document.querySelector('#team-ua .tc-next');
+
+      function step(){
+        const card = track.querySelector('.team-slide');
+        const gap = 14;
+        return card ? (card.getBoundingClientRect().width + gap) : 320;
+      }
+
+      prev && prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+      next && next.addEventListener('click', () => track.scrollBy({ left:  step(), behavior: 'smooth' }));
+    })();
+
+    // PURCHASED CAROUSEL JS (scoped + dots auto)
+    (function(){
+      const root = document.getElementById('purchased-carousel');
+      if(!root) return;
+
+      const track = document.getElementById('purchasedTrack');
+      if(!track) return;
+
+      const slides = Array.from(track.children);
+      const nextBtn = root.querySelector('.pcarousel-next');
+      const prevBtn = root.querySelector('.pcarousel-prev');
+      const dotsNav = document.getElementById('purchasedDots');
+
+      let index = 0;
+      let dots = [];
+
+      function buildDots(){
+        if(!dotsNav) return;
+        dotsNav.innerHTML = '';
+        dots = slides.map((_, i)=>{
+          const d = document.createElement('button');
+          d.type = 'button';
+          d.setAttribute('aria-label','Перейти до фото ' + (i+1));
+          d.addEventListener('click', ()=>{ index = i; update(); });
+          dotsNav.appendChild(d);
+          return d;
+        });
+      }
+
+      function update(){
+        track.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach((d, i) => d.classList.toggle('active', i === index));
+      }
+
+      nextBtn && nextBtn.addEventListener('click', () => { index = (index + 1) % slides.length; update(); });
+      prevBtn && prevBtn.addEventListener('click', () => { index = (index - 1 + slides.length) % slides.length; update(); });
+
+      // swipe (mobile)
+      let startX = 0;
+      track.addEventListener('touchstart', (e)=>{
+        if(!e.touches || !e.touches[0]) return;
+        startX = e.touches[0].clientX;
+      }, {passive:true});
+
+      track.addEventListener('touchend', (e)=>{
+        const endX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : startX;
+        const dx = endX - startX;
+        if(Math.abs(dx) < 40) return;
+        if(dx < 0) index = (index + 1) % slides.length;
+        else index = (index - 1 + slides.length) % slides.length;
+        update();
+      }, {passive:true});
+
+      buildDots();
+      update();
+    })();
+
+    // UNIQUE: TECH-TRACES ON SCROLL (subtle)
+    (function(){
+      const traces = document.getElementById('tech-traces');
+      if(!traces) return;
+
+      let t;
+      function boost(){
+        traces.style.opacity = '0.14';
+        clearTimeout(t);
+        t = setTimeout(()=>{ traces.style.opacity = '0.06'; }, 220);
+      }
+      window.addEventListener('scroll', boost, { passive:true });
+    })();
+
+    // UNIQUE: SYSTEM STATE (slow, calm)
+    (function(){
+      const textEl = document.getElementById('systemText');
+      const dotEl = document.getElementById('systemDot');
+      if(!textEl || !dotEl) return;
+
+      const states = [
+        { t:'СТАН: РОБОТА ЙДЕ',          c:'rgba(255,255,255,0.55)', g:'rgba(255,255,255,0.18)'},
+        { t:'СТАН: НАВАНТАЖЕННЯ ВИСОКЕ', c:'rgba(255,215,0,0.65)',   g:'rgba(255,215,0,0.22)'},
+        { t:'СТАН: ОЧІКУЄМО РЕСУРС',     c:'rgba(0,180,255,0.65)',   g:'rgba(0,180,255,0.20)'}
+      ];
+
+      let i = 0;
+      function apply(s){
+        textEl.style.opacity = '0';
+        setTimeout(()=>{
+          textEl.textContent = s.t;
+          dotEl.style.background = s.c;
+          dotEl.style.boxShadow = `0 0 10px ${s.g}`;
+          textEl.style.opacity = '1';
+        }, 220);
+      }
+
       apply(states[i]);
-    }, 9000);
-  })();
+      setInterval(()=>{
+        i = (i + 1) % states.length;
+        apply(states[i]);
+      }, 9000);
+    })();
 
-  // SNOW (lightweight)
-  (function(){
-    const c = document.getElementById('snow');
-    if(!c) return;
-    const ctx = c.getContext('2d', { alpha:true });
+    // SNOW (lightweight)
+    (function(){
+      const c = document.getElementById('snow');
+      if(!c) return;
+      const ctx = c.getContext('2d', { alpha:true });
 
-    let w, h, dpr;
-    const flakes = [];
-    const COUNT = 70;
+      let w, h, dpr;
+      const flakes = [];
+      const COUNT = 70;
 
-    function resize(){
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      w = Math.floor(window.innerWidth);
-      h = Math.floor(window.innerHeight);
-      c.width = Math.floor(w * dpr);
-      c.height = Math.floor(h * dpr);
-      c.style.width = w + 'px';
-      c.style.height = h + 'px';
-      ctx.setTransform(dpr,0,0,dpr,0,0);
-    }
-    window.addEventListener('resize', resize);
-    resize();
-
-    function seed(){
-      flakes.length = 0;
-      for(let i=0;i<COUNT;i++){
-        flakes.push({
-          x: Math.random()*w,
-          y: Math.random()*h,
-          r: 0.8 + Math.random()*2.2,
-          s: 0.35 + Math.random()*0.95,
-          dx: (Math.random()-0.5)*0.25
-        });
+      function resize(){
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        w = Math.floor(window.innerWidth);
+        h = Math.floor(window.innerHeight);
+        c.width = Math.floor(w * dpr);
+        c.height = Math.floor(h * dpr);
+        c.style.width = w + 'px';
+        c.style.height = h + 'px';
+        ctx.setTransform(dpr,0,0,dpr,0,0);
       }
-    }
-    seed();
+      window.addEventListener('resize', resize);
+      resize();
 
-    function tick(){
-      ctx.clearRect(0,0,w,h);
-      ctx.fillStyle = 'rgba(255,255,255,0.85)';
-
-      for(const f of flakes){
-        ctx.beginPath();
-        ctx.arc(f.x, f.y, f.r, 0, Math.PI*2);
-        ctx.fill();
-
-        f.y += f.s;
-        f.x += f.dx;
-
-        if(f.y > h + 8){
-          f.y = -10;
-          f.x = Math.random()*w;
+      function seed(){
+        flakes.length = 0;
+        for(let i=0;i<COUNT;i++){
+          flakes.push({
+            x: Math.random()*w,
+            y: Math.random()*h,
+            r: 0.8 + Math.random()*2.2,
+            s: 0.35 + Math.random()*0.95,
+            dx: (Math.random()-0.5)*0.25
+          });
         }
-        if(f.x < -10) f.x = w + 10;
-        if(f.x > w + 10) f.x = -10;
+      }
+      seed();
+
+      function tick(){
+        ctx.clearRect(0,0,w,h);
+        ctx.fillStyle = 'rgba(255,255,255,0.85)';
+
+        for(const f of flakes){
+          ctx.beginPath();
+          ctx.arc(f.x, f.y, f.r, 0, Math.PI*2);
+          ctx.fill();
+
+          f.y += f.s;
+          f.x += f.dx;
+
+          if(f.y > h + 8){
+            f.y = -10;
+            f.x = Math.random()*w;
+          }
+          if(f.x < -10) f.x = w + 10;
+          if(f.x > w + 10) f.x = -10;
+        }
+
+        requestAnimationFrame(tick);
       }
 
-      requestAnimationFrame(tick);
-    }
-
-    // If user prefers reduced motion, keep only a tiny static layer
-    if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-      c.style.opacity = '0.25';
-    } else {
-      tick();
-    }
-  })();
-
-  // ===== QR FULLSCREEN MODAL =====
-  (function(){
-    const modal = document.getElementById('qrModal');
-    const img   = document.getElementById('qrModalImg');
-    const title = document.getElementById('qrModalTitle');
-    const foot  = document.getElementById('qrModalFoot');
-    const btnClose = document.getElementById('qrModalClose');
-    const btnOpen  = document.getElementById('qrModalOpenBtn');
-    const btnCopy  = document.getElementById('qrModalCopyBtn');
-
-    if(!modal || !img || !btnOpen || !btnCopy) return;
-
-    let current = { label:'', value:'', openUrl:'', variant:'' };
-
-    function openModal(cfg){
-      current = cfg;
-
-      modal.classList.remove('qr-modal-mono','qr-modal-privat','qr-modal-paypal','qr-modal-crypto');
-      if(cfg.variant) modal.classList.add('qr-modal-' + cfg.variant);
-
-      title.textContent = cfg.label || 'QR';
-      foot.textContent = cfg.value ? ('Дані: ' + cfg.value) : ' ';
-
-      // use existing QR image if provided; else generate one
-      if(cfg.qrSrc){
-        img.src = cfg.qrSrc;
+      if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        c.style.opacity = '0.25';
       } else {
-        const api = "https://api.qrserver.com/v1/create-qr-code/?size=520x520&data=";
-        img.src = api + encodeURIComponent(cfg.value || cfg.openUrl || '');
+        tick();
+      }
+    })();
+
+    // ===== QR FULLSCREEN MODAL =====
+    (function(){
+      const modal = document.getElementById('qrModal');
+      const img   = document.getElementById('qrModalImg');
+      const title = document.getElementById('qrModalTitle');
+      const foot  = document.getElementById('qrModalFoot');
+      const btnClose = document.getElementById('qrModalClose');
+      const btnOpen  = document.getElementById('qrModalOpenBtn');
+      const btnCopy  = document.getElementById('qrModalCopyBtn');
+
+      if(!modal || !img || !btnOpen || !btnCopy) return;
+
+      let current = { label:'', value:'', openUrl:'', variant:'' };
+
+      function openModal(cfg){
+        current = cfg;
+
+        modal.classList.remove('qr-modal-mono','qr-modal-privat','qr-modal-paypal','qr-modal-crypto');
+        if(cfg.variant) modal.classList.add('qr-modal-' + cfg.variant);
+
+        title.textContent = cfg.label || 'QR';
+        foot.textContent = cfg.value ? ('Дані: ' + cfg.value) : ' ';
+
+        if(cfg.qrSrc){
+          img.src = cfg.qrSrc;
+        } else {
+          const api = "https://api.qrserver.com/v1/create-qr-code/?size=520x520&data=";
+          img.src = api + encodeURIComponent(cfg.value || cfg.openUrl || '');
+        }
+
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
       }
 
-      modal.classList.add('is-open');
-      modal.setAttribute('aria-hidden','false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal(){
-      modal.classList.remove('is-open');
-      modal.setAttribute('aria-hidden','true');
-      document.body.style.overflow = '';
-    }
-
-    btnClose.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
-    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
-
-    btnOpen.addEventListener('click', ()=>{
-      if(current.openUrl){
-        window.open(current.openUrl, '_blank');
-      } else if(current.value && (current.value.includes('http://') || current.value.includes('https://'))){
-        window.open(current.value, '_blank');
-      } else {
-        showToast('Немає посилання. Скопіюйте дані.');
+      function closeModal(){
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
       }
-    });
 
-    btnCopy.addEventListener('click', ()=>{
-      if(current.value){
-        copyText(current.value);
-      } else if(current.openUrl){
-        copyText(current.openUrl);
-      } else {
-        showToast('Немає що копіювати.');
-      }
-    });
+      btnClose.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
+      document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
 
-    const map = [
-      { id:'qr-mono',   label:'Monobank · Банка', variant:'mono',
-        value:'https://send.monobank.ua/jar/8PfzHBQuu4',
-        openUrl:'https://send.monobank.ua/jar/8PfzHBQuu4' },
+      btnOpen.addEventListener('click', ()=>{
+        if(current.openUrl){
+          window.open(current.openUrl, '_blank');
+        } else if(current.value && (current.value.includes('http://') || current.value.includes('https://'))){
+          window.open(current.value, '_blank');
+        } else {
+          showToast('Немає посилання. Скопіюйте дані.');
+        }
+      });
 
-      { id:'qr-privat', label:'Privat24 · Переказ', variant:'privat',
-        value:'https://www.privat24.ua/send/3xbxx',
-        openUrl:'https://www.privat24.ua/send/3xbxx' },
+      btnCopy.addEventListener('click', ()=>{
+        if(current.value){
+          copyText(current.value);
+        } else if(current.openUrl){
+          copyText(current.openUrl);
+        } else {
+          showToast('Немає що копіювати.');
+        }
+      });
 
-      { id:'qr-paupay', label:'PayPal / Paupay', variant:'paypal',
-        value:'nadelnuikviktor@gmail.com',
-        openUrl:'mailto:nadelnuikviktor@gmail.com' },
+      const map = [
+        { id:'qr-mono',   label:'Monobank · Банка', variant:'mono',
+          value:'https://send.monobank.ua/jar/8PfzHBQuu4', openUrl:'https://send.monobank.ua/jar/8PfzHBQuu4' },
 
-      { id:'qr-btc',    label:'Crypto · BTC', variant:'crypto',
-        value:'bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p',
-        openUrl:'https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p' }
-    ];
+        { id:'qr-privat', label:'Privat24 · Переказ', variant:'privat',
+          value:'https://www.privat24.ua/send/3xbxx', openUrl:'https://www.privat24.ua/send/3xbxx' },
 
-    map.forEach(cfg=>{
-      const el = document.getElementById(cfg.id);
-      if(!el) return;
+        { id:'qr-paupay', label:'PayPal / Paupay', variant:'paypal',
+          value:'nadelnuikviktor@gmail.com', openUrl:'mailto:nadelnuikviktor@gmail.com' },
 
-      el.style.cursor = 'zoom-in';
-      el.title = 'Натисніть, щоб відкрити великий QR';
+        { id:'qr-btc',    label:'Crypto · BTC', variant:'crypto',
+          value:'bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p',
+          openUrl:'https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p' }
+      ];
 
-      el.addEventListener('click', ()=>{
-        openModal({
-          label: cfg.label,
-          value: cfg.value,
-          openUrl: cfg.openUrl,
-          variant: cfg.variant,
-          qrSrc: el.src
+      map.forEach(cfg=>{
+        const el = document.getElementById(cfg.id);
+        if(!el) return;
+
+        el.style.cursor = 'zoom-in';
+        el.title = 'Натисніть, щоб відкрити великий QR';
+
+        el.addEventListener('click', ()=>{
+          openModal({
+            label: cfg.label,
+            value: cfg.value,
+            openUrl: cfg.openUrl,
+            variant: cfg.variant,
+            qrSrc: el.src
+          });
         });
       });
+    })();
+
+    // ===== GALLERY: generate p1–p37 + arrows =====
+    document.addEventListener('DOMContentLoaded', () => {
+      const carousel = document.getElementById('galleryCarousel');
+      const prevBtn = document.querySelector('#gallery .gc-prev');
+      const nextBtn = document.querySelector('#gallery .gc-next');
+
+      if(!carousel) return;
+
+      for(let i = 1; i <= 37; i++){
+        const figure = document.createElement('figure');
+        figure.className = 'gc-item';
+        figure.innerHTML = `<img src="assets/photos/p${i}.jpg" alt="Фото ${i}" loading="lazy">`;
+        carousel.appendChild(figure);
+      }
+
+      const getItemWidth = () => (carousel.querySelector('.gc-item')?.offsetWidth || 300) + 14;
+
+      prevBtn && prevBtn.addEventListener('click', () => {
+        carousel.scrollBy({ left: -getItemWidth(), behavior: 'smooth' });
+      });
+
+      nextBtn && nextBtn.addEventListener('click', () => {
+        carousel.scrollBy({ left: getItemWidth(), behavior: 'smooth' });
+      });
     });
-  })();
-</script>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-
-  const carousel = document.getElementById('galleryCarousel');
-  const prevBtn = document.querySelector('.gc-prev');
-  const nextBtn = document.querySelector('.gc-next');
-
-  // Генерація фото p1–p37
-  for(let i = 1; i <= 37; i++){
-    const figure = document.createElement('figure');
-    figure.className = 'gc-item';
-    figure.innerHTML = `
-      <img src="assets/photos/p${i}.jpg" alt="Фото ${i}" loading="lazy">
-    `;
-    carousel.appendChild(figure);
-  }
-
-  const getItemWidth = () =>
-    carousel.querySelector('.gc-item')?.offsetWidth + 16 || 260;
-
-  prevBtn.addEventListener('click', () => {
-    carousel.scrollBy({ left: -getItemWidth(), behavior: 'smooth' });
-  });
-
-  nextBtn.addEventListener('click', () => {
-    carousel.scrollBy({ left: getItemWidth(), behavior: 'smooth' });
-  });
-
-});
-</script>
-
+  </script>
 </body>
 </html>
