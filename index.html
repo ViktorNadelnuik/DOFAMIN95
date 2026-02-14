@@ -2,24 +2,24 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8" />
-  <title>Підтримати · Взвод технічного забезпечення · 142 ОМБр</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Підтримайте взвод технічного забезпечення 142 ОМБр. Ваші донати допомагають ремонтувати техніку, яка возить боєкомплект, ПММ, їжу та евакуює поранених.">
+  <title>Підтримати · Взвод технічного забезпечення · 142 ОМБр</title>
+  <meta name="description" content="Підтримайте взвод технічного забезпечення 142 ОМБр. Ваші донати допомагають ремонтувати техніку, яка возить боєкомплект, ПММ, їжу та евакуює поранених." />
 
-  <link rel="icon" href="https://viktornadelniuk.github.io/DOFAMIN95/favicon.png" type="image/png">
+  <link rel="icon" href="https://viktornadelniuk.github.io/DOFAMIN95/favicon.png" type="image/png" />
 
   <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Підтримати взвод технічного забезпечення · 142 ОМБр">
-  <meta property="og:description" content="Взвод технічного забезпечення ремонтує техніку прямо на передовій, щоб машини їхали, а люди повертались живими.">
-  <meta property="og:url" content="https://viktornadelniuk.github.io/DOFAMIN95/">
-  <meta property="og:image" content="https://viktornadelniuk.github.io/DOFAMIN95/hero-bg.jpg">
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Підтримати взвод технічного забезпечення · 142 ОМБр" />
+  <meta property="og:description" content="Взвод технічного забезпечення ремонтує техніку на передовій, щоб машини їхали, а люди повертались живими." />
+  <meta property="og:url" content="https://viktornadelniuk.github.io/DOFAMIN95/" />
+  <meta property="og:image" content="https://viktornadelniuk.github.io/DOFAMIN95/hero-bg.jpg" />
 
   <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Підтримати взвод технічного забезпечення · 142 ОМБр">
-  <meta name="twitter:description" content="Підтримайте взвод технічного забезпечення, який ремонтує техніку прямо в зоні бойових дій.">
-  <meta name="twitter:image" content="https://viktornadelniuk.github.io/DOFAMIN95/hero-bg.jpg">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Підтримати взвод технічного забезпечення · 142 ОМБр" />
+  <meta name="twitter:description" content="Підтримайте взвод технічного забезпечення, який ремонтує техніку прямо в зоні бойових дій." />
+  <meta name="twitter:image" content="https://viktornadelniuk.github.io/DOFAMIN95/hero-bg.jpg" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y0HDG5SKZX"></script>
@@ -30,1675 +30,1253 @@
     gtag('config', 'G-Y0HDG5SKZX');
   </script>
 
-  <!-- зовнішні стилі (залишаємо як є) -->
-  <link rel="stylesheet" href="supporters.css">
-
   <style>
-    /* ===================== BASE ===================== */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; }
-    body {
+    :root{
+      --bg:#0b0d12;
+      --panel:#10141c;
+      --panel2:#0f1219;
+      --text:#f4f6fb;
+      --muted:rgba(244,246,251,.72);
+      --line:rgba(255,255,255,.10);
+      --line2:rgba(255,255,255,.16);
+      --shadow: 0 18px 55px rgba(0,0,0,.55);
+      --shadow2: 0 12px 30px rgba(0,0,0,.45);
+      --radius:24px;
+      --radius2:18px;
+      --max:1180px;
+
+      --uaBlue:#0057b7;
+      --uaYellow:#ffd700;
+
+      --mono1:#0f1116;
+      --mono2:#262c39;
+
+      --priv1:#1fd17a;
+      --priv2:#12a35d;
+
+      --pp1:#009cde;
+      --pp2:#003087;
+
+      --cr1:#ffdd8a;
+      --cr2:#ff985a;
+
+      --cta1:#ffd54a;
+      --cta2:#ffb21a;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
       font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-      color: #f5f5f5;
-      line-height: 1.5;
-      background: #02040a;
-      position: relative;
-      overflow-x: hidden;
-    }
-    a { color: inherit; }
-
-    /* Striped steel background */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -3;
-      background:
-        repeating-linear-gradient(
-          -35deg,
-          #04101f 0,
-          #04101f 12px,
-          #050918 12px,
-          #050918 24px
-        );
-      opacity: 0.6;
-    }
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -3;
-      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.07), transparent 55%);
-      mix-blend-mode: soft-light;
+      background: radial-gradient(1200px 800px at 15% -10%, rgba(255,213,74,.18), transparent 55%),
+                  radial-gradient(900px 700px at 90% 10%, rgba(0,156,222,.16), transparent 55%),
+                  radial-gradient(900px 700px at 40% 110%, rgba(31,209,122,.10), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      overflow-x:hidden;
     }
 
-    /* overlays */
-    #snow {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 2;
-      opacity: 0.85;
-    }
-    #tech-traces {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 3;
-      opacity: 0.06;
-      mix-blend-mode: overlay;
-      background:
-        repeating-linear-gradient(
-          -25deg,
-          rgba(255,255,255,0.020) 0,
-          rgba(255,255,255,0.020) 2px,
-          transparent 2px,
-          transparent 18px
-        );
-      transition: opacity 0.35s ease;
-    }
-    #tech-traces::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at 20% 15%, rgba(255,255,255,0.06), transparent 35%),
-        radial-gradient(circle at 80% 60%, rgba(255,255,255,0.04), transparent 40%);
-      opacity: 0.20;
-    }
-    @media (prefers-reduced-motion: reduce){
-      #tech-traces { transition: none; }
-    }
-
-    .page {
-      min-height: 100vh;
-      padding: 24px 12px 40px;
-      display: flex;
-      justify-content: center;
-      animation: fadeInPage 0.7s ease-out;
-      position: relative;
-      z-index: 5;
-    }
-    .container {
-      width: 100%;
-      max-width: 1180px;
+    a{color:inherit}
+    .wrap{
+      max-width: var(--max);
       margin: 0 auto;
+      padding: 18px 16px 40px;
     }
 
-    /* ===================== HEADER ===================== */
-    .top-row {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 10px;
-    }
-    .top-bar {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .logo {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      object-fit: cover;
-      background: transparent;
-      box-shadow: 0 0 6px rgba(0,0,0,0.4);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-    .logo:hover {
-      transform: scale(1.05) rotate(-2deg);
-      box-shadow: 0 0 10px rgba(0,0,0,0.7);
-    }
-    .site-title {
-      font-size: 18px;
-      font-weight: 800;
-      letter-spacing: 0.02em;
-    }
-    .lang-switch {
-      display: flex;
-      justify-content: flex-end;
-      gap: 6px;
-      font-size: 12px;
-      opacity: 0.9;
-      flex-wrap: wrap;
-    }
-    .lang-switch a {
-      padding: 2px 8px;
+    /* ===== Sticky header ===== */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      margin: 10px 0 18px;
+      border: 1px solid var(--line);
+      background: rgba(15,18,25,.58);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.25);
-      text-decoration: none;
-      color: #fff;
-      transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+      padding: 10px 12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      box-shadow: 0 10px 28px rgba(0,0,0,.30);
     }
-    .lang-switch a.active {
-      background: rgba(255,255,255,0.16);
-      font-weight: 700;
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width: 220px;
     }
-    .lang-switch a:hover {
+    .brand img{
+      width: 38px;height:38px;border-radius: 12px;object-fit:cover;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+    }
+    .brand-title{
+      display:flex;flex-direction:column;gap:2px;
+      line-height:1.1;
+    }
+    .brand-title b{font-size:13px;letter-spacing:.02em}
+    .brand-title span{font-size:11px;opacity:.75}
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
+    }
+    .nav a{
+      text-decoration:none;
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: rgba(244,246,251,.86);
+      opacity: .92;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease, opacity .15s ease;
+      white-space:nowrap;
+    }
+    .nav a:hover{
       transform: translateY(-1px);
-      border-color: rgba(255,255,255,0.6);
+      background: rgba(255,255,255,.06);
+      border-color: var(--line);
+      opacity: 1;
+    }
+    .nav .nav-cta{
+      border-color: rgba(255,255,255,.16);
+      background: linear-gradient(135deg, rgba(255,213,74,.18), rgba(255,178,26,.10));
     }
 
-    /* ===================== HERO ===================== */
-    .hero {
+    /* ===== Hero ===== */
+    .hero{
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
       background:
-        linear-gradient(135deg, rgba(0,0,0,0.72), rgba(0,0,0,0.92)),
+        linear-gradient(180deg, rgba(0,0,0,.40), rgba(0,0,0,.70)),
         url("hero-bg.jpg") center/cover no-repeat;
-      border-radius: 24px;
-      padding: 24px 22px 20px;
-      margin-bottom: 26px;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.5);
-      animation: heroReveal 0.9s ease-out;
+      box-shadow: var(--shadow);
+      overflow:hidden;
       position: relative;
-      overflow: hidden;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      left: -20%;
-      top: 55%;
-      width: 140%;
-      height: 2px;
-      pointer-events: none;
-      background: radial-gradient(circle at 0 50%,
-        rgba(255, 255, 210, 0.9) 0,
-        rgba(255, 255, 150, 0.4) 25%,
-        rgba(255, 255, 0, 0) 55%);
-      opacity: 0;
-      filter: blur(0.6px);
-      animation: weld-spark 3.7s ease-in-out infinite;
+      padding: 24px 22px;
     }
 
-    .hero-badge {
-      display: inline-flex;
-      padding: 6px 12px;
-      margin-bottom: 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.2);
-      background: rgba(0,0,0,0.45);
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      opacity: 0.92;
-      gap: 10px;
-      align-items: center;
+    .hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(600px 300px at 20% 10%, rgba(255,213,74,.18), transparent 60%),
+                  radial-gradient(520px 320px at 90% 20%, rgba(0,156,222,.14), transparent 60%);
+      pointer-events:none;
+      mix-blend-mode: screen;
+      opacity: .85;
+    }
+
+    .hero-top{
+      position: relative;
+      z-index: 2;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
       flex-wrap: wrap;
+      margin-bottom: 14px;
     }
-    .system-state {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 3px 10px;
+
+    .patch{
+      display:flex;align-items:center;gap:10px;
+    }
+    .patch img{
+      width: 54px;height:54px;object-fit:contain;
+      filter: drop-shadow(0 0 10px rgba(255,215,0,.30));
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 7px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.35);
       font-size: 11px;
-      letter-spacing: 0.06em;
+      letter-spacing: .09em;
       text-transform: uppercase;
-      opacity: 0.88;
+      opacity: .92;
+      white-space:nowrap;
     }
-    .system-dot{
-      width: 7px;
-      height: 7px;
+
+    .state{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 7px 10px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.55);
-      box-shadow: 0 0 10px rgba(255,255,255,0.18);
-    }
-    .system-text{ white-space: nowrap; }
-
-    .hero-title {
-      font-size: 28px;
-      font-weight: 900;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.30);
+      font-size: 11px;
+      letter-spacing: .08em;
       text-transform: uppercase;
-      margin-bottom: 10px;
-      letter-spacing: 0.06em;
-      text-shadow:
-        0 0 8px rgba(0,0,0,0.9),
-        0 0 14px rgba(0,0,0,0.8);
+      opacity: .88;
     }
+    .dot{width:8px;height:8px;border-radius:999px;background: rgba(255,255,255,.55); box-shadow:0 0 12px rgba(255,255,255,.20);}
 
-    .engine-line-wrap { margin: 10px 0 14px; }
-    .engine-line {
+    .hero h1{
       position: relative;
-      height: 4px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.12);
-      overflow: hidden;
-      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+      z-index:2;
+      font-weight: 850;
+      font-size: clamp(22px, 4.2vw, 52px);
+      line-height: 1.05;
+      letter-spacing: .02em;
+      margin: 6px 0 10px;
+      text-shadow: 0 14px 40px rgba(0,0,0,.55);
     }
-    .engine-line::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg,
-        transparent 0%,
-        #ffd700 25%,
-        #ffffff 40%,
-        #ffd700 55%,
-        transparent 100%);
-      animation: engine-move 1.6s linear infinite;
-      filter: blur(0.3px);
+    .hero .lead{
+      position: relative;
+      z-index:2;
+      font-size: clamp(14px, 1.4vw, 18px);
+      color: rgba(244,246,251,.90);
+      max-width: 860px;
+    }
+    .hero .lead strong{color:#fff}
+    .hero .soul{
+      position: relative;
+      z-index:2;
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.28);
+      max-width: 860px;
+      color: rgba(244,246,251,.92);
     }
 
-    .hero-sub {
-      font-size: 16px;
-      opacity: 0.92;
+    .cta-row{
+      position: relative;
+      z-index:2;
+      margin-top: 16px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items:center;
+    }
+
+    /* ===== Buttons ===== */
+    .btn{
+      appearance:none;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+      color: #fff;
+      border-radius: 999px;
+      padding: 12px 16px;
+      font-weight: 750;
+      font-size: 13px;
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      cursor:pointer;
+      transition: transform .15s ease, filter .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+      box-shadow: 0 10px 24px rgba(0,0,0,.30);
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:hover{transform: translateY(-2px); filter: brightness(1.02); box-shadow: 0 14px 32px rgba(0,0,0,.45);}
+    .btn:active{transform: translateY(0); box-shadow: 0 10px 24px rgba(0,0,0,.28);}
+
+    .btn-cta{
+      color:#1a1400;
+      border-color: rgba(255,255,255,.22);
+      background: linear-gradient(135deg, var(--cta1), var(--cta2));
+      box-shadow: 0 14px 40px rgba(255,179,26,.14), 0 18px 60px rgba(0,0,0,.45);
+    }
+    .btn-mono{background: linear-gradient(135deg, var(--mono1), var(--mono2));}
+    .btn-priv{background: linear-gradient(135deg, var(--priv1), var(--priv2)); color:#062012;}
+    .btn-pp{background: linear-gradient(135deg, var(--pp1), var(--pp2));}
+    .btn-cr{background: linear-gradient(135deg, var(--cr1), var(--cr2)); color:#201100;}
+    .btn-ghost{background: rgba(255,255,255,.05);}
+
+    .btn.full{width:100%}
+
+    /* ===== Sections ===== */
+    .section{
+      margin-top: 18px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      box-shadow: var(--shadow2);
+      padding: 18px;
+    }
+    .section h2{
+      font-size: clamp(18px, 2.1vw, 28px);
+      font-weight: 850;
+      letter-spacing: .01em;
       margin-bottom: 10px;
     }
-    .hero-note {
-      font-size: 13px;
-      opacity: 0.78;
-      margin-bottom: 12px;
+    .section p{color: rgba(244,246,251,.86)}
+    .section .muted{color: var(--muted); font-size: 13px;}
+    .divider{
+      height:1px; background: rgba(255,255,255,.08);
+      margin: 14px 0;
     }
 
-    /* душевні фрази (підсилення) */
-    .hero-quotes{
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
       margin-top: 10px;
-      display: grid;
-      gap: 10px;
     }
-    .quote {
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(0,0,0,0.40);
-      padding: 12px 12px;
-      font-size: 13px;
-      opacity: 0.92;
+
+    .card{
+      grid-column: span 6;
+      border-radius: var(--radius2);
+      border: 1px solid var(--line);
+      background: rgba(16,20,28,.76);
+      padding: 14px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.32);
+      position: relative;
+      overflow:hidden;
     }
-    .quote strong{
+    .card small{
       display:block;
       font-size: 11px;
       letter-spacing: .10em;
-      opacity: .75;
       text-transform: uppercase;
-      margin-bottom: 4px;
+      color: rgba(244,246,251,.68);
+      margin-bottom: 6px;
     }
-
-    /* ===================== SECTION / CARDS ===================== */
-    .section-title {
-      font-size: 22px;
-      margin: 12px 0 12px;
-      font-weight: 800;
-      letter-spacing: 0.02em;
+    .card h3{font-size: 15px; font-weight: 820; margin-bottom: 8px;}
+    .card code{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.25);
+      color: rgba(255,255,255,.92);
     }
+    .kv p{font-size: 13px; margin: 6px 0; color: rgba(244,246,251,.88)}
+    .kv b{color:#fff}
 
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
+    .btnrow{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
       margin-top: 10px;
     }
-    .card {
-      background: radial-gradient(circle at top left, #202b46 0, #070e1d 70%);
-      border-radius: 22px;
-      padding: 16px 16px 18px;
-      border: 1px solid rgba(255,255,255,0.07);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.7);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 260px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-      animation: cardFade 0.55s ease-out;
-      position: relative;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 36px rgba(0,0,0,0.75);
-      border-color: rgba(255,255,255,0.24);
-    }
-    .card.big-block {
-      grid-column: 1 / -1;
-      min-height: auto;
-    }
-    .card h3 { font-size: 16px; margin-bottom: 6px; }
-    .card small { opacity: 0.7; font-size: 11px; letter-spacing: 0.08em; }
-    .card p { font-size: 13px; margin: 6px 0; }
 
-    /* ===================== COLOR BUTTONS (помітні) ===================== */
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 10px 0;
-    }
-    .donate-btn {
-      padding: 10px 16px;
-      border-radius: 999px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: 800;
-      font-size: 13px;
-      border: 1px solid rgba(255,255,255,0.20);
-      box-shadow: 0 10px 22px rgba(0,0,0,0.40);
-      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease, filter .15s ease;
-      white-space: nowrap;
-      cursor: pointer;
-      background-clip: padding-box;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-    .donate-btn:hover {
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.55);
-      opacity: 0.98;
-      filter: saturate(1.1);
-    }
-    .donate-btn:active { transform: translateY(0) scale(0.99); }
-
-    /* категорії */
-    .donate-btn--mono   { background: linear-gradient(135deg, #00e3aa, #00b894); }
-    .donate-btn--privat { background: linear-gradient(135deg, #2ecc71, #27ae60); }
-    .donate-btn--paypal { background: linear-gradient(135deg, #009cde, #003087); }
-    .donate-btn--crypto { background: linear-gradient(135deg, #f6d365, #fda085); }
-    .donate-btn--share  { background: linear-gradient(135deg, #7c3aed, #2563eb); }
-    .donate-btn--copy   { background: linear-gradient(135deg, #111827, #374151); border-color: rgba(255,255,255,0.18); }
-
-    .mono-label { color: #00ffc3; font-weight: 800; }
-    .privat-label { color: #55efc4; font-weight: 800; }
-    .paypal-label { color: #00b4ff; font-weight: 800; }
-    .crypto-label { color: #ffd86b; font-weight: 800; }
-
-    /* QR */
-    .qr-wrap { margin-top: 8px; display: flex; justify-content: center; }
-    .qr {
-      width: 150px;
-      height: 150px;
-      border-radius: 18px;
-      background:#02040a;
-      display: block;
-      border: 1px solid rgba(255,255,255,0.14);
-    }
-
-    /* ===================== PURCHASED CAROUSEL ===================== */
-    .purchased-wrap{
-      margin-top: 12px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.06);
-      padding: 12px;
-      overflow: hidden;
-      position: relative;
-    }
-    .purchased-carousel{
-      display:flex;
-      width: 100%;
-      transition: transform .45s ease;
-      will-change: transform;
-    }
-    .purchased-slide{
-      min-width: 100%;
-      user-select: none;
-    }
-    .purchased-slide img{
-      width: 100%;
-      height: 420px;
-      object-fit: contain; /* важливо: НЕ обрізаємо */
-      background: rgba(0,0,0,0.35);
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.10);
-      display: block;
-    }
-    .pc-btn{
-      position:absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 36px;
-      height: 36px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.22);
-      background: rgba(0,0,0,0.55);
-      color: #fff;
-      font-size: 22px;
-      line-height: 32px;
-      cursor: pointer;
-      z-index: 5;
-    }
-    .pc-prev{ left: 10px; }
-    .pc-next{ right: 10px; }
-    .pc-dots{
+    .qrwrap{
+      margin-top: 10px;
       display:flex;
       justify-content:center;
-      gap: 6px;
-      margin-top: 10px;
     }
-    .pc-dots span{
-      width: 9px; height: 9px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.28);
-      cursor: pointer;
-      border: 1px solid rgba(255,255,255,0.10);
+    .qr{
+      width: 148px;
+      height: 148px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.25);
+      object-fit: contain;
+      cursor: zoom-in;
     }
-    .pc-dots span.active{ background: rgba(255,215,0,0.95); }
 
-    /* ===================== VIDEO CAROUSEL (shorts + normal) ===================== */
-    #videos .video-carousel-wrap{
-      position: relative;
-      margin-top: 16px;
-      padding: 10px 46px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.06);
-      overflow: hidden;
+    /* ===== Supporters ===== */
+    .thx-grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+      margin-top: 12px;
     }
-    #videos .video-carousel{
-      display: flex;
+    .thx-card{
+      grid-column: span 6;
+      border-radius: var(--radius2);
+      border: 1px solid var(--line);
+      background: rgba(16,20,28,.76);
+      overflow:hidden;
+    }
+    .thx-card img{
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display:block;
+      background: rgba(0,0,0,.25);
+    }
+    .thx-body{padding: 12px;}
+    .thx-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px;}
+    .thx-name{font-weight: 850;}
+    .thx-badge{
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.25);
+      opacity: .92;
+      white-space:nowrap;
+    }
+    .thx-text{color: rgba(244,246,251,.84); font-size: 13px;}
+
+    /* ===== Carousels (unified) ===== */
+    .carousel-wrap{
+      position: relative;
+      margin-top: 12px;
+      border-radius: var(--radius2);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      overflow: hidden;
+      padding: 10px 46px;
+    }
+    .carousel{
+      display:flex;
       gap: 14px;
-      overflow-x: auto;
+      overflow-x:auto;
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
       -webkit-overflow-scrolling: touch;
       padding-bottom: 8px;
     }
-    #videos .video-carousel::-webkit-scrollbar{ height: 8px; }
-    #videos .video-carousel::-webkit-scrollbar-thumb{ background: rgba(255,255,255,0.25); border-radius: 20px; }
-    #videos .video-carousel::-webkit-scrollbar-track{ background: rgba(255,255,255,0.08); border-radius: 20px; }
-    #videos .vc-item{
-      flex: 0 0 320px;
+    .carousel::-webkit-scrollbar{height: 8px;}
+    .carousel::-webkit-scrollbar-thumb{background: rgba(255,255,255,.22); border-radius: 999px;}
+    .carousel::-webkit-scrollbar-track{background: rgba(255,255,255,.08); border-radius: 999px;}
+
+    .c-item{
+      flex: 0 0 420px;
       scroll-snap-align: start;
-    }
-    #videos .vc-frame{
-      position: relative;
-      width: 100%;
-      padding-top: 177.78%; /* 9:16 */
       border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.22);
+      overflow:hidden;
     }
-    #videos .vc-frame iframe{
-      position: absolute;
-      inset: 0;
+    .c-item img{
       width: 100%;
-      height: 100%;
-      border: 0;
+      height: 300px;
+      object-fit: contain; /* purchased should be fully visible */
+      display:block;
+      background: rgba(0,0,0,.35);
     }
-    #videos .vc-btn{
-      position: absolute;
+
+    .cbtn{
+      position:absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 34px;
-      height: 34px;
+      width: 34px; height: 34px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.22);
-      background: rgba(0,0,0,0.55);
-      color: #fff;
+      border: 1px solid rgba(255,255,255,.20);
+      background: rgba(0,0,0,.55);
+      color:#fff;
       font-size: 22px;
       line-height: 32px;
-      cursor: pointer;
+      cursor:pointer;
       z-index: 5;
-    }
-    #videos .vc-prev{ left: 10px; }
-    #videos .vc-next{ right: 10px; }
-    @media (max-width: 420px){
-      #videos .vc-item{ flex-basis: 260px; }
-      #videos .video-carousel-wrap{ padding: 10px 42px; }
-    }
-
-    /* ===================== GALLERY CAROUSEL ===================== */
-    #gallery.gallery-section{ padding: 40px 0; }
-    #gallery .gallery-head{
-      display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
-    }
-    #gallery .btn-support{
-      display:inline-block; padding:12px 16px; border-radius:999px;
-      border:1px solid rgba(255,255,255,.22);
-      background: linear-gradient(135deg, rgba(255,215,0,0.95), rgba(0,180,255,0.85));
-      color:#071018; text-decoration:none;
-      font-weight: 900;
-      box-shadow: 0 12px 26px rgba(0,0,0,0.45);
-    }
-    #gallery .gallery-carousel-wrap{
-      position:relative; margin-top:16px; padding:10px 46px;
-      border-radius:18px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.06);
-      overflow:hidden;
-    }
-    #gallery .gallery-carousel{
       display:flex;
-      gap:14px;
-      overflow-x:auto;
-      scroll-snap-type:x mandatory;
-      scroll-behavior:smooth;
-      -webkit-overflow-scrolling:touch;
-      padding-bottom:8px;
+      align-items:center;
+      justify-content:center;
     }
-    #gallery .gallery-carousel::-webkit-scrollbar{ height: 8px; }
-    #gallery .gallery-carousel::-webkit-scrollbar-thumb{ background: rgba(255,255,255,0.25); border-radius: 20px; }
-    #gallery .gallery-carousel::-webkit-scrollbar-track{ background: rgba(255,255,255,0.08); border-radius: 20px; }
+    .cbtn:hover{background: rgba(0,0,0,.78);}
+    .cprev{left: 10px;}
+    .cnext{right: 10px;}
 
-    #gallery .gc-item{
-      flex:0 0 420px;
-      scroll-snap-align:start;
-      margin:0;
-      border-radius:16px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(0,0,0,.35);
-    }
-    #gallery .gc-item img{
-      width:100%;
-      height:280px;
-      display:block;
-      object-fit:cover;
-      background: rgba(0,0,0,0.22);
-    }
-    #gallery .gc-btn{
-      position:absolute; top:50%; transform:translateY(-50%);
-      width:34px; height:34px; border-radius:999px;
-      border:1px solid rgba(255,255,255,.22);
-      background:rgba(0,0,0,.55);
-      color:#fff; font-size:22px; line-height:32px;
-      cursor:pointer; z-index:5;
-    }
-    #gallery .gc-prev{ left:10px; }
-    #gallery .gc-next{ right:10px; }
-    @media (max-width:520px){
-      #gallery .gc-item{ flex-basis:300px; }
-      #gallery .gc-item img{ height:220px; }
-      #gallery .gallery-carousel-wrap{ padding:10px 42px; }
-    }
+    /* Gallery: cover looks better */
+    #galleryCarousel .c-item img{ object-fit: cover; }
 
-    /* ===================== PROGRESS BAR ===================== */
-    .progress-text { font-size: 13px; margin-bottom: 10px; }
-    .progress-track {
+    /* Video: 9:16 */
+    .v-item{ flex: 0 0 320px; }
+    .v-frame{
+      position: relative;
       width: 100%;
+      padding-top: 177.78%;
+      border-radius: 16px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.22);
+    }
+    .v-frame iframe{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      border:0;
+    }
+
+    /* ===== FAQ ===== */
+    details{
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 16px;
+      background: rgba(0,0,0,.18);
+      padding: 10px 12px;
+      margin-top: 8px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight: 800;
+      font-size: 14px;
+      color: rgba(244,246,251,.92);
+      list-style:none;
+    }
+    summary::-webkit-details-marker{display:none;}
+    details p{margin-top: 8px; font-size: 13px; color: rgba(244,246,251,.84);}
+
+    /* ===== Progress ===== */
+    .progress-track{
+      width:100%;
       height: 16px;
       border-radius: 999px;
-      background: rgba(3,7,18,0.9);
-      border: 1px solid rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.35);
       padding: 2px;
-      box-shadow: inset 0 0 8px rgba(0,0,0,0.7);
-      margin-top: 6px;
+      margin-top: 10px;
+      box-shadow: inset 0 0 10px rgba(0,0,0,.55);
     }
-    .progress-fill {
+    .progress-fill{
       height: 100%;
+      width: 40%;
       border-radius: 999px;
-      background: linear-gradient(90deg, #00e3aa, #00b4ff);
-      width: 0;
+      background: linear-gradient(90deg, rgba(255,213,74,.95), rgba(0,156,222,.85));
       position: relative;
-      transition: width 0.5s ease-out;
+      transition: width .5s ease;
     }
-    .progress-fill::after {
+    .progress-fill::after{
       content: attr(data-label);
-      position: absolute;
-      right: 6px;
+      position:absolute;
+      right: 8px;
       top: 50%;
       transform: translateY(-50%);
       font-size: 11px;
-      font-weight: 800;
-      color: #fff;
-    }
-    .progress-meta {
-      margin-top: 6px;
-      font-size: 12px;
-      opacity: 0.8;
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      flex-wrap: wrap;
+      font-weight: 850;
+      color: rgba(0,0,0,.80);
+      background: rgba(255,255,255,.55);
+      border-radius: 999px;
+      padding: 2px 8px;
+      border: 1px solid rgba(255,255,255,.35);
     }
 
-    /* ===================== SCROLL TOP ===================== */
-    .scroll-top-btn {
+    .progress-meta{
+      margin-top: 8px;
+      display:flex;
+      justify-content:space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      color: rgba(244,246,251,.72);
+      font-size: 12px;
+    }
+
+    /* ===== Footer ===== */
+    footer{
+      margin-top: 14px;
+      color: rgba(244,246,251,.70);
+      font-size: 12px;
+      text-align:center;
+    }
+
+    /* ===== Scroll to top ===== */
+    #scrollTopBtn{
       position: fixed;
-      right: 18px;
-      bottom: 20px;
-      width: 42px;
-      height: 42px;
+      right: 16px;
+      bottom: 18px;
+      width: 44px;height:44px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.35);
-      background: radial-gradient(circle at 30% 0, #00e3aa 0, #0072ff 70%);
-      color: #fff;
-      font-size: 22px;
-      font-weight: 900;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+      border: 1px solid rgba(255,255,255,.20);
+      background: rgba(0,0,0,.55);
+      color:#fff;
+      font-size: 20px;
+      cursor:pointer;
+      box-shadow: 0 14px 34px rgba(0,0,0,.50);
       opacity: 0;
-      pointer-events: none;
-      transform: translateY(8px) scale(0.9);
-      transition: opacity 0.25s ease, transform 0.25s ease;
+      pointer-events:none;
+      transform: translateY(10px) scale(.95);
+      transition: opacity .2s ease, transform .2s ease;
       z-index: 9999;
     }
-    .scroll-top-btn--visible {
+    #scrollTopBtn.show{
       opacity: 1;
-      pointer-events: auto;
+      pointer-events:auto;
       transform: translateY(0) scale(1);
     }
-    .scroll-top-btn:hover {
-      box-shadow: 0 14px 30px rgba(0,0,0,0.85);
-      transform: translateY(-2px) scale(1.05);
-    }
 
-    /* “Підтримати взвод” кнопка у блоках */
-    .block-donate-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 14px;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #0057b7, #ffd700);
-      font-size: 13px;
-      font-weight: 900;
-      color: #071018;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.32);
-      cursor: pointer;
-      box-shadow: 0 10px 26px rgba(0,0,0,0.45);
-      transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
-      animation: buttonPulse 1.8s ease-in-out infinite;
-    }
-    .block-donate-btn:hover {
-      transform: translateY(-2px) scale(1.05);
-      opacity: 0.95;
-      box-shadow: 0 14px 34px rgba(0,0,0,0.6);
-    }
-    .block-donate-btn .icon { font-size: 15px; line-height: 1; }
-
-    /* ===================== PATCH ===================== */
-    .header-patch-wrap {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      margin-bottom: 14px;
-      margin-top: -4px;
-      padding-top: 10px;
-    }
-    .header-patch {
-      width: 140px;
-      height: auto;
-      transform-origin: center;
-      animation:
-        patch-breath 3.5s ease-in-out infinite,
-        patch-tilt 6s ease-in-out infinite,
-        patch-glow 4s ease-in-out infinite;
-      filter:
-        drop-shadow(0 0 10px rgba(255,215,0,0.45))
-        drop-shadow(0 0 4px rgba(255,215,0,0.25));
-    }
-    @media (max-width: 480px) { .header-patch { width: 110px; } }
-
-    /* ===================== MOBILE DONATE BUTTON ===================== */
-    .mobile-donate-btn{
+    /* ===== Mobile donate button ===== */
+    .mobile-donate{
       position: fixed;
-      left: 16px;
-      right: 16px;
-      bottom: 14px;
+      left: 14px; right: 14px; bottom: 12px;
       z-index: 99999;
       display: none;
-      text-align: center;
+      text-align:center;
       padding: 14px 16px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, rgba(255,200,60,0.95), rgba(255,160,20,0.95));
-      border: 1px solid rgba(255,255,255,0.25);
-      color: #0b0b0b;
-      text-decoration: none;
+      border-radius: 18px;
+      text-decoration:none;
       font-weight: 900;
-      box-shadow:
-        0 10px 26px rgba(0,0,0,0.45),
-        0 0 0 0 rgba(255,180,40,0.55);
-      animation: donatePulse 1.8s ease-in-out infinite;
-      overflow: hidden;
+      letter-spacing: .02em;
+      color: #1a1400;
+      background: linear-gradient(135deg, var(--cta1), var(--cta2));
+      border: 1px solid rgba(255,255,255,.28);
+      box-shadow: 0 18px 50px rgba(0,0,0,.55);
     }
-    .mobile-donate-btn::before{
-      content:"";
-      position:absolute;
-      top:-40%;
-      left:-30%;
-      width: 40%;
-      height: 180%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.40), transparent);
-      transform: rotate(18deg);
-      animation: shine 3.2s infinite;
-      opacity: 0.55;
-    }
-    @media (max-width: 768px){ .mobile-donate-btn{ display: block; } }
-    @media (prefers-reduced-motion: reduce){
-      .mobile-donate-btn{ animation: none; }
-      .mobile-donate-btn::before{ animation: none; }
+    @media (max-width: 820px){
+      .mobile-donate{display:block;}
+      .nav{display:none;}
+      .brand{min-width:auto;}
     }
 
-    /* ===================== TOAST ===================== */
-    .toast {
+    /* ===== Toast ===== */
+    .toast{
       position: fixed;
       left: 50%;
-      bottom: 90px;
+      bottom: 86px;
       transform: translateX(-50%) translateY(12px);
-      background: rgba(0,0,0,0.78);
-      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(0,0,0,.78);
+      border: 1px solid rgba(255,255,255,.18);
       color: #fff;
       padding: 10px 12px;
       border-radius: 14px;
-      box-shadow: 0 14px 34px rgba(0,0,0,0.65);
+      box-shadow: 0 14px 34px rgba(0,0,0,.65);
       font-size: 13px;
       opacity: 0;
       pointer-events: none;
       transition: opacity .18s ease, transform .18s ease;
       z-index: 100000;
       max-width: min(560px, calc(100vw - 24px));
-      display: flex;
-      align-items: center;
+      display:flex;
+      align-items:center;
       gap: 10px;
     }
-    .toast--show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
+    .toast.show{opacity:1; transform: translateX(-50%) translateY(0);}
+    .toast-dot{
+      width: 8px;height: 8px;border-radius: 999px;
+      background: rgba(255,215,0,.9);
+      box-shadow: 0 0 12px rgba(255,215,0,.35);
     }
-    .toast .toast-dot{
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: rgba(255,215,0,0.9);
-      box-shadow: 0 0 12px rgba(255,215,0,0.35);
-    }
-    .toast .toast-text{ opacity: 0.95; line-height: 1.35; }
-    @media (max-width: 768px){ .toast{ bottom: 86px; } }
 
-    /* ===================== FULLSCREEN QR MODAL ===================== */
-    .qr-modal {
+    /* ===== QR Modal ===== */
+    .qr-modal{
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.92);
-      display: none;
-      align-items: center;
-      justify-content: center;
+      background: rgba(0,0,0,.92);
+      display:none;
+      align-items:center;
+      justify-content:center;
       z-index: 100001;
       padding: 16px;
     }
-    .qr-modal.is-open { display: flex; }
-    .qr-modal-card {
+    .qr-modal.open{display:flex;}
+    .qr-card{
       width: 100%;
       max-width: 520px;
-      border-radius: 20px;
-      background: radial-gradient(circle at top left, #202b46 0, #070e1d 70%);
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 18px 50px rgba(0,0,0,0.75);
-      overflow: hidden;
+      border-radius: 22px;
+      background: rgba(16,20,28,.92);
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 22px 70px rgba(0,0,0,.70);
+      overflow:hidden;
     }
-    .qr-modal-head{
-      padding: 14px 14px 10px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
+    .qr-head{
+      padding: 14px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
       gap: 12px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
-    .qr-modal-title{
-      font-weight: 900;
-      letter-spacing: 0.06em;
+    .qr-title{
+      font-weight: 950;
+      letter-spacing: .06em;
       text-transform: uppercase;
       font-size: 12px;
-      opacity: 0.9;
+      opacity:.92;
     }
-    .qr-modal-sub{
-      font-size: 13px;
-      opacity: 0.85;
-      margin-top: 4px;
-    }
-    .qr-modal-close{
-      width: 34px;
-      height: 34px;
+    .qr-sub{font-size: 13px; opacity:.82; margin-top:4px;}
+    .qr-close{
+      width: 34px;height:34px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.22);
-      background: rgba(0,0,0,0.45);
-      color: #fff;
-      cursor: pointer;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(0,0,0,.35);
+      color:#fff;
+      cursor:pointer;
       font-size: 20px;
       line-height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display:flex; align-items:center; justify-content:center;
     }
-    .qr-modal-body{
-      padding: 14px;
-      display: grid;
-      gap: 12px;
-    }
-    .qr-modal-qrwrap{
+    .qr-body{padding: 14px; display:grid; gap: 12px;}
+    .qr-plate{
       border-radius: 18px;
-      background: rgba(0,0,0,0.35);
-      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,.28);
+      border: 1px solid rgba(255,255,255,.12);
       padding: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display:flex;
+      justify-content:center;
+      align-items:center;
     }
-    .qr-modal-qr{
-      width: min(320px, 76vw);
+    .qr-big{
+      width: min(330px, 78vw);
       height: auto;
       border-radius: 18px;
-      background: #02040a;
+      background: rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,.14);
     }
-    .qr-modal-actions{
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+    .qr-actions{display:flex; flex-direction:column; gap: 10px;}
+    .qr-foot{padding: 0 14px 14px; font-size: 12px; opacity:.76; line-height:1.35;}
+
+    /* ===== Responsive grid ===== */
+    @media (max-width: 980px){
+      .card{grid-column: span 12;}
+      .thx-card{grid-column: span 12;}
+      .c-item{flex-basis: 320px;}
+      .c-item img{height: 240px;}
+      .carousel-wrap{padding: 10px 42px;}
     }
-    .qr-action-btn{
-      width: 100%;
-      padding: 12px 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.20);
-      background: rgba(0,0,0,0.38);
-      color: #fff;
-      cursor: pointer;
-      font-weight: 900;
-      font-size: 13px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-    }
-    .qr-action-btn:hover{ background: rgba(0,0,0,0.55); }
-    .qr-action-btn.primary{
-      background: linear-gradient(135deg, #00c6ff, #0072ff);
-      border-color: rgba(255,255,255,0.28);
-    }
-    .qr-action-btn.primary:hover{ opacity: 0.98; }
-    .qr-modal-foot{
-      padding: 0 14px 14px;
-      font-size: 12px;
-      opacity: 0.78;
-      line-height: 1.35;
-    }
-    .qr-modal-mono   .qr-action-btn.primary{ background: linear-gradient(135deg, #00e3aa, #00b894); }
-    .qr-modal-privat .qr-action-btn.primary{ background: linear-gradient(135deg, #2ecc71, #27ae60); }
-    .qr-modal-paypal .qr-action-btn.primary{ background: linear-gradient(135deg, #009cde, #003087); }
-    .qr-modal-crypto .qr-action-btn.primary{ background: linear-gradient(135deg, #f6d365, #fda085); }
-
-    /* ===== FIX: supporters images too big (override) ===== */
-    #supporters .thx-media img{
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: block;
-      border-radius: 14px;
-    }
-    @media (max-width: 520px){ #supporters .thx-media img{ height: 190px; } }
-
-    /* ===================== RESPONSIVE ===================== */
-    @media (max-width: 1024px) {
-      .page { padding: 20px 10px 32px; }
-      .hero { padding: 20px 18px 18px; margin-bottom: 22px; }
-      .hero-title { font-size: 24px; }
-      .card-grid { gap: 16px; }
-      .purchased-slide img{ height: 360px; }
-    }
-    @media (max-width: 768px) {
-      .page { padding: 18px 8px 28px; }
-      .hero { padding: 18px 14px 16px; }
-      .hero-badge { font-size: 11px; }
-      .hero-title { font-size: 21px; line-height: 1.2; }
-      .hero-sub { font-size: 14px; }
-      .hero-note { font-size: 12px; }
-
-      .card { padding: 14px 14px 16px; min-height: auto; }
-      .card.big-block { padding: 16px 14px 18px; }
-      .card p { font-size: 13px; }
-
-      .btn-row { flex-direction: column; }
-      .btn-row .donate-btn { width: 100%; }
-
-      .qr { width: 130px; height: 130px; }
-      .purchased-slide img{ height: 280px; }
-    }
-    @media (max-width: 480px) {
-      .hero { border-radius: 18px; }
-      .hero-title { font-size: 19px; }
-      .section-title { font-size: 20px; }
-
-      .card { border-radius: 18px; padding: 12px 12px 14px; }
-      .card p { font-size: 12.5px; }
-
-      .donate-btn { padding: 10px 14px; font-size: 12.5px; }
-      .qr { width: 120px; height: 120px; }
-
-      .scroll-top-btn { right: 12px; bottom: 14px; width: 38px; height: 38px; font-size: 20px; }
+    @media (max-width: 520px){
+      .hero{padding: 18px 14px;}
+      .wrap{padding: 14px 12px 40px;}
+      .section{padding: 14px;}
+      .btn{width: 100%;}
+      .btnrow{flex-direction: column;}
+      .carousel-wrap{padding: 10px 40px;}
+      .c-item{flex-basis: 280px;}
+      .c-item img{height: 220px;}
+      .v-item{flex-basis: 260px;}
     }
 
-    /* ===================== ANIMATIONS ===================== */
-    @keyframes fadeInPage { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes heroReveal { from { opacity: 0; transform: translateY(8px) scale(0.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
-    @keyframes cardFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes buttonPulse {
-      0%   { transform: translateY(0) scale(1);   box-shadow: 0 10px 26px rgba(0,0,0,0.45); }
-      50%  { transform: translateY(-1px) scale(1.05); box-shadow: 0 16px 36px rgba(0,0,0,0.7); }
-      100% { transform: translateY(0) scale(1);   box-shadow: 0 10px 26px rgba(0,0,0,0.45); }
-    }
-    @keyframes engine-move { from { transform: translateX(-120%); } to { transform: translateX(120%); } }
-    @keyframes weld-spark {
-      0%, 60% { opacity: 0; transform: translateX(-10%); }
-      65% { opacity: 1; transform: translateX(10%); }
-      80% { opacity: 0.5; transform: translateX(60%); }
-      100% { opacity: 0; transform: translateX(120%); }
-    }
-    @keyframes patch-breath { 0% { transform: scale(0.98);} 50%{ transform: scale(1.03);} 100%{ transform: scale(0.98);} }
-    @keyframes patch-tilt {
-      0% { transform: rotateX(0deg) rotateY(0deg); }
-      25%{ transform: rotateX(2deg) rotateY(-2deg); }
-      50%{ transform: rotateX(0deg) rotateY(0deg); }
-      75%{ transform: rotateX(-2deg) rotateY(2deg); }
-      100%{ transform: rotateX(0deg) rotateY(0deg); }
-    }
-    @keyframes patch-glow {
-      0% { filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
-      50%{ filter: drop-shadow(0 0 12px rgba(255,215,0,0.7)); }
-      100%{ filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
-    }
-    @keyframes donatePulse{
-      0%{
-        box-shadow: 0 10px 26px rgba(0,0,0,0.45), 0 0 0 0 rgba(255,180,40,0.55);
-        filter: brightness(1);
-      }
-      60%{
-        box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 0 14px rgba(255,180,40,0);
-        filter: brightness(1.05);
-      }
-      100%{
-        box-shadow: 0 10px 26px rgba(0,0,0,0.45), 0 0 0 0 rgba(255,180,40,0);
-        filter: brightness(1);
-      }
-    }
-    @keyframes shine{
-      0%{ transform: translateX(-140%) rotate(18deg); }
-      45%{ transform: translateX(320%) rotate(18deg); }
-      100%{ transform: translateX(320%) rotate(18deg); }
+    @media (prefers-reduced-motion: reduce){
+      *{scroll-behavior:auto !important}
     }
   </style>
 </head>
 
 <body>
-  <canvas id="snow"></canvas>
-  <div id="tech-traces"></div>
+  <div class="wrap">
 
-  <div class="page">
-    <div class="container">
-
-      <header>
-        <div class="header-patch-wrap">
-          <img src="vtz-mpb-patch.png" alt="Шеврон взводу технічного забезпечення" class="header-patch">
+    <!-- Sticky topbar -->
+    <div class="topbar">
+      <div class="brand">
+        <img src="logo.png" alt="Логотип" />
+        <div class="brand-title">
+          <b>142 ОМБр · ВТЗ МПБ</b>
+          <span>Сторінка підтримки</span>
         </div>
-
-        <div class="top-row">
-          <div class="top-bar">
-            <img src="logo.png" alt="Логотип" class="logo">
-            <span class="site-title">142 ОМБр • Взвод технічного забезпечення</span>
-          </div>
-          <div class="lang-switch">
-            <a href="index.html" class="active">UA</a>
-            <a href="en.html">EN</a>
-          </div>
-        </div>
-
-        <section class="hero">
-          <div class="hero-badge">
-            <span>Ремонт техніки на передовій</span>
-            <span class="system-state" id="systemState">
-              <span class="system-dot" id="systemDot"></span>
-              <span class="system-text" id="systemText">СТАН: РОБОТА ЙДЕ</span>
-            </span>
-          </div>
-
-          <div class="hero-title">Техніка має їхати. Люди мають повернутись живими.</div>
-
-          <div class="engine-line-wrap"><div class="engine-line"></div></div>
-
-          <p class="hero-sub">
-            Ми — взвод технічного забезпечення мотопіхотного батальйону 142 ОМБр.
-            Ремонтуємо вантажівки й бронетехніку прямо в зоні бойових дій, щоб машини возили
-            боєкомплект, ПММ, провізію та вивозили поранених.
-          </p>
-
-          <p class="hero-note">
-            Кожна гривня, євро чи долар перетворюється на інструмент, запчастину, мастило чи зварку —
-            які дають машині ще один виїзд, а комусь — шанс встигнути.
-          </p>
-
-          <!-- твої “душевні” вставки -->
-          <div class="hero-quotes">
-            <div class="quote">
-              <strong>Сенс нашої роботи</strong>
-              Кожен наш ремонт — це мінус одна зупинка на “дорозі життя”. І плюс один шанс встигнути.
-            </div>
-            <div class="quote">
-              <strong>Про команду</strong>
-              Нас небагато. Але ми тримаємо колеса батальйону.
-            </div>
-          </div>
-
-          <div style="margin-top:14px;">
-            <a href="#donate" class="donate-btn donate-btn--share" style="display:inline-block;">
-              Підтримати взвод
-            </a>
-          </div>
-        </section>
-      </header>
-
-      <main>
-        <!-- DONATIONS -->
-        <h2 class="section-title" id="donate">Як підтримати взвод</h2>
-
-        <div class="card-grid">
-
-          <!-- MONOBANK -->
-          <section class="card">
-            <div>
-              <small>UAH · БАНКІВСЬКИЙ РАХУНОК</small>
-              <h3><span class="mono-label">Monobank</span> · Банка “142 ОМБр · взвод технічного забезпечення”</h3>
-              <p><strong>Отримувач:</strong> Надельнюк Віктор Миколайович</p>
-              <p><strong>IBAN:</strong><br>UA683220010000026208372629615</p>
-              <p><strong>Номер картки:</strong><br>4874&nbsp;1000&nbsp;2019&nbsp;8902</p>
-              <p><strong>Призначення платежу:</strong> <code>ВТЗ МПБ 142 ОМБр</code></p>
-            </div>
-            <div>
-              <div class="btn-row">
-                <button class="donate-btn donate-btn--mono" type="button"
-                        onclick="window.open('https://send.monobank.ua/jar/8PfzHBQuu4','_blank')">
-                  Відкрити банку Monobank
-                </button>
-                <button class="donate-btn donate-btn--copy" type="button"
-                        onclick="copyText('UA683220010000026208372629615')">
-                  Скопіювати IBAN
-                </button>
-                <button class="donate-btn donate-btn--copy" type="button"
-                        onclick="copyText('4874100020198902')">
-                  Скопіювати номер картки
-                </button>
-              </div>
-              <div class="qr-wrap">
-                <img id="qr-mono" class="qr" alt="QR Monobank" loading="lazy">
-              </div>
-              <p style="font-size:12px; opacity:0.78; margin-top:6px; text-align:center;">
-                Натисніть на QR — відкриється великий код
-              </p>
-            </div>
-          </section>
-
-          <!-- PRIVATBANK -->
-          <section class="card">
-            <div>
-              <small>UAH · БАНКІВСЬКИЙ РАХУНОК</small>
-              <h3><span class="privat-label">PrivatBank</span> · Поповнення картки</h3>
-              <p><strong>Отримувач:</strong> NADELNIUK VIKTOR MYKOLAYOVYCH</p>
-              <p><strong>IBAN:</strong><br>UA023052990262076400994803502</p>
-              <p><strong>Номер картки:</strong><br>5168&nbsp;7521&nbsp;4764&nbsp;9654</p>
-              <p><strong>Призначення платежу:</strong> <code>ВТЗ МПБ 142 ОМБр</code></p>
-            </div>
-            <div>
-              <div class="btn-row">
-                <button class="donate-btn donate-btn--privat" type="button"
-                        onclick="window.open('https://www.privat24.ua/send/3xbxx','_blank')">
-                  Відкрити Privat24
-                </button>
-                <button class="donate-btn donate-btn--copy" type="button"
-                        onclick="copyText('UA023052990262076400994803502')">
-                  Скопіювати IBAN
-                </button>
-                <button class="donate-btn donate-btn--copy" type="button"
-                        onclick="copyText('5168752147649654')">
-                  Скопіювати номер картки
-                </button>
-              </div>
-              <div class="qr-wrap">
-                <img id="qr-privat" class="qr" alt="QR PrivatBank" loading="lazy">
-              </div>
-              <p style="font-size:12px; opacity:0.78; margin-top:6px; text-align:center;">
-                Натисніть на QR — відкриється великий код
-              </p>
-            </div>
-          </section>
-
-          <!-- PAYPAL / PAUPAY -->
-          <section class="card">
-            <div>
-              <small>МІЖНАРОДНІ ПЛАТЕЖІ</small>
-              <h3><span class="paypal-label">PayPal / Paupay</span></h3>
-              <p><strong>Email для переказів:</strong><br>nadelnuikviktor@gmail.com</p>
-              <p><strong>Примітка до платежу:</strong><br><code>VTZ MPB 142 OMBr</code></p>
-            </div>
-            <div>
-              <div class="btn-row">
-                <button class="donate-btn donate-btn--paypal" type="button"
-                        onclick="copyText('nadelnuikviktor@gmail.com')">
-                  Скопіювати email
-                </button>
-              </div>
-              <div class="qr-wrap">
-                <img id="qr-paupay" class="qr" alt="QR Paupay / PayPal" loading="lazy">
-              </div>
-              <p style="font-size:12px; opacity:0.8; margin-top:6px;">
-                Будь ласка, додайте <strong>VTZ MPB 142 OMBr</strong> у примітку платежу.
-              </p>
-            </div>
-          </section>
-
-          <!-- CRYPTO -->
-          <section class="card">
-            <div>
-              <small>КРИПТОВАЛЮТА</small>
-              <h3><span class="crypto-label">Crypto</span> · BTC · ETH · SOL · BNB</h3>
-
-              <p><strong>Bitcoin (BTC):</strong><br>
-                bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p</p>
-
-              <p><strong>Ethereum (ETH):</strong><br>
-                0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</p>
-
-              <p><strong>Solana (SOL):</strong><br>
-                DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525</p>
-
-              <p><strong>BNB (BEP-20):</strong><br>
-                0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</p>
-            </div>
-
-            <div>
-              <div class="btn-row">
-                <button class="donate-btn donate-btn--crypto" type="button"
-                        onclick="window.open('https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p','_blank')">
-                  Відкрити BTC
-                </button>
-                <button class="donate-btn donate-btn--crypto" type="button"
-                        onclick="window.open('https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b','_blank')">
-                  Відкрити ETH
-                </button>
-                <button class="donate-btn donate-btn--crypto" type="button"
-                        onclick="window.open('https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525','_blank')">
-                  Відкрити SOL
-                </button>
-              </div>
-
-              <div class="btn-row">
-                <button class="donate-btn donate-btn--copy" type="button"
-                        onclick="copyText('bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p')">
-                  Скопіювати BTC
-                </button>
-                <button class="donate-btn donate-btn--copy" type="button"
-                        onclick="copyText('0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b')">
-                  Скопіювати ETH / BNB
-                </button>
-                <button class="donate-btn donate-btn--copy" type="button"
-                        onclick="copyText('DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525')">
-                  Скопіювати SOL
-                </button>
-              </div>
-
-              <div class="qr-wrap">
-                <img id="qr-btc" class="qr" alt="QR BTC" loading="lazy">
-              </div>
-              <p style="font-size:12px; opacity:0.78; margin-top:6px; text-align:center;">
-                Натисніть на QR — відкриється великий код
-              </p>
-            </div>
-          </section>
-
-        </div>
-
-        <!-- ПІДТРИМАЛИ -->
-        <section id="supporters" class="thx-wrap" style="margin-top:18px;">
-          <div class="thx-inner">
-            <div class="thx-head">
-              <h2 class="thx-title">Підтримали</h2>
-              <p class="thx-sub">
-                Це реальна допомога, без публічності. Дякуємо Юрію та Володимиру, хто робить тихо — але по ділу.
-              </p>
-            </div>
-
-            <div class="thx-grid">
-              <article class="thx-card">
-                <a class="thx-media" href="assets/support/support-01.jpg" target="_blank" rel="noopener">
-                  <img src="assets/support/support-01.jpg" alt="Анонімна підтримка підрозділу" loading="lazy">
-                </a>
-                <div class="thx-body">
-                  <div class="thx-top">
-                    <div class="thx-name">Анонімна підтримка</div>
-                    <div class="thx-badge">Генератор</div>
-                  </div>
-                  <div class="thx-text">Передане обладнання для ремонтів.</div>
-                </div>
-              </article>
-
-              <article class="thx-card">
-                <a class="thx-media" href="assets/support/support-02.jpg" target="_blank" rel="noopener">
-                  <img src="assets/support/support-02.jpg" alt="Анонімна підтримка підрозділу" loading="lazy">
-                </a>
-                <div class="thx-body">
-                  <div class="thx-top">
-                    <div class="thx-name">Анонімна підтримка</div>
-                    <div class="thx-badge">Автосканер</div>
-                  </div>
-                  <div class="thx-text">Без цього ремонт просто зупиняється — а техніка повинна їхати.</div>
-                </div>
-              </article>
-            </div>
-
-            <div class="thx-foot"><p class="thx-note"></p></div>
-          </div>
-        </section>
-
-        <!-- ЩО ВЖЕ ЗАКУПИЛИ -->
-        <section class="card big-block" id="purchased">
-          <h2 class="section-title">Що вже закупили завдяки донатам</h2>
-          <p>Це реальні речі, які вже працюють на фронті та допомагають нам тримати техніку в строю.</p>
-
-          <div class="purchased-wrap" aria-label="Карусель закупівель">
-            <button class="pc-btn pc-prev" type="button" aria-label="Назад">‹</button>
-
-            <div class="purchased-carousel" id="purchasedTrack">
-              <div class="purchased-slide"><img src="assets/purchased-01.jpg" alt="Закуплено 1" loading="lazy"></div>
-              <div class="purchased-slide"><img src="assets/purchased-02.jpg" alt="Закуплено 2" loading="lazy"></div>
-              <div class="purchased-slide"><img src="assets/purchased-03.jpg" alt="Закуплено 3" loading="lazy"></div>
-              <div class="purchased-slide"><img src="assets/purchased-04.jpg" alt="Закуплено 4" loading="lazy"></div>
-              <div class="purchased-slide"><img src="assets/purchased-05.jpg" alt="Закуплено 5" loading="lazy"></div>
-              <div class="purchased-slide"><img src="assets/purchased-06.jpg" alt="Закуплено 6" loading="lazy"></div>
-              <div class="purchased-slide"><img src="assets/purchased-07.jpg" alt="Закуплено 7" loading="lazy"></div>
-              <div class="purchased-slide"><img src="assets/purchased-08.jpg" alt="Закуплено 8" loading="lazy"></div>
-              <div class="purchased-slide"><img src="assets/purchased-09.jpg" alt="Закуплено 9" loading="lazy"></div>
-              <div class="purchased-slide"><img src="assets/purchased-10.jpg" alt="Закуплено 10" loading="lazy"></div>
-              <div class="purchased-slide"><img src="assets/purchased-11.jpg" alt="Закуплено 11" loading="lazy"></div>
-            </div>
-
-            <button class="pc-btn pc-next" type="button" aria-label="Вперед">›</button>
-          </div>
-
-          <div class="pc-dots" id="purchasedDots" aria-label="Індикатори каруселі"></div>
-        </section>
-
-        <!-- ПРО ВЗВОД -->
-        <section class="card big-block" id="about-platoon-ua">
-          <h2 class="section-title">Про взвод</h2>
-
-          <p>Ми — взвод технічного забезпечення мотопіхотного батальйону 142-ї окремої механізованої бригади. Наше завдання — утримувати техніку батальйону в роботі на одному з найгарячіших напрямків фронту.</p>
-          <p>Нас рідко видно в кадрі чи в новинах, але від нашої роботи залежить, чи доїде машина до позиції, чи отримає підрозділ боєкомплект і чи встигнуть вчасно евакуювати поранених.</p>
-
-          <h3 style="margin-top:10px;">Чим ми займаємось</h3>
-
-          <p><strong>• Обслуговування</strong><br>
-            Проводимо планове й позапланове ТО, міняємо масла, фільтри та рідини, перевіряємо стан машин.
-          </p>
-
-          <p><strong>• Ремонт і відновлення</strong><br>
-            Двигуни, коробки, підвіска, гальма, електрика, гідравліка, паливна — від дрібного до важкого.
-          </p>
-
-          <p><strong>• Евакуація техніки</strong><br>
-            Коли машина не може рухатися сама — ми їдемо за нею. Часто під обстрілами.
-          </p>
-
-          <p><strong>• Діагностика</strong><br>
-            Ловимо проблему швидко, щоб техніка не стала в критичний момент.
-          </p>
-
-          <p><strong>• Польовий ремонт</strong><br>
-            Земля, тент, ліхтар, генератор і набір інструментів. Немає умов? Створюємо їх.
-          </p>
-
-          <p><strong>• Підтримка мобільності батальйону</strong><br>
-            Робоча техніка = підвіз, ротації, евакуація, вода, їжа, маневр і виживання.
-          </p>
-        </section>
-
-        <!-- ФОТОГАЛЕРЕЯ -->
-        <section id="gallery" class="gallery-section">
-          <div class="gallery-head">
-            <h2 class="section-title">Фотогалерея</h2>
-            <a class="btn-support" href="#donate">Підтримати взвод</a>
-          </div>
-
-          <div class="gallery-carousel-wrap">
-            <button class="gc-btn gc-prev" type="button" aria-label="Назад">‹</button>
-            <div class="gallery-carousel" id="galleryCarousel"></div>
-            <button class="gc-btn gc-next" type="button" aria-label="Вперед">›</button>
-          </div>
-
-          <p style="margin-top:10px; font-size:12px; opacity:.78;">
-
-          </p>
-        </section>
-
-        <!-- ВІДЕО -->
-        <section id="videos" class="card big-block">
-          <h2 class="section-title">Відео</h2>
-          <p style="opacity:.9;">
-          </p>
-
-          <div class="video-carousel-wrap">
-            <button class="vc-btn vc-prev" type="button" aria-label="Назад">‹</button>
-
-            <div class="video-carousel" id="videoCarousel">
-              <!-- старі -->
-              <div class="vc-item"><div class="vc-frame">
-                <iframe src="https://www.youtube.com/embed/Rz_Y3Tj6Rz4"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen loading="lazy"></iframe>
-              </div></div>
-
-              <div class="vc-item"><div class="vc-frame">
-                <iframe src="https://www.youtube.com/embed/KlInbRyOCuY"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen loading="lazy"></iframe>
-              </div></div>
-
-              <div class="vc-item"><div class="vc-frame">
-                <iframe src="https://www.youtube.com/embed/QTbz0BHjAzA"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen loading="lazy"></iframe>
-              </div></div>
-
-              <div class="vc-item"><div class="vc-frame">
-                <iframe src="https://www.youtube.com/embed/xvvbYfiG_rk"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen loading="lazy"></iframe>
-              </div></div>
-
-              <!-- нові Shorts -->
-              <div class="vc-item"><div class="vc-frame">
-                <iframe src="https://www.youtube.com/embed/As6kEEhAw-E"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen loading="lazy"></iframe>
-              </div></div>
-
-              <div class="vc-item"><div class="vc-frame">
-                <iframe src="https://www.youtube.com/embed/GKnGl-bD990"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen loading="lazy"></iframe>
-              </div></div>
-
-              <div class="vc-item"><div class="vc-frame">
-                <iframe src="https://www.youtube.com/embed/o6ZeuaXdu3Q"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen loading="lazy"></iframe>
-              </div></div>
-
-              <div class="vc-item"><div class="vc-frame">
-                <iframe src="https://www.youtube.com/embed/lythBRYJJ6M"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen loading="lazy"></iframe>
-              </div></div>
-
-              <div class="vc-item"><div class="vc-frame">
-                <iframe src="https://www.youtube.com/embed/WVaNwv3Jf0E"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen loading="lazy"></iframe>
-              </div></div>
-
-              <div class="vc-item"><div class="vc-frame">
-                <iframe src="https://www.youtube.com/embed/3cB4r9ntBz0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen loading="lazy"></iframe>
-              </div></div>
-            </div>
-
-            <button class="vc-btn vc-next" type="button" aria-label="Вперед">›</button>
-          </div>
-        </section>
-
-        <!-- ПОТОЧНІ ПОТРЕБИ -->
-        <section class="card big-block" id="current-needs-ua">
-          <h2 class="section-title">Поточні потреби</h2>
-
-          <p>Зараз ваші донати в першу чергу перетворюються на:</p>
-
-          <p><strong>• Інструмент і обладнання</strong><br>
-            Ключі, головки, домкрати, знімачі, пневмоінструмент, освітлення.
-          </p>
-
-          <p><strong>• Зварка та витратники</strong><br>
-            Електроди, дріт, маски, рукавиці, кабелі.
-          </p>
-
-          <p><strong>• Запчастини та витратні матеріали</strong><br>
-            Фільтри, ремені, колодки, шланги, підшипники, кріплення.
-          </p>
-
-          <p><strong>• Рідини та мастила</strong><br>
-            Моторні/трансмісійні масла, антифриз, мастила для вузлів.
-          </p>
-
-          <p><strong>• Діагностика та електрика</strong><br>
-            Тестери, мультиметри, проводка, клеми, запобіжники.
-          </p>
-
-          <p><strong>• Логістика та умови роботи</strong><br>
-            Генератори, тенти, подовжувачі, робочий одяг.
-          </p>
-        </section>
-        <!-- SOS ДЛЯ КОМПАНІЙ / ФОНДІВ -->
-<section class="card big-block" id="b2b-sos">
-  <h2 class="section-title">Для бізнесу та фондів</h2>
-
-  <p style="font-size:15px; line-height:1.6; margin-top:8px;">
-    Якщо ви компанія або благодійна організація і можете допомогти матеріально —
-    ми відкриті до співпраці. Інструмент, обладнання, технічні ресурси —
-    усе, що допоможе техніці залишатися в строю.
-  </p>
-
-  <p style="font-size:14px; opacity:0.9; margin-top:12px;">
-    Нас небагато. Але ми тримаємо колеса батальйону.
-  </p>
-
-  <div class="card-grid" style="margin-top:18px;">
-
-    <div class="card" style="min-height:150px;">
-      <h3>Швидкий контакт</h3>
-
-      <p style="margin-top:10px;">
-        <strong>Email:</strong><br>
-        <a href="mailto:nadelnuikviktor@gmail.com" style="text-decoration:underline;">
-          nadelnuikviktor@gmail.com
-        </a>
-      </p>
-
-      <p style="margin-top:10px;">
-        <strong>Telegram:</strong><br>
-        <a href="https://t.me/DOFAMIN95" target="_blank" rel="noopener" style="text-decoration:underline;">
-          @DOFAMIN95
-        </a>
-      </p>
-
-      <div class="btn-row" style="margin-top:14px;">
-        <button class="donate-btn donate-btn--paypal" type="button"
-                onclick="copyText('nadelnuikviktor@gmail.com')">
-          Скопіювати email
-        </button>
-
-        <button class="donate-btn" type="button"
-                onclick="copyText('@DOFAMIN95')">
-          Скопіювати Telegram
-        </button>
+      </div>
+
+      <div class="nav">
+        <a href="#donate">Донат</a>
+        <a href="#purchased">Закупили</a>
+        <a href="#about">Про взвод</a>
+        <a href="#team">Команда</a>
+        <a href="#gallery">Фото</a>
+        <a href="#videos">Відео</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav-cta" href="#donate">Підтримати</a>
       </div>
     </div>
 
-    <div class="card" style="min-height:150px; display:flex; flex-direction:column; justify-content:center;">
-      <h3>Запропонувати допомогу</h3>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-top">
+        <div class="patch">
+          <img src="vtz-mpb-patch.png" alt="Шеврон взводу технічного забезпечення" />
+          <span class="badge">Ремонт техніки на передовій</span>
+        </div>
 
-      <p style="margin-top:10px; font-size:14px;">
-        Напишіть коротко: що саме можете передати, з якого міста відправка,
-        контакт відповідальної особи.
+        <span class="state" id="systemState">
+          <span class="dot" id="systemDot"></span>
+          <span id="systemText">СТАН: РОБОТА ЙДЕ</span>
+        </span>
+      </div>
+
+      <h1>Техніка має їхати.<br/>Люди мають повернутись живими.</h1>
+
+      <p class="lead">
+        Ми — <strong>взвод технічного забезпечення мотопіхотного батальйону 142 ОМБр</strong>.
+        Ремонтуємо вантажівки й бронетехніку прямо в зоні бойових дій, щоб машини возили
+        боєкомплект, ПММ, провізію та вивозили поранених.
       </p>
 
-      <div class="btn-row" style="margin-top:18px;">
-        <a class="donate-btn donate-btn--mono"
-           href="mailto:nadelnuikviktor@gmail.com?subject=Співпраця%20з%20ВТЗ%20142%20ОМБр"
-           style="display:inline-flex; align-items:center; justify-content:center;">
-          Написати на Email
-        </a>
-
-        <a class="donate-btn donate-btn--privat"
-           href="https://t.me/DOFAMIN95"
-           target="_blank"
-           rel="noopener"
-           style="display:inline-flex; align-items:center; justify-content:center;">
-          Написати в Telegram
-        </a>
+      <div class="soul">
+        <b>Кожен наш ремонт — це мінус одна зупинка на “дорозі життя”. І плюс один шанс встигнути.</b><br/>
+        Нас небагато. Але ми тримаємо колеса батальйону.
       </div>
-    </div>
 
-  </div>
+      <div class="cta-row">
+        <a class="btn btn-cta" href="#donate">ПІДТРИМАТИ ВЗВОД</a>
+        <button class="btn btn-ghost" type="button" onclick="copyText('https://viktornadelniuk.github.io/DOFAMIN95/')">Скопіювати посилання</button>
+      </div>
+    </section>
 
-  <div style="margin-top:18px; padding:14px 16px; border-radius:18px;
-              border:1px solid rgba(255,255,255,0.08);
-              background:rgba(255,255,255,0.03);">
-    <p style="font-size:13px; opacity:0.85;">
-      Публічні згадки або логотип компанії — за погодженням.
-      Частину деталей не публікуємо з міркувань безпеки.
-    </p>
-  </div>
-</section>
+    <!-- DONATE -->
+    <section class="section" id="donate">
+      <h2>Як підтримати взвод</h2>
+      <p class="muted">Оберіть зручний спосіб. Кнопки кольорові — щоб одразу було видно куди натискати.</p>
 
+      <div class="grid">
 
-        <!-- БЕЗСТРОКОВИЙ ЗБІР -->
-        <section class="card big-block" id="progress-ua">
-          <h2 class="section-title">Безстроковий збір</h2>
+        <!-- MONO -->
+        <section class="card">
+          <small>UAH · БАНКІВСЬКИЙ РАХУНОК</small>
+          <h3>Monobank · Банка “142 ОМБр · взвод технічного забезпечення”</h3>
+          <div class="kv">
+            <p><b>Отримувач:</b> Надельнюк Віктор Миколайович</p>
+            <p><b>IBAN:</b><br/>UA683220010000026208372629615</p>
+            <p><b>Номер картки:</b><br/>4874 1000 2019 8902</p>
+            <p><b>Призначення:</b> <code>ВТЗ МПБ 142 ОМБр</code></p>
+          </div>
 
-          <p class="progress-text">
-            Це безстроковий збір на щоденну роботу взводу: інструмент, запчастини, мастила, зварка,
-            діагностика та польові майстерні. Кожен внесок допомагає тримати техніку в строю.
+          <div class="btnrow">
+            <button class="btn btn-mono full" type="button" onclick="openInNewTab('https://send.monobank.ua/jar/8PfzHBQuu4')">Відкрити банку Monobank</button>
+            <button class="btn btn-ghost full" type="button" onclick="copyText('UA683220010000026208372629615')">Скопіювати IBAN</button>
+            <button class="btn btn-ghost full" type="button" onclick="copyText('4874100020198902')">Скопіювати номер картки</button>
+          </div>
+
+          <div class="qrwrap">
+            <img id="qr-mono" class="qr" alt="QR Monobank" loading="lazy">
+          </div>
+          <p class="muted" style="text-align:center;margin-top:8px;">Натисніть на QR — відкриється великий код</p>
+        </section>
+
+        <!-- PRIVAT -->
+        <section class="card">
+          <small>UAH · БАНКІВСЬКИЙ РАХУНОК</small>
+          <h3>PrivatBank · Поповнення картки</h3>
+          <div class="kv">
+            <p><b>Отримувач:</b> NADELNIUK VIKTOR MYKOLAYOVYCH</p>
+            <p><b>IBAN:</b><br/>UA023052990262076400994803502</p>
+            <p><b>Номер картки:</b><br/>5168 7521 4764 9654</p>
+            <p><b>Призначення:</b> <code>ВТЗ МПБ 142 ОМБр</code></p>
+          </div>
+
+          <div class="btnrow">
+            <button class="btn btn-priv full" type="button" onclick="openInNewTab('https://www.privat24.ua/send/3xbxx')">Відкрити Privat24</button>
+            <button class="btn btn-ghost full" type="button" onclick="copyText('UA023052990262076400994803502')">Скопіювати IBAN</button>
+            <button class="btn btn-ghost full" type="button" onclick="copyText('5168752147649654')">Скопіювати номер картки</button>
+          </div>
+
+          <div class="qrwrap">
+            <img id="qr-privat" class="qr" alt="QR PrivatBank" loading="lazy">
+          </div>
+          <p class="muted" style="text-align:center;margin-top:8px;">Натисніть на QR — відкриється великий код</p>
+        </section>
+
+        <!-- PAYPAL -->
+        <section class="card">
+          <small>МІЖНАРОДНІ ПЛАТЕЖІ</small>
+          <h3>PayPal / Paupay</h3>
+          <div class="kv">
+            <p><b>Email для переказів:</b><br/>nadelnuikviktor@gmail.com</p>
+            <p><b>Примітка до платежу:</b><br/><code>VTZ MPB 142 OMBr</code></p>
+          </div>
+
+          <div class="btnrow">
+            <button class="btn btn-pp full" type="button" onclick="copyText('nadelnuikviktor@gmail.com')">Скопіювати email</button>
+            <button class="btn btn-ghost full" type="button" onclick="openInNewTab('mailto:nadelnuikviktor@gmail.com')">Написати на email</button>
+          </div>
+
+          <div class="qrwrap">
+            <img id="qr-paupay" class="qr" alt="QR PayPal / Paupay" loading="lazy">
+          </div>
+          <p class="muted" style="margin-top:8px;">
+            Будь ласка, додайте <b>VTZ MPB 142 OMBr</b> у примітку платежу.
           </p>
-
-          <div class="progress-track">
-            <div id="progress-fill-ua" class="progress-fill" data-label="Збір активний"></div>
-          </div>
-
-          <div class="progress-meta">
-            <span id="progress-text-ua">Збір активний</span>
-            <span>Безстроковий збір · Оновлено: 01.12.2025</span>
-          </div>
         </section>
 
-        <!-- FAQ -->
-        <section class="card big-block" id="faq-ua">
-          <h2 class="section-title">Питання та відповіді</h2>
-
-          <details style="margin-bottom:6px;">
-            <summary style="cursor:pointer; font-weight:800; font-size:14px;">
-              Ви офіційний підрозділ Збройних сил України?
-            </summary>
-            <p style="margin-top:4px; font-size:13px;">
-              Так. Ми — взвод технічного забезпечення мотопіхотного батальйону 142-ї окремої механізованої бригади.
-            </p>
-          </details>
-
-          <details style="margin-bottom:6px;">
-            <summary style="cursor:pointer; font-weight:800; font-size:14px;">
-              На що саме йдуть донати?
-            </summary>
-            <p style="margin-top:4px; font-size:13px;">
-              Інструмент, запчастини, витратні матеріали, масла, зварка, діагностика та базові умови польової майстерні.
-            </p>
-          </details>
-
-          <details style="margin-bottom:6px;">
-            <summary style="cursor:pointer; font-weight:800; font-size:14px;">
-              Чи можу я допомогти не грошима, а інструментом чи запчастинами?
-            </summary>
-            <p style="margin-top:4px; font-size:13px;">
-              Так. Напишіть на <strong><a href="mailto:nadelnuikviktor@gmail.com">nadelnuikviktor@gmail.com</a></strong>
-              або в <strong>Telegram</strong> <code>@DOFAMIN95</code>.
-            </p>
-          </details>
-
-          <details>
-            <summary style="cursor:pointer; font-weight:800; font-size:14px;">
-              Чи надаєте ви звітність по донатах?
-            </summary>
-            <p style="margin-top:4px; font-size:13px;">
-              Так. Для фондів/компаній можемо підготувати звіт: фото, перелік закупленого, що саме зроблено і як це допомогло.
-            </p>
-          </details>
-        </section>
-
-        <!-- ПОДІЛИТИСЬ -->
-        <section class="card big-block" id="share-ua">
-          <h2 class="section-title">Розкажіть іншим</h2>
-
-          <p>
-            Допомогти можна не лише донатом, а й поширенням інформації.
-            Скопіюйте готовий текст або поділіться цією сторінкою.
-          </p>
-
-          <div class="btn-row" style="margin-top:10px; margin-bottom:14px;">
-            <button class="donate-btn donate-btn--share" type="button"
-              onclick="copyText('Привіт! Це збір для взводу технічного забезпечення мотопіхотного батальйону 142 ОМБр. Ми ремонтуємо техніку, яка возить боєкомплект, ПММ, їжу та евакуює поранених. Якщо маєш змогу — підтримай донатом або поширенням: https://viktornadelniuk.github.io/DOFAMIN95/')">
-              Скопіювати текст українською
-            </button>
-
-            <button class="donate-btn donate-btn--share" type="button"
-              onclick="copyText('Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade (mechanized infantry battalion). They repair trucks and armored vehicles at the frontline so vehicles keep moving, supplies arrive, and the wounded can be evacuated. If you can, please support with a donation or share this link: https://viktornadelniuk.github.io/DOFAMIN95/en.html')">
-              Скопіювати текст англійською
-            </button>
+        <!-- CRYPTO -->
+        <section class="card">
+          <small>КРИПТОВАЛЮТА</small>
+          <h3>Crypto · BTC · ETH · SOL · BNB</h3>
+          <div class="kv">
+            <p><b>Bitcoin (BTC):</b><br/>bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p</p>
+            <p><b>Ethereum (ETH):</b><br/>0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</p>
+            <p><b>Solana (SOL):</b><br/>DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525</p>
+            <p><b>BNB (BEP-20):</b><br/>0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</p>
           </div>
 
-          <div class="btn-row">
-            <button class="donate-btn donate-btn--share" type="button" onclick="shareUa('telegram')">Поділитися в Telegram</button>
-            <button class="donate-btn donate-btn--share" type="button" onclick="shareUa('viber')">Поділитися у Viber</button>
-            <button class="donate-btn donate-btn--share" type="button" onclick="shareUa('whatsapp')">Поділитися в WhatsApp</button>
-            <button class="donate-btn donate-btn--share" type="button" onclick="shareUa('facebook')">Поділитися у Facebook</button>
-            <button class="donate-btn donate-btn--share" type="button" onclick="shareUa('instagram')">Поділитися в Instagram</button>
+          <div class="btnrow">
+            <button class="btn btn-cr full" type="button" onclick="openInNewTab('https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p')">Відкрити BTC</button>
+            <button class="btn btn-cr full" type="button" onclick="openInNewTab('https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b')">Відкрити ETH</button>
+            <button class="btn btn-cr full" type="button" onclick="openInNewTab('https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525')">Відкрити SOL</button>
+            <button class="btn btn-ghost full" type="button" onclick="copyText('bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p')">Скопіювати BTC</button>
+            <button class="btn btn-ghost full" type="button" onclick="copyText('0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b')">Скопіювати ETH / BNB</button>
+            <button class="btn btn-ghost full" type="button" onclick="copyText('DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525')">Скопіювати SOL</button>
           </div>
+
+          <div class="qrwrap">
+            <img id="qr-btc" class="qr" alt="QR BTC" loading="lazy">
+          </div>
+          <p class="muted" style="text-align:center;margin-top:8px;">Натисніть на QR — відкриється великий код</p>
         </section>
 
-        <footer style="margin-top:22px; text-align:center; opacity:0.75; font-size:12px;">
-          Дякуємо за підтримку взводу технічного забезпечення 142 ОМБр.<br>
-          Ваша допомога тримає техніку в строю — а наших воїнів живими.
-          <div id="visitor-counter-ua" style="margin-top:6px; font-size:11px; opacity:0.75;"></div>
-        </footer>
+      </div>
+    </section>
 
-        <!-- SCROLL TO TOP BUTTON -->
-        <button type="button" id="scrollTopBtn" class="scroll-top-btn" aria-label="До початку сторінки">↑</button>
-      </main>
-    </div>
+    <!-- SUPPORTERS -->
+    <section class="section" id="supporters">
+      <h2>Підтримали</h2>
+      <p class="muted">Це реальна допомога, без публічності. Дякуємо Юрію та Володимиру — хто робить тихо, але по ділу.</p>
+
+      <div class="thx-grid">
+        <article class="thx-card">
+          <a href="assets/support/support-01.jpg" target="_blank" rel="noopener">
+            <img src="assets/support/support-01.jpg" alt="Анонімна підтримка підрозділу" loading="lazy" />
+          </a>
+          <div class="thx-body">
+            <div class="thx-top">
+              <div class="thx-name">Анонімна підтримка</div>
+              <div class="thx-badge">Генератор</div>
+            </div>
+            <div class="thx-text">Передане обладнання для ремонтів.</div>
+          </div>
+        </article>
+
+        <article class="thx-card">
+          <a href="assets/support/support-02.jpg" target="_blank" rel="noopener">
+            <img src="assets/support/support-02.jpg" alt="Анонімна підтримка підрозділу" loading="lazy" />
+          </a>
+          <div class="thx-body">
+            <div class="thx-top">
+              <div class="thx-name">Анонімна підтримка</div>
+              <div class="thx-badge">Автосканер</div>
+            </div>
+            <div class="thx-text">Без цього ремонт зупиняється — а техніка повинна їхати.</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PURCHASED -->
+    <section class="section" id="purchased">
+      <h2>Що вже закупили завдяки донатам</h2>
+      <p class="muted">Це речі, які вже працюють та допомагають тримати техніку в строю.</p>
+
+      <div class="carousel-wrap">
+        <button class="cbtn cprev" type="button" aria-label="Назад" data-target="purchasedCarousel">‹</button>
+        <div class="carousel" id="purchasedCarousel" aria-label="Карусель закупівель">
+          <div class="c-item"><img src="assets/purchased-01.jpg" alt="Закуплено 1" loading="lazy"></div>
+          <div class="c-item"><img src="assets/purchased-02.jpg" alt="Закуплено 2" loading="lazy"></div>
+          <div class="c-item"><img src="assets/purchased-03.jpg" alt="Закуплено 3" loading="lazy"></div>
+          <div class="c-item"><img src="assets/purchased-04.jpg" alt="Закуплено 4" loading="lazy"></div>
+          <div class="c-item"><img src="assets/purchased-05.jpg" alt="Закуплено 5" loading="lazy"></div>
+          <div class="c-item"><img src="assets/purchased-06.jpg" alt="Закуплено 6" loading="lazy"></div>
+          <div class="c-item"><img src="assets/purchased-07.jpg" alt="Закуплено 7" loading="lazy"></div>
+          <div class="c-item"><img src="assets/purchased-08.jpg" alt="Закуплено 8" loading="lazy"></div>
+          <div class="c-item"><img src="assets/purchased-09.jpg" alt="Закуплено 9" loading="lazy"></div>
+          <div class="c-item"><img src="assets/purchased-10.jpg" alt="Закуплено 10" loading="lazy"></div>
+          <div class="c-item"><img src="assets/purchased-11.jpg" alt="Закуплено 11" loading="lazy"></div>
+        </div>
+        <button class="cbtn cnext" type="button" aria-label="Вперед" data-target="purchasedCarousel">›</button>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <h2>Про взвод</h2>
+
+      <p>Ми — взвод технічного забезпечення мотопіхотного батальйону 142-ї окремої механізованої бригади. Наше завдання — утримувати техніку батальйону в роботі на одному з найгарячіших напрямків фронту.</p>
+      <p>Нас рідко видно в кадрі чи в новинах, але від нашої роботи залежить, чи доїде машина до позиції, чи отримає підрозділ боєкомплект і чи встигнуть вчасно евакуювати поранених.</p>
+
+      <div class="divider"></div>
+
+      <h3 style="font-weight:900;font-size:16px;margin-bottom:8px;">Чим ми займаємось</h3>
+
+      <p><b>• Обслуговування</b><br/>Планове й позапланове ТО, масла/фільтри/рідини, перевірка стану машин — щоб техніка була готова рушити будь-якої миті.</p>
+      <p><b>• Ремонт і відновлення</b><br/>Двигуни, КПП, підвіска, гальма, електрика, гідравліка, паливна. Від дрібних датчиків до великих агрегатів.</p>
+      <p><b>• Евакуація техніки</b><br/>Коли машина не може рухатися — підбита, зламана чи загрузла — ми їдемо за нею. Часто під обстрілами.</p>
+      <p><b>• Діагностика</b><br/>Ловимо приховані проблеми, щоб техніка не стала в критичний момент.</p>
+      <p><b>• Польовий ремонт</b><br/>Земля, тент, ліхтар, генератор і інструмент. Немає умов? Створюємо їх.</p>
+      <p><b>• Мобільність батальйону</b><br/>Робоча техніка = підвіз, ротації, евакуація поранених, вода, їжа, маневр і виживання.</p>
+    </section>
+
+    <!-- TEAM -->
+    <section class="section" id="team">
+      <h2>Команда взводу технічного забезпечення</h2>
+      <p class="muted">Ми працюємо як один механізм. У кожного своя роль, але мета одна — техніка має їхати, а підрозділи мають виконувати задачі й повертатися живими.</p>
+
+      <div class="carousel-wrap">
+        <button class="cbtn cprev" type="button" aria-label="Назад" data-target="teamCarousel">‹</button>
+
+        <div class="carousel" id="teamCarousel" aria-label="Карусель команди">
+          <div class="c-item" style="padding:14px">
+            <h3 style="font-weight:900;margin-bottom:8px">Командир взводу</h3>
+            <p class="muted">Планує роботу, розставляє пріоритети, координує евакуацію і ремонти. Приймає рішення, що рятувати першим.</p>
+          </div>
+          <div class="c-item" style="padding:14px">
+            <h3 style="font-weight:900;margin-bottom:8px">Заступник / старший майстер</h3>
+            <p class="muted">Організовує роботу на місці, контролює якість ремонту, веде облік задач і відповідальних.</p>
+          </div>
+          <div class="c-item" style="padding:14px">
+            <h3 style="font-weight:900;margin-bottom:8px">Старший механік-водій / слюсар</h3>
+            <p class="muted">Складні ремонти, дефектування вузлів, контроль безпеки та готовності машин.</p>
+          </div>
+          <div class="c-item" style="padding:14px">
+            <h3 style="font-weight:900;margin-bottom:8px">Механік-агрегатник</h3>
+            <p class="muted">Двигун, зчеплення, КПП/РК, мости, кардан. Відновлення працездатності “в полі”.</p>
+          </div>
+          <div class="c-item" style="padding:14px">
+            <h3 style="font-weight:900;margin-bottom:8px">Ходова / підвіска / гальма</h3>
+            <p class="muted">Ресори, ступиці, гальмівна система, рульове. Усунення люфтів, підтікань, перегрівів.</p>
+          </div>
+          <div class="c-item" style="padding:14px">
+            <h3 style="font-weight:900;margin-bottom:8px">Автоелектрик</h3>
+            <p class="muted">Проводка, стартер/генератор, освітлення, запобіжники, “маси”, реле, зарядка.</p>
+          </div>
+          <div class="c-item" style="padding:14px">
+            <h3 style="font-weight:900;margin-bottom:8px">Діагност / сканер</h3>
+            <p class="muted">Читання помилок, перевірка датчиків. Дає точну причину, щоб не втрачати час.</p>
+          </div>
+          <div class="c-item" style="padding:14px">
+            <h3 style="font-weight:900;margin-bottom:8px">Зварювальник / кузов</h3>
+            <p class="muted">Рами, кронштейни, підсилення вузлів. Швидке відновлення після ударів і вібрацій.</p>
+          </div>
+          <div class="c-item" style="padding:14px">
+            <h3 style="font-weight:900;margin-bottom:8px">Шиномонтаж / колеса</h3>
+            <p class="muted">Ремонт шин, підкачка, заміни, латання проколів. Контроль тиску під навантаженням.</p>
+          </div>
+          <div class="c-item" style="padding:14px">
+            <h3 style="font-weight:900;margin-bottom:8px">Евакуаційна група</h3>
+            <p class="muted">Витягування, буксирування, троси/стропи/лебідки. Вивіз з ризикових зон.</p>
+          </div>
+          <div class="c-item" style="padding:14px">
+            <h3 style="font-weight:900;margin-bottom:8px">Водії (підвіз/перегін)</h3>
+            <p class="muted">Доставка запчастин і розхідників, перегін техніки, підвіз інструменту.</p>
+          </div>
+          <div class="c-item" style="padding:14px">
+            <h3 style="font-weight:900;margin-bottom:8px">Забезпечення та логістика</h3>
+            <p class="muted">Пошук і доставка запчастин/масел/інструменту. Облік, заявки, контроль залишків.</p>
+          </div>
+        </div>
+
+        <button class="cbtn cnext" type="button" aria-label="Вперед" data-target="teamCarousel">›</button>
+      </div>
+
+      <p class="muted" style="margin-top:12px;">
+        Частину деталей ми свідомо не показуємо з міркувань безпеки. Але за кожною машиною, яка повертається в стрій, стоїть жива команда людей і години важкої роботи.
+      </p>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section" id="gallery">
+      <h2>Фотогалерея</h2>
+      <p class="muted">Фото з робочих моментів. (Шлях: <code>assets/photos/p1.jpg</code> ... <code>p37.jpg</code>)</p>
+
+      <div class="carousel-wrap">
+        <button class="cbtn cprev" type="button" aria-label="Назад" data-target="galleryCarousel">‹</button>
+        <div class="carousel" id="galleryCarousel" aria-label="Фотокарусель">
+          <!-- JS auto generates p1..p37 -->
+        </div>
+        <button class="cbtn cnext" type="button" aria-label="Вперед" data-target="galleryCarousel">›</button>
+      </div>
+    </section>
+
+    <!-- VIDEOS -->
+    <section class="section" id="videos">
+      <h2>Відео</h2>
+      <p class="muted">Старі + нові YouTube Shorts — все в одній каруселі.</p>
+
+      <div class="carousel-wrap">
+        <button class="cbtn cprev" type="button" aria-label="Назад" data-target="videoCarousel">‹</button>
+
+        <div class="carousel" id="videoCarousel" aria-label="Відеокарусель">
+          <!-- Старі -->
+          <div class="v-item">
+            <div class="v-frame">
+              <iframe src="https://www.youtube.com/embed/Rz_Y3Tj6Rz4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="v-item">
+            <div class="v-frame">
+              <iframe src="https://www.youtube.com/embed/KlInbRyOCuY" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="v-item">
+            <div class="v-frame">
+              <iframe src="https://www.youtube.com/embed/QTbz0BHjAzA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="v-item">
+            <div class="v-frame">
+              <iframe src="https://www.youtube.com/embed/xvvbYfiG_rk" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+
+          <!-- Нові Shorts -->
+          <div class="v-item">
+            <div class="v-frame">
+              <iframe src="https://www.youtube.com/embed/As6kEEhAw-E" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="v-item">
+            <div class="v-frame">
+              <iframe src="https://www.youtube.com/embed/GKnGl-bD990" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="v-item">
+            <div class="v-frame">
+              <iframe src="https://www.youtube.com/embed/o6ZeuaXdu3Q" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="v-item">
+            <div class="v-frame">
+              <iframe src="https://www.youtube.com/embed/lythBRYJJ6M" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="v-item">
+            <div class="v-frame">
+              <iframe src="https://www.youtube.com/embed/WVaNwv3Jf0E" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+          <div class="v-item">
+            <div class="v-frame">
+              <iframe src="https://www.youtube.com/embed/3cB4r9ntBz0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+
+        <button class="cbtn cnext" type="button" aria-label="Вперед" data-target="videoCarousel">›</button>
+      </div>
+    </section>
+
+    <!-- CURRENT NEEDS -->
+    <section class="section" id="current-needs-ua">
+      <h2>Поточні потреби</h2>
+      <p>Зараз ваші донати в першу чергу перетворюються на:</p>
+      <p><b>• Інструмент і обладнання</b><br/>Головки/ключі/домкрати/знімачі/пневмо/освітлення.</p>
+      <p><b>• Зварка та витратники</b><br/>Електроди, дріт, маски, кабелі, рукавиці.</p>
+      <p><b>• Запчастини</b><br/>Фільтри, ремені, колодки, шланги, підшипники, кріплення.</p>
+      <p><b>• Рідини та мастила</b><br/>Моторні/трансмісійні масла, антифриз, мастила.</p>
+      <p><b>• Діагностика та електрика</b><br/>Мультиметри, клеми, фішки, запобіжники.</p>
+      <p><b>• Умови роботи</b><br/>Генератори, тенти, освітлення, робочий одяг.</p>
+      <p>Кожна гривня/євро/долар — це конкретна річ, яка дає машині ще один виїзд, а людям — ще один шанс.</p>
+    </section>
+
+    <!-- PROGRESS -->
+    <section class="section" id="progress-ua">
+      <h2>Безстроковий збір</h2>
+      <p class="muted">
+        Це безстроковий збір на щоденну роботу взводу: інструмент, запчастини, мастила, зварка, діагностика та польові майстерні.
+        Кожен внесок допомагає тримати техніку в строю.
+      </p>
+
+      <div class="progress-track">
+        <div id="progressFill" class="progress-fill" data-label="Збір активний"></div>
+      </div>
+
+      <div class="progress-meta">
+        <span id="progressText">Збір активний</span>
+        <span>Безстроковий збір · Оновлено: 01.12.2025</span>
+      </div>
+    </section>
+
+    <!-- PRINCIPLES -->
+    <section class="section" id="principles-ua">
+      <h2>Наші принципи</h2>
+      <p class="muted">Кілька простих, але жорстких принципів, які щодня рятують техніку й життя.</p>
+
+      <div class="grid">
+        <div class="card" style="grid-column:span 4"><h3>Швидкість</h3><p class="muted">Оперативно реагуємо. У полі важлива кожна хвилина.</p></div>
+        <div class="card" style="grid-column:span 4"><h3>Точність</h3><p class="muted">Діагностика і ремонт максимально якісні. Помилка може коштувати життя.</p></div>
+        <div class="card" style="grid-column:span 4"><h3>Професійність</h3><p class="muted">Кожен знає свою техніку до болта. Ми вкладаємо досвід і руки.</p></div>
+        <div class="card" style="grid-column:span 4"><h3>Відповідальність</h3><p class="muted">Відремонтована машина = виконана бойова задача. Відповідаємо за результат.</p></div>
+        <div class="card" style="grid-column:span 4"><h3>Мобільність</h3><p class="muted">Працюємо будь-де: в полі, в багнюці, під дощем чи морозом.</p></div>
+        <div class="card" style="grid-column:span 4"><h3>Стійкість</h3><p class="muted">Доводимо роботу до кінця. Без відмазок. Техніка має їхати.</p></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <h2>Питання та відповіді</h2>
+
+      <details>
+        <summary>Ви офіційний підрозділ Збройних сил України?</summary>
+        <p>Так. Ми — взвод технічного забезпечення мотопіхотного батальйону 142-ї окремої механізованої бригади. Уся техніка офіційно закріплена за підрозділами ЗСУ.</p>
+      </details>
+
+      <details>
+        <summary>На що саме йдуть донати?</summary>
+        <p>На інструмент, запчастини, витратні матеріали, масла, зварку, діагностику та базові умови для польової майстерні.</p>
+      </details>
+
+      <details>
+        <summary>Чи можу я допомогти не грошима, а інструментом чи запчастинами?</summary>
+        <p>Так. Напишіть на <b><a href="mailto:nadelnuikviktor@gmail.com">nadelnuikviktor@gmail.com</a></b> або в Telegram <code>@DOFAMIN95</code> — надішлемо актуальні потреби та деталі доставки.</p>
+      </details>
+
+      <details>
+        <summary>Чи надаєте ви звітність по донатах?</summary>
+        <p>Так. Для фондів і великих донаторів можемо підготувати окремий звіт: фото, перелік закупленого, опис, на що пішли кошти та як це допомогло роботі взводу.</p>
+      </details>
+
+      <details>
+        <summary>Чи можна публічно згадувати ваш підрозділ або використовувати фото?</summary>
+        <p>Такі речі погоджуємо окремо з урахуванням безпеки. Напишіть — і ми уточнимо, що можна показувати.</p>
+      </details>
+    </section>
+
+    <!-- SHARE -->
+    <section class="section" id="share-ua">
+      <h2>Розкажіть іншим</h2>
+      <p class="muted">Допомогти можна не лише донатом, а й поширенням. Скопіюйте текст або поділіться посиланням.</p>
+
+      <div class="btnrow" style="margin-top:12px;">
+        <button class="btn btn-cta full" type="button"
+          onclick="copyText('Привіт! Це збір для взводу технічного забезпечення мотопіхотного батальйону 142 ОМБр. Ми ремонтуємо техніку, яка возить боєкомплект, ПММ, їжу та евакуює поранених. Якщо маєш змогу — підтримай донатом або поширенням: https://viktornadelniuk.github.io/DOFAMIN95/')">
+          Скопіювати текст українською
+        </button>
+
+        <button class="btn btn-ghost full" type="button"
+          onclick="copyText('Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade (mechanized infantry battalion). They repair trucks and armored vehicles right at the frontline so that vehicles keep moving, supplies and fuel arrive, and the wounded can be evacuated. If you can, please support with a donation or by sharing this link: https://viktornadelniuk.github.io/DOFAMIN95/en.html')">
+          Скопіювати текст англійською
+        </button>
+
+        <button class="btn btn-ghost full" type="button" onclick="shareUa('telegram')">Поділитися в Telegram</button>
+        <button class="btn btn-ghost full" type="button" onclick="shareUa('viber')">Поділитися у Viber</button>
+        <button class="btn btn-ghost full" type="button" onclick="shareUa('whatsapp')">Поділитися в WhatsApp</button>
+        <button class="btn btn-ghost full" type="button" onclick="shareUa('facebook')">Поділитися у Facebook</button>
+        <button class="btn btn-ghost full" type="button" onclick="shareUa('instagram')">Поділитися в Instagram</button>
+      </div>
+    </section>
+
+    <footer>
+      Дякуємо за підтримку взводу технічного забезпечення 142 ОМБр.<br/>
+      Ваша допомога тримає техніку в строю — а наших воїнів живими.
+      <div id="visitorCounter" style="margin-top:8px; font-size:11px; opacity:0.72;"></div>
+    </footer>
+
   </div>
 
-  <!-- MOBILE DONATE BUTTON -->
-  <a href="#donate" class="mobile-donate-btn">Підтримати взвод</a>
+  <!-- Mobile donate -->
+  <a class="mobile-donate" href="#donate" id="mobileDonate">ПІДТРИМАТИ ВЗВОД</a>
 
-  <!-- TOAST -->
-  <div id="toast" class="toast" aria-live="polite" aria-atomic="true">
+  <!-- Scroll top -->
+  <button id="scrollTopBtn" aria-label="До початку сторінки">↑</button>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" aria-live="polite" aria-atomic="true">
     <span class="toast-dot"></span>
-    <span class="toast-text" id="toastText">Готово</span>
+    <span id="toastText">Готово</span>
   </div>
 
-  <!-- FULLSCREEN QR MODAL -->
-  <div id="qrModal" class="qr-modal" aria-hidden="true">
-    <div class="qr-modal-card" id="qrModalCard" role="dialog" aria-modal="true">
-      <div class="qr-modal-head">
+  <!-- QR Modal -->
+  <div class="qr-modal" id="qrModal" aria-hidden="true">
+    <div class="qr-card" role="dialog" aria-modal="true">
+      <div class="qr-head">
         <div>
-          <div class="qr-modal-title" id="qrModalTitle">QR</div>
-          <div class="qr-modal-sub" id="qrModalSub">Скануйте або відкрийте платіж</div>
+          <div class="qr-title" id="qrModalTitle">QR</div>
+          <div class="qr-sub" id="qrModalSub">Скануйте або відкрийте платіж</div>
         </div>
-        <button type="button" class="qr-modal-close" id="qrModalClose" aria-label="Закрити">×</button>
+        <button class="qr-close" type="button" id="qrModalClose" aria-label="Закрити">×</button>
       </div>
-
-      <div class="qr-modal-body">
-        <div class="qr-modal-qrwrap">
-          <img id="qrModalImg" class="qr-modal-qr" alt="QR код" loading="lazy">
+      <div class="qr-body">
+        <div class="qr-plate">
+          <img id="qrModalImg" class="qr-big" alt="QR код" loading="lazy" />
         </div>
-
-        <div class="qr-modal-actions">
-          <button type="button" class="qr-action-btn primary" id="qrModalOpenBtn">Відкрити</button>
-          <button type="button" class="qr-action-btn" id="qrModalCopyBtn">Скопіювати</button>
+        <div class="qr-actions">
+          <button class="btn btn-cta full" type="button" id="qrModalOpenBtn">Відкрити</button>
+          <button class="btn btn-ghost full" type="button" id="qrModalCopyBtn">Скопіювати</button>
         </div>
       </div>
-
-      <div class="qr-modal-foot" id="qrModalFoot">
-        Якщо сканер не бачить — збільште яскравість екрана.
-      </div>
+      <div class="qr-foot" id="qrModalFoot">Якщо сканер не бачить — збільште яскравість екрана.</div>
     </div>
   </div>
 
   <script>
-    /* ===================== QR codes ===================== */
-    function setQR(id, data) {
-      var el = document.getElementById(id);
-      if (!el) return;
-      var api = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=";
+    // ===== Helpers =====
+    function openInNewTab(url){ window.open(url, '_blank', 'noopener'); }
+
+    // ===== QR codes =====
+    function setQR(id, data){
+      const el = document.getElementById(id);
+      if(!el) return;
+      const api = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=";
       el.src = api + encodeURIComponent(data);
     }
     setQR("qr-mono",   "https://send.monobank.ua/jar/8PfzHBQuu4");
@@ -1706,57 +1284,45 @@
     setQR("qr-btc",    "https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p");
     setQR("qr-paupay", "nadelnuikviktor@gmail.com");
 
-    /* ===================== TOAST ===================== */
-    (function(){
-      const toast = document.getElementById('toast');
-      const textEl = document.getElementById('toastText');
-      let t;
-      window.showToast = function(message){
-        if(!toast || !textEl) return;
-        textEl.textContent = message;
-        toast.classList.add('toast--show');
-        clearTimeout(t);
-        t = setTimeout(()=> toast.classList.remove('toast--show'), 1800);
-      }
-    })();
+    // ===== Toast =====
+    const toast = document.getElementById('toast');
+    const toastText = document.getElementById('toastText');
+    let toastTimer;
+    function showToast(msg){
+      toastText.textContent = msg || 'Готово';
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(()=>toast.classList.remove('show'), 1800);
+    }
 
-    /* ===================== Copy to clipboard ===================== */
-    async function copyText(text) {
+    // ===== Copy =====
+    async function copyText(text){
       try{
-        if (navigator.clipboard && navigator.clipboard.writeText) {
+        if(navigator.clipboard && navigator.clipboard.writeText){
           await navigator.clipboard.writeText(text);
           showToast('Скопійовано');
           return;
         }
-        fallbackCopy(text);
-      }catch(e){
-        fallbackCopy(text);
-      }
-    }
-    function fallbackCopy(text) {
-      var area = document.createElement('textarea');
+      }catch(e){}
+      const area = document.createElement('textarea');
       area.value = text;
       area.style.position = 'fixed';
       area.style.left = '-9999px';
       document.body.appendChild(area);
       area.focus();
       area.select();
-      try {
-        document.execCommand('copy');
-        showToast('Скопійовано');
-      } catch (e) {
-        showToast('Не вдалося скопіювати. Спробуйте вручну.');
-      }
+      try{ document.execCommand('copy'); showToast('Скопійовано'); }
+      catch(e){ showToast('Не вдалося. Скопіюйте вручну.'); }
       document.body.removeChild(area);
     }
 
-    /* ===================== Sharing (UA) ===================== */
+    // ===== Sharing (UA) =====
     const SHARE_TEXT_UA = 'Привіт! Це збір для взводу технічного забезпечення мотопіхотного батальйону 142 ОМБр. Ми ремонтуємо техніку, яка возить боєкомплект, ПММ, їжу та евакуює поранених.';
     const SHARE_URL_UA  = 'https://viktornadelniuk.github.io/DOFAMIN95/';
-    function shareUa(service) {
+    function shareUa(service){
       const text = SHARE_TEXT_UA + ' ' + SHARE_URL_UA;
       let shareUrl = '';
-      switch (service) {
+      switch(service){
         case 'telegram':
           shareUrl = 'https://t.me/share/url?url=' + encodeURIComponent(SHARE_URL_UA) + '&text=' + encodeURIComponent(SHARE_TEXT_UA);
           break;
@@ -1777,264 +1343,95 @@
           copyText(text);
           return;
       }
-      window.open(shareUrl, '_blank');
+      window.open(shareUrl, '_blank', 'noopener');
     }
 
-    /* ===================== Scroll to top ===================== */
-    (function () {
-      var btn = document.getElementById('scrollTopBtn');
-      if (!btn) return;
-      window.addEventListener('scroll', function () {
-        var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-        if (scrollY > 250) btn.classList.add('scroll-top-btn--visible');
-        else btn.classList.remove('scroll-top-btn--visible');
-      });
-      btn.addEventListener('click', function () {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    })();
+    // ===== Scroll to top =====
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', ()=>{
+      const y = window.scrollY || document.documentElement.scrollTop;
+      scrollBtn.classList.toggle('show', y > 260);
+    }, {passive:true});
+    scrollBtn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
 
-    /* ===================== Visitor counter ===================== */
-    (function () {
-      var el = document.getElementById('visitor-counter-ua');
-      if (!el) return;
-      fetch('https://api.countapi.xyz/hit/vtz-142omb/site')
-        .then(res => res.json())
-        .then(data => { el.textContent = 'Людей, які відвідали цю сторінку підтримки (перегляди): ' + data.value; })
-        .catch(() => { el.textContent = 'Людей, які відвідали цю сторінку: —'; });
-    })();
-
-    /* ===================== Block donate button in big blocks ===================== */
-    (function () {
-      var blocks = document.querySelectorAll('.big-block');
-      blocks.forEach(function (block) {
-        if (block.querySelector('.block-donate-btn')) return;
-        var btn = document.createElement('button');
-        btn.className = 'block-donate-btn';
-        btn.innerHTML = '<span class="icon">💛💙</span> Підтримати взвод';
-        btn.addEventListener('click', function () {
-          var donate = document.getElementById('donate');
-          if (donate) donate.scrollIntoView({ behavior: "smooth" });
-        });
-        block.appendChild(btn);
-      });
-    })();
-
-    /* ===================== Donation progress (UA) ===================== */
-    (function () {
-      var fill = document.getElementById('progress-fill-ua');
-      var text = document.getElementById('progress-text-ua');
-      if (!fill || !text) return;
-      var percent = 40;
-      fill.style.width = percent + '%';
-      fill.setAttribute('data-label', 'Збір активний');
-      text.textContent = 'Збір активний';
-    })();
-
-    /* ===================== VIDEO CAROUSEL JS ===================== */
+    // ===== Mobile donate hide on donate section =====
     (function(){
-      const track = document.getElementById('videoCarousel');
-      if(!track) return;
-      const prev = document.querySelector('#videos .vc-prev');
-      const next = document.querySelector('#videos .vc-next');
-
-      function getStep(){
-        const first = track.querySelector('.vc-item');
-        if(!first) return 300;
-        const gap = parseInt(getComputedStyle(track).gap || '14', 10);
-        return first.getBoundingClientRect().width + gap;
-      }
-      prev && prev.addEventListener('click', () => track.scrollBy({ left: -getStep(), behavior: 'smooth' }));
-      next && next.addEventListener('click', () => track.scrollBy({ left:  getStep(), behavior: 'smooth' }));
-    })();
-
-    /* ===================== GALLERY: generate p1–p37 ===================== */
-    document.addEventListener('DOMContentLoaded', () => {
-      const carousel = document.getElementById('galleryCarousel');
-      const prevBtn = document.querySelector('#gallery .gc-prev');
-      const nextBtn = document.querySelector('#gallery .gc-next');
-      if(!carousel) return;
-
-      for(let i = 1; i <= 37; i++){
-        const figure = document.createElement('figure');
-        figure.className = 'gc-item';
-        figure.innerHTML = `<img src="assets/photos/p${i}.jpg" alt="Фото ${i}" loading="lazy">`;
-        carousel.appendChild(figure);
-      }
-
-      const getItemWidth = () => (carousel.querySelector('.gc-item')?.offsetWidth || 320) + 14;
-      prevBtn && prevBtn.addEventListener('click', () => carousel.scrollBy({ left: -getItemWidth(), behavior: 'smooth' }));
-      nextBtn && nextBtn.addEventListener('click', () => carousel.scrollBy({ left:  getItemWidth(), behavior: 'smooth' }));
-    });
-
-    /* ===================== MOBILE DONATE BUTTON VISIBILITY ===================== */
-    (function(){
-      const btn = document.querySelector('.mobile-donate-btn');
+      const btn = document.getElementById('mobileDonate');
       const donate = document.getElementById('donate');
       if(!btn || !donate) return;
-      const obs = new IntersectionObserver(([e]) => {
+      const obs = new IntersectionObserver(([e])=>{
         btn.style.display = e.isIntersecting ? 'none' : '';
-      }, { threshold: 0.2 });
+      }, {threshold: .2});
       obs.observe(donate);
     })();
 
-    /* ===================== PURCHASED CAROUSEL (dots + swipe) ===================== */
+    // ===== Visitor counter =====
     (function(){
-      const track = document.getElementById('purchasedTrack');
-      const dotsWrap = document.getElementById('purchasedDots');
-      const prev = document.querySelector('.pc-prev');
-      const next = document.querySelector('.pc-next');
-      if(!track || !dotsWrap) return;
-
-      const slides = Array.from(track.children);
-      let index = 0;
-
-      const dots = slides.map((_, i) => {
-        const d = document.createElement('span');
-        d.addEventListener('click', ()=>{ index = i; update(); });
-        dotsWrap.appendChild(d);
-        return d;
-      });
-
-      function update(){
-        track.style.transform = `translateX(-${index * 100}%)`;
-        dots.forEach((d,i)=> d.classList.toggle('active', i === index));
-      }
-
-      prev && prev.addEventListener('click', ()=>{
-        index = (index - 1 + slides.length) % slides.length;
-        update();
-      });
-      next && next.addEventListener('click', ()=>{
-        index = (index + 1) % slides.length;
-        update();
-      });
-
-      let startX = 0, dragging = false;
-      track.addEventListener('touchstart', (e)=>{
-        if(!e.touches || !e.touches[0]) return;
-        startX = e.touches[0].clientX;
-        dragging = true;
-      }, {passive:true});
-      track.addEventListener('touchend', (e)=>{
-        if(!dragging) return;
-        dragging = false;
-        const endX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : startX;
-        const dx = endX - startX;
-        if(Math.abs(dx) < 40) return;
-        if(dx < 0) index = (index + 1) % slides.length;
-        else index = (index - 1 + slides.length) % slides.length;
-        update();
-      }, {passive:true});
-
-      update();
+      const el = document.getElementById('visitorCounter');
+      if(!el) return;
+      fetch('https://api.countapi.xyz/hit/vtz-142omb/site')
+        .then(r=>r.json())
+        .then(d=> el.textContent = 'Перегляди сторінки: ' + d.value)
+        .catch(()=> el.textContent = 'Перегляди сторінки: —');
     })();
 
-    /* ===================== UNIQUE: TECH-TRACES ON SCROLL ===================== */
-    (function(){
-      const traces = document.getElementById('tech-traces');
-      if(!traces) return;
-      let t;
-      function boost(){
-        traces.style.opacity = '0.14';
-        clearTimeout(t);
-        t = setTimeout(()=>{ traces.style.opacity = '0.06'; }, 220);
-      }
-      window.addEventListener('scroll', boost, { passive:true });
-    })();
-
-    /* ===================== UNIQUE: SYSTEM STATE (slow, calm) ===================== */
+    // ===== System state (calm) =====
     (function(){
       const textEl = document.getElementById('systemText');
       const dotEl = document.getElementById('systemDot');
       if(!textEl || !dotEl) return;
-
       const states = [
-        { t:'СТАН: РОБОТА ЙДЕ',          c:'rgba(255,255,255,0.55)', g:'rgba(255,255,255,0.18)'},
-        { t:'СТАН: НАВАНТАЖЕННЯ ВИСОКЕ', c:'rgba(255,215,0,0.65)',   g:'rgba(255,215,0,0.22)'},
-        { t:'СТАН: ОЧІКУЄМО РЕСУРС',     c:'rgba(0,180,255,0.65)',   g:'rgba(0,180,255,0.20)'}
+        {t:'СТАН: РОБОТА ЙДЕ', c:'rgba(255,255,255,.55)', g:'rgba(255,255,255,.18)'},
+        {t:'СТАН: НАВАНТАЖЕННЯ ВИСОКЕ', c:'rgba(255,215,0,.70)', g:'rgba(255,215,0,.22)'},
+        {t:'СТАН: ОЧІКУЄМО РЕСУРС', c:'rgba(0,156,222,.70)', g:'rgba(0,156,222,.22)'}
       ];
-
-      let i = 0;
+      let i=0;
       function apply(s){
         textEl.style.opacity = '0';
         setTimeout(()=>{
           textEl.textContent = s.t;
           dotEl.style.background = s.c;
-          dotEl.style.boxShadow = `0 0 10px ${s.g}`;
+          dotEl.style.boxShadow = `0 0 12px ${s.g}`;
           textEl.style.opacity = '1';
-        }, 220);
+        }, 200);
       }
-
       apply(states[i]);
-      setInterval(()=>{
-        i = (i + 1) % states.length;
-        apply(states[i]);
-      }, 9000);
+      setInterval(()=>{ i=(i+1)%states.length; apply(states[i]); }, 9000);
     })();
 
-    /* ===================== SNOW ===================== */
+    // ===== Unified carousel arrows =====
+    function bindArrows(targetId){
+      const track = document.getElementById(targetId);
+      if(!track) return;
+      const prev = document.querySelector(`.cbtn.cprev[data-target="${targetId}"]`);
+      const next = document.querySelector(`.cbtn.cnext[data-target="${targetId}"]`);
+      const step = ()=>{
+        const first = track.children[0];
+        if(!first) return 320;
+        const gap = parseInt(getComputedStyle(track).gap || '14', 10);
+        return first.getBoundingClientRect().width + gap;
+      };
+      prev && prev.addEventListener('click', ()=> track.scrollBy({left: -step(), behavior:'smooth'}));
+      next && next.addEventListener('click', ()=> track.scrollBy({left: step(), behavior:'smooth'}));
+    }
+    bindArrows('purchasedCarousel');
+    bindArrows('teamCarousel');
+    bindArrows('galleryCarousel');
+    bindArrows('videoCarousel');
+
+    // ===== Gallery generate p1..p37 =====
     (function(){
-      const c = document.getElementById('snow');
-      if(!c) return;
-      const ctx = c.getContext('2d', { alpha:true });
-
-      let w, h, dpr;
-      const flakes = [];
-      const COUNT = 70;
-
-      function resize(){
-        dpr = Math.min(window.devicePixelRatio || 1, 2);
-        w = Math.floor(window.innerWidth);
-        h = Math.floor(window.innerHeight);
-        c.width = Math.floor(w * dpr);
-        c.height = Math.floor(h * dpr);
-        c.style.width = w + 'px';
-        c.style.height = h + 'px';
-        ctx.setTransform(dpr,0,0,dpr,0,0);
-      }
-      window.addEventListener('resize', resize);
-      resize();
-
-      function seed(){
-        flakes.length = 0;
-        for(let i=0;i<COUNT;i++){
-          flakes.push({
-            x: Math.random()*w,
-            y: Math.random()*h,
-            r: 0.8 + Math.random()*2.2,
-            s: 0.35 + Math.random()*0.95,
-            dx: (Math.random()-0.5)*0.25
-          });
-        }
-      }
-      seed();
-
-      function tick(){
-        ctx.clearRect(0,0,w,h);
-        ctx.fillStyle = 'rgba(255,255,255,0.85)';
-        for(const f of flakes){
-          ctx.beginPath();
-          ctx.arc(f.x, f.y, f.r, 0, Math.PI*2);
-          ctx.fill();
-          f.y += f.s;
-          f.x += f.dx;
-
-          if(f.y > h + 8){ f.y = -10; f.x = Math.random()*w; }
-          if(f.x < -10) f.x = w + 10;
-          if(f.x > w + 10) f.x = -10;
-        }
-        requestAnimationFrame(tick);
-      }
-
-      if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-        c.style.opacity = '0.25';
-      } else {
-        tick();
+      const carousel = document.getElementById('galleryCarousel');
+      if(!carousel) return;
+      for(let i=1;i<=37;i++){
+        const item = document.createElement('div');
+        item.className = 'c-item';
+        item.innerHTML = `<img src="assets/photos/p${i}.jpg" alt="Фото ${i}" loading="lazy">`;
+        carousel.appendChild(item);
       }
     })();
 
-    /* ===================== QR FULLSCREEN MODAL ===================== */
+    // ===== QR Fullscreen Modal (click QR) =====
     (function(){
       const modal = document.getElementById('qrModal');
       const img   = document.getElementById('qrModalImg');
@@ -2043,92 +1440,70 @@
       const btnClose = document.getElementById('qrModalClose');
       const btnOpen  = document.getElementById('qrModalOpenBtn');
       const btnCopy  = document.getElementById('qrModalCopyBtn');
-
       if(!modal || !img || !btnOpen || !btnCopy) return;
 
-      let current = { label:'', value:'', openUrl:'', variant:'' };
+      let current = {label:'', value:'', openUrl:'', qrSrc:''};
 
       function openModal(cfg){
         current = cfg;
-        modal.classList.remove('qr-modal-mono','qr-modal-privat','qr-modal-paypal','qr-modal-crypto');
-        if(cfg.variant) modal.classList.add('qr-modal-' + cfg.variant);
-
         title.textContent = cfg.label || 'QR';
-        foot.textContent = cfg.value ? ('Дані: ' + cfg.value) : ' ';
-
+        foot.textContent  = cfg.value ? ('Дані: ' + cfg.value) : '';
         if(cfg.qrSrc){
           img.src = cfg.qrSrc;
-        } else {
+        }else{
           const api = "https://api.qrserver.com/v1/create-qr-code/?size=520x520&data=";
           img.src = api + encodeURIComponent(cfg.value || cfg.openUrl || '');
         }
-
-        modal.classList.add('is-open');
+        modal.classList.add('open');
         modal.setAttribute('aria-hidden','false');
         document.body.style.overflow = 'hidden';
       }
 
       function closeModal(){
-        modal.classList.remove('is-open');
+        modal.classList.remove('open');
         modal.setAttribute('aria-hidden','true');
         document.body.style.overflow = '';
       }
 
-      btnClose && btnClose.addEventListener('click', closeModal);
+      btnClose.addEventListener('click', closeModal);
       modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
-      document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && modal.classList.contains('open')) closeModal(); });
 
       btnOpen.addEventListener('click', ()=>{
-        if(current.openUrl){
-          window.open(current.openUrl, '_blank');
-        } else if(current.value && (current.value.includes('http://') || current.value.includes('https://'))){
-          window.open(current.value, '_blank');
-        } else {
-          showToast('Немає посилання. Скопіюйте дані.');
-        }
+        if(current.openUrl) return openInNewTab(current.openUrl);
+        if(current.value && (current.value.startsWith('http://') || current.value.startsWith('https://'))) return openInNewTab(current.value);
+        showToast('Немає посилання. Скопіюйте дані.');
       });
 
       btnCopy.addEventListener('click', ()=>{
-        if(current.value){
-          copyText(current.value);
-        } else if(current.openUrl){
-          copyText(current.openUrl);
-        } else {
-          showToast('Немає що копіювати.');
-        }
+        if(current.value) return copyText(current.value);
+        if(current.openUrl) return copyText(current.openUrl);
+        showToast('Немає що копіювати.');
       });
 
       const map = [
-        { id:'qr-mono',   label:'Monobank · Банка', variant:'mono',
-          value:'https://send.monobank.ua/jar/8PfzHBQuu4',
-          openUrl:'https://send.monobank.ua/jar/8PfzHBQuu4' },
-
-        { id:'qr-privat', label:'Privat24 · Переказ', variant:'privat',
-          value:'https://www.privat24.ua/send/3xbxx',
-          openUrl:'https://www.privat24.ua/send/3xbxx' },
-
-        { id:'qr-paupay', label:'PayPal / Paupay', variant:'paypal',
-          value:'nadelnuikviktor@gmail.com',
-          openUrl:'mailto:nadelnuikviktor@gmail.com' },
-
-        { id:'qr-btc',    label:'Crypto · BTC', variant:'crypto',
-          value:'bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p',
-          openUrl:'https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p' }
+        {id:'qr-mono',   label:'Monobank · Банка', value:'https://send.monobank.ua/jar/8PfzHBQuu4', openUrl:'https://send.monobank.ua/jar/8PfzHBQuu4'},
+        {id:'qr-privat', label:'Privat24 · Переказ', value:'https://www.privat24.ua/send/3xbxx', openUrl:'https://www.privat24.ua/send/3xbxx'},
+        {id:'qr-paupay', label:'PayPal / Paupay', value:'nadelnuikviktor@gmail.com', openUrl:'mailto:nadelnuikviktor@gmail.com'},
+        {id:'qr-btc',    label:'Crypto · BTC', value:'bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p', openUrl:'https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p'}
       ];
 
       map.forEach(cfg=>{
         const el = document.getElementById(cfg.id);
         if(!el) return;
-        el.style.cursor = 'zoom-in';
-        el.title = 'Натисніть, щоб відкрити великий QR';
-        el.addEventListener('click', ()=> openModal({
-          label: cfg.label,
-          value: cfg.value,
-          openUrl: cfg.openUrl,
-          variant: cfg.variant,
-          qrSrc: el.src
-        }));
+        el.addEventListener('click', ()=> openModal({label: cfg.label, value: cfg.value, openUrl: cfg.openUrl, qrSrc: el.src}));
       });
+    })();
+
+    // ===== Donation progress visual (keep visible) =====
+    (function(){
+      const fill = document.getElementById('progressFill');
+      const text = document.getElementById('progressText');
+      if(!fill || !text) return;
+      const percent = 40; // just visual
+      fill.style.width = percent + '%';
+      fill.setAttribute('data-label', 'Збір активний');
+      text.textContent = 'Збір активний';
     })();
   </script>
 </body>
