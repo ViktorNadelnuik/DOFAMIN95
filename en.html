@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Support · Technical Support Platoon · 142nd Brigade</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Support the Technical Support Platoon of the 142nd Brigade. Your donations help repair vehicles that deliver supplies and fuel, and evacuate the wounded.">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Support the technical support platoon of the 142nd Brigade. Donations help repair vehicles that deliver supplies, fuel, and evacuate the wounded.">
 
-  <link rel="icon"
-        href="https://viktornadelniuk.github.io/DOFAMIN95/favicon.png"
-        type="image/png">
+  <link rel="icon" href="https://viktornadelniuk.github.io/DOFAMIN95/favicon.png" type="image/png">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Support the Technical Support Platoon · 142nd Brigade">
-  <meta property="og:description" content="We repair vehicles at the frontline so they keep moving — and people make it home alive.">
+  <meta property="og:description" content="They repair vehicles at the frontline so supplies arrive and the wounded can be evacuated.">
   <meta property="og:url" content="https://viktornadelniuk.github.io/DOFAMIN95/en.html">
   <meta property="og:image" content="https://viktornadelniuk.github.io/DOFAMIN95/hero-bg.jpg">
 
@@ -35,59 +33,63 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
+    body{
       font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-      color: #f5f5f5;
-      line-height: 1.5;
-      background: #02040a;
-      position: relative;
-      overflow-x: hidden;
+      color:#f5f5f5;
+      line-height:1.5;
+      background:#02040a;
+      position:relative;
+      overflow-x:hidden;
     }
 
-    /* Striped steel background */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -3;
+    /* ===== BACKGROUND: Steel & Amber / Workshop ===== */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-4;
       background:
-        repeating-linear-gradient(
-          -35deg,
-          #04101f 0,
-          #04101f 12px,
-          #050918 12px,
-          #050918 24px
+        radial-gradient(1100px 600px at 18% 12%, rgba(255, 172, 50, 0.12), transparent 55%),
+        radial-gradient(900px 540px at 82% 30%, rgba(0, 210, 255, 0.08), transparent 55%),
+        repeating-linear-gradient(-35deg,
+          rgba(8, 18, 32, 0.95) 0,
+          rgba(8, 18, 32, 0.95) 12px,
+          rgba(4, 10, 20, 0.96) 12px,
+          rgba(4, 10, 20, 0.96) 24px
         );
-      opacity: 0.6;
+      opacity: 0.95;
     }
 
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -3;
-      background: radial-gradient(circle at top, rgba(255, 255, 255, 0.07), transparent 55%);
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-3;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.07), transparent 55%),
+        radial-gradient(circle at 20% 80%, rgba(255, 170, 35, 0.06), transparent 60%);
       mix-blend-mode: soft-light;
+      pointer-events:none;
     }
 
-    a { color: inherit; }
+    a{ color:inherit; }
 
-    /* ===== UNIQUE OVERLAYS (SAFE) ===== */
-    #snow {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 2;
-      opacity: 0.85;
+    /* overlays */
+    #snow{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:2;
+      opacity:0.6;
     }
 
-    #tech-traces {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 3;
-      opacity: 0.06;
-      mix-blend-mode: overlay;
+    #tech-traces{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:3;
+      opacity:0.06;
+      mix-blend-mode:overlay;
       background:
         repeating-linear-gradient(
           -25deg,
@@ -98,7 +100,6 @@
         );
       transition: opacity 0.35s ease;
     }
-
     #tech-traces::after{
       content:"";
       position:absolute;
@@ -106,768 +107,442 @@
       background:
         radial-gradient(circle at 20% 15%, rgba(255,255,255,0.06), transparent 35%),
         radial-gradient(circle at 80% 60%, rgba(255,255,255,0.04), transparent 40%);
-      opacity: 0.20;
+      opacity:0.20;
     }
 
     @media (prefers-reduced-motion: reduce){
-      #tech-traces { transition: none; }
+      #tech-traces{ transition:none; }
     }
 
-    .page {
-      min-height: 100vh;
-      padding: 24px 12px 40px;
-      display: flex;
-      justify-content: center;
-      animation: fadeInPage 0.7s ease-out;
-      position: relative;
-      z-index: 5;
+    .page{
+      min-height:100vh;
+      padding:24px 12px 40px;
+      display:flex;
+      justify-content:center;
+      animation: fadeInPage .7s ease-out;
+      position:relative;
+      z-index:5;
     }
 
-    .container {
-      width: 100%;
-      max-width: 1180px;
-      margin: 0 auto;
+    .container{
+      width:100%;
+      max-width:1180px;
+      margin:0 auto;
     }
 
-    .top-row {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 10px;
-    }
+    .top-row{ display:flex; flex-direction:column; gap:6px; margin-bottom:10px; }
+    .top-bar{ display:flex; align-items:center; gap:10px; }
 
-    .top-bar {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .logo{
+      width:42px; height:42px;
+      border-radius:12px;
+      object-fit:cover;
+      box-shadow:0 0 6px rgba(0,0,0,0.4);
+      transition: transform .25s ease, box-shadow .25s ease;
     }
-
-    .logo {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      object-fit: cover;
-      background: transparent;
-      box-shadow: 0 0 6px rgba(0,0,0,0.4);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .logo:hover {
+    .logo:hover{
       transform: scale(1.05) rotate(-2deg);
-      box-shadow: 0 0 10px rgba(0,0,0,0.7);
+      box-shadow:0 0 10px rgba(0,0,0,0.7);
     }
 
-    .site-title {
-      font-size: 18px;
-      font-weight: 700;
-    }
+    .site-title{ font-size:18px; font-weight:700; }
 
-    .lang-switch {
-      display: flex;
-      justify-content: flex-end;
-      gap: 6px;
-      font-size: 12px;
-      opacity: 0.9;
-      flex-wrap: wrap;
+    .lang-switch{
+      display:flex;
+      justify-content:flex-end;
+      gap:6px;
+      font-size:12px;
+      opacity:0.9;
+      flex-wrap:wrap;
     }
-
-    .lang-switch a {
-      padding: 2px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.25);
-      text-decoration: none;
-      color: #fff;
-      transition: background 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+    .lang-switch a{
+      padding:2px 8px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.25);
+      text-decoration:none;
+      color:#fff;
+      transition: background .15s ease, transform .15s ease, border-color .15s ease;
     }
-
-    .lang-switch a.active {
+    .lang-switch a.active{
       background: rgba(255,255,255,0.16);
-      font-weight: 700;
+      font-weight:700;
     }
-
-    .lang-switch a:hover {
+    .lang-switch a:hover{
       transform: translateY(-1px);
       border-color: rgba(255,255,255,0.6);
     }
 
     /* HERO */
-    .hero {
+    .hero{
       background:
-        linear-gradient(135deg, rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
+        linear-gradient(135deg, rgba(0,0,0,0.74), rgba(0,0,0,0.90)),
         url("hero-bg.jpg") center/cover no-repeat;
-      border-radius: 24px;
-      padding: 24px 22px 20px;
-      margin-bottom: 26px;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.5);
-      animation: heroReveal 0.9s ease-out;
-      position: relative;
-      overflow: hidden;
+      border-radius:24px;
+      padding:24px 22px 20px;
+      margin-bottom:26px;
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 18px 40px rgba(0,0,0,0.5);
+      animation: heroReveal .9s ease-out;
+      position:relative;
+      overflow:hidden;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      left: -20%;
-      top: 55%;
-      width: 140%;
-      height: 2px;
-      pointer-events: none;
+    .hero::after{
+      content:"";
+      position:absolute;
+      left:-20%;
+      top:55%;
+      width:140%;
+      height:2px;
+      pointer-events:none;
       background: radial-gradient(circle at 0 50%,
-        rgba(255, 255, 210, 0.9) 0,
-        rgba(255, 255, 150, 0.4) 25%,
-        rgba(255, 255, 0, 0) 55%);
-      opacity: 0;
-      filter: blur(0.6px);
+        rgba(255, 220, 150, 0.9) 0,
+        rgba(255, 170, 70, 0.35) 25%,
+        rgba(255, 170, 70, 0) 55%);
+      opacity:0;
+      filter: blur(.6px);
       animation: weld-spark 3.7s ease-in-out infinite;
     }
 
-    .hero-badge {
-      display: inline-flex;
-      padding: 4px 10px;
-      margin-bottom: 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.2);
+    .hero-badge{
+      display:inline-flex;
+      padding:4px 10px;
+      margin-bottom:10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.2);
       background: rgba(0,0,0,0.45);
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      opacity: 0.9;
-      gap: 8px;
-      align-items: center;
-      flex-wrap: wrap;
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      opacity:.92;
+      gap:8px;
+      align-items:center;
+      flex-wrap:wrap;
     }
 
-    .system-state {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 3px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
+    .system-state{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:3px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.18);
       background: rgba(0,0,0,0.35);
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      opacity: 0.88;
+      font-size:11px;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      opacity:.90;
     }
     .system-dot{
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
+      width:7px; height:7px;
+      border-radius:999px;
       background: rgba(255,255,255,0.55);
       box-shadow: 0 0 10px rgba(255,255,255,0.18);
     }
-    .system-text{ white-space: nowrap; }
+    .system-text{ white-space:nowrap; }
 
-    .hero-title {
-      font-size: 26px;
-      font-weight: 800;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-      letter-spacing: 0.06em;
-      text-shadow:
-        0 0 8px rgba(0,0,0,0.9),
-        0 0 14px rgba(0,0,0,0.8);
+    .hero-title{
+      font-size:26px;
+      font-weight:800;
+      text-transform:uppercase;
+      margin-bottom:10px;
+      letter-spacing:.06em;
+      text-shadow: 0 0 8px rgba(0,0,0,0.9), 0 0 14px rgba(0,0,0,0.8);
     }
 
-    .hero-sub {
-      font-size: 16px;
-      opacity: 0.9;
-      margin-bottom: 8px;
+    .hero-sub{ font-size:16px; opacity:.92; margin-bottom:8px; }
+    .hero-note{ font-size:13px; opacity:.78; }
+
+    .engine-line-wrap{ margin:10px 0 14px; }
+    .engine-line{
+      position:relative;
+      height:4px;
+      border-radius:999px;
+      background: rgba(255,255,255,0.12);
+      overflow:hidden;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+    }
+    .engine-line::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        #ffb84a 25%,
+        #ffffff 40%,
+        #ffb84a 55%,
+        transparent 100%);
+      animation: engine-move 1.6s linear infinite;
+      filter: blur(.3px);
     }
 
-    .hero-note {
-      font-size: 13px;
-      opacity: 0.75;
-    }
+    .section-title{ font-size:22px; margin:12px 0 12px; font-weight:700; }
 
-    .section-title {
-      font-size: 22px;
-      margin: 12px 0 12px;
-      font-weight: 700;
-    }
-
-    .card-grid {
-      display: grid;
+    /* GRID */
+    .card-grid{
+      display:grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-      margin-top: 10px;
+      gap:18px;
+      margin-top:10px;
     }
 
-    .card {
+    .card{
       background: radial-gradient(circle at top left, #202b46 0, #070e1d 70%);
-      border-radius: 22px;
-      padding: 16px 16px 18px;
-      border: 1px solid rgba(255,255,255,0.07);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.7);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 260px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-      animation: cardFade 0.55s ease-out;
-      position: relative;
+      border-radius:22px;
+      padding:16px 16px 18px;
+      border:1px solid rgba(255,255,255,0.07);
+      box-shadow:0 12px 30px rgba(0,0,0,0.7);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      min-height:260px;
+      animation: cardFade .55s ease-out;
+      position:relative;
+      transform: translateZ(0);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease, filter .22s ease;
+      will-change: transform, box-shadow, filter;
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 36px rgba(0,0,0,0.75);
-      border-color: rgba(255,255,255,0.24);
+    .card.big-block{ grid-column:1 / -1; min-height:auto; }
+
+    .card h3{ font-size:16px; margin-bottom:6px; }
+    .card small{ opacity:0.7; font-size:11px; letter-spacing:.08em; }
+    .card p{ font-size:13px; margin:6px 0; }
+
+    /* accent top edge */
+    .card::before{
+      content:"";
+      position:absolute;
+      top:0; left:0; right:0;
+      height:3px;
+      background: var(--accent, rgba(255,255,255,0.18));
+      opacity:.75;
+      filter: blur(.15px);
+      transition: opacity .22s ease, filter .22s ease, transform .22s ease;
+      border-top-left-radius:22px;
+      border-top-right-radius:22px;
+    }
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background: linear-gradient(180deg, rgba(255,255,255,0.028), rgba(0,0,0,0.20));
+      opacity:.9;
+      border-radius:22px;
+    }
+    .card:hover{
+      transform: translateY(-6px);
+      border-color: rgba(255,255,255,0.22);
+      box-shadow:
+        0 18px 44px rgba(0,0,0,0.72),
+        0 0 0 1px rgba(255,255,255,0.04) inset;
+      filter: drop-shadow(0 0 18px rgba(255,255,255,0.06));
+    }
+    .card:hover::before{
+      opacity:1;
+      filter: blur(.35px);
+      transform: scaleX(1.02);
+    }
+    @media (prefers-reduced-motion: reduce){
+      .card, .card::before{ transition:none; }
+      .card:hover{ transform:none; }
     }
 
-    .card.big-block {
-      grid-column: 1 / -1;
-      min-height: auto;
+    /* donate labels */
+    .mono-label{ color:#00ffc3; font-weight:700; }
+    .privat-label{ color:#55efc4; font-weight:700; }
+    .paypal-label{ color:#00b4ff; font-weight:700; }
+    .crypto-label{ color:#ffd86b; font-weight:700; }
+
+    /* BUTTONS */
+    .btn-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin:8px 0;
     }
 
-    .card h3 { font-size: 16px; margin-bottom: 6px; }
-    .card small { opacity: 0.7; font-size: 11px; letter-spacing: 0.08em; }
-    .card p { font-size: 13px; margin: 6px 0; }
-
-    .mono-label { color: #00ffc3; font-weight: 600; }
-    .privat-label { color: #55efc4; font-weight: 600; }
-    .paypal-label { color: #00b4ff; font-weight: 600; }
-    .crypto-label { color: #ffd86b; font-weight: 600; }
-
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 8px 0;
-    }
-
-    .donate-btn {
-      padding: 9px 18px;
-      border-radius: 999px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: 600;
-      font-size: 13px;
-      border: 1px solid rgba(255,255,255,0.2);
+    .donate-btn{
+      padding:10px 18px;
+      border-radius:999px;
+      text-decoration:none;
+      color:#fff;
+      font-weight:800;
+      font-size:13px;
+      border:1px solid rgba(255,255,255,0.22);
       background: linear-gradient(135deg, #00c6ff, #0072ff);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.35);
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, opacity 0.15s ease;
-      white-space: nowrap;
-      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.42);
+      transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+      white-space:nowrap;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
       background-clip: padding-box;
     }
-
-    .donate-btn:hover {
+    .donate-btn:hover{
       transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 10px 22px rgba(0,0,0,0.5);
-      opacity: 0.98;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.58);
+      opacity:0.98;
     }
 
     .donate-btn--mono   { background: linear-gradient(135deg, #00e3aa, #00b894); }
     .donate-btn--privat { background: linear-gradient(135deg, #2ecc71, #27ae60); }
     .donate-btn--paypal { background: linear-gradient(135deg, #009cde, #003087); }
     .donate-btn--crypto { background: linear-gradient(135deg, #f6d365, #fda085); }
+    .donate-btn--amber  { background: linear-gradient(135deg, #ffcf6a, #ff8c1a); color:#121212; }
+    .donate-btn--steel  { background: linear-gradient(135deg, #5e6a7a, #2b3442); }
 
-    .qr-wrap {
-      margin-top: 8px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .qr {
-      width: 150px;
-      height: 150px;
-      border-radius: 18px;
+    .qr-wrap{ margin-top:8px; display:flex; justify-content:center; }
+    .qr{
+      width:150px; height:150px;
+      border-radius:18px;
       background:#02040a;
-      display: block;
+      display:block;
     }
 
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 14px;
-      margin-top: 10px;
+    /* Purchased carousel */
+    .carousel{
+      position:relative;
+      width:100%;
+      overflow:hidden;
+      border-radius:14px;
+      margin-top:12px;
+      background: rgba(0,0,0,0.18);
+      border:1px solid rgba(255,255,255,0.10);
     }
-
-    .video-item {
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.16);
-      background: #050910;
-      box-shadow: 0 10px 26px rgba(0,0,0,0.7);
-    }
-
-    footer {
-      margin-top: 22px;
-      text-align: center;
-      opacity: 0.7;
-      font-size: 12px;
-    }
-
-    /* PROGRESS BAR */
-    .progress-text {
-      font-size: 13px;
-      margin-bottom: 10px;
-    }
-
-    .progress-track {
-      width: 100%;
-      height: 16px;
-      border-radius: 999px;
-      background: rgba(3,7,18,0.9);
-      border: 1px solid rgba(255,255,255,0.18);
-      padding: 2px;
-      box-shadow: inset 0 0 8px rgba(0,0,0,0.7);
-      margin-top: 6px;
-    }
-
-    .progress-fill {
-      height: 100%;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #00e3aa, #00b4ff);
-      width: 0;
-      position: relative;
-      transition: width 0.5s ease-out;
-    }
-
-    .progress-fill::after {
-      content: attr(data-label);
-      position: absolute;
-      right: 6px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 11px;
-      font-weight: 600;
-      color: #fff;
-    }
-
-    .progress-meta {
-      margin-top: 6px;
-      font-size: 12px;
-      opacity: 0.8;
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    /* SCROLL TO TOP BUTTON */
-    .scroll-top-btn {
-      position: fixed;
-      right: 18px;
-      bottom: 20px;
-      width: 42px;
-      height: 42px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.35);
-      background: radial-gradient(circle at 30% 0, #00e3aa 0, #0072ff 70%);
-      color: #fff;
-      font-size: 22px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(8px) scale(0.9);
-      transition: opacity 0.25s ease, transform 0.25s ease;
-      z-index: 9999;
-    }
-
-    .scroll-top-btn--visible {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0) scale(1);
-    }
-
-    .scroll-top-btn:hover {
-      box-shadow: 0 14px 30px rgba(0,0,0,0.85);
-      transform: translateY(-2px) scale(1.05);
-    }
-
-    /* block CTA in each big section */
-    .block-donate-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 14px;
-      padding: 8px 16px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #0057b7, #ffd700);
-      font-size: 13px;
-      font-weight: 700;
-      color: #fff;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.32);
-      cursor: pointer;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.45);
-      transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
-      animation: buttonPulse 1.8s ease-in-out infinite;
-    }
-
-    .block-donate-btn:hover {
-      transform: translateY(-2px) scale(1.05);
-      opacity: 0.95;
-      box-shadow: 0 9px 22px rgba(0,0,0,0.6);
-    }
-
-    .block-donate-btn .icon {
-      font-size: 15px;
-      line-height: 1;
-    }
-
-    @media (max-width: 1024px) {
-      .page { padding: 20px 10px 32px; }
-      .hero { padding: 20px 18px 18px; margin-bottom: 22px; }
-      .hero-title { font-size: 24px; }
-      .card-grid { gap: 16px; }
-    }
-
-    @media (max-width: 768px) {
-      .page { padding: 18px 8px 28px; }
-      .hero { padding: 18px 14px 16px; }
-      .hero-badge { font-size: 11px; }
-      .hero-title { font-size: 21px; line-height: 1.2; }
-      .hero-sub { font-size: 14px; }
-      .hero-note { font-size: 12px; }
-
-      .card { padding: 14px 14px 16px; min-height: auto; }
-      .card.big-block { padding: 16px 14px 18px; }
-
-      .card p { font-size: 13px; }
-
-      .btn-row { flex-direction: column; }
-      .btn-row .donate-btn { width: 100%; text-align: center; justify-content: center; }
-
-      .qr { width: 130px; height: 130px; }
-    }
-
-    @media (max-width: 480px) {
-      .hero { border-radius: 18px; }
-      .hero-title { font-size: 19px; }
-      .section-title { font-size: 20px; }
-
-      .card { border-radius: 18px; padding: 12px 12px 14px; }
-      .card p { font-size: 12.5px; }
-
-      .btn-row { gap: 6px; }
-      .donate-btn { padding: 8px 14px; font-size: 12px; }
-      .qr { width: 120px; height: 120px; }
-
-      .scroll-top-btn { right: 12px; bottom: 14px; width: 38px; height: 38px; font-size: 20px; }
-    }
-
-    /* Animations */
-    @keyframes fadeInPage {
-      from { opacity: 0; transform: translateY(10px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes heroReveal {
-      from { opacity: 0; transform: translateY(8px) scale(0.99); }
-      to   { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    @keyframes cardFade {
-      from { opacity: 0; transform: translateY(10px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes buttonPulse {
-      0%   { transform: translateY(0) scale(1);   box-shadow: 0 6px 16px rgba(0,0,0,0.45); }
-      50%  { transform: translateY(-1px) scale(1.07); box-shadow: 0 10px 24px rgba(0,0,0,0.7); }
-      100% { transform: translateY(0) scale(1);   box-shadow: 0 6px 16px rgba(0,0,0,0.45); }
-    }
-
-    @keyframes engine-move {
-      from { transform: translateX(-120%); }
-      to   { transform: translateX(120%); }
-    }
-
-    @keyframes weld-spark {
-      0%, 60% { opacity: 0; transform: translateX(-10%); }
-      65% { opacity: 1; transform: translateX(10%); }
-      80% { opacity: 0.5; transform: translateX(60%); }
-      100% { opacity: 0; transform: translateX(120%); }
-    }
-
-    .engine-line-wrap { margin: 10px 0 14px; }
-
-    .engine-line {
-      position: relative;
-      height: 4px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.12);
-      overflow: hidden;
-      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
-    }
-
-    .engine-line::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg,
-        transparent 0%,
-        #ffd700 25%,
-        #ffffff 40%,
-        #ffd700 55%,
-        transparent 100%);
-      animation: engine-move 1.6s linear infinite;
-      filter: blur(0.3px);
-    }
-
-    /* PATCH IN HEADER */
-    .header-patch-wrap {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      margin-bottom: 14px;
-      margin-top: -4px;
-      padding-top: 10px;
-    }
-
-    .header-patch {
-      width: 140px;
-      height: auto;
-      transform-origin: center;
-      animation:
-        patch-breath 3.5s ease-in-out infinite,
-        patch-tilt 6s ease-in-out infinite,
-        patch-glow 4s ease-in-out infinite;
-      filter:
-        drop-shadow(0 0 10px rgba(255,215,0,0.45))
-        drop-shadow(0 0 4px rgba(255,215,0,0.25));
-    }
-
-    @keyframes patch-breath {
-      0%   { transform: scale(0.98); }
-      50%  { transform: scale(1.03); }
-      100% { transform: scale(0.98); }
-    }
-
-    @keyframes patch-tilt {
-      0%   { transform: rotateX(0deg) rotateY(0deg); }
-      25%  { transform: rotateX(2deg) rotateY(-2deg); }
-      50%  { transform: rotateX(0deg) rotateY(0deg); }
-      75%  { transform: rotateX(-2deg) rotateY(2deg); }
-      100% { transform: rotateX(0deg) rotateY(0deg); }
-    }
-
-    @keyframes patch-glow {
-      0%   { filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
-      50%  { filter: drop-shadow(0 0 12px rgba(255,215,0,0.7)); }
-      100% { filter: drop-shadow(0 0 4px rgba(255,215,0,0.3)); }
-    }
-
-    @media (max-width: 480px) {
-      .header-patch { width: 110px; }
-    }
-
-    /* DONATE BUTTON SHINE EFFECT */
-    .mobile-donate-btn{
-      position: fixed;
-      overflow: hidden;
-    }
-
-    .mobile-donate-btn::before{
-      content:"";
-      position:absolute;
-      top:-40%;
-      left:-30%;
-      width: 40%;
-      height: 180%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,0.40),
-        transparent
-      );
-      transform: rotate(18deg);
-      animation: shine 3.2s infinite;
-      opacity: 0.55;
-    }
-
-    @keyframes shine{
-      0%{ transform: translateX(-140%) rotate(18deg); }
-      45%{ transform: translateX(320%) rotate(18deg); }
-      100%{ transform: translateX(320%) rotate(18deg); }
-    }
-
-    /* ===== FIX: supporters images too big (override) ===== */
-    #supporters .thx-media img{
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: block;
-      border-radius: 14px;
-    }
-    @media (max-width: 520px){
-      #supporters .thx-media img{ height: 190px; }
-    }
-  </style>
-
-  <!-- external styles (keep as-is) -->
-  <link rel="stylesheet" href="supporters.css">
-
-  <!-- PURCHASED CAROUSEL CSS -->
-  <style>
-    .carousel {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      border-radius: 14px;
-      margin-top: 12px;
-    }
-
-    .carousel-track {
-      display: flex;
+    .carousel-track{
+      display:flex;
       transition: transform .4s ease-in-out;
       will-change: transform;
     }
-
-    .carousel-item {
-      min-width: 100%;
-      user-select: none;
+    .carousel-item{ min-width:100%; user-select:none; }
+    .carousel-item img{
+      width:100%;
+      display:block;
+      border-radius:14px;
+      height:360px;
+      object-fit:contain;
+      background: rgba(0,0,0,0.35);
     }
-
-    .carousel-item img {
-      width: 100%;
-      display: block;
-      border-radius: 14px;
-      height: 360px;
-      object-fit: cover;
+    @media (max-width:640px){
+      .carousel-item img{ height:260px; }
     }
-
-    @media (max-width: 640px){
-      .carousel-item img { height: 260px; }
-    }
-
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
+    .carousel-btn{
+      position:absolute;
+      top:50%;
       transform: translateY(-50%);
       background: rgba(0,0,0,.6);
-      border: 1px solid rgba(255,255,255,.4);
-      color: white;
-      font-size: 26px;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 5;
+      border:1px solid rgba(255,255,255,.4);
+      color:#fff;
+      font-size:26px;
+      width:36px;
+      height:36px;
+      border-radius:50%;
+      cursor:pointer;
+      z-index:5;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
+    .carousel-btn:hover{ background: rgba(0,0,0,.9); }
+    .prev{ left:10px; }
+    .next{ right:10px; }
 
-    .carousel-btn:hover { background: rgba(0,0,0,.9); }
-
-    .prev { left: 10px; }
-    .next { right: 10px; }
-
-    .carousel-dots {
-      display: flex;
-      justify-content: center;
-      gap: 6px;
-      margin-top: 8px;
+    .carousel-dots{
+      display:flex;
+      justify-content:center;
+      gap:6px;
+      margin-top:8px;
     }
-
-    .carousel-dots span {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.3);
-      cursor: pointer;
+    .carousel-dots span{
+      width:9px; height:9px;
+      border-radius:50%;
+      background: rgba(255,255,255,.28);
+      cursor:pointer;
     }
+    .carousel-dots span.active{ background:#ffb84a; }
 
-    .carousel-dots span.active { background: #f4b30b; }
-  </style>
-
-  <style>
-    /* VIDEO CAROUSEL (slider) */
+    /* VIDEO CAROUSEL (Shorts 9:16) */
     #videos .video-carousel-wrap{
-      position: relative;
-      margin-top: 16px;
-      padding: 10px 46px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.12);
+      position:relative;
+      margin-top:16px;
+      padding:10px 46px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,0.12);
       background: rgba(255,255,255,0.06);
-      overflow: hidden;
+      overflow:hidden;
     }
-
     #videos .video-carousel{
-      display: flex !important;
-      gap: 14px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 8px;
+      display:flex !important;
+      gap:14px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      scroll-behavior:smooth;
+      -webkit-overflow-scrolling:touch;
+      padding-bottom:8px;
     }
-
-    #videos .video-carousel::-webkit-scrollbar{ height: 8px; }
-    #videos .video-carousel::-webkit-scrollbar-thumb{ background: rgba(255,255,255,0.25); border-radius: 20px; }
-    #videos .video-carousel::-webkit-scrollbar-track{ background: rgba(255,255,255,0.08); border-radius: 20px; }
-
     #videos .vc-item{
-      flex: 0 0 320px;
-      scroll-snap-align: start;
+      flex:0 0 320px;
+      scroll-snap-align:start;
     }
-
     #videos .vc-frame{
-      position: relative;
-      width: 100%;
-      padding-top: 177.78%; /* 9:16 */
-      border-radius: 16px;
-      overflow: hidden;
+      position:relative;
+      width:100%;
+      padding-top:177.78%;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.12);
+      background: rgba(0,0,0,0.35);
     }
-
     #videos .vc-frame iframe{
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
     }
-
     #videos .vc-btn{
-      position: absolute;
-      top: 50%;
+      position:absolute;
+      top:50%;
       transform: translateY(-50%);
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.22);
+      width:34px; height:34px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.22);
       background: rgba(0,0,0,0.55);
-      color: #fff;
-      font-size: 22px;
-      line-height: 32px;
-      cursor: pointer;
-      z-index: 5;
+      color:#fff;
+      font-size:22px;
+      line-height:32px;
+      cursor:pointer;
+      z-index:5;
+    }
+    #videos .vc-prev{ left:10px; }
+    #videos .vc-next{ right:10px; }
+    @media (max-width:420px){
+      #videos .vc-item{ flex-basis:260px; }
+      #videos .video-carousel-wrap{ padding:10px 42px; }
     }
 
-    #videos .vc-prev{ left: 10px; }
-    #videos .vc-next{ right: 10px; }
-
-    @media (max-width: 420px){
-      #videos .vc-item{ flex-basis: 260px; }
-      #videos .video-carousel-wrap{ padding: 10px 42px; }
-    }
-  </style>
-
-  <style>
-    /* GALLERY BLOCK + CAROUSEL */
-    #gallery.gallery-section{ padding: 40px 0; }
-
+    /* GALLERY CAROUSEL */
+    #gallery.gallery-section{ padding:40px 0; }
     #gallery .gallery-head{
       display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
     }
-
     #gallery .btn-support{
       display:inline-block; padding:12px 16px; border-radius:14px;
-      border:1px solid rgba(255,255,255,.22); background:rgba(0,0,0,.55); color:#fff; text-decoration:none;
+      border:1px solid rgba(255,255,255,.22);
+      background: rgba(0,0,0,.55);
+      color:#fff; text-decoration:none;
     }
-
     #gallery .gallery-carousel-wrap{
       position:relative; margin-top:16px; padding:10px 46px;
-      border-radius:18px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.06);
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
       overflow:hidden;
     }
-
     #gallery .gallery-carousel{
       display:flex !important;
       gap:14px;
@@ -877,7 +552,6 @@
       -webkit-overflow-scrolling:touch;
       padding-bottom:8px;
     }
-
     #gallery .gc-item{
       flex:0 0 420px;
       scroll-snap-align:start;
@@ -885,1275 +559,1266 @@
       border-radius:16px;
       overflow:hidden;
       border:1px solid rgba(255,255,255,.12);
-      background:rgba(0,0,0,.35);
+      background: rgba(0,0,0,.35);
     }
-
     #gallery .gc-item img{
       width:100%;
       height:280px;
       display:block;
       object-fit:cover;
+      background: rgba(0,0,0,.35);
     }
-
     #gallery .gc-btn{
-      position:absolute; top:50%; transform:translateY(-50%);
+      position:absolute; top:50%; transform: translateY(-50%);
       width:34px; height:34px; border-radius:999px;
       border:1px solid rgba(255,255,255,.22);
-      background:rgba(0,0,0,.55);
-      color:#fff; font-size:22px; line-height:32px;
-      cursor:pointer; z-index:5;
+      background: rgba(0,0,0,.55);
+      color:#fff;
+      font-size:22px;
+      line-height:32px;
+      cursor:pointer;
+      z-index:5;
     }
-
     #gallery .gc-prev{ left:10px; }
     #gallery .gc-next{ right:10px; }
-
     @media (max-width:520px){
       #gallery .gc-item{ flex-basis:300px; }
       #gallery .gc-item img{ height:220px; }
       #gallery .gallery-carousel-wrap{ padding:10px 42px; }
     }
-  </style>
 
-  <style>
-    /* MOBILE DONATE BUTTON BASE */
+    footer{
+      margin-top:22px;
+      text-align:center;
+      opacity:0.72;
+      font-size:12px;
+    }
+
+    /* SCROLL TO TOP */
+    .scroll-top-btn{
+      position:fixed;
+      right:18px;
+      bottom:20px;
+      width:42px;
+      height:42px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.35);
+      background: radial-gradient(circle at 30% 0, #ffb84a 0, #0072ff 70%);
+      color:#fff;
+      font-size:22px;
+      font-weight:700;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+      opacity:0;
+      pointer-events:none;
+      transform: translateY(8px) scale(0.9);
+      transition: opacity .25s ease, transform .25s ease;
+      z-index:9999;
+    }
+    .scroll-top-btn--visible{
+      opacity:1;
+      pointer-events:auto;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Mobile donate */
     .mobile-donate-btn{
-      position: fixed;
-      left: 16px;
-      right: 16px;
-      bottom: 14px;
-      z-index: 99999;
-      display: none !important;
-      text-align: center;
-      padding: 14px 16px;
-      border-radius: 16px;
+      position:fixed;
+      left:16px; right:16px;
+      bottom:14px;
+      z-index:99999;
+      display:none;
+      text-align:center;
+      padding:14px 16px;
+      border-radius:16px;
       background: linear-gradient(135deg, rgba(255,200,60,0.95), rgba(255,160,20,0.95));
-      border: 1px solid rgba(255,255,255,0.25);
-      color: #0b0b0b;
-      text-decoration: none;
-      font-weight: 700;
-      box-shadow:
-        0 10px 26px rgba(0,0,0,0.45),
-        0 0 0 0 rgba(255,180,40,0.55);
-
+      border:1px solid rgba(255,255,255,0.25);
+      color:#0b0b0b;
+      text-decoration:none;
+      font-weight:900;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.45);
+      overflow:hidden;
       animation: donatePulse 1.8s ease-in-out infinite;
     }
-
-    @media (max-width: 768px){
-      .mobile-donate-btn{ display: block !important; }
+    .mobile-donate-btn::before{
+      content:"";
+      position:absolute;
+      top:-40%;
+      left:-30%;
+      width:40%;
+      height:180%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.40), transparent);
+      transform: rotate(18deg);
+      animation: shine 3.2s infinite;
+      opacity:0.55;
     }
-
+    @media (max-width:768px){
+      .mobile-donate-btn{ display:block; }
+    }
+    @keyframes shine{
+      0%{ transform: translateX(-140%) rotate(18deg); }
+      45%{ transform: translateX(320%) rotate(18deg); }
+      100%{ transform: translateX(320%) rotate(18deg); }
+    }
     @keyframes donatePulse{
       0%{
-        box-shadow:
-          0 10px 26px rgba(0,0,0,0.45),
-          0 0 0 0 rgba(255,180,40,0.55);
+        box-shadow: 0 10px 26px rgba(0,0,0,0.45), 0 0 0 0 rgba(255,180,40,0.55);
         filter: brightness(1);
       }
       60%{
-        box-shadow:
-          0 12px 30px rgba(0,0,0,0.5),
-          0 0 0 14px rgba(255,180,40,0);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 0 14px rgba(255,180,40,0);
         filter: brightness(1.05);
       }
       100%{
-        box-shadow:
-          0 10px 26px rgba(0,0,0,0.45),
-          0 0 0 0 rgba(255,180,40,0);
+        box-shadow: 0 10px 26px rgba(0,0,0,0.45), 0 0 0 0 rgba(255,180,40,0);
         filter: brightness(1);
       }
     }
 
-    @media (prefers-reduced-motion: reduce){
-      .mobile-donate-btn{ animation: none; }
+    /* Block donate button */
+    .block-donate-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top:14px;
+      padding:10px 16px;
+      border-radius:999px;
+      background: linear-gradient(135deg, #ffcf6a, #ff8c1a);
+      font-size:13px;
+      font-weight:900;
+      color:#0b0b0b;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.32);
+      cursor:pointer;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.45);
+      transition: transform .15s ease, opacity .15s ease, box-shadow .15s ease;
+      animation: buttonPulse 1.8s ease-in-out infinite;
+    }
+
+    /* Toast */
+    .toast{
+      position:fixed;
+      left:50%;
+      bottom:90px;
+      transform: translateX(-50%) translateY(12px);
+      background: rgba(0,0,0,0.78);
+      border:1px solid rgba(255,255,255,0.22);
+      color:#fff;
+      padding:10px 12px;
+      border-radius:14px;
+      box-shadow: 0 14px 34px rgba(0,0,0,0.65);
+      font-size:13px;
+      opacity:0;
+      pointer-events:none;
+      transition: opacity .18s ease, transform .18s ease;
+      z-index:100000;
+      max-width: min(560px, calc(100vw - 24px));
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .toast--show{
+      opacity:1;
+      transform: translateX(-50%) translateY(0);
+    }
+    .toast .toast-dot{
+      width:8px; height:8px;
+      border-radius:999px;
+      background: rgba(255,184,74,0.95);
+      box-shadow: 0 0 12px rgba(255,184,74,0.35);
+    }
+
+    /* QR modal */
+    .qr-modal{
+      position:fixed;
+      inset:0;
+      background: rgba(0,0,0,0.92);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:100001;
+      padding:16px;
+    }
+    .qr-modal.is-open{ display:flex; }
+    .qr-modal-card{
+      width:100%;
+      max-width:520px;
+      border-radius:20px;
+      background: radial-gradient(circle at top left, #202b46 0, #070e1d 70%);
+      border:1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.75);
+      overflow:hidden;
+    }
+    .qr-modal-head{
+      padding:14px 14px 10px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+    .qr-modal-title{
+      font-weight:900;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      font-size:12px;
+      opacity:0.9;
+    }
+    .qr-modal-sub{
+      font-size:13px;
+      opacity:0.85;
+      margin-top:4px;
+    }
+    .qr-modal-close{
+      width:34px; height:34px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.22);
+      background: rgba(0,0,0,0.45);
+      color:#fff;
+      cursor:pointer;
+      font-size:20px;
+      line-height:32px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .qr-modal-body{ padding:14px; display:grid; gap:12px; }
+    .qr-modal-qrwrap{
+      border-radius:18px;
+      background: rgba(0,0,0,0.35);
+      border:1px solid rgba(255,255,255,0.14);
+      padding:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .qr-modal-qr{
+      width: min(320px, 76vw);
+      height:auto;
+      border-radius:18px;
+      background:#02040a;
+    }
+    .qr-modal-actions{ display:flex; flex-direction:column; gap:8px; }
+    .qr-action-btn{
+      width:100%;
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,0.20);
+      background: rgba(0,0,0,0.38);
+      color:#fff;
+      cursor:pointer;
+      font-weight:900;
+      font-size:13px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:8px;
+    }
+    .qr-action-btn.primary{
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      border-color: rgba(255,255,255,0.28);
+    }
+    .qr-modal-mono   .qr-action-btn.primary{ background: linear-gradient(135deg, #00e3aa, #00b894); }
+    .qr-modal-privat .qr-action-btn.primary{ background: linear-gradient(135deg, #2ecc71, #27ae60); }
+    .qr-modal-paypal .qr-action-btn.primary{ background: linear-gradient(135deg, #009cde, #003087); }
+    .qr-modal-crypto .qr-action-btn.primary{ background: linear-gradient(135deg, #f6d365, #fda085); }
+
+    /* Reveal */
+    .reveal{
+      opacity:0;
+      transform: translateY(14px) scale(0.99);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.is-visible{
+      opacity:1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* header patch */
+    .header-patch-wrap{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      margin-bottom:14px;
+      margin-top:-4px;
+      padding-top:10px;
+    }
+    .header-patch{
+      width:140px;
+      height:auto;
+      transform-origin:center;
+      animation: patch-breath 3.5s ease-in-out infinite, patch-tilt 6s ease-in-out infinite, patch-glow 4s ease-in-out infinite;
+      filter: drop-shadow(0 0 10px rgba(255,184,74,0.45)) drop-shadow(0 0 4px rgba(255,184,74,0.25));
+    }
+    @media (max-width:480px){ .header-patch{ width:110px; } }
+
+    /* responsive */
+    @media (max-width:768px){
+      .btn-row{ flex-direction:column; }
+      .btn-row .donate-btn{ width:100%; }
+      .hero-title{ font-size:21px; line-height:1.2; }
+      .hero-sub{ font-size:14px; }
+      .hero-note{ font-size:12px; }
+      .qr{ width:130px; height:130px; }
+    }
+
+    /* animations */
+    @keyframes fadeInPage{ from{ opacity:0; transform: translateY(10px);} to{ opacity:1; transform: translateY(0);} }
+    @keyframes heroReveal{ from{ opacity:0; transform: translateY(8px) scale(0.99);} to{ opacity:1; transform: translateY(0) scale(1);} }
+    @keyframes cardFade{ from{ opacity:0; transform: translateY(10px);} to{ opacity:1; transform: translateY(0);} }
+    @keyframes engine-move{ from{ transform: translateX(-120%);} to{ transform: translateX(120%);} }
+    @keyframes weld-spark{
+      0%,60%{ opacity:0; transform: translateX(-10%); }
+      65%{ opacity:1; transform: translateX(10%); }
+      80%{ opacity:0.5; transform: translateX(60%); }
+      100%{ opacity:0; transform: translateX(120%); }
+    }
+    @keyframes patch-breath{ 0%{ transform: scale(0.98);} 50%{ transform: scale(1.03);} 100%{ transform: scale(0.98);} }
+    @keyframes patch-tilt{
+      0%{ transform: rotateX(0deg) rotateY(0deg); }
+      25%{ transform: rotateX(2deg) rotateY(-2deg); }
+      50%{ transform: rotateX(0deg) rotateY(0deg); }
+      75%{ transform: rotateX(-2deg) rotateY(2deg); }
+      100%{ transform: rotateX(0deg) rotateY(0deg); }
+    }
+    @keyframes patch-glow{
+      0%{ filter: drop-shadow(0 0 4px rgba(255,184,74,0.3)); }
+      50%{ filter: drop-shadow(0 0 12px rgba(255,184,74,0.7)); }
+      100%{ filter: drop-shadow(0 0 4px rgba(255,184,74,0.3)); }
     }
   </style>
 
-  <style>
-    /* TEAM CAROUSEL (EN) */
-    #team-en .team-carousel-wrap{
-      position: relative;
-      padding: 10px 46px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.06);
-      overflow: hidden;
-    }
-
-    #team-en .team-carousel{
-      display: flex !important;
-      flex-direction: row !important;
-      flex-wrap: nowrap !important;
-      gap: 14px;
-      overflow-x: auto;
-      overflow-y: hidden;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 8px;
-    }
-
-    #team-en .team-slide{
-      flex: 0 0 340px !important;
-      width: 340px !important;
-      max-width: 340px !important;
-      scroll-snap-align: start;
-      min-height: 190px;
-    }
-
-    #team-en .tc-btn{
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: rgba(0,0,0,0.60);
-      border: 1px solid rgba(255,255,255,0.25);
-      color: #fff;
-      cursor: pointer;
-      z-index: 50;
-    }
-
-    #team-en .tc-prev{ left: 8px; }
-    #team-en .tc-next{ right: 8px; }
-
-    @media (max-width: 520px){
-      #team-en .team-slide{
-        flex-basis: 280px !important;
-        width: 280px !important;
-        max-width: 280px !important;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="supporters.css">
 </head>
 
 <body>
+  <canvas id="snow"></canvas>
+  <div id="tech-traces"></div>
 
-<canvas id="snow"></canvas>
-<div id="tech-traces"></div>
+  <div class="page">
+    <div class="container">
 
-<div class="page">
-  <div class="container">
-
-    <header>
-      <div class="header-patch-wrap">
-        <img src="vtz-mpb-patch.png" alt="Technical Support Platoon patch" class="header-patch">
-      </div>
-
-      <div class="top-row">
-        <div class="top-bar">
-          <img src="logo.png" alt="Logo" class="logo">
-          <span class="site-title">142nd Brigade • Technical Support Platoon</span>
-        </div>
-        <div class="lang-switch">
-          <a href="index.html">UA</a>
-          <a href="en.html" class="active">EN</a>
-        </div>
-      </div>
-
-      <section class="hero">
-        <div class="hero-badge">
-          <span>Frontline vehicle repairs</span>
-          <span class="system-state" id="systemState">
-            <span class="system-dot" id="systemDot"></span>
-            <span class="system-text" id="systemText">STATUS: WORK IN PROGRESS</span>
-          </span>
+      <header>
+        <div class="header-patch-wrap">
+          <img src="vtz-mpb-patch.png" alt="Technical Support Platoon patch" class="header-patch">
         </div>
 
-        <div class="hero-title">Vehicles must move. People must make it home alive.</div>
-
-        <div class="engine-line-wrap">
-          <div class="engine-line"></div>
-        </div>
-
-        <p class="hero-sub">
-          We are the Technical Support Platoon of the mechanized infantry battalion of the 142nd Brigade.
-          We repair trucks and armored vehicles close to the frontline so that equipment keeps delivering
-          ammunition, fuel, supplies — and evacuating the wounded.
-        </p>
-        <p class="hero-note">
-          Every donation turns into tools, spare parts, lubricants, diagnostics, or welding supplies —
-          the essentials that give a vehicle one more mission, and someone one more chance to return home.
-        </p>
-
-        <div style="margin-top:14px;">
-          <a href="#donate" class="donate-btn" style="display:inline-block;">
-            Support the platoon
-          </a>
-        </div>
-      </section>
-    </header>
-
-    <main>
-
-      <!-- DONATIONS -->
-      <h2 class="section-title" id="donate">How to support</h2>
-
-      <div class="card-grid">
-        <!-- MONOBANK -->
-        <section class="card">
-          <div>
-            <small>UAH · BANK TRANSFER</small>
-            <h3><span class="mono-label">Monobank</span> · Jar “142nd Brigade · Technical Support Platoon”</h3>
-            <p><strong>Recipient:</strong> Nadelniuk Viktor Mykolaiovych</p>
-            <p><strong>IBAN:</strong><br>UA683220010000026208372629615</p>
-            <p><strong>Card number:</strong><br>4874&nbsp;1000&nbsp;2019&nbsp;8902</p>
-            <p><strong>Payment note:</strong> <code>VTZ MPB 142 OMBr</code></p>
+        <div class="top-row">
+          <div class="top-bar">
+            <img src="logo.png" alt="Logo" class="logo">
+            <span class="site-title">142nd Brigade • Technical Support Platoon</span>
           </div>
-          <div>
-            <div class="btn-row">
-              <button class="donate-btn donate-btn--mono" type="button"
-                      onclick="window.open('https://send.monobank.ua/jar/8PfzHBQuu4','_blank')">
-                Open Monobank jar
-              </button>
-              <button class="donate-btn" type="button"
-                      onclick="copyText('UA683220010000026208372629615')">
-                Copy IBAN
-              </button>
-              <button class="donate-btn" type="button"
-                      onclick="copyText('4874100020198902')">
-                Copy card number
-              </button>
-            </div>
-            <div class="qr-wrap">
-              <img id="qr-mono" class="qr" alt="QR Monobank">
-            </div>
+          <div class="lang-switch">
+            <a href="index.html">UA</a>
+            <a href="en.html" class="active">EN</a>
+          </div>
+        </div>
+
+        <section class="hero">
+          <div class="hero-badge">
+            <span>Frontline vehicle repairs</span>
+            <span class="system-state" id="systemState">
+              <span class="system-dot" id="systemDot"></span>
+              <span class="system-text" id="systemText">STATUS: WORK IN PROGRESS</span>
+            </span>
+          </div>
+
+          <div class="hero-title">Vehicles must move. People must come back alive.</div>
+
+          <div class="engine-line-wrap">
+            <div class="engine-line"></div>
+          </div>
+
+          <p class="hero-sub">
+            We are the technical support platoon of the mechanized infantry battalion of the 142nd Brigade.
+            We repair trucks and armored vehicles near the frontline so that supplies, fuel and food get through,
+            and the wounded can be evacuated in time.
+          </p>
+          <p class="hero-note">
+            Every repair we do is one less stop on the “road of life” — and one more chance to make it.
+            We are not many. But we keep the battalion’s wheels turning.
+          </p>
+
+          <div style="margin-top:14px;">
+            <a href="#donate" class="donate-btn" style="display:inline-flex;">
+              ➜ Support the platoon
+            </a>
           </div>
         </section>
+      </header>
 
-        <!-- PRIVATBANK -->
-        <section class="card">
-          <div>
-            <small>UAH · BANK TRANSFER</small>
-            <h3><span class="privat-label">PrivatBank</span> · Card top-up</h3>
-            <p><strong>Recipient:</strong> NADELNIUK VIKTOR MYKOLAYOVYCH</p>
-            <p><strong>IBAN:</strong><br>UA023052990262076400994803502</p>
-            <p><strong>Card number:</strong><br>5168&nbsp;7521&nbsp;4764&nbsp;9654</p>
-            <p><strong>Payment note:</strong> <code>VTZ MPB 142 OMBr</code></p>
-          </div>
-          <div>
-            <div class="btn-row">
-              <button class="donate-btn donate-btn--privat" type="button"
-                      onclick="window.open('https://www.privat24.ua/send/3xbxx','_blank')">
-                Open Privat24
-              </button>
-              <button class="donate-btn" type="button"
-                      onclick="copyText('UA023052990262076400994803502')">
-                Copy IBAN
-              </button>
-              <button class="donate-btn" type="button"
-                      onclick="copyText('5168752147649654')">
-                Copy card number
-              </button>
+      <main>
+        <!-- DONATIONS -->
+        <h2 class="section-title" id="donate">How to support</h2>
+
+        <div class="card-grid">
+          <!-- MONOBANK -->
+          <section class="card" style="--accent: linear-gradient(90deg,#00e3aa,#00b894);">
+            <div>
+              <small>UAH · BANK TRANSFER</small>
+              <h3><span class="mono-label">Monobank</span> · Jar “142nd Brigade · Technical Support Platoon”</h3>
+              <p><strong>Recipient:</strong> Nadelniuk Viktor Mykolayovych</p>
+              <p><strong>IBAN:</strong><br>UA683220010000026208372629615</p>
+              <p><strong>Card number:</strong><br>4874&nbsp;1000&nbsp;2019&nbsp;8902</p>
+              <p><strong>Payment note:</strong> <code>VTZ MPB 142 OMBr</code></p>
             </div>
-            <div class="qr-wrap">
-              <img id="qr-privat" class="qr" alt="QR PrivatBank">
-            </div>
-          </div>
-        </section>
-
-        <!-- PAYPAL / PAUPAY -->
-        <section class="card">
-          <div>
-            <small>INTERNATIONAL PAYMENTS</small>
-            <h3><span class="paypal-label">PayPal / Paupay</span></h3>
-            <p><strong>Email for transfers:</strong><br>nadelnuikviktor@gmail.com</p>
-            <p><strong>Payment note:</strong><br><code>VTZ MPB 142 OMBr</code></p>
-          </div>
-          <div>
-            <div class="btn-row">
-              <button class="donate-btn donate-btn--paypal" type="button"
-                      onclick="copyText('nadelnuikviktor@gmail.com')">
-                Copy email
-              </button>
-            </div>
-            <div class="qr-wrap">
-              <img id="qr-paupay" class="qr" alt="QR Paupay / PayPal">
-            </div>
-            <p style="font-size:12px; opacity:0.8; margin-top:6px;">
-              Please include <strong>VTZ MPB 142 OMBr</strong> in the payment note.
-            </p>
-          </div>
-        </section>
-
-        <!-- CRYPTO -->
-        <section class="card">
-          <div>
-            <small>CRYPTOCURRENCY</small>
-            <h3><span class="crypto-label">Crypto</span> · BTC · ETH · SOL · BNB</h3>
-
-            <p><strong>Bitcoin (BTC):</strong><br>
-              bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p</p>
-
-            <p><strong>Ethereum (ETH):</strong><br>
-              0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</p>
-
-            <p><strong>Solana (SOL):</strong><br>
-              DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525</p>
-
-            <p><strong>BNB (BEP-20):</strong><br>
-              0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</p>
-          </div>
-
-          <div>
-            <div class="btn-row">
-              <button class="donate-btn donate-btn--crypto" type="button"
-                      onclick="window.open('https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p','_blank')">
-                Open BTC
-              </button>
-              <button class="donate-btn donate-btn--crypto" type="button"
-                      onclick="window.open('https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b','_blank')">
-                Open ETH
-              </button>
-              <button class="donate-btn donate-btn--crypto" type="button"
-                      onclick="window.open('https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525','_blank')">
-                Open SOL
-              </button>
-            </div>
-
-            <div class="btn-row">
-              <button class="donate-btn" type="button"
-                      onclick="copyText('bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p')">
-                Copy BTC
-              </button>
-              <button class="donate-btn" type="button"
-                      onclick="copyText('0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b')">
-                Copy ETH / BNB
-              </button>
-              <button class="donate-btn" type="button"
-                      onclick="copyText('DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525')">
-                Copy SOL
-              </button>
-            </div>
-
-            <div class="qr-wrap">
-              <img id="qr-btc" class="qr" alt="QR BTC">
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <!-- SUPPORTERS -->
-      <section id="supporters" class="thx-wrap">
-        <div class="thx-inner">
-          <div class="thx-head">
-            <h2 class="thx-title">Supporters</h2>
-            <p class="thx-sub">
-              Real help without publicity. Thank you to those who support quietly — but effectively.
-            </p>
-          </div>
-
-          <div class="thx-grid">
-            <article class="thx-card">
-              <a class="thx-media" href="assets/support/support-01.jpg" target="_blank" rel="noopener">
-                <img src="assets/support/support-01.jpg" alt="Anonymous support for the unit" loading="lazy">
-              </a>
-              <div class="thx-body">
-                <div class="thx-top">
-                  <div class="thx-name">Anonymous supporter</div>
-                  <div class="thx-badge">Generator</div>
-                </div>
-                <div class="thx-text">
-                  Delivered equipment for repairs.
-                </div>
+            <div>
+              <div class="btn-row">
+                <button class="donate-btn donate-btn--mono" type="button" onclick="window.open('https://send.monobank.ua/jar/8PfzHBQuu4','_blank')">
+                  🟩 Open Monobank jar
+                </button>
+                <button class="donate-btn donate-btn--steel" type="button" onclick="copyText('UA683220010000026208372629615')">
+                  ⧉ Copy IBAN
+                </button>
+                <button class="donate-btn donate-btn--steel" type="button" onclick="copyText('4874100020198902')">
+                  ⧉ Copy card number
+                </button>
               </div>
-            </article>
-
-            <article class="thx-card">
-              <a class="thx-media" href="assets/support/support-02.jpg" target="_blank" rel="noopener">
-                <img src="assets/support/support-02.jpg" alt="Anonymous support for the unit" loading="lazy">
-              </a>
-              <div class="thx-body">
-                <div class="thx-top">
-                  <div class="thx-name">Anonymous supporter</div>
-                  <div class="thx-badge">OBD scanner</div>
-                </div>
-                <div class="thx-text">
-                  Without it, repairs slow down — and vehicles must keep moving.
-                </div>
+              <div class="qr-wrap">
+                <img id="qr-mono" class="qr" alt="Monobank QR" loading="lazy">
               </div>
-            </article>
-          </div>
-
-          <div class="thx-foot">
-            <p class="thx-note"></p>
-          </div>
-        </div>
-      </section>
-
-      <!-- PURCHASED (single block carousel) -->
-      <section class="card big-block" id="purchased-carousel">
-        <h2 class="section-title">Purchased thanks to donations</h2>
-
-        <p>
-          These are real items already in use, helping us keep vehicles operational.
-        </p>
-
-        <div class="carousel">
-          <div class="carousel-track">
-            <div class="carousel-item"><img src="assets/purchased-01.jpg" alt="Purchased thanks to donations" loading="lazy"></div>
-            <div class="carousel-item"><img src="assets/purchased-02.jpg" alt="Purchased thanks to donations" loading="lazy"></div>
-            <div class="carousel-item"><img src="assets/purchased-03.jpg" alt="Purchased thanks to donations" loading="lazy"></div>
-            <div class="carousel-item"><img src="assets/purchased-04.jpg" alt="Purchased thanks to donations" loading="lazy"></div>
-            <div class="carousel-item"><img src="assets/purchased-05.jpg" alt="Purchased thanks to donations" loading="lazy"></div>
-          </div>
-
-          <button class="carousel-btn prev" type="button" aria-label="Previous photo">‹</button>
-          <button class="carousel-btn next" type="button" aria-label="Next photo">›</button>
-
-          <div class="carousel-dots" aria-label="Carousel navigation">
-            <span></span><span></span><span></span><span></span><span></span>
-          </div>
-        </div>
-
-        <p style="margin-top:12px;font-size:13px;opacity:.85;">
-          Thank you to everyone who supports us. Your donations turn into repairs, tools — and saved lives.
-        </p>
-      </section>
-
-      <!-- ABOUT -->
-      <section class="card big-block" id="about-platoon-en">
-        <h2 class="section-title">About the platoon</h2>
-
-        <p>
-          We are the Technical Support Platoon of the mechanized infantry battalion of the 142nd Brigade.
-          Our job is to keep the battalion’s vehicles operational on one of the most demanding directions.
-        </p>
-
-        <p>
-          You will rarely see us in the spotlight, but our work decides whether a vehicle reaches positions,
-          whether units receive ammunition and fuel, and whether wounded soldiers can be evacuated in time.
-        </p>
-
-        <h3>What we do</h3>
-
-        <p><strong>• Maintenance</strong><br>
-          Scheduled and unscheduled servicing: oils, filters, fluids, inspections — everything needed
-          so vehicles are ready to move at any moment.
-        </p>
-
-        <p><strong>• Repairs and recovery</strong><br>
-          Engines, transmissions, suspension, brakes, electrics, hydraulics, fuel systems —
-          from small sensors to major assemblies.
-        </p>
-
-        <p><strong>• Vehicle recovery</strong><br>
-          When a vehicle can’t move — broken, damaged, stuck — we go to retrieve it.
-          Often under shelling and in difficult conditions.
-        </p>
-
-        <p><strong>• Diagnostics and troubleshooting</strong><br>
-          We locate hidden issues early and fix them before they become catastrophic.
-        </p>
-
-        <p><strong>• Field repairs</strong><br>
-          Our workshop can be a tarp, a lamp, a generator, and a tool kit.
-          Mud, rain, night, frost — we work with what we have.
-        </p>
-
-        <p><strong>• Keeping the battalion mobile</strong><br>
-          Working vehicles mean ammo delivery, rotations, evacuation, water and food, maneuver and survival.
-          We do what it takes to keep this running.
-        </p>
-      </section>
-
-      <!-- TEAM -->
-      <section class="card big-block" id="team-en">
-        <h2 class="section-title">Technical Support Platoon team</h2>
-
-        <p>
-          We operate as one mechanism. Everyone has a role, but one goal —
-          vehicles must move, and people must make it home alive.
-        </p>
-
-        <div class="team-carousel-wrap" style="margin-top:12px;">
-          <button class="tc-btn tc-prev" type="button" aria-label="Back">‹</button>
-
-          <div class="team-carousel" id="teamCarouselEN">
-
-            <div class="card team-slide">
-              <h3>Platoon commander</h3>
-              <p>
-                Plans work, sets priorities, coordinates recovery and repairs.
-                Decides what to fix first so units don’t stop.
+              <p style="font-size:12px; opacity:0.78; margin-top:6px; text-align:center;">
+                Tap the QR to open a larger code
               </p>
             </div>
+          </section>
 
-            <div class="card team-slide">
-              <h3>Deputy / senior mechanic</h3>
-              <p>
-                Organizes work on-site, controls quality, tracks tasks and responsibilities,
-                maintains pace and continuity.
+          <!-- PRIVATBANK -->
+          <section class="card" style="--accent: linear-gradient(90deg,#2ecc71,#27ae60);">
+            <div>
+              <small>UAH · BANK TRANSFER</small>
+              <h3><span class="privat-label">PrivatBank</span> · Card top-up</h3>
+              <p><strong>Recipient:</strong> NADELNIUK VIKTOR MYKOLAYOVYCH</p>
+              <p><strong>IBAN:</strong><br>UA023052990262076400994803502</p>
+              <p><strong>Card number:</strong><br>5168&nbsp;7521&nbsp;4764&nbsp;9654</p>
+              <p><strong>Payment note:</strong> <code>VTZ MPB 142 OMBr</code></p>
+            </div>
+            <div>
+              <div class="btn-row">
+                <button class="donate-btn donate-btn--privat" type="button" onclick="window.open('https://www.privat24.ua/send/3xbxx','_blank')">
+                  🟢 Open Privat24
+                </button>
+                <button class="donate-btn donate-btn--steel" type="button" onclick="copyText('UA023052990262076400994803502')">
+                  ⧉ Copy IBAN
+                </button>
+                <button class="donate-btn donate-btn--steel" type="button" onclick="copyText('5168752147649654')">
+                  ⧉ Copy card number
+                </button>
+              </div>
+              <div class="qr-wrap">
+                <img id="qr-privat" class="qr" alt="PrivatBank QR" loading="lazy">
+              </div>
+              <p style="font-size:12px; opacity:0.78; margin-top:6px; text-align:center;">
+                Tap the QR to open a larger code
               </p>
             </div>
+          </section>
 
-            <div class="card team-slide">
-              <h3>Senior driver-mechanic</h3>
-              <p>
-                Complex repairs, inspections, fault finding, safety checks,
-                ensuring vehicles are ready for missions.
+          <!-- PAYPAL -->
+          <section class="card" style="--accent: linear-gradient(90deg,#009cde,#003087);">
+            <div>
+              <small>INTERNATIONAL PAYMENTS</small>
+              <h3><span class="paypal-label">PayPal / Paupay</span></h3>
+              <p><strong>Email for transfers:</strong><br>nadelnuikviktor@gmail.com</p>
+              <p><strong>Payment note:</strong><br><code>VTZ MPB 142 OMBr</code></p>
+            </div>
+            <div>
+              <div class="btn-row">
+                <button class="donate-btn donate-btn--paypal" type="button" onclick="copyText('nadelnuikviktor@gmail.com')">
+                  ⧉ Copy email
+                </button>
+                <button class="donate-btn donate-btn--amber" type="button" onclick="window.location.href='mailto:nadelnuikviktor@gmail.com'">
+                  ✉ Email us
+                </button>
+              </div>
+              <div class="qr-wrap">
+                <img id="qr-paupay" class="qr" alt="PayPal QR" loading="lazy">
+              </div>
+              <p style="font-size:12px; opacity:0.8; margin-top:6px;">
+                Please include <strong>VTZ MPB 142 OMBr</strong> in the payment note.
               </p>
             </div>
+          </section>
 
-            <div class="card team-slide">
-              <h3>Powertrain / агрегate mechanic</h3>
-              <p>
-                Engine, clutch, gearbox/transfer case, axles, driveshafts, bearings.
-                Replacements and recovery in field conditions.
-              </p>
+          <!-- CRYPTO -->
+          <section class="card" style="--accent: linear-gradient(90deg,#f6d365,#fda085);">
+            <div>
+              <small>CRYPTOCURRENCY</small>
+              <h3><span class="crypto-label">Crypto</span> · BTC · ETH · SOL · BNB</h3>
+
+              <p><strong>Bitcoin (BTC):</strong><br>
+                bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p</p>
+
+              <p><strong>Ethereum (ETH):</strong><br>
+                0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</p>
+
+              <p><strong>Solana (SOL):</strong><br>
+                DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525</p>
+
+              <p><strong>BNB (BEP-20):</strong><br>
+                0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</p>
             </div>
 
-            <div class="card team-slide">
-              <h3>Suspension / brakes</h3>
-              <p>
-                Springs, shocks, hubs, brake systems, steering.
-                Fixing play, leaks, overheating, binding, vibrations.
+            <div>
+              <div class="btn-row">
+                <button class="donate-btn donate-btn--crypto" type="button"
+                        onclick="window.open('https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p','_blank')">
+                  🟧 Open BTC
+                </button>
+                <button class="donate-btn donate-btn--crypto" type="button"
+                        onclick="window.open('https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b','_blank')">
+                  🟧 Open ETH
+                </button>
+                <button class="donate-btn donate-btn--crypto" type="button"
+                        onclick="window.open('https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525','_blank')">
+                  🟧 Open SOL
+                </button>
+              </div>
+
+              <div class="btn-row">
+                <button class="donate-btn donate-btn--steel" type="button"
+                        onclick="copyText('bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p')">
+                  ⧉ Copy BTC
+                </button>
+                <button class="donate-btn donate-btn--steel" type="button"
+                        onclick="copyText('0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b')">
+                  ⧉ Copy ETH / BNB
+                </button>
+                <button class="donate-btn donate-btn--steel" type="button"
+                        onclick="copyText('DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525')">
+                  ⧉ Copy SOL
+                </button>
+              </div>
+
+              <div class="qr-wrap">
+                <img id="qr-btc" class="qr" alt="BTC QR" loading="lazy">
+              </div>
+              <p style="font-size:12px; opacity:0.78; margin-top:6px; text-align:center;">
+                Tap the QR to open a larger code
               </p>
             </div>
-
-            <div class="card team-slide">
-              <h3>Auto electrician</h3>
-              <p>
-                Wiring, starter/alternator, lighting, fuses, grounds, relays, charging.
-                Restoring systems after damage and short circuits.
-              </p>
-            </div>
-
-            <div class="card team-slide">
-              <h3>Diagnostics / scanner</h3>
-              <p>
-                Reading faults, checking sensors, fuel/inlet basics, quick tests.
-                Saves time by finding the real cause fast.
-              </p>
-            </div>
-
-            <div class="card team-slide">
-              <h3>Welder / structural work</h3>
-              <p>
-                Frame cracks, brackets, mounts, reinforcements.
-                Fast recovery after impacts and heavy vibration.
-              </p>
-            </div>
-
-            <div class="card team-slide">
-              <h3>Tires / wheels</h3>
-              <p>
-                Puncture repairs, inflating, valve/camera replacement, basic balancing.
-                Preparing spares and keeping pressure under load.
-              </p>
-            </div>
-
-            <div class="card team-slide">
-              <h3>Recovery crew</h3>
-              <p>
-                Towing and extraction, winches, straps, cables.
-                Route prep and safe recovery from high-risk zones.
-              </p>
-            </div>
-
-            <div class="card team-slide">
-              <h3>Drivers (delivery / reposition)</h3>
-              <p>
-                Delivering parts and consumables, moving vehicles between locations,
-                ensuring mobility between repair points and units.
-              </p>
-            </div>
-
-            <div class="card team-slide">
-              <h3>Supply & logistics</h3>
-              <p>
-                Finding and delivering parts, oils, tools, consumables.
-                Requests, inventory, allocation, stock control.
-              </p>
-            </div>
-          </div>
-
-          <button class="tc-btn tc-next" type="button" aria-label="Forward">›</button>
+          </section>
         </div>
 
-        <p style="font-size:12px; opacity:0.8; margin-top:12px;">
-          Some details are intentionally not shown for security reasons.
-          But every vehicle returned to service is the result of a real team and hours of hard work.
-        </p>
-      </section>
+        <!-- B2B / CONTACTS -->
+        <section class="card big-block" id="b2b" style="--accent: linear-gradient(90deg,#ffcf6a,#ff8c1a);">
+          <h2 class="section-title">For businesses & foundations</h2>
+          <p>
+            If you represent a company/foundation and want to help directly, contact us.
+            We respond quickly and can coordinate logistics and reporting.
+          </p>
 
-      <!-- GALLERY -->
-      <section id="gallery" class="gallery-section">
-        <div class="container">
+          <div class="card-grid" style="margin-top:12px;">
+            <div class="card" style="min-height:170px;">
+              <small>EMAIL</small>
+              <h3>vtz142ombr</h3>
+              <p style="opacity:.85;">Subject line: <code>Support VTZ MPB 142 OMBr</code></p>
+              <div class="btn-row">
+                <button class="donate-btn donate-btn--amber" type="button"
+                        onclick="window.location.href='mailto:vtz142ombr?subject=Support%20VTZ%20MPB%20142%20OMBr'">
+                  ✉ Email
+                </button>
+                <button class="donate-btn donate-btn--steel" type="button" onclick="copyText('vtz142ombr')">
+                  ⧉ Copy
+                </button>
+              </div>
+            </div>
+
+            <div class="card" style="min-height:170px;">
+              <small>TELEGRAM</small>
+              <h3>@vtz142ombr</h3>
+              <p style="opacity:.85;">Fast contact to coordinate details.</p>
+              <div class="btn-row">
+                <button class="donate-btn donate-btn--steel" type="button" onclick="window.open('https://t.me/vtz142ombr','_blank')">
+                  ➜ Open Telegram
+                </button>
+                <button class="donate-btn donate-btn--steel" type="button" onclick="copyText('@vtz142ombr')">
+                  ⧉ Copy
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PURCHASED -->
+        <section class="card big-block" id="purchased-carousel" style="--accent: linear-gradient(90deg,#00d0ff,#00a2ff);">
+          <h2 class="section-title">Already purchased with donations</h2>
+          <p>These are real items already used at the frontline to keep vehicles operational.</p>
+
+          <div class="carousel" aria-label="Purchased carousel">
+            <button class="carousel-btn prev" type="button" aria-label="Previous">‹</button>
+
+            <div class="carousel-track" id="purchasedTrack">
+              <div class="carousel-item"><img src="assets/purchased-01.jpg" alt="Purchased 1" loading="lazy"></div>
+              <div class="carousel-item"><img src="assets/purchased-02.jpg" alt="Purchased 2" loading="lazy"></div>
+              <div class="carousel-item"><img src="assets/purchased-03.jpg" alt="Purchased 3" loading="lazy"></div>
+              <div class="carousel-item"><img src="assets/purchased-04.jpg" alt="Purchased 4" loading="lazy"></div>
+              <div class="carousel-item"><img src="assets/purchased-05.jpg" alt="Purchased 5" loading="lazy"></div>
+              <div class="carousel-item"><img src="assets/purchased-06.jpg" alt="Purchased 6" loading="lazy"></div>
+              <div class="carousel-item"><img src="assets/purchased-07.jpg" alt="Purchased 7" loading="lazy"></div>
+              <div class="carousel-item"><img src="assets/purchased-08.jpg" alt="Purchased 8" loading="lazy"></div>
+              <div class="carousel-item"><img src="assets/purchased-09.jpg" alt="Purchased 9" loading="lazy"></div>
+              <div class="carousel-item"><img src="assets/purchased-10.jpg" alt="Purchased 10" loading="lazy"></div>
+              <div class="carousel-item"><img src="assets/purchased-11.jpg" alt="Purchased 11" loading="lazy"></div>
+            </div>
+
+            <button class="carousel-btn next" type="button" aria-label="Next">›</button>
+          </div>
+
+          <div class="carousel-dots" id="purchasedDots" aria-label="Carousel navigation"></div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="card big-block" id="about" style="--accent: linear-gradient(90deg,#ff6a00,#ffb84a);">
+          <h2 class="section-title">About the platoon</h2>
+
+          <p>
+            We are the technical support platoon of the mechanized infantry battalion of the 142nd Brigade.
+            Our mission is to keep battalion vehicles running on one of the hottest frontline directions.
+          </p>
+
+          <p>
+            You rarely see us in the news — but our work decides whether a vehicle reaches positions,
+            whether supplies arrive, and whether evacuation happens on time.
+          </p>
+
+          <h3>What we do</h3>
+
+          <p><strong>• Maintenance</strong><br>
+            Scheduled and urgent maintenance: oils, filters, fluids, inspections — so vehicles are ready anytime.
+          </p>
+
+          <p><strong>• Repair & recovery</strong><br>
+            Engines, transmissions, suspension, brakes, electrics, hydraulics, fuel systems — from sensors to major units.
+          </p>
+
+          <p><strong>• Vehicle evacuation</strong><br>
+            If a vehicle is damaged, stuck or broken — we go for it. Often under fire, pulling it off the “road of life”.
+          </p>
+
+          <p><strong>• Diagnostics</strong><br>
+            We find hidden faults early, so a vehicle doesn’t stop at the worst moment.
+          </p>
+
+          <p><strong>• Field repairs</strong><br>
+            Our workshop is what we can build: ground, tarp, light, generator and tools. No conditions? We create them.
+          </p>
+
+          <p><strong>• Keeping the battalion mobile</strong><br>
+            Working vehicles = rotations, supplies, evacuation, water, food, maneuver and survival.
+          </p>
+        </section>
+
+        <!-- GALLERY -->
+        <section id="gallery" class="gallery-section">
           <div class="gallery-head">
             <h2 class="section-title">Photo gallery</h2>
-            <a class="btn-support" href="#donate">Support the platoon</a>
+            <a class="btn-support" href="#donate">Support</a>
           </div>
 
           <div class="gallery-carousel-wrap">
-            <button class="gc-btn gc-prev" type="button" aria-label="Back">‹</button>
-
-            <div class="gallery-carousel" id="galleryCarousel">
-              <figure class="gc-item"><img src="assets/photos/p1.jpg"  alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p2.jpg"  alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p3.jpg"  alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p4.jpg"  alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p5.jpg"  alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p6.jpg"  alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p7.jpg"  alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p8.jpg"  alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p9.jpg"  alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p10.jpg" alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p11.jpg" alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p12.jpg" alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p13.jpg" alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p14.jpg" alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p15.jpg" alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p16.jpg" alt="" loading="lazy"></figure>
-              <figure class="gc-item"><img src="assets/photos/p17.jpg" alt="" loading="lazy"></figure>
-            </div>
-
-            <button class="gc-btn gc-next" type="button" aria-label="Forward">›</button>
+            <button class="gc-btn gc-prev" type="button" aria-label="Previous">‹</button>
+            <div class="gallery-carousel" id="galleryCarousel"></div>
+            <button class="gc-btn gc-next" type="button" aria-label="Next">›</button>
           </div>
-        </div>
-      </section>
 
-      <!-- VIDEOS -->
-      <section id="videos" class="videos-section">
-        <div class="container">
+          <p style="font-size:12px; opacity:0.75; margin-top:10px;">
+            Photos must be in <code>assets/photos/</code> and named <code>p1.jpg ... p37.jpg</code> (latin “p”).
+          </p>
+        </section>
+
+        <!-- VIDEOS -->
+        <section id="videos" class="videos-section" style="--accent: linear-gradient(90deg,#d400ff,#ff6aff);">
           <h2 class="section-title">Videos</h2>
 
           <div class="video-carousel-wrap">
-            <button class="vc-btn vc-prev" type="button" aria-label="Back">‹</button>
+            <button class="vc-btn vc-prev" type="button" aria-label="Previous">‹</button>
 
             <div class="video-carousel" id="videoCarousel">
-              <div class="vc-item">
-                <div class="vc-frame">
-                  <iframe src="https://www.youtube.com/embed/Rz_Y3Tj6Rz4"
-                          frameborder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowfullscreen loading="lazy"></iframe>
-                </div>
-              </div>
+              <!-- older videos -->
+              <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/Rz_Y3Tj6Rz4" allowfullscreen loading="lazy"></iframe></div></div>
+              <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/KlInbRyOCuY" allowfullscreen loading="lazy"></iframe></div></div>
+              <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/QTbz0BHjAzA" allowfullscreen loading="lazy"></iframe></div></div>
+              <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/xvvbYfiG_rk" allowfullscreen loading="lazy"></iframe></div></div>
 
-              <div class="vc-item">
-                <div class="vc-frame">
-                  <iframe src="https://www.youtube.com/embed/KlInbRyOCuY"
-                          frameborder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowfullscreen loading="lazy"></iframe>
-                </div>
-              </div>
-
-              <div class="vc-item">
-                <div class="vc-frame">
-                  <iframe src="https://www.youtube.com/embed/QTbz0BHjAzA"
-                          frameborder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowfullscreen loading="lazy"></iframe>
-                </div>
-              </div>
-
-              <div class="vc-item">
-                <div class="vc-frame">
-                  <iframe src="https://www.youtube.com/embed/xvvbYfiG_rk"
-                          frameborder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowfullscreen loading="lazy"></iframe>
-                </div>
-              </div>
+              <!-- new Shorts -->
+              <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/As6kEEhAw-E" allowfullscreen loading="lazy"></iframe></div></div>
+              <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/GKnGl-bD990" allowfullscreen loading="lazy"></iframe></div></div>
+              <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/o6ZeuaXdu3Q" allowfullscreen loading="lazy"></iframe></div></div>
+              <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/lythBRYJJ6M" allowfullscreen loading="lazy"></iframe></div></div>
+              <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/WVaNwv3Jf0E" allowfullscreen loading="lazy"></iframe></div></div>
+              <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/3cB4r9ntBz0" allowfullscreen loading="lazy"></iframe></div></div>
             </div>
 
-            <button class="vc-btn vc-next" type="button" aria-label="Forward">›</button>
+            <button class="vc-btn vc-next" type="button" aria-label="Next">›</button>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- CURRENT NEEDS -->
-      <section class="card big-block" id="current-needs-en">
-        <h2 class="section-title">Current needs</h2>
-
-        <p>Your donations currently turn into:</p>
-
-        <p><strong>• Tools and equipment for trucks and armored vehicles</strong><br>
-          Socket sets, wrenches, extensions, jacks, pullers, suspension tools, pneumatic tools,
-          extension cords, and reliable work lighting.
-        </p>
-
-        <p><strong>• Welding and consumables</strong><br>
-          Electrodes, wire, masks, gloves, cables — everything that lets us revive frames,
-          mounts, brackets, tanks, protection and structural elements.
-        </p>
-
-        <p><strong>• Spare parts and consumables</strong><br>
-          Filters, belts, brake pads, hoses, bearings, clamps, sensors, spark plugs, hardware —
-          the “small” things without which no repair is possible.
-        </p>
-
-        <p><strong>• Fluids and lubricants</strong><br>
-          Engine and transmission oils, brake fluid, antifreeze, heavy-duty greases for high-load components.
-        </p>
-
-        <p><strong>• Diagnostics and electrics</strong><br>
-          Testers, multimeters, lamps, wiring, terminals, connectors, fuses —
-          essentials for fast troubleshooting and fixes.
-        </p>
-
-        <p><strong>• Logistics and basic working conditions</strong><br>
-          Generators, extension cords, lighting, tarps/film, tents, gloves and workwear —
-          so we can work in the field in any weather.
-        </p>
-
-        <p>
-          Every donation becomes a very concrete item: a tool, a spare part, oil, or welding supplies —
-          what gives a vehicle one more mission, and our people one more chance.
-        </p>
-      </section>
-
-      <!-- ONGOING FUNDRAISER -->
-      <section class="card big-block" id="progress-en">
-        <h2 class="section-title">Ongoing fundraiser</h2>
-
-        <p class="progress-text">
-          This is an ongoing fundraiser for the daily work of the Technical Support Platoon:
-          tools, spare parts, oils, welding supplies, diagnostics, and a field workshop.
-          Every contribution helps keep vehicles in service.
-        </p>
-
-        <div class="progress-track">
-          <div id="progress-fill-en" class="progress-fill" data-label="Fundraiser active"></div>
-        </div>
-
-        <div class="progress-meta">
-          <span id="progress-text-en">Fundraiser active</span>
-          <span>Ongoing fundraiser · Updated: 01.12.2025</span>
-        </div>
-      </section>
-
-      <!-- PRINCIPLES -->
-      <section class="card big-block" id="principles-en">
-        <h2 class="section-title">Our principles</h2>
-
-        <p>
-          There are no accidents in how we work. We follow a few simple — but strict — principles
-          that help save vehicles and lives every day.
-        </p>
-
-        <div class="card-grid" style="margin-top:10px;">
-
-          <div class="card" style="min-height:160px;">
-            <h3>Speed</h3>
-            <p>
-              We respond quickly to breakdowns and unit requests. In the field, every minute matters.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:160px;">
-            <h3>Precision</h3>
-            <p>
-              Diagnostics and repairs are done properly. A mistake can cost a vehicle — or a life.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:160px;">
-            <h3>Professionalism</h3>
-            <p>
-              We know our vehicles down to the last bolt. Experience and skill go into every repair.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:160px;">
-            <h3>Accountability</h3>
-            <p>
-              A repaired vehicle means a mission can happen. We take responsibility for the result.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:160px;">
-            <h3>Mobility</h3>
-            <p>
-              We work anywhere — field, mud, rain, frost. If there is no workshop, we build one.
-            </p>
-          </div>
-
-          <div class="card" style="min-height:160px;">
-            <h3>Resilience</h3>
-            <p>
-              We finish the job. No excuses. Vehicles must move — and they will.
-            </p>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- FAQ -->
-      <section class="card big-block" id="faq-en">
-        <h2 class="section-title">FAQ</h2>
-
-        <details style="margin-bottom:6px;">
-          <summary style="cursor:pointer; font-weight:600; font-size:14px;">
-            Are you an official unit of the Armed Forces of Ukraine?
-          </summary>
-          <p style="margin-top:4px; font-size:13px;">
-            Yes. We are the Technical Support Platoon of the mechanized infantry battalion of the 142nd Brigade.
-            The vehicles we service are officially assigned to AFU units.
+        <!-- ONGOING SUPPORT -->
+        <section class="card big-block" id="ongoing" style="--accent: linear-gradient(90deg,#00b4ff,#ffb84a);">
+          <h2 class="section-title">Ongoing support</h2>
+          <p>
+            This is a long-term fundraiser for the platoon’s daily work:
+            tools, spare parts, oils/fluids, welding supplies, diagnostics and field workshop essentials.
           </p>
-        </details>
 
-        <details style="margin-bottom:6px;">
-          <summary style="cursor:pointer; font-weight:600; font-size:14px;">
-            What exactly are donations used for?
-          </summary>
-          <p style="margin-top:4px; font-size:13px;">
-            Primarily: tools, spare parts, consumables, oils, welding supplies, diagnostics,
-            and basic field-workshop conditions — everything that directly enables repairs.
-          </p>
-        </details>
+          <div style="width:100%; height:16px; border-radius:999px; background: rgba(3,7,18,0.9); border:1px solid rgba(255,255,255,0.18); padding:2px; box-shadow: inset 0 0 8px rgba(0,0,0,0.7); margin-top:6px;">
+            <div id="progress-fill-en" style="height:100%; border-radius:999px; background: linear-gradient(90deg, #ffb84a, #00b4ff); width:0; position:relative; transition: width .5s ease-out;"></div>
+          </div>
 
-        <details style="margin-bottom:6px;">
-          <summary style="cursor:pointer; font-weight:600; font-size:14px;">
-            Can I help with tools or parts instead of money?
-          </summary>
-          <p style="margin-top:4px; font-size:13px;">
-            Yes. If you can provide tools, equipment, parts, or materials — contact us at
-            <strong><a href="mailto:nadelnuikviktor@gmail.com">nadelnuikviktor@gmail.com</a></strong>
-            or via Telegram <code>@DOFAMIN95</code>, and we will share the current list and delivery details.
-          </p>
-        </details>
+          <div style="margin-top:6px; font-size:12px; opacity:0.8; display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap;">
+            <span id="progress-text-en">Active fundraiser</span>
+            <span>Updated: 01.12.2025</span>
+          </div>
+        </section>
 
-        <details style="margin-bottom:6px;">
-          <summary style="cursor:pointer; font-weight:600; font-size:14px;">
-            Do you provide reporting on donations?
-          </summary>
-          <p style="margin-top:4px; font-size:13px;">
-            Yes. For foundations, companies, and major donors we can provide a separate report:
-            photos, purchased items, and how the support improved our work.
-          </p>
-        </details>
+        <!-- SHARE -->
+        <section class="card big-block" id="share" style="--accent: linear-gradient(90deg,#ffcf6a,#ff8c1a);">
+          <h2 class="section-title">Share</h2>
+          <p>Helping is not only donating — sharing this page also makes a real impact.</p>
 
-        <details>
-          <summary style="cursor:pointer; font-weight:600; font-size:14px;">
-            Can we publicly mention your unit or use your photos?
-          </summary>
-          <p style="margin-top:4px; font-size:13px;">
-            We coordinate this case-by-case with security in mind. If you are a media outlet,
-            foundation, or company — please contact us and we will clarify what can be shared.
-          </p>
-        </details>
-      </section>
+          <div class="btn-row" style="margin-top:10px; margin-bottom:14px;">
+            <button class="donate-btn donate-btn--amber" type="button"
+              onclick="copyText('Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade (mechanized infantry battalion). They repair vehicles near the frontline so supplies arrive and the wounded can be evacuated. Please donate or share: https://viktornadelniuk.github.io/DOFAMIN95/en.html')">
+              ⧉ Copy English text
+            </button>
+            <button class="donate-btn donate-btn--steel" type="button"
+              onclick="copyText('Привіт! Це збір для взводу технічного забезпечення мотопіхотного батальйону 142 ОМБр. Якщо маєш змогу — підтримай донатом або поширенням: https://viktornadelniuk.github.io/DOFAMIN95/')">
+              ⧉ Copy Ukrainian text
+            </button>
+          </div>
 
-      <!-- SHARE -->
-      <section class="card big-block" id="share-en">
-        <h2 class="section-title">Tell others</h2>
+          <div class="btn-row">
+            <button class="donate-btn donate-btn--steel" type="button" onclick="shareEn('telegram')">➜ Telegram</button>
+            <button class="donate-btn donate-btn--steel" type="button" onclick="shareEn('whatsapp')">➜ WhatsApp</button>
+            <button class="donate-btn donate-btn--steel" type="button" onclick="shareEn('facebook')">➜ Facebook</button>
+            <button class="donate-btn donate-btn--steel" type="button" onclick="shareEn('instagram')">➜ Instagram (copies text)</button>
+          </div>
+        </section>
 
-        <p>
-          You can help not only by donating, but also by sharing this page.
-          Copy the ready text or share the link via your favorite messenger or social network.
-        </p>
+        <footer>
+          Thank you for supporting the technical support platoon of the 142nd Brigade.<br>
+          Your help keeps vehicles moving — and people alive.
+          <div id="visitor-counter-en" style="margin-top:6px; font-size:11px; opacity:0.75;"></div>
+        </footer>
 
-        <div class="btn-row" style="margin-top:10px; margin-bottom:14px;">
-          <button class="donate-btn"
-                  type="button"
-                  onclick="copyText('Hi! This is a fundraising page for the Technical Support Platoon of the mechanized infantry battalion of the 142nd Brigade. We repair vehicles that deliver ammunition, fuel and supplies — and evacuate the wounded. If you can, please support with a donation or by sharing: https://viktornadelniuk.github.io/DOFAMIN95/en.html')">
-            Copy English text
-          </button>
-
-          <button class="donate-btn"
-                  type="button"
-                  onclick="copyText('Привіт! Це збір для взводу технічного забезпечення мотопіхотного батальйону 142 ОМБр. Ми ремонтуємо техніку, яка возить боєкомплект, ПММ, їжу та евакуює поранених. Якщо маєш змогу — підтримай донатом або поширенням: https://viktornadelniuk.github.io/DOFAMIN95/')">
-            Copy Ukrainian text
-          </button>
-        </div>
-
-        <div class="btn-row">
-          <button class="donate-btn" type="button" onclick="shareEn('telegram')">
-            Share on Telegram
-          </button>
-
-          <button class="donate-btn" type="button" onclick="shareEn('viber')">
-            Share on Viber
-          </button>
-
-          <button class="donate-btn" type="button" onclick="shareEn('whatsapp')">
-            Share on WhatsApp
-          </button>
-
-          <button class="donate-btn" type="button" onclick="shareEn('facebook')">
-            Share on Facebook
-          </button>
-
-          <button class="donate-btn" type="button" onclick="shareEn('instagram')">
-            Share on Instagram
-          </button>
-        </div>
-      </section>
-
-      <footer>
-        Thank you for supporting the Technical Support Platoon of the 142nd Brigade.<br>
-        Your help keeps vehicles in service — and our people alive.
-        <div id="visitor-counter-en" style="margin-top:6px; font-size:11px; opacity:0.75;"></div>
-      </footer>
-
-      <button type="button" id="scrollTopBtn" class="scroll-top-btn" aria-label="Back to top">
-        ↑
-      </button>
-
-    </main>
+        <button type="button" id="scrollTopBtn" class="scroll-top-btn" aria-label="Back to top">↑</button>
+      </main>
+    </div>
   </div>
-</div>
 
-<script>
-  // QR codes
-  function setQR(id, data) {
-    var el = document.getElementById(id);
-    if (!el) return;
-    var api = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=";
-    el.src = api + encodeURIComponent(data);
-  }
+  <a href="#donate" class="mobile-donate-btn">Support</a>
 
-  setQR("qr-mono",   "https://send.monobank.ua/jar/8PfzHBQuu4");
-  setQR("qr-privat", "https://www.privat24.ua/send/3xbxx");
-  setQR("qr-btc",    "https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p");
-  setQR("qr-paupay", "nadelnuikviktor@gmail.com");
+  <div id="toast" class="toast" aria-live="polite" aria-atomic="true">
+    <span class="toast-dot"></span>
+    <span class="toast-text" id="toastText">Done</span>
+  </div>
 
-  // Copy to clipboard
-  function copyText(text) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text)
-        .then(function () { alert('Copied: ' + text); })
-        .catch(function () { fallbackCopy(text); });
-    } else {
-      fallbackCopy(text);
+  <div id="qrModal" class="qr-modal" aria-hidden="true">
+    <div class="qr-modal-card" role="dialog" aria-modal="true">
+      <div class="qr-modal-head">
+        <div>
+          <div class="qr-modal-title" id="qrModalTitle">QR</div>
+          <div class="qr-modal-sub" id="qrModalSub">Scan or open</div>
+        </div>
+        <button type="button" class="qr-modal-close" id="qrModalClose" aria-label="Close">×</button>
+      </div>
+
+      <div class="qr-modal-body">
+        <div class="qr-modal-qrwrap">
+          <img id="qrModalImg" class="qr-modal-qr" alt="QR code" loading="lazy">
+        </div>
+
+        <div class="qr-modal-actions">
+          <button type="button" class="qr-action-btn primary" id="qrModalOpenBtn">Open</button>
+          <button type="button" class="qr-action-btn" id="qrModalCopyBtn">Copy</button>
+        </div>
+      </div>
+
+      <div class="qr-modal-foot" id="qrModalFoot">If the scanner can’t read it — increase screen brightness.</div>
+    </div>
+  </div>
+
+  <script>
+    // ===== QR codes =====
+    function setQR(id, data) {
+      var el = document.getElementById(id);
+      if (!el) return;
+      var api = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=";
+      el.src = api + encodeURIComponent(data);
     }
-  }
+    setQR("qr-mono",   "https://send.monobank.ua/jar/8PfzHBQuu4");
+    setQR("qr-privat", "https://www.privat24.ua/send/3xbxx");
+    setQR("qr-btc",    "https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p");
+    setQR("qr-paupay", "nadelnuikviktor@gmail.com");
 
-  function fallbackCopy(text) {
-    var area = document.createElement('textarea');
-    area.value = text;
-    area.style.position = 'fixed';
-    area.style.left = '-9999px';
-    document.body.appendChild(area);
-    area.focus();
-    area.select();
-    try {
-      document.execCommand('copy');
-      alert('Copied: ' + text);
-    } catch (e) {
-      alert('Could not copy. Please copy manually: ' + text);
+    // ===== TOAST =====
+    (function(){
+      const toast = document.getElementById('toast');
+      const textEl = document.getElementById('toastText');
+      let t;
+
+      window.showToast = function(message){
+        if(!toast || !textEl) return;
+        textEl.textContent = message;
+        toast.classList.add('toast--show');
+        clearTimeout(t);
+        t = setTimeout(()=> toast.classList.remove('toast--show'), 1800);
+      }
+    })();
+
+    // ===== Copy =====
+    async function copyText(text) {
+      try{
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(text);
+          showToast('Copied');
+          return;
+        }
+        fallbackCopy(text);
+      }catch(e){
+        fallbackCopy(text);
+      }
     }
-    document.body.removeChild(area);
-  }
-
-  // Sharing (EN)
-  const SHARE_TEXT_EN = 'Hi! This is a fundraising page for the Technical Support Platoon of the mechanized infantry battalion of the 142nd Brigade. They repair vehicles that deliver ammunition, fuel and supplies — and evacuate the wounded.';
-  const SHARE_URL_EN  = 'https://viktornadelniuk.github.io/DOFAMIN95/en.html';
-
-  function shareEn(service) {
-    const text = SHARE_TEXT_EN + ' ' + SHARE_URL_EN;
-    let shareUrl = '';
-
-    switch (service) {
-      case 'telegram':
-        shareUrl = 'https://t.me/share/url?url='
-          + encodeURIComponent(SHARE_URL_EN)
-          + '&text=' + encodeURIComponent(SHARE_TEXT_EN);
-        break;
-      case 'viber':
-        shareUrl = 'viber://forward?text=' + encodeURIComponent(text);
-        break;
-      case 'whatsapp':
-        shareUrl = 'https://wa.me/?text=' + encodeURIComponent(text);
-        break;
-      case 'facebook':
-        shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(SHARE_URL_EN);
-        break;
-      case 'instagram':
-        copyText(text);
-        shareUrl = 'https://www.instagram.com/';
-        break;
-      default:
-        copyText(text);
-        return;
+    function fallbackCopy(text) {
+      var area = document.createElement('textarea');
+      area.value = text;
+      area.style.position = 'fixed';
+      area.style.left = '-9999px';
+      document.body.appendChild(area);
+      area.focus();
+      area.select();
+      try {
+        document.execCommand('copy');
+        showToast('Copied');
+      } catch (e) {
+        showToast('Copy failed. Please copy manually.');
+      }
+      document.body.removeChild(area);
     }
 
-    window.open(shareUrl, '_blank');
-  }
+    // ===== Sharing (EN) =====
+    const SHARE_TEXT_EN = 'Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade (mechanized infantry battalion). They repair vehicles near the frontline so supplies arrive and the wounded can be evacuated.';
+    const SHARE_URL_EN  = 'https://viktornadelniuk.github.io/DOFAMIN95/en.html';
 
-  // SCROLL TO TOP BUTTON
-  (function () {
-    var btn = document.getElementById('scrollTopBtn');
-    if (!btn) return;
+    function shareEn(service) {
+      const text = SHARE_TEXT_EN + ' ' + SHARE_URL_EN;
+      let shareUrl = '';
 
-    window.addEventListener('scroll', function () {
-      var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollY > 250) btn.classList.add('scroll-top-btn--visible');
-      else btn.classList.remove('scroll-top-btn--visible');
-    });
+      switch (service) {
+        case 'telegram':
+          shareUrl = 'https://t.me/share/url?url=' + encodeURIComponent(SHARE_URL_EN) + '&text=' + encodeURIComponent(SHARE_TEXT_EN);
+          break;
+        case 'whatsapp':
+          shareUrl = 'https://wa.me/?text=' + encodeURIComponent(text);
+          break;
+        case 'facebook':
+          shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(SHARE_URL_EN);
+          break;
+        case 'instagram':
+          copyText(text);
+          shareUrl = 'https://www.instagram.com/';
+          break;
+        default:
+          copyText(text);
+          return;
+      }
 
-    btn.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  })();
+      window.open(shareUrl, '_blank');
+    }
 
-  // VISITOR COUNTER (separate key for EN)
-  (function () {
-    var el = document.getElementById('visitor-counter-en');
-    if (!el) return;
+    // ===== SCROLL TOP =====
+    (function () {
+      var btn = document.getElementById('scrollTopBtn');
+      if (!btn) return;
 
-    fetch('https://api.countapi.xyz/hit/vtz-142omb/site-en')
-      .then(function (res) { return res.json(); })
-      .then(function (data) {
-        el.textContent = 'People who visited this support page (views): ' + data.value;
-      })
-      .catch(function () {
-        el.textContent = 'People who visited this support page: —';
+      window.addEventListener('scroll', function () {
+        var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollY > 250) btn.classList.add('scroll-top-btn--visible');
+        else btn.classList.remove('scroll-top-btn--visible');
       });
-  })();
-
-  // CTA button in each big block
-  (function () {
-    var blocks = document.querySelectorAll('.big-block');
-    blocks.forEach(function (block) {
-      if (block.querySelector('.block-donate-btn')) return;
-
-      var btn = document.createElement('button');
-      btn.className = 'block-donate-btn';
-      btn.innerHTML = '<span class="icon">EN</span> Support the platoon';
 
       btn.addEventListener('click', function () {
-        var donate = document.getElementById('donate');
-        if (donate) donate.scrollIntoView({ behavior: "smooth" });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
+    })();
 
-      block.appendChild(btn);
-    });
-  })();
+    // ===== VISITOR COUNTER =====
+    (function () {
+      var el = document.getElementById('visitor-counter-en');
+      if (!el) return;
 
-  // DONATION PROGRESS (EN)
-  (function () {
-    var fill = document.getElementById('progress-fill-en');
-    var text = document.getElementById('progress-text-en');
-    if (!fill || !text) return;
+      fetch('https://api.countapi.xyz/hit/vtz-142omb/site-en')
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          el.textContent = 'Page views: ' + data.value;
+        })
+        .catch(function () {
+          el.textContent = 'Page views: —';
+        });
+    })();
 
-    var percent = 40;
-    fill.style.width = percent + '%';
-    fill.setAttribute('data-label', 'Fundraiser active');
-    text.textContent = 'Fundraiser active';
-  })();
+    // ===== Add "Support" button into each big block =====
+    (function () {
+      var blocks = document.querySelectorAll('.big-block');
+      blocks.forEach(function (block) {
+        if (block.querySelector('.block-donate-btn')) return;
 
-  // VIDEO CAROUSEL JS
-  (function(){
-    const track = document.getElementById('videoCarousel');
-    if(!track) return;
+        var btn = document.createElement('button');
+        btn.className = 'block-donate-btn';
+        btn.innerHTML = '<span class="icon">➜</span> Support';
 
-    const prev = document.querySelector('#videos .vc-prev');
-    const next = document.querySelector('#videos .vc-next');
+        btn.addEventListener('click', function () {
+          var donate = document.getElementById('donate');
+          if (donate) donate.scrollIntoView({ behavior: "smooth" });
+        });
 
-    function getStep(){
-      const first = track.querySelector('.vc-item');
-      if(!first) return 300;
-      const gap = parseInt(getComputedStyle(track).gap || '14', 10);
-      return first.getBoundingClientRect().width + gap;
-    }
+        block.appendChild(btn);
+      });
+    })();
 
-    prev && prev.addEventListener('click', () => {
-      track.scrollBy({ left: -getStep(), behavior: 'smooth' });
-    });
+    // ===== PROGRESS (EN) =====
+    (function () {
+      var fill = document.getElementById('progress-fill-en');
+      var text = document.getElementById('progress-text-en');
+      if (!fill || !text) return;
 
-    next && next.addEventListener('click', () => {
-      track.scrollBy({ left: getStep(), behavior: 'smooth' });
-    });
-  })();
+      var percent = 40;
+      fill.style.width = percent + '%';
+      text.textContent = 'Active fundraiser';
+    })();
 
-  // GALLERY CAROUSEL JS
-  (function(){
-    const track = document.getElementById('galleryCarousel');
-    if(!track) return;
+    // ===== VIDEO CAROUSEL =====
+    (function(){
+      const track = document.getElementById('videoCarousel');
+      if(!track) return;
 
-    const prev = document.querySelector('#gallery .gc-prev');
-    const next = document.querySelector('#gallery .gc-next');
+      const prev = document.querySelector('#videos .vc-prev');
+      const next = document.querySelector('#videos .vc-next');
 
-    function step(){
-      const first = track.querySelector('.gc-item');
-      if(!first) return 320;
-      const gap = parseInt(getComputedStyle(track).gap || '14', 10);
-      return first.getBoundingClientRect().width + gap;
-    }
+      function getStep(){
+        const first = track.querySelector('.vc-item');
+        if(!first) return 300;
+        const gap = parseInt(getComputedStyle(track).gap || '14', 10);
+        return first.getBoundingClientRect().width + gap;
+      }
 
-    prev && prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
-    next && next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
-  })();
+      prev && prev.addEventListener('click', () => track.scrollBy({ left: -getStep(), behavior: 'smooth' }));
+      next && next.addEventListener('click', () => track.scrollBy({ left: getStep(), behavior: 'smooth' }));
+    })();
 
-  // MOBILE DONATE BUTTON VISIBILITY
-  (function(){
-    const btn = document.querySelector('.mobile-donate-btn');
-    const donate = document.getElementById('donate');
-    if(!btn || !donate) return;
+    // ===== GALLERY: generate p1..p37 =====
+    document.addEventListener('DOMContentLoaded', () => {
+      const carousel = document.getElementById('galleryCarousel');
+      const prevBtn = document.querySelector('#gallery .gc-prev');
+      const nextBtn = document.querySelector('#gallery .gc-next');
+      if(!carousel || !prevBtn || !nextBtn) return;
 
-    const obs = new IntersectionObserver(([e]) => {
-      btn.style.display = e.isIntersecting ? 'none' : '';
-    }, { threshold: 0.2 });
+      for(let i = 1; i <= 37; i++){
+        const figure = document.createElement('figure');
+        figure.className = 'gc-item';
+        figure.innerHTML = `<img src="assets/photos/p${i}.jpg" alt="Photo ${i}" loading="lazy">`;
+        carousel.appendChild(figure);
+      }
 
-    obs.observe(donate);
-  })();
+      const getItemWidth = () => (carousel.querySelector('.gc-item')?.offsetWidth || 300) + 14;
 
-  // TEAM CAROUSEL JS (EN)
-  (function(){
-    const track = document.getElementById('teamCarouselEN');
-    if(!track) return;
-
-    const prev = document.querySelector('#team-en .tc-prev');
-    const next = document.querySelector('#team-en .tc-next');
-
-    function step(){
-      const card = track.querySelector('.team-slide');
-      const gap = 14;
-      return card ? (card.getBoundingClientRect().width + gap) : 320;
-    }
-
-    prev && prev.addEventListener('click', () => {
-      track.scrollBy({ left: -step(), behavior: 'smooth' });
+      prevBtn.addEventListener('click', () => carousel.scrollBy({ left: -getItemWidth(), behavior: 'smooth' }));
+      nextBtn.addEventListener('click', () => carousel.scrollBy({ left: getItemWidth(), behavior: 'smooth' }));
     });
 
-    next && next.addEventListener('click', () => {
-      track.scrollBy({ left: step(), behavior: 'smooth' });
-    });
-  })();
+    // ===== MOBILE DONATE VISIBILITY =====
+    (function(){
+      const btn = document.querySelector('.mobile-donate-btn');
+      const donate = document.getElementById('donate');
+      if(!btn || !donate) return;
 
-  // PURCHASED CAROUSEL JS
-  (function(){
-    const track = document.querySelector('#purchased-carousel .carousel-track');
-    if(!track) return;
+      const obs = new IntersectionObserver(([e]) => {
+        btn.style.display = e.isIntersecting ? 'none' : '';
+      }, { threshold: 0.2 });
 
-    const slides = Array.from(track.children);
-    const nextBtn = document.querySelector('#purchased-carousel .next');
-    const prevBtn = document.querySelector('#purchased-carousel .prev');
-    const dotsNav = document.querySelector('#purchased-carousel .carousel-dots');
-    const dots = dotsNav ? Array.from(dotsNav.children) : [];
-    let index = 0;
+      obs.observe(donate);
+    })();
 
-    function updateCarousel() {
-      track.style.transform = `translateX(-${index * 100}%)`;
-      dots.forEach(d => d.classList.remove('active'));
-      if(dots[index]) dots[index].classList.add('active');
-    }
+    // ===== PURCHASED CAROUSEL =====
+    (function(){
+      const root = document.getElementById('purchased-carousel');
+      if(!root) return;
 
-    nextBtn && (nextBtn.onclick = () => { index = (index + 1) % slides.length; updateCarousel(); });
-    prevBtn && (prevBtn.onclick = () => { index = (index - 1 + slides.length) % slides.length; updateCarousel(); });
+      const track = document.getElementById('purchasedTrack');
+      const slides = track ? Array.from(track.children) : [];
+      const nextBtn = root.querySelector('.next');
+      const prevBtn = root.querySelector('.prev');
+      const dotsNav = document.getElementById('purchasedDots');
+      if(!track || !slides.length || !dotsNav) return;
 
-    dots.forEach((dot,i)=>dot.onclick=()=>{ index=i; updateCarousel(); });
+      let index = 0;
+      let dots = [];
 
-    updateCarousel();
-  })();
-
-  // UNIQUE: TECH-TRACES ON SCROLL
-  (function(){
-    const traces = document.getElementById('tech-traces');
-    if(!traces) return;
-
-    let t;
-    function boost(){
-      traces.style.opacity = '0.14';
-      clearTimeout(t);
-      t = setTimeout(()=>{ traces.style.opacity = '0.06'; }, 220);
-    }
-    window.addEventListener('scroll', boost, { passive:true });
-  })();
-
-  // UNIQUE: SYSTEM STATE (EN)
-  (function(){
-    const textEl = document.getElementById('systemText');
-    const dotEl = document.getElementById('systemDot');
-    if(!textEl || !dotEl) return;
-
-    const states = [
-      { t:'STATUS: WORK IN PROGRESS',     c:'rgba(255,255,255,0.55)', g:'rgba(255,255,255,0.18)'},
-      { t:'STATUS: HIGH LOAD',            c:'rgba(255,215,0,0.65)',   g:'rgba(255,215,0,0.22)'},
-      { t:'STATUS: WAITING FOR SUPPLIES', c:'rgba(0,180,255,0.65)',   g:'rgba(0,180,255,0.20)'}
-    ];
-
-    let i = 0;
-    function apply(s){
-      textEl.style.opacity = '0';
-      setTimeout(()=>{
-        textEl.textContent = s.t;
-        dotEl.style.background = s.c;
-        dotEl.style.boxShadow = `0 0 10px ${s.g}`;
-        textEl.style.opacity = '1';
-      }, 220);
-    }
-
-    apply(states[i]);
-    setInterval(()=>{
-      i = (i + 1) % states.length;
-      apply(states[i]);
-    }, 9000);
-  })();
-
-  // SNOW (lightweight)
-  (function(){
-    const c = document.getElementById('snow');
-    if(!c) return;
-    const ctx = c.getContext('2d', { alpha:true });
-
-    let w, h, dpr;
-    const flakes = [];
-    const COUNT = 70;
-
-    function resize(){
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
-      w = Math.floor(window.innerWidth);
-      h = Math.floor(window.innerHeight);
-      c.width = Math.floor(w * dpr);
-      c.height = Math.floor(h * dpr);
-      c.style.width = w + 'px';
-      c.style.height = h + 'px';
-      ctx.setTransform(dpr,0,0,dpr,0,0);
-    }
-    window.addEventListener('resize', resize);
-    resize();
-
-    function seed(){
-      flakes.length = 0;
-      for(let i=0;i<COUNT;i++){
-        flakes.push({
-          x: Math.random()*w,
-          y: Math.random()*h,
-          r: 0.8 + Math.random()*2.2,
-          s: 0.35 + Math.random()*0.95,
-          dx: (Math.random()-0.5)*0.25
+      function buildDots(){
+        dotsNav.innerHTML = '';
+        dots = slides.map((_, i)=>{
+          const d = document.createElement('span');
+          d.setAttribute('role','button');
+          d.setAttribute('aria-label','Go to slide ' + (i+1));
+          d.addEventListener('click', ()=>{ index = i; update(); });
+          dotsNav.appendChild(d);
+          return d;
         });
       }
-    }
-    seed();
 
-    function tick(){
-      ctx.clearRect(0,0,w,h);
-      ctx.fillStyle = 'rgba(255,255,255,0.85)';
-
-      for(const f of flakes){
-        ctx.beginPath();
-        ctx.arc(f.x, f.y, f.r, 0, Math.PI*2);
-        ctx.fill();
-
-        f.y += f.s;
-        f.x += f.dx;
-
-        if(f.y > h + 8){
-          f.y = -10;
-          f.x = Math.random()*w;
-        }
-        if(f.x < -10) f.x = w + 10;
-        if(f.x > w + 10) f.x = -10;
+      function update(){
+        track.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach((d, i)=> d.classList.toggle('active', i === index));
       }
 
-      requestAnimationFrame(tick);
-    }
+      nextBtn && nextBtn.addEventListener('click', ()=>{ index = (index + 1) % slides.length; update(); });
+      prevBtn && prevBtn.addEventListener('click', ()=>{ index = (index - 1 + slides.length) % slides.length; update(); });
 
-    if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-      c.style.opacity = '0.25';
-    } else {
-      tick();
-    }
-  })();
-</script>
+      let startX = 0, dragging = false;
+      track.addEventListener('touchstart', (e)=>{
+        if(!e.touches || !e.touches[0]) return;
+        startX = e.touches[0].clientX;
+        dragging = true;
+      }, {passive:true});
+      track.addEventListener('touchend', (e)=>{
+        if(!dragging) return;
+        dragging = false;
+        const endX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : startX;
+        const dx = endX - startX;
+        if(Math.abs(dx) < 40) return;
+        if(dx < 0) index = (index + 1) % slides.length;
+        else index = (index - 1 + slides.length) % slides.length;
+        update();
+      }, {passive:true});
 
-<a href="#donate" class="mobile-donate-btn">Support the platoon</a>
+      buildDots();
+      update();
+    })();
 
+    // ===== TECH-TRACES ON SCROLL =====
+    (function(){
+      const traces = document.getElementById('tech-traces');
+      if(!traces) return;
+
+      let t;
+      function boost(){
+        traces.style.opacity = '0.14';
+        clearTimeout(t);
+        t = setTimeout(()=>{ traces.style.opacity = '0.06'; }, 220);
+      }
+      window.addEventListener('scroll', boost, { passive:true });
+    })();
+
+    // ===== SYSTEM STATE =====
+    (function(){
+      const textEl = document.getElementById('systemText');
+      const dotEl = document.getElementById('systemDot');
+      if(!textEl || !dotEl) return;
+
+      const states = [
+        { t:'STATUS: WORK IN PROGRESS',  c:'rgba(255,255,255,0.55)', g:'rgba(255,255,255,0.18)'},
+        { t:'STATUS: HIGH LOAD',         c:'rgba(255,184,74,0.78)',  g:'rgba(255,184,74,0.24)'},
+        { t:'STATUS: NEEDING RESOURCES', c:'rgba(0,180,255,0.65)',   g:'rgba(0,180,255,0.20)'}
+      ];
+
+      let i = 0;
+      function apply(s){
+        textEl.style.opacity = '0';
+        setTimeout(()=>{
+          textEl.textContent = s.t;
+          dotEl.style.background = s.c;
+          dotEl.style.boxShadow = `0 0 10px ${s.g}`;
+          textEl.style.opacity = '1';
+        }, 220);
+      }
+
+      apply(states[i]);
+      setInterval(()=>{
+        i = (i + 1) % states.length;
+        apply(states[i]);
+      }, 9000);
+    })();
+
+    // ===== SNOW =====
+    (function(){
+      const c = document.getElementById('snow');
+      if(!c) return;
+      const ctx = c.getContext('2d', { alpha:true });
+
+      let w, h, dpr;
+      const flakes = [];
+      const COUNT = 55;
+
+      function resize(){
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        w = Math.floor(window.innerWidth);
+        h = Math.floor(window.innerHeight);
+        c.width = Math.floor(w * dpr);
+        c.height = Math.floor(h * dpr);
+        c.style.width = w + 'px';
+        c.style.height = h + 'px';
+        ctx.setTransform(dpr,0,0,dpr,0,0);
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      function seed(){
+        flakes.length = 0;
+        for(let i=0;i<COUNT;i++){
+          flakes.push({
+            x: Math.random()*w,
+            y: Math.random()*h,
+            r: 0.7 + Math.random()*2.0,
+            s: 0.25 + Math.random()*0.80,
+            dx: (Math.random()-0.5)*0.22
+          });
+        }
+      }
+      seed();
+
+      function tick(){
+        ctx.clearRect(0,0,w,h);
+        ctx.fillStyle = 'rgba(255,255,255,0.70)';
+        for(const f of flakes){
+          ctx.beginPath();
+          ctx.arc(f.x, f.y, f.r, 0, Math.PI*2);
+          ctx.fill();
+          f.y += f.s;
+          f.x += f.dx;
+          if(f.y > h + 8){ f.y = -10; f.x = Math.random()*w; }
+          if(f.x < -10) f.x = w + 10;
+          if(f.x > w + 10) f.x = -10;
+        }
+        requestAnimationFrame(tick);
+      }
+
+      if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        c.style.opacity = '0.18';
+      } else {
+        tick();
+      }
+    })();
+
+    // ===== QR FULLSCREEN MODAL =====
+    (function(){
+      const modal = document.getElementById('qrModal');
+      const img   = document.getElementById('qrModalImg');
+      const title = document.getElementById('qrModalTitle');
+      const foot  = document.getElementById('qrModalFoot');
+      const btnClose = document.getElementById('qrModalClose');
+      const btnOpen  = document.getElementById('qrModalOpenBtn');
+      const btnCopy  = document.getElementById('qrModalCopyBtn');
+
+      if(!modal || !img || !btnOpen || !btnCopy) return;
+
+      let current = { label:'', value:'', openUrl:'', variant:'' };
+
+      function openModal(cfg){
+        current = cfg;
+
+        modal.classList.remove('qr-modal-mono','qr-modal-privat','qr-modal-paypal','qr-modal-crypto');
+        if(cfg.variant) modal.classList.add('qr-modal-' + cfg.variant);
+
+        title.textContent = cfg.label || 'QR';
+        foot.textContent = cfg.value ? ('Data: ' + cfg.value) : ' ';
+
+        if(cfg.qrSrc){
+          img.src = cfg.qrSrc;
+        } else {
+          const api = "https://api.qrserver.com/v1/create-qr-code/?size=520x520&data=";
+          img.src = api + encodeURIComponent(cfg.value || cfg.openUrl || '');
+        }
+
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal(){
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
+      }
+
+      btnClose.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
+      document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
+
+      btnOpen.addEventListener('click', ()=>{
+        if(current.openUrl){
+          window.open(current.openUrl, '_blank');
+        } else if(current.value && (current.value.includes('http://') || current.value.includes('https://'))){
+          window.open(current.value, '_blank');
+        } else {
+          showToast('No link. Copy the data.');
+        }
+      });
+
+      btnCopy.addEventListener('click', ()=>{
+        if(current.value) copyText(current.value);
+        else if(current.openUrl) copyText(current.openUrl);
+        else showToast('Nothing to copy.');
+      });
+
+      const map = [
+        { id:'qr-mono',   label:'Monobank · Jar', variant:'mono',
+          value:'https://send.monobank.ua/jar/8PfzHBQuu4',
+          openUrl:'https://send.monobank.ua/jar/8PfzHBQuu4' },
+
+        { id:'qr-privat', label:'Privat24 · Transfer', variant:'privat',
+          value:'https://www.privat24.ua/send/3xbxx',
+          openUrl:'https://www.privat24.ua/send/3xbxx' },
+
+        { id:'qr-paupay', label:'PayPal / Paupay', variant:'paypal',
+          value:'nadelnuikviktor@gmail.com',
+          openUrl:'mailto:nadelnuikviktor@gmail.com' },
+
+        { id:'qr-btc',    label:'Crypto · BTC', variant:'crypto',
+          value:'bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p',
+          openUrl:'https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p' }
+      ];
+
+      map.forEach(cfg=>{
+        const el = document.getElementById(cfg.id);
+        if(!el) return;
+
+        el.style.cursor = 'zoom-in';
+        el.title = 'Tap to open a large QR';
+
+        el.addEventListener('click', ()=>{
+          openModal({
+            label: cfg.label,
+            value: cfg.value,
+            openUrl: cfg.openUrl,
+            variant: cfg.variant,
+            qrSrc: el.src
+          });
+        });
+      });
+    })();
+
+    // ===== REVEAL =====
+    (function(){
+      const items = document.querySelectorAll('.card, .vc-item, .gc-item');
+      if(!items.length) return;
+
+      items.forEach(el => el.classList.add('reveal'));
+
+      const obs = new IntersectionObserver((entries, observer)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+      items.forEach(el => obs.observe(el));
+    })();
+  </script>
 </body>
 </html>
