@@ -1,1955 +1,1687 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <title>Підтримати · Взвод технічного забезпечення · 142 ОМБр</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Підтримайте взвод технічного забезпечення 142 ОМБр. Ваші донати допомагають ремонтувати техніку, яка возить боєкомплект, ПММ, їжу та евакуює поранених.">
-
-  <link rel="icon" href="favicon.png" type="image/png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0c10" />
+  <title>Steel & Amber Pro 3.0 · ВТЗ 142 ОМБр</title>
+  <meta name="description" content="Підтримайте ВТЗ 142 ОМБр: логістика, ремонт, евакуація. Прозоро, швидко, з повагою." />
 
   <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Підтримати взвод технічного забезпечення · 142 ОМБр">
-  <meta property="og:description" content="Взвод технічного забезпечення ремонтує техніку прямо на передовій, щоб машини їхали, а люди повертались живими.">
-  <meta property="og:url" content="https://viktornadelnuik.github.io/DOFAMIN95/">
-  <meta property="og:image" content="hero-bg.jpg">
+  <meta property="og:title" content="Steel & Amber Pro 3.0 · ВТЗ 142 ОМБр" />
+  <meta property="og:description" content="Ваш донат = паливо/ремонт/рейси. Звіти та фото — відкрито." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og.jpg" />
+  <meta property="og:locale" content="uk_UA" />
 
   <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Підтримати взвод технічного забезпечення · 142 ОМБр">
-  <meta name="twitter:description" content="Підтримайте взвод технічного забезпечення, який ремонтує техніку прямо в зоні бойових дій.">
-  <meta name="twitter:image" content="hero-bg.jpg">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Steel & Amber Pro 3.0 · ВТЗ 142 ОМБр" />
+  <meta name="twitter:description" content="Ваш донат = паливо/ремонт/рейси. Звіти та фото — відкрито." />
+  <meta name="twitter:image" content="assets/og.jpg" />
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y0HDG5SKZX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-Y0HDG5SKZX');
-  </script>
-
-  <!-- зовнішні стилі (залишаємо як є) -->
-  <link rel="stylesheet" href="supporters.css">
+  <link rel="icon" href="assets/favicon.png" />
 
   <style>
-    /* ============================= */
-    /* STEEL & AMBER PRO (UA)        */
-    /* ============================= */
+    /* ==========================================================
+       Steel & Amber Pro 3.0 · Single-file build
+       ========================================================== */
+
     :root{
-      --bg-main:#0f1115;
-      --bg-soft:#14171c;
-      --steel:#1b1f26;
-      --steel-2:#0f131a;
-      --amber:#ffb84a;
-      --amber-2:#ff9d2e;
-      --amber-3:#ffcc70;
-      --text:#f1f1f1;
-      --muted:#a9a9a9;
-      --line:rgba(255,184,74,.18);
-      --line-strong:rgba(255,184,74,.28);
-      --shadow: 0 18px 50px rgba(0,0,0,.65);
-      --shadow-soft: 0 12px 30px rgba(0,0,0,.55);
-      --radius: 18px;
+      --bg0:#07080b;
+      --bg1:#0b0c10;
+      --bg2:#11131a;
+      --steel:#8e96a8;
+      --text:#e8ebf4;
+      --muted:#a7b0c3;
+      --muted2:#7f8aa3;
+      --line:rgba(255,255,255,.08);
+      --line2:rgba(255,255,255,.12);
+      --amber:#ffb020;
+      --amber2:#ffcf66;
+      --danger:#ff3b5c;
+      --ok:#4dff9b;
+      --warn:#ffd24a;
+
+      --radius:18px;
+      --radius2:26px;
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --shadow2: 0 10px 36px rgba(0,0,0,.45);
+      --blur: 14px;
+
+      --max: 1120px;
+      --pad: clamp(16px, 2.6vw, 28px);
+
+      --ease: cubic-bezier(.16,1,.3,1);
+      --ease2: cubic-bezier(.2,.9,.2,1);
+
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
     }
 
-    *{ box-sizing:border-box; margin:0; padding:0; }
-    html{ scroll-behavior:smooth; }
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
     body{
-      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-      color: var(--text);
-      line-height: 1.55;
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
       background:
-        radial-gradient(circle at 25% 18%, rgba(255,184,74,0.10), transparent 45%),
-        radial-gradient(circle at 75% 70%, rgba(255,184,74,0.07), transparent 48%),
-        radial-gradient(circle at 55% 42%, rgba(255,255,255,0.03), transparent 55%),
-        var(--bg-main);
+        radial-gradient(1100px 560px at 60% -10%, rgba(255,176,32,.18), transparent 55%),
+        radial-gradient(900px 500px at 12% 18%, rgba(120,160,255,.12), transparent 55%),
+        radial-gradient(1200px 700px at 50% 120%, rgba(255,176,32,.10), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 20%, var(--bg2) 70%, var(--bg0));
       overflow-x:hidden;
     }
-    body::after{
+
+    /* subtle noise */
+    body::before{
       content:"";
-      position:fixed;
-      inset:0;
+      position:fixed; inset:0;
       pointer-events:none;
-      z-index:-1;
-      opacity:.42;
-      background-image:
-        repeating-linear-gradient(
-          0deg,
-          rgba(255,255,255,0.015) 0px,
-          rgba(255,255,255,0.015) 1px,
-          transparent 1px,
-          transparent 3px
-        );
-      mix-blend-mode: overlay;
-    }
-
-    a{ color:inherit; }
-
-    /* subtle traces on scroll */
-    #tech-traces{
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      z-index:2;
-      opacity:0.06;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
       mix-blend-mode:overlay;
-      background:
-        repeating-linear-gradient(
-          -25deg,
-          rgba(255,255,255,0.020) 0,
-          rgba(255,255,255,0.020) 2px,
-          transparent 2px,
-          transparent 18px
-        );
-      transition: opacity .25s ease;
+      opacity:.16;
+      z-index:0;
     }
 
-    .page{
-      min-height:100vh;
-      padding: 22px 12px 64px;
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ position:relative; z-index:1; }
+
+    /* =========================
+       Top bar
+       ========================= */
+    .topbar{
+      position:sticky; top:0; z-index:60;
+      backdrop-filter: blur(var(--blur));
+      background: linear-gradient(180deg, rgba(10,11,15,.78), rgba(10,11,15,.46));
+      border-bottom:1px solid var(--line);
+    }
+    .topbar .inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding: 12px var(--pad);
       display:flex;
-      justify-content:center;
-      position:relative;
-      z-index:3;
-      animation: fadeInPage .6s ease-out;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
     }
-    .container{ width:100%; max-width:1180px; margin:0 auto; }
-
-    /* Header */
-    .header-patch-wrap{
-      width:100%;
-      display:flex;
-      justify-content:center;
-      margin: 2px 0 14px;
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      user-select:none;
     }
-    .header-patch{
-      width: 128px;
-      height:auto;
-      filter:
-        drop-shadow(0 0 10px rgba(255,184,74,.35))
-        drop-shadow(0 0 4px rgba(255,184,74,.22));
-      animation: patchGlow 4.2s ease-in-out infinite;
-    }
-    @keyframes patchGlow{
-      0%{ filter: drop-shadow(0 0 4px rgba(255,184,74,.22)); }
-      50%{ filter: drop-shadow(0 0 14px rgba(255,184,74,.55)); }
-      100%{ filter: drop-shadow(0 0 4px rgba(255,184,74,.22)); }
-    }
-
-    .top-row{ display:flex; flex-direction:column; gap:8px; margin-bottom:12px; }
-    .top-bar{ display:flex; align-items:center; gap:10px; }
-    .logo{
-      width:42px; height:42px; border-radius:12px; object-fit:cover;
-      box-shadow: 0 10px 24px rgba(0,0,0,.5);
-      border:1px solid rgba(255,255,255,.06);
-    }
-    .site-title{ font-size:16px; font-weight:800; letter-spacing:.02em; opacity:.95; }
-    .lang-switch{
-      display:flex; justify-content:flex-end; gap:6px; flex-wrap:wrap;
-      font-size:12px; opacity:.9;
-    }
-    .lang-switch a{
-      padding: 3px 10px; border-radius:999px;
-      border:1px solid rgba(255,255,255,.16);
-      text-decoration:none;
-      background: rgba(0,0,0,.22);
-    }
-    .lang-switch a.active{
-      border-color: var(--line-strong);
-      background: linear-gradient(135deg, rgba(255,184,74,.22), rgba(0,0,0,.28));
-      font-weight:800;
-    }
-
-    /* HERO */
-    .hero{
-      border-radius: 24px;
-      padding: 22px 20px 18px;
-      margin-bottom: 22px;
+    .badge{
+      font-family:var(--mono);
+      font-size:12px;
+      color:rgba(255,255,255,.82);
+      padding:6px 10px;
       border:1px solid var(--line);
-      background:
-        linear-gradient(135deg, rgba(0,0,0,0.62), rgba(0,0,0,0.84)),
-        url("hero-bg.jpg") center/cover no-repeat;
-      box-shadow: var(--shadow);
+      border-radius:999px;
+      background:rgba(255,255,255,.03);
+    }
+    .brand strong{
+      letter-spacing:.3px;
+      font-size:14px;
+    }
+    .brand .dot{
+      width:10px;height:10px;border-radius:999px;
+      background: radial-gradient(circle at 35% 35%, var(--amber2), var(--amber));
+      box-shadow: 0 0 0 3px rgba(255,176,32,.18);
+    }
+
+    .nav{
+      display:flex; align-items:center; gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: rgba(255,255,255,.92);
+      font-weight:600;
+      font-size:13px;
+      transition: transform .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease);
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{ transform: translateY(-1px); border-color: rgba(255,176,32,.35); background: rgba(255,176,32,.06); }
+    .btn:active{ transform: translateY(0px) scale(.99); }
+
+    .btn-amber{
+      border-color: rgba(255,176,32,.32);
+      background: radial-gradient(110% 150% at 20% 20%, rgba(255,176,32,.26), rgba(255,255,255,.02));
+      box-shadow: 0 10px 34px rgba(255,176,32,.12);
       position:relative;
       overflow:hidden;
-      animation: heroReveal .7s ease-out;
     }
-    .hero::before{
+    .btn-amber::after{
       content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at 22% 18%, rgba(255,184,74,.16), transparent 42%),
-        radial-gradient(circle at 75% 70%, rgba(255,184,74,.10), transparent 50%);
+      position:absolute; inset:-2px;
+      background: radial-gradient(500px 100px at var(--mx,30%) var(--my,10%), rgba(255,255,255,.18), transparent 60%);
+      opacity:.0;
+      transition: opacity .25s var(--ease);
       pointer-events:none;
-      mix-blend-mode: screen;
-      opacity:.7;
     }
-    .hero::after{
-      content:"";
-      position:absolute;
-      left:-20%;
-      top:58%;
-      width:140%;
-      height:2px;
-      pointer-events:none;
-      background: radial-gradient(circle at 0 50%,
-        rgba(255, 228, 168, 0.85) 0,
-        rgba(255, 184, 74, 0.35) 26%,
-        rgba(255, 184, 74, 0) 58%);
-      opacity:0;
-      filter: blur(.6px);
-      animation: weld 3.8s ease-in-out infinite;
+    .btn-amber:hover::after{ opacity:.9; }
+    .pulse{
+      animation: pulse 2.6s var(--ease2) infinite;
     }
-    @keyframes weld{
-      0%, 62% { opacity:0; transform: translateX(-10%); }
-      68% { opacity:1; transform: translateX(10%); }
-      84% { opacity:.45; transform: translateX(60%); }
-      100%{ opacity:0; transform: translateX(120%); }
+    @keyframes pulse{
+      0%,100%{ box-shadow: 0 10px 34px rgba(255,176,32,.12), 0 0 0 0 rgba(255,176,32,.0); }
+      50%{ box-shadow: 0 18px 50px rgba(255,176,32,.18), 0 0 0 10px rgba(255,176,32,.06); }
     }
 
-    .hero-badge{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-      margin-bottom:10px;
-      font-size:12px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      opacity:.92;
-    }
-    .hero-pill{
-      padding: 5px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.16);
-      background: rgba(0,0,0,.35);
-    }
-
-    .system-state{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 5px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.28);
+    .kbd{
+      font-family:var(--mono);
       font-size:11px;
-      letter-spacing:.06em;
-      opacity:.92;
-    }
-    .system-dot{
-      width:7px; height:7px; border-radius:999px;
-      background: rgba(255,184,74,.72);
-      box-shadow: 0 0 10px rgba(255,184,74,.24);
+      color: rgba(255,255,255,.72);
+      padding: 3px 7px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,.18);
     }
 
-    .hero-title{
-      font-size: 26px;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: .06em;
-      margin-bottom: 10px;
-      text-shadow: 0 0 12px rgba(0,0,0,.85);
+    /* =========================
+       Hero
+       ========================= */
+    header.hero{
+      max-width:var(--max);
+      margin:0 auto;
+      padding: 42px var(--pad) 18px;
+      position:relative;
+    }
+
+    .heroCard{
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      background:
+        radial-gradient(900px 420px at 25% 0%, rgba(255,176,32,.22), transparent 60%),
+        radial-gradient(700px 400px at 70% 40%, rgba(90,140,255,.10), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.01));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+      transform: translateZ(0);
+    }
+
+    /* tech grid overlay */
+    .heroCard::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(to right, rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,.05) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity:.12;
+      mask-image: radial-gradient(70% 70% at 50% 35%, black 40%, transparent 70%);
+      pointer-events:none;
+    }
+    /* scanlines */
+    .heroCard::after{
+      content:"";
+      position:absolute; inset:0;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,.06),
+        rgba(255,255,255,.06) 1px,
+        transparent 1px,
+        transparent 7px
+      );
+      opacity:.08;
+      animation: scan 10s linear infinite;
+      pointer-events:none;
+      mix-blend-mode: overlay;
+    }
+    @keyframes scan{
+      0%{ transform: translateY(-20px); }
+      100%{ transform: translateY(20px); }
+    }
+
+    .heroInner{
+      display:grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 18px;
+      padding: clamp(18px, 3.2vw, 28px);
+      position:relative;
+      z-index:2;
+    }
+    @media (max-width: 860px){
+      .heroInner{ grid-template-columns:1fr; }
+    }
+
+    .hTitle{
+      font-size: clamp(28px, 3.6vw, 44px);
+      line-height:1.05;
+      letter-spacing:-.6px;
+      margin: 0 0 10px;
+    }
+    .hTitle .accent{
+      color: var(--amber2);
+      text-shadow: 0 0 24px rgba(255,176,32,.18);
+    }
+    .hSub{
+      margin:0;
+      color: rgba(232,235,244,.86);
+      font-size: 15px;
+      line-height:1.55;
+      max-width: 62ch;
+    }
+    .hMeta{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 14px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      font-family: var(--mono);
+      font-size:12px;
+      color: rgba(255,255,255,.78);
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:8px 10px;
+      background: rgba(0,0,0,.16);
+    }
+    .pill i{
+      width:8px;height:8px;border-radius:999px;
+      background: rgba(255,255,255,.24);
+    }
+    .pill i.amber{ background: radial-gradient(circle at 35% 35%, var(--amber2), var(--amber)); box-shadow:0 0 0 3px rgba(255,176,32,.14); }
+    .pill i.ok{ background: radial-gradient(circle at 35% 35%, #b7ffe0, var(--ok)); box-shadow:0 0 0 3px rgba(77,255,155,.12); }
+    .pill i.warn{ background: radial-gradient(circle at 35% 35%, #fff4b1, var(--warn)); box-shadow:0 0 0 3px rgba(255,210,74,.12); }
+
+    .heroActions{
+      display:flex; flex-wrap:wrap; gap:10px; margin-top: 18px;
+      align-items:center;
+    }
+
+    /* right side HUD card */
+    .hud{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(0,0,0,.16);
+      padding: 14px 14px 12px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hud::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(420px 160px at 18% 0%, rgba(255,176,32,.18), transparent 55%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .hud h3{
+      margin:0 0 8px;
+      font-size:12px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color: rgba(255,255,255,.72);
+      font-family: var(--mono);
       position:relative;
       z-index:1;
     }
-
-    .engine-line-wrap{ margin: 10px 0 14px; position:relative; z-index:1; }
-    .engine-line{
-      height:4px; border-radius:999px;
-      background: rgba(255,255,255,.10);
+    .statusList{
+      display:grid; gap:10px;
+      position:relative; z-index:1;
+    }
+    .statusRow{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      padding: 10px 10px;
+      border:1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,255,255,.03);
+    }
+    .statusRow .left{
+      display:flex; align-items:center; gap:10px;
+      min-width:0;
+    }
+    .led{
+      width:10px; height:10px; border-radius:999px;
+      box-shadow: 0 0 0 3px rgba(255,255,255,.06);
+      flex:0 0 auto;
+    }
+    .led.ok{ background: radial-gradient(circle at 35% 35%, #c7ffe8, var(--ok)); box-shadow:0 0 0 3px rgba(77,255,155,.10), 0 0 16px rgba(77,255,155,.22); }
+    .led.warn{ background: radial-gradient(circle at 35% 35%, #fff3b9, var(--warn)); box-shadow:0 0 0 3px rgba(255,210,74,.10), 0 0 16px rgba(255,210,74,.18); }
+    .led.danger{ background: radial-gradient(circle at 35% 35%, #ffb7c2, var(--danger)); box-shadow:0 0 0 3px rgba(255,59,92,.10), 0 0 16px rgba(255,59,92,.22); }
+    .statusRow strong{
+      font-size:13px;
+      white-space:nowrap;
       overflow:hidden;
-      box-shadow: inset 0 0 10px rgba(0,0,0,.75);
-      position:relative;
+      text-overflow:ellipsis;
+      max-width: 190px;
     }
-    .engine-line::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: linear-gradient(90deg,
-        transparent 0%,
-        rgba(255,184,74,.80) 25%,
-        rgba(255,255,255,.70) 40%,
-        rgba(255,184,74,.80) 55%,
-        transparent 100%);
-      animation: engineMove 1.7s linear infinite;
-      filter: blur(.3px);
-    }
-    @keyframes engineMove{
-      from { transform: translateX(-120%); }
-      to   { transform: translateX(120%); }
+    .statusRow .tag{
+      font-family:var(--mono);
+      font-size:11px;
+      color: rgba(255,255,255,.76);
+      padding: 4px 8px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(0,0,0,.14);
     }
 
-    .hero-sub{ font-size: 15px; opacity:.92; margin-bottom: 8px; position:relative; z-index:1; }
-    .hero-note{ font-size: 13px; opacity:.78; position:relative; z-index:1; }
-
-    /* Grid + Cards */
-    .section-title{
-      font-size: 22px;
-      font-weight: 900;
-      letter-spacing:.02em;
-      margin: 12px 0 12px;
-      color: var(--amber);
-      text-shadow: 0 0 12px rgba(255,184,74,.10);
+    /* scroll cue */
+    .scrollCue{
+      display:flex; align-items:center; gap:10px;
+      margin: 18px 4px 0;
+      color: rgba(255,255,255,.62);
+      font-family: var(--mono);
+      font-size:12px;
+      user-select:none;
+    }
+    .scrollCue .arrow{
+      width: 26px; height: 26px; border-radius: 999px;
+      border:1px solid var(--line);
+      display:grid; place-items:center;
+      background: rgba(255,255,255,.03);
+      animation: bob 1.8s var(--ease) infinite;
+    }
+    @keyframes bob{
+      0%,100%{ transform: translateY(0); }
+      50%{ transform: translateY(4px); }
     }
 
-    .card-grid{
+    /* =========================
+       Sections
+       ========================= */
+    main{
+      max-width:var(--max);
+      margin:0 auto;
+      padding: 18px var(--pad) 80px;
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-      margin-top: 10px;
+      gap: 18px;
+    }
+    .grid2{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:18px;
+    }
+    @media (max-width: 980px){
+      .grid2{ grid-template-columns:1fr; }
     }
 
     .card{
-      background: linear-gradient(180deg, rgba(20,23,28,.92), rgba(27,31,38,.92));
-      border-radius: var(--radius);
-      padding: 16px 16px 18px;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow-soft);
-      position:relative;
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+      box-shadow: var(--shadow2);
       overflow:hidden;
-      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-      animation: cardFade .5s ease-out;
-    }
-    .card::before{
-      content:"";
-      position:absolute;
-      top:0; left:0; right:0;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, rgba(255,184,74,.85), transparent);
-      opacity:.7;
-    }
-    .card:hover{
-      transform: translateY(-6px);
-      border-color: rgba(255,184,74,.33);
-      box-shadow:
-        0 18px 50px rgba(255,184,74,.14),
-        0 18px 44px rgba(0,0,0,.70);
+      position:relative;
     }
 
-    .card.big-block{
-      grid-column: 1 / -1;
-      min-height:auto;
+    .cardHeader{
+      padding: 16px 18px;
+      display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
+      border-bottom:1px solid var(--line);
+      background: rgba(0,0,0,.10);
     }
-
-    .card h3{ font-size: 16px; margin-bottom: 6px; }
-    .card small{ opacity: .72; font-size: 11px; letter-spacing:.08em; }
-    .card p{ font-size: 13px; margin: 6px 0; opacity:.95; }
-
-    .mono-label{ color: #00ffc3; font-weight:800; }
-    .privat-label{ color: #55efc4; font-weight:800; }
-    .paypal-label{ color: #00b4ff; font-weight:800; }
-    .crypto-label{ color: #ffd86b; font-weight:800; }
-
-    /* Buttons */
-    .btn-row{ display:flex; flex-wrap:wrap; gap:8px; margin: 10px 0 6px; }
-
-    .donate-btn{
-      padding: 10px 16px;
-      border-radius: 999px;
-      text-decoration:none;
-      font-weight: 800;
+    .cardHeader h2{
+      margin:0;
+      font-size:14px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      font-family: var(--mono);
+      color: rgba(255,255,255,.76);
+    }
+    .cardHeader p{
+      margin:6px 0 0;
+      color: rgba(232,235,244,.78);
       font-size: 13px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: linear-gradient(135deg, var(--amber), var(--amber-2));
-      color:#0b0b0b;
-      box-shadow: 0 12px 28px rgba(255,184,74,.18);
-      transition: transform .16s ease, box-shadow .16s ease, filter .16s ease;
-      cursor:pointer;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      white-space:nowrap;
-    }
-    .donate-btn:hover{
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 16px 36px rgba(255,184,74,.28);
-      filter: brightness(1.06);
-    }
-    .donate-btn:active{ transform: scale(.97); }
-
-    /* colored variants for donation buttons */
-    .donate-btn--mono{
-      background: linear-gradient(135deg, #00e3aa, #00b894);
-      color:#041014;
-      box-shadow: 0 12px 28px rgba(0,227,170,.16);
-    }
-    .donate-btn--privat{
-      background: linear-gradient(135deg, #ffb84a, #ff7a18);
-      color:#1a0f04;
-      box-shadow: 0 12px 28px rgba(255,122,24,.18);
-    }
-    .donate-btn--paypal{
-      background: linear-gradient(135deg, #009cde, #003087);
-      color:#fff;
-      box-shadow: 0 12px 28px rgba(0,156,222,.18);
-      border-color: rgba(255,255,255,.14);
-    }
-    .donate-btn--crypto{
-      background: linear-gradient(135deg, #2a2f38, #3a414c);
-      color: var(--amber-3);
-      border: 1px solid rgba(255,184,74,.28);
-      box-shadow: 0 12px 28px rgba(0,0,0,.35);
+      line-height:1.45;
+      max-width: 70ch;
     }
 
-    /* QR */
-    .qr-wrap{ margin-top: 8px; display:flex; justify-content:center; }
-    .qr{
-      width: 150px; height: 150px;
-      border-radius: 16px;
-      background:#0b0f14;
-      border:1px solid rgba(255,255,255,.10);
-      display:block;
-      cursor: zoom-in;
+    .cardBody{ padding: 16px 18px 18px; }
+
+    .divider{
+      height:1px; background: var(--line);
+      margin: 14px 0;
     }
 
-    /* Scroll-to-top */
-    .scroll-top-btn{
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      width: 42px;
-      height: 42px;
+    /* Donation module */
+    .donateGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .progressWrap{
+      border:1px solid var(--line);
+      border-radius: 18px;
+      padding: 12px 12px;
+      background: rgba(0,0,0,.14);
+    }
+    .progressTop{
+      display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+      margin-bottom:10px;
+    }
+    .progressTop strong{
+      font-size:14px;
+      letter-spacing:.2px;
+    }
+    .progressTop span{
+      font-family:var(--mono);
+      font-size:12px;
+      color: rgba(255,255,255,.72);
+    }
+    .bar{
+      height: 12px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: radial-gradient(circle at 30% 0, rgba(255,184,74,.95) 0, rgba(255,122,24,.95) 70%);
-      color: #0b0b0b;
-      font-size: 22px;
-      font-weight: 900;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
-      opacity: 0;
-      pointer-events:none;
-      transform: translateY(8px) scale(.9);
-      transition: opacity .25s ease, transform .25s ease;
-      z-index: 9999;
-    }
-    .scroll-top-btn--visible{
-      opacity: 1;
-      pointer-events:auto;
-      transform: translateY(0) scale(1);
-    }
-
-    /* Mobile donate button */
-    .mobile-donate-btn{
-      position: fixed;
-      left: 16px;
-      right: 16px;
-      bottom: 12px;
-      z-index: 99999;
-      display: none;
-      text-align:center;
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, rgba(255,184,74,0.95), rgba(255,122,24,0.95));
-      border: 1px solid rgba(255,255,255,0.18);
-      color: #0b0b0b;
-      text-decoration:none;
-      font-weight: 900;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+      background: rgba(255,255,255,.08);
       overflow:hidden;
-    }
-    .mobile-donate-btn::before{
-      content:"";
-      position:absolute;
-      top:-40%;
-      left:-30%;
-      width: 40%;
-      height: 180%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.40), transparent);
-      transform: rotate(18deg);
-      animation: shine 3.2s infinite;
-      opacity: 0.55;
-    }
-    @keyframes shine{
-      0%{ transform: translateX(-140%) rotate(18deg); }
-      45%{ transform: translateX(320%) rotate(18deg); }
-      100%{ transform: translateX(320%) rotate(18deg); }
-    }
-    @media (max-width: 768px){
-      .mobile-donate-btn{ display:block; }
-    }
-
-    /* Block donate button appended */
-    .block-donate-btn{
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
-      margin-top: 14px;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, rgba(255,184,74,.95), rgba(255,122,24,.95));
-      color:#0b0b0b;
-      border:1px solid rgba(255,255,255,0.18);
-      cursor:pointer;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.45);
-      font-weight: 900;
-      transition: transform .15s ease, filter .15s ease;
-    }
-    .block-donate-btn:hover{ transform: translateY(-2px) scale(1.03); filter: brightness(1.04); }
-    .block-donate-btn .icon{ font-weight: 900; }
-
-    /* Progress */
-    .progress-text{ font-size: 13px; opacity:.92; }
-    .progress-track{
-      width:100%;
-      height: 16px;
-      border-radius: 999px;
-      background: rgba(0,0,0,.35);
-      border: 1px solid rgba(255,255,255,0.10);
-      padding:2px;
-      box-shadow: inset 0 0 10px rgba(0,0,0,.7);
-      margin-top:10px;
-    }
-    .progress-fill{
-      height:100%;
-      border-radius:999px;
-      background: linear-gradient(90deg, var(--amber), var(--amber-2));
-      width: 0;
       position:relative;
-      transition: width .5s ease-out;
-      box-shadow: 0 0 20px rgba(255,184,74,.32);
+      border:1px solid rgba(255,255,255,.10);
     }
-    .progress-fill::after{
-      content: attr(data-label);
-      position:absolute;
-      right:6px;
-      top:50%;
-      transform: translateY(-50%);
-      font-size: 11px;
-      font-weight: 900;
-      color:#0b0b0b;
-      background: rgba(255,255,255,.65);
-      padding: 2px 8px;
+    .bar > i{
+      display:block;
+      height:100%;
+      width: 0%;
+      background: linear-gradient(90deg, rgba(255,176,32,.92), rgba(255,207,102,.92));
       border-radius: 999px;
-      border: 1px solid rgba(0,0,0,.08);
+      box-shadow: 0 0 22px rgba(255,176,32,.22);
+      transition: width .6s var(--ease);
     }
-    .progress-meta{
-      margin-top: 8px;
+
+    .reqList{ display:grid; gap:10px; }
+    .reqRow{
+      display:grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items:center;
+      padding: 10px 10px;
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+    }
+    .reqRow .small{
+      font-family:var(--mono);
+      font-size:12px;
+      color: rgba(255,255,255,.70);
+    }
+    .reqRow .copy{
+      display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .mini{
+      padding: 8px 10px;
+      border-radius: 999px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.12);
+      font-family: var(--mono);
       font-size: 12px;
-      opacity: .86;
-      display:flex;
-      justify-content:space-between;
-      gap: 8px;
+      cursor:pointer;
+      transition: transform .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease);
+      user-select:none;
+      color: rgba(255,255,255,.82);
+    }
+    .mini:hover{ transform: translateY(-1px); border-color: rgba(255,176,32,.35); background: rgba(255,176,32,.06); }
+    .mini:active{ transform: translateY(0px) scale(.99); }
+
+    /* Donation simulator */
+    .sim{
+      border:1px solid var(--line);
+      border-radius: 18px;
+      padding: 12px;
+      background: rgba(0,0,0,.14);
+      display:grid;
+      gap:10px;
+    }
+    .simTop{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
       flex-wrap:wrap;
     }
-
-    /* Purchased carousel */
-    .carousel{
-      position:relative;
+    .simTop .label{
+      font-family: var(--mono);
+      font-size:12px;
+      color: rgba(255,255,255,.72);
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .simInput{
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
       width:100%;
-      overflow:hidden;
+    }
+    input[type="range"]{ width: min(520px, 100%); }
+    .simVal{
+      font-family: var(--mono);
+      font-size:13px;
+      padding: 6px 10px;
+      border:1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255,255,255,.03);
+      color: rgba(255,255,255,.86);
+    }
+    .simOut{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+    }
+    @media (max-width: 720px){
+      .simOut{ grid-template-columns:1fr; }
+    }
+    .metric{
+      border:1px solid var(--line);
       border-radius: 16px;
-      margin-top: 12px;
-      background: rgba(0,0,0,0.22);
-      border: 1px solid rgba(255,255,255,0.10);
+      padding: 10px 10px;
+      background: rgba(255,255,255,.03);
     }
-    .carousel-track{
-      display:flex;
-      transition: transform .45s ease-in-out;
-      will-change: transform;
+    .metric .k{
+      font-family: var(--mono);
+      font-size:11px;
+      color: rgba(255,255,255,.68);
+      letter-spacing:.10em;
+      text-transform:uppercase;
     }
-    .carousel-item{ flex: 0 0 100%; user-select:none; }
-    .carousel-item img{
-      width:100%;
-      height: 420px;
-      display:block;
-      object-fit: contain;
-      background: rgba(0,0,0,0.25);
-    }
-    .carousel-btn{
-      position:absolute;
-      top:50%;
-      transform: translateY(-50%);
-      width: 38px;
-      height: 38px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(0,0,0,.55);
-      color:#fff;
-      font-size: 22px;
-      cursor:pointer;
-      z-index: 5;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .carousel-btn:hover{ background: rgba(0,0,0,.82); }
-    .carousel-btn.prev{ left: 10px; }
-    .carousel-btn.next{ right: 10px; }
-
-    .carousel-dots{
-      display:flex;
-      justify-content:center;
-      gap: 7px;
-      margin-top: 10px;
-    }
-    .carousel-dots span{
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.22);
-      cursor:pointer;
-      border: 1px solid rgba(255,255,255,.10);
-    }
-    .carousel-dots span.active{
-      background: rgba(255,184,74,.95);
-      box-shadow: 0 0 14px rgba(255,184,74,.35);
+    .metric .v{
+      margin-top:4px;
+      font-size:16px;
+      font-weight:800;
+      letter-spacing:.2px;
     }
 
-    /* Supporters carousel (custom) */
-    .support-carousel-wrap{
+    /* Logbook */
+    .log{
+      display:grid;
+      gap:10px;
+    }
+    .logItem{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+      padding: 10px 10px;
+      display:grid;
+      grid-template-columns: auto 1fr;
+      gap:10px;
+    }
+    .logItem time{
+      font-family: var(--mono);
+      font-size:12px;
+      color: rgba(255,255,255,.72);
+      white-space:nowrap;
+    }
+    .logItem .txt{
+      font-size:13px;
+      color: rgba(232,235,244,.86);
+      line-height:1.45;
+    }
+    .logItem .tag{
+      display:inline-flex;
+      margin-left:8px;
+      font-family: var(--mono);
+      font-size:11px;
+      color: rgba(255,255,255,.72);
+      padding: 2px 8px;
+      border:1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(0,0,0,.12);
+      vertical-align:middle;
+    }
+
+    /* Gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:10px;
+    }
+    @media (max-width: 980px){ .gallery{ grid-template-columns: repeat(3, 1fr);} }
+    @media (max-width: 720px){ .gallery{ grid-template-columns: repeat(2, 1fr);} }
+    .ph{
       position:relative;
-      margin-top: 10px;
-      padding: 10px 46px;
       border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.05);
       overflow:hidden;
-    }
-    .support-carousel{
-      display:flex;
-      gap: 14px;
-      overflow-x:auto;
-      scroll-snap-type:x mandatory;
-      scroll-behavior:smooth;
-      -webkit-overflow-scrolling:touch;
-      padding-bottom: 8px;
-    }
-    .support-carousel::-webkit-scrollbar{ height: 8px; }
-    .support-carousel::-webkit-scrollbar-thumb{ background: rgba(255,255,255,0.18); border-radius: 20px; }
-    .support-carousel::-webkit-scrollbar-track{ background: rgba(255,255,255,0.08); border-radius: 20px; }
-
-    .support-slide{
-      flex: 0 0 360px;
-      scroll-snap-align:start;
-    }
-    .sc-btn{
-      position:absolute;
-      top:50%;
-      transform: translateY(-50%);
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(0,0,0,.55);
-      color:#fff;
-      font-size: 22px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.02);
+      aspect-ratio: 4/3;
       cursor:pointer;
-      z-index:5;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      transition: transform .25s var(--ease), border-color .25s var(--ease);
     }
-    .sc-prev{ left: 10px; }
-    .sc-next{ right: 10px; }
-
-    /* Gallery carousel */
-    #gallery.gallery-section{ padding: 12px 0 0; }
-    #gallery .gallery-head{
-      display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
+    .ph:hover{ transform: translateY(-2px); border-color: rgba(255,176,32,.35); }
+    .ph img{
+      width:100%; height:100%;
+      object-fit:cover;
+      filter: saturate(1.02) contrast(1.02);
+      transform: scale(1.02);
+      transition: transform .4s var(--ease);
     }
-    #gallery .btn-support{
-      display:inline-block;
-      padding: 10px 14px;
+    .ph:hover img{ transform: scale(1.06); }
+    .ph .cap{
+      position:absolute; left:10px; bottom:10px;
+      font-family: var(--mono);
+      font-size:11px;
+      padding: 4px 8px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(0,0,0,.30);
-      color:#fff;
-      text-decoration:none;
-      font-weight: 800;
-    }
-    #gallery .gallery-carousel-wrap{
-      position:relative;
-      margin-top: 12px;
-      padding: 10px 46px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.05);
-      overflow:hidden;
-    }
-    #gallery .gallery-carousel{
-      display:flex;
-      gap:14px;
-      overflow-x:auto;
-      scroll-snap-type:x mandatory;
-      scroll-behavior:smooth;
-      -webkit-overflow-scrolling:touch;
-      padding-bottom: 8px;
-    }
-    #gallery .gallery-carousel::-webkit-scrollbar{ height: 8px; }
-    #gallery .gallery-carousel::-webkit-scrollbar-thumb{ background: rgba(255,255,255,0.18); border-radius: 20px; }
-    #gallery .gallery-carousel::-webkit-scrollbar-track{ background: rgba(255,255,255,0.08); border-radius: 20px; }
-
-    #gallery .gc-item{
-      flex: 0 0 420px;
-      scroll-snap-align:start;
-      margin:0;
-      border-radius: 16px;
-      overflow:hidden;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(0,0,0,.30);
-    }
-    #gallery .gc-item img{
-      width:100%;
-      height: 280px;
-      display:block;
-      object-fit: cover;
-    }
-    #gallery .gc-btn{
-      position:absolute; top:50%; transform: translateY(-50%);
-      width:34px; height:34px; border-radius:999px;
-      border:1px solid rgba(255,255,255,0.18);
-      background: rgba(0,0,0,.55);
-      color:#fff; font-size:22px;
-      cursor:pointer; z-index:5;
-      display:flex; align-items:center; justify-content:center;
-    }
-    #gallery .gc-prev{ left: 10px; }
-    #gallery .gc-next{ right: 10px; }
-
-    /* Video carousel */
-    #videos .video-carousel-wrap{
-      position: relative;
-      margin-top: 12px;
-      padding: 10px 46px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.05);
-      overflow:hidden;
-    }
-    #videos .video-carousel{
-      display:flex;
-      gap:14px;
-      overflow-x:auto;
-      scroll-snap-type:x mandatory;
-      scroll-behavior:smooth;
-      -webkit-overflow-scrolling:touch;
-      padding-bottom: 8px;
-    }
-    #videos .video-carousel::-webkit-scrollbar{ height: 8px; }
-    #videos .video-carousel::-webkit-scrollbar-thumb{ background: rgba(255,255,255,0.18); border-radius: 20px; }
-    #videos .video-carousel::-webkit-scrollbar-track{ background: rgba(255,255,255,0.08); border-radius: 20px; }
-
-    #videos .vc-item{
-      flex: 0 0 320px;
-      scroll-snap-align:start;
-    }
-    #videos .vc-frame{
-      position: relative;
-      width: 100%;
-      padding-top: 177.78%; /* 9:16 shorts */
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(0,0,0,.25);
-    }
-    #videos .vc-frame iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
-    #videos .vc-btn{
-      position:absolute; top:50%; transform: translateY(-50%);
-      width:34px; height:34px; border-radius:999px;
-      border:1px solid rgba(255,255,255,0.18);
-      background: rgba(0,0,0,.55);
-      color:#fff; font-size:22px;
-      cursor:pointer; z-index:5;
-      display:flex; align-items:center; justify-content:center;
-    }
-    #videos .vc-prev{ left: 10px; }
-    #videos .vc-next{ right: 10px; }
-
-    /* Toast */
-    .toast{
-      position: fixed;
-      left:50%;
-      bottom: 92px;
-      transform: translateX(-50%) translateY(12px);
-      background: rgba(0,0,0,0.78);
-      border: 1px solid rgba(255,255,255,0.16);
-      color:#fff;
-      padding: 10px 12px;
-      border-radius: 14px;
-      box-shadow: 0 14px 34px rgba(0,0,0,0.65);
-      font-size: 13px;
-      opacity: 0;
-      pointer-events:none;
-      transition: opacity .18s ease, transform .18s ease;
-      z-index: 100000;
-      max-width: min(560px, calc(100vw - 24px));
-      display:flex; align-items:center; gap:10px;
-    }
-    .toast--show{ opacity: 1; transform: translateX(-50%) translateY(0); }
-    .toast-dot{
-      width: 8px; height: 8px; border-radius: 999px;
-      background: rgba(255,184,74,0.95);
-      box-shadow: 0 0 12px rgba(255,184,74,0.35);
-    }
-    .toast-text{ opacity:.95; line-height:1.35; }
-
-    /* Impact FX (+1 шанс) */
-    .impact-fx{
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      opacity:0;
-      z-index:100002;
-      background: rgba(0,0,0,0.0);
-      transition: opacity .18s ease, background .18s ease;
-    }
-    .impact-fx.is-on{
-      opacity:1;
-      background: rgba(0,0,0,0.22);
-    }
-    .impact-text{
-      font-weight: 1000;
-      letter-spacing:.02em;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(0,0,0,0.55);
-      border: 1px solid rgba(255,255,255,0.16);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
-      transform: translateY(10px) scale(.98);
-      opacity:0;
-      transition: transform .22s ease, opacity .22s ease;
-      font-size: 14px;
-    }
-    .impact-fx.is-on .impact-text{
-      transform: translateY(0) scale(1);
-      opacity:1;
-    }
-    .donate-btn.impact-pulse{ animation: impactPulse .45s ease-out; }
-    @keyframes impactPulse{
-      0%{ filter: brightness(1); box-shadow: 0 12px 28px rgba(0,0,0,0.42); }
-      45%{ filter: brightness(1.25); box-shadow: 0 18px 44px rgba(255,184,74,0.22); transform: translateY(-2px) scale(1.03); }
-      100%{ filter: brightness(1); transform: translateY(0) scale(1); }
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.38);
+      backdrop-filter: blur(8px);
+      color: rgba(255,255,255,.86);
     }
 
-    /* QR modal */
-    .qr-modal{
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.92);
+    /* Lightbox */
+    .lb{
+      position:fixed; inset:0;
+      background: rgba(0,0,0,.70);
+      backdrop-filter: blur(10px);
       display:none;
       align-items:center;
       justify-content:center;
-      z-index: 100001;
-      padding: 16px;
+      z-index:80;
+      padding: 18px;
     }
-    .qr-modal.is-open{ display:flex; }
-    .qr-modal-card{
+    .lb.open{ display:flex; }
+    .lbPanel{
+      width: min(1100px, 100%);
+      border-radius: 22px;
+      border:1px solid var(--line2);
+      background: rgba(12,13,18,.75);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .lbTop{
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 10px;
+      padding: 12px 12px;
+      border-bottom:1px solid var(--line);
+      background: rgba(0,0,0,.22);
+    }
+    .lbTop .t{
+      font-family: var(--mono);
+      font-size:12px;
+      color: rgba(255,255,255,.78);
+    }
+    .lbTop .x{
+      width: 36px; height: 36px;
+      border-radius: 12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      cursor:pointer;
+      display:grid; place-items:center;
+      transition: transform .2s var(--ease), border-color .2s var(--ease);
+    }
+    .lbTop .x:hover{ transform: translateY(-1px); border-color: rgba(255,176,32,.35); }
+    .lbBody{
+      display:grid;
+      grid-template-columns: 1fr;
+      padding: 0;
+    }
+    .lbImg{
       width:100%;
-      max-width: 520px;
-      border-radius: 20px;
-      background: radial-gradient(circle at top left, rgba(20,23,28,.96) 0, rgba(27,31,38,.96) 70%);
-      border: 1px solid rgba(255,255,255,0.10);
+      height: min(72vh, 720px);
+      background: rgba(0,0,0,.20);
+      display:grid; place-items:center;
+    }
+    .lbImg img{
+      width:100%; height:100%;
+      object-fit:contain;
+      background: rgba(0,0,0,.12);
+    }
+    .lbNav{
+      position:absolute;
+      inset: 46px 0 0 0;
+      pointer-events:none;
+    }
+    .lbBtn{
+      pointer-events:auto;
+      position:absolute;
+      top:50%;
+      transform: translateY(-50%);
+      width: 44px; height: 44px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.22);
+      backdrop-filter: blur(8px);
+      display:grid; place-items:center;
+      cursor:pointer;
+      transition: transform .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease);
+    }
+    .lbBtn:hover{ border-color: rgba(255,176,32,.35); background: rgba(255,176,32,.08); transform: translateY(-50%) translateY(-1px); }
+    .lbBtn.prev{ left: 10px; }
+    .lbBtn.next{ right: 10px; }
+
+    /* Toast */
+    .toasts{
+      position:fixed;
+      right: 14px;
+      bottom: 14px;
+      z-index:90;
+      display:grid;
+      gap:10px;
+      max-width: min(360px, calc(100vw - 28px));
+    }
+    .toast{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(15,16,22,.74);
+      backdrop-filter: blur(12px);
+      padding: 10px 12px;
+      box-shadow: var(--shadow2);
+      display:flex; align-items:flex-start; gap:10px;
+      animation: toastIn .25s var(--ease);
+    }
+    @keyframes toastIn{
+      from{ transform: translateY(10px); opacity:0; }
+      to{ transform: translateY(0px); opacity:1; }
+    }
+    .toast .ico{
+      width:10px; height:10px; border-radius:999px;
+      margin-top: 4px;
+      background: radial-gradient(circle at 35% 35%, var(--amber2), var(--amber));
+      box-shadow: 0 0 0 3px rgba(255,176,32,.12);
+      flex:0 0 auto;
+    }
+    .toast .msg{
+      font-size: 13px;
+      color: rgba(255,255,255,.86);
+      line-height:1.35;
+    }
+
+    /* Command palette */
+    .cp{
+      position:fixed; inset:0;
+      display:none;
+      align-items:flex-start;
+      justify-content:center;
+      z-index: 100;
+      padding: 18px;
+      background: rgba(0,0,0,.60);
+      backdrop-filter: blur(10px);
+    }
+    .cp.open{ display:flex; }
+    .cpPanel{
+      width: min(720px, 100%);
+      border-radius: 22px;
+      border:1px solid var(--line2);
+      background: rgba(12,13,18,.86);
       box-shadow: var(--shadow);
       overflow:hidden;
     }
-    .qr-modal-head{
-      padding: 14px 14px 10px;
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+    .cpTop{
+      padding: 12px 12px;
+      border-bottom:1px solid var(--line);
+      display:flex; align-items:center; gap:10px;
     }
-    .qr-modal-title{
-      font-weight: 1000;
-      letter-spacing:.04em;
-      text-transform:uppercase;
-      font-size: 12px;
-      opacity:.9;
-      color: var(--amber);
-    }
-    .qr-modal-sub{ font-size: 13px; opacity:.85; margin-top:4px; }
-    .qr-modal-close{
-      width: 34px; height: 34px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.16);
-      background: rgba(0,0,0,0.45);
-      color:#fff;
-      cursor:pointer;
-      font-size: 20px;
-      line-height: 32px;
-      display:flex; align-items:center; justify-content:center;
-    }
-    .qr-modal-body{ padding: 14px; display:grid; gap: 12px; }
-    .qr-modal-qrwrap{
-      border-radius: 18px;
-      background: rgba(0,0,0,0.28);
-      border: 1px solid rgba(255,255,255,0.10);
-      padding: 12px;
-      display:flex; align-items:center; justify-content:center;
-    }
-    .qr-modal-qr{
-      width: min(320px, 76vw);
-      height:auto;
-      border-radius: 18px;
-      background: #0b0f14;
-    }
-    .qr-action-btn{
-      width: 100%;
-      padding: 12px 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.16);
-      background: rgba(0,0,0,0.32);
-      color:#fff;
-      cursor:pointer;
-      font-weight: 900;
-      font-size: 13px;
-      display:flex; justify-content:center; align-items:center; gap:8px;
-    }
-    .qr-action-btn:hover{ background: rgba(0,0,0,0.48); }
-    .qr-action-btn.primary{
-      background: linear-gradient(135deg, var(--amber), var(--amber-2));
-      color:#0b0b0b;
-      border-color: rgba(255,255,255,0.12);
-    }
-
-    /* Footer */
-    footer{
-      margin-top: 22px;
-      text-align:center;
-      opacity:.82;
-      font-size: 12px;
-    }
-
-    /* Engine pulse at bottom */
-    .engine-pulse{
-      position:fixed;
-      bottom:0;
-      left:0;
+    .cpTop input{
       width:100%;
-      height:3px;
-      background: linear-gradient(90deg, transparent, rgba(255,184,74,.95), transparent);
-      opacity:.38;
-      animation: pulse 3.1s ease-in-out infinite;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: rgba(255,255,255,.92);
+      outline:none;
+      font-family: var(--mono);
+      font-size: 13px;
+    }
+    .cpList{
+      max-height: min(52vh, 460px);
+      overflow:auto;
+      padding: 8px;
+    }
+    .cpItem{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      padding: 10px 10px;
+      border-radius: 14px;
+      cursor:pointer;
+      border:1px solid transparent;
+      transition: background .15s var(--ease), border-color .15s var(--ease);
+    }
+    .cpItem:hover, .cpItem.active{
+      background: rgba(255,176,32,.08);
+      border-color: rgba(255,176,32,.22);
+    }
+    .cpItem .l{
+      display:flex; align-items:center; gap:10px;
+      min-width:0;
+    }
+    .cpItem .b{
+      width:10px; height:10px; border-radius:999px;
+      background: rgba(255,255,255,.18);
+    }
+    .cpItem .t{
+      display:flex; flex-direction:column;
+      min-width:0;
+    }
+    .cpItem .t strong{
+      font-size: 13px;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .cpItem .t span{
+      font-family: var(--mono);
+      font-size:11px;
+      color: rgba(255,255,255,.62);
+    }
+
+    /* Dev-mode overlay */
+    .dev{
+      position:fixed;
+      left: 14px;
+      bottom: 14px;
+      z-index: 95;
+      display:none;
+      gap:10px;
+      align-items:flex-end;
+    }
+    .dev.open{ display:flex; }
+    .devBox{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(15,16,22,.74);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow2);
+      padding: 10px 12px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: rgba(255,255,255,.78);
+      min-width: 240px;
+    }
+    .devBox b{ color: rgba(255,255,255,.92); font-weight:800; }
+    .devGrid{
+      position:fixed; inset:0;
       pointer-events:none;
-      z-index: 1;
+      display:none;
+      z-index: 94;
+      background:
+        linear-gradient(to right, rgba(255,176,32,.14) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,176,32,.10) 1px, transparent 1px);
+      background-size: 80px 80px;
+      opacity:.20;
+      mix-blend-mode: screen;
     }
-    @keyframes pulse{
-      0%{ opacity:.22 }
-      50%{ opacity:.78 }
-      100%{ opacity:.22 }
+    .devGrid.open{ display:block; }
+
+    /* Footer performance badge */
+    footer{
+      max-width:var(--max);
+      margin:0 auto;
+      padding: 0 var(--pad) 36px;
+      color: rgba(255,255,255,.62);
+    }
+    .footRow{
+      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+      border-top:1px solid var(--line);
+      padding-top: 16px;
+      align-items:center;
+    }
+    .perf{
+      font-family: var(--mono);
+      font-size: 12px;
+      display:flex; gap:10px; flex-wrap:wrap;
+      align-items:center;
+    }
+    .perf span{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      border-radius: 999px;
+      padding: 6px 10px;
     }
 
-    /* Animations */
-    @keyframes fadeInPage { from{opacity:0; transform: translateY(10px);} to{opacity:1; transform:none;} }
-    @keyframes heroReveal { from{opacity:0; transform: translateY(8px) scale(.99);} to{opacity:1; transform:none;} }
-    @keyframes cardFade { from{opacity:0; transform: translateY(10px);} to{opacity:1; transform:none;} }
-
-    /* Responsive */
-    @media (max-width: 1024px){
-      .page{ padding: 18px 10px 64px; }
-      .hero{ padding: 18px 16px 16px; }
-      .hero-title{ font-size: 24px; }
-      .card-grid{ gap: 14px; }
-    }
-    @media (max-width: 768px){
-      .hero-title{ font-size: 20px; line-height:1.2; }
-      .hero-sub{ font-size: 14px; }
-      .hero-note{ font-size: 12px; }
-      .btn-row{ flex-direction:column; }
-      .donate-btn{ width:100%; }
-      .qr{ width: 130px; height: 130px; }
-      .carousel-item img{ height: 280px; }
-      .support-slide{ flex-basis: 300px; }
-      #gallery .gc-item{ flex-basis: 300px; }
-      #gallery .gc-item img{ height: 220px; }
-      #videos .vc-item{ flex-basis: 260px; }
-    }
-    @media (max-width: 480px){
-      .header-patch{ width: 108px; }
-      .scroll-top-btn{ right: 12px; bottom: 14px; width: 38px; height: 38px; font-size: 20px; }
-      .toast{ bottom: 88px; }
-    }
-
+    /* Reduce motion */
     @media (prefers-reduced-motion: reduce){
-      .engine-line::before, .hero::after, .engine-pulse{ animation:none; }
-      #tech-traces{ transition:none; }
-      .donate-btn.impact-pulse{ animation:none; }
-      .impact-text{ transition:none; }
+      *{ animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important; }
     }
   </style>
 </head>
 
 <body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="inner">
+        <div class="brand">
+          <div class="dot" aria-hidden="true"></div>
+          <div>
+            <strong>ВТЗ 142 ОМБр</strong><br />
+            <span class="badge">Steel & Amber Pro <span id="ver">3.0.142</span></span>
+          </div>
+        </div>
 
-<div id="tech-traces"></div>
-
-<div class="page">
-  <div class="container">
-
-    <header>
-      <div class="header-patch-wrap">
-        <img src="vtz-mpb-patch.png" alt="Шеврон взводу технічного забезпечення" class="header-patch">
+        <div class="nav">
+          <a class="btn" href="#donate">Підтримати</a>
+          <a class="btn" href="#gallery">Галерея</a>
+          <a class="btn" href="#log">Лог</a>
+          <button class="btn btn-amber pulse" id="openCP" type="button">
+            Команди <span class="kbd">Ctrl</span><span class="kbd">K</span>
+          </button>
+        </div>
       </div>
+    </div>
 
-      <div class="top-row">
-        <div class="top-bar">
-          <img src="logo.png" alt="Логотип" class="logo">
-          <span class="site-title">142 ОМБр • Взвод технічного забезпечення</span>
-        </div>
-        <div class="lang-switch">
-          <a href="index.html" class="active">UA</a>
-          <a href="en.html">EN</a>
+    <header class="hero" id="top">
+      <div class="heroCard" id="heroCard">
+        <div class="heroInner">
+          <div>
+            <h1 class="hTitle">
+              Логістика, ремонт, евакуація — <span class="accent">як система</span>.
+            </h1>
+            <p class="hSub">
+              Це не “просто збір”. Це підтримка інженерного контуру забезпечення: паливо → техніка → рейси → результат.
+              Всі витрати — з фото/відео звітами.
+            </p>
+
+            <div class="hMeta">
+              <span class="pill"><i class="amber"></i> Донат → Вплив → Звіт</span>
+              <span class="pill"><i class="ok"></i> Швидко / Легко / Прозоро</span>
+              <span class="pill"><i class="warn"></i> Ctrl+K: command palette</span>
+            </div>
+
+            <div class="heroActions">
+              <a class="btn btn-amber pulse" href="#donate">Підтримати зараз</a>
+              <button class="btn" type="button" id="copyAll">Скопіювати реквізити</button>
+              <button class="btn" type="button" id="openGallery">Відкрити галерею</button>
+            </div>
+
+            <div class="scrollCue">
+              <div class="arrow" aria-hidden="true">↓</div>
+              <span>Скроль вниз — побачиш структуру і докази</span>
+            </div>
+          </div>
+
+          <aside class="hud" aria-label="Статуси техніки">
+            <h3>STATUS HUD</h3>
+            <div class="statusList">
+              <div class="statusRow" title="Стан можна оновлювати в data у JS">
+                <div class="left">
+                  <span class="led ok"></span>
+                  <strong>Mercedes Atego</strong>
+                </div>
+                <span class="tag">OPERATIONAL</span>
+              </div>
+              <div class="statusRow">
+                <div class="left">
+                  <span class="led warn"></span>
+                  <strong>Scania</strong>
+                </div>
+                <span class="tag">MAINTENANCE</span>
+              </div>
+              <div class="statusRow">
+                <div class="left">
+                  <span class="led ok"></span>
+                  <strong>Evac Van</strong>
+                </div>
+                <span class="tag">READY</span>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+            <div class="pill" style="width:100%;justify-content:space-between;">
+              <span style="display:flex;gap:8px;align-items:center;">
+                <i class="amber" style="width:8px;height:8px;border-radius:999px;"></i>
+                <span>Build</span>
+              </span>
+              <span id="buildStamp" style="font-family:var(--mono);font-size:12px;color:rgba(255,255,255,.78);"></span>
+            </div>
+          </aside>
         </div>
       </div>
-
-      <section class="hero">
-        <div class="hero-badge">
-          <span class="hero-pill">Ремонт техніки на передовій</span>
-          <span class="system-state" id="systemState">
-            <span class="system-dot" id="systemDot"></span>
-            <span class="system-text" id="systemText">СТАН: РОБОТА ЙДЕ</span>
-          </span>
-        </div>
-
-        <div class="hero-title">Техніка має їхати. Люди мають повернутись живими.</div>
-
-        <div class="engine-line-wrap"><div class="engine-line"></div></div>
-
-        <p class="hero-sub">
-          Ми — взвод технічного забезпечення мотопіхотного батальйону 142 ОМБр.
-          Ремонтуємо вантажівки й бронетехніку прямо в зоні бойових дій, щоб машини возили
-          боєкомплект, ПММ, провізію та вивозили поранених.
-        </p>
-
-        <p class="hero-note">
-          Кожна гривня, євро чи долар перетворюється на інструмент, запчастину, мастило чи зварку,
-          які дають машині ще один виїзд — а комусь ще один шанс повернутися додому.
-        </p>
-
-        <div style="margin-top:14px;">
-          <a href="#donate" class="donate-btn" style="display:inline-flex;" onclick="runImpactFx(this)">
-            Підтримати взвод
-          </a>
-        </div>
-      </section>
     </header>
 
     <main>
-
-      <!-- DONATIONS -->
-      <h2 class="section-title" id="donate">Як підтримати взвод</h2>
-
-      <div class="card-grid">
-        <!-- MONOBANK -->
-        <section class="card">
-          <div>
-            <small>UAH · БАНКІВСЬКИЙ РАХУНОК</small>
-            <h3><span class="mono-label">Monobank</span> · Банка “142 ОМБр · взвод технічного забезпечення”</h3>
-            <p><strong>Отримувач:</strong> Надельнюк Віктор Миколайович</p>
-            <p><strong>IBAN:</strong><br>UA683220010000026208372629615</p>
-            <p><strong>Номер картки:</strong><br>4874&nbsp;1000&nbsp;2019&nbsp;8902</p>
-            <p><strong>Призначення платежу:</strong> <code>ВТЗ МПБ 142 ОМБр</code></p>
-          </div>
-          <div>
-            <div class="btn-row">
-              <button class="donate-btn donate-btn--mono" type="button"
-                      onclick="runImpactFx(this); window.open('https://send.monobank.ua/jar/8PfzHBQuu4','_blank')">
-                Відкрити банку Monobank
-              </button>
-              <button class="donate-btn" type="button"
-                      onclick="runImpactFx(this); copyText('UA683220010000026208372629615')">
-                Скопіювати IBAN
-              </button>
-              <button class="donate-btn" type="button"
-                      onclick="runImpactFx(this); copyText('4874100020198902')">
-                Скопіювати номер картки
-              </button>
+      <section class="grid2" aria-label="Основні модулі">
+        <article class="card" id="donate">
+          <div class="cardHeader">
+            <div>
+              <h2>Donate Module 2.0</h2>
+              <p>Чіткий прогрес + реквізити з копіюванням + симулятор впливу (метрики в реальному часі).</p>
             </div>
-            <div class="qr-wrap">
-              <img id="qr-mono" class="qr" alt="QR Monobank" loading="lazy">
-            </div>
-            <p style="font-size:12px; opacity:0.78; margin-top:6px; text-align:center;">
-              Натисніть на QR — відкриється великий код
-            </p>
-          </div>
-        </section>
-
-        <!-- PRIVATBANK -->
-        <section class="card">
-          <div>
-            <small>UAH · БАНКІВСЬКИЙ РАХУНОК</small>
-            <h3><span class="privat-label">PrivatBank</span> · Поповнення картки</h3>
-            <p><strong>Отримувач:</strong> NADELNIUK VIKTOR MYKOLAYOVYCH</p>
-            <p><strong>IBAN:</strong><br>UA023052990262076400994803502</p>
-            <p><strong>Номер картки:</strong><br>5168&nbsp;7521&nbsp;4764&nbsp;9654</p>
-            <p><strong>Призначення платежу:</strong> <code>ВТЗ МПБ 142 ОМБр</code></p>
-          </div>
-          <div>
-            <div class="btn-row">
-              <button class="donate-btn donate-btn--privat" type="button"
-                      onclick="runImpactFx(this); window.open('https://www.privat24.ua/send/3xbxx','_blank')">
-                Відкрити Privat24
-              </button>
-              <button class="donate-btn" type="button"
-                      onclick="runImpactFx(this); copyText('UA023052990262076400994803502')">
-                Скопіювати IBAN
-              </button>
-              <button class="donate-btn" type="button"
-                      onclick="runImpactFx(this); copyText('5168752147649654')">
-                Скопіювати номер картки
-              </button>
-            </div>
-            <div class="qr-wrap">
-              <img id="qr-privat" class="qr" alt="QR PrivatBank" loading="lazy">
-            </div>
-            <p style="font-size:12px; opacity:0.78; margin-top:6px; text-align:center;">
-              Натисніть на QR — відкриється великий код
-            </p>
-          </div>
-        </section>
-
-        <!-- PAYPAL / PAUPAY -->
-        <section class="card">
-          <div>
-            <small>МІЖНАРОДНІ ПЛАТЕЖІ</small>
-            <h3><span class="paypal-label">PayPal / Paupay</span></h3>
-            <p><strong>Email для переказів:</strong><br>nadelnuikviktor@gmail.com</p>
-            <p><strong>Примітка до платежу:</strong><br><code>VTZ MPB 142 OMBr</code></p>
-          </div>
-          <div>
-            <div class="btn-row">
-              <button class="donate-btn donate-btn--paypal" type="button"
-                      onclick="runImpactFx(this); copyText('nadelnuikviktor@gmail.com')">
-                Скопіювати email
-              </button>
-            </div>
-            <div class="qr-wrap">
-              <img id="qr-paupay" class="qr" alt="QR Paupay / PayPal" loading="lazy">
-            </div>
-            <p style="font-size:12px; opacity:0.8; margin-top:6px;">
-              Будь ласка, додайте <strong>VTZ MPB 142 OMBr</strong> у примітку платежу.
-            </p>
-          </div>
-        </section>
-
-        <!-- CRYPTO -->
-        <section class="card">
-          <div>
-            <small>КРИПТОВАЛЮТА</small>
-            <h3><span class="crypto-label">Crypto</span> · BTC · ETH · SOL · BNB</h3>
-
-            <p><strong>Bitcoin (BTC):</strong><br>
-              bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p</p>
-
-            <p><strong>Ethereum (ETH):</strong><br>
-              0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</p>
-
-            <p><strong>Solana (SOL):</strong><br>
-              DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525</p>
-
-            <p><strong>BNB (BEP-20):</strong><br>
-              0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</p>
+            <div class="badge" title="Натисни Ctrl+K для команд">Ctrl+K</div>
           </div>
 
-          <div>
-            <div class="btn-row">
-              <button class="donate-btn donate-btn--crypto" type="button"
-                      onclick="runImpactFx(this); window.open('https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p','_blank')">
-                Відкрити BTC
-              </button>
-              <button class="donate-btn donate-btn--crypto" type="button"
-                      onclick="runImpactFx(this); window.open('https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b','_blank')">
-                Відкрити ETH
-              </button>
-              <button class="donate-btn donate-btn--crypto" type="button"
-                      onclick="runImpactFx(this); window.open('https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525','_blank')">
-                Відкрити SOL
-              </button>
-            </div>
+          <div class="cardBody">
+            <div class="donateGrid">
+              <!-- Progress -->
+              <div class="progressWrap">
+                <div class="progressTop">
+                  <strong>Ціль збору: <span id="goalUAH">0</span> грн</strong>
+                  <span>Зібрано: <span id="raisedUAH">0</span> грн · Залишилось: <span id="leftUAH">0</span> грн</span>
+                </div>
+                <div class="bar" aria-label="Прогрес збору"><i id="barFill"></i></div>
+              </div>
 
-            <div class="btn-row">
-              <button class="donate-btn" type="button"
-                      onclick="runImpactFx(this); copyText('bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p')">
-                Скопіювати BTC
-              </button>
-              <button class="donate-btn" type="button"
-                      onclick="runImpactFx(this); copyText('0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b')">
-                Скопіювати ETH / BNB
-              </button>
-              <button class="donate-btn" type="button"
-                      onclick="runImpactFx(this); copyText('DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525')">
-                Скопіювати SOL
-              </button>
-            </div>
-
-            <div class="qr-wrap">
-              <img id="qr-btc" class="qr" alt="QR BTC" loading="lazy">
-            </div>
-            <p style="font-size:12px; opacity:0.78; margin-top:6px; text-align:center;">
-              Натисніть на QR — відкриється великий код
-            </p>
-          </div>
-        </section>
-      </div>
-
-      <!-- CONTACT (email+telegram) -->
-      <section class="card big-block" id="contact-ua" style="margin-top:16px;">
-        <h2 class="section-title">Звʼязок</h2>
-        <p style="opacity:.92;">
-          Якщо хочете допомогти швидко, адресно або великим внеском — напишіть напряму.
-        </p>
-        <div class="card-grid" style="margin-top:10px;">
-          <div class="card" style="min-height:auto;">
-            <small>EMAIL</small>
-            <h3>vtz142ombr</h3>
-            <p><strong>Email:</strong> <a href="mailto:vtz142ombr">vtz142ombr</a></p>
-            <div class="btn-row">
-              <button class="donate-btn" type="button" onclick="runImpactFx(this); copyText('vtz142ombr')">Скопіювати email</button>
-            </div>
-          </div>
-          <div class="card" style="min-height:auto;">
-            <small>TELEGRAM</small>
-            <h3>@vtz142ombr</h3>
-            <p><strong>Telegram:</strong> <code>@vtz142ombr</code></p>
-            <div class="btn-row">
-              <button class="donate-btn" type="button" onclick="runImpactFx(this); copyText('@vtz142ombr')">Скопіювати Telegram</button>
-              <button class="donate-btn" type="button" onclick="runImpactFx(this); window.open('https://t.me/vtz142ombr','_blank')">Відкрити Telegram</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SUPPORTERS (carousel) -->
-      <section class="card big-block" id="supporters" style="margin-top:16px;">
-        <h2 class="section-title">Підтримали</h2>
-        <p style="opacity:.90;">
-          Це реальна допомога, без публічності. Дякуємо Юрію та Володимиру, хто робить тихо — але по ділу.
-        </p>
-
-        <div class="support-carousel-wrap">
-          <button class="sc-btn sc-prev" type="button" aria-label="Назад">‹</button>
-
-          <div class="support-carousel" id="supportCarousel">
-            <!-- slide 1 -->
-            <article class="card support-slide">
-              <a class="thx-media" href="assets/support/support-01.jpg" target="_blank" rel="noopener">
-                <img src="assets/support/support-01.jpg" alt="Анонімна підтримка підрозділу" loading="lazy" style="width:100%; height:220px; object-fit:cover; border-radius:14px; border:1px solid rgba(255,255,255,.10);">
-              </a>
-              <div style="margin-top:10px;">
-                <div style="display:flex; justify-content:space-between; gap:10px; align-items:center;">
-                  <div style="font-weight:900;">Анонімна підтримка</div>
-                  <div style="font-size:12px; opacity:.85; padding:4px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.12); background:rgba(0,0,0,.25);">
-                    Генератор
+              <!-- Requisites -->
+              <div class="reqList" aria-label="Реквізити">
+                <div class="reqRow">
+                  <div>
+                    <div style="font-weight:800;">Monobank</div>
+                    <div class="small">Посилання: <span id="monoLinkText" style="color:rgba(255,255,255,.86);"></span></div>
+                  </div>
+                  <div class="copy">
+                    <button class="mini" data-copy="monoLink">Копіювати</button>
+                    <a class="mini" id="monoLinkBtn" href="#" target="_blank" rel="noopener">Відкрити</a>
                   </div>
                 </div>
-                <div style="margin-top:6px; opacity:.9;">Передане обладнання для ремонтів.</div>
-              </div>
-            </article>
 
-            <!-- slide 2 -->
-            <article class="card support-slide">
-              <a class="thx-media" href="assets/support/support-02.jpg" target="_blank" rel="noopener">
-                <img src="assets/support/support-02.jpg" alt="Анонімна підтримка підрозділу" loading="lazy" style="width:100%; height:220px; object-fit:cover; border-radius:14px; border:1px solid rgba(255,255,255,.10);">
-              </a>
-              <div style="margin-top:10px;">
-                <div style="display:flex; justify-content:space-between; gap:10px; align-items:center;">
-                  <div style="font-weight:900;">Анонімна підтримка</div>
-                  <div style="font-size:12px; opacity:.85; padding:4px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.12); background:rgba(0,0,0,.25);">
-                    Автосканер
+                <div class="reqRow">
+                  <div>
+                    <div style="font-weight:800;">Картка (UAH)</div>
+                    <div class="small"><span id="cardText"></span></div>
+                  </div>
+                  <div class="copy">
+                    <button class="mini" data-copy="card">Копіювати</button>
                   </div>
                 </div>
-                <div style="margin-top:6px; opacity:.9;">Без цього ремонт просто зупиняється — а техніка повинна їхати.</div>
+
+                <div class="reqRow">
+                  <div>
+                    <div style="font-weight:800;">IBAN</div>
+                    <div class="small"><span id="ibanText"></span></div>
+                  </div>
+                  <div class="copy">
+                    <button class="mini" data-copy="iban">Копіювати</button>
+                  </div>
+                </div>
+
+                <div class="reqRow">
+                  <div>
+                    <div style="font-weight:800;">Призначення</div>
+                    <div class="small"><span id="purposeText"></span></div>
+                  </div>
+                  <div class="copy">
+                    <button class="mini" data-copy="purpose">Копіювати</button>
+                  </div>
+                </div>
               </div>
-            </article>
+
+              <!-- Simulator -->
+              <div class="sim" aria-label="Симулятор впливу донату">
+                <div class="simTop">
+                  <div class="label">Impact simulator</div>
+                  <div class="simVal"><span id="simUAH">1000</span> грн</div>
+                </div>
+                <div class="simInput">
+                  <input id="simRange" type="range" min="100" max="20000" step="50" value="1000" />
+                  <button class="btn btn-amber" type="button" id="simDonateJump">Підтримати</button>
+                </div>
+                <div class="simOut">
+                  <div class="metric">
+                    <div class="k">Пальне (л)</div>
+                    <div class="v" id="mFuel">—</div>
+                  </div>
+                  <div class="metric">
+                    <div class="k">Логістика (км)</div>
+                    <div class="v" id="mKm">—</div>
+                  </div>
+                  <div class="metric">
+                    <div class="k">Рейси (оцінка)</div>
+                    <div class="v" id="mTrips">—</div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+                <button class="btn" type="button" id="openReports">Прозорість / Звіти</button>
+                <button class="btn" type="button" id="openDevHint">Dev-mode</button>
+                <span class="pill" style="margin-left:auto;"><i class="amber"></i> Copy-to-clipboard + toast</span>
+              </div>
+            </div>
           </div>
+        </article>
 
-          <button class="sc-btn sc-next" type="button" aria-label="Вперед">›</button>
-        </div>
-      </section>
-
-      <!-- PURCHASED -->
-      <section class="card big-block" id="purchased-carousel" style="margin-top:16px;">
-        <h2 class="section-title">Що вже закупили завдяки донатам</h2>
-        <p style="opacity:.90;">
-          Це реальні речі, які вже працюють на фронті та допомагають нам тримати техніку в строю.
-        </p>
-
-        <div class="carousel" style="margin-top:12px;">
-          <button class="carousel-btn prev" type="button" aria-label="Назад">‹</button>
-
-          <div class="carousel-track" id="purchasedTrack">
-            <div class="carousel-item"><img src="assets/purchased-01.jpg" alt="Закуплено 1" loading="lazy"></div>
-            <div class="carousel-item"><img src="assets/purchased-02.jpg" alt="Закуплено 2" loading="lazy"></div>
-            <div class="carousel-item"><img src="assets/purchased-03.jpg" alt="Закуплено 3" loading="lazy"></div>
-            <div class="carousel-item"><img src="assets/purchased-04.jpg" alt="Закуплено 4" loading="lazy"></div>
-            <div class="carousel-item"><img src="assets/purchased-05.jpg" alt="Закуплено 5" loading="lazy"></div>
-            <div class="carousel-item"><img src="assets/purchased-06.jpg" alt="Закуплено 6" loading="lazy"></div>
-            <div class="carousel-item"><img src="assets/purchased-07.jpg" alt="Закуплено 7" loading="lazy"></div>
-            <div class="carousel-item"><img src="assets/purchased-08.jpg" alt="Закуплено 8" loading="lazy"></div>
-            <div class="carousel-item"><img src="assets/purchased-09.jpg" alt="Закуплено 9" loading="lazy"></div>
-            <div class="carousel-item"><img src="assets/purchased-10.jpg" alt="Закуплено 10" loading="lazy"></div>
-            <div class="carousel-item"><img src="assets/purchased-11.jpg" alt="Закуплено 11" loading="lazy"></div>
+        <aside class="card" id="log">
+          <div class="cardHeader">
+            <div>
+              <h2>Log / Operations</h2>
+              <p>Короткий лог робіт. Можеш редагувати список нижче — структура вже “як у продукті”.</p>
+            </div>
+            <div class="badge">Keyboard: ← → Esc</div>
           </div>
-
-          <button class="carousel-btn next" type="button" aria-label="Вперед">›</button>
-        </div>
-
-        <div class="carousel-dots" id="purchasedDots" aria-label="Індикатори каруселі"></div>
-      </section>
-
-      <!-- ABOUT -->
-      <section class="card big-block" id="about-platoon-ua" style="margin-top:16px;">
-        <h2 class="section-title">Про взвод</h2>
-
-        <p>Ми — взвод технічного забезпечення мотопіхотного батальйону 142-ї окремої механізованої бригади. Наше завдання — утримувати техніку батальйону в роботі на одному з найгарячіших напрямків фронту.</p>
-        <p>Нас рідко видно в кадрі чи в новинах, але від нашої роботи залежить, чи доїде машина до позиції, чи отримає підрозділ боєкомплект і чи встигнуть вчасно евакуювати поранених.</p>
-
-        <h3 style="margin-top:12px;">Чим ми займаємось</h3>
-
-        <p><strong>• Обслуговування</strong><br>
-          Проводимо планове й позапланове ТО, міняємо масла, фільтри та рідини,
-          перевіряємо технічний стан машин. Робимо все, щоб техніка була готова рушити будь-якої миті.
-        </p>
-
-        <p><strong>• Ремонт і відновлення</strong><br>
-          Ремонтуємо двигуни, коробки, підвіску, гальмівні системи, електрику, гідравліку та паливну.
-          Працюємо з усім — від дрібних датчиків до великих агрегатів.
-        </p>
-
-        <p><strong>• Евакуація техніки</strong><br>
-          Коли машина не може рухатися сама, підбита, зламана чи загрузла — ми їдемо за нею.
-          Часто працюємо під обстрілами, витягуючи техніку з “доріг життя”.
-        </p>
-
-        <p><strong>• Діагностика і пошук несправностей</strong><br>
-          Знаємо свої машини “на слух”, ловимо приховані проблеми та усуваємо їх,
-          щоб техніка не стала в критичний момент.
-        </p>
-
-        <p><strong>• Польовий ремонт</strong><br>
-          Наш бокс — це те, що ми можемо зібрати з того, що є:
-          земля, тент, ліхтар, генератор і набір інструментів. Працюємо без нормального освітлення,
-          в багнюці, під дощем, вночі, під обстрілами. Немає умов? Створюємо їх.
-        </p>
-
-        <p><strong>• Підтримка мобільності батальйону</strong><br>
-          Робоча техніка — це підвіз боєкомплекту, ротації, евакуація поранених, вода, їжа, маневр і виживання.
-          Робимо все, щоб ці процеси не зупинялись.
-        </p>
-      </section>
-
-      <!-- CURRENT NEEDS (залишаємо як було, без "що потрібно зараз" у бізнес-блоці) -->
-      <section class="card big-block" id="current-needs-ua" style="margin-top:16px;">
-        <h2 class="section-title">Поточні потреби</h2>
-
-        <p>Зараз ваші донати в першу чергу перетворюються на:</p>
-
-        <p><strong>• Інструмент і обладнання для ремонту вантажівок та броні</strong><br>
-          Набори головок, ключі, подовжувачі, домкрати, знімачі, інструмент по підвісці,
-          пневмоінструмент, подовжувачі та робоче освітлення.
-        </p>
-
-        <p><strong>• Зварка та витратники</strong><br>
-          Електроди, дріт, маски, рукавиці, подовжувачі, кабелі — усе, що дозволяє
-          оживляти рами, кузови, кріплення, баки, захист і броньовані елементи.
-        </p>
-
-        <p><strong>• Запчастини та витратні матеріали</strong><br>
-          Фільтри, ремені, гальмівні колодки, шланги, підшипники, хомути, датчики, свічки, кріплення.
-          Усі “дрібниці”, без яких неможливий жоден великий ремонт.
-        </p>
-
-        <p><strong>• Рідини та мастила</strong><br>
-          Моторні та трансмісійні масла, гальмівна рідина, антифриз, мастила для вузлів з великим навантаженням.
-        </p>
-
-        <p><strong>• Діагностика та електрика</strong><br>
-          Тестери, мультиметри, лампи, проводка, клеми, фішки, запобіжники — усе для швидкого
-          виявлення та усунення електричних проблем.
-        </p>
-
-        <p><strong>• Логістика та умови роботи</strong><br>
-          Генератори, подовжувачі, освітлення, плівка, тенти, рукавиці та робочий одяг —
-          щоб ми могли працювати в полі за будь-якої погоди.
-        </p>
-
-        <p>Кожна гривня, євро чи долар у наших руках перетворюється на дуже конкретну річ:
-          інструмент, запчастину, масло чи зварку — те, що дає машині ще один виїзд,
-          а нашим людям — ще один шанс.
-        </p>
-      </section>
-
-      <!-- PROGRESS (updated totals) -->
-      <section class="card big-block" id="progress-ua" style="margin-top:16px;">
-        <h2 class="section-title">Безстроковий збір</h2>
-
-        <p class="progress-text">
-          Це безстроковий збір на щоденну роботу взводу технічного забезпечення:
-          інструмент, запчастини, мастила, зварка, діагностика та польові майстерні.
-          Кожен внесок допомагає тримати техніку в строю.
-        </p>
-
-        <div class="progress-track">
-          <div id="progress-fill-ua" class="progress-fill" data-label="Збір активний"></div>
-        </div>
-
-        <div class="progress-meta">
-          <span id="progress-text-ua">Збір активний</span>
-          <span>За весь час зібрано: <strong>39&nbsp;779 грн</strong> · Оновлено: 17.02.2026</span>
-        </div>
-      </section>
-
-      <!-- GALLERY -->
-      <section id="gallery" class="gallery-section">
-        <div class="gallery-head">
-          <h2 class="section-title">Фотогалерея</h2>
-          <a class="btn-support" href="#donate" onclick="runImpactFx(this)">Підтримати взвод</a>
-        </div>
-
-        <div class="gallery-carousel-wrap">
-          <button class="gc-btn gc-prev" type="button" aria-label="Назад">‹</button>
-          <div class="gallery-carousel" id="galleryCarousel"></div>
-          <button class="gc-btn gc-next" type="button" aria-label="Вперед">›</button>
-        </div>
-      </section>
-
-      <!-- VIDEOS -->
-      <section id="videos" class="videos-section" style="margin-top:16px;">
-        <h2 class="section-title">Відео</h2>
-
-        <div class="video-carousel-wrap">
-          <button class="vc-btn vc-prev" type="button" aria-label="Назад">‹</button>
-
-          <div class="video-carousel" id="videoCarousel">
-
-            <!-- OLD (your previous) -->
-            <div class="vc-item"><div class="vc-frame">
-              <iframe src="https://www.youtube.com/embed/Rz_Y3Tj6Rz4" allowfullscreen loading="lazy"></iframe>
-            </div></div>
-
-            <div class="vc-item"><div class="vc-frame">
-              <iframe src="https://www.youtube.com/embed/KlInbRyOCuY" allowfullscreen loading="lazy"></iframe>
-            </div></div>
-
-            <div class="vc-item"><div class="vc-frame">
-              <iframe src="https://www.youtube.com/embed/QTbz0BHjAzA" allowfullscreen loading="lazy"></iframe>
-            </div></div>
-
-            <div class="vc-item"><div class="vc-frame">
-              <iframe src="https://www.youtube.com/embed/xvvbYfiG_rk" allowfullscreen loading="lazy"></iframe>
-            </div></div>
-
-            <!-- NEW SHORTS (added) -->
-            <div class="vc-item"><div class="vc-frame">
-              <iframe src="https://www.youtube.com/embed/As6kEEhAw-E" allowfullscreen loading="lazy"></iframe>
-            </div></div>
-
-            <div class="vc-item"><div class="vc-frame">
-              <iframe src="https://www.youtube.com/embed/GKnGl-bD990" allowfullscreen loading="lazy"></iframe>
-            </div></div>
-
-            <div class="vc-item"><div class="vc-frame">
-              <iframe src="https://www.youtube.com/embed/o6ZeuaXdu3Q" allowfullscreen loading="lazy"></iframe>
-            </div></div>
-
-            <div class="vc-item"><div class="vc-frame">
-              <iframe src="https://www.youtube.com/embed/lythBRYJJ6M" allowfullscreen loading="lazy"></iframe>
-            </div></div>
-
-            <div class="vc-item"><div class="vc-frame">
-              <iframe src="https://www.youtube.com/embed/WVaNwv3Jf0E" allowfullscreen loading="lazy"></iframe>
-            </div></div>
-
-            <div class="vc-item"><div class="vc-frame">
-              <iframe src="https://www.youtube.com/embed/3cB4r9ntBz0" allowfullscreen loading="lazy"></iframe>
-            </div></div>
-
+          <div class="cardBody">
+            <div class="log" id="logList"></div>
+            <div class="divider"></div>
+            <div class="pill" style="justify-content:space-between; width:100%;">
+              <span style="display:flex;gap:8px;align-items:center;"><i class="warn"></i> Ctrl+K</span>
+              <span>швидкі команди + навігація</span>
+            </div>
           </div>
-
-          <button class="vc-btn vc-next" type="button" aria-label="Вперед">›</button>
-        </div>
+        </aside>
       </section>
 
-      <!-- SHARE -->
-      <section class="card big-block" id="share-ua" style="margin-top:16px;">
-        <h2 class="section-title">Розкажіть іншим</h2>
-
-        <p>
-          Допомогти можна не лише донатом, а й поширенням інформації.
-          Скопіюйте готовий текст або поділіться цією сторінкою в улюбленому месенджері чи соцмережі.
-        </p>
-
-        <div class="btn-row" style="margin-top:10px; margin-bottom:14px;">
-          <button class="donate-btn" type="button"
-                  onclick="runImpactFx(this); copyText('Привіт! Це збір для взводу технічного забезпечення мотопіхотного батальйону 142 ОМБр. Ми ремонтуємо техніку, яка возить боєкомплект, ПММ, їжу та евакуює поранених. Якщо маєш змогу — підтримай донатом або поширенням: https://viktornadelnuik.github.io/DOFAMIN95/')">
-            Скопіювати текст українською
-          </button>
-
-          <button class="donate-btn" type="button"
-                  onclick="runImpactFx(this); copyText('Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade (mechanized infantry battalion). They repair trucks and armored vehicles right at the frontline so that vehicles keep moving, supplies and fuel arrive, and the wounded can be evacuated. If you can, please support with a donation or by sharing this link: https://viktornadelnuik.github.io/DOFAMIN95/en.html')">
-            Скопіювати текст англійською
-          </button>
+      <section class="card" id="gallery" aria-label="Фотогалерея R1–R37">
+        <div class="cardHeader">
+          <div>
+            <h2>Gallery R1–R37</h2>
+            <p>
+              Папка: <span class="badge">assets/gallery/</span>
+              · Назви: <span class="badge">r01.jpg … r37.jpg</span>
+              · Lightbox: <span class="badge">← →</span> <span class="badge">Esc</span>
+            </p>
+          </div>
+          <button class="btn" id="galleryJump" type="button">Відкрити з R1</button>
         </div>
-
-        <div class="btn-row">
-          <button class="donate-btn" type="button" onclick="runImpactFx(this); shareUa('telegram')">Поділитися в Telegram</button>
-          <button class="donate-btn" type="button" onclick="runImpactFx(this); shareUa('viber')">Поділитися у Viber</button>
-          <button class="donate-btn" type="button" onclick="runImpactFx(this); shareUa('whatsapp')">Поділитися в WhatsApp</button>
-          <button class="donate-btn" type="button" onclick="runImpactFx(this); shareUa('facebook')">Поділитися у Facebook</button>
-          <button class="donate-btn" type="button" onclick="runImpactFx(this); shareUa('instagram')">Поділитися в Instagram</button>
+        <div class="cardBody">
+          <div class="gallery" id="galleryGrid"></div>
         </div>
       </section>
-
-      <footer>
-        Дякуємо за підтримку взводу технічного забезпечення 142 ОМБр.<br>
-        Ваша допомога тримає техніку в строю — а наших воїнів живими.
-        <div id="visitor-counter-ua" style="margin-top:6px; font-size:11px; opacity:0.75;"></div>
-      </footer>
-
-      <button type="button" id="scrollTopBtn" class="scroll-top-btn" aria-label="До початку сторінки">↑</button>
-
     </main>
+
+    <footer>
+      <div class="footRow">
+        <div>
+          <div style="font-weight:800; letter-spacing:.2px;">Steel & Amber Pro 3.0 · ВТЗ 142 ОМБр</div>
+          <div style="font-family:var(--mono);font-size:12px;margin-top:4px;color:rgba(255,255,255,.56);">
+            Built with precision · Progressive enhancement · Accessible motion
+          </div>
+        </div>
+        <div class="perf" id="perfBadge" aria-label="Показники продуктивності">
+          <span>TTI: <b id="tti">—</b></span>
+          <span>JS: <b id="jsSize">~</b></span>
+          <span>Build: <b id="build">—</b></span>
+        </div>
+      </div>
+    </footer>
   </div>
-</div>
 
-<!-- MOBILE DONATE BUTTON -->
-<a href="#donate" class="mobile-donate-btn" onclick="runImpactFx(this)">Підтримати взвод</a>
-
-<!-- ENGINE PULSE -->
-<div class="engine-pulse" aria-hidden="true"></div>
-
-<!-- IMPACT FX -->
-<div id="impactFx" class="impact-fx" aria-hidden="true">
-  <div class="impact-text">+1 шанс встигнути</div>
-</div>
-
-<!-- TOAST -->
-<div id="toast" class="toast" aria-live="polite" aria-atomic="true">
-  <span class="toast-dot"></span>
-  <span class="toast-text" id="toastText">Готово</span>
-</div>
-
-<!-- FULLSCREEN QR MODAL -->
-<div id="qrModal" class="qr-modal" aria-hidden="true">
-  <div class="qr-modal-card" id="qrModalCard" role="dialog" aria-modal="true">
-    <div class="qr-modal-head">
-      <div>
-        <div class="qr-modal-title" id="qrModalTitle">QR</div>
-        <div class="qr-modal-sub" id="qrModalSub">Скануйте або відкрийте платіж</div>
+  <!-- Lightbox -->
+  <div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Перегляд фото">
+    <div class="lbPanel">
+      <div class="lbTop">
+        <div class="t" id="lbTitle">R01 / 37</div>
+        <button class="x" id="lbClose" type="button" aria-label="Закрити">✕</button>
       </div>
-      <button type="button" class="qr-modal-close" id="qrModalClose" aria-label="Закрити">×</button>
-    </div>
-
-    <div class="qr-modal-body">
-      <div class="qr-modal-qrwrap">
-        <img id="qrModalImg" class="qr-modal-qr" alt="QR код" loading="lazy">
+      <div class="lbBody">
+        <div class="lbImg"><img id="lbImg" alt="Фото" /></div>
       </div>
-
-      <div class="qr-modal-actions">
-        <button type="button" class="qr-action-btn primary" id="qrModalOpenBtn">Відкрити</button>
-        <button type="button" class="qr-action-btn" id="qrModalCopyBtn">Скопіювати</button>
+      <div class="lbNav" aria-hidden="false">
+        <button class="lbBtn prev" id="lbPrev" type="button" aria-label="Попереднє">←</button>
+        <button class="lbBtn next" id="lbNext" type="button" aria-label="Наступне">→</button>
       </div>
-    </div>
-
-    <div class="qr-modal-foot" id="qrModalFoot" style="padding:0 14px 14px; font-size:12px; opacity:.78;">
-      Якщо сканер не бачить — збільште яскравість екрана.
     </div>
   </div>
-</div>
 
-<script>
-  /* ===== QR codes ===== */
-  function setQR(id, data) {
-    var el = document.getElementById(id);
-    if (!el) return;
-    var api = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=";
-    el.src = api + encodeURIComponent(data);
-  }
-  setQR("qr-mono",   "https://send.monobank.ua/jar/8PfzHBQuu4");
-  setQR("qr-privat", "https://www.privat24.ua/send/3xbxx");
-  setQR("qr-btc",    "https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p");
-  setQR("qr-paupay", "nadelnuikviktor@gmail.com");
+  <!-- Command palette -->
+  <div class="cp" id="cp" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="cpPanel">
+      <div class="cpTop">
+        <input id="cpInput" type="text" placeholder="Введи команду… (donate, gallery, copy, reports)" autocomplete="off" />
+        <span class="kbd">Esc</span>
+      </div>
+      <div class="cpList" id="cpList"></div>
+    </div>
+  </div>
 
-  /* ===== TOAST ===== */
-  (function(){
-    const toast = document.getElementById('toast');
-    const textEl = document.getElementById('toastText');
-    let t;
-    window.showToast = function(message){
-      if(!toast || !textEl) return;
-      textEl.textContent = message;
-      toast.classList.add('toast--show');
-      clearTimeout(t);
-      t = setTimeout(()=> toast.classList.remove('toast--show'), 1800);
+  <!-- Toasts -->
+  <div class="toasts" id="toasts" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Dev-mode overlay -->
+  <div class="devGrid" id="devGrid" aria-hidden="true"></div>
+  <div class="dev" id="dev">
+    <div class="devBox" id="devBox">
+      <div><b>DEV MODE</b> · Steel & Amber Pro 3.0</div>
+      <div style="margin-top:6px;">FPS: <span id="fps">—</span></div>
+      <div>Scroll: <span id="scr">—</span>px</div>
+      <div>Reduced motion: <span id="rm">—</span></div>
+      <div>Build: <span id="devBuild">—</span></div>
+      <div style="margin-top:8px; color:rgba(255,255,255,.60);">Toggle grid: <b>G</b> · Close: <b>Esc</b></div>
+    </div>
+    <button class="btn" id="devClose" type="button">Close</button>
+  </div>
+
+  <script>
+    /* ==========================================================
+       Steel & Amber Pro 3.0 · App JS (minimal)
+       ========================================================== */
+
+    // ---------- CONFIG (ОНОВЛЮЙ ПІД СЕБЕ) ----------
+    const DATA = {
+      version: "3.0.142",
+      build: new Date().toISOString().slice(0,19).replace("T"," "),
+      donation: {
+        goalUAH: 14700,    // <-- постав свою ціль
+        raisedUAH: 4535,   // <-- постав скільки вже зібрано
+      },
+      requisites: {
+        monoLink: "https://send.monobank.ua/jar/XXXXXXXXXXXX", // <-- встав реальний лінк
+        card: "4444 1111 2222 3333",                           // <-- встав карту
+        iban: "UA00 0000 0000 0000 0000 0000 000",             // <-- встав IBAN
+        purpose: "Підтримка ВТЗ 142 ОМБр (ремонт/паливо/логістика)" // <-- призначення
+      },
+      // прості метрики для симулятора (можеш налаштувати)
+      impact: {
+        fuelPriceUAHPerL: 60,   // умовно
+        kmPerTrip: 40,          // середній рейс
+        fuelPerKmL: 0.315       // твоя згадана формула (л/км)
+      },
+      log: [
+        { date:"2026-02-12", text:"Atego — заміна шин (задня вісь)", tag:"REPAIR" },
+        { date:"2026-02-09", text:"Евакуація — 14 рейсів / доба", tag:"EVAC" },
+        { date:"2026-02-04", text:"Scania — діагностика / стартер", tag:"MAINT" },
+        { date:"2026-01-28", text:"ПММ — підвіз та розподіл по точках", tag:"FUEL" },
+      ],
+      gallery: {
+        count: 37,
+        path: "assets/gallery/",
+        pattern: (i)=> `r${String(i).padStart(2,"0")}.jpg` // r01.jpg .. r37.jpg
+      },
+      reportsUrl: "#", // <-- якщо маєш сторінку/пдф зі звітами: постав сюди
+    };
+
+    // ---------- Helpers ----------
+    const $ = (s, el=document)=> el.querySelector(s);
+    const $$ = (s, el=document)=> Array.from(el.querySelectorAll(s));
+    const fmt = (n)=> new Intl.NumberFormat("uk-UA").format(Math.max(0, Math.round(n)));
+    const clamp = (v, a, b)=> Math.min(b, Math.max(a, v));
+
+    // ---------- Build stamp / version ----------
+    $("#ver").textContent = DATA.version;
+    $("#buildStamp").textContent = DATA.build;
+    $("#build").textContent = DATA.build;
+    $("#devBuild").textContent = DATA.build;
+
+    // ---------- Donation progress ----------
+    function renderProgress(){
+      const goal = DATA.donation.goalUAH;
+      const raised = DATA.donation.raisedUAH;
+      const left = Math.max(0, goal - raised);
+      const pct = goal > 0 ? clamp((raised/goal)*100, 0, 100) : 0;
+
+      $("#goalUAH").textContent = fmt(goal);
+      $("#raisedUAH").textContent = fmt(raised);
+      $("#leftUAH").textContent = fmt(left);
+      $("#barFill").style.width = pct.toFixed(1) + "%";
     }
-  })();
+    renderProgress();
 
-  /* ===== Copy to clipboard ===== */
-  async function copyText(text) {
-    try{
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        await navigator.clipboard.writeText(text);
-        showToast('Скопійовано');
-        return;
+    // ---------- Requisites UI ----------
+    $("#monoLinkText").textContent = DATA.requisites.monoLink;
+    $("#monoLinkBtn").href = DATA.requisites.monoLink;
+    $("#cardText").textContent = DATA.requisites.card;
+    $("#ibanText").textContent = DATA.requisites.iban;
+    $("#purposeText").textContent = DATA.requisites.purpose;
+
+    // ---------- Toasts ----------
+    const toasts = $("#toasts");
+    function toast(msg){
+      const el = document.createElement("div");
+      el.className = "toast";
+      el.innerHTML = `<div class="ico"></div><div class="msg">${msg}</div>`;
+      toasts.appendChild(el);
+      setTimeout(()=>{ el.style.opacity="0"; el.style.transform="translateY(10px)"; }, 2400);
+      setTimeout(()=>{ el.remove(); }, 2800);
+    }
+
+    // ---------- Copy ----------
+    async function copyText(txt, label="Скопійовано"){
+      try{
+        await navigator.clipboard.writeText(txt);
+        toast(label);
+      }catch(e){
+        // fallback
+        const ta = document.createElement("textarea");
+        ta.value = txt; ta.style.position="fixed"; ta.style.left="-9999px";
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        ta.remove();
+        toast(label + " (fallback)");
       }
-      fallbackCopy(text);
-    }catch(e){
-      fallbackCopy(text);
     }
-  }
-  function fallbackCopy(text) {
-    var area = document.createElement('textarea');
-    area.value = text;
-    area.style.position = 'fixed';
-    area.style.left = '-9999px';
-    document.body.appendChild(area);
-    area.focus();
-    area.select();
-    try {
-      document.execCommand('copy');
-      showToast('Скопійовано');
-    } catch (e) {
-      showToast('Не вдалося скопіювати. Спробуйте вручну.');
-    }
-    document.body.removeChild(area);
-  }
 
-  /* ===== Impact FX (+1 шанс) ===== */
-  function runImpactFx(btn){
-    const fx = document.getElementById('impactFx');
-    if(!fx) return;
-
-    if(btn && btn.classList){
-      btn.classList.remove('impact-pulse');
-      void btn.offsetWidth;
-      btn.classList.add('impact-pulse');
-    }
-    fx.classList.add('is-on');
-    setTimeout(()=> fx.classList.remove('is-on'), 650);
-  }
-
-  /* ===== Sharing (UA) ===== */
-  const SHARE_TEXT_UA = 'Привіт! Це збір для взводу технічного забезпечення мотопіхотного батальйону 142 ОМБр. Ми ремонтуємо техніку, яка возить боєкомплект, ПММ, їжу та евакуює поранених.';
-  const SHARE_URL_UA  = 'https://viktornadelnuik.github.io/DOFAMIN95/';
-  function shareUa(service) {
-    const text = SHARE_TEXT_UA + ' ' + SHARE_URL_UA;
-    let shareUrl = '';
-    switch (service) {
-      case 'telegram':
-        shareUrl = 'https://t.me/share/url?url='
-          + encodeURIComponent(SHARE_URL_UA)
-          + '&text=' + encodeURIComponent(SHARE_TEXT_UA);
-        break;
-      case 'viber':
-        shareUrl = 'viber://forward?text=' + encodeURIComponent(text);
-        break;
-      case 'whatsapp':
-        shareUrl = 'https://wa.me/?text=' + encodeURIComponent(text);
-        break;
-      case 'facebook':
-        shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(SHARE_URL_UA);
-        break;
-      case 'instagram':
-        copyText(text);
-        shareUrl = 'https://www.instagram.com/';
-        break;
-      default:
-        copyText(text);
-        return;
-    }
-    window.open(shareUrl, '_blank');
-  }
-
-  /* ===== SCROLL TO TOP ===== */
-  (function () {
-    var btn = document.getElementById('scrollTopBtn');
-    if (!btn) return;
-    window.addEventListener('scroll', function () {
-      var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollY > 250) btn.classList.add('scroll-top-btn--visible');
-      else btn.classList.remove('scroll-top-btn--visible');
+    document.addEventListener("click", (e)=>{
+      const b = e.target.closest("[data-copy]");
+      if(!b) return;
+      const key = b.getAttribute("data-copy");
+      if(key === "monoLink") copyText(DATA.requisites.monoLink, "Monobank скопійовано");
+      if(key === "card") copyText(DATA.requisites.card.replace(/\s+/g,""), "Картку скопійовано");
+      if(key === "iban") copyText(DATA.requisites.iban.replace(/\s+/g,""), "IBAN скопійовано");
+      if(key === "purpose") copyText(DATA.requisites.purpose, "Призначення скопійовано");
     });
-    btn.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    $("#copyAll").addEventListener("click", ()=>{
+      const block = [
+        "ВТЗ 142 ОМБр · Реквізити",
+        `Monobank: ${DATA.requisites.monoLink}`,
+        `Card: ${DATA.requisites.card}`,
+        `IBAN: ${DATA.requisites.iban}`,
+        `Purpose: ${DATA.requisites.purpose}`
+      ].join("\n");
+      copyText(block, "Реквізити скопійовано");
     });
-  })();
 
-  /* ===== VISITOR COUNTER ===== */
-  (function () {
-    var el = document.getElementById('visitor-counter-ua');
-    if (!el) return;
-    fetch('https://api.countapi.xyz/hit/vtz-142omb/site')
-      .then(function (res) { return res.json(); })
-      .then(function (data) {
-        el.textContent = 'Людей, які відвідали цю сторінку підтримки (перегляди): ' + data.value;
-      })
-      .catch(function () {
-        el.textContent = 'Людей, які відвідали цю сторінку: —';
+    // ---------- Button specular highlight based on pointer ----------
+    $$(".btn-amber").forEach(btn=>{
+      btn.addEventListener("pointermove", (e)=>{
+        const r = btn.getBoundingClientRect();
+        const mx = ((e.clientX - r.left) / r.width) * 100;
+        const my = ((e.clientY - r.top) / r.height) * 100;
+        btn.style.setProperty("--mx", mx.toFixed(1)+"%");
+        btn.style.setProperty("--my", my.toFixed(1)+"%");
       });
-  })();
-
-  /* ===== Append block donate button to big blocks ===== */
-  (function () {
-    var blocks = document.querySelectorAll('.big-block');
-    blocks.forEach(function (block) {
-      if (block.querySelector('.block-donate-btn')) return;
-      var btn = document.createElement('button');
-      btn.className = 'block-donate-btn';
-      btn.innerHTML = '<span class="icon">⚙</span> Підтримати взвод';
-      btn.addEventListener('click', function () {
-        runImpactFx(btn);
-        var donate = document.getElementById('donate');
-        if (donate) donate.scrollIntoView({ behavior: "smooth" });
-      });
-      block.appendChild(btn);
     });
-  })();
 
-  /* ===== Donation progress (visible) ===== */
-  (function () {
-    var fill = document.getElementById('progress-fill-ua');
-    var text = document.getElementById('progress-text-ua');
-    if (!fill || !text) return;
-    var percent = 60; // просто щоб смуга була видима
-    fill.style.width = percent + '%';
-    fill.setAttribute('data-label', 'Збір активний');
-    text.textContent = 'Збір активний';
-  })();
+    // ---------- Impact simulator ----------
+    const simRange = $("#simRange");
+    const simUAH = $("#simUAH");
+    function renderImpact(vUAH){
+      const { fuelPriceUAHPerL, kmPerTrip, fuelPerKmL } = DATA.impact;
+      const liters = vUAH / fuelPriceUAHPerL;
+      const km = liters / fuelPerKmL;
+      const trips = km / kmPerTrip;
 
-  /* ===== VIDEO carousel arrows ===== */
-  (function(){
-    const track = document.getElementById('videoCarousel');
-    if(!track) return;
-    const prev = document.querySelector('#videos .vc-prev');
-    const next = document.querySelector('#videos .vc-next');
-    function getStep(){
-      const first = track.querySelector('.vc-item');
-      if(!first) return 280;
-      const gap = parseInt(getComputedStyle(track).gap || '14', 10);
-      return first.getBoundingClientRect().width + gap;
+      $("#mFuel").textContent = fmt(liters) + " л";
+      $("#mKm").textContent = fmt(km) + " км";
+      $("#mTrips").textContent = (Math.max(0, trips)).toFixed(1);
     }
-    prev && prev.addEventListener('click', () => track.scrollBy({ left: -getStep(), behavior: 'smooth' }));
-    next && next.addEventListener('click', () => track.scrollBy({ left: getStep(), behavior: 'smooth' }));
-  })();
-
-  /* ===== SUPPORTERS carousel arrows ===== */
-  (function(){
-    const track = document.getElementById('supportCarousel');
-    if(!track) return;
-    const prev = document.querySelector('#supporters .sc-prev');
-    const next = document.querySelector('#supporters .sc-next');
-    function step(){
-      const first = track.querySelector('.support-slide');
-      if(!first) return 320;
-      const gap = parseInt(getComputedStyle(track).gap || '14', 10);
-      return first.getBoundingClientRect().width + gap;
+    function onSim(){
+      const v = Number(simRange.value);
+      simUAH.textContent = fmt(v);
+      renderImpact(v);
     }
-    prev && prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
-    next && next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
-  })();
+    simRange.addEventListener("input", onSim);
+    onSim();
 
-  /* ===== GALLERY build p1..p37 + arrows ===== */
-  document.addEventListener('DOMContentLoaded', () => {
-    const carousel = document.getElementById('galleryCarousel');
-    const prevBtn = document.querySelector('#gallery .gc-prev');
-    const nextBtn = document.querySelector('#gallery .gc-next');
-    if(!carousel) return;
+    $("#simDonateJump").addEventListener("click", ()=>{
+      // тут можна зробити перехід на monoLink
+      window.open(DATA.requisites.monoLink, "_blank", "noopener");
+    });
 
-    for(let i = 1; i <= 37; i++){
-      const figure = document.createElement('figure');
-      figure.className = 'gc-item';
-      figure.innerHTML = `<img src="assets/photos/p${i}.jpg" alt="Фото ${i}" loading="lazy">`;
-      carousel.appendChild(figure);
-    }
-
-    const getItemWidth = () => (carousel.querySelector('.gc-item')?.getBoundingClientRect().width || 260) + 14;
-
-    prevBtn && prevBtn.addEventListener('click', () => carousel.scrollBy({ left: -getItemWidth(), behavior:'smooth' }));
-    nextBtn && nextBtn.addEventListener('click', () => carousel.scrollBy({ left: getItemWidth(), behavior:'smooth' }));
-  });
-
-  /* ===== MOBILE donate button visibility ===== */
-  (function(){
-    const btn = document.querySelector('.mobile-donate-btn');
-    const donate = document.getElementById('donate');
-    if(!btn || !donate) return;
-    const obs = new IntersectionObserver(([e]) => {
-      btn.style.display = e.isIntersecting ? 'none' : '';
-    }, { threshold: 0.2 });
-    obs.observe(donate);
-  })();
-
-  /* ===== Purchased carousel (dots auto) ===== */
-  (function(){
-    const root = document.getElementById('purchased-carousel');
-    const track = document.getElementById('purchasedTrack');
-    const prevBtn = root ? root.querySelector('.carousel-btn.prev') : null;
-    const nextBtn = root ? root.querySelector('.carousel-btn.next') : null;
-    const dotsNav = document.getElementById('purchasedDots');
-    if(!root || !track || !dotsNav) return;
-
-    const slides = Array.from(track.children);
-    let index = 0;
-    let dots = [];
-
-    function buildDots(){
-      dotsNav.innerHTML = '';
-      dots = slides.map((_, i)=>{
-        const d = document.createElement('span');
-        d.setAttribute('role','button');
-        d.setAttribute('aria-label','Перейти до фото ' + (i+1));
-        d.addEventListener('click', ()=>{ index=i; update(); });
-        dotsNav.appendChild(d);
-        return d;
-      });
-    }
-
-    function update(){
-      track.style.transform = `translateX(-${index * 100}%)`;
-      dots.forEach((d, i)=> d.classList.toggle('active', i===index));
-    }
-
-    nextBtn && nextBtn.addEventListener('click', ()=>{ index = (index + 1) % slides.length; update(); });
-    prevBtn && prevBtn.addEventListener('click', ()=>{ index = (index - 1 + slides.length) % slides.length; update(); });
-
-    // swipe
-    let startX=0, dragging=false;
-    track.addEventListener('touchstart', (e)=>{
-      if(!e.touches || !e.touches[0]) return;
-      startX = e.touches[0].clientX;
-      dragging = true;
-    }, {passive:true});
-    track.addEventListener('touchend', (e)=>{
-      if(!dragging) return;
-      dragging=false;
-      const endX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : startX;
-      const dx = endX - startX;
-      if(Math.abs(dx) < 40) return;
-      if(dx < 0) index = (index + 1) % slides.length;
-      else index = (index - 1 + slides.length) % slides.length;
-      update();
-    }, {passive:true});
-
-    buildDots();
-    update();
-  })();
-
-  /* ===== TECH-TRACES on scroll ===== */
-  (function(){
-    const traces = document.getElementById('tech-traces');
-    if(!traces) return;
-    let t;
-    function boost(){
-      traces.style.opacity = '0.14';
-      clearTimeout(t);
-      t = setTimeout(()=>{ traces.style.opacity = '0.06'; }, 220);
-    }
-    window.addEventListener('scroll', boost, { passive:true });
-  })();
-
-  /* ===== SYSTEM STATE ===== */
-  (function(){
-    const textEl = document.getElementById('systemText');
-    const dotEl = document.getElementById('systemDot');
-    if(!textEl || !dotEl) return;
-    const states = [
-      { t:'СТАН: РОБОТА ЙДЕ',          c:'rgba(255,184,74,0.72)', g:'rgba(255,184,74,0.28)'},
-      { t:'СТАН: НАВАНТАЖЕННЯ ВИСОКЕ', c:'rgba(255,215,120,0.72)', g:'rgba(255,215,120,0.26)'},
-      { t:'СТАН: ОЧІКУЄМО РЕСУРС',     c:'rgba(255,122,24,0.72)', g:'rgba(255,122,24,0.26)'}
-    ];
-    let i=0;
-    function apply(s){
-      textEl.style.opacity = '0';
-      setTimeout(()=>{
-        textEl.textContent = s.t;
-        dotEl.style.background = s.c;
-        dotEl.style.boxShadow = `0 0 10px ${s.g}`;
-        textEl.style.opacity = '1';
-      }, 220);
-    }
-    apply(states[i]);
-    setInterval(()=>{ i=(i+1)%states.length; apply(states[i]); }, 9000);
-  })();
-
-  /* ===== QR FULLSCREEN MODAL ===== */
-  (function(){
-    const modal = document.getElementById('qrModal');
-    const img   = document.getElementById('qrModalImg');
-    const title = document.getElementById('qrModalTitle');
-    const foot  = document.getElementById('qrModalFoot');
-    const btnClose = document.getElementById('qrModalClose');
-    const btnOpen  = document.getElementById('qrModalOpenBtn');
-    const btnCopy  = document.getElementById('qrModalCopyBtn');
-    if(!modal || !img || !btnOpen || !btnCopy) return;
-
-    let current = { label:'', value:'', openUrl:'' };
-
-    function openModal(cfg){
-      current = cfg;
-      title.textContent = cfg.label || 'QR';
-      foot.textContent = cfg.value ? ('Дані: ' + cfg.value) : ' ';
-      if(cfg.qrSrc){ img.src = cfg.qrSrc; }
-      else{
-        const api = "https://api.qrserver.com/v1/create-qr-code/?size=520x520&data=";
-        img.src = api + encodeURIComponent(cfg.value || cfg.openUrl || '');
-      }
-      modal.classList.add('is-open');
-      modal.setAttribute('aria-hidden','false');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeModal(){
-      modal.classList.remove('is-open');
-      modal.setAttribute('aria-hidden','true');
-      document.body.style.overflow = '';
-    }
-
-    btnClose.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
-    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
-
-    btnOpen.addEventListener('click', ()=>{
-      runImpactFx(btnOpen);
-      if(current.openUrl){
-        window.open(current.openUrl, '_blank');
-      } else if(current.value && (current.value.includes('http://') || current.value.includes('https://'))){
-        window.open(current.value, '_blank');
-      } else {
-        showToast('Немає посилання. Скопіюйте дані.');
+    // ---------- Reports ----------
+    $("#openReports").addEventListener("click", ()=>{
+      if(DATA.reportsUrl && DATA.reportsUrl !== "#"){
+        window.open(DATA.reportsUrl, "_blank", "noopener");
+      }else{
+        toast("Постав посилання на звіти в DATA.reportsUrl");
       }
     });
 
-    btnCopy.addEventListener('click', ()=>{
-      runImpactFx(btnCopy);
-      if(current.value) copyText(current.value);
-      else if(current.openUrl) copyText(current.openUrl);
-      else showToast('Немає що копіювати.');
+    // ---------- Log render ----------
+    function renderLog(){
+      const el = $("#logList");
+      el.innerHTML = "";
+      DATA.log.forEach(item=>{
+        const row = document.createElement("div");
+        row.className = "logItem";
+        row.innerHTML = `
+          <time datetime="${item.date}">[${item.date}]</time>
+          <div class="txt">${item.text} <span class="tag">${item.tag}</span></div>
+        `;
+        el.appendChild(row);
+      });
+    }
+    renderLog();
+
+    // ---------- Gallery render ----------
+    const galleryGrid = $("#galleryGrid");
+    const galleryItems = [];
+    function renderGallery(){
+      galleryGrid.innerHTML = "";
+      for(let i=1;i<=DATA.gallery.count;i++){
+        const src = DATA.gallery.path + DATA.gallery.pattern(i);
+        galleryItems.push(src);
+
+        const cell = document.createElement("div");
+        cell.className = "ph";
+        cell.setAttribute("data-idx", String(i-1));
+        cell.innerHTML = `
+          <img src="${src}" alt="R${String(i).padStart(2,"0")}" loading="lazy"
+               onerror="this.style.opacity=.25; this.style.filter='grayscale(1)';" />
+          <div class="cap">R${String(i).padStart(2,"0")}</div>
+        `;
+        galleryGrid.appendChild(cell);
+      }
+    }
+    renderGallery();
+
+    // ---------- Lightbox ----------
+    const lb = $("#lightbox");
+    const lbImg = $("#lbImg");
+    const lbTitle = $("#lbTitle");
+    let lbIndex = 0;
+
+    function preload(idx){
+      [idx-1, idx+1].forEach(i=>{
+        if(i>=0 && i<galleryItems.length){
+          const img = new Image();
+          img.src = galleryItems[i];
+        }
+      });
+    }
+
+    function openLB(idx){
+      lbIndex = clamp(idx, 0, galleryItems.length-1);
+      lb.classList.add("open");
+      updateLB();
+      preload(lbIndex);
+      document.body.style.overflow = "hidden";
+    }
+    function closeLB(){
+      lb.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+    function updateLB(){
+      const n = lbIndex + 1;
+      lbTitle.textContent = `R${String(n).padStart(2,"0")} / ${galleryItems.length}`;
+      lbImg.src = galleryItems[lbIndex];
+      lbImg.alt = `R${String(n).padStart(2,"0")}`;
+      preload(lbIndex);
+    }
+    function nextLB(){ lbIndex = (lbIndex + 1) % galleryItems.length; updateLB(); }
+    function prevLB(){ lbIndex = (lbIndex - 1 + galleryItems.length) % galleryItems.length; updateLB(); }
+
+    galleryGrid.addEventListener("click", (e)=>{
+      const ph = e.target.closest(".ph");
+      if(!ph) return;
+      openLB(Number(ph.getAttribute("data-idx")));
     });
 
-    const map = [
-      { id:'qr-mono',   label:'Monobank · Банка', value:'https://send.monobank.ua/jar/8PfzHBQuu4', openUrl:'https://send.monobank.ua/jar/8PfzHBQuu4' },
-      { id:'qr-privat', label:'Privat24 · Переказ', value:'https://www.privat24.ua/send/3xbxx', openUrl:'https://www.privat24.ua/send/3xbxx' },
-      { id:'qr-paupay', label:'PayPal / Paupay', value:'nadelnuikviktor@gmail.com', openUrl:'mailto:nadelnuikviktor@gmail.com' },
-      { id:'qr-btc',    label:'Crypto · BTC', value:'bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p', openUrl:'https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p' }
+    $("#lbClose").addEventListener("click", closeLB);
+    $("#lbNext").addEventListener("click", nextLB);
+    $("#lbPrev").addEventListener("click", prevLB);
+    lb.addEventListener("click", (e)=>{
+      if(e.target === lb) closeLB();
+    });
+
+    $("#openGallery").addEventListener("click", ()=>{
+      document.location.hash = "#gallery";
+      openLB(0);
+    });
+    $("#galleryJump").addEventListener("click", ()=> openLB(0));
+
+    // ---------- Command palette ----------
+    const cp = $("#cp");
+    const cpInput = $("#cpInput");
+    const cpList = $("#cpList");
+
+    const COMMANDS = [
+      { name:"Підтримати зараз", hint:"scroll → Donate", action: ()=> jump("#donate") },
+      { name:"Відкрити Monobank", hint:"open → mono link", action: ()=> window.open(DATA.requisites.monoLink, "_blank", "noopener") },
+      { name:"Скопіювати реквізити", hint:"copy → all", action: ()=> $("#copyAll").click() },
+      { name:"Галерея: відкрити R1", hint:"lightbox → gallery", action: ()=> openLB(0) },
+      { name:"Лог / Operations", hint:"scroll → log", action: ()=> jump("#log") },
+      { name:"Прозорість / Звіти", hint:"open → reports", action: ()=> $("#openReports").click() },
+      { name:"Dev-mode (toggle)", hint:"easter egg", action: ()=> toggleDev(true) },
     ];
 
-    map.forEach(cfg=>{
-      const el = document.getElementById(cfg.id);
-      if(!el) return;
-      el.title = 'Натисніть, щоб відкрити великий QR';
-      el.addEventListener('click', ()=>{
-        openModal({
-          label: cfg.label,
-          value: cfg.value,
-          openUrl: cfg.openUrl,
-          qrSrc: el.src
-        });
-      });
-    });
-  })();
-</script>
+    function jump(hash){
+      closeCP();
+      const el = document.querySelector(hash);
+      if(el) el.scrollIntoView({behavior:"smooth", block:"start"});
+    }
 
+    function openCP(){
+      cp.classList.add("open");
+      cpInput.value = "";
+      renderCP("");
+      setTimeout(()=> cpInput.focus(), 0);
+    }
+    function closeCP(){
+      cp.classList.remove("open");
+    }
+
+    function renderCP(q){
+      const qq = q.trim().toLowerCase();
+      const items = COMMANDS
+        .filter(c => !qq || (c.name.toLowerCase().includes(qq) || c.hint.toLowerCase().includes(qq)))
+        .slice(0, 12);
+
+      cpList.innerHTML = "";
+      items.forEach((c, idx)=>{
+        const it = document.createElement("div");
+        it.className = "cpItem" + (idx===0 ? " active" : "");
+        it.setAttribute("data-i", String(idx));
+        it.innerHTML = `
+          <div class="l">
+            <div class="b"></div>
+            <div class="t">
+              <strong>${c.name}</strong>
+              <span>${c.hint}</span>
+            </div>
+          </div>
+          <div class="kbd">Enter</div>
+        `;
+        it.addEventListener("click", ()=> c.action());
+        cpList.appendChild(it);
+      });
+
+      cpList._items = items;
+      cpList._active = 0;
+    }
+
+    cpInput.addEventListener("input", ()=> renderCP(cpInput.value));
+
+    function cpMove(dir){
+      const items = $$(".cpItem", cpList);
+      if(!items.length) return;
+      cpList._active = clamp((cpList._active || 0) + dir, 0, items.length-1);
+      items.forEach((el,i)=> el.classList.toggle("active", i===cpList._active));
+      items[cpList._active].scrollIntoView({block:"nearest"});
+    }
+    function cpRun(){
+      const items = cpList._items || [];
+      const i = cpList._active || 0;
+      const cmd = items[i];
+      if(cmd) cmd.action();
+    }
+
+    $("#openCP").addEventListener("click", openCP);
+    cp.addEventListener("click", (e)=>{ if(e.target === cp) closeCP(); });
+
+    // ---------- Dev-mode (Konami + manual) ----------
+    const dev = $("#dev");
+    const devGrid = $("#devGrid");
+    const devBox = $("#devBox");
+    const rm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    $("#rm").textContent = rm ? "true" : "false";
+
+    let devOn = false;
+    let gridOn = false;
+
+    function toggleDev(forceOn=null){
+      devOn = (forceOn===null) ? !devOn : forceOn;
+      dev.classList.toggle("open", devOn);
+      if(!devOn){ gridOn=false; devGrid.classList.remove("open"); }
+      toast(devOn ? "DEV MODE: ON" : "DEV MODE: OFF");
+    }
+    $("#openDevHint").addEventListener("click", ()=> toast("DEV MODE: ↑↑↓↓←→←→BA або кнопка Dev-mode"));
+    $("#devClose").addEventListener("click", ()=> toggleDev(false));
+
+    // FPS meter
+    let last = performance.now(), frames = 0;
+    function loop(now){
+      frames++;
+      if(now - last >= 1000){
+        $("#fps").textContent = String(frames);
+        frames = 0; last = now;
+      }
+      if(devOn) $("#scr").textContent = String(Math.round(window.scrollY));
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+
+    function toggleGrid(){
+      gridOn = !gridOn;
+      devGrid.classList.toggle("open", gridOn);
+      toast(gridOn ? "Grid: ON" : "Grid: OFF");
+    }
+
+    // Konami
+    const KONAMI = ["ArrowUp","ArrowUp","ArrowDown","ArrowDown","ArrowLeft","ArrowRight","ArrowLeft","ArrowRight","b","a"];
+    let konamiPos = 0;
+
+    // ---------- Keyboard handler ----------
+    document.addEventListener("keydown", (e)=>{
+      const k = e.key;
+
+      // Command palette: Ctrl/Cmd + K
+      if((e.ctrlKey || e.metaKey) && k.toLowerCase()==="k"){
+        e.preventDefault();
+        cp.classList.contains("open") ? closeCP() : openCP();
+        return;
+      }
+
+      // Konami detection (when not typing)
+      const active = document.activeElement;
+      const typing = active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA");
+      if(!typing){
+        const need = KONAMI[konamiPos];
+        if(need && (k === need || k.toLowerCase() === need)){
+          konamiPos++;
+          if(konamiPos === KONAMI.length){
+            konamiPos = 0;
+            toggleDev(true);
+          }
+        }else{
+          konamiPos = 0;
+        }
+      }
+
+      // Esc closes overlays
+      if(k === "Escape"){
+        if(lb.classList.contains("open")) closeLB();
+        if(cp.classList.contains("open")) closeCP();
+        if(devOn){ toggleDev(false); }
+      }
+
+      // Lightbox navigation
+      if(lb.classList.contains("open")){
+        if(k === "ArrowRight") nextLB();
+        if(k === "ArrowLeft") prevLB();
+      }
+
+      // Command palette navigation
+      if(cp.classList.contains("open")){
+        if(k === "ArrowDown"){ e.preventDefault(); cpMove(+1); }
+        if(k === "ArrowUp"){ e.preventDefault(); cpMove(-1); }
+        if(k === "Enter"){ e.preventDefault(); cpRun(); }
+      }
+
+      // Dev grid toggle
+      if(devOn && !typing && (k.toLowerCase()==="g")){
+        toggleGrid();
+      }
+    });
+
+    // ---------- Hero parallax light (subtle) ----------
+    const heroCard = $("#heroCard");
+    heroCard.addEventListener("pointermove", (e)=>{
+      const r = heroCard.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width;
+      const y = (e.clientY - r.top) / r.height;
+      // tiny transform
+      heroCard.style.transform = `perspective(900px) rotateX(${(0.7-(y*1.4)).toFixed(2)}deg) rotateY(${((x*1.4)-0.7).toFixed(2)}deg)`;
+    });
+    heroCard.addEventListener("pointerleave", ()=>{
+      heroCard.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg)";
+    });
+
+    // ---------- Perf badge (approx) ----------
+    // TTI approximation: time until load + first interaction ready
+    const t0 = performance.now();
+    window.addEventListener("load", ()=>{
+      const tti = performance.now() - t0;
+      $("#tti").textContent = (tti/1000).toFixed(2) + "s";
+      // JS size is not trivially measurable; show single-file hint
+      $("#jsSize").textContent = "single-file";
+      toast("Готово: Ctrl+K · Lightbox · Copy · Dev-mode");
+    });
+
+    // ---------- Convenience ----------
+    function safeOpen(hash){
+      const el = document.querySelector(hash);
+      if(el) el.scrollIntoView({behavior:"smooth", block:"start"});
+    }
+
+    // Quick dev mode toggle via button
+    $("#openDevHint").addEventListener("dblclick", ()=> toggleDev(true));
+
+  </script>
 </body>
 </html>
