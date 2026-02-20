@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Support · Technical Support Platoon · 142nd Brigade</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Support the technical support platoon of the 142nd Brigade. Donations help repair vehicles that deliver supplies, fuel, and evacuate the wounded.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Support the technical support platoon of the 142nd Brigade. Donations help repair vehicles that deliver ammo, fuel, food and evacuate the wounded.">
 
-  <link rel="icon" href="https://viktornadelniuk.github.io/DOFAMIN95/favicon.png" type="image/png">
+  <link rel="icon" href="favicon.png" type="image/png">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Support the Technical Support Platoon · 142nd Brigade">
-  <meta property="og:description" content="They repair vehicles at the frontline so supplies arrive and the wounded can be evacuated.">
-  <meta property="og:url" content="https://viktornadelniuk.github.io/DOFAMIN95/en.html">
-  <meta property="og:image" content="https://viktornadelniuk.github.io/DOFAMIN95/hero-bg.jpg">
+  <meta property="og:description" content="We repair trucks and armored vehicles right at the frontline so vehicles keep moving and people have a chance to return alive.">
+  <meta property="og:url" content="https://viktornadelnuik.github.io/DOFAMIN95/en.html">
+  <meta property="og:image" content="hero-bg.jpg">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Support the Technical Support Platoon · 142nd Brigade">
-  <meta name="twitter:description" content="Support the technical support platoon repairing vehicles near the frontline.">
-  <meta name="twitter:image" content="https://viktornadelniuk.github.io/DOFAMIN95/hero-bg.jpg">
+  <meta name="twitter:description" content="Support repairs and field maintenance for frontline vehicles of the 142nd Brigade.">
+  <meta name="twitter:image" content="hero-bg.jpg">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y0HDG5SKZX"></script>
@@ -30,64 +30,67 @@
     gtag('config', 'G-Y0HDG5SKZX');
   </script>
 
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+  <!-- external styles (keep as is) -->
+  <link rel="stylesheet" href="supporters.css">
 
+  <style>
+    /* ============================= */
+    /* STEEL & AMBER PRO (EN)        */
+    /* ============================= */
+    :root{
+      --bg-main:#0f1115;
+      --bg-soft:#14171c;
+      --steel:#1b1f26;
+      --steel-2:#0f131a;
+      --amber:#ffb84a;
+      --amber-2:#ff9d2e;
+      --amber-3:#ffcc70;
+      --text:#f1f1f1;
+      --muted:#a9a9a9;
+      --line:rgba(255,184,74,.18);
+      --line-strong:rgba(255,184,74,.28);
+      --shadow: 0 18px 50px rgba(0,0,0,.65);
+      --shadow-soft: 0 12px 30px rgba(0,0,0,.55);
+      --radius: 18px;
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html{ scroll-behavior:smooth; }
     body{
       font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-      color:#f5f5f5;
-      line-height:1.5;
-      background:#02040a;
-      position:relative;
+      color: var(--text);
+      line-height: 1.55;
+      background:
+        radial-gradient(circle at 25% 18%, rgba(255,184,74,0.10), transparent 45%),
+        radial-gradient(circle at 75% 70%, rgba(255,184,74,0.07), transparent 48%),
+        radial-gradient(circle at 55% 42%, rgba(255,255,255,0.03), transparent 55%),
+        var(--bg-main);
       overflow-x:hidden;
     }
-
-    /* ===== BACKGROUND: Steel & Amber / Workshop ===== */
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      z-index:-4;
-      background:
-        radial-gradient(1100px 600px at 18% 12%, rgba(255, 172, 50, 0.12), transparent 55%),
-        radial-gradient(900px 540px at 82% 30%, rgba(0, 210, 255, 0.08), transparent 55%),
-        repeating-linear-gradient(-35deg,
-          rgba(8, 18, 32, 0.95) 0,
-          rgba(8, 18, 32, 0.95) 12px,
-          rgba(4, 10, 20, 0.96) 12px,
-          rgba(4, 10, 20, 0.96) 24px
-        );
-      opacity: 0.95;
-    }
-
     body::after{
       content:"";
       position:fixed;
       inset:0;
-      z-index:-3;
-      background:
-        radial-gradient(circle at top, rgba(255,255,255,0.07), transparent 55%),
-        radial-gradient(circle at 20% 80%, rgba(255, 170, 35, 0.06), transparent 60%);
-      mix-blend-mode: soft-light;
       pointer-events:none;
+      z-index:-1;
+      opacity:.42;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          rgba(255,255,255,0.015) 0px,
+          rgba(255,255,255,0.015) 1px,
+          transparent 1px,
+          transparent 3px
+        );
+      mix-blend-mode: overlay;
     }
-
     a{ color:inherit; }
-
-    /* overlays */
-    #snow{
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      z-index:2;
-      opacity:0.6;
-    }
 
     #tech-traces{
       position:fixed;
       inset:0;
       pointer-events:none;
-      z-index:3;
+      z-index:2;
       opacity:0.06;
       mix-blend-mode:overlay;
       background:
@@ -98,169 +101,167 @@
           transparent 2px,
           transparent 18px
         );
-      transition: opacity 0.35s ease;
-    }
-    #tech-traces::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(circle at 20% 15%, rgba(255,255,255,0.06), transparent 35%),
-        radial-gradient(circle at 80% 60%, rgba(255,255,255,0.04), transparent 40%);
-      opacity:0.20;
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      #tech-traces{ transition:none; }
+      transition: opacity .25s ease;
     }
 
     .page{
       min-height:100vh;
-      padding:24px 12px 40px;
+      padding: 22px 12px 64px;
       display:flex;
       justify-content:center;
-      animation: fadeInPage .7s ease-out;
       position:relative;
-      z-index:5;
+      z-index:3;
+      animation: fadeInPage .6s ease-out;
     }
+    .container{ width:100%; max-width:1180px; margin:0 auto; }
 
-    .container{
+    /* Header */
+    .header-patch-wrap{
       width:100%;
-      max-width:1180px;
-      margin:0 auto;
-    }
-
-    .top-row{ display:flex; flex-direction:column; gap:6px; margin-bottom:10px; }
-    .top-bar{ display:flex; align-items:center; gap:10px; }
-
-    .logo{
-      width:42px; height:42px;
-      border-radius:12px;
-      object-fit:cover;
-      box-shadow:0 0 6px rgba(0,0,0,0.4);
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-    .logo:hover{
-      transform: scale(1.05) rotate(-2deg);
-      box-shadow:0 0 10px rgba(0,0,0,0.7);
-    }
-
-    .site-title{ font-size:18px; font-weight:700; }
-
-    .lang-switch{
       display:flex;
-      justify-content:flex-end;
-      gap:6px;
-      font-size:12px;
-      opacity:0.9;
-      flex-wrap:wrap;
+      justify-content:center;
+      margin: 2px 0 14px;
+    }
+    .header-patch{
+      width: 128px;
+      height:auto;
+      filter:
+        drop-shadow(0 0 10px rgba(255,184,74,.35))
+        drop-shadow(0 0 4px rgba(255,184,74,.22));
+      animation: patchGlow 4.2s ease-in-out infinite;
+    }
+    @keyframes patchGlow{
+      0%{ filter: drop-shadow(0 0 4px rgba(255,184,74,.22)); }
+      50%{ filter: drop-shadow(0 0 14px rgba(255,184,74,.55)); }
+      100%{ filter: drop-shadow(0 0 4px rgba(255,184,74,.22)); }
+    }
+
+    .top-row{ display:flex; flex-direction:column; gap:8px; margin-bottom:12px; }
+    .top-bar{ display:flex; align-items:center; gap:10px; }
+    .logo{
+      width:42px; height:42px; border-radius:12px; object-fit:cover;
+      box-shadow: 0 10px 24px rgba(0,0,0,.5);
+      border:1px solid rgba(255,255,255,.06);
+    }
+    .site-title{ font-size:16px; font-weight:800; letter-spacing:.02em; opacity:.95; }
+    .lang-switch{
+      display:flex; justify-content:flex-end; gap:6px; flex-wrap:wrap;
+      font-size:12px; opacity:.9;
     }
     .lang-switch a{
-      padding:2px 8px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.25);
+      padding: 3px 10px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.16);
       text-decoration:none;
-      color:#fff;
-      transition: background .15s ease, transform .15s ease, border-color .15s ease;
+      background: rgba(0,0,0,.22);
     }
     .lang-switch a.active{
-      background: rgba(255,255,255,0.16);
-      font-weight:700;
-    }
-    .lang-switch a:hover{
-      transform: translateY(-1px);
-      border-color: rgba(255,255,255,0.6);
+      border-color: var(--line-strong);
+      background: linear-gradient(135deg, rgba(255,184,74,.22), rgba(0,0,0,.28));
+      font-weight:800;
     }
 
     /* HERO */
     .hero{
+      border-radius: 24px;
+      padding: 22px 20px 18px;
+      margin-bottom: 22px;
+      border:1px solid var(--line);
       background:
-        linear-gradient(135deg, rgba(0,0,0,0.74), rgba(0,0,0,0.90)),
+        linear-gradient(135deg, rgba(0,0,0,0.62), rgba(0,0,0,0.84)),
         url("hero-bg.jpg") center/cover no-repeat;
-      border-radius:24px;
-      padding:24px 22px 20px;
-      margin-bottom:26px;
-      border:1px solid rgba(255,255,255,0.08);
-      box-shadow:0 18px 40px rgba(0,0,0,0.5);
-      animation: heroReveal .9s ease-out;
+      box-shadow: var(--shadow);
       position:relative;
       overflow:hidden;
+      animation: heroReveal .7s ease-out;
     }
-
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 22% 18%, rgba(255,184,74,.16), transparent 42%),
+        radial-gradient(circle at 75% 70%, rgba(255,184,74,.10), transparent 50%);
+      pointer-events:none;
+      mix-blend-mode: screen;
+      opacity:.7;
+    }
     .hero::after{
       content:"";
       position:absolute;
       left:-20%;
-      top:55%;
+      top:58%;
       width:140%;
       height:2px;
       pointer-events:none;
       background: radial-gradient(circle at 0 50%,
-        rgba(255, 220, 150, 0.9) 0,
-        rgba(255, 170, 70, 0.35) 25%,
-        rgba(255, 170, 70, 0) 55%);
+        rgba(255, 228, 168, 0.85) 0,
+        rgba(255, 184, 74, 0.35) 26%,
+        rgba(255, 184, 74, 0) 58%);
       opacity:0;
       filter: blur(.6px);
-      animation: weld-spark 3.7s ease-in-out infinite;
+      animation: weld 3.8s ease-in-out infinite;
+    }
+    @keyframes weld{
+      0%, 62% { opacity:0; transform: translateX(-10%); }
+      68% { opacity:1; transform: translateX(10%); }
+      84% { opacity:.45; transform: translateX(60%); }
+      100%{ opacity:0; transform: translateX(120%); }
     }
 
     .hero-badge{
-      display:inline-flex;
-      padding:4px 10px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
       margin-bottom:10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.2);
-      background: rgba(0,0,0,0.45);
       font-size:12px;
       letter-spacing:.08em;
       text-transform:uppercase;
       opacity:.92;
-      gap:8px;
-      align-items:center;
-      flex-wrap:wrap;
+    }
+    .hero-pill{
+      padding: 5px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.35);
     }
 
     .system-state{
       display:inline-flex;
       align-items:center;
       gap:8px;
-      padding:3px 10px;
+      padding: 5px 10px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,0.18);
-      background: rgba(0,0,0,0.35);
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.28);
       font-size:11px;
       letter-spacing:.06em;
-      text-transform:uppercase;
-      opacity:.90;
+      opacity:.92;
     }
     .system-dot{
-      width:7px; height:7px;
-      border-radius:999px;
-      background: rgba(255,255,255,0.55);
-      box-shadow: 0 0 10px rgba(255,255,255,0.18);
+      width:7px; height:7px; border-radius:999px;
+      background: rgba(255,184,74,.72);
+      box-shadow: 0 0 10px rgba(255,184,74,.24);
     }
-    .system-text{ white-space:nowrap; }
 
     .hero-title{
-      font-size:26px;
-      font-weight:800;
-      text-transform:uppercase;
-      margin-bottom:10px;
-      letter-spacing:.06em;
-      text-shadow: 0 0 8px rgba(0,0,0,0.9), 0 0 14px rgba(0,0,0,0.8);
+      font-size: 26px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 10px;
+      text-shadow: 0 0 12px rgba(0,0,0,.85);
+      position:relative;
+      z-index:1;
     }
 
-    .hero-sub{ font-size:16px; opacity:.92; margin-bottom:8px; }
-    .hero-note{ font-size:13px; opacity:.78; }
-
-    .engine-line-wrap{ margin:10px 0 14px; }
+    .engine-line-wrap{ margin: 10px 0 14px; position:relative; z-index:1; }
     .engine-line{
-      position:relative;
-      height:4px;
-      border-radius:999px;
-      background: rgba(255,255,255,0.12);
+      height:4px; border-radius:999px;
+      background: rgba(255,255,255,.10);
       overflow:hidden;
-      box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+      box-shadow: inset 0 0 10px rgba(0,0,0,.75);
+      position:relative;
     }
     .engine-line::before{
       content:"";
@@ -268,139 +269,270 @@
       inset:0;
       background: linear-gradient(90deg,
         transparent 0%,
-        #ffb84a 25%,
-        #ffffff 40%,
-        #ffb84a 55%,
+        rgba(255,184,74,.80) 25%,
+        rgba(255,255,255,.70) 40%,
+        rgba(255,184,74,.80) 55%,
         transparent 100%);
-      animation: engine-move 1.6s linear infinite;
+      animation: engineMove 1.7s linear infinite;
       filter: blur(.3px);
     }
+    @keyframes engineMove{
+      from { transform: translateX(-120%); }
+      to   { transform: translateX(120%); }
+    }
 
-    .section-title{ font-size:22px; margin:12px 0 12px; font-weight:700; }
+    .hero-sub{ font-size: 15px; opacity:.92; margin-bottom: 8px; position:relative; z-index:1; }
+    .hero-note{ font-size: 13px; opacity:.78; position:relative; z-index:1; }
 
-    /* GRID */
+    /* Grid + Cards */
+    .section-title{
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing:.02em;
+      margin: 12px 0 12px;
+      color: var(--amber);
+      text-shadow: 0 0 12px rgba(255,184,74,.10);
+    }
+
     .card-grid{
       display:grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap:18px;
-      margin-top:10px;
+      gap: 16px;
+      margin-top: 10px;
     }
 
     .card{
-      background: radial-gradient(circle at top left, #202b46 0, #070e1d 70%);
-      border-radius:22px;
-      padding:16px 16px 18px;
-      border:1px solid rgba(255,255,255,0.07);
-      box-shadow:0 12px 30px rgba(0,0,0,0.7);
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      min-height:260px;
-      animation: cardFade .55s ease-out;
+      background: linear-gradient(180deg, rgba(20,23,28,.92), rgba(27,31,38,.92));
+      border-radius: var(--radius);
+      padding: 16px 16px 18px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-soft);
       position:relative;
-      transform: translateZ(0);
-      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease, filter .22s ease;
-      will-change: transform, box-shadow, filter;
+      overflow:hidden;
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+      animation: cardFade .5s ease-out;
     }
-
-    .card.big-block{ grid-column:1 / -1; min-height:auto; }
-
-    .card h3{ font-size:16px; margin-bottom:6px; }
-    .card small{ opacity:0.7; font-size:11px; letter-spacing:.08em; }
-    .card p{ font-size:13px; margin:6px 0; }
-
-    /* accent top edge */
     .card::before{
       content:"";
       position:absolute;
       top:0; left:0; right:0;
-      height:3px;
-      background: var(--accent, rgba(255,255,255,0.18));
-      opacity:.75;
-      filter: blur(.15px);
-      transition: opacity .22s ease, filter .22s ease, transform .22s ease;
-      border-top-left-radius:22px;
-      border-top-right-radius:22px;
-    }
-    .card::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      background: linear-gradient(180deg, rgba(255,255,255,0.028), rgba(0,0,0,0.20));
-      opacity:.9;
-      border-radius:22px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, rgba(255,184,74,.85), transparent);
+      opacity:.7;
     }
     .card:hover{
       transform: translateY(-6px);
-      border-color: rgba(255,255,255,0.22);
+      border-color: rgba(255,184,74,.33);
       box-shadow:
-        0 18px 44px rgba(0,0,0,0.72),
-        0 0 0 1px rgba(255,255,255,0.04) inset;
-      filter: drop-shadow(0 0 18px rgba(255,255,255,0.06));
-    }
-    .card:hover::before{
-      opacity:1;
-      filter: blur(.35px);
-      transform: scaleX(1.02);
-    }
-    @media (prefers-reduced-motion: reduce){
-      .card, .card::before{ transition:none; }
-      .card:hover{ transform:none; }
+        0 18px 50px rgba(255,184,74,.14),
+        0 18px 44px rgba(0,0,0,.70);
     }
 
-    /* donate labels */
-    .mono-label{ color:#00ffc3; font-weight:700; }
-    .privat-label{ color:#55efc4; font-weight:700; }
-    .paypal-label{ color:#00b4ff; font-weight:700; }
-    .crypto-label{ color:#ffd86b; font-weight:700; }
+    .card.big-block{ grid-column: 1 / -1; min-height:auto; }
 
-    /* BUTTONS */
-    .btn-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin:8px 0;
-    }
+    .card h3{ font-size: 16px; margin-bottom: 6px; }
+    .card small{ opacity: .72; font-size: 11px; letter-spacing:.08em; }
+    .card p{ font-size: 13px; margin: 6px 0; opacity:.95; }
+
+    .mono-label{ color: #00ffc3; font-weight:800; }
+    .privat-label{ color: #55efc4; font-weight:800; }
+    .paypal-label{ color: #00b4ff; font-weight:800; }
+    .crypto-label{ color: #ffd86b; font-weight:800; }
+
+    /* Buttons */
+    .btn-row{ display:flex; flex-wrap:wrap; gap:8px; margin: 10px 0 6px; }
 
     .donate-btn{
-      padding:10px 18px;
-      border-radius:999px;
+      padding: 10px 16px;
+      border-radius: 999px;
       text-decoration:none;
-      color:#fff;
-      font-weight:800;
-      font-size:13px;
-      border:1px solid rgba(255,255,255,0.22);
-      background: linear-gradient(135deg, #00c6ff, #0072ff);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.42);
-      transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
-      white-space:nowrap;
+      font-weight: 800;
+      font-size: 13px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: linear-gradient(135deg, var(--amber), var(--amber-2));
+      color:#0b0b0b;
+      box-shadow: 0 12px 28px rgba(255,184,74,.18);
+      transition: transform .16s ease, box-shadow .16s ease, filter .16s ease;
       cursor:pointer;
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:8px;
-      background-clip: padding-box;
+      white-space:nowrap;
     }
     .donate-btn:hover{
       transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.58);
-      opacity:0.98;
+      box-shadow: 0 16px 36px rgba(255,184,74,.28);
+      filter: brightness(1.06);
+    }
+    .donate-btn:active{ transform: scale(.97); }
+
+    .donate-btn--mono{
+      background: linear-gradient(135deg, #00e3aa, #00b894);
+      color:#041014;
+      box-shadow: 0 12px 28px rgba(0,227,170,.16);
+    }
+    .donate-btn--privat{
+      background: linear-gradient(135deg, #ffb84a, #ff7a18);
+      color:#1a0f04;
+      box-shadow: 0 12px 28px rgba(255,122,24,.18);
+    }
+    .donate-btn--paypal{
+      background: linear-gradient(135deg, #009cde, #003087);
+      color:#fff;
+      box-shadow: 0 12px 28px rgba(0,156,222,.18);
+      border-color: rgba(255,255,255,.14);
+    }
+    .donate-btn--crypto{
+      background: linear-gradient(135deg, #2a2f38, #3a414c);
+      color: var(--amber-3);
+      border: 1px solid rgba(255,184,74,.28);
+      box-shadow: 0 12px 28px rgba(0,0,0,.35);
     }
 
-    .donate-btn--mono   { background: linear-gradient(135deg, #00e3aa, #00b894); }
-    .donate-btn--privat { background: linear-gradient(135deg, #2ecc71, #27ae60); }
-    .donate-btn--paypal { background: linear-gradient(135deg, #009cde, #003087); }
-    .donate-btn--crypto { background: linear-gradient(135deg, #f6d365, #fda085); }
-    .donate-btn--amber  { background: linear-gradient(135deg, #ffcf6a, #ff8c1a); color:#121212; }
-    .donate-btn--steel  { background: linear-gradient(135deg, #5e6a7a, #2b3442); }
-
-    .qr-wrap{ margin-top:8px; display:flex; justify-content:center; }
+    /* QR */
+    .qr-wrap{ margin-top: 8px; display:flex; justify-content:center; }
     .qr{
-      width:150px; height:150px;
-      border-radius:18px;
-      background:#02040a;
+      width: 150px; height: 150px;
+      border-radius: 16px;
+      background:#0b0f14;
+      border:1px solid rgba(255,255,255,.10);
       display:block;
+      cursor: zoom-in;
+    }
+
+    /* Scroll-to-top */
+    .scroll-top-btn{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: radial-gradient(circle at 30% 0, rgba(255,184,74,.95) 0, rgba(255,122,24,.95) 70%);
+      color: #0b0b0b;
+      font-size: 22px;
+      font-weight: 900;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+      opacity: 0;
+      pointer-events:none;
+      transform: translateY(8px) scale(.9);
+      transition: opacity .25s ease, transform .25s ease;
+      z-index: 9999;
+    }
+    .scroll-top-btn--visible{
+      opacity: 1;
+      pointer-events:auto;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Mobile donate button */
+    .mobile-donate-btn{
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 12px;
+      z-index: 99999;
+      display: none;
+      text-align:center;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(255,184,74,0.95), rgba(255,122,24,0.95));
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #0b0b0b;
+      text-decoration:none;
+      font-weight: 900;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+      overflow:hidden;
+    }
+    .mobile-donate-btn::before{
+      content:"";
+      position:absolute;
+      top:-40%;
+      left:-30%;
+      width: 40%;
+      height: 180%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.40), transparent);
+      transform: rotate(18deg);
+      animation: shine 3.2s infinite;
+      opacity: 0.55;
+    }
+    @keyframes shine{
+      0%{ transform: translateX(-140%) rotate(18deg); }
+      45%{ transform: translateX(320%) rotate(18deg); }
+      100%{ transform: translateX(320%) rotate(18deg); }
+    }
+    @media (max-width: 768px){
+      .mobile-donate-btn{ display:block; }
+    }
+
+    /* Block donate button appended */
+    .block-donate-btn{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      margin-top: 14px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(255,184,74,.95), rgba(255,122,24,.95));
+      color:#0b0b0b;
+      border:1px solid rgba(255,255,255,0.18);
+      cursor:pointer;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.45);
+      font-weight: 900;
+      transition: transform .15s ease, filter .15s ease;
+    }
+    .block-donate-btn:hover{ transform: translateY(-2px) scale(1.03); filter: brightness(1.04); }
+    .block-donate-btn .icon{ font-weight: 900; }
+
+    /* Progress */
+    .progress-text{ font-size: 13px; opacity:.92; }
+    .progress-track{
+      width:100%;
+      height: 16px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding:2px;
+      box-shadow: inset 0 0 10px rgba(0,0,0,.7);
+      margin-top:10px;
+    }
+    .progress-fill{
+      height:100%;
+      border-radius:999px;
+      background: linear-gradient(90deg, var(--amber), var(--amber-2));
+      width: 0;
+      position:relative;
+      transition: width .5s ease-out;
+      box-shadow: 0 0 20px rgba(255,184,74,.32);
+    }
+    .progress-fill::after{
+      content: attr(data-label);
+      position:absolute;
+      right:6px;
+      top:50%;
+      transform: translateY(-50%);
+      font-size: 11px;
+      font-weight: 900;
+      color:#0b0b0b;
+      background: rgba(255,255,255,.65);
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,.08);
+    }
+    .progress-meta{
+      margin-top: 8px;
+      font-size: 12px;
+      opacity: .86;
+      display:flex;
+      justify-content:space-between;
+      gap: 8px;
+      flex-wrap:wrap;
     }
 
     /* Purchased carousel */
@@ -408,1417 +540,1355 @@
       position:relative;
       width:100%;
       overflow:hidden;
-      border-radius:14px;
-      margin-top:12px;
-      background: rgba(0,0,0,0.18);
-      border:1px solid rgba(255,255,255,0.10);
+      border-radius: 16px;
+      margin-top: 12px;
+      background: rgba(0,0,0,0.22);
+      border: 1px solid rgba(255,255,255,0.10);
     }
     .carousel-track{
       display:flex;
-      transition: transform .4s ease-in-out;
+      transition: transform .45s ease-in-out;
       will-change: transform;
     }
-    .carousel-item{ min-width:100%; user-select:none; }
+    .carousel-item{ flex: 0 0 100%; user-select:none; }
     .carousel-item img{
       width:100%;
+      height: 420px;
       display:block;
-      border-radius:14px;
-      height:360px;
-      object-fit:contain;
-      background: rgba(0,0,0,0.35);
-    }
-    @media (max-width:640px){
-      .carousel-item img{ height:260px; }
+      object-fit: contain;
+      background: rgba(0,0,0,0.25);
     }
     .carousel-btn{
       position:absolute;
       top:50%;
       transform: translateY(-50%);
-      background: rgba(0,0,0,.6);
-      border:1px solid rgba(255,255,255,.4);
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(0,0,0,.55);
       color:#fff;
-      font-size:26px;
-      width:36px;
-      height:36px;
-      border-radius:50%;
+      font-size: 22px;
       cursor:pointer;
-      z-index:5;
+      z-index: 5;
       display:flex;
       align-items:center;
       justify-content:center;
     }
-    .carousel-btn:hover{ background: rgba(0,0,0,.9); }
-    .prev{ left:10px; }
-    .next{ right:10px; }
+    .carousel-btn:hover{ background: rgba(0,0,0,.82); }
+    .carousel-btn.prev{ left: 10px; }
+    .carousel-btn.next{ right: 10px; }
 
     .carousel-dots{
       display:flex;
       justify-content:center;
-      gap:6px;
-      margin-top:8px;
+      gap: 7px;
+      margin-top: 10px;
     }
     .carousel-dots span{
-      width:9px; height:9px;
-      border-radius:50%;
-      background: rgba(255,255,255,.28);
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.22);
       cursor:pointer;
+      border: 1px solid rgba(255,255,255,.10);
     }
-    .carousel-dots span.active{ background:#ffb84a; }
+    .carousel-dots span.active{
+      background: rgba(255,184,74,.95);
+      box-shadow: 0 0 14px rgba(255,184,74,.35);
+    }
 
-    /* VIDEO CAROUSEL (Shorts 9:16) */
-    #videos .video-carousel-wrap{
+    /* Supporters carousel (custom) */
+    .support-carousel-wrap{
       position:relative;
-      margin-top:16px;
-      padding:10px 46px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.06);
+      margin-top: 10px;
+      padding: 10px 46px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
       overflow:hidden;
     }
-    #videos .video-carousel{
-      display:flex !important;
-      gap:14px;
+    .support-carousel{
+      display:flex;
+      gap: 14px;
       overflow-x:auto;
       scroll-snap-type:x mandatory;
       scroll-behavior:smooth;
       -webkit-overflow-scrolling:touch;
-      padding-bottom:8px;
+      padding-bottom: 8px;
     }
-    #videos .vc-item{
-      flex:0 0 320px;
+    .support-carousel::-webkit-scrollbar{ height: 8px; }
+    .support-carousel::-webkit-scrollbar-thumb{ background: rgba(255,255,255,0.18); border-radius: 20px; }
+    .support-carousel::-webkit-scrollbar-track{ background: rgba(255,255,255,0.08); border-radius: 20px; }
+
+    .support-slide{
+      flex: 0 0 360px;
       scroll-snap-align:start;
     }
-    #videos .vc-frame{
-      position:relative;
-      width:100%;
-      padding-top:177.78%;
-      border-radius:16px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,0.12);
-      background: rgba(0,0,0,0.35);
-    }
-    #videos .vc-frame iframe{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      border:0;
-    }
-    #videos .vc-btn{
+    .sc-btn{
       position:absolute;
       top:50%;
       transform: translateY(-50%);
-      width:34px; height:34px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.22);
-      background: rgba(0,0,0,0.55);
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(0,0,0,.55);
       color:#fff;
-      font-size:22px;
-      line-height:32px;
+      font-size: 22px;
       cursor:pointer;
       z-index:5;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
-    #videos .vc-prev{ left:10px; }
-    #videos .vc-next{ right:10px; }
-    @media (max-width:420px){
-      #videos .vc-item{ flex-basis:260px; }
-      #videos .video-carousel-wrap{ padding:10px 42px; }
-    }
+    .sc-prev{ left: 10px; }
+    .sc-next{ right: 10px; }
 
-    /* GALLERY CAROUSEL */
-    #gallery.gallery-section{ padding:40px 0; }
+    /* Gallery carousel */
+    #gallery.gallery-section{ padding: 12px 0 0; }
     #gallery .gallery-head{
       display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;
     }
     #gallery .btn-support{
-      display:inline-block; padding:12px 16px; border-radius:14px;
-      border:1px solid rgba(255,255,255,.22);
-      background: rgba(0,0,0,.55);
-      color:#fff; text-decoration:none;
+      display:inline-block;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.30);
+      color:#fff;
+      text-decoration:none;
+      font-weight: 800;
     }
     #gallery .gallery-carousel-wrap{
-      position:relative; margin-top:16px; padding:10px 46px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.06);
+      position:relative;
+      margin-top: 12px;
+      padding: 10px 46px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
       overflow:hidden;
     }
     #gallery .gallery-carousel{
-      display:flex !important;
+      display:flex;
       gap:14px;
       overflow-x:auto;
       scroll-snap-type:x mandatory;
       scroll-behavior:smooth;
       -webkit-overflow-scrolling:touch;
-      padding-bottom:8px;
+      padding-bottom: 8px;
     }
+    #gallery .gallery-carousel::-webkit-scrollbar{ height: 8px; }
+    #gallery .gallery-carousel::-webkit-scrollbar-thumb{ background: rgba(255,255,255,0.18); border-radius: 20px; }
+    #gallery .gallery-carousel::-webkit-scrollbar-track{ background: rgba(255,255,255,0.08); border-radius: 20px; }
+
     #gallery .gc-item{
-      flex:0 0 420px;
+      flex: 0 0 420px;
       scroll-snap-align:start;
       margin:0;
-      border-radius:16px;
+      border-radius: 16px;
       overflow:hidden;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(0,0,0,.30);
     }
     #gallery .gc-item img{
       width:100%;
-      height:280px;
+      height: 280px;
       display:block;
-      object-fit:cover;
-      background: rgba(0,0,0,.35);
+      object-fit: cover;
     }
     #gallery .gc-btn{
       position:absolute; top:50%; transform: translateY(-50%);
       width:34px; height:34px; border-radius:999px;
-      border:1px solid rgba(255,255,255,.22);
+      border:1px solid rgba(255,255,255,0.18);
       background: rgba(0,0,0,.55);
-      color:#fff;
-      font-size:22px;
-      line-height:32px;
-      cursor:pointer;
-      z-index:5;
+      color:#fff; font-size:22px;
+      cursor:pointer; z-index:5;
+      display:flex; align-items:center; justify-content:center;
     }
-    #gallery .gc-prev{ left:10px; }
-    #gallery .gc-next{ right:10px; }
-    @media (max-width:520px){
-      #gallery .gc-item{ flex-basis:300px; }
-      #gallery .gc-item img{ height:220px; }
-      #gallery .gallery-carousel-wrap{ padding:10px 42px; }
-    }
+    #gallery .gc-prev{ left: 10px; }
+    #gallery .gc-next{ right: 10px; }
 
-    footer{
-      margin-top:22px;
-      text-align:center;
-      opacity:0.72;
-      font-size:12px;
-    }
-
-    /* SCROLL TO TOP */
-    .scroll-top-btn{
-      position:fixed;
-      right:18px;
-      bottom:20px;
-      width:42px;
-      height:42px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.35);
-      background: radial-gradient(circle at 30% 0, #ffb84a 0, #0072ff 70%);
-      color:#fff;
-      font-size:22px;
-      font-weight:700;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.7);
-      opacity:0;
-      pointer-events:none;
-      transform: translateY(8px) scale(0.9);
-      transition: opacity .25s ease, transform .25s ease;
-      z-index:9999;
-    }
-    .scroll-top-btn--visible{
-      opacity:1;
-      pointer-events:auto;
-      transform: translateY(0) scale(1);
-    }
-
-    /* Mobile donate */
-    .mobile-donate-btn{
-      position:fixed;
-      left:16px; right:16px;
-      bottom:14px;
-      z-index:99999;
-      display:none;
-      text-align:center;
-      padding:14px 16px;
-      border-radius:16px;
-      background: linear-gradient(135deg, rgba(255,200,60,0.95), rgba(255,160,20,0.95));
-      border:1px solid rgba(255,255,255,0.25);
-      color:#0b0b0b;
-      text-decoration:none;
-      font-weight:900;
-      box-shadow: 0 10px 26px rgba(0,0,0,0.45);
+    /* Video carousel */
+    #videos .video-carousel-wrap{
+      position: relative;
+      margin-top: 12px;
+      padding: 10px 46px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
       overflow:hidden;
-      animation: donatePulse 1.8s ease-in-out infinite;
     }
-    .mobile-donate-btn::before{
-      content:"";
-      position:absolute;
-      top:-40%;
-      left:-30%;
-      width:40%;
-      height:180%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.40), transparent);
-      transform: rotate(18deg);
-      animation: shine 3.2s infinite;
-      opacity:0.55;
+    #videos .video-carousel{
+      display:flex;
+      gap:14px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      scroll-behavior:smooth;
+      -webkit-overflow-scrolling:touch;
+      padding-bottom: 8px;
     }
-    @media (max-width:768px){
-      .mobile-donate-btn{ display:block; }
-    }
-    @keyframes shine{
-      0%{ transform: translateX(-140%) rotate(18deg); }
-      45%{ transform: translateX(320%) rotate(18deg); }
-      100%{ transform: translateX(320%) rotate(18deg); }
-    }
-    @keyframes donatePulse{
-      0%{
-        box-shadow: 0 10px 26px rgba(0,0,0,0.45), 0 0 0 0 rgba(255,180,40,0.55);
-        filter: brightness(1);
-      }
-      60%{
-        box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 0 14px rgba(255,180,40,0);
-        filter: brightness(1.05);
-      }
-      100%{
-        box-shadow: 0 10px 26px rgba(0,0,0,0.45), 0 0 0 0 rgba(255,180,40,0);
-        filter: brightness(1);
-      }
-    }
+    #videos .video-carousel::-webkit-scrollbar{ height: 8px; }
+    #videos .video-carousel::-webkit-scrollbar-thumb{ background: rgba(255,255,255,0.18); border-radius: 20px; }
+    #videos .video-carousel::-webkit-scrollbar-track{ background: rgba(255,255,255,0.08); border-radius: 20px; }
 
-    /* Block donate button */
-    .block-donate-btn{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      margin-top:14px;
-      padding:10px 16px;
-      border-radius:999px;
-      background: linear-gradient(135deg, #ffcf6a, #ff8c1a);
-      font-size:13px;
-      font-weight:900;
-      color:#0b0b0b;
-      text-align:center;
-      border:1px solid rgba(255,255,255,0.32);
-      cursor:pointer;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.45);
-      transition: transform .15s ease, opacity .15s ease, box-shadow .15s ease;
-      animation: buttonPulse 1.8s ease-in-out infinite;
+    #videos .vc-item{
+      flex: 0 0 320px;
+      scroll-snap-align:start;
     }
+    #videos .vc-frame{
+      position: relative;
+      width: 100%;
+      padding-top: 177.78%;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(0,0,0,.25);
+    }
+    #videos .vc-frame iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+    #videos .vc-btn{
+      position:absolute; top:50%; transform: translateY(-50%);
+      width:34px; height:34px; border-radius:999px;
+      border:1px solid rgba(255,255,255,0.18);
+      background: rgba(0,0,0,.55);
+      color:#fff; font-size:22px;
+      cursor:pointer; z-index:5;
+      display:flex; align-items:center; justify-content:center;
+    }
+    #videos .vc-prev{ left: 10px; }
+    #videos .vc-next{ right: 10px; }
 
     /* Toast */
     .toast{
-      position:fixed;
+      position: fixed;
       left:50%;
-      bottom:90px;
+      bottom: 92px;
       transform: translateX(-50%) translateY(12px);
       background: rgba(0,0,0,0.78);
-      border:1px solid rgba(255,255,255,0.22);
+      border: 1px solid rgba(255,255,255,0.16);
       color:#fff;
-      padding:10px 12px;
-      border-radius:14px;
+      padding: 10px 12px;
+      border-radius: 14px;
       box-shadow: 0 14px 34px rgba(0,0,0,0.65);
-      font-size:13px;
-      opacity:0;
+      font-size: 13px;
+      opacity: 0;
       pointer-events:none;
       transition: opacity .18s ease, transform .18s ease;
-      z-index:100000;
+      z-index: 100000;
       max-width: min(560px, calc(100vw - 24px));
-      display:flex;
-      align-items:center;
-      gap:10px;
+      display:flex; align-items:center; gap:10px;
     }
-    .toast--show{
-      opacity:1;
-      transform: translateX(-50%) translateY(0);
-    }
-    .toast .toast-dot{
-      width:8px; height:8px;
-      border-radius:999px;
+    .toast--show{ opacity: 1; transform: translateX(-50%) translateY(0); }
+    .toast-dot{
+      width: 8px; height: 8px; border-radius: 999px;
       background: rgba(255,184,74,0.95);
       box-shadow: 0 0 12px rgba(255,184,74,0.35);
+    }
+    .toast-text{ opacity:.95; line-height:1.35; }
+
+    /* Impact FX */
+    .impact-fx{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      opacity:0;
+      z-index:100002;
+      background: rgba(0,0,0,0.0);
+      transition: opacity .18s ease, background .18s ease;
+    }
+    .impact-fx.is-on{
+      opacity:1;
+      background: rgba(0,0,0,0.22);
+    }
+    .impact-text{
+      font-weight: 1000;
+      letter-spacing:.02em;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.6);
+      transform: translateY(10px) scale(.98);
+      opacity:0;
+      transition: transform .22s ease, opacity .22s ease;
+      font-size: 14px;
+    }
+    .impact-fx.is-on .impact-text{
+      transform: translateY(0) scale(1);
+      opacity:1;
+    }
+    .donate-btn.impact-pulse{ animation: impactPulse .45s ease-out; }
+    @keyframes impactPulse{
+      0%{ filter: brightness(1); box-shadow: 0 12px 28px rgba(0,0,0,0.42); }
+      45%{ filter: brightness(1.25); box-shadow: 0 18px 44px rgba(255,184,74,0.22); transform: translateY(-2px) scale(1.03); }
+      100%{ filter: brightness(1); transform: translateY(0) scale(1); }
     }
 
     /* QR modal */
     .qr-modal{
-      position:fixed;
-      inset:0;
+      position: fixed;
+      inset: 0;
       background: rgba(0,0,0,0.92);
       display:none;
       align-items:center;
       justify-content:center;
-      z-index:100001;
-      padding:16px;
+      z-index: 100001;
+      padding: 16px;
     }
     .qr-modal.is-open{ display:flex; }
     .qr-modal-card{
       width:100%;
-      max-width:520px;
-      border-radius:20px;
-      background: radial-gradient(circle at top left, #202b46 0, #070e1d 70%);
-      border:1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 18px 50px rgba(0,0,0,0.75);
+      max-width: 520px;
+      border-radius: 20px;
+      background: radial-gradient(circle at top left, rgba(20,23,28,.96) 0, rgba(27,31,38,.96) 70%);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: var(--shadow);
       overflow:hidden;
     }
     .qr-modal-head{
-      padding:14px 14px 10px;
+      padding: 14px 14px 10px;
       display:flex;
       align-items:flex-start;
       justify-content:space-between;
       gap:12px;
-      border-bottom:1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
     .qr-modal-title{
-      font-weight:900;
+      font-weight: 1000;
       letter-spacing:.04em;
       text-transform:uppercase;
-      font-size:12px;
-      opacity:0.9;
+      font-size: 12px;
+      opacity:.9;
+      color: var(--amber);
     }
-    .qr-modal-sub{
-      font-size:13px;
-      opacity:0.85;
-      margin-top:4px;
-    }
+    .qr-modal-sub{ font-size: 13px; opacity:.85; margin-top:4px; }
     .qr-modal-close{
-      width:34px; height:34px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,0.22);
+      width: 34px; height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
       background: rgba(0,0,0,0.45);
       color:#fff;
       cursor:pointer;
-      font-size:20px;
-      line-height:32px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      font-size: 20px;
+      line-height: 32px;
+      display:flex; align-items:center; justify-content:center;
     }
-    .qr-modal-body{ padding:14px; display:grid; gap:12px; }
+    .qr-modal-body{ padding: 14px; display:grid; gap: 12px; }
     .qr-modal-qrwrap{
-      border-radius:18px;
-      background: rgba(0,0,0,0.35);
-      border:1px solid rgba(255,255,255,0.14);
-      padding:12px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      border-radius: 18px;
+      background: rgba(0,0,0,0.28);
+      border: 1px solid rgba(255,255,255,0.10);
+      padding: 12px;
+      display:flex; align-items:center; justify-content:center;
     }
     .qr-modal-qr{
       width: min(320px, 76vw);
       height:auto;
-      border-radius:18px;
-      background:#02040a;
+      border-radius: 18px;
+      background: #0b0f14;
     }
-    .qr-modal-actions{ display:flex; flex-direction:column; gap:8px; }
     .qr-action-btn{
-      width:100%;
-      padding:12px 14px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,0.20);
-      background: rgba(0,0,0,0.38);
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(0,0,0,0.32);
       color:#fff;
       cursor:pointer;
-      font-weight:900;
-      font-size:13px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:8px;
+      font-weight: 900;
+      font-size: 13px;
+      display:flex; justify-content:center; align-items:center; gap:8px;
     }
+    .qr-action-btn:hover{ background: rgba(0,0,0,0.48); }
     .qr-action-btn.primary{
-      background: linear-gradient(135deg, #00c6ff, #0072ff);
-      border-color: rgba(255,255,255,0.28);
-    }
-    .qr-modal-mono   .qr-action-btn.primary{ background: linear-gradient(135deg, #00e3aa, #00b894); }
-    .qr-modal-privat .qr-action-btn.primary{ background: linear-gradient(135deg, #2ecc71, #27ae60); }
-    .qr-modal-paypal .qr-action-btn.primary{ background: linear-gradient(135deg, #009cde, #003087); }
-    .qr-modal-crypto .qr-action-btn.primary{ background: linear-gradient(135deg, #f6d365, #fda085); }
-
-    /* Reveal */
-    .reveal{
-      opacity:0;
-      transform: translateY(14px) scale(0.99);
-      transition: opacity .6s ease, transform .6s ease;
-    }
-    .reveal.is-visible{
-      opacity:1;
-      transform: translateY(0) scale(1);
+      background: linear-gradient(135deg, var(--amber), var(--amber-2));
+      color:#0b0b0b;
+      border-color: rgba(255,255,255,0.12);
     }
 
-    /* header patch */
-    .header-patch-wrap{
+    footer{
+      margin-top: 22px;
+      text-align:center;
+      opacity:.82;
+      font-size: 12px;
+    }
+
+    .engine-pulse{
+      position:fixed;
+      bottom:0;
+      left:0;
       width:100%;
-      display:flex;
-      justify-content:center;
-      margin-bottom:14px;
-      margin-top:-4px;
-      padding-top:10px;
+      height:3px;
+      background: linear-gradient(90deg, transparent, rgba(255,184,74,.95), transparent);
+      opacity:.38;
+      animation: pulse 3.1s ease-in-out infinite;
+      pointer-events:none;
+      z-index: 1;
     }
-    .header-patch{
-      width:140px;
-      height:auto;
-      transform-origin:center;
-      animation: patch-breath 3.5s ease-in-out infinite, patch-tilt 6s ease-in-out infinite, patch-glow 4s ease-in-out infinite;
-      filter: drop-shadow(0 0 10px rgba(255,184,74,0.45)) drop-shadow(0 0 4px rgba(255,184,74,0.25));
+    @keyframes pulse{
+      0%{ opacity:.22 }
+      50%{ opacity:.78 }
+      100%{ opacity:.22 }
     }
-    @media (max-width:480px){ .header-patch{ width:110px; } }
 
-    /* responsive */
-    @media (max-width:768px){
+    @keyframes fadeInPage { from{opacity:0; transform: translateY(10px);} to{opacity:1; transform:none;} }
+    @keyframes heroReveal { from{opacity:0; transform: translateY(8px) scale(.99);} to{opacity:1; transform:none;} }
+    @keyframes cardFade { from{opacity:0; transform: translateY(10px);} to{opacity:1; transform:none;} }
+
+    @media (max-width: 1024px){
+      .page{ padding: 18px 10px 64px; }
+      .hero{ padding: 18px 16px 16px; }
+      .hero-title{ font-size: 24px; }
+      .card-grid{ gap: 14px; }
+    }
+    @media (max-width: 768px){
+      .hero-title{ font-size: 20px; line-height:1.2; }
+      .hero-sub{ font-size: 14px; }
+      .hero-note{ font-size: 12px; }
       .btn-row{ flex-direction:column; }
-      .btn-row .donate-btn{ width:100%; }
-      .hero-title{ font-size:21px; line-height:1.2; }
-      .hero-sub{ font-size:14px; }
-      .hero-note{ font-size:12px; }
-      .qr{ width:130px; height:130px; }
+      .donate-btn{ width:100%; }
+      .qr{ width: 130px; height: 130px; }
+      .carousel-item img{ height: 280px; }
+      .support-slide{ flex-basis: 300px; }
+      #gallery .gc-item{ flex-basis: 300px; }
+      #gallery .gc-item img{ height: 220px; }
+      #videos .vc-item{ flex-basis: 260px; }
+    }
+    @media (max-width: 480px){
+      .header-patch{ width: 108px; }
+      .scroll-top-btn{ right: 12px; bottom: 14px; width: 38px; height: 38px; font-size: 20px; }
+      .toast{ bottom: 88px; }
     }
 
-    /* animations */
-    @keyframes fadeInPage{ from{ opacity:0; transform: translateY(10px);} to{ opacity:1; transform: translateY(0);} }
-    @keyframes heroReveal{ from{ opacity:0; transform: translateY(8px) scale(0.99);} to{ opacity:1; transform: translateY(0) scale(1);} }
-    @keyframes cardFade{ from{ opacity:0; transform: translateY(10px);} to{ opacity:1; transform: translateY(0);} }
-    @keyframes engine-move{ from{ transform: translateX(-120%);} to{ transform: translateX(120%);} }
-    @keyframes weld-spark{
-      0%,60%{ opacity:0; transform: translateX(-10%); }
-      65%{ opacity:1; transform: translateX(10%); }
-      80%{ opacity:0.5; transform: translateX(60%); }
-      100%{ opacity:0; transform: translateX(120%); }
-    }
-    @keyframes patch-breath{ 0%{ transform: scale(0.98);} 50%{ transform: scale(1.03);} 100%{ transform: scale(0.98);} }
-    @keyframes patch-tilt{
-      0%{ transform: rotateX(0deg) rotateY(0deg); }
-      25%{ transform: rotateX(2deg) rotateY(-2deg); }
-      50%{ transform: rotateX(0deg) rotateY(0deg); }
-      75%{ transform: rotateX(-2deg) rotateY(2deg); }
-      100%{ transform: rotateX(0deg) rotateY(0deg); }
-    }
-    @keyframes patch-glow{
-      0%{ filter: drop-shadow(0 0 4px rgba(255,184,74,0.3)); }
-      50%{ filter: drop-shadow(0 0 12px rgba(255,184,74,0.7)); }
-      100%{ filter: drop-shadow(0 0 4px rgba(255,184,74,0.3)); }
+    @media (prefers-reduced-motion: reduce){
+      .engine-line::before, .hero::after, .engine-pulse{ animation:none; }
+      #tech-traces{ transition:none; }
+      .donate-btn.impact-pulse{ animation:none; }
+      .impact-text{ transition:none; }
     }
   </style>
-
-  <link rel="stylesheet" href="supporters.css">
 </head>
 
 <body>
-  <canvas id="snow"></canvas>
-  <div id="tech-traces"></div>
 
-  <div class="page">
-    <div class="container">
+<div id="tech-traces"></div>
 
-      <header>
-        <div class="header-patch-wrap">
-          <img src="vtz-mpb-patch.png" alt="Technical Support Platoon patch" class="header-patch">
-        </div>
+<div class="page">
+  <div class="container">
 
-        <div class="top-row">
-          <div class="top-bar">
-            <img src="logo.png" alt="Logo" class="logo">
-            <span class="site-title">142nd Brigade • Technical Support Platoon</span>
-          </div>
-          <div class="lang-switch">
-            <a href="index.html">UA</a>
-            <a href="en.html" class="active">EN</a>
-          </div>
-        </div>
-
-        <section class="hero">
-          <div class="hero-badge">
-            <span>Frontline vehicle repairs</span>
-            <span class="system-state" id="systemState">
-              <span class="system-dot" id="systemDot"></span>
-              <span class="system-text" id="systemText">STATUS: WORK IN PROGRESS</span>
-            </span>
-          </div>
-
-          <div class="hero-title">Vehicles must move. People must come back alive.</div>
-
-          <div class="engine-line-wrap">
-            <div class="engine-line"></div>
-          </div>
-
-          <p class="hero-sub">
-            We are the technical support platoon of the mechanized infantry battalion of the 142nd Brigade.
-            We repair trucks and armored vehicles near the frontline so that supplies, fuel and food get through,
-            and the wounded can be evacuated in time.
-          </p>
-          <p class="hero-note">
-            Every repair we do is one less stop on the “road of life” — and one more chance to make it.
-            We are not many. But we keep the battalion’s wheels turning.
-          </p>
-
-          <div style="margin-top:14px;">
-            <a href="#donate" class="donate-btn" style="display:inline-flex;">
-              ➜ Support the platoon
-            </a>
-          </div>
-        </section>
-      </header>
-
-      <main>
-        <!-- DONATIONS -->
-        <h2 class="section-title" id="donate">How to support</h2>
-
-        <div class="card-grid">
-          <!-- MONOBANK -->
-          <section class="card" style="--accent: linear-gradient(90deg,#00e3aa,#00b894);">
-            <div>
-              <small>UAH · BANK TRANSFER</small>
-              <h3><span class="mono-label">Monobank</span> · Jar “142nd Brigade · Technical Support Platoon”</h3>
-              <p><strong>Recipient:</strong> Nadelniuk Viktor Mykolayovych</p>
-              <p><strong>IBAN:</strong><br>UA683220010000026208372629615</p>
-              <p><strong>Card number:</strong><br>4874&nbsp;1000&nbsp;2019&nbsp;8902</p>
-              <p><strong>Payment note:</strong> <code>VTZ MPB 142 OMBr</code></p>
-            </div>
-            <div>
-              <div class="btn-row">
-                <button class="donate-btn donate-btn--mono" type="button" onclick="window.open('https://send.monobank.ua/jar/8PfzHBQuu4','_blank')">
-                  🟩 Open Monobank jar
-                </button>
-                <button class="donate-btn donate-btn--steel" type="button" onclick="copyText('UA683220010000026208372629615')">
-                  ⧉ Copy IBAN
-                </button>
-                <button class="donate-btn donate-btn--steel" type="button" onclick="copyText('4874100020198902')">
-                  ⧉ Copy card number
-                </button>
-              </div>
-              <div class="qr-wrap">
-                <img id="qr-mono" class="qr" alt="Monobank QR" loading="lazy">
-              </div>
-              <p style="font-size:12px; opacity:0.78; margin-top:6px; text-align:center;">
-                Tap the QR to open a larger code
-              </p>
-            </div>
-          </section>
-
-          <!-- PRIVATBANK -->
-          <section class="card" style="--accent: linear-gradient(90deg,#2ecc71,#27ae60);">
-            <div>
-              <small>UAH · BANK TRANSFER</small>
-              <h3><span class="privat-label">PrivatBank</span> · Card top-up</h3>
-              <p><strong>Recipient:</strong> NADELNIUK VIKTOR MYKOLAYOVYCH</p>
-              <p><strong>IBAN:</strong><br>UA023052990262076400994803502</p>
-              <p><strong>Card number:</strong><br>5168&nbsp;7521&nbsp;4764&nbsp;9654</p>
-              <p><strong>Payment note:</strong> <code>VTZ MPB 142 OMBr</code></p>
-            </div>
-            <div>
-              <div class="btn-row">
-                <button class="donate-btn donate-btn--privat" type="button" onclick="window.open('https://www.privat24.ua/send/3xbxx','_blank')">
-                  🟢 Open Privat24
-                </button>
-                <button class="donate-btn donate-btn--steel" type="button" onclick="copyText('UA023052990262076400994803502')">
-                  ⧉ Copy IBAN
-                </button>
-                <button class="donate-btn donate-btn--steel" type="button" onclick="copyText('5168752147649654')">
-                  ⧉ Copy card number
-                </button>
-              </div>
-              <div class="qr-wrap">
-                <img id="qr-privat" class="qr" alt="PrivatBank QR" loading="lazy">
-              </div>
-              <p style="font-size:12px; opacity:0.78; margin-top:6px; text-align:center;">
-                Tap the QR to open a larger code
-              </p>
-            </div>
-          </section>
-
-          <!-- PAYPAL -->
-          <section class="card" style="--accent: linear-gradient(90deg,#009cde,#003087);">
-            <div>
-              <small>INTERNATIONAL PAYMENTS</small>
-              <h3><span class="paypal-label">PayPal / Paupay</span></h3>
-              <p><strong>Email for transfers:</strong><br>nadelnuikviktor@gmail.com</p>
-              <p><strong>Payment note:</strong><br><code>VTZ MPB 142 OMBr</code></p>
-            </div>
-            <div>
-              <div class="btn-row">
-                <button class="donate-btn donate-btn--paypal" type="button" onclick="copyText('nadelnuikviktor@gmail.com')">
-                  ⧉ Copy email
-                </button>
-                <button class="donate-btn donate-btn--amber" type="button" onclick="window.location.href='mailto:nadelnuikviktor@gmail.com'">
-                  ✉ Email us
-                </button>
-              </div>
-              <div class="qr-wrap">
-                <img id="qr-paupay" class="qr" alt="PayPal QR" loading="lazy">
-              </div>
-              <p style="font-size:12px; opacity:0.8; margin-top:6px;">
-                Please include <strong>VTZ MPB 142 OMBr</strong> in the payment note.
-              </p>
-            </div>
-          </section>
-
-          <!-- CRYPTO -->
-          <section class="card" style="--accent: linear-gradient(90deg,#f6d365,#fda085);">
-            <div>
-              <small>CRYPTOCURRENCY</small>
-              <h3><span class="crypto-label">Crypto</span> · BTC · ETH · SOL · BNB</h3>
-
-              <p><strong>Bitcoin (BTC):</strong><br>
-                bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p</p>
-
-              <p><strong>Ethereum (ETH):</strong><br>
-                0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</p>
-
-              <p><strong>Solana (SOL):</strong><br>
-                DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525</p>
-
-              <p><strong>BNB (BEP-20):</strong><br>
-                0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</p>
-            </div>
-
-            <div>
-              <div class="btn-row">
-                <button class="donate-btn donate-btn--crypto" type="button"
-                        onclick="window.open('https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p','_blank')">
-                  🟧 Open BTC
-                </button>
-                <button class="donate-btn donate-btn--crypto" type="button"
-                        onclick="window.open('https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b','_blank')">
-                  🟧 Open ETH
-                </button>
-                <button class="donate-btn donate-btn--crypto" type="button"
-                        onclick="window.open('https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525','_blank')">
-                  🟧 Open SOL
-                </button>
-              </div>
-
-              <div class="btn-row">
-                <button class="donate-btn donate-btn--steel" type="button"
-                        onclick="copyText('bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p')">
-                  ⧉ Copy BTC
-                </button>
-                <button class="donate-btn donate-btn--steel" type="button"
-                        onclick="copyText('0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b')">
-                  ⧉ Copy ETH / BNB
-                </button>
-                <button class="donate-btn donate-btn--steel" type="button"
-                        onclick="copyText('DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525')">
-                  ⧉ Copy SOL
-                </button>
-              </div>
-
-              <div class="qr-wrap">
-                <img id="qr-btc" class="qr" alt="BTC QR" loading="lazy">
-              </div>
-              <p style="font-size:12px; opacity:0.78; margin-top:6px; text-align:center;">
-                Tap the QR to open a larger code
-              </p>
-            </div>
-          </section>
-        </div>
-
-        <!-- B2B / CONTACTS -->
-        <section class="card big-block" id="b2b" style="--accent: linear-gradient(90deg,#ffcf6a,#ff8c1a);">
-          <h2 class="section-title">For businesses & foundations</h2>
-          <p>
-            If you represent a company/foundation and want to help directly, contact us.
-            We respond quickly and can coordinate logistics and reporting.
-          </p>
-
-          <div class="card-grid" style="margin-top:12px;">
-            <div class="card" style="min-height:170px;">
-              <small>EMAIL</small>
-              <h3>vtz142ombr</h3>
-              <p style="opacity:.85;">Subject line: <code>Support VTZ MPB 142 OMBr</code></p>
-              <div class="btn-row">
-                <button class="donate-btn donate-btn--amber" type="button"
-                        onclick="window.location.href='mailto:vtz142ombr?subject=Support%20VTZ%20MPB%20142%20OMBr'">
-                  ✉ Email
-                </button>
-                <button class="donate-btn donate-btn--steel" type="button" onclick="copyText('vtz142ombr')">
-                  ⧉ Copy
-                </button>
-              </div>
-            </div>
-
-            <div class="card" style="min-height:170px;">
-              <small>TELEGRAM</small>
-              <h3>@vtz142ombr</h3>
-              <p style="opacity:.85;">Fast contact to coordinate details.</p>
-              <div class="btn-row">
-                <button class="donate-btn donate-btn--steel" type="button" onclick="window.open('https://t.me/vtz142ombr','_blank')">
-                  ➜ Open Telegram
-                </button>
-                <button class="donate-btn donate-btn--steel" type="button" onclick="copyText('@vtz142ombr')">
-                  ⧉ Copy
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- PURCHASED -->
-        <section class="card big-block" id="purchased-carousel" style="--accent: linear-gradient(90deg,#00d0ff,#00a2ff);">
-          <h2 class="section-title">Already purchased with donations</h2>
-          <p>These are real items already used at the frontline to keep vehicles operational.</p>
-
-          <div class="carousel" aria-label="Purchased carousel">
-            <button class="carousel-btn prev" type="button" aria-label="Previous">‹</button>
-
-            <div class="carousel-track" id="purchasedTrack">
-              <div class="carousel-item"><img src="assets/purchased-01.jpg" alt="Purchased 1" loading="lazy"></div>
-              <div class="carousel-item"><img src="assets/purchased-02.jpg" alt="Purchased 2" loading="lazy"></div>
-              <div class="carousel-item"><img src="assets/purchased-03.jpg" alt="Purchased 3" loading="lazy"></div>
-              <div class="carousel-item"><img src="assets/purchased-04.jpg" alt="Purchased 4" loading="lazy"></div>
-              <div class="carousel-item"><img src="assets/purchased-05.jpg" alt="Purchased 5" loading="lazy"></div>
-              <div class="carousel-item"><img src="assets/purchased-06.jpg" alt="Purchased 6" loading="lazy"></div>
-              <div class="carousel-item"><img src="assets/purchased-07.jpg" alt="Purchased 7" loading="lazy"></div>
-              <div class="carousel-item"><img src="assets/purchased-08.jpg" alt="Purchased 8" loading="lazy"></div>
-              <div class="carousel-item"><img src="assets/purchased-09.jpg" alt="Purchased 9" loading="lazy"></div>
-              <div class="carousel-item"><img src="assets/purchased-10.jpg" alt="Purchased 10" loading="lazy"></div>
-              <div class="carousel-item"><img src="assets/purchased-11.jpg" alt="Purchased 11" loading="lazy"></div>
-            </div>
-
-            <button class="carousel-btn next" type="button" aria-label="Next">›</button>
-          </div>
-
-          <div class="carousel-dots" id="purchasedDots" aria-label="Carousel navigation"></div>
-        </section>
-
-        <!-- ABOUT -->
-        <section class="card big-block" id="about" style="--accent: linear-gradient(90deg,#ff6a00,#ffb84a);">
-          <h2 class="section-title">About the platoon</h2>
-
-          <p>
-            We are the technical support platoon of the mechanized infantry battalion of the 142nd Brigade.
-            Our mission is to keep battalion vehicles running on one of the hottest frontline directions.
-          </p>
-
-          <p>
-            You rarely see us in the news — but our work decides whether a vehicle reaches positions,
-            whether supplies arrive, and whether evacuation happens on time.
-          </p>
-
-          <h3>What we do</h3>
-
-          <p><strong>• Maintenance</strong><br>
-            Scheduled and urgent maintenance: oils, filters, fluids, inspections — so vehicles are ready anytime.
-          </p>
-
-          <p><strong>• Repair & recovery</strong><br>
-            Engines, transmissions, suspension, brakes, electrics, hydraulics, fuel systems — from sensors to major units.
-          </p>
-
-          <p><strong>• Vehicle evacuation</strong><br>
-            If a vehicle is damaged, stuck or broken — we go for it. Often under fire, pulling it off the “road of life”.
-          </p>
-
-          <p><strong>• Diagnostics</strong><br>
-            We find hidden faults early, so a vehicle doesn’t stop at the worst moment.
-          </p>
-
-          <p><strong>• Field repairs</strong><br>
-            Our workshop is what we can build: ground, tarp, light, generator and tools. No conditions? We create them.
-          </p>
-
-          <p><strong>• Keeping the battalion mobile</strong><br>
-            Working vehicles = rotations, supplies, evacuation, water, food, maneuver and survival.
-          </p>
-        </section>
-
-        <!-- GALLERY -->
-        <section id="gallery" class="gallery-section">
-          <div class="gallery-head">
-            <h2 class="section-title">Photo gallery</h2>
-            <a class="btn-support" href="#donate">Support</a>
-          </div>
-
-          <div class="gallery-carousel-wrap">
-            <button class="gc-btn gc-prev" type="button" aria-label="Previous">‹</button>
-            <div class="gallery-carousel" id="galleryCarousel"></div>
-            <button class="gc-btn gc-next" type="button" aria-label="Next">›</button>
-          </div>
-
-          <p style="font-size:12px; opacity:0.75; margin-top:10px;">
-            Photos must be in <code>assets/photos/</code> and named <code>p1.jpg ... p37.jpg</code> (latin “p”).
-          </p>
-        </section>
-
-        <!-- VIDEOS -->
-        <section id="videos" class="videos-section" style="--accent: linear-gradient(90deg,#d400ff,#ff6aff);">
-          <h2 class="section-title">Videos</h2>
-
-          <div class="video-carousel-wrap">
-            <button class="vc-btn vc-prev" type="button" aria-label="Previous">‹</button>
-
-            <div class="video-carousel" id="videoCarousel">
-              <!-- older videos -->
-              <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/Rz_Y3Tj6Rz4" allowfullscreen loading="lazy"></iframe></div></div>
-              <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/KlInbRyOCuY" allowfullscreen loading="lazy"></iframe></div></div>
-              <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/QTbz0BHjAzA" allowfullscreen loading="lazy"></iframe></div></div>
-              <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/xvvbYfiG_rk" allowfullscreen loading="lazy"></iframe></div></div>
-
-              <!-- new Shorts -->
-              <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/As6kEEhAw-E" allowfullscreen loading="lazy"></iframe></div></div>
-              <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/GKnGl-bD990" allowfullscreen loading="lazy"></iframe></div></div>
-              <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/o6ZeuaXdu3Q" allowfullscreen loading="lazy"></iframe></div></div>
-              <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/lythBRYJJ6M" allowfullscreen loading="lazy"></iframe></div></div>
-              <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/WVaNwv3Jf0E" allowfullscreen loading="lazy"></iframe></div></div>
-              <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/3cB4r9ntBz0" allowfullscreen loading="lazy"></iframe></div></div>
-            </div>
-
-            <button class="vc-btn vc-next" type="button" aria-label="Next">›</button>
-          </div>
-        </section>
-
-        <!-- ONGOING SUPPORT -->
-        <section class="card big-block" id="ongoing" style="--accent: linear-gradient(90deg,#00b4ff,#ffb84a);">
-          <h2 class="section-title">Ongoing support</h2>
-          <p>
-            This is a long-term fundraiser for the platoon’s daily work:
-            tools, spare parts, oils/fluids, welding supplies, diagnostics and field workshop essentials.
-          </p>
-
-          <div style="width:100%; height:16px; border-radius:999px; background: rgba(3,7,18,0.9); border:1px solid rgba(255,255,255,0.18); padding:2px; box-shadow: inset 0 0 8px rgba(0,0,0,0.7); margin-top:6px;">
-            <div id="progress-fill-en" style="height:100%; border-radius:999px; background: linear-gradient(90deg, #ffb84a, #00b4ff); width:0; position:relative; transition: width .5s ease-out;"></div>
-          </div>
-
-          <div style="margin-top:6px; font-size:12px; opacity:0.8; display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap;">
-            <span id="progress-text-en">Active fundraiser</span>
-            <span>Updated: 01.12.2025</span>
-          </div>
-        </section>
-
-        <!-- SHARE -->
-        <section class="card big-block" id="share" style="--accent: linear-gradient(90deg,#ffcf6a,#ff8c1a);">
-          <h2 class="section-title">Share</h2>
-          <p>Helping is not only donating — sharing this page also makes a real impact.</p>
-
-          <div class="btn-row" style="margin-top:10px; margin-bottom:14px;">
-            <button class="donate-btn donate-btn--amber" type="button"
-              onclick="copyText('Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade (mechanized infantry battalion). They repair vehicles near the frontline so supplies arrive and the wounded can be evacuated. Please donate or share: https://viktornadelniuk.github.io/DOFAMIN95/en.html')">
-              ⧉ Copy English text
-            </button>
-            <button class="donate-btn donate-btn--steel" type="button"
-              onclick="copyText('Привіт! Це збір для взводу технічного забезпечення мотопіхотного батальйону 142 ОМБр. Якщо маєш змогу — підтримай донатом або поширенням: https://viktornadelniuk.github.io/DOFAMIN95/')">
-              ⧉ Copy Ukrainian text
-            </button>
-          </div>
-
-          <div class="btn-row">
-            <button class="donate-btn donate-btn--steel" type="button" onclick="shareEn('telegram')">➜ Telegram</button>
-            <button class="donate-btn donate-btn--steel" type="button" onclick="shareEn('whatsapp')">➜ WhatsApp</button>
-            <button class="donate-btn donate-btn--steel" type="button" onclick="shareEn('facebook')">➜ Facebook</button>
-            <button class="donate-btn donate-btn--steel" type="button" onclick="shareEn('instagram')">➜ Instagram (copies text)</button>
-          </div>
-        </section>
-
-        <footer>
-          Thank you for supporting the technical support platoon of the 142nd Brigade.<br>
-          Your help keeps vehicles moving — and people alive.
-          <div id="visitor-counter-en" style="margin-top:6px; font-size:11px; opacity:0.75;"></div>
-        </footer>
-
-        <button type="button" id="scrollTopBtn" class="scroll-top-btn" aria-label="Back to top">↑</button>
-      </main>
-    </div>
-  </div>
-
-  <a href="#donate" class="mobile-donate-btn">Support</a>
-
-  <div id="toast" class="toast" aria-live="polite" aria-atomic="true">
-    <span class="toast-dot"></span>
-    <span class="toast-text" id="toastText">Done</span>
-  </div>
-
-  <div id="qrModal" class="qr-modal" aria-hidden="true">
-    <div class="qr-modal-card" role="dialog" aria-modal="true">
-      <div class="qr-modal-head">
-        <div>
-          <div class="qr-modal-title" id="qrModalTitle">QR</div>
-          <div class="qr-modal-sub" id="qrModalSub">Scan or open</div>
-        </div>
-        <button type="button" class="qr-modal-close" id="qrModalClose" aria-label="Close">×</button>
+    <header>
+      <div class="header-patch-wrap">
+        <img src="vtz-mpb-patch.png" alt="Platoon patch" class="header-patch">
       </div>
 
-      <div class="qr-modal-body">
-        <div class="qr-modal-qrwrap">
-          <img id="qrModalImg" class="qr-modal-qr" alt="QR code" loading="lazy">
+      <div class="top-row">
+        <div class="top-bar">
+          <img src="logo.png" alt="Logo" class="logo">
+          <span class="site-title">142nd Brigade • Technical Support Platoon</span>
         </div>
-
-        <div class="qr-modal-actions">
-          <button type="button" class="qr-action-btn primary" id="qrModalOpenBtn">Open</button>
-          <button type="button" class="qr-action-btn" id="qrModalCopyBtn">Copy</button>
+        <div class="lang-switch">
+          <a href="index.html">UA</a>
+          <a href="en.html" class="active">EN</a>
         </div>
       </div>
 
-      <div class="qr-modal-foot" id="qrModalFoot">If the scanner can’t read it — increase screen brightness.</div>
+      <section class="hero">
+        <div class="hero-badge">
+          <span class="hero-pill">Frontline vehicle repair</span>
+          <span class="system-state" id="systemState">
+            <span class="system-dot" id="systemDot"></span>
+            <span class="system-text" id="systemText">STATUS: OPERATING</span>
+          </span>
+        </div>
+
+        <div class="hero-title">VEHICLES MUST MOVE. PEOPLE MUST COME BACK ALIVE.</div>
+
+        <div class="engine-line-wrap"><div class="engine-line"></div></div>
+
+        <p class="hero-sub">
+          We are the technical support platoon of the mechanized infantry battalion of the 142nd Brigade.
+          We repair trucks and armored vehicles right at the frontline so vehicles can deliver ammo, fuel,
+          food and evacuate the wounded.
+        </p>
+
+        <p class="hero-note">
+          Every donation becomes a tool, spare part, welding supply, oil or diagnostics — one more mission,
+          and one more chance for someone to make it home.
+        </p>
+
+        <div style="margin-top:14px;">
+          <a href="#donate" class="donate-btn" style="display:inline-flex;" onclick="runImpactFx(this)">
+            Support the platoon
+          </a>
+        </div>
+      </section>
+    </header>
+
+    <main>
+
+      <!-- DONATIONS -->
+      <h2 class="section-title" id="donate">How to support</h2>
+
+      <div class="card-grid">
+        <!-- MONOBANK -->
+        <section class="card">
+          <div>
+            <small>UAH · BANK TRANSFER</small>
+            <h3><span class="mono-label">Monobank</span> · Donation Jar “142nd Brigade · Tech Support Platoon”</h3>
+            <p><strong>Recipient:</strong> Nadelniuk Viktor Mykolaiovych</p>
+            <p><strong>IBAN:</strong><br>UA683220010000026208372629615</p>
+            <p><strong>Card number:</strong><br>4874&nbsp;1000&nbsp;2019&nbsp;8902</p>
+            <p><strong>Payment note:</strong> <code>VTZ MPB 142 OMBr</code></p>
+          </div>
+          <div>
+            <div class="btn-row">
+              <button class="donate-btn donate-btn--mono" type="button"
+                      onclick="runImpactFx(this); window.open('https://send.monobank.ua/jar/8PfzHBQuu4','_blank')">
+                Open Monobank jar
+              </button>
+              <button class="donate-btn" type="button"
+                      onclick="runImpactFx(this); copyText('UA683220010000026208372629615')">
+                Copy IBAN
+              </button>
+              <button class="donate-btn" type="button"
+                      onclick="runImpactFx(this); copyText('4874100020198902')">
+                Copy card number
+              </button>
+            </div>
+            <div class="qr-wrap">
+              <img id="qr-mono" class="qr" alt="QR Monobank" loading="lazy">
+            </div>
+            <p style="font-size:12px; opacity:0.78; margin-top:6px; text-align:center;">
+              Tap the QR to open it full screen
+            </p>
+          </div>
+        </section>
+
+        <!-- PRIVATBANK -->
+        <section class="card">
+          <div>
+            <small>UAH · BANK TRANSFER</small>
+            <h3><span class="privat-label">PrivatBank</span> · Card top-up</h3>
+            <p><strong>Recipient:</strong> NADELNIUK VIKTOR MYKOLAYOVYCH</p>
+            <p><strong>IBAN:</strong><br>UA023052990262076400994803502</p>
+            <p><strong>Card number:</strong><br>5168&nbsp;7521&nbsp;4764&nbsp;9654</p>
+            <p><strong>Payment note:</strong> <code>VTZ MPB 142 OMBr</code></p>
+          </div>
+          <div>
+            <div class="btn-row">
+              <button class="donate-btn donate-btn--privat" type="button"
+                      onclick="runImpactFx(this); window.open('https://www.privat24.ua/send/3xbxx','_blank')">
+                Open Privat24
+              </button>
+              <button class="donate-btn" type="button"
+                      onclick="runImpactFx(this); copyText('UA023052990262076400994803502')">
+                Copy IBAN
+              </button>
+              <button class="donate-btn" type="button"
+                      onclick="runImpactFx(this); copyText('5168752147649654')">
+                Copy card number
+              </button>
+            </div>
+            <div class="qr-wrap">
+              <img id="qr-privat" class="qr" alt="QR PrivatBank" loading="lazy">
+            </div>
+            <p style="font-size:12px; opacity:0.78; margin-top:6px; text-align:center;">
+              Tap the QR to open it full screen
+            </p>
+          </div>
+        </section>
+
+        <!-- PAYPAL / PAUPAY -->
+        <section class="card">
+          <div>
+            <small>INTERNATIONAL TRANSFERS</small>
+            <h3><span class="paypal-label">PayPal / Paupay</span></h3>
+            <p><strong>Email for transfers:</strong><br>nadelnuikviktor@gmail.com</p>
+            <p><strong>Payment note:</strong><br><code>VTZ MPB 142 OMBr</code></p>
+          </div>
+          <div>
+            <div class="btn-row">
+              <button class="donate-btn donate-btn--paypal" type="button"
+                      onclick="runImpactFx(this); copyText('nadelnuikviktor@gmail.com')">
+                Copy email
+              </button>
+            </div>
+            <div class="qr-wrap">
+              <img id="qr-paupay" class="qr" alt="QR PayPal / Paupay" loading="lazy">
+            </div>
+            <p style="font-size:12px; opacity:0.8; margin-top:6px;">
+              Please add <strong>VTZ MPB 142 OMBr</strong> in the payment note.
+            </p>
+          </div>
+        </section>
+
+        <!-- CRYPTO -->
+        <section class="card">
+          <div>
+            <small>CRYPTOCURRENCY</small>
+            <h3><span class="crypto-label">Crypto</span> · BTC · ETH · SOL · BNB</h3>
+
+            <p><strong>Bitcoin (BTC):</strong><br>
+              bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p</p>
+
+            <p><strong>Ethereum (ETH):</strong><br>
+              0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</p>
+
+            <p><strong>Solana (SOL):</strong><br>
+              DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525</p>
+
+            <p><strong>BNB (BEP-20):</strong><br>
+              0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b</p>
+          </div>
+
+          <div>
+            <div class="btn-row">
+              <button class="donate-btn donate-btn--crypto" type="button"
+                      onclick="runImpactFx(this); window.open('https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p','_blank')">
+                Open BTC
+              </button>
+              <button class="donate-btn donate-btn--crypto" type="button"
+                      onclick="runImpactFx(this); window.open('https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b','_blank')">
+                Open ETH
+              </button>
+              <button class="donate-btn donate-btn--crypto" type="button"
+                      onclick="runImpactFx(this); window.open('https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525','_blank')">
+                Open SOL
+              </button>
+            </div>
+
+            <div class="btn-row">
+              <button class="donate-btn" type="button"
+                      onclick="runImpactFx(this); copyText('bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p')">
+                Copy BTC
+              </button>
+              <button class="donate-btn" type="button"
+                      onclick="runImpactFx(this); copyText('0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b')">
+                Copy ETH / BNB
+              </button>
+              <button class="donate-btn" type="button"
+                      onclick="runImpactFx(this); copyText('DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525')">
+                Copy SOL
+              </button>
+            </div>
+
+            <div class="qr-wrap">
+              <img id="qr-btc" class="qr" alt="QR BTC" loading="lazy">
+            </div>
+            <p style="font-size:12px; opacity:0.78; margin-top:6px; text-align:center;">
+              Tap the QR to open it full screen
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <!-- CONTACT -->
+      <section class="card big-block" id="contact-en" style="margin-top:16px;">
+        <h2 class="section-title">Contact</h2>
+        <p style="opacity:.92;">
+          If you can help faster, with targeted support or a larger contribution — message us directly.
+        </p>
+        <div class="card-grid" style="margin-top:10px;">
+          <div class="card" style="min-height:auto;">
+            <small>EMAIL</small>
+            <h3>vtz142ombr</h3>
+            <p><strong>Email:</strong> <a href="mailto:vtz142ombr">vtz142ombr</a></p>
+            <div class="btn-row">
+              <button class="donate-btn" type="button" onclick="runImpactFx(this); copyText('vtz142ombr')">Copy email</button>
+            </div>
+          </div>
+          <div class="card" style="min-height:auto;">
+            <small>TELEGRAM</small>
+            <h3>@vtz142ombr</h3>
+            <p><strong>Telegram:</strong> <code>@vtz142ombr</code></p>
+            <div class="btn-row">
+              <button class="donate-btn" type="button" onclick="runImpactFx(this); copyText('@vtz142ombr')">Copy Telegram</button>
+              <button class="donate-btn" type="button" onclick="runImpactFx(this); window.open('https://t.me/vtz142ombr','_blank')">Open Telegram</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SUPPORTERS -->
+      <section class="card big-block" id="supporters" style="margin-top:16px;">
+        <h2 class="section-title">Supporters</h2>
+        <p style="opacity:.90;">
+          This is real help, without publicity. Thank you to those who act quietly — but effectively.
+        </p>
+
+        <div class="support-carousel-wrap">
+          <button class="sc-btn sc-prev" type="button" aria-label="Previous">‹</button>
+
+          <div class="support-carousel" id="supportCarousel">
+            <article class="card support-slide">
+              <a class="thx-media" href="assets/support/support-01.jpg" target="_blank" rel="noopener">
+                <img src="assets/support/support-01.jpg" alt="Anonymous support" loading="lazy" style="width:100%; height:220px; object-fit:cover; border-radius:14px; border:1px solid rgba(255,255,255,.10);">
+              </a>
+              <div style="margin-top:10px;">
+                <div style="display:flex; justify-content:space-between; gap:10px; align-items:center;">
+                  <div style="font-weight:900;">Anonymous support</div>
+                  <div style="font-size:12px; opacity:.85; padding:4px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.12); background:rgba(0,0,0,.25);">
+                    Generator
+                  </div>
+                </div>
+                <div style="margin-top:6px; opacity:.9;">Equipment delivered for field repairs.</div>
+              </div>
+            </article>
+
+            <article class="card support-slide">
+              <a class="thx-media" href="assets/support/support-02.jpg" target="_blank" rel="noopener">
+                <img src="assets/support/support-02.jpg" alt="Anonymous support" loading="lazy" style="width:100%; height:220px; object-fit:cover; border-radius:14px; border:1px solid rgba(255,255,255,.10);">
+              </a>
+              <div style="margin-top:10px;">
+                <div style="display:flex; justify-content:space-between; gap:10px; align-items:center;">
+                  <div style="font-weight:900;">Anonymous support</div>
+                  <div style="font-size:12px; opacity:.85; padding:4px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.12); background:rgba(0,0,0,.25);">
+                    Vehicle scanner
+                  </div>
+                </div>
+                <div style="margin-top:6px; opacity:.9;">Without diagnostics, repairs just stop — vehicles must keep moving.</div>
+              </div>
+            </article>
+          </div>
+
+          <button class="sc-btn sc-next" type="button" aria-label="Next">›</button>
+        </div>
+      </section>
+
+      <!-- PURCHASED -->
+      <section class="card big-block" id="purchased-carousel" style="margin-top:16px;">
+        <h2 class="section-title">Purchased thanks to donations</h2>
+        <p style="opacity:.90;">
+          These are real items already working at the front and helping us keep vehicles operational.
+        </p>
+
+        <div class="carousel" style="margin-top:12px;">
+          <button class="carousel-btn prev" type="button" aria-label="Previous">‹</button>
+
+          <div class="carousel-track" id="purchasedTrack">
+            <div class="carousel-item"><img src="assets/purchased-01.jpg" alt="Purchased 1" loading="lazy"></div>
+            <div class="carousel-item"><img src="assets/purchased-02.jpg" alt="Purchased 2" loading="lazy"></div>
+            <div class="carousel-item"><img src="assets/purchased-03.jpg" alt="Purchased 3" loading="lazy"></div>
+            <div class="carousel-item"><img src="assets/purchased-04.jpg" alt="Purchased 4" loading="lazy"></div>
+            <div class="carousel-item"><img src="assets/purchased-05.jpg" alt="Purchased 5" loading="lazy"></div>
+            <div class="carousel-item"><img src="assets/purchased-06.jpg" alt="Purchased 6" loading="lazy"></div>
+            <div class="carousel-item"><img src="assets/purchased-07.jpg" alt="Purchased 7" loading="lazy"></div>
+            <div class="carousel-item"><img src="assets/purchased-08.jpg" alt="Purchased 8" loading="lazy"></div>
+            <div class="carousel-item"><img src="assets/purchased-09.jpg" alt="Purchased 9" loading="lazy"></div>
+            <div class="carousel-item"><img src="assets/purchased-10.jpg" alt="Purchased 10" loading="lazy"></div>
+            <div class="carousel-item"><img src="assets/purchased-11.jpg" alt="Purchased 11" loading="lazy"></div>
+          </div>
+
+          <button class="carousel-btn next" type="button" aria-label="Next">›</button>
+        </div>
+
+        <div class="carousel-dots" id="purchasedDots" aria-label="Carousel indicators"></div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="card big-block" id="about-platoon-en" style="margin-top:16px;">
+        <h2 class="section-title">About the platoon</h2>
+
+        <p>We are the technical support platoon of the mechanized infantry battalion of the 142nd Separate Mechanized Brigade. Our mission is to keep battalion vehicles operational on one of the hottest front directions.</p>
+        <p>You may not see us on camera or in the news, but our work determines whether a vehicle reaches positions, whether ammo and fuel arrive, and whether the wounded can be evacuated in time.</p>
+
+        <h3 style="margin-top:12px;">What we do</h3>
+
+        <p><strong>• Maintenance</strong><br>
+          Scheduled and emergency service: oils, filters, fluids, inspections. We keep vehicles ready to move at any moment.
+        </p>
+
+        <p><strong>• Repair and recovery</strong><br>
+          Engines, transmissions, suspension, brakes, electrics, hydraulics and fuel systems — from sensors to heavy assemblies.
+        </p>
+
+        <p><strong>• Vehicle evacuation</strong><br>
+          When a vehicle can’t move on its own — damaged, broken, stuck — we go and pull it out, often under fire.
+        </p>
+
+        <p><strong>• Diagnostics and troubleshooting</strong><br>
+          We detect hidden issues early so vehicles don’t fail at the worst moment.
+        </p>
+
+        <p><strong>• Field repair</strong><br>
+          Our workshop is whatever we can build: ground, tarp, lamp, generator and tools. Mud, rain, night, shelling — we work anyway.
+        </p>
+
+        <p><strong>• Keeping the battalion mobile</strong><br>
+          Working vehicles mean deliveries, rotations, evacuations, water, food, maneuver and survival. We do everything to keep this moving.
+        </p>
+      </section>
+
+      <!-- CURRENT NEEDS -->
+      <section class="card big-block" id="current-needs-en" style="margin-top:16px;">
+        <h2 class="section-title">Current needs</h2>
+
+        <p>Your donations are currently converted into:</p>
+
+        <p><strong>• Tools and equipment</strong><br>
+          Socket sets, wrenches, jacks, pullers, suspension tools, pneumatic tools, extension cords and working lights.
+        </p>
+
+        <p><strong>• Welding and consumables</strong><br>
+          Electrodes, wire, masks, gloves, cables — everything that helps restore frames, mounts, tanks and protection elements.
+        </p>
+
+        <p><strong>• Spare parts and consumables</strong><br>
+          Filters, belts, brake pads, hoses, bearings, clamps, sensors, spark parts, fasteners — all the “small” things every repair depends on.
+        </p>
+
+        <p><strong>• Fluids and lubricants</strong><br>
+          Engine and transmission oils, brake fluid, coolant, heavy-load greases.
+        </p>
+
+        <p><strong>• Diagnostics and electrics</strong><br>
+          Testers, multimeters, lamps, wiring, connectors, fuses — for fast identification and fixing of electrical issues.
+        </p>
+
+        <p><strong>• Logistics and working conditions</strong><br>
+          Generators, cables, lighting, tarps, gloves and workwear — so we can repair in the field in any weather.
+        </p>
+
+        <p>Every hryvnia/euro/dollar becomes a very concrete thing: a tool, a part, oil or welding supply — one more mission for a vehicle, one more chance for our people.</p>
+      </section>
+
+      <!-- PROGRESS -->
+      <section class="card big-block" id="progress-en" style="margin-top:16px;">
+        <h2 class="section-title">Ongoing fund</h2>
+
+        <p class="progress-text">
+          This is an ongoing fund for the platoon’s daily work: tools, spare parts, oils, welding, diagnostics and field workshops.
+          Every contribution helps keep vehicles operational.
+        </p>
+
+        <div class="progress-track">
+          <div id="progress-fill-en" class="progress-fill" data-label="Active"></div>
+        </div>
+
+        <div class="progress-meta">
+          <span id="progress-text-en">Active</span>
+          <span>Total raised: <strong>39&nbsp;779 UAH</strong> · Updated: 17.02.2026</span>
+        </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section id="gallery" class="gallery-section">
+        <div class="gallery-head">
+          <h2 class="section-title">Photo gallery</h2>
+          <a class="btn-support" href="#donate" onclick="runImpactFx(this)">Support</a>
+        </div>
+
+        <div class="gallery-carousel-wrap">
+          <button class="gc-btn gc-prev" type="button" aria-label="Previous">‹</button>
+          <div class="gallery-carousel" id="galleryCarousel"></div>
+          <button class="gc-btn gc-next" type="button" aria-label="Next">›</button>
+        </div>
+      </section>
+
+      <!-- VIDEOS -->
+      <section id="videos" class="videos-section" style="margin-top:16px;">
+        <h2 class="section-title">Videos</h2>
+
+        <div class="video-carousel-wrap">
+          <button class="vc-btn vc-prev" type="button" aria-label="Previous">‹</button>
+
+          <div class="video-carousel" id="videoCarousel">
+            <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/Rz_Y3Tj6Rz4" allowfullscreen loading="lazy"></iframe></div></div>
+            <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/KlInbRyOCuY" allowfullscreen loading="lazy"></iframe></div></div>
+            <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/QTbz0BHjAzA" allowfullscreen loading="lazy"></iframe></div></div>
+            <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/xvvbYfiG_rk" allowfullscreen loading="lazy"></iframe></div></div>
+            <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/As6kEEhAw-E" allowfullscreen loading="lazy"></iframe></div></div>
+            <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/GKnGl-bD990" allowfullscreen loading="lazy"></iframe></div></div>
+            <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/o6ZeuaXdu3Q" allowfullscreen loading="lazy"></iframe></div></div>
+            <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/lythBRYJJ6M" allowfullscreen loading="lazy"></iframe></div></div>
+            <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/WVaNwv3Jf0E" allowfullscreen loading="lazy"></iframe></div></div>
+            <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/3cB4r9ntBz0" allowfullscreen loading="lazy"></iframe></div></div>
+          </div>
+
+          <button class="vc-btn vc-next" type="button" aria-label="Next">›</button>
+        </div>
+      </section>
+
+      <!-- SHARE -->
+      <section class="card big-block" id="share-en" style="margin-top:16px;">
+        <h2 class="section-title">Share</h2>
+
+        <p>
+          You can help not only with a donation but also by sharing this page.
+          Copy a ready-to-post text or share the link in your messenger or social network.
+        </p>
+
+        <div class="btn-row" style="margin-top:10px; margin-bottom:14px;">
+          <button class="donate-btn" type="button"
+                  onclick="runImpactFx(this); copyText('Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade (mechanized infantry battalion). They repair trucks and armored vehicles right at the frontline so vehicles keep moving, supplies and fuel arrive, and the wounded can be evacuated. If you can, please support with a donation or by sharing this link: https://viktornadelnuik.github.io/DOFAMIN95/en.html')">
+            Copy English text
+          </button>
+
+          <button class="donate-btn" type="button"
+                  onclick="runImpactFx(this); copyText('Привіт! Це збір для взводу технічного забезпечення мотопіхотного батальйону 142 ОМБр. Ми ремонтуємо техніку, яка возить боєкомплект, ПММ, їжу та евакуює поранених. Якщо маєш змогу — підтримай донатом або поширенням: https://viktornadelnuik.github.io/DOFAMIN95/')">
+            Copy Ukrainian text
+          </button>
+        </div>
+
+        <div class="btn-row">
+          <button class="donate-btn" type="button" onclick="runImpactFx(this); shareEn('telegram')">Share via Telegram</button>
+          <button class="donate-btn" type="button" onclick="runImpactFx(this); shareEn('viber')">Share via Viber</button>
+          <button class="donate-btn" type="button" onclick="runImpactFx(this); shareEn('whatsapp')">Share via WhatsApp</button>
+          <button class="donate-btn" type="button" onclick="runImpactFx(this); shareEn('facebook')">Share on Facebook</button>
+          <button class="donate-btn" type="button" onclick="runImpactFx(this); shareEn('instagram')">Share on Instagram</button>
+        </div>
+      </section>
+
+      <footer>
+        Thank you for supporting the technical support platoon of the 142nd Brigade.<br>
+        Your help keeps vehicles moving — and people alive.
+        <div id="visitor-counter-en" style="margin-top:6px; font-size:11px; opacity:0.75;"></div>
+      </footer>
+
+      <button type="button" id="scrollTopBtn" class="scroll-top-btn" aria-label="Back to top">↑</button>
+
+    </main>
+  </div>
+</div>
+
+<!-- MOBILE DONATE BUTTON -->
+<a href="#donate" class="mobile-donate-btn" onclick="runImpactFx(this)">Support the platoon</a>
+
+<!-- ENGINE PULSE -->
+<div class="engine-pulse" aria-hidden="true"></div>
+
+<!-- IMPACT FX -->
+<div id="impactFx" class="impact-fx" aria-hidden="true">
+  <div class="impact-text">+1 chance to make it</div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast" aria-live="polite" aria-atomic="true">
+  <span class="toast-dot"></span>
+  <span class="toast-text" id="toastText">Done</span>
+</div>
+
+<!-- FULLSCREEN QR MODAL -->
+<div id="qrModal" class="qr-modal" aria-hidden="true">
+  <div class="qr-modal-card" id="qrModalCard" role="dialog" aria-modal="true">
+    <div class="qr-modal-head">
+      <div>
+        <div class="qr-modal-title" id="qrModalTitle">QR</div>
+        <div class="qr-modal-sub" id="qrModalSub">Scan or open payment</div>
+      </div>
+      <button type="button" class="qr-modal-close" id="qrModalClose" aria-label="Close">×</button>
+    </div>
+
+    <div class="qr-modal-body">
+      <div class="qr-modal-qrwrap">
+        <img id="qrModalImg" class="qr-modal-qr" alt="QR code" loading="lazy">
+      </div>
+
+      <div class="qr-modal-actions">
+        <button type="button" class="qr-action-btn primary" id="qrModalOpenBtn">Open</button>
+        <button type="button" class="qr-action-btn" id="qrModalCopyBtn">Copy</button>
+      </div>
+    </div>
+
+    <div class="qr-modal-foot" id="qrModalFoot" style="padding:0 14px 14px; font-size:12px; opacity:.78;">
+      If the scanner can’t read it — increase screen brightness.
     </div>
   </div>
+</div>
 
-  <script>
-    // ===== QR codes =====
-    function setQR(id, data) {
-      var el = document.getElementById(id);
-      if (!el) return;
-      var api = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=";
-      el.src = api + encodeURIComponent(data);
+<script>
+  /* ===== QR codes ===== */
+  function setQR(id, data) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    var api = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=";
+    el.src = api + encodeURIComponent(data);
+  }
+  setQR("qr-mono",   "https://send.monobank.ua/jar/8PfzHBQuu4");
+  setQR("qr-privat", "https://www.privat24.ua/send/3xbxx");
+  setQR("qr-btc",    "https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p");
+  setQR("qr-paupay", "nadelnuikviktor@gmail.com");
+
+  /* ===== TOAST ===== */
+  (function(){
+    const toast = document.getElementById('toast');
+    const textEl = document.getElementById('toastText');
+    let t;
+    window.showToast = function(message){
+      if(!toast || !textEl) return;
+      textEl.textContent = message;
+      toast.classList.add('toast--show');
+      clearTimeout(t);
+      t = setTimeout(()=> toast.classList.remove('toast--show'), 1800);
     }
-    setQR("qr-mono",   "https://send.monobank.ua/jar/8PfzHBQuu4");
-    setQR("qr-privat", "https://www.privat24.ua/send/3xbxx");
-    setQR("qr-btc",    "https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p");
-    setQR("qr-paupay", "nadelnuikviktor@gmail.com");
+  })();
 
-    // ===== TOAST =====
-    (function(){
-      const toast = document.getElementById('toast');
-      const textEl = document.getElementById('toastText');
-      let t;
-
-      window.showToast = function(message){
-        if(!toast || !textEl) return;
-        textEl.textContent = message;
-        toast.classList.add('toast--show');
-        clearTimeout(t);
-        t = setTimeout(()=> toast.classList.remove('toast--show'), 1800);
-      }
-    })();
-
-    // ===== Copy =====
-    async function copyText(text) {
-      try{
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          await navigator.clipboard.writeText(text);
-          showToast('Copied');
-          return;
-        }
-        fallbackCopy(text);
-      }catch(e){
-        fallbackCopy(text);
-      }
-    }
-    function fallbackCopy(text) {
-      var area = document.createElement('textarea');
-      area.value = text;
-      area.style.position = 'fixed';
-      area.style.left = '-9999px';
-      document.body.appendChild(area);
-      area.focus();
-      area.select();
-      try {
-        document.execCommand('copy');
+  /* ===== Copy to clipboard ===== */
+  async function copyText(text) {
+    try{
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(text);
         showToast('Copied');
-      } catch (e) {
-        showToast('Copy failed. Please copy manually.');
+        return;
       }
-      document.body.removeChild(area);
+      fallbackCopy(text);
+    }catch(e){
+      fallbackCopy(text);
     }
-
-    // ===== Sharing (EN) =====
-    const SHARE_TEXT_EN = 'Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade (mechanized infantry battalion). They repair vehicles near the frontline so supplies arrive and the wounded can be evacuated.';
-    const SHARE_URL_EN  = 'https://viktornadelniuk.github.io/DOFAMIN95/en.html';
-
-    function shareEn(service) {
-      const text = SHARE_TEXT_EN + ' ' + SHARE_URL_EN;
-      let shareUrl = '';
-
-      switch (service) {
-        case 'telegram':
-          shareUrl = 'https://t.me/share/url?url=' + encodeURIComponent(SHARE_URL_EN) + '&text=' + encodeURIComponent(SHARE_TEXT_EN);
-          break;
-        case 'whatsapp':
-          shareUrl = 'https://wa.me/?text=' + encodeURIComponent(text);
-          break;
-        case 'facebook':
-          shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(SHARE_URL_EN);
-          break;
-        case 'instagram':
-          copyText(text);
-          shareUrl = 'https://www.instagram.com/';
-          break;
-        default:
-          copyText(text);
-          return;
-      }
-
-      window.open(shareUrl, '_blank');
+  }
+  function fallbackCopy(text) {
+    var area = document.createElement('textarea');
+    area.value = text;
+    area.style.position = 'fixed';
+    area.style.left = '-9999px';
+    document.body.appendChild(area);
+    area.focus();
+    area.select();
+    try {
+      document.execCommand('copy');
+      showToast('Copied');
+    } catch (e) {
+      showToast('Copy failed. Please copy manually.');
     }
+    document.body.removeChild(area);
+  }
 
-    // ===== SCROLL TOP =====
-    (function () {
-      var btn = document.getElementById('scrollTopBtn');
-      if (!btn) return;
+  /* ===== Impact FX ===== */
+  function runImpactFx(btn){
+    const fx = document.getElementById('impactFx');
+    if(!fx) return;
 
-      window.addEventListener('scroll', function () {
-        var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-        if (scrollY > 250) btn.classList.add('scroll-top-btn--visible');
-        else btn.classList.remove('scroll-top-btn--visible');
+    if(btn && btn.classList){
+      btn.classList.remove('impact-pulse');
+      void btn.offsetWidth;
+      btn.classList.add('impact-pulse');
+    }
+    fx.classList.add('is-on');
+    setTimeout(()=> fx.classList.remove('is-on'), 650);
+  }
+
+  /* ===== Sharing (EN) ===== */
+  const SHARE_TEXT_EN =
+    'Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade (mechanized infantry battalion). They repair trucks and armored vehicles right at the frontline so vehicles keep moving, supplies and fuel arrive, and the wounded can be evacuated. If you can, please support with a donation or by sharing this link:';
+  const SHARE_URL_EN  = 'https://viktornadelnuik.github.io/DOFAMIN95/en.html';
+  function shareEn(service) {
+    const text = SHARE_TEXT_EN + ' ' + SHARE_URL_EN;
+    let shareUrl = '';
+    switch (service) {
+      case 'telegram':
+        shareUrl = 'https://t.me/share/url?url='
+          + encodeURIComponent(SHARE_URL_EN)
+          + '&text=' + encodeURIComponent(SHARE_TEXT_EN);
+        break;
+      case 'viber':
+        shareUrl = 'viber://forward?text=' + encodeURIComponent(text);
+        break;
+      case 'whatsapp':
+        shareUrl = 'https://wa.me/?text=' + encodeURIComponent(text);
+        break;
+      case 'facebook':
+        shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(SHARE_URL_EN);
+        break;
+      case 'instagram':
+        copyText(text);
+        shareUrl = 'https://www.instagram.com/';
+        break;
+      default:
+        copyText(text);
+        return;
+    }
+    window.open(shareUrl, '_blank');
+  }
+
+  /* ===== SCROLL TO TOP ===== */
+  (function () {
+    var btn = document.getElementById('scrollTopBtn');
+    if (!btn) return;
+    window.addEventListener('scroll', function () {
+      var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollY > 250) btn.classList.add('scroll-top-btn--visible');
+      else btn.classList.remove('scroll-top-btn--visible');
+    });
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+
+  /* ===== VISITOR COUNTER ===== */
+  (function () {
+    var el = document.getElementById('visitor-counter-en');
+    if (!el) return;
+    fetch('https://api.countapi.xyz/hit/vtz-142omb/site')
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        el.textContent = 'People who visited this support page (views): ' + data.value;
+      })
+      .catch(function () {
+        el.textContent = 'People who visited this support page: —';
       });
+  })();
 
+  /* ===== Append block donate button to big blocks ===== */
+  (function () {
+    var blocks = document.querySelectorAll('.big-block');
+    blocks.forEach(function (block) {
+      if (block.querySelector('.block-donate-btn')) return;
+      var btn = document.createElement('button');
+      btn.className = 'block-donate-btn';
+      btn.innerHTML = '<span class="icon">⚙</span> Support';
       btn.addEventListener('click', function () {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        runImpactFx(btn);
+        var donate = document.getElementById('donate');
+        if (donate) donate.scrollIntoView({ behavior: "smooth" });
       });
-    })();
+      block.appendChild(btn);
+    });
+  })();
 
-    // ===== VISITOR COUNTER =====
-    (function () {
-      var el = document.getElementById('visitor-counter-en');
-      if (!el) return;
+  /* ===== Donation progress (visible) ===== */
+  (function () {
+    var fill = document.getElementById('progress-fill-en');
+    var text = document.getElementById('progress-text-en');
+    if (!fill || !text) return;
+    var percent = 60;
+    fill.style.width = percent + '%';
+    fill.setAttribute('data-label', 'Active');
+    text.textContent = 'Active';
+  })();
 
-      fetch('https://api.countapi.xyz/hit/vtz-142omb/site-en')
-        .then(function (res) { return res.json(); })
-        .then(function (data) {
-          el.textContent = 'Page views: ' + data.value;
-        })
-        .catch(function () {
-          el.textContent = 'Page views: —';
-        });
-    })();
+  /* ===== VIDEO carousel arrows ===== */
+  (function(){
+    const track = document.getElementById('videoCarousel');
+    if(!track) return;
+    const prev = document.querySelector('#videos .vc-prev');
+    const next = document.querySelector('#videos .vc-next');
+    function getStep(){
+      const first = track.querySelector('.vc-item');
+      if(!first) return 280;
+      const gap = parseInt(getComputedStyle(track).gap || '14', 10);
+      return first.getBoundingClientRect().width + gap;
+    }
+    prev && prev.addEventListener('click', () => track.scrollBy({ left: -getStep(), behavior: 'smooth' }));
+    next && next.addEventListener('click', () => track.scrollBy({ left: getStep(), behavior: 'smooth' }));
+  })();
 
-    // ===== Add "Support" button into each big block =====
-    (function () {
-      var blocks = document.querySelectorAll('.big-block');
-      blocks.forEach(function (block) {
-        if (block.querySelector('.block-donate-btn')) return;
+  /* ===== SUPPORTERS carousel arrows ===== */
+  (function(){
+    const track = document.getElementById('supportCarousel');
+    if(!track) return;
+    const prev = document.querySelector('#supporters .sc-prev');
+    const next = document.querySelector('#supporters .sc-next');
+    function step(){
+      const first = track.querySelector('.support-slide');
+      if(!first) return 320;
+      const gap = parseInt(getComputedStyle(track).gap || '14', 10);
+      return first.getBoundingClientRect().width + gap;
+    }
+    prev && prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+    next && next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+  })();
 
-        var btn = document.createElement('button');
-        btn.className = 'block-donate-btn';
-        btn.innerHTML = '<span class="icon">➜</span> Support';
+  /* ===== GALLERY build p1..p37 + arrows ===== */
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.getElementById('galleryCarousel');
+    const prevBtn = document.querySelector('#gallery .gc-prev');
+    const nextBtn = document.querySelector('#gallery .gc-next');
+    if(!carousel) return;
 
-        btn.addEventListener('click', function () {
-          var donate = document.getElementById('donate');
-          if (donate) donate.scrollIntoView({ behavior: "smooth" });
-        });
+    for(let i = 1; i <= 37; i++){
+      const figure = document.createElement('figure');
+      figure.className = 'gc-item';
+      figure.innerHTML = `<img src="assets/photos/p${i}.jpg" alt="Photo ${i}" loading="lazy">`;
+      carousel.appendChild(figure);
+    }
 
-        block.appendChild(btn);
+    const getItemWidth = () => (carousel.querySelector('.gc-item')?.getBoundingClientRect().width || 260) + 14;
+
+    prevBtn && prevBtn.addEventListener('click', () => carousel.scrollBy({ left: -getItemWidth(), behavior:'smooth' }));
+    nextBtn && nextBtn.addEventListener('click', () => carousel.scrollBy({ left: getItemWidth(), behavior:'smooth' }));
+  });
+
+  /* ===== MOBILE donate button visibility ===== */
+  (function(){
+    const btn = document.querySelector('.mobile-donate-btn');
+    const donate = document.getElementById('donate');
+    if(!btn || !donate) return;
+    const obs = new IntersectionObserver(([e]) => {
+      btn.style.display = e.isIntersecting ? 'none' : '';
+    }, { threshold: 0.2 });
+    obs.observe(donate);
+  })();
+
+  /* ===== Purchased carousel (dots auto) ===== */
+  (function(){
+    const root = document.getElementById('purchased-carousel');
+    const track = document.getElementById('purchasedTrack');
+    const prevBtn = root ? root.querySelector('.carousel-btn.prev') : null;
+    const nextBtn = root ? root.querySelector('.carousel-btn.next') : null;
+    const dotsNav = document.getElementById('purchasedDots');
+    if(!root || !track || !dotsNav) return;
+
+    const slides = Array.from(track.children);
+    let index = 0;
+    let dots = [];
+
+    function buildDots(){
+      dotsNav.innerHTML = '';
+      dots = slides.map((_, i)=>{
+        const d = document.createElement('span');
+        d.setAttribute('role','button');
+        d.setAttribute('aria-label','Go to image ' + (i+1));
+        d.addEventListener('click', ()=>{ index=i; update(); });
+        dotsNav.appendChild(d);
+        return d;
       });
-    })();
+    }
 
-    // ===== PROGRESS (EN) =====
-    (function () {
-      var fill = document.getElementById('progress-fill-en');
-      var text = document.getElementById('progress-text-en');
-      if (!fill || !text) return;
+    function update(){
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((d, i)=> d.classList.toggle('active', i===index));
+    }
 
-      var percent = 40;
-      fill.style.width = percent + '%';
-      text.textContent = 'Active fundraiser';
-    })();
+    nextBtn && nextBtn.addEventListener('click', ()=>{ index = (index + 1) % slides.length; update(); });
+    prevBtn && prevBtn.addEventListener('click', ()=>{ index = (index - 1 + slides.length) % slides.length; update(); });
 
-    // ===== VIDEO CAROUSEL =====
-    (function(){
-      const track = document.getElementById('videoCarousel');
-      if(!track) return;
+    let startX=0, dragging=false;
+    track.addEventListener('touchstart', (e)=>{
+      if(!e.touches || !e.touches[0]) return;
+      startX = e.touches[0].clientX;
+      dragging = true;
+    }, {passive:true});
+    track.addEventListener('touchend', (e)=>{
+      if(!dragging) return;
+      dragging=false;
+      const endX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : startX;
+      const dx = endX - startX;
+      if(Math.abs(dx) < 40) return;
+      if(dx < 0) index = (index + 1) % slides.length;
+      else index = (index - 1 + slides.length) % slides.length;
+      update();
+    }, {passive:true});
 
-      const prev = document.querySelector('#videos .vc-prev');
-      const next = document.querySelector('#videos .vc-next');
+    buildDots();
+    update();
+  })();
 
-      function getStep(){
-        const first = track.querySelector('.vc-item');
-        if(!first) return 300;
-        const gap = parseInt(getComputedStyle(track).gap || '14', 10);
-        return first.getBoundingClientRect().width + gap;
+  /* ===== TECH-TRACES on scroll ===== */
+  (function(){
+    const traces = document.getElementById('tech-traces');
+    if(!traces) return;
+    let t;
+    function boost(){
+      traces.style.opacity = '0.14';
+      clearTimeout(t);
+      t = setTimeout(()=>{ traces.style.opacity = '0.06'; }, 220);
+    }
+    window.addEventListener('scroll', boost, { passive:true });
+  })();
+
+  /* ===== SYSTEM STATE ===== */
+  (function(){
+    const textEl = document.getElementById('systemText');
+    const dotEl = document.getElementById('systemDot');
+    if(!textEl || !dotEl) return;
+    const states = [
+      { t:'STATUS: OPERATING',       c:'rgba(255,184,74,0.72)', g:'rgba(255,184,74,0.28)'},
+      { t:'STATUS: HIGH LOAD',       c:'rgba(255,215,120,0.72)', g:'rgba(255,215,120,0.26)'},
+      { t:'STATUS: NEED RESOURCES',  c:'rgba(255,122,24,0.72)', g:'rgba(255,122,24,0.26)'}
+    ];
+    let i=0;
+    function apply(s){
+      textEl.style.opacity = '0';
+      setTimeout(()=>{
+        textEl.textContent = s.t;
+        dotEl.style.background = s.c;
+        dotEl.style.boxShadow = `0 0 10px ${s.g}`;
+        textEl.style.opacity = '1';
+      }, 220);
+    }
+    apply(states[i]);
+    setInterval(()=>{ i=(i+1)%states.length; apply(states[i]); }, 9000);
+  })();
+
+  /* ===== QR FULLSCREEN MODAL ===== */
+  (function(){
+    const modal = document.getElementById('qrModal');
+    const img   = document.getElementById('qrModalImg');
+    const title = document.getElementById('qrModalTitle');
+    const foot  = document.getElementById('qrModalFoot');
+    const btnClose = document.getElementById('qrModalClose');
+    const btnOpen  = document.getElementById('qrModalOpenBtn');
+    const btnCopy  = document.getElementById('qrModalCopyBtn');
+    if(!modal || !img || !btnOpen || !btnCopy) return;
+
+    let current = { label:'', value:'', openUrl:'' };
+
+    function openModal(cfg){
+      current = cfg;
+      title.textContent = cfg.label || 'QR';
+      foot.textContent = cfg.value ? ('Data: ' + cfg.value) : ' ';
+      if(cfg.qrSrc){ img.src = cfg.qrSrc; }
+      else{
+        const api = "https://api.qrserver.com/v1/create-qr-code/?size=520x520&data=";
+        img.src = api + encodeURIComponent(cfg.value || cfg.openUrl || '');
       }
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(){
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
 
-      prev && prev.addEventListener('click', () => track.scrollBy({ left: -getStep(), behavior: 'smooth' }));
-      next && next.addEventListener('click', () => track.scrollBy({ left: getStep(), behavior: 'smooth' }));
-    })();
+    btnClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
 
-    // ===== GALLERY: generate p1..p37 =====
-    document.addEventListener('DOMContentLoaded', () => {
-      const carousel = document.getElementById('galleryCarousel');
-      const prevBtn = document.querySelector('#gallery .gc-prev');
-      const nextBtn = document.querySelector('#gallery .gc-next');
-      if(!carousel || !prevBtn || !nextBtn) return;
-
-      for(let i = 1; i <= 37; i++){
-        const figure = document.createElement('figure');
-        figure.className = 'gc-item';
-        figure.innerHTML = `<img src="assets/photos/p${i}.jpg" alt="Photo ${i}" loading="lazy">`;
-        carousel.appendChild(figure);
+    btnOpen.addEventListener('click', ()=>{
+      runImpactFx(btnOpen);
+      if(current.openUrl){
+        window.open(current.openUrl, '_blank');
+      } else if(current.value && (current.value.includes('http://') || current.value.includes('https://'))){
+        window.open(current.value, '_blank');
+      } else {
+        showToast('No link. Copy the data.');
       }
-
-      const getItemWidth = () => (carousel.querySelector('.gc-item')?.offsetWidth || 300) + 14;
-
-      prevBtn.addEventListener('click', () => carousel.scrollBy({ left: -getItemWidth(), behavior: 'smooth' }));
-      nextBtn.addEventListener('click', () => carousel.scrollBy({ left: getItemWidth(), behavior: 'smooth' }));
     });
 
-    // ===== MOBILE DONATE VISIBILITY =====
-    (function(){
-      const btn = document.querySelector('.mobile-donate-btn');
-      const donate = document.getElementById('donate');
-      if(!btn || !donate) return;
+    btnCopy.addEventListener('click', ()=>{
+      runImpactFx(btnCopy);
+      if(current.value) copyText(current.value);
+      else if(current.openUrl) copyText(current.openUrl);
+      else showToast('Nothing to copy.');
+    });
 
-      const obs = new IntersectionObserver(([e]) => {
-        btn.style.display = e.isIntersecting ? 'none' : '';
-      }, { threshold: 0.2 });
+    const map = [
+      { id:'qr-mono',   label:'Monobank · Jar', value:'https://send.monobank.ua/jar/8PfzHBQuu4', openUrl:'https://send.monobank.ua/jar/8PfzHBQuu4' },
+      { id:'qr-privat', label:'Privat24 · Transfer', value:'https://www.privat24.ua/send/3xbxx', openUrl:'https://www.privat24.ua/send/3xbxx' },
+      { id:'qr-paupay', label:'PayPal / Paupay', value:'nadelnuikviktor@gmail.com', openUrl:'mailto:nadelnuikviktor@gmail.com' },
+      { id:'qr-btc',    label:'Crypto · BTC', value:'bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p', openUrl:'https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p' }
+    ];
 
-      obs.observe(donate);
-    })();
-
-    // ===== PURCHASED CAROUSEL =====
-    (function(){
-      const root = document.getElementById('purchased-carousel');
-      if(!root) return;
-
-      const track = document.getElementById('purchasedTrack');
-      const slides = track ? Array.from(track.children) : [];
-      const nextBtn = root.querySelector('.next');
-      const prevBtn = root.querySelector('.prev');
-      const dotsNav = document.getElementById('purchasedDots');
-      if(!track || !slides.length || !dotsNav) return;
-
-      let index = 0;
-      let dots = [];
-
-      function buildDots(){
-        dotsNav.innerHTML = '';
-        dots = slides.map((_, i)=>{
-          const d = document.createElement('span');
-          d.setAttribute('role','button');
-          d.setAttribute('aria-label','Go to slide ' + (i+1));
-          d.addEventListener('click', ()=>{ index = i; update(); });
-          dotsNav.appendChild(d);
-          return d;
-        });
-      }
-
-      function update(){
-        track.style.transform = `translateX(-${index * 100}%)`;
-        dots.forEach((d, i)=> d.classList.toggle('active', i === index));
-      }
-
-      nextBtn && nextBtn.addEventListener('click', ()=>{ index = (index + 1) % slides.length; update(); });
-      prevBtn && prevBtn.addEventListener('click', ()=>{ index = (index - 1 + slides.length) % slides.length; update(); });
-
-      let startX = 0, dragging = false;
-      track.addEventListener('touchstart', (e)=>{
-        if(!e.touches || !e.touches[0]) return;
-        startX = e.touches[0].clientX;
-        dragging = true;
-      }, {passive:true});
-      track.addEventListener('touchend', (e)=>{
-        if(!dragging) return;
-        dragging = false;
-        const endX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : startX;
-        const dx = endX - startX;
-        if(Math.abs(dx) < 40) return;
-        if(dx < 0) index = (index + 1) % slides.length;
-        else index = (index - 1 + slides.length) % slides.length;
-        update();
-      }, {passive:true});
-
-      buildDots();
-      update();
-    })();
-
-    // ===== TECH-TRACES ON SCROLL =====
-    (function(){
-      const traces = document.getElementById('tech-traces');
-      if(!traces) return;
-
-      let t;
-      function boost(){
-        traces.style.opacity = '0.14';
-        clearTimeout(t);
-        t = setTimeout(()=>{ traces.style.opacity = '0.06'; }, 220);
-      }
-      window.addEventListener('scroll', boost, { passive:true });
-    })();
-
-    // ===== SYSTEM STATE =====
-    (function(){
-      const textEl = document.getElementById('systemText');
-      const dotEl = document.getElementById('systemDot');
-      if(!textEl || !dotEl) return;
-
-      const states = [
-        { t:'STATUS: WORK IN PROGRESS',  c:'rgba(255,255,255,0.55)', g:'rgba(255,255,255,0.18)'},
-        { t:'STATUS: HIGH LOAD',         c:'rgba(255,184,74,0.78)',  g:'rgba(255,184,74,0.24)'},
-        { t:'STATUS: NEEDING RESOURCES', c:'rgba(0,180,255,0.65)',   g:'rgba(0,180,255,0.20)'}
-      ];
-
-      let i = 0;
-      function apply(s){
-        textEl.style.opacity = '0';
-        setTimeout(()=>{
-          textEl.textContent = s.t;
-          dotEl.style.background = s.c;
-          dotEl.style.boxShadow = `0 0 10px ${s.g}`;
-          textEl.style.opacity = '1';
-        }, 220);
-      }
-
-      apply(states[i]);
-      setInterval(()=>{
-        i = (i + 1) % states.length;
-        apply(states[i]);
-      }, 9000);
-    })();
-
-    // ===== SNOW =====
-    (function(){
-      const c = document.getElementById('snow');
-      if(!c) return;
-      const ctx = c.getContext('2d', { alpha:true });
-
-      let w, h, dpr;
-      const flakes = [];
-      const COUNT = 55;
-
-      function resize(){
-        dpr = Math.min(window.devicePixelRatio || 1, 2);
-        w = Math.floor(window.innerWidth);
-        h = Math.floor(window.innerHeight);
-        c.width = Math.floor(w * dpr);
-        c.height = Math.floor(h * dpr);
-        c.style.width = w + 'px';
-        c.style.height = h + 'px';
-        ctx.setTransform(dpr,0,0,dpr,0,0);
-      }
-      window.addEventListener('resize', resize);
-      resize();
-
-      function seed(){
-        flakes.length = 0;
-        for(let i=0;i<COUNT;i++){
-          flakes.push({
-            x: Math.random()*w,
-            y: Math.random()*h,
-            r: 0.7 + Math.random()*2.0,
-            s: 0.25 + Math.random()*0.80,
-            dx: (Math.random()-0.5)*0.22
-          });
-        }
-      }
-      seed();
-
-      function tick(){
-        ctx.clearRect(0,0,w,h);
-        ctx.fillStyle = 'rgba(255,255,255,0.70)';
-        for(const f of flakes){
-          ctx.beginPath();
-          ctx.arc(f.x, f.y, f.r, 0, Math.PI*2);
-          ctx.fill();
-          f.y += f.s;
-          f.x += f.dx;
-          if(f.y > h + 8){ f.y = -10; f.x = Math.random()*w; }
-          if(f.x < -10) f.x = w + 10;
-          if(f.x > w + 10) f.x = -10;
-        }
-        requestAnimationFrame(tick);
-      }
-
-      if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-        c.style.opacity = '0.18';
-      } else {
-        tick();
-      }
-    })();
-
-    // ===== QR FULLSCREEN MODAL =====
-    (function(){
-      const modal = document.getElementById('qrModal');
-      const img   = document.getElementById('qrModalImg');
-      const title = document.getElementById('qrModalTitle');
-      const foot  = document.getElementById('qrModalFoot');
-      const btnClose = document.getElementById('qrModalClose');
-      const btnOpen  = document.getElementById('qrModalOpenBtn');
-      const btnCopy  = document.getElementById('qrModalCopyBtn');
-
-      if(!modal || !img || !btnOpen || !btnCopy) return;
-
-      let current = { label:'', value:'', openUrl:'', variant:'' };
-
-      function openModal(cfg){
-        current = cfg;
-
-        modal.classList.remove('qr-modal-mono','qr-modal-privat','qr-modal-paypal','qr-modal-crypto');
-        if(cfg.variant) modal.classList.add('qr-modal-' + cfg.variant);
-
-        title.textContent = cfg.label || 'QR';
-        foot.textContent = cfg.value ? ('Data: ' + cfg.value) : ' ';
-
-        if(cfg.qrSrc){
-          img.src = cfg.qrSrc;
-        } else {
-          const api = "https://api.qrserver.com/v1/create-qr-code/?size=520x520&data=";
-          img.src = api + encodeURIComponent(cfg.value || cfg.openUrl || '');
-        }
-
-        modal.classList.add('is-open');
-        modal.setAttribute('aria-hidden','false');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeModal(){
-        modal.classList.remove('is-open');
-        modal.setAttribute('aria-hidden','true');
-        document.body.style.overflow = '';
-      }
-
-      btnClose.addEventListener('click', closeModal);
-      modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
-      document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
-
-      btnOpen.addEventListener('click', ()=>{
-        if(current.openUrl){
-          window.open(current.openUrl, '_blank');
-        } else if(current.value && (current.value.includes('http://') || current.value.includes('https://'))){
-          window.open(current.value, '_blank');
-        } else {
-          showToast('No link. Copy the data.');
-        }
-      });
-
-      btnCopy.addEventListener('click', ()=>{
-        if(current.value) copyText(current.value);
-        else if(current.openUrl) copyText(current.openUrl);
-        else showToast('Nothing to copy.');
-      });
-
-      const map = [
-        { id:'qr-mono',   label:'Monobank · Jar', variant:'mono',
-          value:'https://send.monobank.ua/jar/8PfzHBQuu4',
-          openUrl:'https://send.monobank.ua/jar/8PfzHBQuu4' },
-
-        { id:'qr-privat', label:'Privat24 · Transfer', variant:'privat',
-          value:'https://www.privat24.ua/send/3xbxx',
-          openUrl:'https://www.privat24.ua/send/3xbxx' },
-
-        { id:'qr-paupay', label:'PayPal / Paupay', variant:'paypal',
-          value:'nadelnuikviktor@gmail.com',
-          openUrl:'mailto:nadelnuikviktor@gmail.com' },
-
-        { id:'qr-btc',    label:'Crypto · BTC', variant:'crypto',
-          value:'bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p',
-          openUrl:'https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p' }
-      ];
-
-      map.forEach(cfg=>{
-        const el = document.getElementById(cfg.id);
-        if(!el) return;
-
-        el.style.cursor = 'zoom-in';
-        el.title = 'Tap to open a large QR';
-
-        el.addEventListener('click', ()=>{
-          openModal({
-            label: cfg.label,
-            value: cfg.value,
-            openUrl: cfg.openUrl,
-            variant: cfg.variant,
-            qrSrc: el.src
-          });
+    map.forEach(cfg=>{
+      const el = document.getElementById(cfg.id);
+      if(!el) return;
+      el.title = 'Tap to open the QR full screen';
+      el.addEventListener('click', ()=>{
+        openModal({
+          label: cfg.label,
+          value: cfg.value,
+          openUrl: cfg.openUrl,
+          qrSrc: el.src
         });
       });
-    })();
+    });
+  })();
+</script>
 
-    // ===== REVEAL =====
-    (function(){
-      const items = document.querySelectorAll('.card, .vc-item, .gc-item');
-      if(!items.length) return;
-
-      items.forEach(el => el.classList.add('reveal'));
-
-      const obs = new IntersectionObserver((entries, observer)=>{
-        entries.forEach(entry=>{
-          if(entry.isIntersecting){
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-
-      items.forEach(el => obs.observe(el));
-    })();
-  </script>
 </body>
 </html>
