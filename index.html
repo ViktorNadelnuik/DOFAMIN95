@@ -1055,20 +1055,20 @@
           </div>
           <div>
             <div class="btn-row">
-             <button class="donate-btn donate-btn--mono" type="button"
-  onclick="runImpactFx(this);
-           gtag('event','donate_click',{event_category:'donation',event_label:'monobank',value:1});
-           window.open('https://send.monobank.ua/jar/8PfzHBQou4', '_blank');">
+              <button class="donate-btn donate-btn--mono" type="button"
+                onclick="runImpactFx(this);
+                         gtag('event','donate_click',{event_category:'donation',event_label:'monobank',value:1});
+                         window.open('https://send.monobank.ua/jar/8PfzHBQou4', '_blank');">
                 Відкрити банку Monobank
               </button>
               <button class="donate-btn" type="button"
                       onclick="runImpactFx(this); copyText('UA683220010000026208372629615')">
                 Скопіювати IBAN
               </button>
-            <button class="donate-btn" type="button"
-  onclick="runImpactFx(this);
-           gtag('event','copy_iban',{event_category:'donation',event_label:'monobank_iban'});
-           copyText('UA6832200100000262083772629615');">
+              <button class="donate-btn" type="button"
+                onclick="runImpactFx(this);
+                         gtag('event','copy_card',{event_category:'donation',event_label:'monobank_card'});
+                         copyText('4874100020198902');">
                 Скопіювати номер картки
               </button>
             </div>
@@ -1094,13 +1094,9 @@
           <div>
             <div class="btn-row">
               <button class="donate-btn donate-btn--privat" type="button"
-  onclick="runImpactFx(this);
-           gtag('event','donate_click',{
-             event_category:'donation',
-             event_label:'privat',
-             value:1
-           });
-           window.open('https://...', '_blank');">
+                onclick="runImpactFx(this);
+                         gtag('event','donate_click',{event_category:'donation',event_label:'privat',value:1});
+                         window.open('https://www.privat24.ua/send/ivq32', '_blank');">
                 Відкрити Privat24
               </button>
               <button class="donate-btn" type="button"
@@ -1574,8 +1570,8 @@
     var api = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=";
     el.src = api + encodeURIComponent(data);
   }
-  setQR("qr-mono",   "https://send.monobank.ua/jar/8PfzHBQuu4");
-  setQR("qr-privat", "https://www.privat24.ua/send/3xbxx");
+  setQR("qr-mono",   "https://send.monobank.ua/jar/8PfzHBQou4");
+  setQR("qr-privat", "https://www.privat24.ua/send/ivq32");
   setQR("qr-btc",    "https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p");
   setQR("qr-paupay", "nadelnuikviktor@gmail.com");
 
@@ -1935,8 +1931,8 @@
     });
 
     const map = [
-      { id:'qr-mono',   label:'Monobank · Банка', value:'https://send.monobank.ua/jar/8PfzHBQuu4', openUrl:'https://send.monobank.ua/jar/8PfzHBQuu4' },
-      { id:'qr-privat', label:'Privat24 · Переказ', value:'https://www.privat24.ua/send/3xbxx', openUrl:'https://www.privat24.ua/send/3xbxx' },
+      { id:'qr-mono',   label:'Monobank · Банка', value:'https://send.monobank.ua/jar/8PfzHBQou4', openUrl:'https://send.monobank.ua/jar/8PfzHBQou4' },
+      { id:'qr-privat', label:'Privat24 · Переказ', value:'https://www.privat24.ua/send/ivq32', openUrl:'https://www.privat24.ua/send/ivq32' },
       { id:'qr-paupay', label:'PayPal / Paupay', value:'nadelnuikviktor@gmail.com', openUrl:'mailto:nadelnuikviktor@gmail.com' },
       { id:'qr-btc',    label:'Crypto · BTC', value:'bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p', openUrl:'https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p' }
     ];
