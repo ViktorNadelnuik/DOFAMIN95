@@ -2,23 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Support · Technical Support Platoon · 142nd Brigade</title>
+  <title>Support · Technical Support Platoon · 142 OMBr</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Support the technical support platoon of the 142nd Brigade. Donations help repair vehicles that deliver ammo, fuel, food and evacuate the wounded.">
+  <meta name="description" content="Support the technical support platoon of the 142nd Brigade. Your donations help repair vehicles at the frontline so supplies arrive and the wounded can be evacuated.">
 
   <link rel="icon" href="favicon.png" type="image/png">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Support the Technical Support Platoon · 142nd Brigade">
-  <meta property="og:description" content="We repair trucks and armored vehicles right at the frontline so vehicles keep moving and people have a chance to return alive.">
+  <meta property="og:title" content="Support the technical support platoon · 142 OMBr">
+  <meta property="og:description" content="We repair vehicles at the frontline so machines keep moving and people can make it back alive.">
   <meta property="og:url" content="https://viktornadelnuik.github.io/DOFAMIN95/en.html">
   <meta property="og:image" content="hero-bg.jpg">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Support the Technical Support Platoon · 142nd Brigade">
-  <meta name="twitter:description" content="Support repairs and field maintenance for frontline vehicles of the 142nd Brigade.">
+  <meta name="twitter:title" content="Support the technical support platoon · 142 OMBr">
+  <meta name="twitter:description" content="Support the technical support platoon repairing vehicles in the combat zone.">
   <meta name="twitter:image" content="hero-bg.jpg">
 
   <!-- Google tag (gtag.js) -->
@@ -84,8 +84,10 @@
         );
       mix-blend-mode: overlay;
     }
+
     a{ color:inherit; }
 
+    /* subtle traces on scroll */
     #tech-traces{
       position:fixed;
       inset:0;
@@ -328,7 +330,10 @@
         0 18px 44px rgba(0,0,0,.70);
     }
 
-    .card.big-block{ grid-column: 1 / -1; min-height:auto; }
+    .card.big-block{
+      grid-column: 1 / -1;
+      min-height:auto;
+    }
 
     .card h3{ font-size: 16px; margin-bottom: 6px; }
     .card small{ opacity: .72; font-size: 11px; letter-spacing:.08em; }
@@ -367,6 +372,7 @@
     }
     .donate-btn:active{ transform: scale(.97); }
 
+    /* colored variants for donation buttons */
     .donate-btn--mono{
       background: linear-gradient(135deg, #00e3aa, #00b894);
       color:#041014;
@@ -739,7 +745,7 @@
     #videos .vc-frame{
       position: relative;
       width: 100%;
-      padding-top: 177.78%;
+      padding-top: 177.78%; /* 9:16 shorts */
       border-radius: 16px;
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.10);
@@ -786,7 +792,7 @@
     }
     .toast-text{ opacity:.95; line-height:1.35; }
 
-    /* Impact FX */
+    /* Impact FX (+1 chance) */
     .impact-fx{
       position:fixed;
       inset:0;
@@ -909,6 +915,7 @@
       border-color: rgba(255,255,255,0.12);
     }
 
+    /* Footer */
     footer{
       margin-top: 22px;
       text-align:center;
@@ -916,6 +923,7 @@
       font-size: 12px;
     }
 
+    /* Engine pulse at bottom */
     .engine-pulse{
       position:fixed;
       bottom:0;
@@ -934,10 +942,12 @@
       100%{ opacity:.22 }
     }
 
+    /* Animations */
     @keyframes fadeInPage { from{opacity:0; transform: translateY(10px);} to{opacity:1; transform:none;} }
     @keyframes heroReveal { from{opacity:0; transform: translateY(8px) scale(.99);} to{opacity:1; transform:none;} }
     @keyframes cardFade { from{opacity:0; transform: translateY(10px);} to{opacity:1; transform:none;} }
 
+    /* Responsive */
     @media (max-width: 1024px){
       .page{ padding: 18px 10px 64px; }
       .hero{ padding: 18px 16px 16px; }
@@ -987,7 +997,7 @@
       <div class="top-row">
         <div class="top-bar">
           <img src="logo.png" alt="Logo" class="logo">
-          <span class="site-title">142nd Brigade • Technical Support Platoon</span>
+          <span class="site-title">142 OMBr • Technical Support Platoon</span>
         </div>
         <div class="lang-switch">
           <a href="index.html">UA</a>
@@ -997,26 +1007,26 @@
 
       <section class="hero">
         <div class="hero-badge">
-          <span class="hero-pill">Frontline vehicle repair</span>
+          <span class="hero-pill">Vehicle repair at the frontline</span>
           <span class="system-state" id="systemState">
             <span class="system-dot" id="systemDot"></span>
-            <span class="system-text" id="systemText">STATUS: OPERATING</span>
+            <span class="system-text" id="systemText">STATUS: WORK IN PROGRESS</span>
           </span>
         </div>
 
-        <div class="hero-title">VEHICLES MUST MOVE. PEOPLE MUST COME BACK ALIVE.</div>
+        <div class="hero-title">Vehicles must move. People must make it back alive.</div>
 
         <div class="engine-line-wrap"><div class="engine-line"></div></div>
 
         <p class="hero-sub">
-          We are the technical support platoon of the mechanized infantry battalion of the 142nd Brigade.
-          We repair trucks and armored vehicles right at the frontline so vehicles can deliver ammo, fuel,
-          food and evacuate the wounded.
+          We are the technical support platoon of the mechanized infantry battalion of the 142nd Separate Mechanized Brigade.
+          We repair trucks and armored vehicles in the combat zone so vehicles can deliver
+          ammunition, fuel, supplies, and evacuate the wounded.
         </p>
 
         <p class="hero-note">
-          Every donation becomes a tool, spare part, welding supply, oil or diagnostics — one more mission,
-          and one more chance for someone to make it home.
+          Every hryvnia, euro, or dollar turns into a tool, spare part, oil, or welding consumable
+          that gives a vehicle one more mission — and gives someone one more chance to get home.
         </p>
 
         <div style="margin-top:14px;">
@@ -1037,8 +1047,8 @@
         <section class="card">
           <div>
             <small>UAH · BANK TRANSFER</small>
-            <h3><span class="mono-label">Monobank</span> · Donation Jar “142nd Brigade · Tech Support Platoon”</h3>
-            <p><strong>Recipient:</strong> Nadelniuk Viktor Mykolaiovych</p>
+            <h3><span class="mono-label">Monobank</span> · Jar “142 OMBr · Technical Support Platoon”</h3>
+            <p><strong>Recipient:</strong> Nadelniuk Viktor Mykolayovych</p>
             <p><strong>IBAN:</strong><br>UA683220010000026208372629615</p>
             <p><strong>Card number:</strong><br>4874&nbsp;1000&nbsp;2019&nbsp;8902</p>
             <p><strong>Payment note:</strong> <code>VTZ MPB 142 OMBr</code></p>
@@ -1046,7 +1056,9 @@
           <div>
             <div class="btn-row">
               <button class="donate-btn donate-btn--mono" type="button"
-                      onclick="runImpactFx(this); window.open('https://send.monobank.ua/jar/8PfzHBQuu4','_blank')">
+                onclick="runImpactFx(this);
+                         gtag('event','donate_click',{event_category:'donation',event_label:'monobank',value:1});
+                         window.open('https://send.monobank.ua/jar/8PfzHBQou4', '_blank');">
                 Open Monobank jar
               </button>
               <button class="donate-btn" type="button"
@@ -1054,15 +1066,17 @@
                 Copy IBAN
               </button>
               <button class="donate-btn" type="button"
-                      onclick="runImpactFx(this); copyText('4874100020198902')">
+                      onclick="runImpactFx(this);
+                               gtag('event','copy_card',{event_category:'donation',event_label:'monobank_card'});
+                               copyText('4874100020198902');">
                 Copy card number
               </button>
             </div>
             <div class="qr-wrap">
-              <img id="qr-mono" class="qr" alt="QR Monobank" loading="lazy">
+              <img id="qr-mono" class="qr" alt="Monobank QR" loading="lazy">
             </div>
             <p style="font-size:12px; opacity:0.78; margin-top:6px; text-align:center;">
-              Tap the QR to open it full screen
+              Tap the QR to open a large code
             </p>
           </div>
         </section>
@@ -1080,8 +1094,10 @@
           <div>
             <div class="btn-row">
               <button class="donate-btn donate-btn--privat" type="button"
-                      onclick="runImpactFx(this); window.open('https://www.privat24.ua/send/3xbxx','_blank')">
-                Open Privat24
+                onclick="runImpactFx(this);
+                         gtag('event','donate_click',{event_category:'donation',event_label:'privat',value:1});
+                         window.open('https://www.privat24.ua/send/ivq32', '_blank');">
+                Open Privat24 transfer
               </button>
               <button class="donate-btn" type="button"
                       onclick="runImpactFx(this); copyText('UA023052990262076400994803502')">
@@ -1093,10 +1109,10 @@
               </button>
             </div>
             <div class="qr-wrap">
-              <img id="qr-privat" class="qr" alt="QR PrivatBank" loading="lazy">
+              <img id="qr-privat" class="qr" alt="PrivatBank QR" loading="lazy">
             </div>
             <p style="font-size:12px; opacity:0.78; margin-top:6px; text-align:center;">
-              Tap the QR to open it full screen
+              Tap the QR to open a large code
             </p>
           </div>
         </section>
@@ -1104,7 +1120,7 @@
         <!-- PAYPAL / PAUPAY -->
         <section class="card">
           <div>
-            <small>INTERNATIONAL TRANSFERS</small>
+            <small>INTERNATIONAL PAYMENTS</small>
             <h3><span class="paypal-label">PayPal / Paupay</span></h3>
             <p><strong>Email for transfers:</strong><br>nadelnuikviktor@gmail.com</p>
             <p><strong>Payment note:</strong><br><code>VTZ MPB 142 OMBr</code></p>
@@ -1117,7 +1133,7 @@
               </button>
             </div>
             <div class="qr-wrap">
-              <img id="qr-paupay" class="qr" alt="QR PayPal / Paupay" loading="lazy">
+              <img id="qr-paupay" class="qr" alt="Paupay / PayPal QR" loading="lazy">
             </div>
             <p style="font-size:12px; opacity:0.8; margin-top:6px;">
               Please add <strong>VTZ MPB 142 OMBr</strong> in the payment note.
@@ -1163,23 +1179,23 @@
             <div class="btn-row">
               <button class="donate-btn" type="button"
                       onclick="runImpactFx(this); copyText('bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p')">
-                Copy BTC
+                Copy BTC address
               </button>
               <button class="donate-btn" type="button"
                       onclick="runImpactFx(this); copyText('0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b')">
-                Copy ETH / BNB
+                Copy ETH / BNB address
               </button>
               <button class="donate-btn" type="button"
                       onclick="runImpactFx(this); copyText('DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525')">
-                Copy SOL
+                Copy SOL address
               </button>
             </div>
 
             <div class="qr-wrap">
-              <img id="qr-btc" class="qr" alt="QR BTC" loading="lazy">
+              <img id="qr-btc" class="qr" alt="BTC QR" loading="lazy">
             </div>
             <p style="font-size:12px; opacity:0.78; margin-top:6px; text-align:center;">
-              Tap the QR to open it full screen
+              Tap the QR to open a large code
             </p>
           </div>
         </section>
@@ -1189,7 +1205,7 @@
       <section class="card big-block" id="contact-en" style="margin-top:16px;">
         <h2 class="section-title">Contact</h2>
         <p style="opacity:.92;">
-          If you can help faster, with targeted support or a larger contribution — message us directly.
+          If you can help quickly, in a targeted way, or with a large contribution — message us directly.
         </p>
         <div class="card-grid" style="margin-top:10px;">
           <div class="card" style="min-height:auto;">
@@ -1216,11 +1232,11 @@
       <section class="card big-block" id="supporters" style="margin-top:16px;">
         <h2 class="section-title">Supporters</h2>
         <p style="opacity:.90;">
-          This is real help, without publicity. Thank you to those who act quietly — but effectively.
+          Real help without publicity. Thank you to those who do it quietly — but effectively.
         </p>
 
         <div class="support-carousel-wrap">
-          <button class="sc-btn sc-prev" type="button" aria-label="Previous">‹</button>
+          <button class="sc-btn sc-prev" type="button" aria-label="Back">‹</button>
 
           <div class="support-carousel" id="supportCarousel">
             <article class="card support-slide">
@@ -1229,12 +1245,12 @@
               </a>
               <div style="margin-top:10px;">
                 <div style="display:flex; justify-content:space-between; gap:10px; align-items:center;">
-                  <div style="font-weight:900;">Anonymous support</div>
+                  <div style="font-weight:900;">Anonymous supporter</div>
                   <div style="font-size:12px; opacity:.85; padding:4px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.12); background:rgba(0,0,0,.25);">
                     Generator
                   </div>
                 </div>
-                <div style="margin-top:6px; opacity:.9;">Equipment delivered for field repairs.</div>
+                <div style="margin-top:6px; opacity:.9;">Equipment delivered for repairs.</div>
               </div>
             </article>
 
@@ -1244,12 +1260,12 @@
               </a>
               <div style="margin-top:10px;">
                 <div style="display:flex; justify-content:space-between; gap:10px; align-items:center;">
-                  <div style="font-weight:900;">Anonymous support</div>
+                  <div style="font-weight:900;">Anonymous supporter</div>
                   <div style="font-size:12px; opacity:.85; padding:4px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.12); background:rgba(0,0,0,.25);">
-                    Vehicle scanner
+                    Auto scanner
                   </div>
                 </div>
-                <div style="margin-top:6px; opacity:.9;">Without diagnostics, repairs just stop — vehicles must keep moving.</div>
+                <div style="margin-top:6px; opacity:.9;">Without this, repairs stop — and vehicles must keep moving.</div>
               </div>
             </article>
           </div>
@@ -1262,11 +1278,11 @@
       <section class="card big-block" id="purchased-carousel" style="margin-top:16px;">
         <h2 class="section-title">Purchased thanks to donations</h2>
         <p style="opacity:.90;">
-          These are real items already working at the front and helping us keep vehicles operational.
+          These are real items already working at the front and helping keep vehicles operational.
         </p>
 
         <div class="carousel" style="margin-top:12px;">
-          <button class="carousel-btn prev" type="button" aria-label="Previous">‹</button>
+          <button class="carousel-btn prev" type="button" aria-label="Back">‹</button>
 
           <div class="carousel-track" id="purchasedTrack">
             <div class="carousel-item"><img src="assets/purchased-01.jpg" alt="Purchased 1" loading="lazy"></div>
@@ -1292,33 +1308,41 @@
       <section class="card big-block" id="about-platoon-en" style="margin-top:16px;">
         <h2 class="section-title">About the platoon</h2>
 
-        <p>We are the technical support platoon of the mechanized infantry battalion of the 142nd Separate Mechanized Brigade. Our mission is to keep battalion vehicles operational on one of the hottest front directions.</p>
-        <p>You may not see us on camera or in the news, but our work determines whether a vehicle reaches positions, whether ammo and fuel arrive, and whether the wounded can be evacuated in time.</p>
+        <p>
+          We are the technical support platoon of the mechanized infantry battalion of the 142nd Separate Mechanized Brigade.
+          Our mission is to keep battalion vehicles running on one of the hottest фронт directions.
+        </p>
+        <p>
+          We are rarely seen on camera, but our work decides whether a vehicle reaches positions,
+          whether ammunition and fuel arrive, and whether the wounded are evacuated in time.
+        </p>
 
         <h3 style="margin-top:12px;">What we do</h3>
 
         <p><strong>• Maintenance</strong><br>
-          Scheduled and emergency service: oils, filters, fluids, inspections. We keep vehicles ready to move at any moment.
+          Scheduled and urgent maintenance: oils, filters, fluids, and inspections — so vehicles are ready to move at any moment.
         </p>
 
-        <p><strong>• Repair and recovery</strong><br>
-          Engines, transmissions, suspension, brakes, electrics, hydraulics and fuel systems — from sensors to heavy assemblies.
+        <p><strong>• Repair & recovery</strong><br>
+          Engines, transmissions, suspension, brakes, electrics, hydraulics, fuel systems — from small sensors to major assemblies.
         </p>
 
         <p><strong>• Vehicle evacuation</strong><br>
-          When a vehicle can’t move on its own — damaged, broken, stuck — we go and pull it out, often under fire.
+          When a vehicle can’t move (damage, breakdown, stuck) — we go and pull it out, often under fire.
         </p>
 
-        <p><strong>• Diagnostics and troubleshooting</strong><br>
-          We detect hidden issues early so vehicles don’t fail at the worst moment.
+        <p><strong>• Diagnostics</strong><br>
+          We find hidden issues early and fix them so the vehicle doesn’t stop at the worst moment.
         </p>
 
         <p><strong>• Field repair</strong><br>
-          Our workshop is whatever we can build: ground, tarp, lamp, generator and tools. Mud, rain, night, shelling — we work anyway.
+          Our “shop” is what we can build: ground, tarp, light, generator, and tools — mud, rain, night, shelling.
+          No conditions? We create them.
         </p>
 
         <p><strong>• Keeping the battalion mobile</strong><br>
-          Working vehicles mean deliveries, rotations, evacuations, water, food, maneuver and survival. We do everything to keep this moving.
+          Operational vehicles mean resupply, rotations, evacuation, water, food, maneuver, and survival.
+          We keep these processes from stopping.
         </p>
       </section>
 
@@ -1326,41 +1350,45 @@
       <section class="card big-block" id="current-needs-en" style="margin-top:16px;">
         <h2 class="section-title">Current needs</h2>
 
-        <p>Your donations are currently converted into:</p>
+        <p>Right now, your donations first of all turn into:</p>
 
-        <p><strong>• Tools and equipment</strong><br>
-          Socket sets, wrenches, jacks, pullers, suspension tools, pneumatic tools, extension cords and working lights.
+        <p><strong>• Tools & equipment for trucks and armored vehicles</strong><br>
+          Socket sets, wrenches, extensions, jacks, pullers, suspension tools, pneumatic tools, lighting.
         </p>
 
-        <p><strong>• Welding and consumables</strong><br>
-          Electrodes, wire, masks, gloves, cables — everything that helps restore frames, mounts, tanks and protection elements.
+        <p><strong>• Welding & consumables</strong><br>
+          Electrodes, wire, masks, gloves, cables — everything that keeps frames, mounts, tanks, protection and armor elements alive.
         </p>
 
-        <p><strong>• Spare parts and consumables</strong><br>
-          Filters, belts, brake pads, hoses, bearings, clamps, sensors, spark parts, fasteners — all the “small” things every repair depends on.
+        <p><strong>• Spare parts & supplies</strong><br>
+          Filters, belts, brake pads, hoses, bearings, clamps, sensors, plugs, fasteners — the “small things” every repair depends on.
         </p>
 
-        <p><strong>• Fluids and lubricants</strong><br>
-          Engine and transmission oils, brake fluid, coolant, heavy-load greases.
+        <p><strong>• Fluids & lubricants</strong><br>
+          Engine and transmission oils, brake fluid, antifreeze, high-load greases.
         </p>
 
-        <p><strong>• Diagnostics and electrics</strong><br>
-          Testers, multimeters, lamps, wiring, connectors, fuses — for fast identification and fixing of electrical issues.
+        <p><strong>• Diagnostics & electrics</strong><br>
+          Testers, multimeters, lamps, wiring, terminals, fuses — for fast detection and repair of electrical issues.
         </p>
 
-        <p><strong>• Logistics and working conditions</strong><br>
-          Generators, cables, lighting, tarps, gloves and workwear — so we can repair in the field in any weather.
+        <p><strong>• Logistics & working conditions</strong><br>
+          Generators, extension cords, lighting, tarps, gloves, workwear — so we can work in the field in any weather.
         </p>
 
-        <p>Every hryvnia/euro/dollar becomes a very concrete thing: a tool, a part, oil or welding supply — one more mission for a vehicle, one more chance for our people.</p>
+        <p>
+          Every contribution becomes a very specific thing: a tool, a spare part, oil or welding consumable —
+          something that gives a vehicle one more mission and our people one more chance.
+        </p>
       </section>
 
       <!-- PROGRESS -->
       <section class="card big-block" id="progress-en" style="margin-top:16px;">
-        <h2 class="section-title">Ongoing fund</h2>
+        <h2 class="section-title">Open-ended fundraiser</h2>
 
         <p class="progress-text">
-          This is an ongoing fund for the platoon’s daily work: tools, spare parts, oils, welding, diagnostics and field workshops.
+          This is an open-ended fundraiser for the daily work of the technical support platoon:
+          tools, spare parts, lubricants, welding, diagnostics, and field workshops.
           Every contribution helps keep vehicles operational.
         </p>
 
@@ -1378,11 +1406,11 @@
       <section id="gallery" class="gallery-section">
         <div class="gallery-head">
           <h2 class="section-title">Photo gallery</h2>
-          <a class="btn-support" href="#donate" onclick="runImpactFx(this)">Support</a>
+          <a class="btn-support" href="#donate" onclick="runImpactFx(this)">Support the platoon</a>
         </div>
 
         <div class="gallery-carousel-wrap">
-          <button class="gc-btn gc-prev" type="button" aria-label="Previous">‹</button>
+          <button class="gc-btn gc-prev" type="button" aria-label="Back">‹</button>
           <div class="gallery-carousel" id="galleryCarousel"></div>
           <button class="gc-btn gc-next" type="button" aria-label="Next">›</button>
         </div>
@@ -1393,19 +1421,39 @@
         <h2 class="section-title">Videos</h2>
 
         <div class="video-carousel-wrap">
-          <button class="vc-btn vc-prev" type="button" aria-label="Previous">‹</button>
+          <button class="vc-btn vc-prev" type="button" aria-label="Back">‹</button>
 
           <div class="video-carousel" id="videoCarousel">
-            <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/Rz_Y3Tj6Rz4" allowfullscreen loading="lazy"></iframe></div></div>
-            <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/KlInbRyOCuY" allowfullscreen loading="lazy"></iframe></div></div>
-            <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/QTbz0BHjAzA" allowfullscreen loading="lazy"></iframe></div></div>
-            <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/xvvbYfiG_rk" allowfullscreen loading="lazy"></iframe></div></div>
-            <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/As6kEEhAw-E" allowfullscreen loading="lazy"></iframe></div></div>
-            <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/GKnGl-bD990" allowfullscreen loading="lazy"></iframe></div></div>
-            <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/o6ZeuaXdu3Q" allowfullscreen loading="lazy"></iframe></div></div>
-            <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/lythBRYJJ6M" allowfullscreen loading="lazy"></iframe></div></div>
-            <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/WVaNwv3Jf0E" allowfullscreen loading="lazy"></iframe></div></div>
-            <div class="vc-item"><div class="vc-frame"><iframe src="https://www.youtube.com/embed/3cB4r9ntBz0" allowfullscreen loading="lazy"></iframe></div></div>
+            <div class="vc-item"><div class="vc-frame">
+              <iframe src="https://www.youtube.com/embed/Rz_Y3Tj6Rz4" allowfullscreen loading="lazy"></iframe>
+            </div></div>
+            <div class="vc-item"><div class="vc-frame">
+              <iframe src="https://www.youtube.com/embed/KlInbRyOCuY" allowfullscreen loading="lazy"></iframe>
+            </div></div>
+            <div class="vc-item"><div class="vc-frame">
+              <iframe src="https://www.youtube.com/embed/QTbz0BHjAzA" allowfullscreen loading="lazy"></iframe>
+            </div></div>
+            <div class="vc-item"><div class="vc-frame">
+              <iframe src="https://www.youtube.com/embed/xvvbYfiG_rk" allowfullscreen loading="lazy"></iframe>
+            </div></div>
+            <div class="vc-item"><div class="vc-frame">
+              <iframe src="https://www.youtube.com/embed/As6kEEhAw-E" allowfullscreen loading="lazy"></iframe>
+            </div></div>
+            <div class="vc-item"><div class="vc-frame">
+              <iframe src="https://www.youtube.com/embed/GKnGl-bD990" allowfullscreen loading="lazy"></iframe>
+            </div></div>
+            <div class="vc-item"><div class="vc-frame">
+              <iframe src="https://www.youtube.com/embed/o6ZeuaXdu3Q" allowfullscreen loading="lazy"></iframe>
+            </div></div>
+            <div class="vc-item"><div class="vc-frame">
+              <iframe src="https://www.youtube.com/embed/lythBRYJJ6M" allowfullscreen loading="lazy"></iframe>
+            </div></div>
+            <div class="vc-item"><div class="vc-frame">
+              <iframe src="https://www.youtube.com/embed/WVaNwv3Jf0E" allowfullscreen loading="lazy"></iframe>
+            </div></div>
+            <div class="vc-item"><div class="vc-frame">
+              <iframe src="https://www.youtube.com/embed/3cB4r9ntBz0" allowfullscreen loading="lazy"></iframe>
+            </div></div>
           </div>
 
           <button class="vc-btn vc-next" type="button" aria-label="Next">›</button>
@@ -1414,16 +1462,16 @@
 
       <!-- SHARE -->
       <section class="card big-block" id="share-en" style="margin-top:16px;">
-        <h2 class="section-title">Share</h2>
+        <h2 class="section-title">Tell others</h2>
 
         <p>
-          You can help not only with a donation but also by sharing this page.
-          Copy a ready-to-post text or share the link in your messenger or social network.
+          You can help not only with a donation, but also by sharing this page.
+          Copy a ready text or share this link in your messenger or social network.
         </p>
 
         <div class="btn-row" style="margin-top:10px; margin-bottom:14px;">
           <button class="donate-btn" type="button"
-                  onclick="runImpactFx(this); copyText('Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade (mechanized infantry battalion). They repair trucks and armored vehicles right at the frontline so vehicles keep moving, supplies and fuel arrive, and the wounded can be evacuated. If you can, please support with a donation or by sharing this link: https://viktornadelnuik.github.io/DOFAMIN95/en.html')">
+                  onclick="runImpactFx(this); copyText('Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade (mechanized infantry battalion). They repair trucks and armored vehicles right at the frontline so that vehicles keep moving, supplies and fuel arrive, and the wounded can be evacuated. If you can, please support with a donation or by sharing this link: https://viktornadelnuik.github.io/DOFAMIN95/en.html')">
             Copy English text
           </button>
 
@@ -1434,17 +1482,17 @@
         </div>
 
         <div class="btn-row">
-          <button class="donate-btn" type="button" onclick="runImpactFx(this); shareEn('telegram')">Share via Telegram</button>
-          <button class="donate-btn" type="button" onclick="runImpactFx(this); shareEn('viber')">Share via Viber</button>
-          <button class="donate-btn" type="button" onclick="runImpactFx(this); shareEn('whatsapp')">Share via WhatsApp</button>
+          <button class="donate-btn" type="button" onclick="runImpactFx(this); shareEn('telegram')">Share on Telegram</button>
+          <button class="donate-btn" type="button" onclick="runImpactFx(this); shareEn('viber')">Share on Viber</button>
+          <button class="donate-btn" type="button" onclick="runImpactFx(this); shareEn('whatsapp')">Share on WhatsApp</button>
           <button class="donate-btn" type="button" onclick="runImpactFx(this); shareEn('facebook')">Share on Facebook</button>
           <button class="donate-btn" type="button" onclick="runImpactFx(this); shareEn('instagram')">Share on Instagram</button>
         </div>
       </section>
 
       <footer>
-        Thank you for supporting the technical support platoon of the 142nd Brigade.<br>
-        Your help keeps vehicles moving — and people alive.
+        Thank you for supporting the technical support platoon of the 142 OMBr.<br>
+        Your help keeps vehicles moving — and our soldiers alive.
         <div id="visitor-counter-en" style="margin-top:6px; font-size:11px; opacity:0.75;"></div>
       </footer>
 
@@ -1477,7 +1525,7 @@
     <div class="qr-modal-head">
       <div>
         <div class="qr-modal-title" id="qrModalTitle">QR</div>
-        <div class="qr-modal-sub" id="qrModalSub">Scan or open payment</div>
+        <div class="qr-modal-sub" id="qrModalSub">Scan or open the payment</div>
       </div>
       <button type="button" class="qr-modal-close" id="qrModalClose" aria-label="Close">×</button>
     </div>
@@ -1507,8 +1555,8 @@
     var api = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=";
     el.src = api + encodeURIComponent(data);
   }
-  setQR("qr-mono",   "https://send.monobank.ua/jar/8PfzHBQuu4");
-  setQR("qr-privat", "https://www.privat24.ua/send/3xbxx");
+  setQR("qr-mono",   "https://send.monobank.ua/jar/8PfzHBQou4");
+  setQR("qr-privat", "https://www.privat24.ua/send/ivq32");
   setQR("qr-btc",    "https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p");
   setQR("qr-paupay", "nadelnuikviktor@gmail.com");
 
@@ -1551,12 +1599,12 @@
       document.execCommand('copy');
       showToast('Copied');
     } catch (e) {
-      showToast('Copy failed. Please copy manually.');
+      showToast('Copy failed. Try manually.');
     }
     document.body.removeChild(area);
   }
 
-  /* ===== Impact FX ===== */
+  /* ===== Impact FX (+1 chance) ===== */
   function runImpactFx(btn){
     const fx = document.getElementById('impactFx');
     if(!fx) return;
@@ -1571,8 +1619,7 @@
   }
 
   /* ===== Sharing (EN) ===== */
-  const SHARE_TEXT_EN =
-    'Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade (mechanized infantry battalion). They repair trucks and armored vehicles right at the frontline so vehicles keep moving, supplies and fuel arrive, and the wounded can be evacuated. If you can, please support with a donation or by sharing this link:';
+  const SHARE_TEXT_EN = 'Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade (mechanized infantry battalion). They repair vehicles at the frontline so supplies arrive and the wounded can be evacuated.';
   const SHARE_URL_EN  = 'https://viktornadelnuik.github.io/DOFAMIN95/en.html';
   function shareEn(service) {
     const text = SHARE_TEXT_EN + ' ' + SHARE_URL_EN;
@@ -1621,13 +1668,13 @@
   (function () {
     var el = document.getElementById('visitor-counter-en');
     if (!el) return;
-    fetch('https://api.countapi.xyz/hit/vtz-142omb/site')
+    fetch('https://api.countapi.xyz/hit/vtz-142omb/site-en')
       .then(function (res) { return res.json(); })
       .then(function (data) {
-        el.textContent = 'People who visited this support page (views): ' + data.value;
+        el.textContent = 'Visitors / page views: ' + data.value;
       })
       .catch(function () {
-        el.textContent = 'People who visited this support page: —';
+        el.textContent = 'Visitors: —';
       });
   })();
 
@@ -1638,7 +1685,7 @@
       if (block.querySelector('.block-donate-btn')) return;
       var btn = document.createElement('button');
       btn.className = 'block-donate-btn';
-      btn.innerHTML = '<span class="icon">⚙</span> Support';
+      btn.innerHTML = '<span class="icon">⚙</span> Support the platoon';
       btn.addEventListener('click', function () {
         runImpactFx(btn);
         var donate = document.getElementById('donate');
@@ -1653,7 +1700,7 @@
     var fill = document.getElementById('progress-fill-en');
     var text = document.getElementById('progress-text-en');
     if (!fill || !text) return;
-    var percent = 60;
+    var percent = 60; // just to keep the bar visible
     fill.style.width = percent + '%';
     fill.setAttribute('data-label', 'Active');
     text.textContent = 'Active';
@@ -1755,6 +1802,7 @@
     nextBtn && nextBtn.addEventListener('click', ()=>{ index = (index + 1) % slides.length; update(); });
     prevBtn && prevBtn.addEventListener('click', ()=>{ index = (index - 1 + slides.length) % slides.length; update(); });
 
+    // swipe
     let startX=0, dragging=false;
     track.addEventListener('touchstart', (e)=>{
       if(!e.touches || !e.touches[0]) return;
@@ -1795,9 +1843,9 @@
     const dotEl = document.getElementById('systemDot');
     if(!textEl || !dotEl) return;
     const states = [
-      { t:'STATUS: OPERATING',       c:'rgba(255,184,74,0.72)', g:'rgba(255,184,74,0.28)'},
-      { t:'STATUS: HIGH LOAD',       c:'rgba(255,215,120,0.72)', g:'rgba(255,215,120,0.26)'},
-      { t:'STATUS: NEED RESOURCES',  c:'rgba(255,122,24,0.72)', g:'rgba(255,122,24,0.26)'}
+      { t:'STATUS: WORK IN PROGRESS', c:'rgba(255,184,74,0.72)', g:'rgba(255,184,74,0.28)'},
+      { t:'STATUS: HEAVY LOAD',       c:'rgba(255,215,120,0.72)', g:'rgba(255,215,120,0.26)'},
+      { t:'STATUS: NEEDING RESOURCES',c:'rgba(255,122,24,0.72)', g:'rgba(255,122,24,0.26)'}
     ];
     let i=0;
     function apply(s){
@@ -1868,8 +1916,8 @@
     });
 
     const map = [
-      { id:'qr-mono',   label:'Monobank · Jar', value:'https://send.monobank.ua/jar/8PfzHBQuu4', openUrl:'https://send.monobank.ua/jar/8PfzHBQuu4' },
-      { id:'qr-privat', label:'Privat24 · Transfer', value:'https://www.privat24.ua/send/3xbxx', openUrl:'https://www.privat24.ua/send/3xbxx' },
+      { id:'qr-mono',   label:'Monobank · Jar', value:'https://send.monobank.ua/jar/8PfzHBQou4', openUrl:'https://send.monobank.ua/jar/8PfzHBQou4' },
+      { id:'qr-privat', label:'Privat24 · Transfer', value:'https://www.privat24.ua/send/ivq32', openUrl:'https://www.privat24.ua/send/ivq32' },
       { id:'qr-paupay', label:'PayPal / Paupay', value:'nadelnuikviktor@gmail.com', openUrl:'mailto:nadelnuikviktor@gmail.com' },
       { id:'qr-btc',    label:'Crypto · BTC', value:'bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p', openUrl:'https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p' }
     ];
@@ -1877,7 +1925,7 @@
     map.forEach(cfg=>{
       const el = document.getElementById(cfg.id);
       if(!el) return;
-      el.title = 'Tap to open the QR full screen';
+      el.title = 'Tap to open a large QR';
       el.addEventListener('click', ()=>{
         openModal({
           label: cfg.label,
