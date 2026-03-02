@@ -1055,16 +1055,20 @@
           </div>
           <div>
             <div class="btn-row">
-              <button class="donate-btn donate-btn--mono" type="button"
-                      onclick="runImpactFx(this); window.open('https://send.monobank.ua/jar/8PfzHBQuu4','_blank')">
+             <button class="donate-btn donate-btn--mono" type="button"
+  onclick="runImpactFx(this);
+           gtag('event','donate_click',{event_category:'donation',event_label:'monobank',value:1});
+           window.open('https://send.monobank.ua/jar/8PfzHBQou4', '_blank');">
                 Відкрити банку Monobank
               </button>
               <button class="donate-btn" type="button"
                       onclick="runImpactFx(this); copyText('UA683220010000026208372629615')">
                 Скопіювати IBAN
               </button>
-              <button class="donate-btn" type="button"
-                      onclick="runImpactFx(this); copyText('4874100020198902')">
+            <button class="donate-btn" type="button"
+  onclick="runImpactFx(this);
+           gtag('event','copy_iban',{event_category:'donation',event_label:'monobank_iban'});
+           copyText('UA6832200100000262083772629615');">
                 Скопіювати номер картки
               </button>
             </div>
@@ -1090,7 +1094,13 @@
           <div>
             <div class="btn-row">
               <button class="donate-btn donate-btn--privat" type="button"
-                      onclick="runImpactFx(this); window.open('https://www.privat24.ua/send/3xbxx','_blank')">
+  onclick="runImpactFx(this);
+           gtag('event','donate_click',{
+             event_category:'donation',
+             event_label:'privat',
+             value:1
+           });
+           window.open('https://...', '_blank');">
                 Відкрити Privat24
               </button>
               <button class="donate-btn" type="button"
