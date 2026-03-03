@@ -12,7 +12,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Support the technical support platoon · 142 OMBr">
   <meta property="og:description" content="We repair vehicles at the frontline so machines keep moving and people can make it back alive.">
-  <meta property="og:url" content="https://viktornadelnuik.github.io/DOFAMIN95/en.html">
+  <meta property="og:url" content="https://viktornadelniuk.github.io/DOFAMIN95/en.html">
   <meta property="og:image" content="hero-bg.jpg">
 
   <!-- Twitter -->
@@ -402,7 +402,7 @@
       width: 150px; height: 150px;
       border-radius: 16px;
       background:#0b0f14;
-      border:1px solid rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,0.10);
       display:block;
       cursor: zoom-in;
     }
@@ -1058,7 +1058,7 @@
               <button class="donate-btn donate-btn--mono" type="button"
                 onclick="runImpactFx(this);
                          gtag('event','donate_click',{event_category:'donation',event_label:'monobank',value:1});
-                         window.open('https://send.monobank.ua/jar/8PfzHBQou4', '_blank');">
+                         window.open(MONO_JAR, '_blank');">
                 Open Monobank jar
               </button>
               <button class="donate-btn" type="button"
@@ -1096,7 +1096,7 @@
               <button class="donate-btn donate-btn--privat" type="button"
                 onclick="runImpactFx(this);
                          gtag('event','donate_click',{event_category:'donation',event_label:'privat',value:1});
-                         window.open('https://www.privat24.ua/send/ivq32', '_blank');">
+                         window.open(PRIVAT_LINK, '_blank');">
                 Open Privat24 transfer
               </button>
               <button class="donate-btn" type="button"
@@ -1128,7 +1128,7 @@
           <div>
             <div class="btn-row">
               <button class="donate-btn donate-btn--paypal" type="button"
-                      onclick="runImpactFx(this); copyText('nadelnuikviktor@gmail.com')">
+                      onclick="runImpactFx(this); copyText(PAYPAL_EMAIL)">
                 Copy email
               </button>
             </div>
@@ -1163,30 +1163,30 @@
           <div>
             <div class="btn-row">
               <button class="donate-btn donate-btn--crypto" type="button"
-                      onclick="runImpactFx(this); window.open('https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p','_blank')">
+                      onclick="runImpactFx(this); window.open(BTC_LINK,'_blank')">
                 Open BTC
               </button>
               <button class="donate-btn donate-btn--crypto" type="button"
-                      onclick="runImpactFx(this); window.open('https://link.trustwallet.com/send?coin=60&address=0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b','_blank')">
+                      onclick="runImpactFx(this); window.open(ETH_LINK,'_blank')">
                 Open ETH
               </button>
               <button class="donate-btn donate-btn--crypto" type="button"
-                      onclick="runImpactFx(this); window.open('https://link.trustwallet.com/send?coin=501&address=DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525','_blank')">
+                      onclick="runImpactFx(this); window.open(SOL_LINK,'_blank')">
                 Open SOL
               </button>
             </div>
 
             <div class="btn-row">
               <button class="donate-btn" type="button"
-                      onclick="runImpactFx(this); copyText('bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p')">
+                      onclick="runImpactFx(this); copyText(BTC_ADDR)">
                 Copy BTC address
               </button>
               <button class="donate-btn" type="button"
-                      onclick="runImpactFx(this); copyText('0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b')">
+                      onclick="runImpactFx(this); copyText(ETH_ADDR)">
                 Copy ETH / BNB address
               </button>
               <button class="donate-btn" type="button"
-                      onclick="runImpactFx(this); copyText('DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525')">
+                      onclick="runImpactFx(this); copyText(SOL_ADDR)">
                 Copy SOL address
               </button>
             </div>
@@ -1310,7 +1310,7 @@
 
         <p>
           We are the technical support platoon of the mechanized infantry battalion of the 142nd Separate Mechanized Brigade.
-          Our mission is to keep battalion vehicles running on one of the hottest фронт directions.
+          Our mission is to keep battalion vehicles running on one of the hottest front directions.
         </p>
         <p>
           We are rarely seen on camera, but our work decides whether a vehicle reaches positions,
@@ -1471,12 +1471,12 @@
 
         <div class="btn-row" style="margin-top:10px; margin-bottom:14px;">
           <button class="donate-btn" type="button"
-                  onclick="runImpactFx(this); copyText('Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade (mechanized infantry battalion). They repair trucks and armored vehicles right at the frontline so that vehicles keep moving, supplies and fuel arrive, and the wounded can be evacuated. If you can, please support with a donation or by sharing this link: https://viktornadelnuik.github.io/DOFAMIN95/en.html')">
+                  onclick="runImpactFx(this); copyText(SHARE_TEXT_EN + ' ' + SHARE_URL_EN)">
             Copy English text
           </button>
 
           <button class="donate-btn" type="button"
-                  onclick="runImpactFx(this); copyText('Привіт! Це збір для взводу технічного забезпечення мотопіхотного батальйону 142 ОМБр. Ми ремонтуємо техніку, яка возить боєкомплект, ПММ, їжу та евакуює поранених. Якщо маєш змогу — підтримай донатом або поширенням: https://viktornadelnuik.github.io/DOFAMIN95/')">
+                  onclick="runImpactFx(this); copyText('Привіт! Це збір для взводу технічного забезпечення мотопіхотного батальйону 142 ОМБр. Ми ремонтуємо техніку, яка возить боєкомплект, ПММ, їжу та евакуює поранених. Якщо маєш змогу — підтримай донатом або поширенням: https://viktornadelniuk.github.io/DOFAMIN95/')">
             Copy Ukrainian text
           </button>
         </div>
@@ -1548,6 +1548,24 @@
 </div>
 
 <script>
+  /* ============================
+     CONSTANTS (single source)
+     ============================ */
+  const MONO_JAR     = "https://send.monobank.ua/jar/8PfzHBQuu4";   // ✅ fixed (Quu4)
+  const PRIVAT_LINK  = "https://www.privat24.ua/send/ivq32";
+  const PAYPAL_EMAIL = "nadelnuikviktor@gmail.com";
+
+  const BTC_ADDR = "bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p";
+  const ETH_ADDR = "0xc41D50A497258eb8F97E12Fba89c2E1C6dF8d63b";
+  const SOL_ADDR = "DKy9QWJBY9EqYY3bU7S5ukUhwFMhUZ5Lf3b9R4pto525";
+
+  const BTC_LINK = "https://link.trustwallet.com/send?coin=0&address=" + encodeURIComponent(BTC_ADDR);
+  const ETH_LINK = "https://link.trustwallet.com/send?coin=60&address=" + encodeURIComponent(ETH_ADDR);
+  const SOL_LINK = "https://link.trustwallet.com/send?coin=501&address=" + encodeURIComponent(SOL_ADDR);
+
+  const SHARE_TEXT_EN = "Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade (mechanized infantry battalion). They repair vehicles at the frontline so supplies arrive and the wounded can be evacuated.";
+  const SHARE_URL_EN  = "https://viktornadelniuk.github.io/DOFAMIN95/en.html";
+
   /* ===== QR codes ===== */
   function setQR(id, data) {
     var el = document.getElementById(id);
@@ -1555,10 +1573,10 @@
     var api = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=";
     el.src = api + encodeURIComponent(data);
   }
-  setQR("qr-mono",   "https://send.monobank.ua/jar/8PfzHBQou4");
-  setQR("qr-privat", "https://www.privat24.ua/send/ivq32");
-  setQR("qr-btc",    "https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p");
-  setQR("qr-paupay", "nadelnuikviktor@gmail.com");
+  setQR("qr-mono",   MONO_JAR);
+  setQR("qr-privat", PRIVAT_LINK);
+  setQR("qr-btc",    BTC_LINK);
+  setQR("qr-paupay", PAYPAL_EMAIL);
 
   /* ===== TOAST ===== */
   (function(){
@@ -1619,35 +1637,33 @@
   }
 
   /* ===== Sharing (EN) ===== */
-  const SHARE_TEXT_EN = 'Hi! This is a fundraising page for the technical support platoon of the 142nd Brigade (mechanized infantry battalion). They repair vehicles at the frontline so supplies arrive and the wounded can be evacuated.';
-  const SHARE_URL_EN  = 'https://viktornadelnuik.github.io/DOFAMIN95/en.html';
   function shareEn(service) {
-    const text = SHARE_TEXT_EN + ' ' + SHARE_URL_EN;
-    let shareUrl = '';
+    const text = SHARE_TEXT_EN + " " + SHARE_URL_EN;
+    let shareUrl = "";
     switch (service) {
-      case 'telegram':
-        shareUrl = 'https://t.me/share/url?url='
+      case "telegram":
+        shareUrl = "https://t.me/share/url?url="
           + encodeURIComponent(SHARE_URL_EN)
-          + '&text=' + encodeURIComponent(SHARE_TEXT_EN);
+          + "&text=" + encodeURIComponent(SHARE_TEXT_EN);
         break;
-      case 'viber':
-        shareUrl = 'viber://forward?text=' + encodeURIComponent(text);
+      case "viber":
+        shareUrl = "viber://forward?text=" + encodeURIComponent(text);
         break;
-      case 'whatsapp':
-        shareUrl = 'https://wa.me/?text=' + encodeURIComponent(text);
+      case "whatsapp":
+        shareUrl = "https://wa.me/?text=" + encodeURIComponent(text);
         break;
-      case 'facebook':
-        shareUrl = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(SHARE_URL_EN);
+      case "facebook":
+        shareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(SHARE_URL_EN);
         break;
-      case 'instagram':
+      case "instagram":
         copyText(text);
-        shareUrl = 'https://www.instagram.com/';
+        shareUrl = "https://www.instagram.com/";
         break;
       default:
         copyText(text);
         return;
     }
-    window.open(shareUrl, '_blank');
+    window.open(shareUrl, "_blank");
   }
 
   /* ===== SCROLL TO TOP ===== */
@@ -1700,7 +1716,7 @@
     var fill = document.getElementById('progress-fill-en');
     var text = document.getElementById('progress-text-en');
     if (!fill || !text) return;
-    var percent = 60; // just to keep the bar visible
+    var percent = 60; // keep the bar visible
     fill.style.width = percent + '%';
     fill.setAttribute('data-label', 'Active');
     text.textContent = 'Active';
@@ -1916,10 +1932,10 @@
     });
 
     const map = [
-      { id:'qr-mono',   label:'Monobank · Jar', value:'https://send.monobank.ua/jar/8PfzHBQou4', openUrl:'https://send.monobank.ua/jar/8PfzHBQou4' },
-      { id:'qr-privat', label:'Privat24 · Transfer', value:'https://www.privat24.ua/send/ivq32', openUrl:'https://www.privat24.ua/send/ivq32' },
-      { id:'qr-paupay', label:'PayPal / Paupay', value:'nadelnuikviktor@gmail.com', openUrl:'mailto:nadelnuikviktor@gmail.com' },
-      { id:'qr-btc',    label:'Crypto · BTC', value:'bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p', openUrl:'https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p' }
+      { id:'qr-mono',   label:'Monobank · Jar', value:MONO_JAR, openUrl:MONO_JAR },
+      { id:'qr-privat', label:'Privat24 · Transfer', value:PRIVAT_LINK, openUrl:PRIVAT_LINK },
+      { id:'qr-paupay', label:'PayPal / Paupay', value:PAYPAL_EMAIL, openUrl:'mailto:' + PAYPAL_EMAIL },
+      { id:'qr-btc',    label:'Crypto · BTC', value:BTC_ADDR, openUrl:BTC_LINK }
     ];
 
     map.forEach(cfg=>{
