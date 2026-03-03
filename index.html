@@ -1058,7 +1058,7 @@
               <button class="donate-btn donate-btn--mono" type="button"
                 onclick="runImpactFx(this);
                          gtag('event','donate_click',{event_category:'donation',event_label:'monobank',value:1});
-                         window.open('https://send.monobank.ua/jar/8PfzHBQou4', '_blank');">
+                         window.open('https://send.monobank.ua/jar/8PfzHBQuu4', '_blank');">
                 Відкрити банку Monobank
               </button>
               <button class="donate-btn" type="button"
@@ -1570,7 +1570,8 @@
     var api = "https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=";
     el.src = api + encodeURIComponent(data);
   }
-  setQR("qr-mono",   "https://send.monobank.ua/jar/8PfzHBQou4");
+  // ✅ ВАЖЛИВО: Monobank правильне посилання (Quu4)
+  setQR("qr-mono",   "https://send.monobank.ua/jar/8PfzHBQuu4");
   setQR("qr-privat", "https://www.privat24.ua/send/ivq32");
   setQR("qr-btc",    "https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p");
   setQR("qr-paupay", "nadelnuikviktor@gmail.com");
@@ -1930,8 +1931,9 @@
       else showToast('Немає що копіювати.');
     });
 
+    // ✅ ВАЖЛИВО: Monobank правильне посилання (Quu4)
     const map = [
-      { id:'qr-mono',   label:'Monobank · Банка', value:'https://send.monobank.ua/jar/8PfzHBQou4', openUrl:'https://send.monobank.ua/jar/8PfzHBQou4' },
+      { id:'qr-mono',   label:'Monobank · Банка', value:'https://send.monobank.ua/jar/8PfzHBQuu4', openUrl:'https://send.monobank.ua/jar/8PfzHBQuu4' },
       { id:'qr-privat', label:'Privat24 · Переказ', value:'https://www.privat24.ua/send/ivq32', openUrl:'https://www.privat24.ua/send/ivq32' },
       { id:'qr-paupay', label:'PayPal / Paupay', value:'nadelnuikviktor@gmail.com', openUrl:'mailto:nadelnuikviktor@gmail.com' },
       { id:'qr-btc',    label:'Crypto · BTC', value:'bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p', openUrl:'https://link.trustwallet.com/send?coin=0&address=bc1q8ug23a3v2wjy9k7erjgd5l8lfjkwhpu080vs2p' }
